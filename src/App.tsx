@@ -1,7 +1,7 @@
-import Hello from '~/components/Hello';
+import { LayoutContainer } from './layouts/container/Container';
 
-function App() {
-  return <Hello />;
-}
+const App = () => {
+  return <LayoutContainer />;
+};
 
 export default App;

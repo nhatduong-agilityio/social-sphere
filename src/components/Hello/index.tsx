@@ -1,5 +1,3 @@
-import logo from '~/logo.svg';
-
 const Hello = () => {
   return (
     <div
@@ -12,7 +10,7 @@ const Hello = () => {
         paddingTop: '50px',
       }}
     >
-      <img src={logo} alt='Logo' style={{ height: '150px' }} />
+      <img src={''} alt='Logo' style={{ height: '150px' }} />
       <ul
         style={{
           padding: 0,
