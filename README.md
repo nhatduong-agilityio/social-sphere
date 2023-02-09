@@ -1,81 +1,88 @@
-<h1 align='center'>Vite + React + TypeScript + Eslint + Prettier Template ⚡</h1>
+## NHATDUONG REACT PRACTICE PERFORMANCE
 
-Create a new project with Vite, React JS, TypeScript, Eslint, Prettier in just 1 second and you don't need to setup anything.
+Web application for management order details:
 
-#### **Vercel Deploy: https://vite-react-ts-eslint-prettier.vercel.app**
+- Admin can see a list of the order details.
+- Admin can filter order detail follow by location and status.
+- Admin can set show entries.
+- Admin can search order details follow by name.
+- Admin can show detail, delete, and update order item
 
-![image](https://user-images.githubusercontent.com/70432453/170648662-2ff424b9-74e9-4754-a04d-512fe1496a3b.png)
+### DEVELOPMENT TEAM
 
-## **Some Features 📋**
+- Dev - [Nhat Duong](nhat.duong@asnet.com.vn).
 
-Alias Import
+### PLAN
 
-![image](https://user-images.githubusercontent.com/70432453/170644457-ede03cca-44e9-4543-94d3-412c9d317063.png)
+- [Plan On Document](https://docs.google.com/document/d/18J_6qGJYc7gZDxXwAenU06EDve_uNOzvmSh3cGJRH2U/edit#).
 
-Hook Warning
+### INFORMATION:
 
-![image](https://user-images.githubusercontent.com/70432453/170638708-23a20ffd-156e-494a-84be-b1e1cfdb5c93.png)
+- Timeline:
 
-Prettier Warning
+  - Estimate time: 10 days.
+  - Actual time: . days.
 
-![image](https://user-images.githubusercontent.com/70432453/170639043-24423ed1-73cc-4730-b270-2acea1ae0c74.png)
+- Editor: Visual Studio Code.
+- Responsive: Not support responsive.
 
-Etc...
+### TARGETS
 
-## **Using 📦**
+- Practice with useMemo and useCallback, to fully understand these Hooks.
+- Management store with useReducer, useContext.
+- Debug and handle re-render in the project.
+- Apply performance for the project.
 
-1. Clone Template
+### TECHNICAL STACKS AND DEVELOPMENT TOOLS
 
-```
-git clone https://github.com/igdev116/vite-react-ts-eslint-prettier.git
-```
+- React the latest version ( hook, context, reducer, code splitting rendering )
+- [Storybook](https://storybook.js.org/)
+- [MUI](https://mui.com/).
+- [Vite v3.0.0](https://vitejs.dev/guide/#scaffolding-your-first-vite-project).
+- [React](https://reactjs.org/docs/introducing-jsx.html).
+- [Json-server](https://www.npmjs.com/package/json-server).
+- [Typescript](https://www.typescriptlang.org/docs/handbook/react.html).
+- [Prettier](https://prettier.io/).
+- [Eslint](https://eslint.org/).
+- [Husky](https://typicode.github.io/husky/#/).
 
-2. Install Packages
+### ENVIRONMENT
 
-```
-yarn install
-```
+- Node.js v18.13.0.
+- Yarn v1.22.19.
+- Pnpm v7.24.3.
 
-3. Start Project
+### REFERENCES
 
-```
-yarn dev
-```
+- [Design on Figma](https://www.figma.com/file/Jb6LgcSuZqxcayLq3L4LRq/react-practice?node-id=0%3A1&t=EmL10SFvGVtX968k-0)
 
-4. If you using git, delete the existing folder .git after cloning (open `git bash` or other terminal)
+### WORKFLOW
 
-```
-rm -rf .git
-```
+- Create a new project with Vite, React JS, TypeScript, Eslint, Prettier - [github](https://github.com/igdev116/vite-react-ts-eslint-prettier).
+- Guideline for management actions and store in provider - [github](https://gist.github.com/ducpham-agilityio/a8a660c65e2e543e07a353151bdf359c).
 
-## **Options ✍️**
+### SETUP & RUN
 
-1. Check lint
+- Install Yarn through the [npm package manager](https://www.npmjs.com/), which comes bundled with [Node.js](https://nodejs.org/en/) when you install it on your system.
+- Once you have npm installed you can run the following both to install and upgrade Yarn or Pnpm:
 
-```
-yarn lint
-```
-
-2. Fix lint
-
-```
-yarn lint:fix
-```
-
-3. Check prettier
-
-```
-yarn prettier
-```
-
-4. Fix prettier
-
-```
-yarn prettier:fix
+```bash
+npm install --global yarn
 ```
 
-5. Fix lint and prettier
+or
 
+```bash
+npm install -g pnpm
 ```
-yarn format
+
+- Setup and run project:
+
+```bash
+https://gitlab.asoft-python.com/nhat.duong/react-practice-performance.git
+cd react-practice-performance
+pnpm install
+pnpm run build
+pnpm run dev
+output: http://127.0.0.1:5173/
 ```
