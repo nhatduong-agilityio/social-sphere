@@ -1,11 +1,10 @@
 import { Box, Container } from '@mui/material';
-
-import '~/layouts/container/container.scss';
+import { AppBarContent } from '~/components/AppBar';
 
 export const LayoutContainer = () => {
   return (
-    <Container maxWidth='xl' className='container'>
-      <Box className='contents'>nhat duong</Box>
+    <Container maxWidth='xl'>
+      <AppBarContent />
     </Container>
   );
 };

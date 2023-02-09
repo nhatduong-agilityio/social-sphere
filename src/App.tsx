@@ -1,7 +1,12 @@
 import { LayoutContainer } from './layouts/container/Container';
+import { ColorModeProvider } from './store/providers/toggleColorMode';
 
 const App = () => {
-  return <LayoutContainer />;
+  return (
+    <ColorModeProvider>
+      <LayoutContainer />
+    </ColorModeProvider>
+  );
 };
 
 export default App;
