@@ -1,7 +1,12 @@
-import Hello from '~/components/Hello';
+import { LayoutContainer } from './layouts/container/Container';
+import { ColorModeProvider } from './store/providers/toggleColorMode';
 
-function App() {
-  return <Hello />;
-}
+const App = () => {
+  return (
+    <ColorModeProvider>
+      <LayoutContainer />
+    </ColorModeProvider>
+  );
+};
 
 export default App;
