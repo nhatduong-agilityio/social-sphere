@@ -1,6 +1,7 @@
 import { Box, Container, useTheme } from '@mui/material';
 import { useContext } from 'react';
 import { AppBarContent } from '~/components/AppBar';
+import { CustomizedTables } from '~/components/BoxContent';
 import { TableFilter } from '~/components/BoxControl';
 
 export const LayoutContainer = () => {
@@ -17,6 +18,7 @@ export const LayoutContainer = () => {
         }}
       >
         <TableFilter />
+        <CustomizedTables />
       </Box>
     </Container>
   );
