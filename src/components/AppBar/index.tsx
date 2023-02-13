@@ -13,16 +13,17 @@ export const AppBarContent = () => {
   };
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1, marginTop: '30px' }}>
       <AppBar
         position='static'
         color='secondary'
         sx={{
-          borderRadius: 1,
+          borderRadius: '3px 3px 0 0',
+          backgroundColor: `${theme.palette.primary.main}`,
         }}
       >
         <Toolbar>
-          <Typography variant='h3' component='h1' sx={{ flexGrow: 1 }}>
+          <Typography component='h1' sx={{ flexGrow: 1, fontSize: '24px' }}>
             Order <b>Details</b>
           </Typography>
           <Button
@@ -37,20 +38,30 @@ export const AppBarContent = () => {
             }
             sx={{
               textTransform: 'capitalize',
-              fontSize: 13,
+              fontSize: '16px',
+              backgroundColor: '#03A9F4',
             }}
             onClick={handleRefreshList}
           >
             refresh list
           </Button>
-          <Typography>{theme.palette.mode} mode</Typography>
+          <Typography
+            sx={{ fontSize: '16px', textTransform: 'capitalize', paddingLeft: '30px' }}
+            color={`${theme.palette.secondary.contrastText}`}
+          >
+            {theme.palette.mode} mode
+          </Typography>
           <Box
             sx={{
               textTransform: 'capitalize',
             }}
           >
             <IconButton sx={{ paddingLeft: 1 }} onClick={colorMode.toggleColorMode} color='inherit'>
-              {theme.palette.mode === 'dark' ? <Brightness7 /> : <Brightness4 />}
+              {theme.palette.mode === 'dark' ? (
+                <Brightness4 sx={{ fontSize: '24px' }} />
+              ) : (
+                <Brightness7 sx={{ fontSize: '24px' }} />
+              )}
             </IconButton>
           </Box>
         </Toolbar>
