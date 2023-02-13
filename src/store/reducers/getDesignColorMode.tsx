@@ -42,7 +42,7 @@ export const designColorMode = (mode: PaletteMode) => ({
           },
           secondary: {
             light: '#4b5366',
-            main: '#333333',
+            main: '#666666',
             dark: '#212529',
           },
           error: {
@@ -56,6 +56,10 @@ export const designColorMode = (mode: PaletteMode) => ({
           },
           success: {
             main: '#008000',
+          },
+          text: {
+            primary: '#999776',
+            secondary: '#FFFFFF',
           },
         }),
   },
