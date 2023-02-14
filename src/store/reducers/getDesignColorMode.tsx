@@ -6,15 +6,16 @@ export const designColorMode = (mode: PaletteMode) => ({
     ...(mode === 'light'
       ? {
           primary: {
-            light: '#f5f5f5',
-            main: '#e9e9e9',
-            dark: '#dee2e6',
-            contrastText: '#999',
+            light: '#566787',
+            main: '#4b5366',
+            dark: '#495057',
+            contrastText: '#999999',
           },
           secondary: {
-            light: '#4b5366',
-            main: '#333333',
+            light: '#007bff',
+            main: '#03A9F4',
             dark: '#212529',
+            contrastText: '#ffffff',
           },
           error: {
             main: '#ff0000',
@@ -30,20 +31,32 @@ export const designColorMode = (mode: PaletteMode) => ({
           },
           text: {
             primary: '#212529',
-            secondary: '#FFFFFF',
+            secondary: '#495057',
+          },
+          action: {
+            hover: '#f5f5f5',
+            selected: '',
+            disabled: '',
+            disabledBackground: '',
+            focus: '',
+          },
+          background: {
+            default: '#ffffff',
+            paper: '#ffffff',
           },
         }
       : {
           primary: {
-            light: '#f5f5f5',
-            main: '#e9e9e9',
-            dark: '#dee2e6',
-            contrastText: '#999',
+            light: '#ffffff',
+            main: '#4b5366',
+            dark: '#495057',
+            contrastText: '#999999',
           },
           secondary: {
-            light: '#4b5366',
-            main: '#333333',
+            light: '#007bff',
+            main: '#03A9F4',
             dark: '#212529',
+            contrastText: '#ffffff',
           },
           error: {
             main: '#ff0000',
@@ -56,6 +69,21 @@ export const designColorMode = (mode: PaletteMode) => ({
           },
           success: {
             main: '#008000',
+          },
+          text: {
+            primary: '#ffffff',
+            secondary: '#495057',
+          },
+          action: {
+            hover: '#f5f5f5',
+            selected: '',
+            disabled: '',
+            disabledBackground: '',
+            focus: '',
+          },
+          background: {
+            default: '#212529',
+            paper: '#212529',
           },
         }),
   },
