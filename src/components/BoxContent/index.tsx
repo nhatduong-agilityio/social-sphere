@@ -1,19 +1,27 @@
-import * as React from 'react';
-import { styled } from '@mui/material/styles';
+import { ChangeEvent, useState } from 'react';
+import { styled, useTheme } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import { Customer } from './Customer';
+import { Status } from './Status';
+import { ActionButton } from './ActionButton';
+import { Box, IconButton, Pagination, Paper, TableFooter, TablePagination } from '@mui/material';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.white,
-    color: theme.palette.common.black,
+    color: theme.palette.secondary.dark,
   },
   [`&.${tableCellClasses.body}`]: {
-    fontSize: 14,
+    fontSize: 13,
+  },
+  [`&.${tableCellClasses.head}`]: {
+    fontSize: 13,
+    fontWeight: 'Bold',
   },
 }));
 
@@ -25,43 +33,119 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     backgroundColor: theme.palette.action.hover,
   },
 }));
-function createData(name: string, calories: number, fat: number, carbs: number, protein: number) {
+
+{
+  /* <Pagination
+  count={rows.length}
+  onChange={onPageChange}
+  page={page}
+  variant='outlined'
+  shape='rounded'
+/> */
+}
+
+function createData(name: string, calories: number, fat: number, carbs?: number, protein?: number) {
   return { name, calories, fat, carbs, protein };
 }
+
 const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
   createData('Cupcake', 305, 3.7, 67, 4.3),
+  createData('Donut', 452, 25.0, 51, 4.9),
+  createData('Eclair', 262, 16.0, 24, 6.0),
+  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
   createData('Gingerbread', 356, 16.0, 49, 3.9),
+  createData('Honeycomb', 408, 3.2, 87, 6.5),
+  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
+  createData('Jelly Bean', 375, 0.0, 94, 0.0),
+  createData('KitKat', 518, 26.0, 65, 7.0),
+  createData('Lollipop', 392, 0.2, 98, 0.0),
+  createData('Marshmallow', 318, 0, 81, 2.0),
+  createData('Nougat', 360, 19.0, 9, 37.0),
+  createData('Oreo', 437, 18.0, 63, 4.0),
 ];
 
+const Test = ({ page, onPageChange }) => {
+  return (
+    <Box>
+      <Pagination
+        count={rows.length}
+        onChange={onPageChange}
+        page={page}
+        variant='outlined'
+        shape='rounded'
+      />
+    </Box>
+  );
+};
+
 export const CustomizedTables = () => {
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
+
+  const handleChangePage = (event: any, newPage: number) => setPage(newPage);
+
+  const handleChangeRowsPerPage = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
+  };
+
   return (
     <TableContainer>
-      <Table sx={{ minWidth: 700 }} aria-label='customized table'>
+      <Table sx={{ minWidth: 650 }}>
         <TableHead>
           <TableRow>
-            <StyledTableCell>Dessert (100g serving)</StyledTableCell>
-            <StyledTableCell align='left'>Calories</StyledTableCell>
-            <StyledTableCell align='left'>Fat&nbsp;(g)</StyledTableCell>
-            <StyledTableCell align='left'>Carbs&nbsp;(g)</StyledTableCell>
-            <StyledTableCell align='left'>Protein&nbsp;(g)</StyledTableCell>
+            <StyledTableCell>#</StyledTableCell>
+            <StyledTableCell>Customer</StyledTableCell>
+            <StyledTableCell align='left'>Location</StyledTableCell>
+            <StyledTableCell align='left'>Order Date</StyledTableCell>
+            <StyledTableCell align='left'>Status</StyledTableCell>
+            <StyledTableCell align='left'>Net Amount</StyledTableCell>
+            <StyledTableCell align='left'>Action</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, index) => (
             <StyledTableRow key={row.name}>
               <StyledTableCell component='th' scope='row'>
-                {row.name}
+                {index + 1}
+              </StyledTableCell>
+              <StyledTableCell component='th' scope='row'>
+                <Customer customer={row.name} />
               </StyledTableCell>
               <StyledTableCell align='left'>{row.calories}</StyledTableCell>
               <StyledTableCell align='left'>{row.fat}</StyledTableCell>
-              <StyledTableCell align='left'>{row.carbs}</StyledTableCell>
+              <StyledTableCell align='left'>
+                <Status status={'Shipped'} />
+              </StyledTableCell>
               <StyledTableCell align='left'>{row.protein}</StyledTableCell>
+              <StyledTableCell align='left'>
+                <ActionButton />
+              </StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
+        <TableFooter>
+          <TableRow>
+            {/* <TablePagination
+              rowsPerPageOptions={[5, 10, 15, 20]}
+              colSpan={3}
+              count={rows.length}
+              rowsPerPage={rowsPerPage}
+              page={page}
+              SelectProps={{
+                inputProps: {
+                  'aria-label': 'rows per page',
+                },
+                native: true,
+              }}
+              onPageChange={handleChangePage}
+              onRowsPerPageChange={handleChangeRowsPerPage}
+            /> */}
+            <Test />
+          </TableRow>
+        </TableFooter>
       </Table>
     </TableContainer>
   );
