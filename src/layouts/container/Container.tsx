@@ -9,6 +9,7 @@ export const LayoutContainer = () => {
   const [entries, setEntries] = useState('5');
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(Number(entries));
+  const [filteredStatus, setFilteredStatus] = useState('Any');
 
   /**
    * component handle change row per page
@@ -34,12 +35,14 @@ export const LayoutContainer = () => {
           entries={entries}
           onSelectEntries={setEntries}
           onChangeRowsPerPage={onChangeRowsPerPage}
+          onFilteredStatus={setFilteredStatus}
         />
         <CustomizedTables
           page={page}
           onSetPage={setPage}
           rowsPerPage={rowsPerPage}
           onChangeRowsPerPage={onChangeRowsPerPage}
+          filteredStatus={filteredStatus}
         />
       </Box>
     </Container>

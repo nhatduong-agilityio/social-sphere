@@ -10,12 +10,17 @@ import {
 import { useState } from 'react';
 import FilterAltSharpIcon from '@mui/icons-material/FilterAltSharp';
 
-export const FilterStatus = () => {
+interface IProps {
+  onFilteredStatus: (status: string) => void;
+}
+
+export const FilterStatus = ({ onFilteredStatus }: IProps) => {
   const theme = useTheme();
   const [status, setStatus] = useState('Any');
 
   const handleChange = (event: SelectChangeEvent) => {
     setStatus(event.target.value);
+    onFilteredStatus(event.target.value);
   };
 
   return (

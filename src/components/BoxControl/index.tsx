@@ -11,9 +11,15 @@ interface IProps {
   onSelectEntries: (entries: string) => void;
   // component handle change row per page
   onChangeRowsPerPage: (rowsPerPage: number, page: number) => void;
+  onFilteredStatus: (status: string) => void;
 }
 
-export const TableFilter = ({ entries, onSelectEntries, onChangeRowsPerPage }: IProps) => {
+export const TableFilter = ({
+  entries,
+  onSelectEntries,
+  onChangeRowsPerPage,
+  onFilteredStatus,
+}: IProps) => {
   return (
     <Box
       sx={{
@@ -30,7 +36,7 @@ export const TableFilter = ({ entries, onSelectEntries, onChangeRowsPerPage }: I
           />
         </Grid>
         <Grid item={true} xs={2}>
-          <FilterStatus />
+          <FilterStatus onFilteredStatus={onFilteredStatus} />
         </Grid>
         <Grid item={true} xs={2}>
           <FilterLocation />
