@@ -6,6 +6,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { FunctionComponent, memo } from 'react';
+import { Customer } from '../BoxContent/Customer';
 
 interface IProps {
   open: boolean;
@@ -28,6 +29,7 @@ export const FormDialog: FunctionComponent<IProps> = memo(
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>{data.name}</DialogTitle>
         <DialogContent>
+          <Customer customer={data} />
           <DialogContentText>{data.name}</DialogContentText>
           <TextField
             margin='dense'
