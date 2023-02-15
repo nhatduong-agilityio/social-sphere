@@ -1,10 +1,19 @@
-import { Box, Grid, Table, TableCell, TableHead, TableRow } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 import { FilterEntries } from './FilterEntries';
 import { FilterLocation } from './FilterLocation';
 import { FilterName } from './FilterName';
 import { FilterStatus } from './FilterStatus';
 
-export const TableFilter = () => {
+interface IProps {
+  // number entries at select
+  entries: string;
+  // component select entries
+  onSelectEntries: (entries: string) => void;
+  // component handle change row per page
+  onChangeRowsPerPage: (rowsPerPage: number, page: number) => void;
+}
+
+export const TableFilter = ({ entries, onSelectEntries, onChangeRowsPerPage }: IProps) => {
   return (
     <Box
       sx={{
@@ -13,16 +22,20 @@ export const TableFilter = () => {
       }}
     >
       <Grid container spacing={1} margin={0} width={'100%'}>
-        <Grid xs={4}>
-          <FilterEntries />
+        <Grid item={true} xs={4}>
+          <FilterEntries
+            entries={entries}
+            onSelectEntries={onSelectEntries}
+            onChangeRowsPerPage={onChangeRowsPerPage}
+          />
         </Grid>
-        <Grid xs={2}>
+        <Grid item={true} xs={2}>
           <FilterStatus />
         </Grid>
-        <Grid xs={2}>
+        <Grid item={true} xs={2}>
           <FilterLocation />
         </Grid>
-        <Grid xs={4}>
+        <Grid item={true} xs={4}>
           <FilterName />
         </Grid>
       </Grid>

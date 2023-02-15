@@ -7,14 +7,20 @@ import {
   Typography,
   useTheme,
 } from '@mui/material';
-import { useState } from 'react';
 
-export const FilterEntries = () => {
+interface IProps {
+  entries: string;
+  onSelectEntries: (entries: string) => void;
+  onChangeRowsPerPage: (rowsPerPage: number, page: number) => void;
+}
+
+export const FilterEntries = ({ entries, onSelectEntries, onChangeRowsPerPage }: IProps) => {
   const theme = useTheme();
-  const [entries, setEntries] = useState('5');
 
+  // component handle select entries and change row per page.
   const handleChange = (event: SelectChangeEvent) => {
-    setEntries(event.target.value);
+    onSelectEntries(event.target.value);
+    onChangeRowsPerPage(parseInt(event.target.value, 10), 0);
   };
 
   return (

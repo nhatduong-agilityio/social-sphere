@@ -8,7 +8,11 @@ const StyledTooltip = styled(ToBeStyledTooltip)(({ theme }) => ({
   fontSize: '13px',
 }));
 
-export const ActionButton = () => {
+interface IProps {
+  onHandleOpenDialog: () => void;
+}
+
+export const ActionButton = ({ onHandleOpenDialog }: IProps) => {
   return (
     <StyledTooltip
       title='Action Details'
@@ -19,6 +23,7 @@ export const ActionButton = () => {
       }}
     >
       <IconButton
+        onClick={onHandleOpenDialog}
         aria-label='action'
         size='large'
         color='secondary'

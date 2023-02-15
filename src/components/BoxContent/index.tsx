@@ -9,7 +9,10 @@ import TableRow from '@mui/material/TableRow';
 import { Customer } from './Customer';
 import { Status } from './Status';
 import { ActionButton } from './ActionButton';
-import { Box, IconButton, Pagination, Paper, TableFooter, TablePagination } from '@mui/material';
+import { Box, IconButton, Paper, TableFooter, TablePagination } from '@mui/material';
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
+import FormDialog from '../DialogDetail';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -34,16 +37,6 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-{
-  /* <Pagination
-  count={rows.length}
-  onChange={onPageChange}
-  page={page}
-  variant='outlined'
-  shape='rounded'
-/> */
-}
-
 function createData(name: string, calories: number, fat: number, carbs?: number, protein?: number) {
   return { name, calories, fat, carbs, protein };
 }
@@ -64,89 +57,84 @@ const rows = [
   createData('Oreo', 437, 18.0, 63, 4.0),
 ];
 
-const Test = ({ page, onPageChange }) => {
-  return (
-    <Box>
-      <Pagination
-        count={rows.length}
-        onChange={onPageChange}
-        page={page}
-        variant='outlined'
-        shape='rounded'
-      />
-    </Box>
-  );
-};
+interface IProps {
+  page: number;
+  onSetPage: (page: number) => void;
+  rowsPerPage: number;
+  onChangeRowsPerPage: (rowsPerPage: number, page: number) => void;
+}
 
-export const CustomizedTables = () => {
-  const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(5);
+export const CustomizedTables = ({ page, onSetPage, rowsPerPage, onChangeRowsPerPage }: IProps) => {
+  const [dialogForm, setDialogForm] = useState(false);
 
-  const handleChangePage = (event: any, newPage: number) => setPage(newPage);
+  // component handle change page
+  const handleChangePage = (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) =>
+    onSetPage(newPage);
 
-  const handleChangeRowsPerPage = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    setRowsPerPage(parseInt(event.target.value, 10));
-    setPage(0);
+  const handleClickOpenDialog = () => {
+    setDialogForm(true);
   };
 
   return (
-    <TableContainer>
-      <Table sx={{ minWidth: 650 }}>
-        <TableHead>
-          <TableRow>
-            <StyledTableCell>#</StyledTableCell>
-            <StyledTableCell>Customer</StyledTableCell>
-            <StyledTableCell align='left'>Location</StyledTableCell>
-            <StyledTableCell align='left'>Order Date</StyledTableCell>
-            <StyledTableCell align='left'>Status</StyledTableCell>
-            <StyledTableCell align='left'>Net Amount</StyledTableCell>
-            <StyledTableCell align='left'>Action</StyledTableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, index) => (
-            <StyledTableRow key={row.name}>
-              <StyledTableCell component='th' scope='row'>
-                {index + 1}
-              </StyledTableCell>
-              <StyledTableCell component='th' scope='row'>
-                <Customer customer={row.name} />
-              </StyledTableCell>
-              <StyledTableCell align='left'>{row.calories}</StyledTableCell>
-              <StyledTableCell align='left'>{row.fat}</StyledTableCell>
-              <StyledTableCell align='left'>
-                <Status status={'Shipped'} />
-              </StyledTableCell>
-              <StyledTableCell align='left'>{row.protein}</StyledTableCell>
-              <StyledTableCell align='left'>
-                <ActionButton />
-              </StyledTableCell>
-            </StyledTableRow>
-          ))}
-        </TableBody>
-        <TableFooter>
-          <TableRow>
-            {/* <TablePagination
-              rowsPerPageOptions={[5, 10, 15, 20]}
-              colSpan={3}
-              count={rows.length}
-              rowsPerPage={rowsPerPage}
-              page={page}
-              SelectProps={{
-                inputProps: {
-                  'aria-label': 'rows per page',
-                },
-                native: true,
-              }}
-              onPageChange={handleChangePage}
-              onRowsPerPageChange={handleChangeRowsPerPage}
-            /> */}
-            <Test />
-          </TableRow>
-        </TableFooter>
-      </Table>
-    </TableContainer>
+    <>
+      {dialogForm && <FormDialog dialogForm={dialogForm} onHandleDialogForm={setDialogForm} />}
+      <TableContainer>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <StyledTableCell>#</StyledTableCell>
+              <StyledTableCell>Customer</StyledTableCell>
+              <StyledTableCell align='left'>Location</StyledTableCell>
+              <StyledTableCell align='left'>Order Date</StyledTableCell>
+              <StyledTableCell align='left'>Status</StyledTableCell>
+              <StyledTableCell align='left'>Net Amount</StyledTableCell>
+              <StyledTableCell align='left'>Action</StyledTableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, index) => (
+              <StyledTableRow key={row.name}>
+                <StyledTableCell component='th' scope='row'>
+                  {index + 1}
+                </StyledTableCell>
+                <StyledTableCell component='th' scope='row'>
+                  <Customer customer={row.name} />
+                </StyledTableCell>
+                <StyledTableCell align='left'>{row.calories}</StyledTableCell>
+                <StyledTableCell align='left'>{row.fat}</StyledTableCell>
+                <StyledTableCell align='left'>
+                  <Status status={'Shipped'} />
+                </StyledTableCell>
+                <StyledTableCell align='left'>{row.protein}</StyledTableCell>
+                <StyledTableCell align='left'>
+                  <ActionButton onHandleOpenDialog={handleClickOpenDialog} />
+                </StyledTableCell>
+              </StyledTableRow>
+            ))}
+          </TableBody>
+          <TableFooter>
+            <TableRow>
+              <TablePagination
+                rowsPerPageOptions={[5, 10, 15, 20]}
+                count={rows.length}
+                rowsPerPage={rowsPerPage}
+                page={page}
+                SelectProps={{
+                  inputProps: {
+                    'aria-label': 'rows per page',
+                  },
+                  native: true,
+                }}
+                onPageChange={handleChangePage}
+                onRowsPerPageChange={(event) =>
+                  onChangeRowsPerPage(parseInt(event.target.value, 10), 0)
+                }
+                // ActionsComponent={() => <h1>title</h1>}
+              />
+            </TableRow>
+          </TableFooter>
+        </Table>
+      </TableContainer>
+    </>
   );
 };
