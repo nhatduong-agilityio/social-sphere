@@ -118,7 +118,8 @@ export const CustomizedTables = ({
           <TableFooter>
             <TableRow>
               <TablePagination
-                rowsPerPageOptions={[5, 10, 15, 20]}
+                labelRowsPerPage={false}
+                rowsPerPageOptions={[]}
                 count={rows.length}
                 rowsPerPage={rowsPerPage}
                 page={page}
