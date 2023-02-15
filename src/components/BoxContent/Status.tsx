@@ -20,6 +20,10 @@ export const Status = ({ status }: IProps) => {
         return 'success';
       case STATUS.INFO:
         return 'info';
+      case STATUS.ERROR:
+        return 'error';
+      case STATUS.WARNING:
+        return 'warning';
       default:
         break;
     }
