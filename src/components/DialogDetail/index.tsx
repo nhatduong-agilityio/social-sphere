@@ -5,26 +5,30 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import { FunctionComponent, memo } from 'react';
 
 interface IProps {
-  dialogForm: boolean;
-  onHandleDialogForm: (dialogForm: boolean) => void;
+  open: boolean;
+  data: any;
+  onHandleDialogForm: (dialogForm: { open: boolean; data?: any }) => void;
 }
 
-export default function FormDialog({ dialogForm, onHandleDialogForm }: IProps) {
-  const handleClose = () => {
-    onHandleDialogForm(false);
-  };
+export const FormDialog: FunctionComponent<IProps> = memo(
+  ({ open, data, onHandleDialogForm }: IProps) => {
+    /**
+     * handle close dialog
+     */
+    const handleClose = () => {
+      onHandleDialogForm({
+        open: false,
+      });
+    };
 
-  return (
-    <div>
-      <Dialog open={dialogForm} onClose={handleClose}>
-        <DialogTitle>Subscribe</DialogTitle>
+    return (
+      <Dialog open={open} onClose={handleClose}>
+        <DialogTitle>{data.name}</DialogTitle>
         <DialogContent>
-          <DialogContentText>
-            To subscribe to this website, please enter your email address here. We will send updates
-            occasionally.
-          </DialogContentText>
+          <DialogContentText>{data.name}</DialogContentText>
           <TextField
             margin='dense'
             id='name'
@@ -39,6 +43,8 @@ export default function FormDialog({ dialogForm, onHandleDialogForm }: IProps) {
           <Button onClick={handleClose}>Subscribe</Button>
         </DialogActions>
       </Dialog>
-    </div>
-  );
-}
+    );
+  },
+);
+
+FormDialog.displayName = 'FormDialog';

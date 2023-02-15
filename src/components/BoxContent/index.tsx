@@ -1,18 +1,21 @@
-import { ChangeEvent, useState } from 'react';
-import { styled, useTheme } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import { Customer } from './Customer';
-import { Status } from './Status';
-import { ActionButton } from './ActionButton';
-import { Box, IconButton, Paper, TableFooter, TablePagination } from '@mui/material';
-import Pagination from '@mui/material/Pagination';
-import Stack from '@mui/material/Stack';
-import FormDialog from '../DialogDetail';
+import { TableFooter, TablePagination } from '@mui/material';
+import { ItemOrder } from './ItemOrder';
+
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
+  ':hover': {
+    backgroundColor: theme.palette.action.hover,
+  },
+  '&:nth-of-type(odd)': {
+    backgroundColor: theme.palette.action.hover,
+  },
+}));
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -25,15 +28,6 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     fontSize: 13,
     fontWeight: 'Bold',
-  },
-}));
-
-const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  ':hover': {
-    backgroundColor: theme.palette.action.hover,
-  },
-  '&:nth-of-type(odd)': {
-    backgroundColor: theme.palette.action.hover,
   },
 }));
 
@@ -65,19 +59,12 @@ interface IProps {
 }
 
 export const CustomizedTables = ({ page, onSetPage, rowsPerPage, onChangeRowsPerPage }: IProps) => {
-  const [dialogForm, setDialogForm] = useState(false);
-
   // component handle change page
-  const handleChangePage = (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) =>
+  const handleChangePage = (_event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) =>
     onSetPage(newPage);
-
-  const handleClickOpenDialog = () => {
-    setDialogForm(true);
-  };
 
   return (
     <>
-      {dialogForm && <FormDialog dialogForm={dialogForm} onHandleDialogForm={setDialogForm} />}
       <TableContainer>
         <Table>
           <TableHead>
@@ -93,22 +80,8 @@ export const CustomizedTables = ({ page, onSetPage, rowsPerPage, onChangeRowsPer
           </TableHead>
           <TableBody>
             {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, index) => (
-              <StyledTableRow key={row.name}>
-                <StyledTableCell component='th' scope='row'>
-                  {index + 1}
-                </StyledTableCell>
-                <StyledTableCell component='th' scope='row'>
-                  <Customer customer={row.name} />
-                </StyledTableCell>
-                <StyledTableCell align='left'>{row.calories}</StyledTableCell>
-                <StyledTableCell align='left'>{row.fat}</StyledTableCell>
-                <StyledTableCell align='left'>
-                  <Status status={'Shipped'} />
-                </StyledTableCell>
-                <StyledTableCell align='left'>{row.protein}</StyledTableCell>
-                <StyledTableCell align='left'>
-                  <ActionButton onHandleOpenDialog={handleClickOpenDialog} />
-                </StyledTableCell>
+              <StyledTableRow key={index}>
+                <ItemOrder index={index} data={row} />
               </StyledTableRow>
             ))}
           </TableBody>

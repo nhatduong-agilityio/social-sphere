@@ -1,10 +1,10 @@
-import { Box, IconButton, styled, Tooltip, tooltipClasses, TooltipProps } from '@mui/material';
+import { IconButton, styled, Tooltip, TooltipProps } from '@mui/material';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const ToBeStyledTooltip = ({ className, ...props }: TooltipProps) => (
   <Tooltip {...props} classes={{ tooltip: className }} />
 );
-const StyledTooltip = styled(ToBeStyledTooltip)(({ theme }) => ({
+const StyledTooltip = styled(ToBeStyledTooltip)(() => ({
   fontSize: '13px',
 }));
 

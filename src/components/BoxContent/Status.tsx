@@ -1,4 +1,4 @@
-import { Badge, badgeClasses, Stack, styled, Typography, useTheme } from '@mui/material';
+import { Badge, badgeClasses, Stack, styled, Typography } from '@mui/material';
 import { STATUS } from '~/constant/status';
 
 const StyledBadgeDot = styled(Badge)(() => ({
