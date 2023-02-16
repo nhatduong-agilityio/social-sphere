@@ -3,5 +3,5 @@ export interface IData {
   location: string;
   fat: number;
   status: string;
-  protein: number;
+  netAmount: number;
 }

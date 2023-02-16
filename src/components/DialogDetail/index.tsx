@@ -5,7 +5,14 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 import DialogTitle from '@mui/material/DialogTitle';
-import { FunctionComponent, memo, useState } from 'react';
+import {
+  ChangeEvent,
+  ChangeEventHandler,
+  FunctionComponent,
+  memo,
+  SetStateAction,
+  useState,
+} from 'react';
 import { Customer } from '../BoxContent/Customer';
 import {
   Badge,
@@ -49,39 +56,134 @@ export const FormDialog: FunctionComponent<IProps> = memo(
       });
     };
 
+    const [name, setName] = useState(data.name);
     const [date, setDate] = useState<Dayjs | null>(dayjs('2014-08-18T21:11:54'));
-    const [status, setStatus] = useState('');
+    const [status, setStatus] = useState(data.status);
+    const [location, setLocation] = useState(data.location);
+    const [netAmount, setNetAmount] = useState(data.netAmount);
+
+    const handleChangeName = (event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+      setName(event.target.value);
+    };
 
     const handleChange = (newValue: Dayjs | null) => {
       setDate(newValue);
+    };
+
+    const handleChangeLocation = (event: SelectChangeEvent) => {
+      setLocation(event.target.value);
     };
 
     const handleChangeStatus = (event: SelectChangeEvent) => {
       setStatus(event.target.value);
     };
 
+    const handleChangeNetAmount = (event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+      setNetAmount(parseInt(event.target.value));
+    };
+
     return (
       <Dialog open={open} onClose={handleClose} fullWidth>
-        <DialogTitle>{data.name}</DialogTitle>
+        <DialogTitle>Order Detail of {data.name}</DialogTitle>
         <DialogContent>
           <Customer customer={data} />
-          <Stack spacing={2}>
+          <Stack spacing={3}>
             <TextField
+              sx={{
+                fontSize: '13px',
+              }}
               margin='dense'
               id='name'
               label='Name customer'
               type='text'
               fullWidth
               variant='standard'
+              onChange={handleChangeName}
+              value={name}
             />
-            <TextField
-              margin='dense'
-              id='location'
-              label='Location'
-              type='text'
-              fullWidth
-              variant='standard'
-            />
+            <FormControl>
+              <InputLabel id='demo-dialog-select-label'>Location</InputLabel>
+              <Select
+                labelId='demo-dialog-select-label'
+                id='demo-dialog-select'
+                value={location}
+                onChange={handleChangeLocation}
+                variant='standard'
+              >
+                <MenuItem value={'Other'}>
+                  <Typography
+                    component={'p'}
+                    sx={{
+                      fontSize: '13px',
+                      textTransform: 'capitalize',
+                      paddingTop: '2px',
+                    }}
+                  >
+                    Other
+                  </Typography>
+                </MenuItem>
+                <MenuItem value={'Berlin'}>
+                  <Typography
+                    component={'p'}
+                    sx={{
+                      fontSize: '13px',
+                      textTransform: 'capitalize',
+                      paddingTop: '2px',
+                    }}
+                  >
+                    Berlin
+                  </Typography>
+                </MenuItem>
+                <MenuItem value={'London'}>
+                  <Typography
+                    component={'p'}
+                    sx={{
+                      fontSize: '13px',
+                      textTransform: 'capitalize',
+                      paddingTop: '2px',
+                    }}
+                  >
+                    London
+                  </Typography>
+                </MenuItem>
+                <MenuItem value={'Madrid'}>
+                  <Typography
+                    component={'p'}
+                    sx={{
+                      fontSize: '13px',
+                      textTransform: 'capitalize',
+                      paddingTop: '2px',
+                    }}
+                  >
+                    Madrid
+                  </Typography>
+                </MenuItem>
+                <MenuItem value={'New York'}>
+                  <Typography
+                    component={'p'}
+                    sx={{
+                      fontSize: '13px',
+                      textTransform: 'capitalize',
+                      paddingTop: '2px',
+                    }}
+                  >
+                    New York
+                  </Typography>
+                </MenuItem>
+                <MenuItem value={'Paris'}>
+                  <Typography
+                    component={'p'}
+                    sx={{
+                      fontSize: '13px',
+                      textTransform: 'capitalize',
+                      paddingTop: '2px',
+                    }}
+                  >
+                    Paris
+                  </Typography>
+                </MenuItem>
+              </Select>
+            </FormControl>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DesktopDatePicker
                 label='Date desktop'
@@ -185,6 +287,7 @@ export const FormDialog: FunctionComponent<IProps> = memo(
               type='text'
               fullWidth
               variant='standard'
+              value={netAmount}
             />
           </Stack>
         </DialogContent>

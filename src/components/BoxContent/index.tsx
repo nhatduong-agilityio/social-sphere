@@ -39,9 +39,9 @@ const createData = (
   location: string,
   fat: number,
   status: string,
-  protein: number,
+  netAmount: number,
 ): IData => {
-  return { name, location, fat, status, protein };
+  return { name, location, fat, status, netAmount };
 };
 
 const rows = [
@@ -54,9 +54,9 @@ const rows = [
   createData('Ice cream sandwich', 'Madrid', 9.0, 'Pending', 4.3),
   createData('Jelly Bean', 'New York', 0.0, 'Cancelled', 0.0),
   createData('KitKat', 'Berlin', 26.0, 'Shipped', 7.0),
-  createData('Lollipop', 'Paris', 0.2, 'Cancelled', 0.0),
+  createData('Lollipop', 'Other', 0.2, 'Cancelled', 0.0),
   createData('Marshmallow', 'London', 0, 'Shipped', 2.0),
-  createData('Nougat', 'Paris', 19.0, 'Delivered', 37.0),
+  createData('Nougat', 'Other', 19.0, 'Delivered', 37.0),
   createData('Oreo', 'New York', 18.0, 'Delivered', 4.0),
   createData('Ice cream sandwich', 'Madrid', 9.0, 'Delivered', 4.3),
   createData('Jelly Bean', 'New York', 0.0, 'Shipped', 0.0),

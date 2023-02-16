@@ -73,6 +73,12 @@ export const FilterLocation = ({ onFilteredLocation }: IProps) => {
           >
             Paris
           </MenuItem>
+          <MenuItem
+            sx={{ fontSize: '16px', color: `${theme.palette.primary.light}` }}
+            value={'Other'}
+          >
+            Other
+          </MenuItem>
         </Select>
       </FormControl>
     </Box>

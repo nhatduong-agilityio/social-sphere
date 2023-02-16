@@ -5,4 +5,5 @@ export const LOCATION = {
   MADRID: 'Madrid',
   NEW_YORK: 'New York',
   PARIS: 'Paris',
+  OTHER: 'Other',
 };
