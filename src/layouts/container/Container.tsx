@@ -1,5 +1,5 @@
 import { Box, Container, useTheme } from '@mui/material';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { AppBarContent } from '~/components/AppBar';
 import { CustomizedTables } from '~/components/BoxContent';
 import { TableFilter } from '~/components/BoxControl';
@@ -48,7 +48,6 @@ export const LayoutContainer = () => {
   const [filteredStatus, setFilteredStatus] = useState(STATUS.ANY);
   const [filteredLocation, setFilteredLocation] = useState(LOCATION.ALL);
   const [rows, setRows] = useState(originalRows);
-  const [searched, setSearched] = useState('');
 
   /**
    * component handle change row per page
@@ -60,9 +59,9 @@ export const LayoutContainer = () => {
     setPage(page);
   };
 
-  const handleRefresh = () => {
+  const handleRefresh = useCallback(() => {
     setRows(originalRows);
-  };
+  }, []);
 
   return (
     <Container maxWidth='xl'>
@@ -80,8 +79,6 @@ export const LayoutContainer = () => {
           onChangeRowsPerPage={onChangeRowsPerPage}
           onFilteredStatus={setFilteredStatus}
           onFilteredLocation={setFilteredLocation}
-          searched={searched}
-          onSearched={setSearched}
           rows={rows}
           onRows={setRows}
         />

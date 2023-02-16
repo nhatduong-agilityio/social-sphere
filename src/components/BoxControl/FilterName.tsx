@@ -1,17 +1,16 @@
 import { Box, Button, FormControl, InputBase, Typography, useTheme } from '@mui/material';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import { IData } from '~/types/data';
-import { ChangeEvent, useEffect } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 
 interface IProps {
-  searched: string;
-  onSearched: (searched: string) => void;
   rows: IData[];
   onRows: (rows: IData[]) => void;
 }
 
-export const FilterName = ({ searched, onSearched, rows, onRows }: IProps) => {
+export const FilterName = ({ rows, onRows }: IProps) => {
   const theme = useTheme();
+  const [test, setTest] = useState('');
 
   const requestSearch = (searchedVal: string) => {
     const filteredRows = rows.filter((row) => {
@@ -22,17 +21,16 @@ export const FilterName = ({ searched, onSearched, rows, onRows }: IProps) => {
   };
 
   useEffect(() => {
-    onSearched(searched);
-  }, [onSearched, searched]);
+    setTest(test);
+  }, [test]);
 
   const handleSetValueSearch = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    onSearched(event.target.value);
-    requestSearch(event.target.value);
+    setTest(event.target.value);
   };
 
   const handleSearch = () => {
-    requestSearch(searched);
-    onSearched('');
+    requestSearch(test);
+    setTest('');
   };
 
   return (
@@ -43,7 +41,7 @@ export const FilterName = ({ searched, onSearched, rows, onRows }: IProps) => {
       <FormControl sx={{ minWidth: '200px', padding: '0 12px 0 10px' }} size='small'>
         <InputBase
           onChange={handleSetValueSearch}
-          value={searched}
+          value={test}
           sx={{
             borderRadius: '4px',
             border: '1px solid #ddd',
