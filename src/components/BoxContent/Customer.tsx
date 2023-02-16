@@ -1,7 +1,8 @@
 import { Avatar, Stack, Typography, useTheme } from '@mui/material';
+import { IData } from '~/types/data';
 
 interface IProps {
-  customer: any;
+  customer: IData;
 }
 
 export const Customer = ({ customer }: IProps) => {

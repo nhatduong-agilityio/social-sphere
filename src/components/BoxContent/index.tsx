@@ -9,6 +9,7 @@ import { TableFooter, TablePagination } from '@mui/material';
 import { ItemOrder } from './ItemOrder';
 import { STATUS } from '~/constant/status';
 import { LOCATION } from '~/constant/location';
+import { IData } from '~/types/data';
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
   ':hover': {
@@ -33,15 +34,15 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   },
 }));
 
-function createData(
+const createData = (
   name: string,
   location: string,
   fat: number,
-  status?: string,
-  protein?: number,
-) {
+  status: string,
+  protein: number,
+): IData => {
   return { name, location, fat, status, protein };
-}
+};
 
 const rows = [
   createData('Cupcake', 'New York', 3.7, 'Delivered', 4.3),

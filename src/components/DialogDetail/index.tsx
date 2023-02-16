@@ -22,11 +22,12 @@ import {
 import dayjs, { Dayjs } from 'dayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { IData } from '~/types/data';
 
 interface IProps {
   open: boolean;
-  data: any;
-  onHandleDialogForm: (dialogForm: { open: boolean; data?: any }) => void;
+  data: IData;
+  onHandleDialogForm: (dialogForm: { open: boolean; data?: IData }) => void;
 }
 
 const StyledBadgeDot = styled(Badge)(() => ({

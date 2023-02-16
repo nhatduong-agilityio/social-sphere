@@ -1,5 +1,6 @@
 import { styled, TableCell, tableCellClasses } from '@mui/material';
 import { FunctionComponent, memo, useState } from 'react';
+import { IData } from '~/types/data';
 import { DialogState } from '~/types/dialogForm';
 import { FormDialog } from '../DialogDetail';
 import { ActionButton } from './ActionButton';
@@ -23,7 +24,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 
 interface IProps {
   index: number;
-  data: any;
+  data: IData;
 }
 
 export const ItemOrder: FunctionComponent<IProps> = memo(({ index, data }: IProps) => {
@@ -46,7 +47,7 @@ export const ItemOrder: FunctionComponent<IProps> = memo(({ index, data }: IProp
       {dialogForm.open && (
         <FormDialog
           open={dialogForm.open}
-          data={dialogForm.data}
+          data={dialogForm.data ? dialogForm.data : ({} as IData)}
           onHandleDialogForm={setDialogForm}
         />
       )}
