@@ -62,7 +62,7 @@ export const ItemOrder: FunctionComponent<IProps> = memo(({ index, data }: IProp
       <StyledTableCell align='left'>
         <Status status={data.status} />
       </StyledTableCell>
-      <StyledTableCell align='left'>{data.protein}</StyledTableCell>
+      <StyledTableCell align='left'>{data.netAmount}</StyledTableCell>
       <StyledTableCell align='left'>
         <ActionButton onHandleOpenDialog={handleClickOpenDialog} />
       </StyledTableCell>

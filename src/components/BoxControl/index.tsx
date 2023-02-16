@@ -1,4 +1,5 @@
 import { Box, Grid } from '@mui/material';
+import { IData } from '~/types/data';
 import { FilterEntries } from './FilterEntries';
 import { FilterLocation } from './FilterLocation';
 import { FilterName } from './FilterName';
@@ -13,6 +14,10 @@ interface IProps {
   onChangeRowsPerPage: (rowsPerPage: number, page: number) => void;
   onFilteredStatus: (status: string) => void;
   onFilteredLocation: (location: string) => void;
+  searched: string;
+  onSearched: (searched: string) => void;
+  rows: IData[];
+  onRows: (rows: IData[]) => void;
 }
 
 export const TableFilter = ({
@@ -21,6 +26,10 @@ export const TableFilter = ({
   onChangeRowsPerPage,
   onFilteredStatus,
   onFilteredLocation,
+  searched,
+  onSearched,
+  rows,
+  onRows,
 }: IProps) => {
   return (
     <Box
@@ -44,7 +53,7 @@ export const TableFilter = ({
           <FilterLocation onFilteredLocation={onFilteredLocation} />
         </Grid>
         <Grid item={true} xs={4}>
-          <FilterName />
+          <FilterName searched={searched} onSearched={onSearched} rows={rows} onRows={onRows} />
         </Grid>
       </Grid>
     </Box>

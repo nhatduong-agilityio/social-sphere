@@ -34,40 +34,8 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   },
 }));
 
-const createData = (
-  name: string,
-  location: string,
-  fat: number,
-  status: string,
-  netAmount: number,
-): IData => {
-  return { name, location, fat, status, netAmount };
-};
-
-const rows = [
-  createData('Cupcake', 'New York', 3.7, 'Delivered', 4.3),
-  createData('Donut', 'Berlin', 25.0, 'Shipped', 4.9),
-  createData('Eclair', 'Berlin', 16.0, 'Delivered', 6.0),
-  createData('Frozen yoghurt', 'Paris', 6.0, 'Cancelled', 4.0),
-  createData('Gingerbread', 'London', 16.0, 'Cancelled', 3.9),
-  createData('Honeycomb', 'London', 3.2, 'Pending', 6.5),
-  createData('Ice cream sandwich', 'Madrid', 9.0, 'Pending', 4.3),
-  createData('Jelly Bean', 'New York', 0.0, 'Cancelled', 0.0),
-  createData('KitKat', 'Berlin', 26.0, 'Shipped', 7.0),
-  createData('Lollipop', 'Other', 0.2, 'Cancelled', 0.0),
-  createData('Marshmallow', 'London', 0, 'Shipped', 2.0),
-  createData('Nougat', 'Other', 19.0, 'Delivered', 37.0),
-  createData('Oreo', 'New York', 18.0, 'Delivered', 4.0),
-  createData('Ice cream sandwich', 'Madrid', 9.0, 'Delivered', 4.3),
-  createData('Jelly Bean', 'New York', 0.0, 'Shipped', 0.0),
-  createData('KitKat', 'Berlin', 26.0, 'Shipped', 7.0),
-  createData('Lollipop', 'Paris', 0.2, 'Cancelled', 0.0),
-  createData('Marshmallow', 'London', 0, 'Shipped', 2.0),
-  createData('Nougat', 'Paris', 19.0, 'Shipped', 37.0),
-  createData('Oreo', 'New York', 18.0, 'Delivered', 4.0),
-];
-
 interface IProps {
+  rows: IData[];
   page: number;
   onSetPage: (page: number) => void;
   rowsPerPage: number;
@@ -77,6 +45,7 @@ interface IProps {
 }
 
 export const CustomizedTables = ({
+  rows,
   page,
   onSetPage,
   rowsPerPage,

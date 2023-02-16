@@ -4,13 +4,13 @@ import { useContext } from 'react';
 import { ColorModeContext } from '~/store/providers/toggleColorMode';
 import { Brightness4, Brightness7 } from '@mui/icons-material';
 
-export const AppBarContent = () => {
+interface IProps {
+  onHandleRefresh: () => void;
+}
+
+export const AppBarContent = ({ onHandleRefresh }: IProps) => {
   const theme = useTheme();
   const colorMode = useContext(ColorModeContext);
-
-  const handleRefreshList = () => {
-    console.log(123);
-  };
 
   return (
     <Box sx={{ flexGrow: 1, marginTop: '30px' }}>
@@ -41,7 +41,7 @@ export const AppBarContent = () => {
               fontSize: '16px',
               backgroundColor: '#03A9F4',
             }}
-            onClick={handleRefreshList}
+            onClick={onHandleRefresh}
           >
             refresh list
           </Button>
