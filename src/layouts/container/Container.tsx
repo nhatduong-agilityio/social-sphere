@@ -3,13 +3,16 @@ import { useState } from 'react';
 import { AppBarContent } from '~/components/AppBar';
 import { CustomizedTables } from '~/components/BoxContent';
 import { TableFilter } from '~/components/BoxControl';
+import { LOCATION } from '~/constant/location';
+import { STATUS } from '~/constant/status';
 
 export const LayoutContainer = () => {
   const theme = useTheme();
   const [entries, setEntries] = useState('5');
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(Number(entries));
-  const [filteredStatus, setFilteredStatus] = useState('Any');
+  const [filteredStatus, setFilteredStatus] = useState(STATUS.ANY);
+  const [filteredLocation, setFilteredLocation] = useState(LOCATION.ALL);
 
   /**
    * component handle change row per page
@@ -36,6 +39,7 @@ export const LayoutContainer = () => {
           onSelectEntries={setEntries}
           onChangeRowsPerPage={onChangeRowsPerPage}
           onFilteredStatus={setFilteredStatus}
+          onFilteredLocation={setFilteredLocation}
         />
         <CustomizedTables
           page={page}
@@ -43,6 +47,7 @@ export const LayoutContainer = () => {
           rowsPerPage={rowsPerPage}
           onChangeRowsPerPage={onChangeRowsPerPage}
           filteredStatus={filteredStatus}
+          filteredLocation={filteredLocation}
         />
       </Box>
     </Container>

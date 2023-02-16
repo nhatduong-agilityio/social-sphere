@@ -7,6 +7,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { TableFooter, TablePagination } from '@mui/material';
 import { ItemOrder } from './ItemOrder';
+import { STATUS } from '~/constant/status';
+import { LOCATION } from '~/constant/location';
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
   ':hover': {
@@ -33,35 +35,35 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 
 function createData(
   name: string,
-  calories: number,
+  location: string,
   fat: number,
   status?: string,
   protein?: number,
 ) {
-  return { name, calories, fat, status, protein };
+  return { name, location, fat, status, protein };
 }
 
 const rows = [
-  createData('Cupcake', 305, 3.7, 'Delivered', 4.3),
-  createData('Donut', 452, 25.0, 'Shipped', 4.9),
-  createData('Eclair', 262, 16.0, 'Delivered', 6.0),
-  createData('Frozen yoghurt', 159, 6.0, 'Cancelled', 4.0),
-  createData('Gingerbread', 356, 16.0, 'Cancelled', 3.9),
-  createData('Honeycomb', 408, 3.2, 'Pending', 6.5),
-  createData('Ice cream sandwich', 237, 9.0, 'Pending', 4.3),
-  createData('Jelly Bean', 375, 0.0, 'Cancelled', 0.0),
-  createData('KitKat', 518, 26.0, 'Shipped', 7.0),
-  createData('Lollipop', 392, 0.2, 'Cancelled', 0.0),
-  createData('Marshmallow', 318, 0, 'Shipped', 2.0),
-  createData('Nougat', 360, 19.0, 'Delivered', 37.0),
-  createData('Oreo', 437, 18.0, 'Delivered', 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 'Delivered', 4.3),
-  createData('Jelly Bean', 375, 0.0, 'Shipped', 0.0),
-  createData('KitKat', 518, 26.0, 'Shipped', 7.0),
-  createData('Lollipop', 392, 0.2, 'Cancelled', 0.0),
-  createData('Marshmallow', 318, 0, 'Shipped', 2.0),
-  createData('Nougat', 360, 19.0, 'Shipped', 37.0),
-  createData('Oreo', 437, 18.0, 'Delivered', 4.0),
+  createData('Cupcake', 'New York', 3.7, 'Delivered', 4.3),
+  createData('Donut', 'Berlin', 25.0, 'Shipped', 4.9),
+  createData('Eclair', 'Berlin', 16.0, 'Delivered', 6.0),
+  createData('Frozen yoghurt', 'Paris', 6.0, 'Cancelled', 4.0),
+  createData('Gingerbread', 'London', 16.0, 'Cancelled', 3.9),
+  createData('Honeycomb', 'London', 3.2, 'Pending', 6.5),
+  createData('Ice cream sandwich', 'Madrid', 9.0, 'Pending', 4.3),
+  createData('Jelly Bean', 'New York', 0.0, 'Cancelled', 0.0),
+  createData('KitKat', 'Berlin', 26.0, 'Shipped', 7.0),
+  createData('Lollipop', 'Paris', 0.2, 'Cancelled', 0.0),
+  createData('Marshmallow', 'London', 0, 'Shipped', 2.0),
+  createData('Nougat', 'Paris', 19.0, 'Delivered', 37.0),
+  createData('Oreo', 'New York', 18.0, 'Delivered', 4.0),
+  createData('Ice cream sandwich', 'Madrid', 9.0, 'Delivered', 4.3),
+  createData('Jelly Bean', 'New York', 0.0, 'Shipped', 0.0),
+  createData('KitKat', 'Berlin', 26.0, 'Shipped', 7.0),
+  createData('Lollipop', 'Paris', 0.2, 'Cancelled', 0.0),
+  createData('Marshmallow', 'London', 0, 'Shipped', 2.0),
+  createData('Nougat', 'Paris', 19.0, 'Shipped', 37.0),
+  createData('Oreo', 'New York', 18.0, 'Delivered', 4.0),
 ];
 
 interface IProps {
@@ -70,6 +72,7 @@ interface IProps {
   rowsPerPage: number;
   onChangeRowsPerPage: (rowsPerPage: number, page: number) => void;
   filteredStatus: string;
+  filteredLocation: string;
 }
 
 export const CustomizedTables = ({
@@ -78,6 +81,7 @@ export const CustomizedTables = ({
   rowsPerPage,
   onChangeRowsPerPage,
   filteredStatus,
+  filteredLocation,
 }: IProps) => {
   // component handle change page
   const handleChangePage = (_event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) =>
@@ -102,8 +106,15 @@ export const CustomizedTables = ({
             {rows
               .filter((valueFilter) => {
                 // console.log(value);
-                if (filteredStatus != 'Any') {
+                if (filteredStatus !== STATUS.ANY && filteredLocation !== LOCATION.ALL) {
+                  return (
+                    valueFilter.status === filteredStatus &&
+                    valueFilter.location === filteredLocation
+                  );
+                } else if (filteredStatus !== STATUS.ANY) {
                   return valueFilter.status === filteredStatus;
+                } else if (filteredLocation !== LOCATION.ALL) {
+                  return valueFilter.location === filteredLocation;
                 } else {
                   return rows;
                 }

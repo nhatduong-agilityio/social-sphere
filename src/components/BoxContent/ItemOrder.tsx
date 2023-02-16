@@ -56,7 +56,7 @@ export const ItemOrder: FunctionComponent<IProps> = memo(({ index, data }: IProp
       <StyledTableCell component='th' scope='row'>
         <Customer customer={data} />
       </StyledTableCell>
-      <StyledTableCell align='left'>{data.calories}</StyledTableCell>
+      <StyledTableCell align='left'>{data.location}</StyledTableCell>
       <StyledTableCell align='left'>{data.fat}</StyledTableCell>
       <StyledTableCell align='left'>
         <Status status={data.status} />
