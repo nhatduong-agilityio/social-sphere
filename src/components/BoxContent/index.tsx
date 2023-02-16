@@ -10,6 +10,7 @@ import { ItemOrder } from './ItemOrder';
 import { STATUS } from '~/constant/status';
 import { LOCATION } from '~/constant/location';
 import { IData } from '~/types/data';
+import { FunctionComponent, memo } from 'react';
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
   ':hover': {
@@ -42,84 +43,92 @@ interface IProps {
   onChangeRowsPerPage: (rowsPerPage: number, page: number) => void;
   filteredStatus: string;
   filteredLocation: string;
+  onClickOpenDialog: (data: IData) => void;
 }
 
-export const CustomizedTables = ({
-  rows,
-  page,
-  onSetPage,
-  rowsPerPage,
-  onChangeRowsPerPage,
-  filteredStatus,
-  filteredLocation,
-}: IProps) => {
-  // component handle change page
-  const handleChangePage = (_event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) =>
-    onSetPage(newPage);
+export const CustomizedTables: FunctionComponent<IProps> = memo(
+  ({
+    rows,
+    page,
+    onSetPage,
+    rowsPerPage,
+    onChangeRowsPerPage,
+    filteredStatus,
+    filteredLocation,
+    onClickOpenDialog,
+  }: IProps) => {
+    // component handle change page
+    const handleChangePage = (
+      _event: React.MouseEvent<HTMLButtonElement> | null,
+      newPage: number,
+    ) => onSetPage(newPage);
 
-  return (
-    <>
-      <TableContainer sx={{ maxHeight: '720px' }}>
-        <Table stickyHeader>
-          <TableHead>
-            <TableRow>
-              <StyledTableCell>#</StyledTableCell>
-              <StyledTableCell>Customer</StyledTableCell>
-              <StyledTableCell align='left'>Location</StyledTableCell>
-              <StyledTableCell align='left'>Order Date</StyledTableCell>
-              <StyledTableCell align='left'>Status</StyledTableCell>
-              <StyledTableCell align='left'>Net Amount</StyledTableCell>
-              <StyledTableCell align='left'>Action</StyledTableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {rows
-              .filter((valueFilter) => {
-                // console.log(value);
-                if (filteredStatus !== STATUS.ANY && filteredLocation !== LOCATION.ALL) {
-                  return (
-                    valueFilter.status === filteredStatus &&
-                    valueFilter.location === filteredLocation
-                  );
-                } else if (filteredStatus !== STATUS.ANY) {
-                  return valueFilter.status === filteredStatus;
-                } else if (filteredLocation !== LOCATION.ALL) {
-                  return valueFilter.location === filteredLocation;
-                } else {
-                  return rows;
-                }
-              })
-              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((row, index) => (
-                <StyledTableRow key={index}>
-                  <ItemOrder index={index} data={row} />
-                </StyledTableRow>
-              ))}
-          </TableBody>
-          <TableFooter>
-            <TableRow>
-              <TablePagination
-                labelRowsPerPage={false}
-                rowsPerPageOptions={[]}
-                count={rows.length}
-                rowsPerPage={rowsPerPage}
-                page={page}
-                SelectProps={{
-                  inputProps: {
-                    'aria-label': 'rows per page',
-                  },
-                  native: true,
-                }}
-                onPageChange={handleChangePage}
-                onRowsPerPageChange={(event) =>
-                  onChangeRowsPerPage(parseInt(event.target.value, 10), 0)
-                }
-                // ActionsComponent={() => <h1>title</h1>}
-              />
-            </TableRow>
-          </TableFooter>
-        </Table>
-      </TableContainer>
-    </>
-  );
-};
+    return (
+      <>
+        <TableContainer sx={{ maxHeight: '720px' }}>
+          <Table stickyHeader>
+            <TableHead>
+              <TableRow>
+                <StyledTableCell>#</StyledTableCell>
+                <StyledTableCell>Customer</StyledTableCell>
+                <StyledTableCell align='left'>Location</StyledTableCell>
+                <StyledTableCell align='left'>Order Date</StyledTableCell>
+                <StyledTableCell align='left'>Status</StyledTableCell>
+                <StyledTableCell align='left'>Net Amount</StyledTableCell>
+                <StyledTableCell align='left'>Action</StyledTableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {rows
+                .filter((valueFilter) => {
+                  // console.log(value);
+                  if (filteredStatus !== STATUS.ANY && filteredLocation !== LOCATION.ALL) {
+                    return (
+                      valueFilter.status === filteredStatus &&
+                      valueFilter.location === filteredLocation
+                    );
+                  } else if (filteredStatus !== STATUS.ANY) {
+                    return valueFilter.status === filteredStatus;
+                  } else if (filteredLocation !== LOCATION.ALL) {
+                    return valueFilter.location === filteredLocation;
+                  } else {
+                    return rows;
+                  }
+                })
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow key={index}>
+                    <ItemOrder index={index} data={row} onClickOpenDialog={onClickOpenDialog} />
+                  </StyledTableRow>
+                ))}
+            </TableBody>
+            <TableFooter>
+              <TableRow>
+                <TablePagination
+                  labelRowsPerPage={false}
+                  rowsPerPageOptions={[]}
+                  count={rows.length}
+                  rowsPerPage={rowsPerPage}
+                  page={page}
+                  SelectProps={{
+                    inputProps: {
+                      'aria-label': 'rows per page',
+                    },
+                    native: true,
+                  }}
+                  onPageChange={handleChangePage}
+                  onRowsPerPageChange={(event) =>
+                    onChangeRowsPerPage(parseInt(event.target.value, 10), 0)
+                  }
+                  // ActionsComponent={() => <h1>title</h1>}
+                />
+              </TableRow>
+            </TableFooter>
+          </Table>
+        </TableContainer>
+      </>
+    );
+  },
+);
+
+CustomizedTables.displayName = 'CustomizedTables';

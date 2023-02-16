@@ -11,6 +11,7 @@ import {
   FunctionComponent,
   memo,
   SetStateAction,
+  useEffect,
   useState,
 } from 'react';
 import { Customer } from '../BoxContent/Customer';
@@ -30,10 +31,10 @@ import dayjs, { Dayjs } from 'dayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { IData } from '~/types/data';
+import { DialogState } from '~/types/dialogForm';
 
 interface IProps {
-  open: boolean;
-  data: IData;
+  dialogForm: DialogState;
   onHandleDialogForm: (dialogForm: { open: boolean; data?: IData }) => void;
 }
 
@@ -46,7 +47,7 @@ const StyledBadgeDot = styled(Badge)(() => ({
 }));
 
 export const FormDialog: FunctionComponent<IProps> = memo(
-  ({ open, data, onHandleDialogForm }: IProps) => {
+  ({ dialogForm, onHandleDialogForm }: IProps) => {
     /**
      * handle close dialog
      */
@@ -56,11 +57,20 @@ export const FormDialog: FunctionComponent<IProps> = memo(
       });
     };
 
-    const [name, setName] = useState(data.name);
+    const { data, open } = dialogForm;
+
+    const [name, setName] = useState(data?.name);
     const [date, setDate] = useState<Dayjs | null>(dayjs('2014-08-18T21:11:54'));
-    const [status, setStatus] = useState(data.status);
-    const [location, setLocation] = useState(data.location);
-    const [netAmount, setNetAmount] = useState(data.netAmount);
+    const [status, setStatus] = useState(data?.status);
+    const [location, setLocation] = useState(data?.location);
+    const [netAmount, setNetAmount] = useState(data?.netAmount);
+
+    useEffect(() => {
+      setName(data?.name);
+      setLocation(data?.location);
+      setStatus(data?.status);
+      setNetAmount(data?.netAmount);
+    }, [data?.location, data?.name, data?.netAmount, data?.status]);
 
     const handleChangeName = (event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
       setName(event.target.value);
@@ -84,9 +94,9 @@ export const FormDialog: FunctionComponent<IProps> = memo(
 
     return (
       <Dialog open={open} onClose={handleClose} fullWidth>
-        <DialogTitle>Order Detail of {data.name}</DialogTitle>
+        <DialogTitle>Order Detail of {data?.name}</DialogTitle>
         <DialogContent>
-          <Customer customer={data} />
+          <Customer customer={data ? data : ({} as IData)} />
           <Stack spacing={3}>
             <TextField
               sx={{
@@ -288,6 +298,7 @@ export const FormDialog: FunctionComponent<IProps> = memo(
               fullWidth
               variant='standard'
               value={netAmount}
+              onChange={handleChangeNetAmount}
             />
           </Stack>
         </DialogContent>

@@ -3,9 +3,11 @@ import { useCallback, useState } from 'react';
 import { AppBarContent } from '~/components/AppBar';
 import { CustomizedTables } from '~/components/BoxContent';
 import { TableFilter } from '~/components/BoxControl';
+import { FormDialog } from '~/components/DialogDetail';
 import { LOCATION } from '~/constant/location';
 import { STATUS } from '~/constant/status';
 import { IData } from '~/types/data';
+import { DialogState } from '~/types/dialogForm';
 
 const createData = (
   name: string,
@@ -49,6 +51,10 @@ export const LayoutContainer = () => {
   const [filteredLocation, setFilteredLocation] = useState(LOCATION.ALL);
   const [rows, setRows] = useState(originalRows);
 
+  const [dialogForm, setDialogForm] = useState<DialogState>({
+    open: false,
+  });
+
   /**
    * component handle change row per page
    * @param rowsPerPage row number want to show.
@@ -61,6 +67,13 @@ export const LayoutContainer = () => {
 
   const handleRefresh = useCallback(() => {
     setRows(originalRows);
+  }, []);
+
+  const handleClickOpenDialog = useCallback((data: IData) => {
+    setDialogForm({
+      open: true,
+      data: data,
+    });
   }, []);
 
   return (
@@ -90,8 +103,10 @@ export const LayoutContainer = () => {
           onChangeRowsPerPage={onChangeRowsPerPage}
           filteredStatus={filteredStatus}
           filteredLocation={filteredLocation}
+          onClickOpenDialog={handleClickOpenDialog}
         />
       </Box>
+      <FormDialog dialogForm={dialogForm} onHandleDialogForm={setDialogForm} />
     </Container>
   );
 };

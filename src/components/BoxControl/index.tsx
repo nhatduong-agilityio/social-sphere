@@ -1,4 +1,5 @@
 import { Box, Grid } from '@mui/material';
+import { FunctionComponent, memo } from 'react';
 import { IData } from '~/types/data';
 import { FilterEntries } from './FilterEntries';
 import { FilterLocation } from './FilterLocation';
@@ -18,40 +19,44 @@ interface IProps {
   onRows: (rows: IData[]) => void;
 }
 
-export const TableFilter = ({
-  entries,
-  onSelectEntries,
-  onChangeRowsPerPage,
-  onFilteredStatus,
-  onFilteredLocation,
-  rows,
-  onRows,
-}: IProps) => {
-  return (
-    <Box
-      sx={{
-        paddingBottom: '15px',
-        borderBottom: '1px solid #e9e9e9',
-      }}
-    >
-      <Grid container spacing={1} margin={0} width={'100%'}>
-        <Grid item={true} xs={4}>
-          <FilterEntries
-            entries={entries}
-            onSelectEntries={onSelectEntries}
-            onChangeRowsPerPage={onChangeRowsPerPage}
-          />
+export const TableFilter: FunctionComponent<IProps> = memo(
+  ({
+    entries,
+    onSelectEntries,
+    onChangeRowsPerPage,
+    onFilteredStatus,
+    onFilteredLocation,
+    rows,
+    onRows,
+  }: IProps) => {
+    return (
+      <Box
+        sx={{
+          paddingBottom: '15px',
+          borderBottom: '1px solid #e9e9e9',
+        }}
+      >
+        <Grid container spacing={1} margin={0} width={'100%'}>
+          <Grid item={true} xs={4}>
+            <FilterEntries
+              entries={entries}
+              onSelectEntries={onSelectEntries}
+              onChangeRowsPerPage={onChangeRowsPerPage}
+            />
+          </Grid>
+          <Grid item={true} xs={2}>
+            <FilterStatus onFilteredStatus={onFilteredStatus} />
+          </Grid>
+          <Grid item={true} xs={2}>
+            <FilterLocation onFilteredLocation={onFilteredLocation} />
+          </Grid>
+          <Grid item={true} xs={4}>
+            <FilterName rows={rows} onRows={onRows} />
+          </Grid>
         </Grid>
-        <Grid item={true} xs={2}>
-          <FilterStatus onFilteredStatus={onFilteredStatus} />
-        </Grid>
-        <Grid item={true} xs={2}>
-          <FilterLocation onFilteredLocation={onFilteredLocation} />
-        </Grid>
-        <Grid item={true} xs={4}>
-          <FilterName rows={rows} onRows={onRows} />
-        </Grid>
-      </Grid>
-    </Box>
-  );
-};
+      </Box>
+    );
+  },
+);
+
+TableFilter.displayName = 'TableFilter';

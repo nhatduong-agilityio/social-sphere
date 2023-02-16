@@ -1,5 +1,6 @@
 import { IconButton, styled, Tooltip, TooltipProps } from '@mui/material';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { IData } from '~/types/data';
 
 const ToBeStyledTooltip = ({ className, ...props }: TooltipProps) => (
   <Tooltip {...props} classes={{ tooltip: className }} />
@@ -9,10 +10,14 @@ const StyledTooltip = styled(ToBeStyledTooltip)(() => ({
 }));
 
 interface IProps {
-  onHandleOpenDialog: () => void;
+  onClickOpenDialog: () => void;
 }
 
-export const ActionButton = ({ onHandleOpenDialog }: IProps) => {
+export const ActionButton = ({ onClickOpenDialog }: IProps) => {
+  const click = () => {
+    onClickOpenDialog();
+  };
+
   return (
     <StyledTooltip
       title='Action Details'
@@ -23,7 +28,7 @@ export const ActionButton = ({ onHandleOpenDialog }: IProps) => {
       }}
     >
       <IconButton
-        onClick={onHandleOpenDialog}
+        onClick={click}
         aria-label='action'
         size='large'
         color='secondary'
