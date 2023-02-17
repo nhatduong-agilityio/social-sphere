@@ -1,7 +1,8 @@
 import { Avatar, Stack, Typography, useTheme } from '@mui/material';
+import { IData } from '~/types/data';
 
 interface IProps {
-  customer: string;
+  customer: IData;
 }
 
 export const Customer = ({ customer }: IProps) => {
@@ -23,7 +24,7 @@ export const Customer = ({ customer }: IProps) => {
           textTransform: 'capitalize',
         }}
       >
-        {customer}
+        {customer.name}
       </Typography>
     </Stack>
   );

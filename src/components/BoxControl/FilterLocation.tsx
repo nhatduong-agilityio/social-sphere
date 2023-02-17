@@ -9,12 +9,17 @@ import {
 } from '@mui/material';
 import { useState } from 'react';
 
-export const FilterLocation = () => {
+interface IProps {
+  onFilteredLocation: (location: string) => void;
+}
+
+export const FilterLocation = ({ onFilteredLocation }: IProps) => {
   const theme = useTheme();
   const [location, setLocation] = useState('All');
 
   const handleChange = (event: SelectChangeEvent) => {
     setLocation(event.target.value);
+    onFilteredLocation(event.target.value);
   };
 
   return (
@@ -67,6 +72,12 @@ export const FilterLocation = () => {
             value={'Paris'}
           >
             Paris
+          </MenuItem>
+          <MenuItem
+            sx={{ fontSize: '16px', color: `${theme.palette.primary.light}` }}
+            value={'Other'}
+          >
+            Other
           </MenuItem>
         </Select>
       </FormControl>

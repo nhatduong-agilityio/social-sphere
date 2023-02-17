@@ -75,7 +75,7 @@ export const designColorMode = (mode: PaletteMode) => ({
             secondary: '#495057',
           },
           action: {
-            hover: '#f5f5f5',
+            hover: '#000000',
             selected: '',
             disabled: '',
             disabledBackground: '',

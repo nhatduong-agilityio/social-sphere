@@ -1,8 +1,37 @@
 import { Box, Button, FormControl, InputBase, Typography, useTheme } from '@mui/material';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+import { IData } from '~/types/data';
+import { ChangeEvent, useEffect, useState } from 'react';
 
-export const FilterName = () => {
+interface IProps {
+  rows: IData[];
+  onRows: (rows: IData[]) => void;
+}
+
+export const FilterName = ({ rows, onRows }: IProps) => {
   const theme = useTheme();
+  const [test, setTest] = useState('');
+
+  const requestSearch = (searchedVal: string) => {
+    const filteredRows = rows.filter((row) => {
+      return row.name.toLowerCase().includes(searchedVal.toLowerCase());
+    });
+
+    onRows(filteredRows);
+  };
+
+  useEffect(() => {
+    setTest(test);
+  }, [test]);
+
+  const handleSetValueSearch = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setTest(event.target.value);
+  };
+
+  const handleSearch = () => {
+    requestSearch(test);
+    setTest('');
+  };
 
   return (
     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
@@ -11,6 +40,8 @@ export const FilterName = () => {
       </Typography>
       <FormControl sx={{ minWidth: '200px', padding: '0 12px 0 10px' }} size='small'>
         <InputBase
+          onChange={handleSetValueSearch}
+          value={test}
           sx={{
             borderRadius: '4px',
             border: '1px solid #ddd',
@@ -25,6 +56,7 @@ export const FilterName = () => {
       <Button
         color='secondary'
         variant='contained'
+        onClick={handleSearch}
         sx={{
           minWidth: '34px',
           padding: '12px',

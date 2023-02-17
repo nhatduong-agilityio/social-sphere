@@ -1,4 +1,4 @@
-import { Badge, badgeClasses, Stack, styled, Typography, useTheme } from '@mui/material';
+import { Badge, badgeClasses, Stack, styled, Typography } from '@mui/material';
 import { STATUS } from '~/constant/status';
 
 const StyledBadgeDot = styled(Badge)(() => ({
@@ -20,6 +20,10 @@ export const Status = ({ status }: IProps) => {
         return 'success';
       case STATUS.INFO:
         return 'info';
+      case STATUS.ERROR:
+        return 'error';
+      case STATUS.WARNING:
+        return 'warning';
       default:
         break;
     }
