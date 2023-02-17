@@ -1,6 +1,5 @@
 import { IconButton, styled, Tooltip, TooltipProps } from '@mui/material';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import { IData } from '~/types/data';
 
 const ToBeStyledTooltip = ({ className, ...props }: TooltipProps) => (
   <Tooltip {...props} classes={{ tooltip: className }} />
