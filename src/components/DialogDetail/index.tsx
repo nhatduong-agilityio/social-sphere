@@ -5,7 +5,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 import DialogTitle from '@mui/material/DialogTitle';
-import { ChangeEvent, FunctionComponent, memo, useEffect, useState } from 'react';
+import { ChangeEvent, FunctionComponent, memo, useContext, useEffect, useState } from 'react';
 import { Customer } from '../BoxContent/Customer';
 import {
   Badge,
@@ -24,6 +24,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { IData } from '~/types/data';
 import { IUser } from '~/types/user';
+import { IUserContext, UserContext } from '~/store/providers/user';
 
 interface IProps {
   openDialog: boolean;
@@ -39,8 +40,12 @@ const StyledBadgeDot = styled(Badge)(() => ({
   },
 }));
 
+const useUsers = () => useContext<IUserContext>(UserContext);
+
 export const FormDialog: FunctionComponent<IProps> = memo(
   ({ openDialog, orderSelected, onCloseDialog }: IProps) => {
+    const { handleUpdateUser, handleDeleteUser } = useUsers();
+
     const [name, setName] = useState('');
     const [date, setDate] = useState('');
     const [status, setStatus] = useState('');
@@ -79,6 +84,24 @@ export const FormDialog: FunctionComponent<IProps> = memo(
 
     const handleChangeNetAmount = (event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
       setNetAmount(parseInt(event.target.value));
+    };
+
+    const onHandleUpdate = () => {
+      const valueUpdate: IUser = {
+        id: orderSelected.id,
+        name: name,
+        avatar: orderSelected.avatar,
+        location: location,
+        orderDate: date,
+        status: status,
+        netAmount: netAmount,
+      };
+
+      handleUpdateUser(valueUpdate);
+    };
+
+    const onHandleDelete = () => {
+      handleDeleteUser(orderSelected.id);
     };
 
     return (
@@ -292,9 +315,15 @@ export const FormDialog: FunctionComponent<IProps> = memo(
           </Stack>
         </DialogContent>
         <DialogActions>
-          <Button onClick={onCloseDialog}>Cancel</Button>
-          <Button onClick={onCloseDialog}>Delete</Button>
-          <Button onClick={onCloseDialog}>Update</Button>
+          <Button color='warning' onClick={onCloseDialog} variant='outlined'>
+            Cancel
+          </Button>
+          <Button color='error' onClick={onHandleDelete} variant='outlined'>
+            Delete
+          </Button>
+          <Button color='info' onClick={onHandleUpdate} variant='outlined'>
+            Update
+          </Button>
         </DialogActions>
       </Dialog>
     );

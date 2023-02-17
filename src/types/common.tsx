@@ -8,8 +8,9 @@ export type IStates<T> = {
 };
 
 export type PayloadProps<T> = {
-  response?: AxiosResponse<T[]>;
+  response?: AxiosResponse;
   error?: AxiosError<Error> | unknown;
+  data?: T[];
 };
 
 export type DispatchProps<T> = React.Dispatch<{

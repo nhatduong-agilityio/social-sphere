@@ -1,5 +1,5 @@
 import { URL } from '~/constant/urls';
-import { client } from '~/helpers/service';
+import { client } from '~/service';
 import { AxiosResponse, AxiosError } from 'axios';
 import { DispatchProps } from '~/types/common';
 import { IUser } from '~/types/user';

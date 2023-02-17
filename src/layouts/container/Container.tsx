@@ -65,15 +65,11 @@ export const LayoutContainer: FunctionComponent = memo(() => {
   const [filteredLocation, setFilteredLocation] = useState(LOCATION.ALL);
   const [rows, setRows] = useState<IUser[]>({} as IUser[]);
 
-  const verifiedUsers = useMemo(() => {
-    return users.data;
-  }, [users.data]);
-
   useEffect(() => {
     if (users.data) {
       setRows(users.data);
     }
-  }, [users.data, verifiedUsers]);
+  }, [users.data]);
 
   const [dialogForm, setDialogForm] = useState<DialogState>({
     open: false,
