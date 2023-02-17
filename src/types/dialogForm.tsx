@@ -5,5 +5,5 @@ import { IData } from './data';
  */
 export type DialogState = {
   open: boolean;
-  data?: IData;
+  data: IData;
 };

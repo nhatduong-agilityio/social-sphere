@@ -1,6 +1,6 @@
 import { Box, AppBar, Toolbar, Typography, Button, useTheme, IconButton } from '@mui/material';
 import SyncIcon from '@mui/icons-material/Sync';
-import { useContext } from 'react';
+import { FunctionComponent, memo, useContext } from 'react';
 import { ColorModeContext } from '~/store/providers/toggleColorMode';
 import { Brightness4, Brightness7 } from '@mui/icons-material';
 
@@ -8,7 +8,7 @@ interface IProps {
   onHandleRefresh: () => void;
 }
 
-export const AppBarContent = ({ onHandleRefresh }: IProps) => {
+export const AppBarContent: FunctionComponent<IProps> = memo(({ onHandleRefresh }: IProps) => {
   const theme = useTheme();
   const colorMode = useContext(ColorModeContext);
 
@@ -68,4 +68,6 @@ export const AppBarContent = ({ onHandleRefresh }: IProps) => {
       </AppBar>
     </Box>
   );
-};
+});
+
+AppBarContent.displayName = 'AppBarContent';

@@ -43,7 +43,7 @@ interface IProps {
   onChangeRowsPerPage: (rowsPerPage: number, page: number) => void;
   filteredStatus: string;
   filteredLocation: string;
-  onClickOpenDialog: (data: IData) => void;
+  onOpenDialog: (data: IData) => void;
 }
 
 export const CustomizedTables: FunctionComponent<IProps> = memo(
@@ -55,7 +55,7 @@ export const CustomizedTables: FunctionComponent<IProps> = memo(
     onChangeRowsPerPage,
     filteredStatus,
     filteredLocation,
-    onClickOpenDialog,
+    onOpenDialog,
   }: IProps) => {
     // component handle change page
     const handleChangePage = (
@@ -98,7 +98,7 @@ export const CustomizedTables: FunctionComponent<IProps> = memo(
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => (
                   <StyledTableRow key={index}>
-                    <ItemOrder index={index} data={row} onClickOpenDialog={onClickOpenDialog} />
+                    <ItemOrder index={index} data={row} onOpenDialog={onOpenDialog} />
                   </StyledTableRow>
                 ))}
             </TableBody>

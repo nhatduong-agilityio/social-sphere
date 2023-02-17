@@ -10,12 +10,14 @@ const StyledTooltip = styled(ToBeStyledTooltip)(() => ({
 }));
 
 interface IProps {
-  onClickOpenDialog: () => void;
+  onOpenDialog: () => void;
+  onSetOrderSelected: () => void;
 }
 
-export const ActionButton = ({ onClickOpenDialog }: IProps) => {
-  const click = () => {
-    onClickOpenDialog();
+export const ActionButton = ({ onOpenDialog, onSetOrderSelected }: IProps) => {
+  const handleClick = () => {
+    onOpenDialog();
+    onSetOrderSelected();
   };
 
   return (
@@ -28,7 +30,7 @@ export const ActionButton = ({ onClickOpenDialog }: IProps) => {
       }}
     >
       <IconButton
-        onClick={click}
+        onClick={handleClick}
         aria-label='action'
         size='large'
         color='secondary'

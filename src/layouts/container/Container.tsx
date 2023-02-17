@@ -1,5 +1,5 @@
 import { Box, Container, useTheme } from '@mui/material';
-import { useCallback, useState } from 'react';
+import { FunctionComponent, memo, useCallback, useMemo, useState } from 'react';
 import { AppBarContent } from '~/components/AppBar';
 import { CustomizedTables } from '~/components/BoxContent';
 import { TableFilter } from '~/components/BoxControl';
@@ -42,7 +42,7 @@ export const originalRows = [
   createData('Oreo', 'New York', 18.0, 'Delivered', 4.0),
 ];
 
-export const LayoutContainer = () => {
+export const LayoutContainer: FunctionComponent = memo(() => {
   const theme = useTheme();
   const [entries, setEntries] = useState('5');
   const [page, setPage] = useState(0);
@@ -53,6 +53,7 @@ export const LayoutContainer = () => {
 
   const [dialogForm, setDialogForm] = useState<DialogState>({
     open: false,
+    data: {} as IData,
   });
 
   /**
@@ -60,53 +61,74 @@ export const LayoutContainer = () => {
    * @param rowsPerPage row number want to show.
    * @param page page number of pagination
    */
-  const onChangeRowsPerPage = (rowsPerPage: number, page: number) => {
+  const onChangeRowsPerPage = useCallback((rowsPerPage: number, page: number) => {
     setRowsPerPage(rowsPerPage);
     setPage(page);
-  };
+  }, []);
 
   const handleRefresh = useCallback(() => {
     setRows(originalRows);
   }, []);
 
-  const handleClickOpenDialog = useCallback((data: IData) => {
+  const handleOpenDialog = useCallback((data: IData) => {
     setDialogForm({
       open: true,
       data: data,
     });
   }, []);
 
+  const handleCloseDialog = useCallback(() => {
+    setDialogForm({
+      open: false,
+      data: dialogForm.data,
+    });
+  }, [dialogForm.data]);
+
+  const renderDialog = useMemo(() => {
+    return (
+      <FormDialog
+        openDialog={dialogForm.open}
+        orderSelected={dialogForm.data}
+        onCloseDialog={handleCloseDialog}
+      />
+    );
+  }, [dialogForm.data, dialogForm.open, handleCloseDialog]);
+
   return (
-    <Container maxWidth='xl'>
-      <AppBarContent onHandleRefresh={handleRefresh} />
-      <Box
-        sx={{
-          width: '100%',
-          padding: '15px 25px 20px 25px ',
-          backgroundColor: `${theme.palette.background.default}`,
-        }}
-      >
-        <TableFilter
-          entries={entries}
-          onSelectEntries={setEntries}
-          onChangeRowsPerPage={onChangeRowsPerPage}
-          onFilteredStatus={setFilteredStatus}
-          onFilteredLocation={setFilteredLocation}
-          rows={rows}
-          onRows={setRows}
-        />
-        <CustomizedTables
-          rows={rows}
-          page={page}
-          onSetPage={setPage}
-          rowsPerPage={rowsPerPage}
-          onChangeRowsPerPage={onChangeRowsPerPage}
-          filteredStatus={filteredStatus}
-          filteredLocation={filteredLocation}
-          onClickOpenDialog={handleClickOpenDialog}
-        />
-      </Box>
-      <FormDialog dialogForm={dialogForm} onHandleDialogForm={setDialogForm} />
-    </Container>
+    <>
+      <Container maxWidth='xl'>
+        <AppBarContent onHandleRefresh={handleRefresh} />
+        <Box
+          sx={{
+            width: '100%',
+            padding: '15px 25px 20px 25px ',
+            backgroundColor: `${theme.palette.background.default}`,
+          }}
+        >
+          <TableFilter
+            entries={entries}
+            onSelectEntries={setEntries}
+            onChangeRowsPerPage={onChangeRowsPerPage}
+            onFilteredStatus={setFilteredStatus}
+            onFilteredLocation={setFilteredLocation}
+            rows={rows}
+            onRows={setRows}
+          />
+          <CustomizedTables
+            rows={rows}
+            page={page}
+            onSetPage={setPage}
+            rowsPerPage={rowsPerPage}
+            onChangeRowsPerPage={onChangeRowsPerPage}
+            filteredStatus={filteredStatus}
+            filteredLocation={filteredLocation}
+            onOpenDialog={handleOpenDialog}
+          />
+        </Box>
+      </Container>
+      {renderDialog}
+    </>
   );
-};
+});
+
+LayoutContainer.displayName = 'LayoutContainer';

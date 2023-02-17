@@ -5,15 +5,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 import DialogTitle from '@mui/material/DialogTitle';
-import {
-  ChangeEvent,
-  ChangeEventHandler,
-  FunctionComponent,
-  memo,
-  SetStateAction,
-  useEffect,
-  useState,
-} from 'react';
+import { ChangeEvent, FunctionComponent, memo, useEffect, useState } from 'react';
 import { Customer } from '../BoxContent/Customer';
 import {
   Badge,
@@ -31,11 +23,11 @@ import dayjs, { Dayjs } from 'dayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { IData } from '~/types/data';
-import { DialogState } from '~/types/dialogForm';
 
 interface IProps {
-  dialogForm: DialogState;
-  onHandleDialogForm: (dialogForm: { open: boolean; data?: IData }) => void;
+  openDialog: boolean;
+  orderSelected: IData;
+  onCloseDialog: () => void;
 }
 
 const StyledBadgeDot = styled(Badge)(() => ({
@@ -47,30 +39,19 @@ const StyledBadgeDot = styled(Badge)(() => ({
 }));
 
 export const FormDialog: FunctionComponent<IProps> = memo(
-  ({ dialogForm, onHandleDialogForm }: IProps) => {
-    /**
-     * handle close dialog
-     */
-    const handleClose = () => {
-      onHandleDialogForm({
-        open: false,
-      });
-    };
-
-    const { data, open } = dialogForm;
-
-    const [name, setName] = useState(data?.name);
+  ({ openDialog, orderSelected, onCloseDialog }: IProps) => {
+    const [name, setName] = useState('');
     const [date, setDate] = useState<Dayjs | null>(dayjs('2014-08-18T21:11:54'));
-    const [status, setStatus] = useState(data?.status);
-    const [location, setLocation] = useState(data?.location);
-    const [netAmount, setNetAmount] = useState(data?.netAmount);
+    const [status, setStatus] = useState('');
+    const [location, setLocation] = useState('');
+    const [netAmount, setNetAmount] = useState(parseInt(''));
 
     useEffect(() => {
-      setName(data?.name);
-      setLocation(data?.location);
-      setStatus(data?.status);
-      setNetAmount(data?.netAmount);
-    }, [data?.location, data?.name, data?.netAmount, data?.status]);
+      setName(orderSelected.name);
+      setLocation(orderSelected.location);
+      setStatus(orderSelected.status);
+      setNetAmount(orderSelected.netAmount);
+    }, [orderSelected.location, orderSelected.name, orderSelected.netAmount, orderSelected.status]);
 
     const handleChangeName = (event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
       setName(event.target.value);
@@ -93,10 +74,10 @@ export const FormDialog: FunctionComponent<IProps> = memo(
     };
 
     return (
-      <Dialog open={open} onClose={handleClose} fullWidth>
-        <DialogTitle>Order Detail of {data?.name}</DialogTitle>
+      <Dialog open={openDialog} onClose={onCloseDialog} fullWidth>
+        <DialogTitle>Order Detail of {orderSelected.name}</DialogTitle>
         <DialogContent>
-          <Customer customer={data ? data : ({} as IData)} />
+          <Customer customer={orderSelected} />
           <Stack spacing={3}>
             <TextField
               sx={{
@@ -109,14 +90,14 @@ export const FormDialog: FunctionComponent<IProps> = memo(
               fullWidth
               variant='standard'
               onChange={handleChangeName}
-              value={name}
+              value={name || ''}
             />
             <FormControl>
               <InputLabel id='demo-dialog-select-label'>Location</InputLabel>
               <Select
                 labelId='demo-dialog-select-label'
                 id='demo-dialog-select'
-                value={location}
+                value={location || ''}
                 onChange={handleChangeLocation}
                 variant='standard'
               >
@@ -208,7 +189,7 @@ export const FormDialog: FunctionComponent<IProps> = memo(
               <Select
                 labelId='demo-dialog-select-label'
                 id='demo-dialog-select'
-                value={status}
+                value={status || ''}
                 onChange={handleChangeStatus}
                 variant='standard'
               >
@@ -297,15 +278,15 @@ export const FormDialog: FunctionComponent<IProps> = memo(
               type='text'
               fullWidth
               variant='standard'
-              value={netAmount}
+              value={netAmount || ''}
               onChange={handleChangeNetAmount}
             />
           </Stack>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleClose}>Delete</Button>
-          <Button onClick={handleClose}>Update</Button>
+          <Button onClick={onCloseDialog}>Cancel</Button>
+          <Button onClick={onCloseDialog}>Delete</Button>
+          <Button onClick={onCloseDialog}>Update</Button>
         </DialogActions>
       </Dialog>
     );

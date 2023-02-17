@@ -1,11 +1,16 @@
-import { styled, TableCell, tableCellClasses } from '@mui/material';
-import { FunctionComponent, memo, useCallback, useState } from 'react';
+import {
+  IconButton,
+  styled,
+  TableCell,
+  tableCellClasses,
+  Tooltip,
+  TooltipProps,
+} from '@mui/material';
+import { FunctionComponent, memo } from 'react';
 import { IData } from '~/types/data';
-import { DialogState } from '~/types/dialogForm';
-import { FormDialog } from '../DialogDetail';
-import { ActionButton } from './ActionButton';
 import { Customer } from './Customer';
 import { Status } from './Status';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 // customize for table cell
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -22,17 +27,24 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   },
 }));
 
+const ToBeStyledTooltip = ({ className, ...props }: TooltipProps) => (
+  <Tooltip {...props} classes={{ tooltip: className }} />
+);
+const StyledTooltip = styled(ToBeStyledTooltip)(() => ({
+  fontSize: '13px',
+}));
+
 interface IProps {
   index: number;
   data: IData;
-  onClickOpenDialog: (data: IData) => void;
+  onOpenDialog: (data: IData) => void;
 }
 
 export const ItemOrder: FunctionComponent<IProps> = memo(
-  ({ index, data, onClickOpenDialog }: IProps) => {
-    const handleClickOpenDialog = useCallback(() => {
-      onClickOpenDialog(data);
-    }, [data, onClickOpenDialog]);
+  ({ index, data, onOpenDialog }: IProps) => {
+    const handleClick = () => {
+      onOpenDialog(data);
+    };
 
     return (
       <>
@@ -49,7 +61,30 @@ export const ItemOrder: FunctionComponent<IProps> = memo(
         </StyledTableCell>
         <StyledTableCell align='left'>{data.netAmount}</StyledTableCell>
         <StyledTableCell align='left'>
-          <ActionButton onClickOpenDialog={handleClickOpenDialog} />
+          <StyledTooltip
+            title='Action Details'
+            placement='top'
+            arrow
+            sx={{
+              fontSize: '13px',
+            }}
+          >
+            <IconButton
+              onClick={handleClick}
+              aria-label='action'
+              size='large'
+              color='secondary'
+              sx={{
+                width: '30px',
+                height: '30px',
+                border: '2px solid',
+                borderRadius: '30px',
+                textAlign: 'center',
+              }}
+            >
+              <ArrowForwardIcon fontSize='large' />
+            </IconButton>
+          </StyledTooltip>
         </StyledTableCell>
       </>
     );
