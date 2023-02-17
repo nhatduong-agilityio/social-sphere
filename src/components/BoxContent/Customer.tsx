@@ -1,8 +1,9 @@
 import { Avatar, Stack, Typography, useTheme } from '@mui/material';
 import { IData } from '~/types/data';
+import { IUser } from '~/types/user';
 
 interface IProps {
-  customer: IData;
+  customer: IUser;
 }
 
 export const Customer = ({ customer }: IProps) => {
@@ -12,7 +13,7 @@ export const Customer = ({ customer }: IProps) => {
     <Stack direction='row' spacing={2} sx={{ display: 'flex', alignItems: 'center' }}>
       <Avatar
         alt={`customer-avatar`}
-        src='/static/images/avatar/1.jpg'
+        src={`${customer.avatar}`}
         sx={{ width: '40px', height: '40px' }}
       />
       <Typography

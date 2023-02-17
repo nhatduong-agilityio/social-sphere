@@ -23,10 +23,11 @@ import dayjs, { Dayjs } from 'dayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { IData } from '~/types/data';
+import { IUser } from '~/types/user';
 
 interface IProps {
   openDialog: boolean;
-  orderSelected: IData;
+  orderSelected: IUser;
   onCloseDialog: () => void;
 }
 
@@ -41,24 +42,31 @@ const StyledBadgeDot = styled(Badge)(() => ({
 export const FormDialog: FunctionComponent<IProps> = memo(
   ({ openDialog, orderSelected, onCloseDialog }: IProps) => {
     const [name, setName] = useState('');
-    const [date, setDate] = useState<Dayjs | null>(dayjs('2014-08-18T21:11:54'));
+    const [date, setDate] = useState('');
     const [status, setStatus] = useState('');
     const [location, setLocation] = useState('');
     const [netAmount, setNetAmount] = useState(parseInt(''));
 
     useEffect(() => {
       setName(orderSelected.name);
+      setDate(orderSelected.orderDate);
       setLocation(orderSelected.location);
       setStatus(orderSelected.status);
       setNetAmount(orderSelected.netAmount);
-    }, [orderSelected.location, orderSelected.name, orderSelected.netAmount, orderSelected.status]);
+    }, [
+      orderSelected.location,
+      orderSelected.name,
+      orderSelected.netAmount,
+      orderSelected.orderDate,
+      orderSelected.status,
+    ]);
 
     const handleChangeName = (event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
       setName(event.target.value);
     };
 
     const handleChange = (newValue: Dayjs | null) => {
-      setDate(newValue);
+      setDate(`${newValue}`);
     };
 
     const handleChangeLocation = (event: SelectChangeEvent) => {

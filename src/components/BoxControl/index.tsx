@@ -1,6 +1,7 @@
 import { Box, Grid } from '@mui/material';
 import { FunctionComponent, memo } from 'react';
 import { IData } from '~/types/data';
+import { IUser } from '~/types/user';
 import { FilterEntries } from './FilterEntries';
 import { FilterLocation } from './FilterLocation';
 import { FilterName } from './FilterName';
@@ -15,8 +16,8 @@ interface IProps {
   onChangeRowsPerPage: (rowsPerPage: number, page: number) => void;
   onFilteredStatus: (status: string) => void;
   onFilteredLocation: (location: string) => void;
-  rows: IData[];
-  onRows: (rows: IData[]) => void;
+  rows: IUser[];
+  onRows: (rows: IUser[]) => void;
 }
 
 export const TableFilter: FunctionComponent<IProps> = memo(

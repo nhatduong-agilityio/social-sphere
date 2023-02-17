@@ -1,13 +1,23 @@
 import { Box, Container, useTheme } from '@mui/material';
-import { FunctionComponent, memo, useCallback, useMemo, useState } from 'react';
+import {
+  FunctionComponent,
+  memo,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 import { AppBarContent } from '~/components/AppBar';
 import { CustomizedTables } from '~/components/BoxContent';
 import { TableFilter } from '~/components/BoxControl';
 import { FormDialog } from '~/components/DialogDetail';
 import { LOCATION } from '~/constant/location';
 import { STATUS } from '~/constant/status';
+import { IUserContext, UserContext } from '~/store/providers/user';
 import { IData } from '~/types/data';
 import { DialogState } from '~/types/dialogForm';
+import { IUser } from '~/types/user';
 
 const createData = (
   name: string,
@@ -42,18 +52,32 @@ export const originalRows = [
   createData('Oreo', 'New York', 18.0, 'Delivered', 4.0),
 ];
 
+const useUsers = () => useContext<IUserContext>(UserContext);
+
 export const LayoutContainer: FunctionComponent = memo(() => {
   const theme = useTheme();
+  const { users } = useUsers();
+
   const [entries, setEntries] = useState('5');
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(Number(entries));
   const [filteredStatus, setFilteredStatus] = useState(STATUS.ANY);
   const [filteredLocation, setFilteredLocation] = useState(LOCATION.ALL);
-  const [rows, setRows] = useState(originalRows);
+  const [rows, setRows] = useState<IUser[]>({} as IUser[]);
+
+  const verifiedUsers = useMemo(() => {
+    return users.data;
+  }, [users.data]);
+
+  useEffect(() => {
+    if (users.data) {
+      setRows(users.data);
+    }
+  }, [users.data, verifiedUsers]);
 
   const [dialogForm, setDialogForm] = useState<DialogState>({
     open: false,
-    data: {} as IData,
+    data: {} as IUser,
   });
 
   /**
@@ -67,10 +91,12 @@ export const LayoutContainer: FunctionComponent = memo(() => {
   }, []);
 
   const handleRefresh = useCallback(() => {
-    setRows(originalRows);
-  }, []);
+    if (users.data) {
+      setRows(users.data);
+    }
+  }, [users.data]);
 
-  const handleOpenDialog = useCallback((data: IData) => {
+  const handleOpenDialog = useCallback((data: IUser) => {
     setDialogForm({
       open: true,
       data: data,

@@ -2,10 +2,11 @@ import { Box, Button, FormControl, InputBase, Typography, useTheme } from '@mui/
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import { IData } from '~/types/data';
 import { ChangeEvent, useEffect, useState } from 'react';
+import { IUser } from '~/types/user';
 
 interface IProps {
-  rows: IData[];
-  onRows: (rows: IData[]) => void;
+  rows: IUser[];
+  onRows: (rows: IUser[]) => void;
 }
 
 export const FilterName = ({ rows, onRows }: IProps) => {

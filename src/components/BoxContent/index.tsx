@@ -11,6 +11,7 @@ import { STATUS } from '~/constant/status';
 import { LOCATION } from '~/constant/location';
 import { IData } from '~/types/data';
 import { FunctionComponent, memo } from 'react';
+import { IUser } from '~/types/user';
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
   ':hover': {
@@ -36,14 +37,14 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 }));
 
 interface IProps {
-  rows: IData[];
+  rows: IUser[];
   page: number;
   onSetPage: (page: number) => void;
   rowsPerPage: number;
   onChangeRowsPerPage: (rowsPerPage: number, page: number) => void;
   filteredStatus: string;
   filteredLocation: string;
-  onOpenDialog: (data: IData) => void;
+  onOpenDialog: (data: IUser) => void;
 }
 
 export const CustomizedTables: FunctionComponent<IProps> = memo(
@@ -79,7 +80,7 @@ export const CustomizedTables: FunctionComponent<IProps> = memo(
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows
+              {Object.values(rows)
                 .filter((valueFilter) => {
                   // console.log(value);
                   if (filteredStatus !== STATUS.ANY && filteredLocation !== LOCATION.ALL) {
@@ -107,7 +108,7 @@ export const CustomizedTables: FunctionComponent<IProps> = memo(
                 <TablePagination
                   labelRowsPerPage={false}
                   rowsPerPageOptions={[]}
-                  count={rows.length}
+                  count={Object.values(rows).length}
                   rowsPerPage={rowsPerPage}
                   page={page}
                   SelectProps={{
