@@ -98,7 +98,7 @@ export const CustomizedTables: FunctionComponent<IProps> = memo(
                 })
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => (
-                  <StyledTableRow key={index} id={`item-${row.id}`}>
+                  <StyledTableRow key={index}>
                     <ItemOrder index={index} data={row} onOpenDialog={onOpenDialog} />
                   </StyledTableRow>
                 ))}
