@@ -85,14 +85,23 @@ const usersReducer = (
         isFailure: false,
         data: state.data,
       };
-    case DELETE_USER.SUCCESS:
+    case DELETE_USER.SUCCESS: {
+      let currentData: IUser[] = [];
+
+      if (state.data !== undefined) currentData = [...state.data];
+
+      const newArr = currentData.filter((object) => {
+        return object.id !== payload?.id;
+      });
+
       return {
         ...state,
         isPending: false,
         isSuccess: true,
         isFailure: false,
-        data: payload?.data,
+        data: newArr,
       };
+    }
     case DELETE_USER.FAILURE:
       return {
         ...state,

@@ -21,6 +21,7 @@ interface IProps {
 
 export interface IUserContext {
   users: IStates<IUser>;
+  handleRefreshData: () => void;
   handleUpdateUser: (valueUpdate: IUser) => void;
   handleDeleteUser: (id: number) => void;
 }
@@ -43,15 +44,19 @@ export const UserProvider: React.FC<IProps> = ({ children }: IProps) => {
     actions.fetchRequest();
   }, [actions]);
 
+  const handleRefreshData = async () => {
+    return await actions.fetchRequest();
+  };
+
   const handleUpdateUser = async (valueUpdate: IUser) => {
     return await actions.requestUpdateUser()(valueUpdate);
   };
 
   const handleDeleteUser = async (id: number) => {
-    return await actions.requestDeleteUser()(users, id);
+    return await actions.requestDeleteUser()(id);
   };
 
-  const value = { users, handleUpdateUser, handleDeleteUser };
+  const value = { users, handleRefreshData, handleUpdateUser, handleDeleteUser };
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };

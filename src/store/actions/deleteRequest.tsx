@@ -26,19 +26,18 @@ const deleteUser = async function <Response, Error>(
   }
 };
 
-export const requestDeleteUser =
-  (dispatch: DispatchProps<IUser>) => (users: IUser[], idUser: number) => {
-    const onPending = () => {
-      return dispatch({ type: DELETE_USER.PENDING });
-    };
-
-    const onSuccess = (response: AxiosResponse<IUser>) => {
-      return dispatch({ type: DELETE_USER.SUCCESS, payload: { response } });
-    };
-
-    const onFailure = (error: AxiosError<Error> | unknown) => {
-      return dispatch({ type: DELETE_USER.FAILURE, payload: { error } });
-    };
-
-    return deleteUser<IUser, Error>(onPending, onSuccess, onFailure, idUser);
+export const requestDeleteUser = (dispatch: DispatchProps<IUser>) => (idUser: number) => {
+  const onPending = () => {
+    return dispatch({ type: DELETE_USER.PENDING });
   };
+
+  const onSuccess = (response: AxiosResponse<IUser>) => {
+    return dispatch({ type: DELETE_USER.SUCCESS, payload: { response, id: idUser } });
+  };
+
+  const onFailure = (error: AxiosError<Error> | unknown) => {
+    return dispatch({ type: DELETE_USER.FAILURE, payload: { error } });
+  };
+
+  return deleteUser<IUser, Error>(onPending, onSuccess, onFailure, idUser);
+};

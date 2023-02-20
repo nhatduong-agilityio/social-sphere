@@ -10,7 +10,7 @@ import { ItemOrder } from './ItemOrder';
 import { STATUS } from '~/constant/status';
 import { LOCATION } from '~/constant/location';
 import { IData } from '~/types/data';
-import { FunctionComponent, memo } from 'react';
+import { FunctionComponent, memo, useEffect } from 'react';
 import { IUser } from '~/types/user';
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
@@ -98,7 +98,7 @@ export const CustomizedTables: FunctionComponent<IProps> = memo(
                 })
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => (
-                  <StyledTableRow key={index}>
+                  <StyledTableRow key={index} id={`item-${row.id}`}>
                     <ItemOrder index={index} data={row} onOpenDialog={onOpenDialog} />
                   </StyledTableRow>
                 ))}

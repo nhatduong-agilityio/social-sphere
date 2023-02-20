@@ -1,4 +1,5 @@
 import {
+  Box,
   IconButton,
   styled,
   TableCell,

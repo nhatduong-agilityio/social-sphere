@@ -56,7 +56,7 @@ const useUsers = () => useContext<IUserContext>(UserContext);
 
 export const LayoutContainer: FunctionComponent = memo(() => {
   const theme = useTheme();
-  const { users } = useUsers();
+  const { users, handleRefreshData } = useUsers();
 
   const [entries, setEntries] = useState('5');
   const [page, setPage] = useState(0);
@@ -86,11 +86,9 @@ export const LayoutContainer: FunctionComponent = memo(() => {
     setPage(page);
   }, []);
 
-  const handleRefresh = useCallback(() => {
-    if (users.data) {
-      setRows(users.data);
-    }
-  }, [users.data]);
+  const handleRefresh = () => {
+    handleRefreshData();
+  };
 
   const handleOpenDialog = useCallback((data: IUser) => {
     setDialogForm({

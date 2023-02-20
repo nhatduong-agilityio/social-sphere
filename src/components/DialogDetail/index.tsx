@@ -102,6 +102,7 @@ export const FormDialog: FunctionComponent<IProps> = memo(
 
     const onHandleDelete = () => {
       handleDeleteUser(orderSelected.id);
+      onCloseDialog();
     };
 
     return (

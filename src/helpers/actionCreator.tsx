@@ -1,15 +1,14 @@
 import { DispatchProps } from '~/types/common';
-import { IUser } from '~/types/user';
 
 export interface ObjActions<T> {
-  fetch?: (dispatch: DispatchProps<IUser>) => Promise<void>;
-  update?: (dispatch: DispatchProps<IUser>) => (valueUpdate: T) => Promise<void>;
-  delete?: (dispatch: DispatchProps<IUser>) => (users: IUser[], idUser: number) => Promise<void>;
+  fetch?: (dispatch: DispatchProps<T>) => Promise<void>;
+  update?: (dispatch: DispatchProps<T>) => (valueUpdate: T) => Promise<void>;
+  delete?: (dispatch: DispatchProps<T>) => (id: number) => Promise<void>;
 }
 
 export const bindDispatchToAction = function <T>(
   actions: ObjActions<T>,
-  dispatch: DispatchProps<IUser>,
+  dispatch: DispatchProps<T>,
 ) {
   return Object.fromEntries(
     Object.entries(actions).map(([key, action]) => [

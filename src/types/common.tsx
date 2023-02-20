@@ -10,7 +10,7 @@ export type IStates<T> = {
 export type PayloadProps<T> = {
   response?: AxiosResponse;
   error?: AxiosError<Error> | unknown;
-  data?: T[];
+  id?: number;
 };
 
 export type DispatchProps<T> = React.Dispatch<{
