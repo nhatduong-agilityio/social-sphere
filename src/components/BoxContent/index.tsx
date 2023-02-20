@@ -9,7 +9,6 @@ import { TableFooter, TablePagination } from '@mui/material';
 import { ItemOrder } from './ItemOrder';
 import { STATUS } from '~/constant/status';
 import { LOCATION } from '~/constant/location';
-import { IData } from '~/types/data';
 import { FunctionComponent, memo, useEffect } from 'react';
 import { IUser } from '~/types/user';
 
@@ -47,6 +46,14 @@ interface IProps {
   onOpenDialog: (data: IUser) => void;
 }
 
+const filterByStatus = (filteredStatus: string, data: IUser) => {
+  return filteredStatus !== STATUS.ANY ? data.status === filteredStatus : data;
+};
+
+const filterByLocation = (filteredLocation: string, data: IUser) => {
+  return filteredLocation !== LOCATION.ALL ? data.location === filteredLocation : data;
+};
+
 export const CustomizedTables: FunctionComponent<IProps> = memo(
   ({
     rows,
@@ -80,7 +87,7 @@ export const CustomizedTables: FunctionComponent<IProps> = memo(
               </TableRow>
             </TableHead>
             <TableBody>
-              {Object.values(rows)
+              {/* {Object.values(rows)
                 .filter((valueFilter) => {
                   // console.log(value);
                   if (filteredStatus !== STATUS.ANY && filteredLocation !== LOCATION.ALL) {
@@ -99,6 +106,15 @@ export const CustomizedTables: FunctionComponent<IProps> = memo(
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => (
                   <StyledTableRow key={index}>
+                    <ItemOrder index={index} data={row} onOpenDialog={onOpenDialog} />
+                  </StyledTableRow>
+                ))} */}
+              {Object.values(rows)
+                .filter((row) => filterByStatus(filteredStatus, row))
+                .filter((row) => filterByLocation(filteredLocation, row))
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow key={row.id}>
                     <ItemOrder index={index} data={row} onOpenDialog={onOpenDialog} />
                   </StyledTableRow>
                 ))}
@@ -121,7 +137,6 @@ export const CustomizedTables: FunctionComponent<IProps> = memo(
                   onRowsPerPageChange={(event) =>
                     onChangeRowsPerPage(parseInt(event.target.value, 10), 0)
                   }
-                  // ActionsComponent={() => <h1>title</h1>}
                 />
               </TableRow>
             </TableFooter>
