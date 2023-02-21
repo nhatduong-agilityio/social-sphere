@@ -1,18 +1,10 @@
-import {
-  createContext,
-  ReactNode,
-  Reducer,
-  useCallback,
-  useEffect,
-  useMemo,
-  useReducer,
-} from 'react';
+import { createContext, ReactNode, useEffect, useMemo, useReducer } from 'react';
 import { bindDispatchToAction, ObjActions } from '~/helpers/actionCreator';
 import { IStates } from '~/types/common';
 import { IUser } from '~/types/user';
-import { requestDeleteUser } from '../actions/deleteRequest';
-import { fetchRequest } from '../actions/fetchRequest';
-import { requestUpdateUser } from '../actions/updateRequest';
+import { requestDeleteUser } from '../actions/user/deleteRequest';
+import { fetchRequest } from '../actions/user/fetchRequest';
+import { requestUpdateUser } from '../actions/user/updateRequest';
 import { initUserState, usersReducer } from '../reducers/user';
 
 interface IProps {
@@ -44,16 +36,16 @@ export const UserProvider: React.FC<IProps> = ({ children }: IProps) => {
     actions.fetchRequest();
   }, [actions]);
 
-  const handleRefreshData = async () => {
-    return await actions.fetchRequest();
+  const handleRefreshData = () => {
+    return actions.fetchRequest();
   };
 
-  const handleUpdateUser = async (valueUpdate: IUser) => {
-    return await actions.requestUpdateUser()(valueUpdate);
+  const handleUpdateUser = (valueUpdate: IUser) => {
+    return actions.requestUpdateUser()(valueUpdate);
   };
 
-  const handleDeleteUser = async (id: number) => {
-    return await actions.requestDeleteUser()(id);
+  const handleDeleteUser = (id: number) => {
+    return actions.requestDeleteUser()(id);
   };
 
   const value = { users, handleRefreshData, handleUpdateUser, handleDeleteUser };

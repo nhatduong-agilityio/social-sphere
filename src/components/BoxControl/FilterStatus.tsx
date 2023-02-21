@@ -9,7 +9,7 @@ import {
 } from '@mui/material';
 import { useState } from 'react';
 import FilterAltSharpIcon from '@mui/icons-material/FilterAltSharp';
-import { STATUS } from '~/constant/status';
+import { STATUS } from '~/constants/status';
 
 interface IProps {
   onFilteredStatus: (status: string) => void;

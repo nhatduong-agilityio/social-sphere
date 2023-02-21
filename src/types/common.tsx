@@ -1,16 +1,11 @@
-import { AxiosResponse, AxiosError } from 'axios';
-
 export type IStates<T> = {
-  isPending: boolean;
-  isSuccess: boolean;
-  isFailure: boolean;
+  status?: string;
   data?: T[];
 };
 
 export type PayloadProps<T> = {
-  response?: AxiosResponse;
-  error?: AxiosError<Error> | unknown;
-  id?: number;
+  response?: T[];
+  error?: Error | unknown;
 };
 
 export type DispatchProps<T> = React.Dispatch<{

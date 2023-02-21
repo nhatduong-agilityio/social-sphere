@@ -7,8 +7,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { TableFooter, TablePagination } from '@mui/material';
 import { ItemOrder } from './ItemOrder';
-import { STATUS } from '~/constant/status';
-import { LOCATION } from '~/constant/location';
+import { STATUS } from '~/constants/status';
+import { LOCATION } from '~/constants/location';
 import { FunctionComponent, memo, useEffect } from 'react';
 import { IUser } from '~/types/user';
 
@@ -87,28 +87,6 @@ export const CustomizedTables: FunctionComponent<IProps> = memo(
               </TableRow>
             </TableHead>
             <TableBody>
-              {/* {Object.values(rows)
-                .filter((valueFilter) => {
-                  // console.log(value);
-                  if (filteredStatus !== STATUS.ANY && filteredLocation !== LOCATION.ALL) {
-                    return (
-                      valueFilter.status === filteredStatus &&
-                      valueFilter.location === filteredLocation
-                    );
-                  } else if (filteredStatus !== STATUS.ANY) {
-                    return valueFilter.status === filteredStatus;
-                  } else if (filteredLocation !== LOCATION.ALL) {
-                    return valueFilter.location === filteredLocation;
-                  } else {
-                    return rows;
-                  }
-                })
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((row, index) => (
-                  <StyledTableRow key={index}>
-                    <ItemOrder index={index} data={row} onOpenDialog={onOpenDialog} />
-                  </StyledTableRow>
-                ))} */}
               {Object.values(rows)
                 .filter((row) => filterByStatus(filteredStatus, row))
                 .filter((row) => filterByLocation(filteredLocation, row))

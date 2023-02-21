@@ -1,13 +1,8 @@
-import { URL } from '~/constant/urls';
-import { client } from '~/service';
-import { AxiosResponse, AxiosError } from 'axios';
 import { DispatchProps } from '~/types/common';
 import { IUser } from '~/types/user';
-import { FETCH_USERS } from '~/constant/action';
-
-const fetchApi = async () => {
-  return await client.get(URL.API_BASE_USERS);
-};
+import { FETCH_USERS } from '~/constants/action';
+import { readFromCache } from '~/services/cache';
+import customers from '~/store/data';
 
 /**
  * async function handle return response and error for get users.
@@ -15,18 +10,20 @@ const fetchApi = async () => {
  * @param onSuccess void
  * @param onFailure void
  */
-export const fetchUsers = async function <Response, Error>(
+export const fetchUsers = function <Response, Error>(
   onRequest: () => void,
-  onSuccess: (response: AxiosResponse<Response[]>) => void,
-  onFailure: (error: AxiosError<Error> | unknown) => void,
+  onSuccess: (response: Response[]) => void,
+  onFailure: (error: Error | unknown) => void,
 ) {
   onRequest();
 
   try {
-    const response: AxiosResponse<Response[]> = await fetchApi();
+    const verifyCache = readFromCache('users').value;
+
+    const response = verifyCache !== undefined ? readFromCache('users') : customers;
 
     onSuccess(response);
-  } catch (error: AxiosError<Error> | unknown) {
+  } catch (error: Error | unknown) {
     onFailure(error);
   }
 };
@@ -42,11 +39,14 @@ export const fetchRequest = (dispatch: DispatchProps<IUser>) => {
     return dispatch({ type: FETCH_USERS.PENDING });
   };
 
-  const onSuccess = (response: AxiosResponse<IUser[]>) => {
-    return dispatch({ type: FETCH_USERS.SUCCESS, payload: { response } });
+  const onSuccess = (response: IUser[]) => {
+    return dispatch({
+      type: FETCH_USERS.SUCCESS,
+      payload: { response },
+    });
   };
 
-  const onFailure = (error: AxiosError<Error> | unknown) => {
+  const onFailure = (error: Error | unknown) => {
     return dispatch({ type: FETCH_USERS.FAILURE, payload: { error } });
   };
 

@@ -1,9 +1,9 @@
 import { DispatchProps } from '~/types/common';
 
 export interface ObjActions<T> {
-  fetch?: (dispatch: DispatchProps<T>) => Promise<void>;
-  update?: (dispatch: DispatchProps<T>) => (valueUpdate: T) => Promise<void>;
-  delete?: (dispatch: DispatchProps<T>) => (id: number) => Promise<void>;
+  fetch?: (dispatch: DispatchProps<T>) => void;
+  update?: (dispatch: DispatchProps<T>) => (valueUpdate: T) => void;
+  delete?: (dispatch: DispatchProps<T>) => (id: number) => void;
 }
 
 export const bindDispatchToAction = function <T>(

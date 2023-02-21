@@ -1,12 +1,11 @@
-import { DELETE_USER, FETCH_USERS, UPDATE_USER } from '~/constant/action';
+import { DELETE_USER, FETCH_USERS, UPDATE_USER } from '~/constants/action';
+import { writeToCache } from '~/services/cache';
 import { IStates, PayloadProps } from '~/types/common';
 import { IUser } from '~/types/user';
 
 // Initial state users
 const initUserState: IStates<IUser> = {
-  isPending: false,
-  isSuccess: false,
-  isFailure: false,
+  status: 'idle',
   data: [] as IUser[],
 };
 
@@ -17,97 +16,64 @@ const usersReducer = (
 ) => {
   const { type, payload } = action;
 
-  console.log(type);
-
   switch (type) {
     case FETCH_USERS.PENDING:
       return {
         ...state,
-        isPending: true,
-        isSuccess: false,
-        isFailure: false,
+        status: 'pending',
       };
-    case FETCH_USERS.SUCCESS:
+    case FETCH_USERS.SUCCESS: {
+      if (payload?.response) {
+        writeToCache('users', payload.response);
+      }
+
       return {
         ...state,
-        isPending: false,
-        isSuccess: true,
-        isFailure: false,
-        data: payload?.response?.data,
+        status: 'success',
+        data: payload?.response,
       };
+    }
     case FETCH_USERS.FAILURE:
       return {
         ...state,
-        isPending: false,
-        isSuccess: false,
-        isFailure: true,
+        status: 'failure',
       };
     case UPDATE_USER.PENDING:
       return {
         ...state,
-        isPending: true,
-        isSuccess: false,
-        isFailure: false,
+        status: 'pending',
         data: state.data,
       };
     case UPDATE_USER.SUCCESS: {
-      // If data is array then find index by name list.
-      const idx = state.data?.findIndex((item: IUser) => item.id === payload?.response?.data.id);
-
-      let currentData: IUser[] = [];
-
-      if (state.data !== undefined) currentData = [...state.data];
-
-      if (idx !== undefined && idx >= 0 && payload?.response !== undefined)
-        currentData[idx] = payload.response.data;
-
       return {
         ...state,
-        isPending: false,
-        isSuccess: true,
-        isFailure: false,
-        data: currentData,
+        status: 'success',
+        data: payload?.response,
       };
     }
     case UPDATE_USER.FAILURE:
       return {
         ...state,
-        isPending: false,
-        isSuccess: false,
-        isFailure: true,
+        status: 'failure',
         data: state.data,
       };
     case DELETE_USER.PENDING:
       return {
         ...state,
-        isPending: true,
-        isSuccess: false,
-        isFailure: false,
+        status: 'pending',
         data: state.data,
       };
     case DELETE_USER.SUCCESS: {
-      let currentData: IUser[] = [];
-
-      if (state.data !== undefined) currentData = [...state.data];
-
-      const newArr = currentData.filter((object) => {
-        return object.id !== payload?.id;
-      });
-
       return {
         ...state,
-        isPending: false,
-        isSuccess: true,
-        isFailure: false,
-        data: newArr,
+        status: 'success',
+        data: payload?.response,
       };
     }
     case DELETE_USER.FAILURE:
       return {
         ...state,
-        isPending: false,
-        isSuccess: false,
-        isFailure: true,
+        status: 'failure',
         data: state.data,
       };
 
