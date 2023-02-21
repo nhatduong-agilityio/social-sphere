@@ -36,7 +36,7 @@ export const FilterName = ({ rows, onRows }: IProps) => {
 
   return (
     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
-      <Typography sx={{ fontSize: '13px' }} color={`${theme.palette.primary.light}`}>
+      <Typography sx={{ fontSize: '13px' }} color={theme.palette.primary.light}>
         Name
       </Typography>
       <FormControl sx={{ minWidth: '200px', padding: '0 12px 0 10px' }} size='small'>
@@ -49,7 +49,7 @@ export const FilterName = ({ rows, onRows }: IProps) => {
             fontSize: 16,
             width: 'auto',
             padding: '6px 12px 4px 12px',
-            color: `${theme.palette.primary.light}`,
+            color: theme.palette.primary.light,
           }}
         />
       </FormControl>
@@ -62,7 +62,7 @@ export const FilterName = ({ rows, onRows }: IProps) => {
           minWidth: '34px',
           padding: '12px',
           backgroundColor: '#03A9F4',
-          ':hover': `${theme.palette.action.hover}`,
+          ':hover': theme.palette.action.hover,
         }}
       >
         <SearchOutlinedIcon sx={{ fontSize: '16px' }} />

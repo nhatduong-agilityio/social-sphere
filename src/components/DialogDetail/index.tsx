@@ -71,7 +71,9 @@ export const FormDialog: FunctionComponent<IProps> = memo(
     };
 
     const handleChange = (newValue: Dayjs | null) => {
-      setDate(`${newValue}`);
+      const date = dayjs(newValue).format('ll').toString();
+
+      setDate(date);
     };
 
     const handleChangeLocation = (event: SelectChangeEvent) => {

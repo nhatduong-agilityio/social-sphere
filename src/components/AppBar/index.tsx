@@ -29,7 +29,7 @@ export const AppBarContent: FunctionComponent<IProps> = memo(({ onHandleRefresh 
         color='secondary'
         sx={{
           borderRadius: '3px 3px 0 0',
-          backgroundColor: `${theme.palette.primary.main}`,
+          backgroundColor: theme.palette.primary.main,
         }}
       >
         <Toolbar>
@@ -57,7 +57,7 @@ export const AppBarContent: FunctionComponent<IProps> = memo(({ onHandleRefresh 
           </Button>
           <Typography
             sx={{ fontSize: '16px', textTransform: 'capitalize', paddingLeft: '30px' }}
-            color={`${theme.palette.secondary.contrastText}`}
+            color={theme.palette.secondary.contrastText}
           >
             {mode} mode
           </Typography>

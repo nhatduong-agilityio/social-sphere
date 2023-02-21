@@ -122,7 +122,7 @@ export const LayoutContainer: FunctionComponent = memo(() => {
           sx={{
             width: '100%',
             padding: '15px 25px 20px 25px ',
-            backgroundColor: `${theme.palette.background.default}`,
+            backgroundColor: theme.palette.background.default,
           }}
         >
           <TableFilter
