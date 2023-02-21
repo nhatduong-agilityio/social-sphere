@@ -7,13 +7,13 @@ import {
   Typography,
   useTheme,
 } from '@mui/material';
-import { useState } from 'react';
+import { FunctionComponent, memo, useState } from 'react';
 
 interface IProps {
   onFilteredLocation: (location: string) => void;
 }
 
-export const FilterLocation = ({ onFilteredLocation }: IProps) => {
+export const FilterLocation: FunctionComponent<IProps> = memo(({ onFilteredLocation }: IProps) => {
   const theme = useTheme();
   const [location, setLocation] = useState('All');
 
@@ -65,4 +65,6 @@ export const FilterLocation = ({ onFilteredLocation }: IProps) => {
       </FormControl>
     </Box>
   );
-};
+});
+
+FilterLocation.displayName = 'FilterLocation';

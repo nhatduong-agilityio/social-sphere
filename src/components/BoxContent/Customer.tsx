@@ -1,11 +1,12 @@
 import { Avatar, Stack, Typography, useTheme } from '@mui/material';
+import { FunctionComponent, memo } from 'react';
 
 interface IProps {
   avatar: string;
   name: string;
 }
 
-export const Customer = ({ avatar, name }: IProps) => {
+export const Customer: FunctionComponent<IProps> = memo(({ avatar, name }: IProps) => {
   const theme = useTheme();
 
   return (
@@ -24,4 +25,6 @@ export const Customer = ({ avatar, name }: IProps) => {
       </Typography>
     </Stack>
   );
-};
+});
+
+Customer.displayName = 'Customer';

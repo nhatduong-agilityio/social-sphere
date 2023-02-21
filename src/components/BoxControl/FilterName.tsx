@@ -31,10 +31,10 @@ export const FilterName = ({ rows, onRows }: IProps) => {
     setSearchValue(event.target.value);
   };
 
-  const handleSearch = useCallback(() => {
+  const handleSearch = () => {
     requestSearch(searchValue);
     setSearchValue('');
-  }, [requestSearch, searchValue]);
+  };
 
   return (
     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
