@@ -1,17 +1,16 @@
 import { Avatar, Stack, Typography, useTheme } from '@mui/material';
-import { IData } from '~/types/data';
-import { IUser } from '~/types/user';
 
 interface IProps {
-  customer: IUser;
+  avatar: string;
+  name: string;
 }
 
-export const Customer = ({ customer }: IProps) => {
+export const Customer = ({ avatar, name }: IProps) => {
   const theme = useTheme();
 
   return (
     <Stack direction='row' spacing={2} sx={{ display: 'flex', alignItems: 'center' }}>
-      <Avatar alt='customer-avatar' src={customer.avatar} sx={{ width: '40px', height: '40px' }} />
+      <Avatar alt='customer-avatar' src={avatar} sx={{ width: '40px', height: '40px' }} />
       <Typography
         component={'h4'}
         sx={{
@@ -21,7 +20,7 @@ export const Customer = ({ customer }: IProps) => {
           textTransform: 'capitalize',
         }}
       >
-        {customer.name}
+        {name}
       </Typography>
     </Stack>
   );

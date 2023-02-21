@@ -36,7 +36,7 @@ const customer: IUser[] = [
     name: 'Roosevelt Trantow',
     avatar:
       'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/228.jpg',
-    location: 'Roma',
+    location: 'Other',
     orderDate: 'Oct 22, 2022',
     status: 'Pending',
     netAmount: 1.898,
@@ -86,7 +86,7 @@ const customer: IUser[] = [
     name: 'Merl McClure',
     avatar:
       'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/422.jpg',
-    location: 'Machester',
+    location: 'Other',
     orderDate: 'Feb 04, 2022',
     status: 'Shipped',
     netAmount: 777,
@@ -96,7 +96,7 @@ const customer: IUser[] = [
     name: 'Roosevelt Trantow',
     avatar:
       'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/228.jpg',
-    location: 'Roma',
+    location: 'Other',
     orderDate: 'Oct 22, 2022',
     status: 'Pending',
     netAmount: 1.898,
@@ -106,7 +106,7 @@ const customer: IUser[] = [
     name: 'Uzumaki Naruto',
     avatar:
       'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/231.jpg',
-    location: 'Tokyo',
+    location: 'Other',
     orderDate: 'Dec 10, 2022',
     status: 'Delivered',
     netAmount: 309,
@@ -116,7 +116,7 @@ const customer: IUser[] = [
     name: 'Stone Brakus',
     avatar:
       'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1006.jpg',
-    location: 'Ha Noi',
+    location: 'Other',
     orderDate: 'Nov 9, 2022',
     status: 'Cancelled',
     netAmount: 1.009,
@@ -126,7 +126,7 @@ const customer: IUser[] = [
     name: 'Lelah Dickinson',
     avatar:
       'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/134.jpg',
-    location: 'Singapore',
+    location: 'Other',
     orderDate: 'Sep 30, 2022',
     status: 'Shipped',
     netAmount: 999,

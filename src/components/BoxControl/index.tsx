@@ -1,6 +1,5 @@
 import { Box, Grid } from '@mui/material';
 import { FunctionComponent, memo } from 'react';
-import { IData } from '~/types/data';
 import { IUser } from '~/types/user';
 import { FilterEntries } from './FilterEntries';
 import { FilterLocation } from './FilterLocation';

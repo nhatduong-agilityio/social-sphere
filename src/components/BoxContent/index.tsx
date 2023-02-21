@@ -43,7 +43,7 @@ interface IProps {
   onChangeRowsPerPage: (rowsPerPage: number, page: number) => void;
   filteredStatus: string;
   filteredLocation: string;
-  onOpenDialog: (data: IUser) => void;
+  onOpenDialog: (id: number) => void;
 }
 
 const filterByStatus = (filteredStatus: string, data: IUser) => {
@@ -87,13 +87,23 @@ export const CustomizedTables: FunctionComponent<IProps> = memo(
               </TableRow>
             </TableHead>
             <TableBody>
-              {Object.values(rows)
+              {rows
                 .filter((row) => filterByStatus(filteredStatus, row))
                 .filter((row) => filterByLocation(filteredLocation, row))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => (
                   <StyledTableRow key={row.id}>
-                    <ItemOrder index={index} data={row} onOpenDialog={onOpenDialog} />
+                    <ItemOrder
+                      index={index}
+                      id={row.id}
+                      avatar={row.avatar}
+                      name={row.name}
+                      location={row.location}
+                      status={row.status}
+                      orderDate={row.orderDate}
+                      netAmount={row.netAmount}
+                      onOpenDialog={onOpenDialog}
+                    />
                   </StyledTableRow>
                 ))}
             </TableBody>
@@ -102,7 +112,7 @@ export const CustomizedTables: FunctionComponent<IProps> = memo(
                 <TablePagination
                   labelRowsPerPage={false}
                   rowsPerPageOptions={[]}
-                  count={Object.values(rows).length}
+                  count={rows.length}
                   rowsPerPage={rowsPerPage}
                   page={page}
                   SelectProps={{

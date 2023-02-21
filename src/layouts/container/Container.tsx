@@ -29,7 +29,7 @@ export const LayoutContainer: FunctionComponent = memo(() => {
   const [rowsPerPage, setRowsPerPage] = useState(Number(entries));
   const [filteredStatus, setFilteredStatus] = useState(STATUS.ANY);
   const [filteredLocation, setFilteredLocation] = useState(LOCATION.ALL);
-  const [rows, setRows] = useState<IUser[]>({} as IUser[]);
+  const [rows, setRows] = useState<IUser[]>(users.data ? users.data : ({} as IUser[]));
 
   useEffect(() => {
     if (users.data) {
@@ -39,7 +39,7 @@ export const LayoutContainer: FunctionComponent = memo(() => {
 
   const [dialogForm, setDialogForm] = useState<DialogState>({
     open: false,
-    data: {} as IUser,
+    idSelected: 0,
   });
 
   /**
@@ -53,32 +53,34 @@ export const LayoutContainer: FunctionComponent = memo(() => {
   }, []);
 
   const handleRefresh = () => {
-    handleRefreshData();
+    if (users.data) {
+      setRows(users.data);
+    }
   };
 
-  const handleOpenDialog = useCallback((data: IUser) => {
+  const handleOpenDialog = useCallback((id: number) => {
     setDialogForm({
       open: true,
-      data: data,
+      idSelected: id,
     });
   }, []);
 
   const handleCloseDialog = useCallback(() => {
     setDialogForm({
       open: false,
-      data: dialogForm.data,
+      idSelected: dialogForm.idSelected,
     });
-  }, [dialogForm.data]);
+  }, [dialogForm.idSelected]);
 
   const renderDialog = useMemo(() => {
     return (
       <FormDialog
         openDialog={dialogForm.open}
-        orderSelected={dialogForm.data}
+        orderSelected={dialogForm.idSelected}
         onCloseDialog={handleCloseDialog}
       />
     );
-  }, [dialogForm.data, dialogForm.open, handleCloseDialog]);
+  }, [dialogForm.idSelected, dialogForm.open, handleCloseDialog]);
 
   return (
     <>
