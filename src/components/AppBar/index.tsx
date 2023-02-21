@@ -8,9 +8,19 @@ interface IProps {
   onHandleRefresh: () => void;
 }
 
+const IconModeRenderer = ({ theme }: { theme: 'dark' | 'light' }) => {
+  const IconComponent = theme === 'dark' ? Brightness4 : Brightness7;
+
+  return <IconComponent sx={{ fontSize: '24px' }} />;
+};
+
 export const AppBarContent: FunctionComponent<IProps> = memo(({ onHandleRefresh }: IProps) => {
   const theme = useTheme();
-  const colorMode = useContext(ColorModeContext);
+  const { setMode, mode } = useContext(ColorModeContext);
+
+  const handleSetMode = (_event: React.MouseEvent<HTMLButtonElement>) => {
+    setMode(mode);
+  };
 
   return (
     <Box sx={{ flexGrow: 1, marginTop: '30px' }}>
@@ -19,7 +29,7 @@ export const AppBarContent: FunctionComponent<IProps> = memo(({ onHandleRefresh 
         color='secondary'
         sx={{
           borderRadius: '3px 3px 0 0',
-          backgroundColor: `${theme.palette.primary.main}`,
+          backgroundColor: theme.palette.primary.main,
         }}
       >
         <Toolbar>
@@ -47,21 +57,17 @@ export const AppBarContent: FunctionComponent<IProps> = memo(({ onHandleRefresh 
           </Button>
           <Typography
             sx={{ fontSize: '16px', textTransform: 'capitalize', paddingLeft: '30px' }}
-            color={`${theme.palette.secondary.contrastText}`}
+            color={theme.palette.secondary.contrastText}
           >
-            {theme.palette.mode} mode
+            {mode} mode
           </Typography>
           <Box
             sx={{
               textTransform: 'capitalize',
             }}
           >
-            <IconButton sx={{ paddingLeft: 1 }} onClick={colorMode.toggleColorMode} color='inherit'>
-              {theme.palette.mode === 'dark' ? (
-                <Brightness4 sx={{ fontSize: '24px' }} />
-              ) : (
-                <Brightness7 sx={{ fontSize: '24px' }} />
-              )}
+            <IconButton sx={{ paddingLeft: 1 }} onClick={handleSetMode} color='inherit'>
+              <IconModeRenderer theme={theme.palette.mode} />
             </IconButton>
           </Box>
         </Toolbar>

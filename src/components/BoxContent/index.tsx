@@ -7,10 +7,10 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { TableFooter, TablePagination } from '@mui/material';
 import { ItemOrder } from './ItemOrder';
-import { STATUS } from '~/constant/status';
-import { LOCATION } from '~/constant/location';
-import { IData } from '~/types/data';
-import { FunctionComponent, memo } from 'react';
+import { STATUS } from '~/constants/status';
+import { LOCATION } from '~/constants/location';
+import { FunctionComponent, memo, useEffect } from 'react';
+import { IUser } from '~/types/user';
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
   ':hover': {
@@ -36,15 +36,23 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 }));
 
 interface IProps {
-  rows: IData[];
+  rows: IUser[];
   page: number;
   onSetPage: (page: number) => void;
   rowsPerPage: number;
   onChangeRowsPerPage: (rowsPerPage: number, page: number) => void;
   filteredStatus: string;
   filteredLocation: string;
-  onOpenDialog: (data: IData) => void;
+  onOpenDialog: (data: IUser) => void;
 }
+
+const filterByStatus = (filteredStatus: string, data: IUser) => {
+  return filteredStatus !== STATUS.ANY ? data.status === filteredStatus : data;
+};
+
+const filterByLocation = (filteredLocation: string, data: IUser) => {
+  return filteredLocation !== LOCATION.ALL ? data.location === filteredLocation : data;
+};
 
 export const CustomizedTables: FunctionComponent<IProps> = memo(
   ({
@@ -79,25 +87,12 @@ export const CustomizedTables: FunctionComponent<IProps> = memo(
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows
-                .filter((valueFilter) => {
-                  // console.log(value);
-                  if (filteredStatus !== STATUS.ANY && filteredLocation !== LOCATION.ALL) {
-                    return (
-                      valueFilter.status === filteredStatus &&
-                      valueFilter.location === filteredLocation
-                    );
-                  } else if (filteredStatus !== STATUS.ANY) {
-                    return valueFilter.status === filteredStatus;
-                  } else if (filteredLocation !== LOCATION.ALL) {
-                    return valueFilter.location === filteredLocation;
-                  } else {
-                    return rows;
-                  }
-                })
+              {Object.values(rows)
+                .filter((row) => filterByStatus(filteredStatus, row))
+                .filter((row) => filterByLocation(filteredLocation, row))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => (
-                  <StyledTableRow key={index}>
+                  <StyledTableRow key={row.id}>
                     <ItemOrder index={index} data={row} onOpenDialog={onOpenDialog} />
                   </StyledTableRow>
                 ))}
@@ -107,7 +102,7 @@ export const CustomizedTables: FunctionComponent<IProps> = memo(
                 <TablePagination
                   labelRowsPerPage={false}
                   rowsPerPageOptions={[]}
-                  count={rows.length}
+                  count={Object.values(rows).length}
                   rowsPerPage={rowsPerPage}
                   page={page}
                   SelectProps={{
@@ -120,7 +115,6 @@ export const CustomizedTables: FunctionComponent<IProps> = memo(
                   onRowsPerPageChange={(event) =>
                     onChangeRowsPerPage(parseInt(event.target.value, 10), 0)
                   }
-                  // ActionsComponent={() => <h1>title</h1>}
                 />
               </TableRow>
             </TableFooter>

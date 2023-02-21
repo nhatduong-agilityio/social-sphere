@@ -1,11 +1,14 @@
 import { LayoutContainer } from './layouts/container/Container';
 import { ColorModeProvider } from './store/providers/toggleColorMode';
+import { UserProvider } from './store/providers/user';
 
 const App = () => {
   return (
-    <ColorModeProvider>
-      <LayoutContainer />
-    </ColorModeProvider>
+    <UserProvider>
+      <ColorModeProvider>
+        <LayoutContainer />
+      </ColorModeProvider>
+    </UserProvider>
   );
 };
 

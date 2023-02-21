@@ -1,4 +1,5 @@
 import {
+  Box,
   IconButton,
   styled,
   TableCell,
@@ -11,6 +12,7 @@ import { IData } from '~/types/data';
 import { Customer } from './Customer';
 import { Status } from './Status';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { IUser } from '~/types/user';
 
 // customize for table cell
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -36,8 +38,8 @@ const StyledTooltip = styled(ToBeStyledTooltip)(() => ({
 
 interface IProps {
   index: number;
-  data: IData;
-  onOpenDialog: (data: IData) => void;
+  data: IUser;
+  onOpenDialog: (data: IUser) => void;
 }
 
 export const ItemOrder: FunctionComponent<IProps> = memo(
@@ -55,11 +57,11 @@ export const ItemOrder: FunctionComponent<IProps> = memo(
           <Customer customer={data} />
         </StyledTableCell>
         <StyledTableCell align='left'>{data.location}</StyledTableCell>
-        <StyledTableCell align='left'>{data.fat}</StyledTableCell>
+        <StyledTableCell align='left'>{data.orderDate}</StyledTableCell>
         <StyledTableCell align='left'>
           <Status status={data.status} />
         </StyledTableCell>
-        <StyledTableCell align='left'>{data.netAmount}</StyledTableCell>
+        <StyledTableCell align='left'>{`$ ${data.netAmount}`}</StyledTableCell>
         <StyledTableCell align='left'>
           <StyledTooltip
             title='Action Details'

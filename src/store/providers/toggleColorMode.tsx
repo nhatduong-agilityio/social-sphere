@@ -1,5 +1,5 @@
 import { createTheme, PaletteMode, ThemeProvider } from '@mui/material';
-import { createContext, FC, ReactNode, useMemo, useState } from 'react';
+import { createContext, Dispatch, FC, ReactNode, SetStateAction, useMemo, useState } from 'react';
 import { designColorMode } from '../reducers/getDesignColorMode';
 
 interface IProps {
@@ -7,7 +7,8 @@ interface IProps {
 }
 
 interface IColorModeContext {
-  toggleColorMode: () => void;
+  setMode: Dispatch<SetStateAction<PaletteMode>>;
+  mode: PaletteMode;
 }
 
 export const ColorModeContext = createContext({} as IColorModeContext);
@@ -15,18 +16,17 @@ export const ColorModeContext = createContext({} as IColorModeContext);
 export const ColorModeProvider: FC<IProps> = ({ children }: IProps) => {
   const [mode, setMode] = useState<PaletteMode>('light');
 
-  const colorMode = useMemo(
-    () => ({
-      // The dark mode switch would invoke this method
-      toggleColorMode: () => {
-        setMode((prevMode: PaletteMode) => (prevMode === 'light' ? 'dark' : 'light'));
-      },
-    }),
-    [],
-  );
+  const handleSetMode = () => {
+    setMode(mode === 'light' ? 'dark' : 'light');
+  };
 
   // Update the theme only if the mode changes
   const theme = useMemo(() => createTheme(designColorMode(mode)), [mode]);
+
+  const colorMode = {
+    mode,
+    setMode: handleSetMode,
+  };
 
   return (
     <ColorModeContext.Provider value={colorMode}>
