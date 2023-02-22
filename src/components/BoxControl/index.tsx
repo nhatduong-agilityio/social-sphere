@@ -26,7 +26,6 @@ export const TableFilter: FunctionComponent<IProps> = memo(
     onChangeRowsPerPage,
     onFilteredStatus,
     onFilteredLocation,
-    rows,
     onRows,
   }: IProps) => {
     return (
@@ -51,7 +50,7 @@ export const TableFilter: FunctionComponent<IProps> = memo(
             <FilterLocation onFilteredLocation={onFilteredLocation} />
           </Grid>
           <Grid item={true} xs={4}>
-            <FilterName rows={rows} onRows={onRows} />
+            <FilterName onRows={onRows} />
           </Grid>
         </Grid>
       </Box>

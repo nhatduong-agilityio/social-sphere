@@ -1,6 +1,6 @@
 import { Box, Button, Typography, useTheme } from '@mui/material';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
-import { useCallback, useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import { IUser } from '~/types/user';
 import { IUserContext, UserContext } from '~/store/providers/user';
 import { FormSearchContent } from './FormSearchContent';
@@ -24,12 +24,12 @@ export const FilterName = ({ onRows }: IProps) => {
   const { users } = useUsers();
   const [searchValue, setSearchValue] = useState('');
 
-  const handleSearch = useCallback(() => {
+  const handleSearch = () => {
     if (users.data) {
       requestSearch(users.data, searchValue, onRows);
     }
     setSearchValue('');
-  }, [onRows, searchValue, users.data]);
+  };
 
   return (
     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>

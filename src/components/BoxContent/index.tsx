@@ -9,7 +9,7 @@ import { TableFooter, TablePagination } from '@mui/material';
 import { ItemOrder } from './ItemOrder';
 import { STATUS } from '~/constants/status';
 import { LOCATION } from '~/constants/location';
-import { FunctionComponent, memo, useEffect } from 'react';
+import { FunctionComponent, memo } from 'react';
 import { IUser } from '~/types/user';
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({

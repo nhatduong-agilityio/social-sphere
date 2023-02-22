@@ -1,6 +1,6 @@
 import { IconButton, styled, Tooltip, TooltipProps } from '@mui/material';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import { FunctionComponent, memo, useCallback } from 'react';
+import { FunctionComponent, memo } from 'react';
 
 const ToBeStyledTooltip = ({ className, ...props }: TooltipProps) => (
   <Tooltip {...props} classes={{ tooltip: className }} />
