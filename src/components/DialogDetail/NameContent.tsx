@@ -1,35 +1,23 @@
 import { TextField } from '@mui/material';
-import { ChangeEvent, FunctionComponent, memo, useEffect, useState } from 'react';
+import { FunctionComponent, memo } from 'react';
 
 interface IProps {
   name: string;
-  onSetName: (name: string) => void;
 }
 
-export const NameContent: FunctionComponent<IProps> = memo(({ name, onSetName }: IProps) => {
-  const [valueName, setValueName] = useState(name);
-
-  const handleChangeName = (event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
-    setValueName(event.target.value);
-  };
-
-  useEffect(() => {
-    onSetName(valueName);
-  }, [onSetName, valueName]);
-
+export const NameContent: FunctionComponent<IProps> = memo(({ name }: IProps) => {
   return (
     <TextField
       sx={{
         fontSize: '13px',
       }}
       margin='dense'
-      id='name'
+      name='inputName'
       label='Name customer'
       type='text'
       fullWidth
       variant='standard'
-      onChange={handleChangeName}
-      value={name || ''}
+      defaultValue={name}
     />
   );
 });

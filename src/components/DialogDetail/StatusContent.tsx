@@ -5,12 +5,11 @@ import {
   InputLabel,
   MenuItem,
   Select,
-  SelectChangeEvent,
   Stack,
   styled,
   Typography,
 } from '@mui/material';
-import { FunctionComponent, memo, useEffect, useState } from 'react';
+import { FunctionComponent, memo } from 'react';
 
 const StyledBadgeDot = styled(Badge)(() => ({
   [`& .${badgeClasses.dot}`]: {
@@ -22,28 +21,17 @@ const StyledBadgeDot = styled(Badge)(() => ({
 
 interface IProps {
   status: string;
-  onSetStatus: (status: string) => void;
 }
 
-export const StatusContent: FunctionComponent<IProps> = memo(({ status, onSetStatus }: IProps) => {
-  const [statusValue, setStatusValue] = useState(status);
-
-  const handleChangeStatus = (event: SelectChangeEvent) => {
-    setStatusValue(event.target.value);
-  };
-
-  useEffect(() => {
-    onSetStatus(statusValue);
-  }, [onSetStatus, statusValue]);
-
+export const StatusContent: FunctionComponent<IProps> = memo(({ status }: IProps) => {
   return (
     <FormControl>
       <InputLabel id='demo-dialog-select-label'>Status</InputLabel>
       <Select
+        key={`select-${status}`}
         labelId='demo-dialog-select-label'
-        id='demo-dialog-select'
-        value={status || ''}
-        onChange={handleChangeStatus}
+        name='statusSelected'
+        defaultValue={status}
         variant='standard'
       >
         <MenuItem value={'Delivered'}>

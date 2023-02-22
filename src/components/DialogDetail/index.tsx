@@ -4,16 +4,16 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import {
+  FormEvent,
   FunctionComponent,
   memo,
-  useCallback,
   useContext,
   useEffect,
   useMemo,
   useState,
 } from 'react';
 import { Customer } from '../BoxContent/Customer';
-import { Stack } from '@mui/material';
+import { Alert, Snackbar, Stack } from '@mui/material';
 import { IUser } from '~/types/user';
 import { IUserContext, UserContext } from '~/store/providers/user';
 import { NameContent } from './NameContent';
@@ -40,7 +40,6 @@ export const FormDialog: FunctionComponent<IProps> = memo(
   ({ openDialog, orderSelected, onCloseDialog }: IProps) => {
     const { users, handleUpdateUser, handleDeleteUser } = useUsers();
     const [rows, setRows] = useState<IUser[]>(users.data ? users.data : ({} as IUser[]));
-    const [dataInDiaLog, setDataInDiaLog] = useState<IUser>({} as IUser);
 
     useEffect(() => {
       if (users.data) {
@@ -53,73 +52,74 @@ export const FormDialog: FunctionComponent<IProps> = memo(
       [orderSelected, rows],
     );
 
-    const [name, setName] = useState('');
-    const [date, setDate] = useState('');
-    const [status, setStatus] = useState('');
-    const [location, setLocation] = useState('');
-    const [netAmount, setNetAmount] = useState(parseInt(''));
+    if (!filterData) {
+      return (
+        <Snackbar open={true} autoHideDuration={2000}>
+          <Alert severity='warning'>Not found!</Alert>
+        </Snackbar>
+      );
+    }
 
-    useEffect(() => {
-      if (filterData) {
-        setDataInDiaLog(filterData);
-      }
+    const name = filterData.name;
+    const avatar = filterData.avatar;
+    const location = filterData.location;
+    const orderDate = filterData.orderDate;
+    const status = filterData.status;
+    const netAmount = filterData.netAmount;
 
-      setName(dataInDiaLog.name);
-      setDate(dataInDiaLog.orderDate);
-      setLocation(dataInDiaLog.location);
-      setStatus(dataInDiaLog.status);
-      setNetAmount(dataInDiaLog.netAmount);
-    }, [dataInDiaLog, filterData, orderSelected, rows]);
+    const onHandleUpdate = (event: FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+      const formData = new FormData(event.currentTarget);
+      const nameValue = formData.get('inputName')?.toString();
+      const locationValue = formData.get('locationSelected')?.toString();
+      const orderDateValue = formData.get('orderDate')?.toString();
+      const statusValue = formData.get('statusSelected')?.toString();
+      const netAmountValue = formData.get('netAmount')?.toString();
 
-    const valueUpdate: IUser = useMemo(() => {
-      return {
-        id: dataInDiaLog.id,
-        name: name,
-        avatar: dataInDiaLog.avatar,
-        location: location,
-        orderDate: date,
-        status: status,
-        netAmount: netAmount,
+      const valueUpdate = {
+        id: orderSelected,
+        name: nameValue ? nameValue : name,
+        avatar: avatar,
+        location: locationValue ? locationValue : location,
+        orderDate: orderDateValue ? orderDateValue : orderDate,
+        status: statusValue ? statusValue : status,
+        netAmount: netAmountValue ? parseInt(netAmountValue) : netAmount,
       };
-    }, [dataInDiaLog.avatar, dataInDiaLog.id, date, location, name, netAmount, status]);
 
-    const onHandleUpdate = useCallback(() => {
       handleUpdateUser(valueUpdate);
-    }, [handleUpdateUser, valueUpdate]);
+    };
 
     const onHandleDelete = () => {
-      handleDeleteUser(dataInDiaLog.id);
+      handleDeleteUser(filterData.id);
       onCloseDialog();
     };
 
     return (
       <Dialog open={openDialog} onClose={onCloseDialog} fullWidth>
-        <DialogTitle>Order Detail of {dataInDiaLog.name}</DialogTitle>
-        <DialogContent>
-          <Customer avatar={dataInDiaLog.avatar} name={dataInDiaLog.name} />
-          <Stack spacing={3}>
-            <NameContent name={name} onSetName={setName} />
-
-            <LocationContent location={location} onSetLocation={setLocation} />
-
-            <DateContent date={date} onSetDate={setDate} />
-
-            <StatusContent status={status} onSetStatus={setStatus} />
-
-            <NetAmountContent netAmount={netAmount} onSetNetAmount={setNetAmount} />
-          </Stack>
-        </DialogContent>
-        <DialogActions>
-          <Button color='warning' onClick={onCloseDialog} variant='outlined'>
-            Cancel
-          </Button>
-          <Button color='error' onClick={onHandleDelete} variant='outlined'>
-            Delete
-          </Button>
-          <Button color='info' onClick={onHandleUpdate} variant='outlined'>
-            Update
-          </Button>
-        </DialogActions>
+        <form onSubmit={onHandleUpdate}>
+          <DialogTitle>Order Detail of {name}</DialogTitle>
+          <DialogContent>
+            <Customer avatar={avatar} name={name} />
+            <Stack spacing={3}>
+              <NameContent name={name} />
+              <LocationContent location={location} />
+              <DateContent date={orderDate} />
+              <StatusContent status={status} />
+              <NetAmountContent netAmount={netAmount} />
+            </Stack>
+          </DialogContent>
+          <DialogActions>
+            <Button color='warning' onClick={onCloseDialog} variant='outlined'>
+              Cancel
+            </Button>
+            <Button color='error' onClick={onHandleDelete} variant='outlined'>
+              Delete
+            </Button>
+            <Button color='info' type='submit' variant='outlined'>
+              Update
+            </Button>
+          </DialogActions>
+        </form>
       </Dialog>
     );
   },

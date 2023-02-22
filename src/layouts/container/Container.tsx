@@ -22,7 +22,7 @@ const useUsers = () => useContext<IUserContext>(UserContext);
 
 export const LayoutContainer: FunctionComponent = memo(() => {
   const theme = useTheme();
-  const { users, handleRefreshData } = useUsers();
+  const { users } = useUsers();
 
   const [entries, setEntries] = useState('5');
   const [page, setPage] = useState(0);
@@ -114,7 +114,7 @@ export const LayoutContainer: FunctionComponent = memo(() => {
           />
         </Box>
       </Container>
-      {renderDialog}
+      {dialogForm.open && renderDialog}
     </>
   );
 });
