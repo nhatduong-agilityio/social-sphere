@@ -1,11 +1,17 @@
 import { createContext, ReactNode, useEffect, useMemo, useReducer } from 'react';
+
+// Helpers
 import { bindDispatchToAction, ObjActions } from '~/helpers/actionCreator';
+
+// Types
 import { IStates } from '~/types/common';
 import { IUser } from '~/types/user';
-import { requestDeleteUser } from '../actions/user/deleteRequest';
-import { fetchRequest } from '../actions/user/fetchRequest';
-import { requestUpdateUser } from '../actions/user/updateRequest';
-import { initUserState, usersReducer } from '../reducers/user';
+
+// Stores
+import { requestDeleteUser } from '~/store/actions/user/deleteRequest';
+import { fetchRequest } from '~/store/actions/user/fetchRequest';
+import { requestUpdateUser } from '~/store/actions/user/updateRequest';
+import { initUserState, usersReducer } from '~/store/reducers/user';
 
 interface IProps {
   children: ReactNode;
@@ -17,6 +23,7 @@ export interface IUserContext {
   handleDeleteUser: (id: number) => void;
 }
 
+// Create context for management user
 export const UserContext = createContext<IUserContext>({} as IUserContext);
 
 export const UserProvider: React.FC<IProps> = ({ children }: IProps) => {

@@ -1,3 +1,4 @@
+// Libs
 import { Box, Container, useTheme } from '@mui/material';
 import {
   FunctionComponent,
@@ -8,15 +9,23 @@ import {
   useMemo,
   useState,
 } from 'react';
-import { AppBarContent } from '~/components/AppBar';
-import { CustomizedTables } from '~/components/BoxContent';
-import { TableFilter } from '~/components/BoxControl';
-import { FormDialog } from '~/components/DialogDetail';
+
+// Constants
 import { LOCATION } from '~/constants/location';
 import { STATUS } from '~/constants/status';
+
+// Store
 import { IUserContext, UserContext } from '~/store/providers/user';
+
+// Types
 import { DialogState } from '~/types/dialogForm';
 import { IUser } from '~/types/user';
+
+// Components
+import { AppBarContent } from '@components/AppBar';
+import { CustomizedTables } from '@components/BoxContent';
+import { TableFilter } from '@components/BoxControl';
+import { FormDialog } from '@components/DialogDetail';
 
 const useUsers = () => useContext<IUserContext>(UserContext);
 

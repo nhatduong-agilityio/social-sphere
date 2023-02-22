@@ -1,8 +1,20 @@
+// Types
 import { DispatchProps } from '~/types/common';
 import { IUser } from '~/types/user';
+
+// Constants
 import { DELETE_USER } from '~/constants/action';
+
+// Helpers
 import { removeStorage } from '~/helpers/localStorage';
 
+/**
+ * Handle delete data and pass response to void params
+ * @param onRequest void
+ * @param onSuccess void
+ * @param onFailure void
+ * @param idUser number
+ */
 const deleteUser = function <Response, Error>(
   onRequest: () => void,
   onSuccess: (response: Response[]) => void,
@@ -12,6 +24,7 @@ const deleteUser = function <Response, Error>(
   onRequest();
 
   try {
+    // Call to helper remove data by id
     const response: Response[] = removeStorage(idUser);
 
     onSuccess(response);
@@ -20,6 +33,11 @@ const deleteUser = function <Response, Error>(
   }
 };
 
+/**
+ * Handle request delete data from action
+ * @param dispatch dispatch props
+ * @returns function handle delete and pass response to reducer
+ */
 export const requestDeleteUser = (dispatch: DispatchProps<IUser>) => (idUser: number) => {
   const onPending = () => {
     return dispatch({ type: DELETE_USER.PENDING });

@@ -1,3 +1,4 @@
+// Libs
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -6,10 +7,16 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { TableFooter, TablePagination } from '@mui/material';
-import { ItemOrder } from './ItemOrder';
+import { FunctionComponent, memo } from 'react';
+
+// Components
+import { ItemOrder } from '@components/BoxContent/ItemOrder';
+
+// Constants
 import { STATUS } from '~/constants/status';
 import { LOCATION } from '~/constants/location';
-import { FunctionComponent, memo } from 'react';
+
+// Types
 import { IUser } from '~/types/user';
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({

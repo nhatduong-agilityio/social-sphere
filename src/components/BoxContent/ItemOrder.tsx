@@ -1,3 +1,4 @@
+// Libs
 import {
   IconButton,
   styled,
@@ -6,10 +7,12 @@ import {
   Tooltip,
   TooltipProps,
 } from '@mui/material';
-import { FunctionComponent, memo } from 'react';
-import { Customer } from './Customer';
-import { Status } from './Status';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { FunctionComponent, memo } from 'react';
+
+// Components
+import { Customer } from '@components/BoxContent/Customer';
+import { Status } from '@components/BoxContent/Status';
 
 // customize for table cell
 const StyledTableCell = styled(TableCell)(({ theme }) => ({

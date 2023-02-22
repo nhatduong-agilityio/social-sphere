@@ -1,5 +1,7 @@
+// Libs
 import { PaletteMode } from '@mui/material';
 
+// Function handle customize color mode
 export const designColorMode = (mode: PaletteMode) => ({
   palette: {
     mode,

@@ -1,6 +1,9 @@
+// Libs
 import { Badge, badgeClasses, Stack, styled, Typography } from '@mui/material';
 import { memo, useMemo } from 'react';
 import { FunctionComponent } from 'react';
+
+// Constants
 import { STATUS } from '~/constants/status';
 
 const StyledBadgeDot = styled(Badge)(() => ({

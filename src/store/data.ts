@@ -1,5 +1,6 @@
 import { IUser } from '~/types/user';
 
+// Object data
 const customer: IUser[] = [
   {
     name: 'Dahlia Gulgowski',

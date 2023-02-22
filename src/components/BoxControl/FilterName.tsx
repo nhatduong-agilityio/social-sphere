@@ -1,9 +1,16 @@
+// Libs
 import { Box, Button, Typography, useTheme } from '@mui/material';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import { useContext, useState } from 'react';
+
+// Types
 import { IUser } from '~/types/user';
+
+// Store
 import { IUserContext, UserContext } from '~/store/providers/user';
-import { FormSearchContent } from './FormSearchContent';
+
+// Components
+import { FormSearchContent } from '@components/BoxControl/FormSearchContent';
 
 interface IProps {
   onRows: (rows: IUser[]) => void;

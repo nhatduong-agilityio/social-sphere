@@ -1,3 +1,4 @@
+// Libs
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -12,15 +13,21 @@ import {
   useMemo,
   useState,
 } from 'react';
-import { Customer } from '../BoxContent/Customer';
 import { Alert, Snackbar, Stack } from '@mui/material';
+
+// Types
 import { IUser } from '~/types/user';
+
+// Store
 import { IUserContext, UserContext } from '~/store/providers/user';
-import { NameContent } from './NameContent';
-import { LocationContent } from './LocationContent';
-import { DateContent } from './DateContent';
-import { StatusContent } from './StatusContent';
-import { NetAmountContent } from './NetAmountContent';
+
+// Components
+import { Customer } from '@components/BoxContent/Customer';
+import { NameContent } from '@components/DialogDetail/NameContent';
+import { LocationContent } from '@components/DialogDetail/LocationContent';
+import { DateContent } from '@components/DialogDetail/DateContent';
+import { StatusContent } from '@components/DialogDetail/StatusContent';
+import { NetAmountContent } from '@components/DialogDetail/NetAmountContent';
 
 interface IProps {
   openDialog: boolean;
@@ -30,6 +37,7 @@ interface IProps {
 
 const useUsers = () => useContext<IUserContext>(UserContext);
 
+// function helper filter item by id
 const filterOrderSelected = (orderSelected: number, data: IUser[]) => {
   const dataFilter = data.find((item) => item.id === orderSelected);
 
@@ -67,6 +75,7 @@ export const FormDialog: FunctionComponent<IProps> = memo(
     const status = filterData.status;
     const netAmount = filterData.netAmount;
 
+    // handle update item
     const onHandleUpdate = (event: FormEvent<HTMLFormElement>) => {
       event.preventDefault();
       const formData = new FormData(event.currentTarget);
@@ -89,6 +98,7 @@ export const FormDialog: FunctionComponent<IProps> = memo(
       handleUpdateUser(valueUpdate);
     };
 
+    // handle delete item by id
     const onHandleDelete = () => {
       handleDeleteUser(filterData.id);
       onCloseDialog();

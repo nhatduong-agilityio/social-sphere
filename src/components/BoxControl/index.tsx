@@ -1,10 +1,15 @@
+// Libs
 import { Box, Grid } from '@mui/material';
 import { FunctionComponent, memo } from 'react';
+
+// Types
 import { IUser } from '~/types/user';
-import { FilterEntries } from './FilterEntries';
-import { FilterLocation } from './FilterLocation';
-import { FilterName } from './FilterName';
-import { FilterStatus } from './FilterStatus';
+
+// Components
+import { FilterEntries } from '@components/BoxControl/FilterEntries';
+import { FilterLocation } from '@components/BoxControl/FilterLocation';
+import { FilterName } from '@components/BoxControl/FilterName';
+import { FilterStatus } from '@components/BoxControl/FilterStatus';
 
 interface IProps {
   // number entries at select

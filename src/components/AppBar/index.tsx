@@ -1,8 +1,11 @@
+// Libs
 import { Box, AppBar, Toolbar, Typography, Button, useTheme, IconButton } from '@mui/material';
 import SyncIcon from '@mui/icons-material/Sync';
 import { FunctionComponent, memo, useContext } from 'react';
-import { ColorModeContext } from '~/store/providers/toggleColorMode';
 import { Brightness4, Brightness7 } from '@mui/icons-material';
+
+// Store
+import { ColorModeContext } from '~/store/providers/toggleColorMode';
 
 interface IProps {
   onHandleRefresh: () => void;

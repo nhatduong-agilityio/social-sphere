@@ -1,10 +1,13 @@
+// Services
 import { readFromCache, writeToCache } from '~/services/cache';
+
+// Types
 import { IUser } from '~/types/user';
 
+// Function helper update data in local storage
 export const updateStorage = (data: IUser) => {
-  //Retrieve the object
+  // Retrieve the object
   const dataCurrents = readFromCache('users');
-  //Change the username property
 
   const index = dataCurrents.findIndex((dataCurrent: IUser) => dataCurrent.id === data.id);
 
@@ -16,10 +19,10 @@ export const updateStorage = (data: IUser) => {
   return dataCurrents;
 };
 
+// Function helper delete data by id in local storage
 export const removeStorage = (id: number) => {
-  //Retrieve the object
+  // Retrieve the object
   const dataCurrents = readFromCache('users');
-  //Change the username property
 
   const newData = dataCurrents.filter((dataCurrent: IUser) => dataCurrent.id !== id);
 
