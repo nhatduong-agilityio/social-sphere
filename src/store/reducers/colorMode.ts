@@ -2,7 +2,7 @@
 import { PaletteMode } from '@mui/material';
 
 // Function handle customize color mode
-export const designColorMode = (mode: PaletteMode) => ({
+export const settingMode = (mode: PaletteMode) => ({
   palette: {
     mode,
     ...(mode === 'light'

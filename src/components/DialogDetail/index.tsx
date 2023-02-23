@@ -79,11 +79,14 @@ export const FormDialog: FunctionComponent<IProps> = memo(
     const onHandleUpdate = (event: FormEvent<HTMLFormElement>) => {
       event.preventDefault();
       const formData = new FormData(event.currentTarget);
-      const nameValue = formData.get('inputName')?.toString();
-      const locationValue = formData.get('locationSelected')?.toString();
-      const orderDateValue = formData.get('orderDate')?.toString();
-      const statusValue = formData.get('statusSelected')?.toString();
-      const netAmountValue = formData.get('netAmount')?.toString();
+
+      const valueFrom = Object.fromEntries(formData.entries());
+
+      const nameValue = valueFrom.inputName.toString();
+      const locationValue = valueFrom.locationSelected.toString();
+      const orderDateValue = valueFrom.orderDate.toString();
+      const statusValue = valueFrom.statusSelected.toString();
+      const netAmountValue = valueFrom.netAmount.toString();
 
       const valueUpdate = {
         id: orderSelected,

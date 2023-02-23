@@ -13,6 +13,7 @@ import { FunctionComponent, memo } from 'react';
 // Components
 import { Customer } from '@components/BoxContent/Customer';
 import { Status } from '@components/BoxContent/Status';
+import { IUser } from '~/types/user';
 
 // customize for table cell
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -38,20 +39,14 @@ const StyledTooltip = styled(ToBeStyledTooltip)(() => ({
 
 interface IProps {
   index: number;
-  id: number;
-  avatar: string;
-  name: string;
-  location: string;
-  status: string;
-  orderDate: string;
-  netAmount: number;
+  item: IUser;
   onOpenDialog: (id: number) => void;
 }
 
 export const ItemOrder: FunctionComponent<IProps> = memo(
-  ({ index, id, avatar, name, location, status, orderDate, netAmount, onOpenDialog }: IProps) => {
+  ({ index, item, onOpenDialog }: IProps) => {
     const handleClick = () => {
-      onOpenDialog(id);
+      onOpenDialog(item.id);
     };
 
     return (
@@ -60,14 +55,14 @@ export const ItemOrder: FunctionComponent<IProps> = memo(
           {index + 1}
         </StyledTableCell>
         <StyledTableCell component='th' scope='row'>
-          <Customer avatar={avatar} name={name} />
+          <Customer avatar={item.avatar} name={item.name} />
         </StyledTableCell>
-        <StyledTableCell align='left'>{location}</StyledTableCell>
-        <StyledTableCell align='left'>{orderDate}</StyledTableCell>
+        <StyledTableCell align='left'>{item.location}</StyledTableCell>
+        <StyledTableCell align='left'>{item.orderDate}</StyledTableCell>
         <StyledTableCell align='left'>
-          <Status status={status} />
+          <Status status={item.status} />
         </StyledTableCell>
-        <StyledTableCell align='left'>{`$ ${netAmount}`}</StyledTableCell>
+        <StyledTableCell align='left'>{`$ ${item.netAmount}`}</StyledTableCell>
         <StyledTableCell align='left'>
           <StyledTooltip
             title='Action Details'

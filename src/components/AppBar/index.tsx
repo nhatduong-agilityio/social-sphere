@@ -5,7 +5,7 @@ import { FunctionComponent, memo, useContext } from 'react';
 import { Brightness4, Brightness7 } from '@mui/icons-material';
 
 // Store
-import { ColorModeContext } from '~/store/providers/toggleColorMode';
+import { ColorModeContext } from '~/store/providers/colorMode';
 
 interface IProps {
   onHandleRefresh: () => void;
