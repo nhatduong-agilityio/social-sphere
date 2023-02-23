@@ -21,7 +21,7 @@ Web application for management order details:
 - Timeline:
 
   - Estimate time: 10 days.
-  - Actual time: . days.
+  - Actual time: 10 days.
 
 - Editor: Visual Studio Code.
 - Responsive: Not support responsive.
@@ -29,18 +29,16 @@ Web application for management order details:
 ### TARGETS
 
 - Practice with useMemo and useCallback, to fully understand these Hooks.
-- Management store with useReducer, useContext.
+- Management store with useReducer, useContext and sync action.
 - Debug and handle re-render in the project.
 - Apply performance for the project.
 
 ### TECHNICAL STACKS AND DEVELOPMENT TOOLS
 
-- React the latest version ( hook, context, reducer, code splitting rendering )
-- [Storybook](https://storybook.js.org/)
+- React the latest version ( hook, context, reducer, code splitting rendering ).
 - [MUI](https://mui.com/).
 - [Vite v3.0.0](https://vitejs.dev/guide/#scaffolding-your-first-vite-project).
 - [React](https://reactjs.org/docs/introducing-jsx.html).
-- [Json-server](https://www.npmjs.com/package/json-server).
 - [Typescript](https://www.typescriptlang.org/docs/handbook/react.html).
 - [Prettier](https://prettier.io/).
 - [Eslint](https://eslint.org/).
