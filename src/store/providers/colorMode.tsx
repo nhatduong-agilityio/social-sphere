@@ -3,7 +3,7 @@ import { createTheme, PaletteMode, ThemeProvider } from '@mui/material';
 import { createContext, Dispatch, FC, ReactNode, SetStateAction, useMemo, useState } from 'react';
 
 // Store
-import { designColorMode } from '~/store/reducers/getDesignColorMode';
+import { settingMode } from '~/store/reducers/colorMode';
 
 interface IProps {
   children: ReactNode;
@@ -25,7 +25,7 @@ export const ColorModeProvider: FC<IProps> = ({ children }: IProps) => {
   };
 
   // Update the theme only if the mode changes
-  const theme = useMemo(() => createTheme(designColorMode(mode)), [mode]);
+  const theme = useMemo(() => createTheme(settingMode(mode)), [mode]);
 
   const colorMode = {
     mode,

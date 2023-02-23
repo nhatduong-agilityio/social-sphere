@@ -1,11 +1,11 @@
 export type IStates<T> = {
-  status?: string;
   data?: T[];
 };
 
 export type PayloadProps<T> = {
   response?: T[];
   error?: Error | unknown;
+  id?: number;
 };
 
 export type DispatchProps<T> = React.Dispatch<{

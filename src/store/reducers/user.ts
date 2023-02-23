@@ -2,7 +2,6 @@
 import { DELETE_USER, FETCH_USERS, UPDATE_USER } from '~/constants/action';
 
 // Services
-import { writeToCache } from '~/services/cache';
 
 // Types
 import { IStates, PayloadProps } from '~/types/common';
@@ -10,7 +9,6 @@ import { IUser } from '~/types/user';
 
 // Initial state users
 const initUserState: IStates<IUser> = {
-  status: 'idle',
   data: [] as IUser[],
 };
 
@@ -22,68 +20,39 @@ const usersReducer = (
   const { type, payload } = action;
 
   switch (type) {
-    case FETCH_USERS.PENDING:
+    case FETCH_USERS: {
       return {
         ...state,
-        status: 'pending',
+        data: payload?.response,
       };
-    case FETCH_USERS.SUCCESS: {
+    }
+    case UPDATE_USER: {
+      let dataUpdate = {} as IUser;
+
       if (payload?.response) {
-        writeToCache('users', payload.response);
+        dataUpdate = payload.response[0];
       }
 
       return {
         ...state,
-        status: 'success',
-        data: payload?.response,
+        data: state.data?.map((data) => {
+          if (data.id === dataUpdate.id) {
+            return dataUpdate;
+          } else {
+            return data;
+          }
+        }),
       };
     }
-    case FETCH_USERS.FAILURE:
+    case DELETE_USER: {
       return {
         ...state,
-        status: 'failure',
-      };
-    case UPDATE_USER.PENDING:
-      return {
-        ...state,
-        status: 'pending',
-        data: state.data,
-      };
-    case UPDATE_USER.SUCCESS: {
-      return {
-        ...state,
-        status: 'success',
-        data: payload?.response,
+        data: state.data?.filter((data) => data.id !== payload?.id),
       };
     }
-    case UPDATE_USER.FAILURE:
-      return {
-        ...state,
-        status: 'failure',
-        data: state.data,
-      };
-    case DELETE_USER.PENDING:
-      return {
-        ...state,
-        status: 'pending',
-        data: state.data,
-      };
-    case DELETE_USER.SUCCESS: {
-      return {
-        ...state,
-        status: 'success',
-        data: payload?.response,
-      };
+    default: {
+      throw Error('Unknown action: ' + type);
     }
-    case DELETE_USER.FAILURE:
-      return {
-        ...state,
-        status: 'failure',
-        data: state.data,
-      };
-
-    default:
-      return state;
   }
 };
 

@@ -23,11 +23,9 @@ import { IUserContext, UserContext } from '~/store/providers/user';
 
 // Components
 import { Customer } from '@components/BoxContent/Customer';
-import { NameContent } from '@components/DialogDetail/NameContent';
 import { LocationContent } from '@components/DialogDetail/LocationContent';
-import { DateContent } from '@components/DialogDetail/DateContent';
 import { StatusContent } from '@components/DialogDetail/StatusContent';
-import { NetAmountContent } from '@components/DialogDetail/NetAmountContent';
+import { InputContent } from '@components/DialogDetail/InputContent';
 
 interface IProps {
   openDialog: boolean;
@@ -68,31 +66,34 @@ export const FormDialog: FunctionComponent<IProps> = memo(
       );
     }
 
-    const name = filterData.name;
-    const avatar = filterData.avatar;
-    const location = filterData.location;
-    const orderDate = filterData.orderDate;
-    const status = filterData.status;
-    const netAmount = filterData.netAmount;
+    const nameInit = filterData.name;
+    const avatarInit = filterData.avatar;
+    const locationInit = filterData.location;
+    const orderDateInit = filterData.orderDate;
+    const statusInit = filterData.status;
+    const netAmountInit = filterData.netAmount;
 
     // handle update item
     const onHandleUpdate = (event: FormEvent<HTMLFormElement>) => {
       event.preventDefault();
       const formData = new FormData(event.currentTarget);
-      const nameValue = formData.get('inputName')?.toString();
-      const locationValue = formData.get('locationSelected')?.toString();
-      const orderDateValue = formData.get('orderDate')?.toString();
-      const statusValue = formData.get('statusSelected')?.toString();
-      const netAmountValue = formData.get('netAmount')?.toString();
+
+      const valueFrom = Object.fromEntries(formData.entries());
+
+      const name = valueFrom.name.toString();
+      const location = valueFrom.location.toString();
+      const date = valueFrom.date.toString();
+      const status = valueFrom.status.toString();
+      const price = valueFrom.price.toString();
 
       const valueUpdate = {
         id: orderSelected,
-        name: nameValue ? nameValue : name,
-        avatar: avatar,
-        location: locationValue ? locationValue : location,
-        orderDate: orderDateValue ? orderDateValue : orderDate,
-        status: statusValue ? statusValue : status,
-        netAmount: netAmountValue ? parseInt(netAmountValue) : netAmount,
+        name: name ? name : nameInit,
+        avatar: avatarInit,
+        location: location ? location : locationInit,
+        orderDate: date ? date : orderDateInit,
+        status: status ? status : statusInit,
+        netAmount: price ? parseFloat(price) : netAmountInit,
       };
 
       handleUpdateUser(valueUpdate);
@@ -107,15 +108,20 @@ export const FormDialog: FunctionComponent<IProps> = memo(
     return (
       <Dialog open={openDialog} onClose={onCloseDialog} fullWidth>
         <form onSubmit={onHandleUpdate}>
-          <DialogTitle>Order Detail of {name}</DialogTitle>
+          <DialogTitle>Order Detail of {nameInit}</DialogTitle>
           <DialogContent>
-            <Customer avatar={avatar} name={name} />
+            <Customer avatar={avatarInit} name={nameInit} />
             <Stack spacing={3}>
-              <NameContent name={name} />
-              <LocationContent location={location} />
-              <DateContent date={orderDate} />
-              <StatusContent status={status} />
-              <NetAmountContent netAmount={netAmount} />
+              <InputContent nameInput={'name'} valueInput={nameInit} />
+              <LocationContent location={locationInit} />
+              <InputContent
+                nameInput={'date'}
+                valueInput={orderDateInit}
+                type={'date'}
+                shrink={true}
+              />
+              <StatusContent status={statusInit} />
+              <InputContent nameInput={'price'} valueInput={netAmountInit} />
             </Stack>
           </DialogContent>
           <DialogActions>
