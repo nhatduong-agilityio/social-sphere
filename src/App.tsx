@@ -1,6 +1,9 @@
-import { LayoutContainer } from './layouts/container/Container';
-import { ColorModeProvider } from './store/providers/toggleColorMode';
-import { UserProvider } from './store/providers/user';
+// Layout
+import { LayoutContainer } from '~/layouts/Container';
+
+// Store
+import { ColorModeProvider } from '~/store/providers/toggleColorMode';
+import { UserProvider } from '~/store/providers/user';
 
 const App = () => {
   return (

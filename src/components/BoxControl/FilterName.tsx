@@ -1,37 +1,41 @@
-import { Box, Button, FormControl, InputBase, Typography, useTheme } from '@mui/material';
+// Libs
+import { Box, Button, Typography, useTheme } from '@mui/material';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
-import { IData } from '~/types/data';
-import { ChangeEvent, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
+
+// Types
 import { IUser } from '~/types/user';
 
+// Store
+import { IUserContext, UserContext } from '~/store/providers/user';
+
+// Components
+import { FormSearchContent } from '@components/BoxControl/FormSearchContent';
+
 interface IProps {
-  rows: IUser[];
   onRows: (rows: IUser[]) => void;
 }
 
-export const FilterName = ({ rows, onRows }: IProps) => {
+const useUsers = () => useContext<IUserContext>(UserContext);
+
+const requestSearch = (rows: IUser[], searchedVal: string, onRows: (rows: IUser[]) => void) => {
+  const filteredRows = rows.filter((row) => {
+    return row.name.toLowerCase().includes(searchedVal.toLowerCase());
+  });
+
+  onRows(filteredRows);
+};
+
+export const FilterName = ({ onRows }: IProps) => {
   const theme = useTheme();
-  const [test, setTest] = useState('');
-
-  const requestSearch = (searchedVal: string) => {
-    const filteredRows = rows.filter((row) => {
-      return row.name.toLowerCase().includes(searchedVal.toLowerCase());
-    });
-
-    onRows(filteredRows);
-  };
-
-  useEffect(() => {
-    setTest(test);
-  }, [test]);
-
-  const handleSetValueSearch = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setTest(event.target.value);
-  };
+  const { users } = useUsers();
+  const [searchValue, setSearchValue] = useState('');
 
   const handleSearch = () => {
-    requestSearch(test);
-    setTest('');
+    if (users.data) {
+      requestSearch(users.data, searchValue, onRows);
+    }
+    setSearchValue('');
   };
 
   return (
@@ -39,20 +43,8 @@ export const FilterName = ({ rows, onRows }: IProps) => {
       <Typography sx={{ fontSize: '13px' }} color={theme.palette.primary.light}>
         Name
       </Typography>
-      <FormControl sx={{ minWidth: '200px', padding: '0 12px 0 10px' }} size='small'>
-        <InputBase
-          onChange={handleSetValueSearch}
-          value={test}
-          sx={{
-            borderRadius: '4px',
-            border: '1px solid #ddd',
-            fontSize: 16,
-            width: 'auto',
-            padding: '6px 12px 4px 12px',
-            color: theme.palette.primary.light,
-          }}
-        />
-      </FormControl>
+
+      <FormSearchContent searchValue={searchValue} onSetSearchValue={setSearchValue} />
 
       <Button
         color='secondary'

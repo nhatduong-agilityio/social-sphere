@@ -1,12 +1,13 @@
 import { IUser } from '~/types/user';
 
+// Object data
 const customer: IUser[] = [
   {
     name: 'Dahlia Gulgowski',
     avatar:
       'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/922.jpg',
     location: 'Madrid',
-    orderDate: 'Jun 1, 2022',
+    orderDate: '2022-06-01',
     status: 'Shipped',
     netAmount: 1.26,
     id: 2,
@@ -16,7 +17,7 @@ const customer: IUser[] = [
     avatar:
       'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1192.jpg',
     location: 'Berlin',
-    orderDate: 'Jul 04, 2022',
+    orderDate: '2022-06-01',
     status: 'Delivered',
     netAmount: 350,
     id: 3,
@@ -27,7 +28,7 @@ const customer: IUser[] = [
     avatar:
       'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1227.jpg',
     location: 'New York',
-    orderDate: 'Jul 16, 2022',
+    orderDate: '2022-06-01',
     status: 'Pending',
     netAmount: 1.572,
   },
@@ -36,8 +37,8 @@ const customer: IUser[] = [
     name: 'Roosevelt Trantow',
     avatar:
       'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/228.jpg',
-    location: 'Roma',
-    orderDate: 'Oct 22, 2022',
+    location: 'Other',
+    orderDate: '2022-08-23',
     status: 'Pending',
     netAmount: 1.898,
   },
@@ -47,7 +48,7 @@ const customer: IUser[] = [
     avatar:
       'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/922.jpg',
     location: 'Madrid',
-    orderDate: 'Jun 21, 2022',
+    orderDate: '2022-09-21',
     status: 'Shipped',
     netAmount: 1.26,
   },
@@ -57,7 +58,7 @@ const customer: IUser[] = [
     avatar:
       'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1192.jpg',
     location: 'Berlin',
-    orderDate: 'Jul 04, 2022',
+    orderDate: '2022-04-11',
     status: 'Cancelled',
     netAmount: 350,
   },
@@ -67,7 +68,7 @@ const customer: IUser[] = [
     avatar:
       'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1227.jpg',
     location: 'New York',
-    orderDate: 'Jul 16, 2022',
+    orderDate: '2022-08-01',
     status: 'Pending',
     netAmount: 1.572,
   },
@@ -77,7 +78,7 @@ const customer: IUser[] = [
     avatar:
       'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/235.jpg',
     location: 'Paris',
-    orderDate: 'Jul 16, 2022',
+    orderDate: '2022-06-01',
     status: 'Cancelled',
     netAmount: 580,
   },
@@ -86,8 +87,8 @@ const customer: IUser[] = [
     name: 'Merl McClure',
     avatar:
       'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/422.jpg',
-    location: 'Machester',
-    orderDate: 'Feb 04, 2022',
+    location: 'Other',
+    orderDate: '2023-09-12',
     status: 'Shipped',
     netAmount: 777,
   },
@@ -96,8 +97,8 @@ const customer: IUser[] = [
     name: 'Roosevelt Trantow',
     avatar:
       'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/228.jpg',
-    location: 'Roma',
-    orderDate: 'Oct 22, 2022',
+    location: 'Other',
+    orderDate: '2022-08-23',
     status: 'Pending',
     netAmount: 1.898,
   },
@@ -106,8 +107,8 @@ const customer: IUser[] = [
     name: 'Uzumaki Naruto',
     avatar:
       'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/231.jpg',
-    location: 'Tokyo',
-    orderDate: 'Dec 10, 2022',
+    location: 'Other',
+    orderDate: '2022-12-12',
     status: 'Delivered',
     netAmount: 309,
   },
@@ -116,8 +117,8 @@ const customer: IUser[] = [
     name: 'Stone Brakus',
     avatar:
       'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1006.jpg',
-    location: 'Ha Noi',
-    orderDate: 'Nov 9, 2022',
+    location: 'Other',
+    orderDate: '2023-09-09',
     status: 'Cancelled',
     netAmount: 1.009,
   },
@@ -126,8 +127,8 @@ const customer: IUser[] = [
     name: 'Lelah Dickinson',
     avatar:
       'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/134.jpg',
-    location: 'Singapore',
-    orderDate: 'Sep 30, 2022',
+    location: 'Other',
+    orderDate: '2023-06-23',
     status: 'Shipped',
     netAmount: 999,
   },

@@ -1,4 +1,4 @@
-// Constant fetch users.
+// Constant request users.
 export const FETCH_USERS = {
   PENDING: 'FETCH_PENDING',
   SUCCESS: 'FETCH_SUCCESS',

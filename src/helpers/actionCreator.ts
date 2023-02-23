@@ -1,3 +1,4 @@
+// Types
 import { DispatchProps } from '~/types/common';
 
 export interface ObjActions<T> {

@@ -1,11 +1,18 @@
+// Types
 import { DispatchProps } from '~/types/common';
 import { IUser } from '~/types/user';
+
+// Constants
 import { FETCH_USERS } from '~/constants/action';
+
+// Services
 import { readFromCache } from '~/services/cache';
+
+// Store
 import customers from '~/store/data';
 
 /**
- * async function handle return response and error for get users.
+ * Handle fetch data and return response to void params
  * @param onRequest void
  * @param onSuccess void
  * @param onFailure void
@@ -20,6 +27,7 @@ export const fetchUsers = function <Response, Error>(
   try {
     const verifyCache = readFromCache('users').value;
 
+    // Check data in local storage
     const response = verifyCache !== undefined ? readFromCache('users') : customers;
 
     onSuccess(response);
@@ -29,10 +37,9 @@ export const fetchUsers = function <Response, Error>(
 };
 
 /**
- * function handle request get users and connect to provider.
- * handle action and payload with function action request.
- * @param dispatch DispatchProps<ICheckedInfo>
- * @returns call to function handle return response and error for get users with generic type.
+ * Handle request fetch data from action
+ * @param dispatch dispatch props
+ * @returns call to function fetch data and return response to reducer
  */
 export const fetchRequest = (dispatch: DispatchProps<IUser>) => {
   const onPending = () => {

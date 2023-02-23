@@ -1,3 +1,4 @@
+// Libs
 import { Box, Container, useTheme } from '@mui/material';
 import {
   FunctionComponent,
@@ -8,28 +9,36 @@ import {
   useMemo,
   useState,
 } from 'react';
-import { AppBarContent } from '~/components/AppBar';
-import { CustomizedTables } from '~/components/BoxContent';
-import { TableFilter } from '~/components/BoxControl';
-import { FormDialog } from '~/components/DialogDetail';
+
+// Constants
 import { LOCATION } from '~/constants/location';
 import { STATUS } from '~/constants/status';
+
+// Store
 import { IUserContext, UserContext } from '~/store/providers/user';
+
+// Types
 import { DialogState } from '~/types/dialogForm';
 import { IUser } from '~/types/user';
+
+// Components
+import { AppBarContent } from '@components/AppBar';
+import { CustomizedTables } from '@components/BoxContent';
+import { TableFilter } from '@components/BoxControl';
+import { FormDialog } from '@components/DialogDetail';
 
 const useUsers = () => useContext<IUserContext>(UserContext);
 
 export const LayoutContainer: FunctionComponent = memo(() => {
   const theme = useTheme();
-  const { users, handleRefreshData } = useUsers();
+  const { users } = useUsers();
 
   const [entries, setEntries] = useState('5');
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(Number(entries));
   const [filteredStatus, setFilteredStatus] = useState(STATUS.ANY);
   const [filteredLocation, setFilteredLocation] = useState(LOCATION.ALL);
-  const [rows, setRows] = useState<IUser[]>({} as IUser[]);
+  const [rows, setRows] = useState<IUser[]>(users.data ? users.data : ({} as IUser[]));
 
   useEffect(() => {
     if (users.data) {
@@ -39,7 +48,7 @@ export const LayoutContainer: FunctionComponent = memo(() => {
 
   const [dialogForm, setDialogForm] = useState<DialogState>({
     open: false,
-    data: {} as IUser,
+    idSelected: 0,
   });
 
   /**
@@ -53,32 +62,34 @@ export const LayoutContainer: FunctionComponent = memo(() => {
   }, []);
 
   const handleRefresh = () => {
-    handleRefreshData();
+    if (users.data) {
+      setRows(users.data);
+    }
   };
 
-  const handleOpenDialog = useCallback((data: IUser) => {
+  const handleOpenDialog = useCallback((id: number) => {
     setDialogForm({
       open: true,
-      data: data,
+      idSelected: id,
     });
   }, []);
 
   const handleCloseDialog = useCallback(() => {
     setDialogForm({
       open: false,
-      data: dialogForm.data,
+      idSelected: dialogForm.idSelected,
     });
-  }, [dialogForm.data]);
+  }, [dialogForm.idSelected]);
 
   const renderDialog = useMemo(() => {
     return (
       <FormDialog
         openDialog={dialogForm.open}
-        orderSelected={dialogForm.data}
+        orderSelected={dialogForm.idSelected}
         onCloseDialog={handleCloseDialog}
       />
     );
-  }, [dialogForm.data, dialogForm.open, handleCloseDialog]);
+  }, [dialogForm.idSelected, dialogForm.open, handleCloseDialog]);
 
   return (
     <>
@@ -112,7 +123,7 @@ export const LayoutContainer: FunctionComponent = memo(() => {
           />
         </Box>
       </Container>
-      {renderDialog}
+      {dialogForm.open && renderDialog}
     </>
   );
 });

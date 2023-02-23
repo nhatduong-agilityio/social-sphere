@@ -1,5 +1,5 @@
+// Libs
 import {
-  Box,
   IconButton,
   styled,
   TableCell,
@@ -7,12 +7,12 @@ import {
   Tooltip,
   TooltipProps,
 } from '@mui/material';
-import { FunctionComponent, memo } from 'react';
-import { IData } from '~/types/data';
-import { Customer } from './Customer';
-import { Status } from './Status';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import { IUser } from '~/types/user';
+import { FunctionComponent, memo } from 'react';
+
+// Components
+import { Customer } from '@components/BoxContent/Customer';
+import { Status } from '@components/BoxContent/Status';
 
 // customize for table cell
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -38,14 +38,20 @@ const StyledTooltip = styled(ToBeStyledTooltip)(() => ({
 
 interface IProps {
   index: number;
-  data: IUser;
-  onOpenDialog: (data: IUser) => void;
+  id: number;
+  avatar: string;
+  name: string;
+  location: string;
+  status: string;
+  orderDate: string;
+  netAmount: number;
+  onOpenDialog: (id: number) => void;
 }
 
 export const ItemOrder: FunctionComponent<IProps> = memo(
-  ({ index, data, onOpenDialog }: IProps) => {
+  ({ index, id, avatar, name, location, status, orderDate, netAmount, onOpenDialog }: IProps) => {
     const handleClick = () => {
-      onOpenDialog(data);
+      onOpenDialog(id);
     };
 
     return (
@@ -54,14 +60,14 @@ export const ItemOrder: FunctionComponent<IProps> = memo(
           {index + 1}
         </StyledTableCell>
         <StyledTableCell component='th' scope='row'>
-          <Customer customer={data} />
+          <Customer avatar={avatar} name={name} />
         </StyledTableCell>
-        <StyledTableCell align='left'>{data.location}</StyledTableCell>
-        <StyledTableCell align='left'>{data.orderDate}</StyledTableCell>
+        <StyledTableCell align='left'>{location}</StyledTableCell>
+        <StyledTableCell align='left'>{orderDate}</StyledTableCell>
         <StyledTableCell align='left'>
-          <Status status={data.status} />
+          <Status status={status} />
         </StyledTableCell>
-        <StyledTableCell align='left'>{`$ ${data.netAmount}`}</StyledTableCell>
+        <StyledTableCell align='left'>{`$ ${netAmount}`}</StyledTableCell>
         <StyledTableCell align='left'>
           <StyledTooltip
             title='Action Details'

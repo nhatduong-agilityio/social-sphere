@@ -1,3 +1,4 @@
+// Libs
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -6,10 +7,16 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { TableFooter, TablePagination } from '@mui/material';
-import { ItemOrder } from './ItemOrder';
+import { FunctionComponent, memo } from 'react';
+
+// Components
+import { ItemOrder } from '@components/BoxContent/ItemOrder';
+
+// Constants
 import { STATUS } from '~/constants/status';
 import { LOCATION } from '~/constants/location';
-import { FunctionComponent, memo, useEffect } from 'react';
+
+// Types
 import { IUser } from '~/types/user';
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
@@ -43,7 +50,7 @@ interface IProps {
   onChangeRowsPerPage: (rowsPerPage: number, page: number) => void;
   filteredStatus: string;
   filteredLocation: string;
-  onOpenDialog: (data: IUser) => void;
+  onOpenDialog: (id: number) => void;
 }
 
 const filterByStatus = (filteredStatus: string, data: IUser) => {
@@ -87,13 +94,23 @@ export const CustomizedTables: FunctionComponent<IProps> = memo(
               </TableRow>
             </TableHead>
             <TableBody>
-              {Object.values(rows)
+              {rows
                 .filter((row) => filterByStatus(filteredStatus, row))
                 .filter((row) => filterByLocation(filteredLocation, row))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => (
                   <StyledTableRow key={row.id}>
-                    <ItemOrder index={index} data={row} onOpenDialog={onOpenDialog} />
+                    <ItemOrder
+                      index={index}
+                      id={row.id}
+                      avatar={row.avatar}
+                      name={row.name}
+                      location={row.location}
+                      status={row.status}
+                      orderDate={row.orderDate}
+                      netAmount={row.netAmount}
+                      onOpenDialog={onOpenDialog}
+                    />
                   </StyledTableRow>
                 ))}
             </TableBody>
@@ -102,7 +119,7 @@ export const CustomizedTables: FunctionComponent<IProps> = memo(
                 <TablePagination
                   labelRowsPerPage={false}
                   rowsPerPageOptions={[]}
-                  count={Object.values(rows).length}
+                  count={rows.length}
                   rowsPerPage={rowsPerPage}
                   page={page}
                   SelectProps={{

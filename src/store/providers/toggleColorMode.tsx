@@ -1,6 +1,9 @@
+// Libs
 import { createTheme, PaletteMode, ThemeProvider } from '@mui/material';
 import { createContext, Dispatch, FC, ReactNode, SetStateAction, useMemo, useState } from 'react';
-import { designColorMode } from '../reducers/getDesignColorMode';
+
+// Store
+import { designColorMode } from '~/store/reducers/getDesignColorMode';
 
 interface IProps {
   children: ReactNode;
@@ -11,6 +14,7 @@ interface IColorModeContext {
   mode: PaletteMode;
 }
 
+// Create context for color mode
 export const ColorModeContext = createContext({} as IColorModeContext);
 
 export const ColorModeProvider: FC<IProps> = ({ children }: IProps) => {

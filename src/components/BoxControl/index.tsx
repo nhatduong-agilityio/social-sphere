@@ -1,11 +1,15 @@
+// Libs
 import { Box, Grid } from '@mui/material';
 import { FunctionComponent, memo } from 'react';
-import { IData } from '~/types/data';
+
+// Types
 import { IUser } from '~/types/user';
-import { FilterEntries } from './FilterEntries';
-import { FilterLocation } from './FilterLocation';
-import { FilterName } from './FilterName';
-import { FilterStatus } from './FilterStatus';
+
+// Components
+import { FilterEntries } from '@components/BoxControl/FilterEntries';
+import { FilterLocation } from '@components/BoxControl/FilterLocation';
+import { FilterName } from '@components/BoxControl/FilterName';
+import { FilterStatus } from '@components/BoxControl/FilterStatus';
 
 interface IProps {
   // number entries at select
@@ -27,7 +31,6 @@ export const TableFilter: FunctionComponent<IProps> = memo(
     onChangeRowsPerPage,
     onFilteredStatus,
     onFilteredLocation,
-    rows,
     onRows,
   }: IProps) => {
     return (
@@ -52,7 +55,7 @@ export const TableFilter: FunctionComponent<IProps> = memo(
             <FilterLocation onFilteredLocation={onFilteredLocation} />
           </Grid>
           <Grid item={true} xs={4}>
-            <FilterName rows={rows} onRows={onRows} />
+            <FilterName onRows={onRows} />
           </Grid>
         </Grid>
       </Box>

@@ -1,5 +1,10 @@
+// Constants
 import { DELETE_USER, FETCH_USERS, UPDATE_USER } from '~/constants/action';
+
+// Services
 import { writeToCache } from '~/services/cache';
+
+// Types
 import { IStates, PayloadProps } from '~/types/common';
 import { IUser } from '~/types/user';
 

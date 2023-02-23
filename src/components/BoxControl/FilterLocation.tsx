@@ -1,3 +1,4 @@
+// Libs
 import {
   Box,
   FormControl,
@@ -7,13 +8,13 @@ import {
   Typography,
   useTheme,
 } from '@mui/material';
-import { useState } from 'react';
+import { FunctionComponent, useState } from 'react';
 
 interface IProps {
   onFilteredLocation: (location: string) => void;
 }
 
-export const FilterLocation = ({ onFilteredLocation }: IProps) => {
+export const FilterLocation: FunctionComponent<IProps> = ({ onFilteredLocation }: IProps) => {
   const theme = useTheme();
   const [location, setLocation] = useState('All');
 
