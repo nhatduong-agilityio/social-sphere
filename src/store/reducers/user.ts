@@ -2,7 +2,6 @@
 import { DELETE_USER, FETCH_USERS, UPDATE_USER } from '~/constants/action';
 
 // Services
-import { writeToCache } from '~/services/cache';
 
 // Types
 import { IStates, PayloadProps } from '~/types/common';
@@ -28,10 +27,6 @@ const usersReducer = (
         status: 'pending',
       };
     case FETCH_USERS.SUCCESS: {
-      if (payload?.response) {
-        writeToCache('users', payload.response);
-      }
-
       return {
         ...state,
         status: 'success',
@@ -50,10 +45,22 @@ const usersReducer = (
         data: state.data,
       };
     case UPDATE_USER.SUCCESS: {
+      let dataUpdate = {} as IUser;
+
+      if (payload?.response) {
+        dataUpdate = payload.response[0];
+      }
+
       return {
         ...state,
         status: 'success',
-        data: payload?.response,
+        data: state.data?.map((data) => {
+          if (data.id === dataUpdate.id) {
+            return dataUpdate;
+          } else {
+            return data;
+          }
+        }),
       };
     }
     case UPDATE_USER.FAILURE:
@@ -72,7 +79,7 @@ const usersReducer = (
       return {
         ...state,
         status: 'success',
-        data: payload?.response,
+        data: state.data?.filter((data) => data.id !== payload?.id),
       };
     }
     case DELETE_USER.FAILURE:

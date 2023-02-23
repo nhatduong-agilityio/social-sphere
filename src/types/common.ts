@@ -6,6 +6,7 @@ export type IStates<T> = {
 export type PayloadProps<T> = {
   response?: T[];
   error?: Error | unknown;
+  id?: number;
 };
 
 export type DispatchProps<T> = React.Dispatch<{
