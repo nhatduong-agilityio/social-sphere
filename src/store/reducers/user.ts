@@ -51,7 +51,7 @@ const usersReducer = (
       };
     }
     default: {
-      throw Error('Unknown action: ' + type);
+      return state;
     }
   }
 };
