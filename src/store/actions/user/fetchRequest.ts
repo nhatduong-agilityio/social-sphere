@@ -14,11 +14,9 @@ import customers from '~/store/data';
  * @returns call to function fetch data and return response to reducer
  */
 export const fetchRequest = (dispatch: DispatchProps<IUser>) => {
-  dispatch({ type: FETCH_USERS.PENDING });
-
   try {
-    return dispatch({ type: FETCH_USERS.SUCCESS, payload: { response: customers } });
+    return dispatch({ type: FETCH_USERS, payload: { response: customers } });
   } catch (error: Error | unknown) {
-    return dispatch({ type: FETCH_USERS.FAILURE, payload: { error } });
+    return alert(error);
   }
 };

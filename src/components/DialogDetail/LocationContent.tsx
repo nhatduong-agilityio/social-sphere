@@ -13,7 +13,7 @@ export const LocationContent: FunctionComponent<IProps> = memo(({ location }: IP
       <Select
         key={`location-${location}`}
         labelId='demo-dialog-select-label'
-        name='locationSelected'
+        name='location'
         defaultValue={location}
         variant='standard'
       >

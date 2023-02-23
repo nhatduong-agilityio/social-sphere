@@ -9,7 +9,6 @@ import { IUser } from '~/types/user';
 
 // Initial state users
 const initUserState: IStates<IUser> = {
-  status: 'idle',
   data: [] as IUser[],
 };
 
@@ -21,30 +20,13 @@ const usersReducer = (
   const { type, payload } = action;
 
   switch (type) {
-    case FETCH_USERS.PENDING:
+    case FETCH_USERS: {
       return {
         ...state,
-        status: 'pending',
-      };
-    case FETCH_USERS.SUCCESS: {
-      return {
-        ...state,
-        status: 'success',
         data: payload?.response,
       };
     }
-    case FETCH_USERS.FAILURE:
-      return {
-        ...state,
-        status: 'failure',
-      };
-    case UPDATE_USER.PENDING:
-      return {
-        ...state,
-        status: 'pending',
-        data: state.data,
-      };
-    case UPDATE_USER.SUCCESS: {
+    case UPDATE_USER: {
       let dataUpdate = {} as IUser;
 
       if (payload?.response) {
@@ -53,7 +35,6 @@ const usersReducer = (
 
       return {
         ...state,
-        status: 'success',
         data: state.data?.map((data) => {
           if (data.id === dataUpdate.id) {
             return dataUpdate;
@@ -63,34 +44,15 @@ const usersReducer = (
         }),
       };
     }
-    case UPDATE_USER.FAILURE:
+    case DELETE_USER: {
       return {
         ...state,
-        status: 'failure',
-        data: state.data,
-      };
-    case DELETE_USER.PENDING:
-      return {
-        ...state,
-        status: 'pending',
-        data: state.data,
-      };
-    case DELETE_USER.SUCCESS: {
-      return {
-        ...state,
-        status: 'success',
         data: state.data?.filter((data) => data.id !== payload?.id),
       };
     }
-    case DELETE_USER.FAILURE:
-      return {
-        ...state,
-        status: 'failure',
-        data: state.data,
-      };
-
-    default:
-      return state;
+    default: {
+      throw Error('Unknown action: ' + type);
+    }
   }
 };
 

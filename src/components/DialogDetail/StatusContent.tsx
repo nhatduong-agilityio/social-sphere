@@ -31,7 +31,7 @@ export const StatusContent: FunctionComponent<IProps> = memo(({ status }: IProps
       <Select
         key={`select-${status}`}
         labelId='demo-dialog-select-label'
-        name='statusSelected'
+        name='status'
         defaultValue={status}
         variant='standard'
       >

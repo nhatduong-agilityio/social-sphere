@@ -1,18 +1,6 @@
 // Constant request users.
-export const FETCH_USERS = {
-  PENDING: 'FETCH_PENDING',
-  SUCCESS: 'FETCH_SUCCESS',
-  FAILURE: 'FETCH_FAILURE',
-};
+export const FETCH_USERS = 'FETCH_USERS';
 
-export const UPDATE_USER = {
-  PENDING: 'UPDATE_PENDING',
-  SUCCESS: 'UPDATE_SUCCESS',
-  FAILURE: 'UPDATE_FAILURE',
-};
+export const UPDATE_USER = 'UPDATE_USER';
 
-export const DELETE_USER = {
-  PENDING: 'DELETE_PENDING',
-  SUCCESS: 'DELETE_SUCCESS',
-  FAILURE: 'DELETE_FAILURE',
-};
+export const DELETE_USER = 'DELETE_USER';

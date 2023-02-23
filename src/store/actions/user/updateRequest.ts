@@ -11,11 +11,9 @@ import { UPDATE_USER } from '~/constants/action';
  * @returns call to function update data and return response to reducer
  */
 export const requestUpdateUser = (dispatch: DispatchProps<IUser>) => (data: IUser) => {
-  dispatch({ type: UPDATE_USER.PENDING });
-
   try {
-    return dispatch({ type: UPDATE_USER.SUCCESS, payload: { response: [data] } });
+    return dispatch({ type: UPDATE_USER, payload: { response: [data] } });
   } catch (error: Error | unknown) {
-    return dispatch({ type: UPDATE_USER.FAILURE, payload: { error } });
+    return alert(error);
   }
 };

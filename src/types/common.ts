@@ -1,5 +1,4 @@
 export type IStates<T> = {
-  status?: string;
   data?: T[];
 };
 
