@@ -26,7 +26,7 @@ export const AppBarContent: FunctionComponent<IProps> = memo(({ onHandleRefresh 
   };
 
   return (
-    <Box sx={{ flexGrow: 1, marginTop: '30px' }}>
+    <Box sx={{ flexGrow: 1 }}>
       <AppBar
         position='static'
         color='secondary'

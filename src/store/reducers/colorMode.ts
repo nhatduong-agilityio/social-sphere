@@ -44,7 +44,7 @@ export const settingMode = (mode: PaletteMode) => ({
           },
           background: {
             default: '#ffffff',
-            paper: '#ffffff',
+            paper: '#f5f5f5',
           },
         }
       : {
@@ -85,7 +85,7 @@ export const settingMode = (mode: PaletteMode) => ({
           },
           background: {
             default: '#212529',
-            paper: '#212529',
+            paper: '#000000',
           },
         }),
   },

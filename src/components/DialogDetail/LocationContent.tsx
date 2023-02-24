@@ -9,7 +9,9 @@ interface IProps {
 export const LocationContent: FunctionComponent<IProps> = memo(({ location }: IProps) => {
   return (
     <FormControl>
-      <InputLabel id='demo-dialog-select-label'>Location</InputLabel>
+      <InputLabel id='demo-dialog-select-label' sx={{ textTransform: 'uppercase' }}>
+        Location
+      </InputLabel>
       <Select
         key={`location-${location}`}
         labelId='demo-dialog-select-label'

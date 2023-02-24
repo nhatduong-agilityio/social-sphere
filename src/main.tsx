@@ -5,9 +5,12 @@ import ReactDOM from 'react-dom/client';
 import '~/assets/styles/index.scss';
 
 import App from './App';
+import { ColorModeProvider } from './store/providers/colorMode';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <App />
+    <ColorModeProvider>
+      <App />
+    </ColorModeProvider>
   </React.StrictMode>,
 );
