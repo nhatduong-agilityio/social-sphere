@@ -1,17 +1,25 @@
 // Layout
+import { Box, useTheme } from '@mui/material';
 import { LayoutContainer } from '~/layouts/Container';
 
-// Store
-import { ColorModeProvider } from '~/store/providers/colorMode';
 import { UserProvider } from '~/store/providers/user';
 
 const App = () => {
+  const theme = useTheme();
+
   return (
-    <UserProvider>
-      <ColorModeProvider>
+    <Box
+      sx={{
+        width: '100%',
+        height: '100vh',
+        backgroundColor: theme.palette.background.paper,
+        paddingTop: '30px',
+      }}
+    >
+      <UserProvider>
         <LayoutContainer />
-      </ColorModeProvider>
-    </UserProvider>
+      </UserProvider>
+    </Box>
   );
 };
 

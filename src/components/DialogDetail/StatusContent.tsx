@@ -27,7 +27,9 @@ interface IProps {
 export const StatusContent: FunctionComponent<IProps> = memo(({ status }: IProps) => {
   return (
     <FormControl>
-      <InputLabel id='demo-dialog-select-label'>Status</InputLabel>
+      <InputLabel id='demo-dialog-select-label' sx={{ textTransform: 'uppercase' }}>
+        Status
+      </InputLabel>
       <Select
         key={`select-${status}`}
         labelId='demo-dialog-select-label'

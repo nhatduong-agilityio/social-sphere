@@ -1,7 +1,7 @@
 // Libs
 import { Box, Button, Typography, useTheme } from '@mui/material';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
-import { useContext, useState } from 'react';
+import { FormEvent, useContext } from 'react';
 
 // Types
 import { IUser } from '~/types/user';
@@ -10,7 +10,7 @@ import { IUser } from '~/types/user';
 import { IUserContext, UserContext } from '~/store/providers/user';
 
 // Components
-import { FormSearchContent } from '@components/BoxControl/FormSearchContent';
+import { FormInput } from '@components/BoxControl/FormInput';
 
 interface IProps {
   onRows: (rows: IUser[]) => void;
@@ -29,13 +29,18 @@ const requestSearch = (rows: IUser[], searchedVal: string, onRows: (rows: IUser[
 export const FilterName = ({ onRows }: IProps) => {
   const theme = useTheme();
   const { users } = useUsers();
-  const [searchValue, setSearchValue] = useState('');
 
-  const handleSearch = () => {
+  const handleSearch = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+
+    const valueFrom = Object.fromEntries(formData.entries());
+
+    const formInput = valueFrom.formInput.toString();
+
     if (users.data) {
-      requestSearch(users.data, searchValue, onRows);
+      requestSearch(users.data, formInput, onRows);
     }
-    setSearchValue('');
   };
 
   return (
@@ -43,22 +48,23 @@ export const FilterName = ({ onRows }: IProps) => {
       <Typography sx={{ fontSize: '13px' }} color={theme.palette.primary.light}>
         Name
       </Typography>
+      <form onSubmit={handleSearch}>
+        <FormInput />
 
-      <FormSearchContent searchValue={searchValue} onSetSearchValue={setSearchValue} />
-
-      <Button
-        color='secondary'
-        variant='contained'
-        onClick={handleSearch}
-        sx={{
-          minWidth: '34px',
-          padding: '12px',
-          backgroundColor: '#03A9F4',
-          ':hover': theme.palette.action.hover,
-        }}
-      >
-        <SearchOutlinedIcon sx={{ fontSize: '16px' }} />
-      </Button>
+        <Button
+          color='secondary'
+          variant='contained'
+          type='submit'
+          sx={{
+            minWidth: '34px',
+            padding: '12px',
+            backgroundColor: '#03A9F4',
+            ':hover': theme.palette.action.hover,
+          }}
+        >
+          <SearchOutlinedIcon sx={{ fontSize: '16px' }} />
+        </Button>
+      </form>
     </Box>
   );
 };

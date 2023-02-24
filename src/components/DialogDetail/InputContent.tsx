@@ -11,14 +11,14 @@ interface IProps {
 
 export const InputContent: FunctionComponent<IProps> = memo(
   ({ nameInput, valueInput, type, shrink }: IProps) => {
+    const label = nameInput.toUpperCase();
+
     return (
       <TextField
-        sx={{
-          fontSize: '13px',
-        }}
+        inputProps={{ style: { fontSize: '13px' } }}
         margin='dense'
         name={nameInput}
-        label='Name customer'
+        label={label}
         type={type ? type : 'text'}
         fullWidth
         variant='standard'
