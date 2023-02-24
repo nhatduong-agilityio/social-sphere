@@ -7,7 +7,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { TableFooter, TablePagination } from '@mui/material';
-import { FunctionComponent, memo } from 'react';
+import { FunctionComponent, memo, useCallback } from 'react';
 
 // Components
 import { ItemOrder } from '@components/BoxContent/ItemOrder';
@@ -73,10 +73,12 @@ export const CustomizedTables: FunctionComponent<IProps> = memo(
     onOpenDialog,
   }: IProps) => {
     // component handle change page
-    const handleChangePage = (
-      _event: React.MouseEvent<HTMLButtonElement> | null,
-      newPage: number,
-    ) => onSetPage(newPage);
+    const handleChangePage = useCallback(
+      (_event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
+        onSetPage(newPage);
+      },
+      [onSetPage],
+    );
 
     return (
       <>
