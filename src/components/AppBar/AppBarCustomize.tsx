@@ -17,7 +17,7 @@ const IconModeRenderer = ({ theme }: { theme: 'dark' | 'light' }) => {
   return <IconComponent sx={{ fontSize: '24px' }} />;
 };
 
-export const AppBarContent: FunctionComponent<IProps> = memo(({ onHandleRefresh }: IProps) => {
+export const AppBarCustomize: FunctionComponent<IProps> = memo(({ onHandleRefresh }: IProps) => {
   const theme = useTheme();
   const { setMode, mode } = useContext(ColorModeContext);
 
@@ -79,4 +79,4 @@ export const AppBarContent: FunctionComponent<IProps> = memo(({ onHandleRefresh 
   );
 });
 
-AppBarContent.displayName = 'AppBarContent';
+AppBarCustomize.displayName = 'AppBarCustomize';

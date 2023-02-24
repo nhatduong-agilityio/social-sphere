@@ -24,7 +24,7 @@ interface IProps {
   onRows: (rows: IUser[]) => void;
 }
 
-export const TableFilter: FunctionComponent<IProps> = memo(
+export const BoxControl: FunctionComponent<IProps> = memo(
   ({
     entries,
     onSelectEntries,
@@ -63,4 +63,4 @@ export const TableFilter: FunctionComponent<IProps> = memo(
   },
 );
 
-TableFilter.displayName = 'TableFilter';
+BoxControl.displayName = 'BoxControl';

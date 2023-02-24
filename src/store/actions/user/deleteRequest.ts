@@ -2,7 +2,7 @@
 import { DispatchProps } from '~/types/common';
 
 // Constants
-import { DELETE_USER } from '~/constants/action';
+import { DELETE } from '~/constants/action';
 
 /**
  * Handle request delete data from action
@@ -12,7 +12,7 @@ import { DELETE_USER } from '~/constants/action';
 export const requestDeleteUser = (dispatch: DispatchProps<number>) => (idUser: number) => {
   try {
     // Call to helper remove data by id
-    return dispatch({ type: DELETE_USER, payload: { id: idUser } });
+    return dispatch({ type: DELETE, payload: idUser });
   } catch (error: Error | unknown) {
     return alert(error);
   }

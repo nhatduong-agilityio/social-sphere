@@ -4,6 +4,7 @@ import {
   styled,
   TableCell,
   tableCellClasses,
+  TableRow,
   Tooltip,
   TooltipProps,
 } from '@mui/material';
@@ -11,8 +12,8 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { FunctionComponent, memo } from 'react';
 
 // Components
-import { Customer } from '@components/BoxContent/Customer';
-import { Status } from '@components/BoxContent/Status';
+import { User } from '~/components/Table/User';
+import { Status } from '~/components/Table/Status';
 import { IUser } from '~/types/user';
 
 // customize for table cell
@@ -30,6 +31,15 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   },
 }));
 
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
+  ':hover': {
+    backgroundColor: theme.palette.action.hover,
+  },
+  '&:nth-of-type(odd)': {
+    backgroundColor: theme.palette.action.hover,
+  },
+}));
+
 const ToBeStyledTooltip = ({ className, ...props }: TooltipProps) => (
   <Tooltip {...props} classes={{ tooltip: className }} />
 );
@@ -43,19 +53,19 @@ interface IProps {
   onOpenDialog: (id: number) => void;
 }
 
-export const ItemOrder: FunctionComponent<IProps> = memo(
-  ({ index, item, onOpenDialog }: IProps) => {
-    const handleClick = () => {
-      onOpenDialog(item.id);
-    };
+export const OrderRow: FunctionComponent<IProps> = memo(({ index, item, onOpenDialog }: IProps) => {
+  const handleClick = () => {
+    onOpenDialog(item.id);
+  };
 
-    return (
-      <>
+  return (
+    <>
+      <StyledTableRow>
         <StyledTableCell component='th' scope='row'>
           {index + 1}
         </StyledTableCell>
         <StyledTableCell component='th' scope='row'>
-          <Customer avatar={item.avatar} name={item.name} />
+          <User avatar={item.avatar} name={item.name} />
         </StyledTableCell>
         <StyledTableCell align='left'>{item.location}</StyledTableCell>
         <StyledTableCell align='left'>{item.orderDate}</StyledTableCell>
@@ -89,9 +99,9 @@ export const ItemOrder: FunctionComponent<IProps> = memo(
             </IconButton>
           </StyledTooltip>
         </StyledTableCell>
-      </>
-    );
-  },
-);
+      </StyledTableRow>
+    </>
+  );
+});
 
-ItemOrder.displayName = 'ItemOrder';
+OrderRow.displayName = 'OrderRow';

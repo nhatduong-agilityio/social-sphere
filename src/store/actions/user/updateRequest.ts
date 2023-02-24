@@ -3,7 +3,7 @@ import { IUser } from '~/types/user';
 import { DispatchProps } from '~/types/common';
 
 // Constants
-import { UPDATE_USER } from '~/constants/action';
+import { UPDATE } from '~/constants/action';
 
 /**
  * Handle request update data from action
@@ -12,7 +12,7 @@ import { UPDATE_USER } from '~/constants/action';
  */
 export const requestUpdateUser = (dispatch: DispatchProps<IUser>) => (data: IUser) => {
   try {
-    return dispatch({ type: UPDATE_USER, payload: { response: [data] } });
+    return dispatch({ type: UPDATE, payload: data });
   } catch (error: Error | unknown) {
     return alert(error);
   }

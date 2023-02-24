@@ -1,6 +1,6 @@
 // Constant request users.
-export const FETCH_USERS = 'FETCH_USERS';
+export const FETCH = 'FETCH';
 
-export const UPDATE_USER = 'UPDATE_USER';
+export const UPDATE = 'UPDATE';
 
-export const DELETE_USER = 'DELETE_USER';
+export const DELETE = 'DELETE';

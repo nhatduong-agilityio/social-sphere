@@ -3,7 +3,7 @@ import { DispatchProps } from '~/types/common';
 import { IUser } from '~/types/user';
 
 // Constants
-import { FETCH_USERS } from '~/constants/action';
+import { FETCH } from '~/constants/action';
 
 // Store
 import customers from '~/store/data';
@@ -15,7 +15,7 @@ import customers from '~/store/data';
  */
 export const fetchRequest = (dispatch: DispatchProps<IUser>) => {
   try {
-    return dispatch({ type: FETCH_USERS, payload: { response: customers } });
+    return dispatch({ type: FETCH, payload: customers });
   } catch (error: Error | unknown) {
     return alert(error);
   }
