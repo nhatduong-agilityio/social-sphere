@@ -7,7 +7,7 @@ interface IProps {
   name: string;
 }
 
-export const Customer: FunctionComponent<IProps> = memo(({ avatar, name }: IProps) => {
+export const User: FunctionComponent<IProps> = memo(({ avatar, name }: IProps) => {
   const theme = useTheme();
 
   return (
@@ -28,4 +28,4 @@ export const Customer: FunctionComponent<IProps> = memo(({ avatar, name }: IProp
   );
 });
 
-Customer.displayName = 'Customer';
+User.displayName = 'User';

@@ -22,10 +22,10 @@ import { DialogState } from '~/types/dialogForm';
 import { IUser } from '~/types/user';
 
 // Components
-import { AppBarContent } from '@components/AppBar';
-import { CustomizedTables } from '@components/BoxContent';
-import { TableFilter } from '@components/BoxControl';
-import { FormDialog } from '@components/DialogDetail';
+import { AppBarCustomize } from '~/components/AppBar/AppBarCustomize';
+import { TableCustomize } from '~/components/Table/TableCustomize';
+import { BoxControl } from '@components/BoxControl';
+import { FormDialog } from '~/components/Dialog/FormDialog';
 
 const useUsers = () => useContext<IUserContext>(UserContext);
 
@@ -94,7 +94,7 @@ export const LayoutContainer: FunctionComponent = memo(() => {
   return (
     <>
       <Container maxWidth='xl'>
-        <AppBarContent onHandleRefresh={handleRefresh} />
+        <AppBarCustomize onHandleRefresh={handleRefresh} />
         <Box
           sx={{
             width: '100%',
@@ -102,7 +102,7 @@ export const LayoutContainer: FunctionComponent = memo(() => {
             backgroundColor: theme.palette.background.default,
           }}
         >
-          <TableFilter
+          <BoxControl
             entries={entries}
             onSelectEntries={setEntries}
             onChangeRowsPerPage={onChangeRowsPerPage}
@@ -111,7 +111,7 @@ export const LayoutContainer: FunctionComponent = memo(() => {
             rows={rows}
             onRows={setRows}
           />
-          <CustomizedTables
+          <TableCustomize
             rows={rows}
             page={page}
             onSetPage={setPage}

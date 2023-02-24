@@ -22,10 +22,10 @@ import { IUser } from '~/types/user';
 import { IUserContext, UserContext } from '~/store/providers/user';
 
 // Components
-import { Customer } from '@components/BoxContent/Customer';
-import { LocationContent } from '@components/DialogDetail/LocationContent';
-import { StatusContent } from '@components/DialogDetail/StatusContent';
-import { InputContent } from '@components/DialogDetail/InputContent';
+import { User } from '~/components/Table/User';
+import { LocationContent } from '~/components/Dialog/LocationContent';
+import { StatusContent } from '~/components/Dialog/StatusContent';
+import { InputContent } from '~/components/Dialog/InputContent';
 
 interface IProps {
   openDialog: boolean;
@@ -78,13 +78,13 @@ export const FormDialog: FunctionComponent<IProps> = memo(
       event.preventDefault();
       const formData = new FormData(event.currentTarget);
 
-      const valueFrom = Object.fromEntries(formData.entries());
+      const valueForm = Object.fromEntries(formData.entries());
 
-      const name = valueFrom.name.toString();
-      const location = valueFrom.location.toString();
-      const date = valueFrom.date.toString();
-      const status = valueFrom.status.toString();
-      const price = valueFrom.price.toString();
+      const name = valueForm.name.toString();
+      const location = valueForm.location.toString();
+      const date = valueForm.date.toString();
+      const status = valueForm.status.toString();
+      const price = valueForm.price.toString();
 
       const valueUpdate = {
         id: orderSelected,
@@ -110,7 +110,7 @@ export const FormDialog: FunctionComponent<IProps> = memo(
         <form onSubmit={onHandleUpdate}>
           <DialogTitle>Order Detail of {nameInit}</DialogTitle>
           <DialogContent>
-            <Customer avatar={avatarInit} name={nameInit} />
+            <User avatar={avatarInit} name={nameInit} />
             <Stack spacing={3}>
               <InputContent nameInput={'name'} valueInput={nameInit} />
               <LocationContent location={locationInit} />
