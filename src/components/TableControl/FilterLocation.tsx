@@ -1,28 +1,24 @@
 // Libs
-import {
-  Box,
-  FormControl,
-  MenuItem,
-  Select,
-  SelectChangeEvent,
-  Typography,
-  useTheme,
-} from '@mui/material';
-import { FunctionComponent, useState } from 'react';
+import { Box, SelectChangeEvent, Typography, useTheme } from '@mui/material';
+import { FunctionComponent, memo, useCallback, useState } from 'react';
 import { locationArr } from '~/constants/location';
+import { FormControlCustomize } from '../FormControlCustomize';
 
 interface IProps {
   onFilteredLocation: (location: string) => void;
 }
 
-export const FilterLocation: FunctionComponent<IProps> = ({ onFilteredLocation }: IProps) => {
+export const FilterLocation: FunctionComponent<IProps> = memo(({ onFilteredLocation }: IProps) => {
   const theme = useTheme();
   const [location, setLocation] = useState('All');
 
-  const handleChange = (event: SelectChangeEvent) => {
-    setLocation(event.target.value);
-    onFilteredLocation(event.target.value);
-  };
+  const handleChange = useCallback(
+    (event: SelectChangeEvent) => {
+      setLocation(event.target.value);
+      onFilteredLocation(event.target.value);
+    },
+    [onFilteredLocation],
+  );
 
   return (
     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -32,24 +28,15 @@ export const FilterLocation: FunctionComponent<IProps> = ({ onFilteredLocation }
       >
         Location
       </Typography>
-      <FormControl sx={{ minWidth: '110px' }} size='small'>
-        <Select
-          value={location}
-          onChange={handleChange}
-          autoWidth
-          sx={{ fontSize: '16px', color: theme.palette.primary.light }}
-        >
-          {locationArr.map((item) => (
-            <MenuItem
-              key={item}
-              sx={{ fontSize: '16px', color: theme.palette.primary.light }}
-              value={item}
-            >
-              {item}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+      <FormControlCustomize
+        arrValue={locationArr}
+        selectValue={location}
+        onHandleChange={handleChange}
+        formStyle={{ minWidth: '110px' }}
+        itemStyle={{ fontSize: '16px', color: theme.palette.primary.light }}
+      />
     </Box>
   );
-};
+});
+
+FilterLocation.displayName = 'FilterLocation';

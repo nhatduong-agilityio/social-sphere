@@ -1,24 +1,8 @@
 // Libs
-import {
-  Badge,
-  badgeClasses,
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Select,
-  Stack,
-  styled,
-  Typography,
-} from '@mui/material';
+import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import { FunctionComponent, memo } from 'react';
-
-const StyledBadgeDot = styled(Badge)(() => ({
-  [`& .${badgeClasses.dot}`]: {
-    width: 10,
-    height: 10,
-    borderRadius: '50%',
-  },
-}));
+import { statusArr } from '~/constants/status';
+import { Status } from '../Status';
 
 interface IProps {
   status: string;
@@ -37,82 +21,20 @@ export const StatusContent: FunctionComponent<IProps> = memo(({ status }: IProps
         defaultValue={status}
         variant='standard'
       >
-        <MenuItem value={'Delivered'}>
-          <Stack
-            direction='row'
-            sx={{ display: 'flex', alignItems: 'center', paddingLeft: '10px' }}
-          >
-            <StyledBadgeDot variant='dot' color='success' />
-            <Typography
-              component={'p'}
-              sx={{
+        {statusArr.map((item) => (
+          <MenuItem key={item} value={item}>
+            <Status
+              status={item}
+              styleStack={{ display: 'flex', alignItems: 'center', paddingLeft: '10px' }}
+              styleText={{
                 fontSize: '13px',
                 textTransform: 'capitalize',
                 marginLeft: '25px',
                 paddingTop: '2px',
               }}
-            >
-              Delivered
-            </Typography>
-          </Stack>
-        </MenuItem>
-        <MenuItem value={'Shipped'}>
-          <Stack
-            direction='row'
-            sx={{ display: 'flex', alignItems: 'center', paddingLeft: '10px' }}
-          >
-            <StyledBadgeDot variant='dot' color='info' />
-            <Typography
-              component={'p'}
-              sx={{
-                fontSize: '13px',
-                textTransform: 'capitalize',
-                marginLeft: '25px',
-                paddingTop: '2px',
-              }}
-            >
-              Shipped
-            </Typography>
-          </Stack>
-        </MenuItem>
-        <MenuItem value={'Cancelled'}>
-          <Stack
-            direction='row'
-            sx={{ display: 'flex', alignItems: 'center', paddingLeft: '10px' }}
-          >
-            <StyledBadgeDot variant='dot' color='error' />
-            <Typography
-              component={'p'}
-              sx={{
-                fontSize: '13px',
-                textTransform: 'capitalize',
-                marginLeft: '25px',
-                paddingTop: '2px',
-              }}
-            >
-              Cancelled
-            </Typography>
-          </Stack>
-        </MenuItem>
-        <MenuItem value={'Pending'}>
-          <Stack
-            direction='row'
-            sx={{ display: 'flex', alignItems: 'center', paddingLeft: '10px' }}
-          >
-            <StyledBadgeDot variant='dot' color='warning' />
-            <Typography
-              component={'p'}
-              sx={{
-                fontSize: '13px',
-                textTransform: 'capitalize',
-                marginLeft: '25px',
-                paddingTop: '2px',
-              }}
-            >
-              Pending
-            </Typography>
-          </Stack>
-        </MenuItem>
+            />
+          </MenuItem>
+        ))}
       </Select>
     </FormControl>
   );

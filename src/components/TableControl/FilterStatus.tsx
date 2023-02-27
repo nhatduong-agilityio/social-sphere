@@ -1,31 +1,27 @@
 // Libs
-import {
-  Box,
-  FormControl,
-  MenuItem,
-  Select,
-  SelectChangeEvent,
-  Typography,
-  useTheme,
-} from '@mui/material';
-import { useState } from 'react';
+import { Box, SelectChangeEvent, Typography, useTheme } from '@mui/material';
+import { FunctionComponent, memo, useCallback, useState } from 'react';
 import FilterAltSharpIcon from '@mui/icons-material/FilterAltSharp';
 
 // Constants
 import { STATUS, statusArr } from '~/constants/status';
+import { FormControlCustomize } from '../FormControlCustomize';
 
 interface IProps {
   onFilteredStatus: (status: string) => void;
 }
 
-export const FilterStatus = ({ onFilteredStatus }: IProps) => {
+export const FilterStatus: FunctionComponent<IProps> = memo(({ onFilteredStatus }: IProps) => {
   const theme = useTheme();
   const [status, setStatus] = useState(STATUS.ANY);
 
-  const handleChange = (event: SelectChangeEvent) => {
-    setStatus(event.target.value);
-    onFilteredStatus(event.target.value);
-  };
+  const handleChange = useCallback(
+    (event: SelectChangeEvent) => {
+      setStatus(event.target.value);
+      onFilteredStatus(event.target.value);
+    },
+    [onFilteredStatus],
+  );
 
   return (
     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
@@ -36,24 +32,15 @@ export const FilterStatus = ({ onFilteredStatus }: IProps) => {
       >
         Status
       </Typography>
-      <FormControl sx={{ minWidth: '110px' }} size='small'>
-        <Select
-          value={status}
-          onChange={handleChange}
-          autoWidth
-          sx={{ fontSize: '16px', color: theme.palette.primary.light }}
-        >
-          {statusArr.map((item) => (
-            <MenuItem
-              key={item}
-              sx={{ fontSize: '16px', color: theme.palette.primary.light }}
-              value={item}
-            >
-              {item}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+      <FormControlCustomize
+        arrValue={statusArr}
+        selectValue={status}
+        onHandleChange={handleChange}
+        formStyle={{ minWidth: '110px' }}
+        itemStyle={{ fontSize: '16px', color: theme.palette.primary.light }}
+      />
     </Box>
   );
-};
+});
+
+FilterStatus.displayName = 'FilterStatus';
