@@ -24,7 +24,7 @@ import { IUser } from '~/types/user';
 // Components
 import { AppBarCustomize } from '~/components/AppBar/AppBarCustomize';
 import { TableCustomize } from '~/components/Table/TableCustomize';
-import { BoxControl } from '@components/BoxControl';
+import { TableControl } from '~/components/TableControl/TableControl';
 import { FormDialog } from '~/components/Dialog/FormDialog';
 
 const useUsers = () => useContext<IUserContext>(UserContext);
@@ -102,7 +102,7 @@ export const LayoutContainer: FunctionComponent = memo(() => {
             backgroundColor: theme.palette.background.default,
           }}
         >
-          <BoxControl
+          <TableControl
             entries={entries}
             onSelectEntries={setEntries}
             onChangeRowsPerPage={onChangeRowsPerPage}

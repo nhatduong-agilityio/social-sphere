@@ -10,7 +10,7 @@ import { IUser } from '~/types/user';
 import { IUserContext, UserContext } from '~/store/providers/user';
 
 // Components
-import { FormInput } from '@components/BoxControl/FormInput';
+import { FormInput } from '@components/TableControl/FormInput';
 
 interface IProps {
   onRows: (rows: IUser[]) => void;
