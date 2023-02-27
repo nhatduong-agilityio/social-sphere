@@ -9,6 +9,7 @@ import {
   useTheme,
 } from '@mui/material';
 import { FunctionComponent, memo } from 'react';
+import { entriesArr } from '~/constants/entries';
 
 interface IProps {
   entries: string;
@@ -39,18 +40,15 @@ export const FilterEntries: FunctionComponent<IProps> = memo(
             autoWidth
             sx={{ fontSize: '16px', color: theme.palette.primary.light }}
           >
-            <MenuItem sx={{ fontSize: '16px', color: theme.palette.primary.dark }} value={5}>
-              5
-            </MenuItem>
-            <MenuItem sx={{ fontSize: '16px', color: theme.palette.primary.dark }} value={10}>
-              10
-            </MenuItem>
-            <MenuItem sx={{ fontSize: '16px', color: theme.palette.primary.dark }} value={15}>
-              15
-            </MenuItem>
-            <MenuItem sx={{ fontSize: '16px', color: theme.palette.primary.dark }} value={20}>
-              20
-            </MenuItem>
+            {entriesArr.map((item) => (
+              <MenuItem
+                key={item}
+                sx={{ fontSize: '16px', color: theme.palette.primary.dark }}
+                value={item}
+              >
+                {item}
+              </MenuItem>
+            ))}
           </Select>
         </FormControl>
         <Typography sx={{ fontSize: '13px' }} color={theme.palette.primary.light}>

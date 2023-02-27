@@ -12,7 +12,7 @@ import { useState } from 'react';
 import FilterAltSharpIcon from '@mui/icons-material/FilterAltSharp';
 
 // Constants
-import { STATUS } from '~/constants/status';
+import { STATUS, statusArr } from '~/constants/status';
 
 interface IProps {
   onFilteredStatus: (status: string) => void;
@@ -43,27 +43,15 @@ export const FilterStatus = ({ onFilteredStatus }: IProps) => {
           autoWidth
           sx={{ fontSize: '16px', color: theme.palette.primary.light }}
         >
-          <MenuItem sx={{ fontSize: '16px', color: theme.palette.primary.light }} value={'Any'}>
-            Any
-          </MenuItem>
-          <MenuItem
-            sx={{ fontSize: '16px', color: theme.palette.primary.light }}
-            value={'Delivered'}
-          >
-            Delivered
-          </MenuItem>
-          <MenuItem sx={{ fontSize: '16px', color: theme.palette.primary.light }} value={'Shipped'}>
-            Shipped
-          </MenuItem>
-          <MenuItem
-            sx={{ fontSize: '16px', color: theme.palette.primary.light }}
-            value={'Cancelled'}
-          >
-            Cancelled
-          </MenuItem>
-          <MenuItem sx={{ fontSize: '16px', color: theme.palette.primary.light }} value={'Pending'}>
-            Pending
-          </MenuItem>
+          {statusArr.map((item) => (
+            <MenuItem
+              key={item}
+              sx={{ fontSize: '16px', color: theme.palette.primary.light }}
+              value={item}
+            >
+              {item}
+            </MenuItem>
+          ))}
         </Select>
       </FormControl>
     </Box>

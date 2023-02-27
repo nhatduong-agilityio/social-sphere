@@ -9,6 +9,7 @@ import {
   useTheme,
 } from '@mui/material';
 import { FunctionComponent, useState } from 'react';
+import { locationArr } from '~/constants/location';
 
 interface IProps {
   onFilteredLocation: (location: string) => void;
@@ -38,30 +39,15 @@ export const FilterLocation: FunctionComponent<IProps> = ({ onFilteredLocation }
           autoWidth
           sx={{ fontSize: '16px', color: theme.palette.primary.light }}
         >
-          <MenuItem sx={{ fontSize: '16px', color: theme.palette.primary.light }} value={'All'}>
-            All
-          </MenuItem>
-          <MenuItem sx={{ fontSize: '16px', color: theme.palette.primary.light }} value={'Berlin'}>
-            Berlin
-          </MenuItem>
-          <MenuItem sx={{ fontSize: '16px', color: theme.palette.primary.light }} value={'London'}>
-            London
-          </MenuItem>
-          <MenuItem sx={{ fontSize: '16px', color: theme.palette.primary.light }} value={'Madrid'}>
-            Madrid
-          </MenuItem>
-          <MenuItem
-            sx={{ fontSize: '16px', color: theme.palette.primary.light }}
-            value={'New York'}
-          >
-            New York
-          </MenuItem>
-          <MenuItem sx={{ fontSize: '16px', color: theme.palette.primary.light }} value={'Paris'}>
-            Paris
-          </MenuItem>
-          <MenuItem sx={{ fontSize: '16px', color: theme.palette.primary.light }} value={'Other'}>
-            Other
-          </MenuItem>
+          {locationArr.map((item) => (
+            <MenuItem
+              key={item}
+              sx={{ fontSize: '16px', color: theme.palette.primary.light }}
+              value={item}
+            >
+              {item}
+            </MenuItem>
+          ))}
         </Select>
       </FormControl>
     </Box>

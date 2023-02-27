@@ -6,3 +6,5 @@ export const STATUS = {
   ERROR: 'Cancelled',
   WARNING: 'Pending',
 };
+
+export const statusArr = ['Any', 'Delivered', 'Shipped', 'Cancelled', 'Pending'];
