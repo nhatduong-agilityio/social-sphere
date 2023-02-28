@@ -21,6 +21,7 @@ import useSWRMutation from 'swr/mutation';
 import { fetcher } from '~/services/fetcher';
 import { putData } from '~/services/putData';
 import useSWR from 'swr';
+import { deleteData } from '~/services/deleteData';
 
 interface IProps {
   openDialog: boolean;
@@ -36,9 +37,13 @@ const filterOrderSelected = (orderSelected: number, data: IUser[] | undefined) =
 export const FormDialog: FunctionComponent<IProps> = memo(
   ({ openDialog, orderSelected, onCloseDialog }: IProps) => {
     const { data } = useSWR<IUser[]>(API.PATH_USERS, fetcher);
-    const { trigger, isMutating } = useSWRMutation(
+    const { trigger: updating, isMutating: updateMutating } = useSWRMutation(
       API.PATH_USERS + `/${orderSelected}`,
       putData<IUser>,
+    );
+    const { trigger: deleting, isMutating: deleteMutating } = useSWRMutation(
+      API.PATH_USERS + `/${orderSelected}`,
+      deleteData,
     );
     const { mutate, cache } = useSWRConfig();
 
@@ -94,16 +99,17 @@ export const FormDialog: FunctionComponent<IProps> = memo(
         }
       });
 
-      trigger(valueUpdate);
+      updating(valueUpdate);
       mutate(API.PATH_USERS, dataUpdate, false);
       onCloseDialog();
-      cache.delete(API.PATH_USERS + `/${orderSelected}`);
-      // handleUpdateUser(valueUpdate);
     };
 
     // handle delete item by id
     const onHandleDelete = () => {
-      // handleDeleteUser(filterData.id);
+      const newData = data?.filter((data) => data.id !== orderSelected);
+
+      deleting();
+      mutate(API.PATH_USERS, newData, false);
       onCloseDialog();
     };
 
@@ -141,10 +147,15 @@ export const FormDialog: FunctionComponent<IProps> = memo(
             <Button color='warning' onClick={onCloseDialog} variant='outlined'>
               Cancel
             </Button>
-            <Button color='error' onClick={onHandleDelete} variant='outlined'>
+            <Button
+              color='error'
+              onClick={onHandleDelete}
+              variant='outlined'
+              disabled={deleteMutating}
+            >
               Delete
             </Button>
-            <Button color='info' type='submit' variant='outlined' disabled={isMutating}>
+            <Button color='info' type='submit' variant='outlined' disabled={updateMutating}>
               Update
             </Button>
           </DialogActions>
