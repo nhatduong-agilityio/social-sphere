@@ -7,3 +7,5 @@ export const LOCATION = {
   PARIS: 'Paris',
   OTHER: 'Other',
 };
+
+export const locationArr = ['All', 'Berlin', 'London', 'Madrid', 'New York', 'Paris', 'Other'];

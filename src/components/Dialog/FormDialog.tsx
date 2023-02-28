@@ -22,7 +22,7 @@ import { IUser } from '~/types/user';
 import { IUserContext, UserContext } from '~/store/providers/user';
 
 // Components
-import { User } from '~/components/Table/User';
+import { User } from '~/components/User';
 import { LocationContent } from '~/components/Dialog/LocationContent';
 import { StatusContent } from '~/components/Dialog/StatusContent';
 import { InputContent } from '~/components/Dialog/InputContent';
@@ -110,7 +110,18 @@ export const FormDialog: FunctionComponent<IProps> = memo(
         <form onSubmit={onHandleUpdate}>
           <DialogTitle>Order Detail of {nameInit}</DialogTitle>
           <DialogContent>
-            <User avatar={avatarInit} name={nameInit} />
+            <User
+              avatar={avatarInit}
+              name={nameInit}
+              spacing={2}
+              styleStack={{ display: 'flex', alignItems: 'center' }}
+              styleAvatar={{ width: '40px', height: '40px' }}
+              styleText={{
+                fontWeight: 'Bold',
+                fontSize: '13px',
+                textTransform: 'capitalize',
+              }}
+            />
             <Stack spacing={3}>
               <InputContent nameInput={'name'} valueInput={nameInit} />
               <LocationContent location={locationInit} />

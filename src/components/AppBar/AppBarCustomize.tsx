@@ -1,29 +1,18 @@
 // Libs
-import { Box, AppBar, Toolbar, Typography, Button, useTheme, IconButton } from '@mui/material';
-import SyncIcon from '@mui/icons-material/Sync';
-import { FunctionComponent, memo, useContext } from 'react';
-import { Brightness4, Brightness7 } from '@mui/icons-material';
+import { Box, AppBar, Toolbar, useTheme } from '@mui/material';
+import { FunctionComponent, memo } from 'react';
 
 // Store
-import { ColorModeContext } from '~/store/providers/colorMode';
+import { Brand } from './Brand';
+import { ButtonRefresh } from './ButtonRefresh';
+import { ColorMode } from './ColorMode';
 
 interface IProps {
   onHandleRefresh: () => void;
 }
 
-const IconModeRenderer = ({ theme }: { theme: 'dark' | 'light' }) => {
-  const IconComponent = theme === 'dark' ? Brightness4 : Brightness7;
-
-  return <IconComponent sx={{ fontSize: '24px' }} />;
-};
-
 export const AppBarCustomize: FunctionComponent<IProps> = memo(({ onHandleRefresh }: IProps) => {
   const theme = useTheme();
-  const { setMode, mode } = useContext(ColorModeContext);
-
-  const handleSetMode = (_event: React.MouseEvent<HTMLButtonElement>) => {
-    setMode(mode);
-  };
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -36,43 +25,9 @@ export const AppBarCustomize: FunctionComponent<IProps> = memo(({ onHandleRefres
         }}
       >
         <Toolbar>
-          <Typography component='h1' sx={{ flexGrow: 1, fontSize: '24px' }}>
-            Order <b>Details</b>
-          </Typography>
-          <Button
-            variant='contained'
-            color='secondary'
-            startIcon={
-              <SyncIcon
-                sx={{
-                  transform: 'scaleX(-1)',
-                }}
-              />
-            }
-            sx={{
-              textTransform: 'capitalize',
-              fontSize: '16px',
-              backgroundColor: '#03A9F4',
-            }}
-            onClick={onHandleRefresh}
-          >
-            refresh list
-          </Button>
-          <Typography
-            sx={{ fontSize: '16px', textTransform: 'capitalize', paddingLeft: '30px' }}
-            color={theme.palette.secondary.contrastText}
-          >
-            {mode} mode
-          </Typography>
-          <Box
-            sx={{
-              textTransform: 'capitalize',
-            }}
-          >
-            <IconButton sx={{ paddingLeft: 1 }} onClick={handleSetMode} color='inherit'>
-              <IconModeRenderer theme={theme.palette.mode} />
-            </IconButton>
-          </Box>
+          <Brand />
+          <ButtonRefresh onHandleRefresh={onHandleRefresh} />
+          <ColorMode />
         </Toolbar>
       </AppBar>
     </Box>

@@ -8,6 +8,7 @@ export type actionTypes = {
   FAILURE: 'ACTION_TYPES_FAILURE';
 };
 
+// Define union type for action.
 export type Actions<T> =
   | { type: 'FETCH'; payload: T[] }
   | { type: 'UPDATE'; payload: T }

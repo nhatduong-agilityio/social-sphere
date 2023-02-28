@@ -7,13 +7,14 @@ import {
   TableRow,
   Tooltip,
   TooltipProps,
+  useTheme,
 } from '@mui/material';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { FunctionComponent, memo } from 'react';
 
 // Components
-import { User } from '~/components/Table/User';
-import { Status } from '~/components/Table/Status';
+import { User } from '~/components/User';
+import { Status } from '~/components/Status';
 import { IUser } from '~/types/user';
 
 // customize for table cell
@@ -54,6 +55,8 @@ interface IProps {
 }
 
 export const OrderRow: FunctionComponent<IProps> = memo(({ index, item, onOpenDialog }: IProps) => {
+  const theme = useTheme();
+
   const handleClick = () => {
     onOpenDialog(item.id);
   };
@@ -65,12 +68,33 @@ export const OrderRow: FunctionComponent<IProps> = memo(({ index, item, onOpenDi
           {index + 1}
         </StyledTableCell>
         <StyledTableCell component='th' scope='row'>
-          <User avatar={item.avatar} name={item.name} />
+          <User
+            avatar={item.avatar}
+            name={item.name}
+            spacing={2}
+            styleStack={{ display: 'flex', alignItems: 'center' }}
+            styleAvatar={{ width: '40px', height: '40px' }}
+            styleText={{
+              color: theme.palette.primary.light,
+              fontWeight: 'Bold',
+              fontSize: '13px',
+              textTransform: 'capitalize',
+            }}
+          />
         </StyledTableCell>
         <StyledTableCell align='left'>{item.location}</StyledTableCell>
         <StyledTableCell align='left'>{item.orderDate}</StyledTableCell>
         <StyledTableCell align='left'>
-          <Status status={item.status} />
+          <Status
+            status={item.status}
+            spacing={1.5}
+            styleStack={{ display: 'flex', alignItems: 'center' }}
+            styleText={{
+              fontSize: '13px',
+              textTransform: 'capitalize',
+              paddingTop: '3px',
+            }}
+          />
         </StyledTableCell>
         <StyledTableCell align='left'>{`$ ${item.netAmount}`}</StyledTableCell>
         <StyledTableCell align='left'>

@@ -6,10 +6,10 @@ import { FunctionComponent, memo } from 'react';
 import { IUser } from '~/types/user';
 
 // Components
-import { FilterEntries } from '@components/BoxControl/FilterEntries';
-import { FilterLocation } from '@components/BoxControl/FilterLocation';
-import { FilterName } from '@components/BoxControl/FilterName';
-import { FilterStatus } from '@components/BoxControl/FilterStatus';
+import { FilterEntries } from '@components/TableControl/FilterEntries';
+import { FilterLocation } from '@components/TableControl/FilterLocation';
+import { FilterName } from '@components/TableControl/FilterName';
+import { FilterStatus } from '@components/TableControl/FilterStatus';
 
 interface IProps {
   // number entries at select
@@ -24,7 +24,7 @@ interface IProps {
   onRows: (rows: IUser[]) => void;
 }
 
-export const BoxControl: FunctionComponent<IProps> = memo(
+export const TableControl: FunctionComponent<IProps> = memo(
   ({
     entries,
     onSelectEntries,
@@ -63,4 +63,4 @@ export const BoxControl: FunctionComponent<IProps> = memo(
   },
 );
 
-BoxControl.displayName = 'BoxControl';
+TableControl.displayName = 'TableControl';

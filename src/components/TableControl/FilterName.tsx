@@ -10,7 +10,7 @@ import { IUser } from '~/types/user';
 import { IUserContext, UserContext } from '~/store/providers/user';
 
 // Components
-import { FormInput } from '@components/BoxControl/FormInput';
+import { FormInput } from '~/components/FormInput';
 
 interface IProps {
   onRows: (rows: IUser[]) => void;
@@ -49,7 +49,17 @@ export const FilterName = ({ onRows }: IProps) => {
         Name
       </Typography>
       <form onSubmit={handleSearch}>
-        <FormInput />
+        <FormInput
+          inputName='formInput'
+          formStyle={{ minWidth: '200px', padding: '0 12px 0 10px' }}
+          inputStyle={{
+            borderRadius: '4px',
+            border: '1px solid #ddd',
+            fontSize: 16,
+            width: 'auto',
+            padding: '6px 12px 4px 12px',
+          }}
+        />
 
         <Button
           color='secondary'
