@@ -4,58 +4,47 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-import {
-  FormEvent,
-  FunctionComponent,
-  memo,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react';
+import { FormEvent, FunctionComponent, memo, useMemo } from 'react';
 import { Alert, Snackbar, Stack } from '@mui/material';
 
 // Types
 import { IUser } from '~/types/user';
-
-// Store
-import { IUserContext, UserContext } from '~/store/providers/user';
 
 // Components
 import { User } from '~/components/User';
 import { LocationContent } from '~/components/Dialog/LocationContent';
 import { StatusContent } from '~/components/Dialog/StatusContent';
 import { InputContent } from '~/components/Dialog/InputContent';
+import { API } from '~/constants/url';
+import { useSWRConfig } from 'swr';
+import useSWRMutation from 'swr/mutation';
+import { fetcher } from '~/services/fetcher';
+import { putData } from '~/services/putData';
+import useSWR from 'swr';
 
 interface IProps {
   openDialog: boolean;
   orderSelected: number;
   onCloseDialog: () => void;
 }
-
-const useUsers = () => useContext<IUserContext>(UserContext);
-
-// function helper filter item by id
-const filterOrderSelected = (orderSelected: number, data: IUser[]) => {
-  const dataFilter = data.find((item) => item.id === orderSelected);
+const filterOrderSelected = (orderSelected: number, data: IUser[] | undefined) => {
+  const dataFilter = data?.find((item) => item.id === orderSelected);
 
   return dataFilter;
 };
 
 export const FormDialog: FunctionComponent<IProps> = memo(
   ({ openDialog, orderSelected, onCloseDialog }: IProps) => {
-    const { users, handleUpdateUser, handleDeleteUser } = useUsers();
-    const [rows, setRows] = useState<IUser[]>(users.data ? users.data : ({} as IUser[]));
-
-    useEffect(() => {
-      if (users.data) {
-        setRows(users.data);
-      }
-    }, [users.data]);
+    const { data } = useSWR<IUser[]>(API.PATH_USERS, fetcher);
+    const { trigger, isMutating } = useSWRMutation(
+      API.PATH_USERS + `/${orderSelected}`,
+      putData<IUser>,
+    );
+    const { mutate, cache } = useSWRConfig();
 
     const filterData = useMemo(
-      () => filterOrderSelected(orderSelected, rows),
-      [orderSelected, rows],
+      () => filterOrderSelected(orderSelected, data),
+      [orderSelected, data],
     );
 
     if (!filterData) {
@@ -76,6 +65,7 @@ export const FormDialog: FunctionComponent<IProps> = memo(
     // handle update item
     const onHandleUpdate = (event: FormEvent<HTMLFormElement>) => {
       event.preventDefault();
+
       const formData = new FormData(event.currentTarget);
 
       const valueForm = Object.fromEntries(formData.entries());
@@ -96,12 +86,24 @@ export const FormDialog: FunctionComponent<IProps> = memo(
         netAmount: price ? parseFloat(price) : netAmountInit,
       };
 
-      handleUpdateUser(valueUpdate);
+      const dataUpdate = data?.map((data) => {
+        if (data.id === valueUpdate.id) {
+          return valueUpdate;
+        } else {
+          return data;
+        }
+      });
+
+      trigger(valueUpdate);
+      mutate(API.PATH_USERS, dataUpdate, false);
+      onCloseDialog();
+      cache.delete(API.PATH_USERS + `/${orderSelected}`);
+      // handleUpdateUser(valueUpdate);
     };
 
     // handle delete item by id
     const onHandleDelete = () => {
-      handleDeleteUser(filterData.id);
+      // handleDeleteUser(filterData.id);
       onCloseDialog();
     };
 
@@ -142,7 +144,7 @@ export const FormDialog: FunctionComponent<IProps> = memo(
             <Button color='error' onClick={onHandleDelete} variant='outlined'>
               Delete
             </Button>
-            <Button color='info' type='submit' variant='outlined'>
+            <Button color='info' type='submit' variant='outlined' disabled={isMutating}>
               Update
             </Button>
           </DialogActions>

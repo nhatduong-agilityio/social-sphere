@@ -17,15 +17,18 @@ import { LOCATION } from '~/constants/location';
 import { IUser } from '~/types/user';
 import { HeadRow } from '~/components/Table/HeadRow';
 import { FooterRow } from '~/components/Table/FooterRow';
+import useSWR from 'swr';
+import { fetcher } from '~/services/fetcher';
+import { API } from '~/constants/url';
 
 interface IProps {
-  rows: IUser[];
   page: number;
   onSetPage: (page: number) => void;
   rowsPerPage: number;
   onChangeRowsPerPage: (rowsPerPage: number, page: number) => void;
   filteredStatus: string;
   filteredLocation: string;
+  filteredName: string;
   onOpenDialog: (id: number) => void;
 }
 
@@ -37,17 +40,27 @@ const filterByLocation = (filteredLocation: string, data: IUser) => {
   return filteredLocation !== LOCATION.ALL ? data.location === filteredLocation : data;
 };
 
+const filterByName = (filteredName: string, data: IUser) => {
+  return data.name.toLowerCase().includes(filteredName.toLowerCase());
+};
+
 export const TableCustomize: FunctionComponent<IProps> = memo(
   ({
-    rows,
     page,
     onSetPage,
     rowsPerPage,
     onChangeRowsPerPage,
     filteredStatus,
     filteredLocation,
+    filteredName,
     onOpenDialog,
   }: IProps) => {
+    const { data } = useSWR<IUser[]>(API.PATH_USERS, fetcher);
+
+    console.log('data', data);
+
+    if (!data) return <p>Loading...</p>;
+
     return (
       <>
         <TableContainer sx={{ maxHeight: '720px' }}>
@@ -56,9 +69,10 @@ export const TableCustomize: FunctionComponent<IProps> = memo(
               <HeadRow />
             </TableHead>
             <TableBody>
-              {rows
+              {data
                 .filter((row) => filterByStatus(filteredStatus, row))
                 .filter((row) => filterByLocation(filteredLocation, row))
+                .filter((row) => filterByName(filteredName, row))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => (
                   <OrderRow key={row.id} index={index} item={row} onOpenDialog={onOpenDialog} />
@@ -66,7 +80,7 @@ export const TableCustomize: FunctionComponent<IProps> = memo(
             </TableBody>
             <TableFooter>
               <FooterRow
-                count={rows.length}
+                count={data.length}
                 rowsPerPage={rowsPerPage}
                 page={page}
                 onSetPage={onSetPage}

@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useEffect, useMemo, useReducer } from 'react';
+import { createContext, ReactNode, useEffect, useMemo, useReducer, useState } from 'react';
 
 // Helpers
 import { bindDispatchToAction, ObjActions } from '~/helpers/actionCreator';
@@ -12,6 +12,9 @@ import { requestDeleteUser } from '~/store/actions/user/deleteRequest';
 import { fetchRequest } from '~/store/actions/user/fetchRequest';
 import { requestUpdateUser } from '~/store/actions/user/updateRequest';
 import { initUserState, usersReducer } from '~/store/reducers/user';
+import { API } from '~/constants/url';
+import { fetcher } from '~/services/fetcher';
+import useSWR from 'swr';
 
 interface IProps {
   children: ReactNode;
@@ -27,6 +30,8 @@ export interface IUserContext {
 export const UserContext = createContext<IUserContext>({} as IUserContext);
 
 export const UserProvider: React.FC<IProps> = ({ children }: IProps) => {
+  const { data } = useSWR<IUser[]>(API.PATH_USERS, fetcher);
+
   const [users, dispatchUsers] = useReducer(usersReducer, initUserState);
 
   const actions = useMemo(
@@ -49,6 +54,8 @@ export const UserProvider: React.FC<IProps> = ({ children }: IProps) => {
   const handleDeleteUser = (id: number) => {
     return actions.requestDeleteUser()(id);
   };
+
+  if (!data || !users.data) return <p>Loading...</p>;
 
   const value = { users, handleUpdateUser, handleDeleteUser };
 

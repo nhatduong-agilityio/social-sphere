@@ -2,9 +2,6 @@
 import { Box, Grid } from '@mui/material';
 import { FunctionComponent, memo } from 'react';
 
-// Types
-import { IUser } from '~/types/user';
-
 // Components
 import { FilterEntries } from '@components/TableControl/FilterEntries';
 import { FilterLocation } from '@components/TableControl/FilterLocation';
@@ -20,8 +17,7 @@ interface IProps {
   onChangeRowsPerPage: (rowsPerPage: number, page: number) => void;
   onFilteredStatus: (status: string) => void;
   onFilteredLocation: (location: string) => void;
-  rows: IUser[];
-  onRows: (rows: IUser[]) => void;
+  onFilteredName: (name: string) => void;
 }
 
 export const TableControl: FunctionComponent<IProps> = memo(
@@ -31,7 +27,7 @@ export const TableControl: FunctionComponent<IProps> = memo(
     onChangeRowsPerPage,
     onFilteredStatus,
     onFilteredLocation,
-    onRows,
+    onFilteredName,
   }: IProps) => {
     return (
       <Box
@@ -55,7 +51,7 @@ export const TableControl: FunctionComponent<IProps> = memo(
             <FilterLocation onFilteredLocation={onFilteredLocation} />
           </Grid>
           <Grid item={true} xs={4}>
-            <FilterName onRows={onRows} />
+            <FilterName onFilteredName={onFilteredName} />
           </Grid>
         </Grid>
       </Box>
