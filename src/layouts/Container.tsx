@@ -5,6 +5,7 @@ import { FunctionComponent, memo, useCallback, useMemo, useState } from 'react';
 // Constants
 import { LOCATION } from '~/constants/location';
 import { STATUS } from '~/constants/status';
+import { ENTRY_DEFAULT } from '~/constants/entries';
 
 // Types
 import { DialogState } from '~/types/dialogForm';
@@ -17,7 +18,7 @@ import { FormDialog } from '~/components/Dialog/FormDialog';
 
 export const LayoutContainer: FunctionComponent = memo(() => {
   const theme = useTheme();
-  const [entries, setEntries] = useState('5');
+  const [entries, setEntries] = useState(ENTRY_DEFAULT);
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(Number(entries));
   const [filteredStatus, setFilteredStatus] = useState(STATUS.ANY);
