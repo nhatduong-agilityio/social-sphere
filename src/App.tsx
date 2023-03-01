@@ -1,10 +1,11 @@
 // Layout
 import { Box, useTheme } from '@mui/material';
 import { LayoutContainer } from '~/layouts/Container';
+import { Routes, Route } from 'react-router-dom';
+import { OrderDetail } from './components/OrderDetail/OrderDetail';
 
 const App = () => {
   const theme = useTheme();
-
   return (
     <Box
       sx={{
@@ -14,7 +15,11 @@ const App = () => {
         paddingTop: '30px',
       }}
     >
-      <LayoutContainer />
+      <Routes>
+        <Route path='/' element={<LayoutContainer />} />
+        <Route path='/detail/:id' element={<OrderDetail />} />
+        <Route path='*' element={<p>error</p>} />
+      </Routes>
     </Box>
   );
 };
