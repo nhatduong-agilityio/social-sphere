@@ -1,4 +1,5 @@
 export const request = {
+  fetcher: (key: string) => fetch(key).then((res) => res.json()),
   update: <T>(key: string, { arg }: { arg: T }) => {
     fetch(key, {
       method: 'PUT',

@@ -6,16 +6,9 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import { FormEvent, FunctionComponent, memo, useMemo } from 'react';
 import { Alert, Snackbar, Stack } from '@mui/material';
-import useSWRMutation from 'swr/mutation';
 
 // Types
 import { IUser } from '~/types/user';
-
-// Services
-import { request } from '~/services/request';
-
-// Constants
-import { API } from '~/constants/url';
 
 // Hooks
 import { useUsers } from '~/hooks/useUsers';
@@ -39,16 +32,7 @@ const filterOrderSelected = (orderSelected: number, data: IUser[] | undefined) =
 
 export const FormDialog: FunctionComponent<IProps> = memo(
   ({ openDialog, orderSelected, onCloseDialog }: IProps) => {
-    const { users, error, mutate } = useUsers();
-    const { trigger: updating, isMutating: updateMutating } = useSWRMutation(
-      API.PATH_USERS + `/${orderSelected}`,
-      request.update<IUser>,
-    );
-    const { trigger: deleting, isMutating: deleteMutating } = useSWRMutation(
-      API.PATH_USERS + `/${orderSelected}`,
-      request.delete,
-    );
-    // const { mutate, cache } = useSWRConfig();
+    const { users, error, isLoading, updating, deleting } = useUsers();
 
     const filterData = useMemo(
       () => filterOrderSelected(orderSelected, users),
@@ -94,25 +78,13 @@ export const FormDialog: FunctionComponent<IProps> = memo(
         netAmount: price ? parseFloat(price) : netAmountInit,
       };
 
-      const dataUpdate = users?.map((user) => {
-        if (user.id === valueUpdate.id) {
-          return valueUpdate;
-        } else {
-          return user;
-        }
-      });
-
       updating(valueUpdate);
-      mutate(dataUpdate, false);
       onCloseDialog();
     };
 
     // handle delete item by id
     const onHandleDelete = () => {
-      const newData = users?.filter((user) => user.id !== orderSelected);
-
-      deleting();
-      mutate(newData, false);
+      deleting(orderSelected);
       onCloseDialog();
     };
 
@@ -150,15 +122,10 @@ export const FormDialog: FunctionComponent<IProps> = memo(
             <Button color='warning' onClick={onCloseDialog} variant='outlined'>
               Cancel
             </Button>
-            <Button
-              color='error'
-              onClick={onHandleDelete}
-              variant='outlined'
-              disabled={deleteMutating}
-            >
+            <Button color='error' onClick={onHandleDelete} variant='outlined' disabled={isLoading}>
               Delete
             </Button>
-            <Button color='info' type='submit' variant='outlined' disabled={updateMutating}>
+            <Button color='info' type='submit' variant='outlined' disabled={isLoading}>
               Update
             </Button>
           </DialogActions>
