@@ -11,6 +11,7 @@ import {
 } from '@mui/material';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { FunctionComponent, memo } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // Components
 import { User } from '~/components/User';
@@ -51,14 +52,15 @@ const StyledTooltip = styled(ToBeStyledTooltip)(() => ({
 interface IProps {
   index: number;
   item: IUser;
-  onOpenDialog: (id: number) => void;
 }
 
-export const OrderRow: FunctionComponent<IProps> = memo(({ index, item, onOpenDialog }: IProps) => {
+export const OrderRow: FunctionComponent<IProps> = memo(({ index, item }: IProps) => {
   const theme = useTheme();
+  const navigate = useNavigate();
 
-  const handleClick = () => {
-    onOpenDialog(item.id);
+  const handleOpenDialog = () => {
+    const path = `/detail/${item.id}`;
+    navigate(path);
   };
 
   return (
@@ -107,7 +109,7 @@ export const OrderRow: FunctionComponent<IProps> = memo(({ index, item, onOpenDi
             }}
           >
             <IconButton
-              onClick={handleClick}
+              onClick={handleOpenDialog}
               aria-label='action'
               size='large'
               color='secondary'

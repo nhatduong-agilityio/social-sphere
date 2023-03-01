@@ -7,15 +7,15 @@ interface IProps {
   location: string;
 }
 
-export const LocationContent: FunctionComponent<IProps> = memo(({ location }: IProps) => {
+export const OrderLocation: FunctionComponent<IProps> = memo(({ location }: IProps) => {
   return (
     <FormControl>
-      <InputLabel id='demo-dialog-select-label' sx={{ textTransform: 'uppercase' }}>
+      <InputLabel id='demo-select-label' sx={{ textTransform: 'uppercase' }}>
         Location
       </InputLabel>
       <Select
         key={`location-${location}`}
-        labelId='demo-dialog-select-label'
+        labelId='demo-select-label'
         name='location'
         defaultValue={location}
         variant='standard'
@@ -43,4 +43,4 @@ export const LocationContent: FunctionComponent<IProps> = memo(({ location }: IP
   );
 });
 
-LocationContent.displayName = 'LocationContent';
+OrderLocation.displayName = 'OrderLocation';

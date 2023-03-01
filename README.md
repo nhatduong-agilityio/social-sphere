@@ -1,4 +1,9 @@
-## NHATDUONG REACT PRACTICE PERFORMANCE
+## NHATDUONG REACT PRACTICE - 2
+
+Overview:
+
+- This document is my React - 2 practice estimate.
+- This project will restructure practice 1 according to the issues considered, adding react-router for order details and using SWR to fetch data from json-server
 
 Web application for management order details:
 
@@ -20,18 +25,17 @@ Web application for management order details:
 
 - Timeline:
 
-  - Estimate time: 10 days.
-  - Actual time: 10 days.
+  - Estimate time: 3 days.
+  - Actual time: . days.
 
 - Editor: Visual Studio Code.
 - Responsive: Not support responsive.
 
 ### TARGETS
 
-- Practice with useMemo and useCallback, to fully understand these Hooks.
-- Management store with useReducer, useContext and sync action.
-- Debug and handle re-render in the project.
-- Apply performance for the project.
+- Refactoring the code according to the list of problems after practice - 1 review.
+- Learn about react-router and apply it to the project.
+- Learn about SWR and apply it to fetch data from json-server.
 
 ### TECHNICAL STACKS AND DEVELOPMENT TOOLS
 
@@ -43,6 +47,7 @@ Web application for management order details:
 - [Prettier](https://prettier.io/).
 - [Eslint](https://eslint.org/).
 - [Husky](https://typicode.github.io/husky/#/).
+- [SWR](https://swr.vercel.app/docs/getting-started).
 
 ### ENVIRONMENT
 
@@ -65,7 +70,7 @@ Web application for management order details:
 - Once you have npm installed you can run the following both to install and upgrade Yarn or Pnpm:
 
 ```bash
-npm install --global yarn
+npm install -g yarn
 ```
 
 or
@@ -77,8 +82,8 @@ npm install -g pnpm
 - Setup and run project:
 
 ```bash
-https://gitlab.asoft-python.com/nhat.duong/react-practice-performance.git
-cd react-practice-performance
+https://gitlab.asoft-python.com/nhat.duong/react-practice.git
+cd react-practice
 pnpm install
 pnpm run build
 pnpm run dev

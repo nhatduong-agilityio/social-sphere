@@ -29,7 +29,6 @@ interface IProps {
   filteredStatus: string;
   filteredLocation: string;
   searchName: string;
-  onOpenDialog: (id: number) => void;
 }
 
 const filterByStatus = (filteredStatus: string, data: IUser) => {
@@ -53,7 +52,6 @@ export const TableCustomize: FunctionComponent<IProps> = memo(
     filteredStatus,
     filteredLocation,
     searchName,
-    onOpenDialog,
   }: IProps) => {
     const { users, error, isLoading } = useUsers();
 
@@ -81,7 +79,7 @@ export const TableCustomize: FunctionComponent<IProps> = memo(
                 .filter((row) => filterByName(searchName, row))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => (
-                  <OrderRow key={row.id} index={index} item={row} onOpenDialog={onOpenDialog} />
+                  <OrderRow key={row.id} index={index} item={row} />
                 ))}
             </TableBody>
             <TableFooter>

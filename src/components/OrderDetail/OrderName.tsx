@@ -9,7 +9,7 @@ interface IProps {
   shrink?: boolean;
 }
 
-export const InputContent: FunctionComponent<IProps> = memo(
+export const OrderName: FunctionComponent<IProps> = memo(
   ({ nameInput, valueInput, type, shrink }: IProps) => {
     const label = nameInput.toUpperCase();
 
@@ -29,4 +29,4 @@ export const InputContent: FunctionComponent<IProps> = memo(
   },
 );
 
-InputContent.displayName = 'InputContent';
+OrderName.displayName = 'OrderName';

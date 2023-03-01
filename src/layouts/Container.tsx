@@ -1,20 +1,16 @@
 // Libs
 import { Box, Container, useTheme } from '@mui/material';
-import { FunctionComponent, memo, useCallback, useMemo, useState } from 'react';
+import { FunctionComponent, memo, useCallback, useState } from 'react';
 
 // Constants
 import { LOCATION } from '~/constants/location';
 import { STATUS } from '~/constants/status';
 import { ENTRY_DEFAULT } from '~/constants/entries';
 
-// Types
-import { DialogState } from '~/types/dialogForm';
-
 // Components
 import { AppBarCustomize } from '~/components/AppBar/AppBarCustomize';
 import { TableCustomize } from '~/components/Table/TableCustomize';
 import { TableControl } from '~/components/TableControl/TableControl';
-import { FormDialog } from '~/components/Dialog/FormDialog';
 
 export const LayoutContainer: FunctionComponent = memo(() => {
   const theme = useTheme();
@@ -24,11 +20,6 @@ export const LayoutContainer: FunctionComponent = memo(() => {
   const [filteredStatus, setFilteredStatus] = useState(STATUS.ANY);
   const [filteredLocation, setFilteredLocation] = useState(LOCATION.ALL);
   const [searchName, setSearchName] = useState('');
-
-  const [dialogForm, setDialogForm] = useState<DialogState>({
-    open: false,
-    idSelected: 0,
-  });
 
   /**
    * component handle change row per pages
@@ -43,30 +34,6 @@ export const LayoutContainer: FunctionComponent = memo(() => {
   const handleRefresh = () => {
     setSearchName('');
   };
-
-  const handleOpenDialog = useCallback((id: number) => {
-    setDialogForm({
-      open: true,
-      idSelected: id,
-    });
-  }, []);
-
-  const handleCloseDialog = useCallback(() => {
-    setDialogForm({
-      open: false,
-      idSelected: dialogForm.idSelected,
-    });
-  }, [dialogForm.idSelected]);
-
-  const renderDialog = useMemo(() => {
-    return (
-      <FormDialog
-        openDialog={dialogForm.open}
-        orderSelected={dialogForm.idSelected}
-        onCloseDialog={handleCloseDialog}
-      />
-    );
-  }, [dialogForm.idSelected, dialogForm.open, handleCloseDialog]);
 
   return (
     <>
@@ -95,11 +62,9 @@ export const LayoutContainer: FunctionComponent = memo(() => {
             filteredStatus={filteredStatus}
             filteredLocation={filteredLocation}
             searchName={searchName}
-            onOpenDialog={handleOpenDialog}
           />
         </Box>
       </Container>
-      {dialogForm.open && renderDialog}
     </>
   );
 });

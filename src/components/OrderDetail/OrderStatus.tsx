@@ -8,15 +8,15 @@ interface IProps {
   status: string;
 }
 
-export const StatusContent: FunctionComponent<IProps> = memo(({ status }: IProps) => {
+export const OrderStatus: FunctionComponent<IProps> = memo(({ status }: IProps) => {
   return (
     <FormControl>
-      <InputLabel id='demo-dialog-select-label' sx={{ textTransform: 'uppercase' }}>
+      <InputLabel id='demo-select-label' sx={{ textTransform: 'uppercase' }}>
         Status
       </InputLabel>
       <Select
         key={`select-${status}`}
-        labelId='demo-dialog-select-label'
+        labelId='demo-select-label'
         name='status'
         defaultValue={status}
         variant='standard'
@@ -40,4 +40,4 @@ export const StatusContent: FunctionComponent<IProps> = memo(({ status }: IProps
   );
 });
 
-StatusContent.displayName = 'StatusContent';
+OrderStatus.displayName = 'OrderStatus';
