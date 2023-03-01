@@ -6,22 +6,26 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import { FormEvent, FunctionComponent, memo, useMemo } from 'react';
 import { Alert, Snackbar, Stack } from '@mui/material';
+import useSWRMutation from 'swr/mutation';
 
 // Types
 import { IUser } from '~/types/user';
+
+// Services
+import { update } from '~/services/update';
+import { remove } from '~/services/remove';
+
+// Constants
+import { API } from '~/constants/url';
+
+// Hooks
+import { useUsers } from '~/hooks/useUsers';
 
 // Components
 import { User } from '~/components/User';
 import { LocationContent } from '~/components/Dialog/LocationContent';
 import { StatusContent } from '~/components/Dialog/StatusContent';
 import { InputContent } from '~/components/Dialog/InputContent';
-import { API } from '~/constants/url';
-import { useSWRConfig } from 'swr';
-import useSWRMutation from 'swr/mutation';
-import { fetcher } from '~/services/fetcher';
-import { putData } from '~/services/putData';
-import useSWR from 'swr';
-import { deleteData } from '~/services/deleteData';
 
 interface IProps {
   openDialog: boolean;
@@ -36,23 +40,23 @@ const filterOrderSelected = (orderSelected: number, data: IUser[] | undefined) =
 
 export const FormDialog: FunctionComponent<IProps> = memo(
   ({ openDialog, orderSelected, onCloseDialog }: IProps) => {
-    const { data } = useSWR<IUser[]>(API.PATH_USERS, fetcher);
+    const { users, error, mutate } = useUsers();
     const { trigger: updating, isMutating: updateMutating } = useSWRMutation(
       API.PATH_USERS + `/${orderSelected}`,
-      putData<IUser>,
+      update<IUser>,
     );
     const { trigger: deleting, isMutating: deleteMutating } = useSWRMutation(
       API.PATH_USERS + `/${orderSelected}`,
-      deleteData,
+      remove,
     );
-    const { mutate, cache } = useSWRConfig();
+    // const { mutate, cache } = useSWRConfig();
 
     const filterData = useMemo(
-      () => filterOrderSelected(orderSelected, data),
-      [orderSelected, data],
+      () => filterOrderSelected(orderSelected, users),
+      [orderSelected, users],
     );
 
-    if (!filterData) {
+    if (!filterData || error) {
       return (
         <Snackbar open={true} autoHideDuration={2000}>
           <Alert severity='warning'>Not found!</Alert>
@@ -91,25 +95,25 @@ export const FormDialog: FunctionComponent<IProps> = memo(
         netAmount: price ? parseFloat(price) : netAmountInit,
       };
 
-      const dataUpdate = data?.map((data) => {
-        if (data.id === valueUpdate.id) {
+      const dataUpdate = users?.map((user) => {
+        if (user.id === valueUpdate.id) {
           return valueUpdate;
         } else {
-          return data;
+          return user;
         }
       });
 
       updating(valueUpdate);
-      mutate(API.PATH_USERS, dataUpdate, false);
+      mutate(dataUpdate, false);
       onCloseDialog();
     };
 
     // handle delete item by id
     const onHandleDelete = () => {
-      const newData = data?.filter((data) => data.id !== orderSelected);
+      const newData = users?.filter((user) => user.id !== orderSelected);
 
       deleting();
-      mutate(API.PATH_USERS, newData, false);
+      mutate(newData, false);
       onCloseDialog();
     };
 

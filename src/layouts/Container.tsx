@@ -8,27 +8,21 @@ import { STATUS } from '~/constants/status';
 
 // Types
 import { DialogState } from '~/types/dialogForm';
-import { IUser } from '~/types/user';
 
 // Components
 import { AppBarCustomize } from '~/components/AppBar/AppBarCustomize';
 import { TableCustomize } from '~/components/Table/TableCustomize';
 import { TableControl } from '~/components/TableControl/TableControl';
 import { FormDialog } from '~/components/Dialog/FormDialog';
-import { API } from '~/constants/url';
-import useSWR from 'swr';
-import { fetcher } from '~/services/fetcher';
 
 export const LayoutContainer: FunctionComponent = memo(() => {
   const theme = useTheme();
-  // const { data, mutate } = useFetch<IUser[]>(API.PATH_USERS);
-  const { data } = useSWR<IUser[]>(API.PATH_USERS, fetcher);
   const [entries, setEntries] = useState('5');
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(Number(entries));
   const [filteredStatus, setFilteredStatus] = useState(STATUS.ANY);
   const [filteredLocation, setFilteredLocation] = useState(LOCATION.ALL);
-  const [filteredName, setFilteredName] = useState('');
+  const [searchName, setSearchName] = useState('');
 
   const [dialogForm, setDialogForm] = useState<DialogState>({
     open: false,
@@ -46,7 +40,7 @@ export const LayoutContainer: FunctionComponent = memo(() => {
   }, []);
 
   const handleRefresh = () => {
-    setFilteredName('');
+    setSearchName('');
   };
 
   const handleOpenDialog = useCallback((id: number) => {
@@ -73,8 +67,6 @@ export const LayoutContainer: FunctionComponent = memo(() => {
     );
   }, [dialogForm.idSelected, dialogForm.open, handleCloseDialog]);
 
-  if (!data) return <p>Loading...</p>;
-
   return (
     <>
       <Container maxWidth='xl'>
@@ -92,7 +84,7 @@ export const LayoutContainer: FunctionComponent = memo(() => {
             onChangeRowsPerPage={onChangeRowsPerPage}
             onFilteredStatus={setFilteredStatus}
             onFilteredLocation={setFilteredLocation}
-            onFilteredName={setFilteredName}
+            onHandleSearch={setSearchName}
           />
           <TableCustomize
             page={page}
@@ -101,7 +93,7 @@ export const LayoutContainer: FunctionComponent = memo(() => {
             onChangeRowsPerPage={onChangeRowsPerPage}
             filteredStatus={filteredStatus}
             filteredLocation={filteredLocation}
-            filteredName={filteredName}
+            searchName={searchName}
             onOpenDialog={handleOpenDialog}
           />
         </Box>

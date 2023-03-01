@@ -17,7 +17,7 @@ interface IProps {
   onChangeRowsPerPage: (rowsPerPage: number, page: number) => void;
   onFilteredStatus: (status: string) => void;
   onFilteredLocation: (location: string) => void;
-  onFilteredName: (name: string) => void;
+  onHandleSearch: (name: string) => void;
 }
 
 export const TableControl: FunctionComponent<IProps> = memo(
@@ -27,7 +27,7 @@ export const TableControl: FunctionComponent<IProps> = memo(
     onChangeRowsPerPage,
     onFilteredStatus,
     onFilteredLocation,
-    onFilteredName,
+    onHandleSearch,
   }: IProps) => {
     return (
       <Box
@@ -51,7 +51,7 @@ export const TableControl: FunctionComponent<IProps> = memo(
             <FilterLocation onFilteredLocation={onFilteredLocation} />
           </Grid>
           <Grid item={true} xs={4}>
-            <FilterName onFilteredName={onFilteredName} />
+            <FilterName onHandleSearch={onHandleSearch} />
           </Grid>
         </Grid>
       </Box>

@@ -7,10 +7,10 @@ import { FormEvent } from 'react';
 import { FormInput } from '~/components/FormInput';
 
 interface IProps {
-  onFilteredName: (name: string) => void;
+  onHandleSearch: (name: string) => void;
 }
 
-export const FilterName = ({ onFilteredName }: IProps) => {
+export const FilterName = ({ onHandleSearch }: IProps) => {
   const theme = useTheme();
 
   const handleSearch = (event: FormEvent<HTMLFormElement>) => {
@@ -21,7 +21,7 @@ export const FilterName = ({ onFilteredName }: IProps) => {
 
     const formInput = valueFrom.formInput.toString();
 
-    onFilteredName(formInput);
+    onHandleSearch(formInput);
   };
 
   return (

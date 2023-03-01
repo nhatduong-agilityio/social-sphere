@@ -1,5 +1,10 @@
-export const putData = <T>(url: string, { arg }: { arg: T }) => {
-  fetch(url, {
+/**
+ * Update data from key and trigger arg
+ * @param key
+ * @param arg
+ */
+export const update = <T>(key: string, { arg }: { arg: T }) => {
+  fetch(key, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(arg),

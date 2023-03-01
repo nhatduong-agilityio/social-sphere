@@ -3,11 +3,8 @@ import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
-import { TableFooter } from '@mui/material';
+import { Alert, Snackbar, TableFooter } from '@mui/material';
 import { FunctionComponent, memo } from 'react';
-
-// Components
-import { OrderRow } from '~/components/Table/OrderRow';
 
 // Constants
 import { STATUS } from '~/constants/status';
@@ -15,11 +12,14 @@ import { LOCATION } from '~/constants/location';
 
 // Types
 import { IUser } from '~/types/user';
+
+// Hooks
+import { useUsers } from '~/hooks/useUsers';
+
+// Components
+import { OrderRow } from '~/components/Table/OrderRow';
 import { HeadRow } from '~/components/Table/HeadRow';
 import { FooterRow } from '~/components/Table/FooterRow';
-import useSWR from 'swr';
-import { fetcher } from '~/services/fetcher';
-import { API } from '~/constants/url';
 
 interface IProps {
   page: number;
@@ -28,7 +28,7 @@ interface IProps {
   onChangeRowsPerPage: (rowsPerPage: number, page: number) => void;
   filteredStatus: string;
   filteredLocation: string;
-  filteredName: string;
+  searchName: string;
   onOpenDialog: (id: number) => void;
 }
 
@@ -40,8 +40,8 @@ const filterByLocation = (filteredLocation: string, data: IUser) => {
   return filteredLocation !== LOCATION.ALL ? data.location === filteredLocation : data;
 };
 
-const filterByName = (filteredName: string, data: IUser) => {
-  return data.name.toLowerCase().includes(filteredName.toLowerCase());
+const filterByName = (searchName: string, data: IUser) => {
+  return data.name.toLowerCase().includes(searchName.toLowerCase());
 };
 
 export const TableCustomize: FunctionComponent<IProps> = memo(
@@ -52,14 +52,20 @@ export const TableCustomize: FunctionComponent<IProps> = memo(
     onChangeRowsPerPage,
     filteredStatus,
     filteredLocation,
-    filteredName,
+    searchName,
     onOpenDialog,
   }: IProps) => {
-    const { data } = useSWR<IUser[]>(API.PATH_USERS, fetcher);
+    const { users, error, isLoading } = useUsers();
 
-    console.log('data', data);
+    if (isLoading) return <p>Loading...</p>;
 
-    if (!data) return <p>Loading...</p>;
+    if (!users || error) {
+      return (
+        <Snackbar open={true} autoHideDuration={2000}>
+          <Alert severity='warning'>Not found!</Alert>
+        </Snackbar>
+      );
+    }
 
     return (
       <>
@@ -69,10 +75,10 @@ export const TableCustomize: FunctionComponent<IProps> = memo(
               <HeadRow />
             </TableHead>
             <TableBody>
-              {data
+              {users
                 .filter((row) => filterByStatus(filteredStatus, row))
                 .filter((row) => filterByLocation(filteredLocation, row))
-                .filter((row) => filterByName(filteredName, row))
+                .filter((row) => filterByName(searchName, row))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => (
                   <OrderRow key={row.id} index={index} item={row} onOpenDialog={onOpenDialog} />
@@ -80,7 +86,7 @@ export const TableCustomize: FunctionComponent<IProps> = memo(
             </TableBody>
             <TableFooter>
               <FooterRow
-                count={data.length}
+                count={users.length}
                 rowsPerPage={rowsPerPage}
                 page={page}
                 onSetPage={onSetPage}
