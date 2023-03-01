@@ -12,8 +12,7 @@ import useSWRMutation from 'swr/mutation';
 import { IUser } from '~/types/user';
 
 // Services
-import { update } from '~/services/update';
-import { remove } from '~/services/remove';
+import { request } from '~/services/request';
 
 // Constants
 import { API } from '~/constants/url';
@@ -43,11 +42,11 @@ export const FormDialog: FunctionComponent<IProps> = memo(
     const { users, error, mutate } = useUsers();
     const { trigger: updating, isMutating: updateMutating } = useSWRMutation(
       API.PATH_USERS + `/${orderSelected}`,
-      update<IUser>,
+      request.update<IUser>,
     );
     const { trigger: deleting, isMutating: deleteMutating } = useSWRMutation(
       API.PATH_USERS + `/${orderSelected}`,
-      remove,
+      request.delete,
     );
     // const { mutate, cache } = useSWRConfig();
 

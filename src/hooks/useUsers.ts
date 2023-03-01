@@ -11,7 +11,7 @@ import { API } from '~/constants/url';
 import { IUser } from '~/types/user';
 
 export const useUsers = () => {
-  const { data, error, mutate } = useSWR<IUser[]>(API.PATH_USERS, fetcher);
+  const { data, error, isLoading, mutate } = useSWR<IUser[]>(API.PATH_USERS, fetcher);
 
-  return { users: data, error, isLoading: !error && !data, mutate };
+  return { users: data, error, isLoading, mutate };
 };
