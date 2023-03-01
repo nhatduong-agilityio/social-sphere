@@ -1,30 +1,12 @@
 {
-  "orders": [
-    {
-      "name": "Dahlia Gulgowski",
-      "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/922.jpg",
-      "location": "Madrid",
-      "orderDate": "2022-06-01",
-      "status": "Shipped",
-      "netAmount": 1.26,
-      "id": 2
-    },
-    {
-      "name": "Lacey Feeneys",
-      "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1192.jpg",
-      "location": "Berlin",
-      "orderDate": "2022-06-01",
-      "status": "Delivered",
-      "netAmount": 350,
-      "id": 3
-    },
+  "users": [
     {
       "id": 4,
-      "name": "Sasha Kovacek",
+      "name": "Sasha Kovacek 123",
       "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1227.jpg",
       "location": "New York",
       "orderDate": "2022-06-01",
-      "status": "Pending",
+      "status": "Delivered",
       "netAmount": 1.572
     },
     {

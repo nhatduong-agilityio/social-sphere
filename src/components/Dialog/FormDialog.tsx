@@ -4,22 +4,14 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-import {
-  FormEvent,
-  FunctionComponent,
-  memo,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react';
+import { FormEvent, FunctionComponent, memo, useMemo } from 'react';
 import { Alert, Snackbar, Stack } from '@mui/material';
 
 // Types
 import { IUser } from '~/types/user';
 
-// Store
-import { IUserContext, UserContext } from '~/store/providers/user';
+// Hooks
+import { useUsers } from '~/hooks/useUsers';
 
 // Components
 import { User } from '~/components/User';
@@ -32,33 +24,22 @@ interface IProps {
   orderSelected: number;
   onCloseDialog: () => void;
 }
-
-const useUsers = () => useContext<IUserContext>(UserContext);
-
-// function helper filter item by id
-const filterOrderSelected = (orderSelected: number, data: IUser[]) => {
-  const dataFilter = data.find((item) => item.id === orderSelected);
+const filterOrderSelected = (orderSelected: number, data: IUser[] | undefined) => {
+  const dataFilter = data?.find((item) => item.id === orderSelected);
 
   return dataFilter;
 };
 
 export const FormDialog: FunctionComponent<IProps> = memo(
   ({ openDialog, orderSelected, onCloseDialog }: IProps) => {
-    const { users, handleUpdateUser, handleDeleteUser } = useUsers();
-    const [rows, setRows] = useState<IUser[]>(users.data ? users.data : ({} as IUser[]));
-
-    useEffect(() => {
-      if (users.data) {
-        setRows(users.data);
-      }
-    }, [users.data]);
+    const { users, error, isLoading, updating, deleting } = useUsers();
 
     const filterData = useMemo(
-      () => filterOrderSelected(orderSelected, rows),
-      [orderSelected, rows],
+      () => filterOrderSelected(orderSelected, users),
+      [orderSelected, users],
     );
 
-    if (!filterData) {
+    if (!filterData || error) {
       return (
         <Snackbar open={true} autoHideDuration={2000}>
           <Alert severity='warning'>Not found!</Alert>
@@ -76,6 +57,7 @@ export const FormDialog: FunctionComponent<IProps> = memo(
     // handle update item
     const onHandleUpdate = (event: FormEvent<HTMLFormElement>) => {
       event.preventDefault();
+
       const formData = new FormData(event.currentTarget);
 
       const valueForm = Object.fromEntries(formData.entries());
@@ -96,12 +78,13 @@ export const FormDialog: FunctionComponent<IProps> = memo(
         netAmount: price ? parseFloat(price) : netAmountInit,
       };
 
-      handleUpdateUser(valueUpdate);
+      updating(valueUpdate);
+      onCloseDialog();
     };
 
     // handle delete item by id
     const onHandleDelete = () => {
-      handleDeleteUser(filterData.id);
+      deleting(orderSelected);
       onCloseDialog();
     };
 
@@ -139,10 +122,10 @@ export const FormDialog: FunctionComponent<IProps> = memo(
             <Button color='warning' onClick={onCloseDialog} variant='outlined'>
               Cancel
             </Button>
-            <Button color='error' onClick={onHandleDelete} variant='outlined'>
+            <Button color='error' onClick={onHandleDelete} variant='outlined' disabled={isLoading}>
               Delete
             </Button>
-            <Button color='info' type='submit' variant='outlined'>
+            <Button color='info' type='submit' variant='outlined' disabled={isLoading}>
               Update
             </Button>
           </DialogActions>

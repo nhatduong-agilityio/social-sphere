@@ -1,25 +1,14 @@
 // Libs
 import { Box, Container, useTheme } from '@mui/material';
-import {
-  FunctionComponent,
-  memo,
-  useCallback,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react';
+import { FunctionComponent, memo, useCallback, useMemo, useState } from 'react';
 
 // Constants
 import { LOCATION } from '~/constants/location';
 import { STATUS } from '~/constants/status';
-
-// Store
-import { IUserContext, UserContext } from '~/store/providers/user';
+import { ENTRY_DEFAULT } from '~/constants/entries';
 
 // Types
 import { DialogState } from '~/types/dialogForm';
-import { IUser } from '~/types/user';
 
 // Components
 import { AppBarCustomize } from '~/components/AppBar/AppBarCustomize';
@@ -27,24 +16,14 @@ import { TableCustomize } from '~/components/Table/TableCustomize';
 import { TableControl } from '~/components/TableControl/TableControl';
 import { FormDialog } from '~/components/Dialog/FormDialog';
 
-const useUsers = () => useContext<IUserContext>(UserContext);
-
 export const LayoutContainer: FunctionComponent = memo(() => {
   const theme = useTheme();
-  const { users } = useUsers();
-
-  const [entries, setEntries] = useState('5');
+  const [entries, setEntries] = useState(ENTRY_DEFAULT);
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(Number(entries));
   const [filteredStatus, setFilteredStatus] = useState(STATUS.ANY);
   const [filteredLocation, setFilteredLocation] = useState(LOCATION.ALL);
-  const [rows, setRows] = useState<IUser[]>(users.data ? users.data : ({} as IUser[]));
-
-  useEffect(() => {
-    if (users.data) {
-      setRows(users.data);
-    }
-  }, [users.data]);
+  const [searchName, setSearchName] = useState('');
 
   const [dialogForm, setDialogForm] = useState<DialogState>({
     open: false,
@@ -52,7 +31,7 @@ export const LayoutContainer: FunctionComponent = memo(() => {
   });
 
   /**
-   * component handle change row per page
+   * component handle change row per pages
    * @param rowsPerPage row number want to show.
    * @param page page number of pagination
    */
@@ -62,9 +41,7 @@ export const LayoutContainer: FunctionComponent = memo(() => {
   }, []);
 
   const handleRefresh = () => {
-    if (users.data) {
-      setRows(users.data);
-    }
+    setSearchName('');
   };
 
   const handleOpenDialog = useCallback((id: number) => {
@@ -108,17 +85,16 @@ export const LayoutContainer: FunctionComponent = memo(() => {
             onChangeRowsPerPage={onChangeRowsPerPage}
             onFilteredStatus={setFilteredStatus}
             onFilteredLocation={setFilteredLocation}
-            rows={rows}
-            onRows={setRows}
+            onHandleSearch={setSearchName}
           />
           <TableCustomize
-            rows={rows}
             page={page}
             onSetPage={setPage}
             rowsPerPage={rowsPerPage}
             onChangeRowsPerPage={onChangeRowsPerPage}
             filteredStatus={filteredStatus}
             filteredLocation={filteredLocation}
+            searchName={searchName}
             onOpenDialog={handleOpenDialog}
           />
         </Box>

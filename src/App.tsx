@@ -2,8 +2,6 @@
 import { Box, useTheme } from '@mui/material';
 import { LayoutContainer } from '~/layouts/Container';
 
-import { UserProvider } from '~/store/providers/user';
-
 const App = () => {
   const theme = useTheme();
 
@@ -16,9 +14,7 @@ const App = () => {
         paddingTop: '30px',
       }}
     >
-      <UserProvider>
-        <LayoutContainer />
-      </UserProvider>
+      <LayoutContainer />
     </Box>
   );
 };

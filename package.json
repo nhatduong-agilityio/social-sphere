@@ -12,7 +12,8 @@
     "prettier": "npx prettier src --check",
     "prettier:fix": "npm run prettier -- --write",
     "format": "npm run prettier:fix && npm run lint:fix",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "data": "npx json-server --watch data.json"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",

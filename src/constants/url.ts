@@ -3,5 +3,5 @@ export const URL = {
 };
 
 export const API = {
-  PATH_ORDERS: `${URL.API_BASE_URL}/orders`,
+  PATH_USERS: `${URL.API_BASE_URL}/users`,
 };

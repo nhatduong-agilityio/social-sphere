@@ -1,34 +1,17 @@
 // Libs
 import { Box, Button, Typography, useTheme } from '@mui/material';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
-import { FormEvent, useContext } from 'react';
-
-// Types
-import { IUser } from '~/types/user';
-
-// Store
-import { IUserContext, UserContext } from '~/store/providers/user';
+import { FormEvent } from 'react';
 
 // Components
 import { FormInput } from '~/components/FormInput';
 
 interface IProps {
-  onRows: (rows: IUser[]) => void;
+  onHandleSearch: (name: string) => void;
 }
 
-const useUsers = () => useContext<IUserContext>(UserContext);
-
-const requestSearch = (rows: IUser[], searchedVal: string, onRows: (rows: IUser[]) => void) => {
-  const filteredRows = rows.filter((row) => {
-    return row.name.toLowerCase().includes(searchedVal.toLowerCase());
-  });
-
-  onRows(filteredRows);
-};
-
-export const FilterName = ({ onRows }: IProps) => {
+export const FilterName = ({ onHandleSearch }: IProps) => {
   const theme = useTheme();
-  const { users } = useUsers();
 
   const handleSearch = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -38,9 +21,7 @@ export const FilterName = ({ onRows }: IProps) => {
 
     const formInput = valueFrom.formInput.toString();
 
-    if (users.data) {
-      requestSearch(users.data, formInput, onRows);
-    }
+    onHandleSearch(formInput);
   };
 
   return (
