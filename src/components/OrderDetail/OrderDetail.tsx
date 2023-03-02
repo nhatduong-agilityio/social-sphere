@@ -18,7 +18,7 @@ import { useUsers } from '~/hooks/useUsers';
 import { User } from '~/components/User';
 import { OrderLocation } from '~/components/OrderDetail/OrderLocation';
 import { OrderStatus } from '~/components/OrderDetail/OrderStatus';
-import { OrderName } from '~/components/OrderDetail/OrderName';
+import { InputContent } from '~/components/OrderDetail/InputContent';
 
 const filterOrderSelected = (orderId: number, data: IUser[] | undefined) => {
   const dataFilter = data?.find((item) => item.id === orderId);
@@ -110,11 +110,16 @@ export const OrderDetail = memo(() => {
             }}
           />
           <Stack spacing={3}>
-            <OrderName nameInput={'name'} valueInput={nameInit} />
+            <InputContent nameInput={'name'} valueInput={nameInit} />
             <OrderLocation location={locationInit} />
-            <OrderName nameInput={'date'} valueInput={orderDateInit} type={'date'} shrink={true} />
+            <InputContent
+              nameInput={'date'}
+              valueInput={orderDateInit}
+              type={'date'}
+              shrink={true}
+            />
             <OrderStatus status={statusInit} />
-            <OrderName nameInput={'price'} valueInput={netAmountInit} />
+            <InputContent nameInput={'price'} valueInput={netAmountInit} />
           </Stack>
         </DialogContent>
         <DialogActions>

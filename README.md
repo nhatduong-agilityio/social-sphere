@@ -26,7 +26,7 @@ Web application for management order details:
 - Timeline:
 
   - Estimate time: 3 days.
-  - Actual time: . days.
+  - Actual time: 2 days.
 
 - Editor: Visual Studio Code.
 - Responsive: Not support responsive.

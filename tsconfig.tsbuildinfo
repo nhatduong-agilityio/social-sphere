@@ -835,7 +835,7 @@
       "./src/components/boxcontrol/index.tsx",
       "./src/components/dialogdetail/OrderLocation.tsx",
       "./src/components/dialogdetail/OrderStatus.tsx",
-      "./src/components/dialogdetail/OrderName.tsx",
+      "./src/components/dialogdetail/InputContent.tsx",
       "./src/components/dialogdetail/index.tsx",
       "./src/layouts/container.tsx",
       "./src/app.tsx",
