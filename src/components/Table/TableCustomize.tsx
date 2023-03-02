@@ -17,9 +17,9 @@ import { IUser } from '~/types/user';
 import { useUsers } from '~/hooks/useUsers';
 
 // Components
-import { OrderRow } from '~/components/Table/OrderRow';
-import { HeadRow } from '~/components/Table/HeadRow';
-import { FooterRow } from '~/components/Table/FooterRow';
+import { OrderRow } from '@components/Table/OrderRow';
+import { HeadRow } from '@components/Table/HeadRow';
+import { FooterRow } from '@components/Table/FooterRow';
 
 interface IProps {
   page: number;
@@ -55,7 +55,13 @@ export const TableCustomize: FunctionComponent<IProps> = memo(
   }: IProps) => {
     const { users, error, isLoading } = useUsers();
 
-    if (isLoading) return <p>Loading...</p>;
+    if (isLoading) {
+      return (
+        <Snackbar open={true} autoHideDuration={2000}>
+          <Alert severity='warning'>Loading!</Alert>
+        </Snackbar>
+      );
+    }
 
     if (!users || error) {
       return (

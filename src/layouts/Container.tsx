@@ -8,9 +8,9 @@ import { STATUS } from '~/constants/status';
 import { ENTRY_DEFAULT } from '~/constants/entries';
 
 // Components
-import { AppBarCustomize } from '~/components/AppBar/AppBarCustomize';
-import { TableCustomize } from '~/components/Table/TableCustomize';
-import { TableControl } from '~/components/TableControl/TableControl';
+import { AppBarCustomize } from '@components/AppBar/AppBarCustomize';
+import { TableCustomize } from '@components/Table/TableCustomize';
+import { TableControl } from '@components/TableControl/TableControl';
 
 export const LayoutContainer: FunctionComponent = memo(() => {
   const theme = useTheme();

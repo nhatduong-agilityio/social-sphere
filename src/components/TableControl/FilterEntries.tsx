@@ -1,8 +1,12 @@
 // Libs
 import { Box, SelectChangeEvent, Typography, useTheme } from '@mui/material';
 import { FunctionComponent, memo, useCallback } from 'react';
+
+// Constant
 import { entriesArr } from '~/constants/entries';
-import { FormControlCustomize } from '../FormControlCustomize';
+
+// Component
+import { FormControlCustomize } from '@components/FormControlCustomize';
 
 interface IProps {
   entries: string;

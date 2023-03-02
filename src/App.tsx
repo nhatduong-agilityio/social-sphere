@@ -1,8 +1,12 @@
-// Layout
+// Libs
 import { Box, useTheme } from '@mui/material';
-import { LayoutContainer } from '~/layouts/Container';
 import { Routes, Route } from 'react-router-dom';
-import { OrderDetail } from './components/OrderDetail/OrderDetail';
+
+// Layout
+import { LayoutContainer } from '~/layouts/Container';
+
+// Component
+import { OrderDetail } from '@components/OrderDetail/OrderDetail';
 
 const App = () => {
   const theme = useTheme();
@@ -18,7 +22,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<LayoutContainer />} />
         <Route path='/detail/:id' element={<OrderDetail />} />
-        <Route path='*' element={<p>error</p>} />
+        <Route path='*' element={<h1>error</h1>} />
       </Routes>
     </Box>
   );

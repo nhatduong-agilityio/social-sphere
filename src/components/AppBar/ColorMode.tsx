@@ -1,6 +1,9 @@
+// Libs
 import { Box, IconButton, Typography, useTheme } from '@mui/material';
 import { Brightness4, Brightness7 } from '@mui/icons-material';
 import { memo, useContext } from 'react';
+
+// Store
 import { ColorModeContext } from '~/store/providers/colorMode';
 
 const IconModeRenderer = ({ theme }: { theme: 'dark' | 'light' }) => {

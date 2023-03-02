@@ -1,8 +1,12 @@
 // Libs
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import { FunctionComponent, memo } from 'react';
+
+// Constant
 import { statusArr } from '~/constants/status';
-import { Status } from '../Status';
+
+// Components
+import { Status } from '@components/Status';
 
 interface IProps {
   status: string;

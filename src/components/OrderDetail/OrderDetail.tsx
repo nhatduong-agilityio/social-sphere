@@ -15,10 +15,10 @@ import { IUser } from '~/types/user';
 import { useUsers } from '~/hooks/useUsers';
 
 // Components
-import { User } from '~/components/User';
-import { OrderLocation } from '~/components/OrderDetail/OrderLocation';
-import { OrderStatus } from '~/components/OrderDetail/OrderStatus';
-import { InputContent } from '~/components/OrderDetail/InputContent';
+import { User } from '@components/User';
+import { OrderLocation } from '@components/OrderDetail/OrderLocation';
+import { OrderStatus } from '@components/OrderDetail/OrderStatus';
+import { InputContent } from '@components/OrderDetail/InputContent';
 
 const filterOrderSelected = (orderId: number, data: IUser[] | undefined) => {
   const dataFilter = data?.find((item) => item.id === orderId);

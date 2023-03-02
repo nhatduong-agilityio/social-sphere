@@ -14,8 +14,10 @@ import { FunctionComponent, memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 // Components
-import { User } from '~/components/User';
-import { Status } from '~/components/Status';
+import { User } from '@components/User';
+import { Status } from '@components/Status';
+
+// Types
 import { IUser } from '~/types/user';
 
 // customize for table cell

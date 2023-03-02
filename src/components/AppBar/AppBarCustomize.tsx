@@ -2,10 +2,10 @@
 import { Box, AppBar, Toolbar, useTheme } from '@mui/material';
 import { FunctionComponent, memo } from 'react';
 
-// Store
-import { Brand } from './Brand';
-import { ButtonRefresh } from './ButtonRefresh';
-import { ColorMode } from './ColorMode';
+// Components
+import { Brand } from '@components/AppBar/Brand';
+import { ButtonRefresh } from '@components/AppBar/ButtonRefresh';
+import { ColorMode } from '@components/AppBar/ColorMode';
 
 interface IProps {
   onHandleRefresh: () => void;

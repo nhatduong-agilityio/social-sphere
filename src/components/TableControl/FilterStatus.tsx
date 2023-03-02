@@ -5,7 +5,9 @@ import FilterAltSharpIcon from '@mui/icons-material/FilterAltSharp';
 
 // Constants
 import { STATUS, statusArr } from '~/constants/status';
-import { FormControlCustomize } from '../FormControlCustomize';
+
+// Components
+import { FormControlCustomize } from '@components/FormControlCustomize';
 
 interface IProps {
   onFilteredStatus: (status: string) => void;

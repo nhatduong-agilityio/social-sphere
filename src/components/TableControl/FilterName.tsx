@@ -4,7 +4,7 @@ import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import { FormEvent } from 'react';
 
 // Components
-import { FormInput } from '~/components/FormInput';
+import { FormInput } from '@components/FormInput';
 
 interface IProps {
   onHandleSearch: (name: string) => void;

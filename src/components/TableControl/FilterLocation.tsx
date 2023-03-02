@@ -1,8 +1,12 @@
 // Libs
 import { Box, SelectChangeEvent, Typography, useTheme } from '@mui/material';
 import { FunctionComponent, memo, useCallback, useState } from 'react';
+
+// Constant
 import { locationArr } from '~/constants/location';
-import { FormControlCustomize } from '../FormControlCustomize';
+
+// Component
+import { FormControlCustomize } from '@components/FormControlCustomize';
 
 interface IProps {
   onFilteredLocation: (location: string) => void;
