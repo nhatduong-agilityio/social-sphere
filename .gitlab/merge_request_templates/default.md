@@ -1,13 +1,12 @@
 # Merge Request
 
-### Summary
+## Summary
 
 (Provide a detailed description of the changes included in this merge request.)
 
 ### GitLab Issue Link
 
 (Provide the link to the GitLab issue associated with the completion of this feature.)
-
 
 ### Completed Tasks
 
@@ -26,6 +25,6 @@ Please ensure the following before submitting your pull request:
 - [ ] Update the relevant documentations.
 - [ ] Assign the pull request to reviewers.
 
-### Relevant Logs and/or Screenshots:
+### Relevant Logs and/or Screenshots
 
 (If your changes involve any updates to the user interface, kindly include screenshots, videos of the modifications.)
