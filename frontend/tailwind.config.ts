@@ -25,6 +25,7 @@ const config: Config = {
         lg: 'var(--radius-lg)',
       },
       colors: {
+        body: 'hsl(var(--body))',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {
@@ -55,7 +56,11 @@ const config: Config = {
           DEFAULT: 'hsl(var(--destructive))',
           foreground: 'hsl(var(--destructive-foreground))',
         },
-        border: 'hsl(var(--border))',
+        border: {
+          DEFAULT: 'hsl(var(--border))',
+          secondary: 'hsl(var(--border-secondary))',
+          tertiary: 'hsl(var(--border-tertiary))',
+        },
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
         chart: {
@@ -64,6 +69,23 @@ const config: Config = {
           '3': 'hsl(var(--chart-3))',
           '4': 'hsl(var(--chart-4))',
           '5': 'hsl(var(--chart-5))',
+        },
+        sphere: {
+          '10': 'hsl(var(--sphere-10))',
+          '20': 'hsl(var(--sphere-20))',
+          '30': 'hsl(var(--sphere-30))',
+          '40': 'hsl(var(--sphere-40))',
+          '50': 'hsl(var(--sphere-50))',
+        },
+        'sphere-green': {
+          '10': 'hsl(var(--sphere-green-10))',
+          '20': 'hsl(var(--sphere-green-20))',
+        },
+        icon: {
+          DEFAULT: 'hsl(var(--icon))',
+          primary: 'hsl(var(--icon-primary))',
+          secondary: 'hsl(var(--icon-secondary))',
+          light: 'hsl(var(--icon-light))',
         },
       },
       fontFamily: {
@@ -134,6 +156,103 @@ const config: Config = {
             fontWeight: '700',
           },
         ],
+      },
+      keyframes: {
+        'fade-in': {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        'fade-out': {
+          '0%': { opacity: '1' },
+          '100%': { opacity: '0' },
+        },
+        'slide-in': {
+          '0%': {
+            opacity: '0',
+            transform: 'translateX(50px)',
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'translateX(0)',
+          },
+        },
+        'bounce-in-left': {
+          '0%': {
+            opacity: '0',
+            transform: 'translateX(280px)',
+          },
+          '50%': {
+            opacity: '1',
+            transform: 'translateX(-20px)',
+          },
+          '70%': { transform: 'translateX(10px)' },
+          '100%': { transform: 'translateX(0)' },
+        },
+        'bounce-in-right': {
+          '0%': {
+            opacity: '0',
+            transform: 'translateX(-280px)',
+          },
+          '50%': {
+            opacity: '1',
+            transform: 'translateX(20px)',
+          },
+          '70%': { transform: 'translateX(-10px)' },
+          '100%': { transform: 'translateX(0)' },
+        },
+        'bounce-in-up': {
+          '0%': {
+            opacity: '0',
+            transform: 'translateY(200px)',
+          },
+          '50%': {
+            opacity: '1',
+            transform: 'translateY(-10px)',
+          },
+          '70%': { transform: 'translateY(5px)' },
+          '100%': { transform: 'translateY(0)' },
+        },
+        'bounce-in-down': {
+          '0%': {
+            opacity: '0',
+            transform: 'translateY(-200px)',
+          },
+          '50%': {
+            opacity: '1',
+            transform: 'translateY(10px)',
+          },
+          '70%': { transform: 'translateY(-5px)' },
+          '100%': { transform: 'translateY(0)' },
+        },
+        'flip-in-x': {
+          '0%': {
+            transform: 'perspective(400px) rotate3d(1, 0, 0, 90deg)',
+            opacity: '0',
+          },
+          '40%': {
+            transform: 'perspective(400px) rotate3d(1, 0, 0, -20deg)',
+          },
+          '60%': {
+            transform: 'perspective(400px) rotate3d(1, 0, 0, 10deg)',
+            opacity: '1',
+          },
+          '80%': {
+            transform: 'perspective(400px) rotate3d(1, 0, 0, -5deg)',
+          },
+          '100%': {
+            transform: 'perspective(400px)',
+          },
+        },
+      },
+      animation: {
+        'fade-in': 'fade-in 0.5s ease-out',
+        'fade-out': 'fade-out 0.7s ease-out',
+        'slide-in': 'slide-in 1s cubic-bezier(0.16, 0.81, 0.32, 1)',
+        'bounce-in-left': 'bounce-in-left 0.7s ease-in-out',
+        'bounce-in-right': 'bounce-in-right 0.7s ease-in-out',
+        'bounce-in-up': 'bounce-in-up 0.7s ease-in-out',
+        'bounce-in-down': 'bounce-in-down 0.7s ease-in-out',
+        'flip-in-x': 'flip-in-x 1s ease-out',
       },
     },
   },
