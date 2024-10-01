@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 
 // Components
-import { Header } from '@/components/layouts/header';
-import './globals.css';
+import { ThemeProvider } from '@/components/providers/theme-provider';
 
-const inter = Inter({ subsets: ['latin'] });
+// Styles
+import { montserrat, roboto } from '../styles/fonts';
+import '../styles/globals.css';
 
 export const metadata: Metadata = {
   title: 'Next.js Boilerplate',
@@ -24,10 +24,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <Header />
-        {children}
+    <html
+      lang="en"
+      className={`${montserrat.variable} ${roboto.variable}`}
+      suppressHydrationWarning
+    >
+      <body>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

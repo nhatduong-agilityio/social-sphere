@@ -69,7 +69,33 @@
 
     --chart-5: 27 87% 67%;
 
-    --radius: 0.5rem
+    /* Radius */
+    --radius-tn: .0625rem;
+    --radius: .375rem;
+    --radius-md: .5rem;
+    --radius-lg: .65rem;
+
+    /* Font size */
+    --font-tn: 0.7rem;
+    --font-2xs: 0.75rem;
+    --font-xs: 0.8rem;
+    --font-sm: 0.85rem;
+    --font-base: 0.9rem;
+    --font-md: 0.95rem;
+    --font-lg: 1.1rem;
+    --font-xl: 1.4rem;
+    --font-3xl: 2.5rem;
+
+    /* Line height */
+    --line-height-tn: 1.05rem;
+    --line-height-2xs: 1.125rem;
+    --line-height-xs: 1.2rem;
+    --line-height-sm: 1.275rem;
+    --line-height-base: 1.35rem;
+    --line-height-md: 1.425rem;
+    --line-height-lg: 1.2375rem;
+    --line-height-xl: 1.68rem;
+    --line-height-3xl: 3.25rem
   }
   .dark {
 
