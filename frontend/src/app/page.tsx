@@ -1,3 +1,6 @@
+import { BrandLink } from '@/components/sections/brand-link';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { LockIcon, UserIcon } from 'lucide-react';
 
@@ -17,6 +20,20 @@ const Homepage = () => {
         variant="icon"
         placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"
       />
+
+      <BrandLink />
+
+      <Avatar>
+        <AvatarImage src="https://github.com/shadcn.png" />
+        <AvatarFallback>CN</AvatarFallback>
+      </Avatar>
+
+      <Button>Login</Button>
+      <Button variant="primary">Login</Button>
+      <Button variant="destructive">Login</Button>
+      <Button variant="link" size="link">
+        Login
+      </Button>
     </main>
   );
 };

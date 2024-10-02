@@ -54,13 +54,9 @@
 
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 90.98%;
-    --border-secondary: 0 0% 85.88%;
-    --border-tertiary: 230.62 15.53% 59.61%;
-
     --input: 0 0% 85.88%;
 
-    --ring: 224 71.4% 4.1%;
+    --ring: 199.65 97.41% 45.49%;
 
     --chart-1: 12 76% 61%;
 
@@ -72,7 +68,13 @@
 
     --chart-5: 27 87% 67%;
 
-    /* Radius */
+    /* Border color */
+    --border: 0 0% 90.98%;
+    --border-primary: 0 0% 70.98%;
+    --border-secondary: 0 0% 85.88%;
+    --border-tertiary: 230.62 15.53% 59.61%;
+
+    /* Radius color */
     --radius-tn: .0625rem;
     --radius: .375rem;
     --radius-md: .5rem;
@@ -100,7 +102,7 @@
     --line-height-xl: 1.68rem;
     --line-height-3xl: 3.25rem;
 
-    /* Sphere main colors*/
+    /* Sphere main colors */
     --sphere-10: 212.86 74.12% 66.67%;
     --sphere-20: 199.65 97.41% 45.49%;
     --sphere-30: 213.1 74.36% 61.76%;
@@ -112,11 +114,20 @@
     --sphere-green-20: 172.35 64.5% 54.71%;
 
 
-    /* Icon color*/
+    /* Icon color */
     --icon: 229.71 13.83% 50.39%;
     --icon-primary: 229.29 11.29% 51.37%;
     --icon-secondary: 0 0% 80.78%;
     --icon-light:  0 0% 98.04%;
+
+    /* Brand color */
+    --brand: 213.85 48.95% 46.86%;
+
+    /* Button color */
+    --button: 0 0% 100%;
+    --button-foreground: 0 0% 60%;
+    --button-primary: 213.85 48.95% 46.86%;
+    --button-primary-foreground: 0 0% 100%;
   }
   .dark {
     --body: 218.18 25.98% 24.9%;
@@ -153,13 +164,9 @@
 
     --destructive-foreground: 0 0% 100%;
 
-    --border: 218.57 25% 10.98%;
-    --border-secondary:  220 25.23% 20.98%;
-    --border-tertiary: 230.62 15.53% 59.61%;
-
     --input: 220 25.23% 20.98%;
 
-    --ring: 216 12.2% 83.9%;
+    --ring: 199.65 97.41% 45.49%;
 
     --chart-1: 220 70% 50%;
 
@@ -170,12 +177,25 @@
     --chart-4: 280 65% 60%;
 
     --chart-5: 340 75% 55%;
-    
-    /* Icon color*/
+
+    /* Border color */
+    --border: 218.57 25% 10.98%;
+    --border-primary: 0 0% 70.98%;
+    --border-secondary:  220 25.23% 20.98%;
+    --border-tertiary: 230.62 15.53% 59.61%;
+
+    /* Icon color */
     --icon: 229.71 13.83% 50.39%;
     --icon-primary: 229.29 11.29% 51.37%;
     --icon-secondary: 232.17 14.11% 68.04%;
-    --icon-light: 0 0% 98.04%; 
+    --icon-light: 0 0% 98.04%;
+
+    /* Brand color */
+    --brand: 0 0% 100%;
+
+    /* Button color */
+    --button: 218.57 25% 10.98%;
+    --button-foreground: 0 0% 100%;
   }
 }
 

@@ -58,6 +58,7 @@ const config: Config = {
         },
         border: {
           DEFAULT: 'hsl(var(--border))',
+          primary: 'hsl(var(--border-primary))',
           secondary: 'hsl(var(--border-secondary))',
           tertiary: 'hsl(var(--border-tertiary))',
         },
@@ -86,6 +87,13 @@ const config: Config = {
           primary: 'hsl(var(--icon-primary))',
           secondary: 'hsl(var(--icon-secondary))',
           light: 'hsl(var(--icon-light))',
+        },
+        brand: 'hsl(var(--brand))',
+        button: {
+          DEFAULT: 'hsl(var(--button))',
+          foreground: 'hsl(var(--button-foreground))',
+          primary: 'hsl(var(--button-primary))',
+          'primary-foreground': 'hsl(var(--button-primary-foreground))',
         },
       },
       fontFamily: {
