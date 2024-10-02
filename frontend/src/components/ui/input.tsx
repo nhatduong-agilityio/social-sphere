@@ -10,7 +10,7 @@ const inputVariants = cva(
     variants: {
       variant: {
         default: '',
-        icon: 'transition-colors duration-500 ease-in-out focus:border-sphere-30',
+        icon: 'transition-all duration-300 ease-in-out focus:border-sphere-30',
       },
     },
     defaultVariants: {
@@ -38,7 +38,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       icon && (
         <div
           className={cn(
-            `absolute ${position}-3 top-1/2 -translate-y-1/2 transition-colors duration-500 ease-in-out`,
+            `absolute top-1/2 -translate-y-1/2 transition-all duration-300 ease-in-out`,
+            position === 'left' ? 'left-3' : 'right-3',
             isFocused ? 'text-sphere-30' : 'text-icon-secondary',
           )}
         >
