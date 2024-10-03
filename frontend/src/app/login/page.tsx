@@ -1,7 +1,9 @@
+import { LoginForm } from '@/features/auth/components/login-form';
+
 const LoginPage = () => (
-  <main className="container mx-auto">
-    <h1 className="text-lg font-semibold">Login page</h1>
-  </main>
+  <div className="w-full h-full flex justify-center items-center">
+    <LoginForm />
+  </div>
 );
 
 export default LoginPage;

@@ -1,7 +1,9 @@
+import { ReactNode } from 'react';
 import type { Metadata } from 'next';
 
 // Components
 import { ThemeProvider } from '@/components/providers/theme-provider';
+import { Toaster } from '@/components/providers/toaster';
 
 // Styles
 import { montserrat, roboto } from '../styles/fonts';
@@ -21,7 +23,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
     <html
@@ -37,6 +39,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

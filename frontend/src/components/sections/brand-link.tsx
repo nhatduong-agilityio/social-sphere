@@ -1,4 +1,6 @@
 import Link from 'next/link';
+
+// Components
 import { BrandIcon } from '@/icons/brand-icon';
 
 export const BrandLink = () => (

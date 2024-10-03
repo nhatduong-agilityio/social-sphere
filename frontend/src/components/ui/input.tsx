@@ -1,8 +1,9 @@
 'use client';
 
-import * as React from 'react';
-import { cn } from '@/utils/cn';
+import { forwardRef, InputHTMLAttributes, ReactNode, useState } from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
+
+import { cn } from '@/utils/cn';
 
 const inputVariants = cva(
   'flex h-10 w-full rounded-lg border border-input bg-background px-3 py-2 text-base file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50',
@@ -20,18 +21,18 @@ const inputVariants = cva(
 );
 
 export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement>,
+  extends InputHTMLAttributes<HTMLInputElement>,
     VariantProps<typeof inputVariants> {
-  startIcon?: React.ReactNode;
-  endIcon?: React.ReactNode;
+  startIcon?: ReactNode;
+  endIcon?: ReactNode;
 }
 
-const Input = React.forwardRef<HTMLInputElement, InputProps>(
+const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ startIcon, endIcon, className, variant, type, ...props }, ref) => {
-    const [isFocused, setIsFocused] = React.useState(false);
+    const [isFocused, setIsFocused] = useState(false);
 
     const renderIcon = (
-      icon: React.ReactNode,
+      icon: ReactNode,
       position: 'left' | 'right',
       isFocused: boolean,
     ) =>

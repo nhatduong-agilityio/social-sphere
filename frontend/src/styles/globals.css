@@ -73,6 +73,7 @@
     --border-primary: 0 0% 70.98%;
     --border-secondary: 0 0% 85.88%;
     --border-tertiary: 230.62 15.53% 59.61%;
+    --border-quaternary: 0 0% 80.78%;
 
     /* Radius color */
     --radius-tn: .0625rem;
@@ -90,6 +91,7 @@
     --font-lg: 1.1rem;
     --font-xl: 1.4rem;
     --font-3xl: 2.5rem;
+    --font-4xl: 3.2rem;
 
     /* Line height */
     --line-height-tn: 1.05rem;
@@ -101,18 +103,21 @@
     --line-height-lg: 1.2375rem;
     --line-height-xl: 1.68rem;
     --line-height-3xl: 3.25rem;
+    --line-height-4xl: 4.16rem;
 
     /* Sphere main colors */
+    --sphere-5: 212.86 73.68% 77.65%;
     --sphere-10: 212.86 74.12% 66.67%;
     --sphere-20: 199.65 97.41% 45.49%;
     --sphere-30: 213.1 74.36% 61.76%;
     --sphere-40: 213.29 74.55% 56.86%;
     --sphere-50: 213.85 48.95% 46.86%;
+    --sphere-60: 213.07 74.58% 53.73%;
+    --sphere-70: 212.92 74.23% 61.96%;
 
     /* Sphere green colors*/
     --sphere-green-10: 152.54 79.45% 50.39%;
     --sphere-green-20: 172.35 64.5% 54.71%;
-
 
     /* Icon color */
     --icon: 229.71 13.83% 50.39%;
@@ -128,6 +133,16 @@
     --button-foreground: 0 0% 60%;
     --button-primary: 213.85 48.95% 46.86%;
     --button-primary-foreground: 0 0% 100%;
+
+    /* Text color */
+    --text: 0 0% 60%;
+    --text-primary: 237.27 16.18% 26.67%;
+    --text-secondary: 229.29 11.29% 51.37%;
+    --text-tertiary: 0 0% 21.18%;
+    --text-quaternary: 0 0% 98.82%;
+
+    /* Caption color */
+    --caption: 0 0% 98.82%;
   }
   .dark {
     --body: 218.18 25.98% 24.9%;
@@ -183,6 +198,7 @@
     --border-primary: 0 0% 70.98%;
     --border-secondary:  220 25.23% 20.98%;
     --border-tertiary: 230.62 15.53% 59.61%;
+    --border-quaternary: 0 0% 80.78%;
 
     /* Icon color */
     --icon: 229.71 13.83% 50.39%;
@@ -196,6 +212,13 @@
     /* Button color */
     --button: 218.57 25% 10.98%;
     --button-foreground: 0 0% 100%;
+
+    /* Text color */
+    --text: 232.17 14.11% 68.04%;
+    --text-primary: 0 0% 98.04%;
+    --text-secondary: 232.17 14.11% 68.04%;
+    --text-tertiary: 0 0% 98.04%;
+    --text-quaternary: 232.17 14.11% 68.04%;
   }
 }
 
