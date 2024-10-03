@@ -19,6 +19,7 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import { SwitchTheme } from '@/components/sections/switch-theme';
 
 // Hooks
 import { toast } from '@/hooks/use-toast';
@@ -112,6 +113,9 @@ export const LoginForm = () => {
           Forgot password?
         </Button>
       </form>
+      <div className="absolute top-3 right-3">
+        <SwitchTheme />
+      </div>
     </Form>
   );
 };

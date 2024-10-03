@@ -50,7 +50,10 @@ const config: Config = {
       },
       colors: {
         body: 'hsl(var(--body))',
-        background: 'hsl(var(--background))',
+        background: {
+          DEFAULT: 'hsl(var(--background))',
+          secondary: 'hsl(var(--background-secondary))',
+        },
         foreground: 'hsl(var(--foreground))',
         card: {
           DEFAULT: 'hsl(var(--card))',
@@ -109,6 +112,9 @@ const config: Config = {
         'sphere-green': {
           '10': 'hsl(var(--sphere-green-10))',
           '20': 'hsl(var(--sphere-green-20))',
+        },
+        'sphere-yellow': {
+          '20': 'hsl(var(--sphere-yellow-20))',
         },
         icon: {
           DEFAULT: 'hsl(var(--icon))',
@@ -294,6 +300,11 @@ const config: Config = {
             transform: 'perspective(400px)',
           },
         },
+        'switch-roll': {
+          '0%': { transform: 'translateX(0) rotate(0deg)' },
+          '50%': { transform: 'translateX(100%) rotate(0deg)' },
+          '100%': { transform: 'translateX(100%) rotate(360deg)' },
+        },
       },
       animation: {
         'fade-in': 'fade-in 0.5s ease-out',
@@ -304,6 +315,7 @@ const config: Config = {
         'bounce-in-up': 'bounce-in-up 0.7s ease-in-out',
         'bounce-in-down': 'bounce-in-down 0.7s ease-in-out',
         'flip-in-x': 'flip-in-x 1s ease-out',
+        'switch-roll': 'switch-roll 0.6s ease-in-out',
       },
     },
   },
