@@ -48,8 +48,16 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         </div>
       );
 
+    const handleBlur = () => {
+      setIsFocused(false);
+    };
+
+    const handleFocus = () => {
+      setIsFocused(true);
+    };
+
     return (
-      <div className="relative flex items-center outline-">
+      <div className="relative flex items-center" onBlur={handleBlur}>
         {renderIcon(startIcon, 'left', isFocused)}
         <input
           type={type}
@@ -59,8 +67,8 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             endIcon && 'pr-10',
           )}
           ref={ref}
-          onFocus={() => setIsFocused(true)}
-          onBlur={() => setIsFocused(false)}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
           {...props}
         />
         {renderIcon(endIcon, 'right', isFocused)}
