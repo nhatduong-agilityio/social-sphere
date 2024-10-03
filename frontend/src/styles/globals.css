@@ -23,6 +23,7 @@
     --body: 0 0% 95.69%;
 
     --background: 0 0% 100%;
+    --background-secondary: 0 0% 100%;
 
     --foreground: 237.27 16.18% 26.67%;
 
@@ -119,6 +120,9 @@
     --sphere-green-10: 152.54 79.45% 50.39%;
     --sphere-green-20: 172.35 64.5% 54.71%;
 
+    /* Sphere yellow color */
+    --sphere-yellow-20: 47.94 85.31% 51.96%;
+
     /* Icon color */
     --icon: 229.71 13.83% 50.39%;
     --icon-primary: 229.29 11.29% 51.37%;
@@ -148,6 +152,7 @@
     --body: 218.18 25.98% 24.9%;
 
     --background: 218.57 25% 10.98%;
+    --background-secondary: 218.18 25.98% 24.9%;
 
     --foreground: 0 0% 98.04%;
 

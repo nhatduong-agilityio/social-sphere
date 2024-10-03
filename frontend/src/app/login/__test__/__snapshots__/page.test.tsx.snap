@@ -145,6 +145,66 @@ exports[`LoginPage Renders a heading 1`] = `
         Forgot password?
       </button>
     </form>
+    <div
+      class="absolute top-3 right-3"
+    >
+      <button
+        aria-checked="false"
+        class="peer inline-flex shrink-0 cursor-pointer items-center rounded-full border border-border-secondary dark:border-sphere-30 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=unchecked]:bg-background h-[31px] w-[54px]"
+        data-state="unchecked"
+        role="switch"
+        type="button"
+        value="on"
+      >
+        <span
+          class="pointer-events-none flex items-center justify-center rounded-full bg-background dark:bg-sphere-30 ring-0 transition-transform h-[26px] w-[26px] data-[state=checked]:translate-x-6"
+          data-state="unchecked"
+        >
+          <svg
+            class="lucide lucide-sun text-sphere-yellow-20"
+            fill="none"
+            height="12"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="12"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="12"
+              cy="12"
+              r="4"
+            />
+            <path
+              d="M12 2v2"
+            />
+            <path
+              d="M12 20v2"
+            />
+            <path
+              d="m4.93 4.93 1.41 1.41"
+            />
+            <path
+              d="m17.66 17.66 1.41 1.41"
+            />
+            <path
+              d="M2 12h2"
+            />
+            <path
+              d="M20 12h2"
+            />
+            <path
+              d="m6.34 17.66-1.41 1.41"
+            />
+            <path
+              d="m19.07 4.93-1.41 1.41"
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
   </div>
 </div>
 `;
