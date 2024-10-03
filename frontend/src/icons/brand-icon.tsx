@@ -1,10 +1,7 @@
-import * as React from 'react';
+import { SVGAttributes } from 'react';
 import { cn } from '@/utils/cn';
 
-const BrandIcon = ({
-  className,
-  ...props
-}: React.SVGAttributes<SVGSVGElement>) => (
+const BrandIcon = ({ className, ...props }: SVGAttributes<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={38}

@@ -1,8 +1,18 @@
+// Icons
+import { LockIcon, UserIcon } from 'lucide-react';
+
+// Components
 import { BrandLink } from '@/components/sections/brand-link';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
+import { Heading } from '@/components/ui/heading';
 import { Input } from '@/components/ui/input';
-import { LockIcon, UserIcon } from 'lucide-react';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
 
 const Homepage = () => {
   return (
@@ -34,6 +44,17 @@ const Homepage = () => {
       <Button variant="link" size="link">
         Login
       </Button>
+
+      <Heading>Nhat Duong</Heading>
+
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger>Hover</TooltipTrigger>
+          <TooltipContent>
+            <p>Add to library</p>
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
     </main>
   );
 };

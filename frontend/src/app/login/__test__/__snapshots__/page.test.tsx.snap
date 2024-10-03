@@ -1,0 +1,150 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginPage Renders a heading 1`] = `
+<div>
+  <div
+    class="w-full h-full flex justify-center items-center"
+  >
+    <form
+      class="flex flex-col w-full gap-3 max-w-[320px] md:max-w-[380px]"
+    >
+      <div
+        class="flex flex-col items-center mb-2"
+      >
+        <div
+          class="w-110 h-110 rounded-full border border-border-quaternary p-7 relative"
+        >
+          <span
+            class="relative flex shrink-0 overflow-hidden rounded-full w-full h-full"
+          >
+            <span
+              class="flex h-full w-full items-center justify-center rounded-full bg-muted"
+            >
+              CN
+            </span>
+          </span>
+          <div
+            class="rounded-full flex justify-center items-center bg-sphere-green-10 h-8 w-8 border-3 border-background absolute top-0 right-0"
+          >
+            <svg
+              class="lucide lucide-check text-white"
+              fill="none"
+              height="14"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="3"
+              viewBox="0 0 24 24"
+              width="14"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20 6 9 17l-5-5"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div
+        class="space-y-2"
+      >
+        <div
+          class="relative flex items-center outline-"
+        >
+          <div
+            class="absolute top-1/2 -translate-y-1/2 transition-all duration-300 ease-in-out left-3 text-icon-secondary"
+          >
+            <svg
+              class="lucide lucide-user"
+              fill="none"
+              height="18"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="18"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"
+              />
+              <circle
+                cx="12"
+                cy="7"
+                r="4"
+              />
+            </svg>
+          </div>
+          <input
+            aria-describedby=":r0:-form-item-description"
+            aria-invalid="false"
+            class="flex h-10 w-full rounded-lg border border-input bg-background px-3 py-2 text-base file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-300 ease-in-out focus:border-sphere-30 pl-10"
+            id=":r0:-form-item"
+            name="username"
+            placeholder="jennadavis@gmail.com"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        class="space-y-2"
+      >
+        <div
+          class="relative flex items-center outline-"
+        >
+          <div
+            class="absolute top-1/2 -translate-y-1/2 transition-all duration-300 ease-in-out left-3 text-icon-secondary"
+          >
+            <svg
+              class="lucide lucide-lock"
+              fill="none"
+              height="18"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="18"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                height="11"
+                rx="2"
+                ry="2"
+                width="18"
+                x="3"
+                y="11"
+              />
+              <path
+                d="M7 11V7a5 5 0 0 1 10 0v4"
+              />
+            </svg>
+          </div>
+          <input
+            aria-describedby=":r1:-form-item-description"
+            aria-invalid="false"
+            class="flex h-10 w-full rounded-lg border border-input bg-background px-3 py-2 text-base file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-300 ease-in-out focus:border-sphere-30 pl-10"
+            id=":r1:-form-item"
+            name="password"
+            placeholder="●●●●●●●"
+            type="password"
+            value=""
+          />
+        </div>
+      </div>
+      <button
+        class="inline-flex items-center justify-center whitespace-nowrap text-base font-medium ring-offset-background outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border border-button-primary bg-button-primary text-button-primary-foreground hover:opacity-80 hover:shadow-[0_14px_26px_-12px_rgba(61,112,178,.42),0_4px_23px_0px_rgba(0,0,0,.12),0_8px_10px_-5px_rgba(61,112,178,.2)] transition-all duration-300 ease-in-out px-4 py-2 w-full h-[46px] rounded-full"
+        type="submit"
+      >
+        Login
+      </button>
+      <button
+        class="inline-flex items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring text-button-foreground hover:text-button-primary p-0 h-9"
+      >
+        Forgot password?
+      </button>
+    </form>
+  </div>
+</div>
+`;

@@ -4,7 +4,31 @@ const config: Config = {
   darkMode: ['class'],
   content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: '24px',
+        lg: '48px',
+      },
+    },
+    borderWidth: {
+      DEFAULT: '1px',
+      '0': '0',
+      '2': '2px',
+      '3': '3px',
+      '4': '4px',
+      '6': '6px',
+    },
     extend: {
+      spacing: {
+        7: '7px',
+        34: '34px',
+        54: '54px',
+        94: '94px',
+        100: '100px',
+        110: '110px',
+        400: '400px',
+      },
       screens: {
         xs: '480px', // iPhone 6, 7, 8, X, 11, 12 / Galaxy S8 / HTC One, Blackberry Passport / Amazon Kindle Fire HD 7 …
         sm: '600px', // LG G Pad 8.3 / Amazon Kindle Fire …
@@ -61,6 +85,7 @@ const config: Config = {
           primary: 'hsl(var(--border-primary))',
           secondary: 'hsl(var(--border-secondary))',
           tertiary: 'hsl(var(--border-tertiary))',
+          quaternary: 'hsl(var(--border-quaternary))',
         },
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
@@ -72,11 +97,14 @@ const config: Config = {
           '5': 'hsl(var(--chart-5))',
         },
         sphere: {
+          '5': 'hsl(var(--sphere-5))',
           '10': 'hsl(var(--sphere-10))',
           '20': 'hsl(var(--sphere-20))',
           '30': 'hsl(var(--sphere-30))',
           '40': 'hsl(var(--sphere-40))',
           '50': 'hsl(var(--sphere-50))',
+          '60': 'hsl(var(--sphere-60))',
+          '70': 'hsl(var(--sphere-70))',
         },
         'sphere-green': {
           '10': 'hsl(var(--sphere-green-10))',
@@ -95,6 +123,14 @@ const config: Config = {
           primary: 'hsl(var(--button-primary))',
           'primary-foreground': 'hsl(var(--button-primary-foreground))',
         },
+        text: {
+          DEFAULT: 'hsl(var(--text))',
+          primary: 'hsl(var(--text-primary))',
+          secondary: 'hsl(var(--text-secondary))',
+          tertiary: 'hsl(var(--text-tertiary))',
+          quaternary: 'hsl(var(--text-quaternary))',
+        },
+        caption: 'hsl(var(--caption))',
       },
       fontFamily: {
         montserrat: ['var(--font-montserrat)'],
@@ -161,6 +197,13 @@ const config: Config = {
           'var(--font-3xl)',
           {
             lineHeight: 'var(--line-height-3xl)',
+            fontWeight: '700',
+          },
+        ],
+        '4xl': [
+          'var(--font-4xl)',
+          {
+            lineHeight: 'var(--line-height-4xl)',
             fontWeight: '700',
           },
         ],
