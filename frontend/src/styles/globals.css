@@ -77,10 +77,10 @@
     --border-quaternary: 0 0% 80.78%;
 
     /* Radius color */
-    --radius-tn: .0625rem;
-    --radius: .375rem;
-    --radius-md: .5rem;
-    --radius-lg: .65rem;
+    --radius-tn: 0.0625rem;
+    --radius: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.65rem;
 
     /* Font size */
     --font-tn: 0.7rem;
@@ -127,7 +127,7 @@
     --icon: 229.71 13.83% 50.39%;
     --icon-primary: 229.29 11.29% 51.37%;
     --icon-secondary: 0 0% 80.78%;
-    --icon-light:  0 0% 98.04%;
+    --icon-light: 0 0% 98.04%;
 
     /* Brand color */
     --brand: 213.85 48.95% 46.86%;
@@ -139,7 +139,7 @@
     --button-primary-foreground: 0 0% 100%;
 
     /* Text color */
-    --text: 0 0% 60%;
+    --text-foreground: 0 0% 60%;
     --text-primary: 237.27 16.18% 26.67%;
     --text-secondary: 229.29 11.29% 51.37%;
     --text-tertiary: 0 0% 21.18%;
@@ -209,7 +209,7 @@
     /* Border color */
     --border: 218.57 25% 10.98%;
     --border-primary: 0 0% 70.98%;
-    --border-secondary:  220 25.23% 20.98%;
+    --border-secondary: 220 25.23% 20.98%;
     --border-tertiary: 230.62 15.53% 59.61%;
     --border-quaternary: 0 0% 80.78%;
 

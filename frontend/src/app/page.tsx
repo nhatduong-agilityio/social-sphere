@@ -1,5 +1,5 @@
 // Icons
-import { LockIcon, UserIcon } from 'lucide-react';
+import { LockIcon, UserIcon, EllipsisVertical } from 'lucide-react';
 
 // Components
 import { BrandLink } from '@/components/sections/brand-link';
@@ -13,6 +13,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip';
+import { UserCard } from '@/components/sections/user-card';
 
 const Homepage = () => {
   return (
@@ -55,6 +56,16 @@ const Homepage = () => {
           </TooltipContent>
         </Tooltip>
       </TooltipProvider>
+
+      <UserCard
+        user={{
+          id: '1',
+          firstName: 'Nhat',
+          lastName: 'Duong',
+          countFriends: 0,
+        }}
+        endIcon={<EllipsisVertical size={24} />}
+      />
     </main>
   );
 };
