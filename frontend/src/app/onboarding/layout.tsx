@@ -1,4 +1,5 @@
 import { OnboardingLayout } from '@/components/layouts/onboarding-layout';
+import { OnboardingContainer } from '@/features/onboarding/components/onboarding-container';
 
 const Layout = ({
   children,
@@ -10,7 +11,7 @@ const Layout = ({
   return (
     <OnboardingLayout>
       {children}
-      {selectAccountType}
+      <OnboardingContainer>{selectAccountType}</OnboardingContainer>
     </OnboardingLayout>
   );
 };
