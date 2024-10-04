@@ -3,15 +3,16 @@ import { cva, type VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/utils/cn';
 
-const headingVariants = cva('text-xl', {
+const headingVariants = cva('font-montserrat text-xl', {
   variants: {
     variant: {
       default: 'text-text-primary',
       caption:
-        'text-caption font-montserrat [text-shadow:_4px_4px_hsl(var(--sphere-60)),8px_8px_hsl(var(--sphere-60))]',
+        'text-caption [text-shadow:_4px_4px_hsl(var(--sphere-60)),8px_8px_hsl(var(--sphere-60))]',
     },
     size: {
       default: '',
+      '2xl': 'text-2xl',
       '3xl': 'text-3xl',
     },
   },

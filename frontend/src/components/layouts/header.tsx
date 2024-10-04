@@ -48,7 +48,7 @@ interface HeaderProps {
 export const Header = memo(({ isAuthenticated = true }: HeaderProps) => (
   <header
     className={cn(
-      'sticky top-0 border-b bg-background',
+      'sticky top-0 border-b bg-background z-50',
       isAuthenticated ? 'h-[58px]' : 'h-[55px]',
     )}
   >

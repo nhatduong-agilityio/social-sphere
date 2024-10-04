@@ -204,6 +204,13 @@ const config: Config = {
         xl: [
           'var(--font-xl)',
           {
+            lineHeight: 'var(--line-height-2xl)',
+            fontWeight: '600',
+          },
+        ],
+        '2xl': [
+          'var(--font-2xl)',
+          {
             lineHeight: 'var(--line-height-xl)',
             fontWeight: '600',
           },
@@ -231,6 +238,25 @@ const config: Config = {
         'fade-out': {
           '0%': { opacity: '1' },
           '100%': { opacity: '0' },
+        },
+        'fade-in-left': {
+          '0%': {
+            transform: 'translate3d(20px, 0, 0)',
+            opacity: '0',
+          },
+          '100%': {
+            transform: 'translate3d(0, 0, 0)',
+            opacity: '1',
+          },
+        },
+        'fade-in-up': {
+          '0%': {
+            transform: 'translate3d(0, 20px, 0)',
+          },
+          '100%:': {
+            transform: 'translate3d(0, 0, 0)',
+            opacity: '1',
+          },
         },
         'slide-in': {
           '0%': {
@@ -309,14 +335,11 @@ const config: Config = {
             transform: 'perspective(400px)',
           },
         },
-        'switch-roll': {
-          '0%': { transform: 'translateX(0) rotate(0deg)' },
-          '50%': { transform: 'translateX(100%) rotate(0deg)' },
-          '100%': { transform: 'translateX(100%) rotate(360deg)' },
-        },
       },
       animation: {
         'fade-in': 'fade-in 0.5s ease-out',
+        'fade-in-left': 'fade-in-left 0.5s',
+        'fade-in-up': 'fade-in-left 0.5s',
         'fade-out': 'fade-out 0.7s ease-out',
         'slide-in': 'slide-in 1s cubic-bezier(0.16, 0.81, 0.32, 1)',
         'bounce-in-left': 'bounce-in-left 0.7s ease-in-out',
@@ -324,7 +347,6 @@ const config: Config = {
         'bounce-in-up': 'bounce-in-up 0.7s ease-in-out',
         'bounce-in-down': 'bounce-in-down 0.7s ease-in-out',
         'flip-in-x': 'flip-in-x 1s ease-out',
-        'switch-roll': 'switch-roll 0.6s ease-in-out',
       },
     },
   },

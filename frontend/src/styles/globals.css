@@ -90,7 +90,8 @@
     --font-base: 0.9rem;
     --font-md: 0.95rem;
     --font-lg: 1.1rem;
-    --font-xl: 1.4rem;
+    --font-xl: 1.2rem;
+    --font-2xl: 1.4rem;
     --font-3xl: 2.5rem;
     --font-4xl: 3.2rem;
 
@@ -103,6 +104,7 @@
     --line-height-md: 1.425rem;
     --line-height-lg: 1.2375rem;
     --line-height-xl: 1.68rem;
+    --line-height-2xl: 1.8rem;
     --line-height-3xl: 3.25rem;
     --line-height-4xl: 4.16rem;
 
