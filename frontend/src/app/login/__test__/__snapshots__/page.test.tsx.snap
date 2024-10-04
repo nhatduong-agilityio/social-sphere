@@ -12,7 +12,7 @@ exports[`LoginPage Renders a heading 1`] = `
         class="flex flex-col items-center mb-2"
       >
         <div
-          class="w-110 h-110 rounded-full border border-border-quaternary p-7 relative"
+          class="w-[110px] h-[110px] rounded-full border border-border-quaternary p-[7px] relative"
         >
           <span
             class="relative flex shrink-0 overflow-hidden rounded-full w-full h-full"
@@ -24,7 +24,7 @@ exports[`LoginPage Renders a heading 1`] = `
             </span>
           </span>
           <div
-            class="rounded-full flex justify-center items-center bg-sphere-green-10 h-8 w-8 border-3 border-background absolute top-0 right-0"
+            class="rounded-full flex justify-center items-center h-8 w-8 border-3 border-background absolute top-0 right-0 bg-sphere-green-10"
           >
             <svg
               class="lucide lucide-check text-white"
@@ -134,7 +134,7 @@ exports[`LoginPage Renders a heading 1`] = `
         </div>
       </div>
       <button
-        class="inline-flex items-center justify-center whitespace-nowrap text-base font-medium ring-offset-background outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border border-button-primary bg-button-primary text-button-primary-foreground hover:opacity-80 hover:shadow-[0_14px_26px_-12px_rgba(61,112,178,.42),0_4px_23px_0px_rgba(0,0,0,.12),0_8px_10px_-5px_rgba(61,112,178,.2)] transition-all duration-300 ease-in-out px-4 py-2 w-full h-[46px] rounded-full"
+        class="inline-flex items-center justify-center whitespace-nowrap text-base font-medium ring-offset-background outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border border-button-primary bg-button-primary text-button-primary-foreground hover:opacity-80 hover:shadow-sphere-primary transition-all duration-300 ease-in-out px-4 py-2 w-full h-[46px] rounded-full"
         type="submit"
       >
         Login

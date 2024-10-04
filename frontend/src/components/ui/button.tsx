@@ -12,7 +12,7 @@ const buttonVariants = cva(
         default:
           'border border-border-secondary bg-button text-button-foreground hover:border-border-primary',
         primary:
-          'border border-button-primary bg-button-primary text-button-primary-foreground hover:opacity-80 hover:shadow-[0_14px_26px_-12px_rgba(61,112,178,.42),0_4px_23px_0px_rgba(0,0,0,.12),0_8px_10px_-5px_rgba(61,112,178,.2)] transition-all duration-300 ease-in-out',
+          'border border-button-primary bg-button-primary text-button-primary-foreground hover:opacity-80 hover:shadow-sphere-primary transition-all duration-300 ease-in-out',
         destructive:
           'bg-destructive text-destructive-foreground hover:bg-destructive/90',
         link: 'text-button-foreground hover:text-button-primary',

@@ -1,4 +1,4 @@
-import { SignUpLayout } from '@/components/layouts/sign-up-layout';
+import { OnboardingLayout } from '@/components/layouts/onboarding-layout';
 
 const Layout = ({
   children,
@@ -8,10 +8,10 @@ const Layout = ({
   selectAccountType: React.ReactNode;
 }) => {
   return (
-    <SignUpLayout>
+    <OnboardingLayout>
       {children}
       {selectAccountType}
-    </SignUpLayout>
+    </OnboardingLayout>
   );
 };
 

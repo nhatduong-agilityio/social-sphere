@@ -20,13 +20,13 @@ const config: Config = {
       '6': '6px',
     },
     extend: {
+      boxShadow: {
+        'sphere-primary':
+          '0 14px 26px -12px rgba(61,112,178,.42),0 4px 23px 0px rgba(0,0,0,.12),0 8px 10px -5px rgba(61,112,178,.2)',
+        'sphere-secondary':
+          '0 14px 26px -12px rgba(85,150,230,.42),0 4px 23px 0px rgba(0,0,0,.12),0 8px 10px -5px rgba(85,150,230,.2)',
+      },
       spacing: {
-        7: '7px',
-        34: '34px',
-        54: '54px',
-        94: '94px',
-        100: '100px',
-        110: '110px',
         400: '400px',
       },
       screens: {
@@ -137,6 +137,14 @@ const config: Config = {
           quaternary: 'hsl(var(--text-quaternary))',
         },
         caption: 'hsl(var(--caption))',
+        progress: {
+          DEFAULT: 'hsl(var(--progress))',
+          foreground: 'hsl(var(--progress-foreground))',
+        },
+        circle: {
+          DEFAULT: 'hsl(var(--circle))',
+          foreground: 'hsl(var(--circle-foreground))',
+        },
       },
       fontFamily: {
         montserrat: ['var(--font-montserrat)'],

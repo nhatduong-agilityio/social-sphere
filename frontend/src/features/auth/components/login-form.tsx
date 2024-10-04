@@ -54,15 +54,12 @@ export const LoginForm = () => {
         className="flex flex-col w-full gap-3 max-w-[320px] md:max-w-[380px]"
       >
         <div className="flex flex-col items-center mb-2">
-          <div className="w-110 h-110 rounded-full border border-border-quaternary p-7 relative">
+          <div className="w-[110px] h-[110px] rounded-full border border-border-quaternary p-[7px] relative">
             <Avatar className="w-full h-full">
               <AvatarImage src="https://github.com/shadcn.png" />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
-            <Circle
-              variant="active"
-              className="border-3 border-background absolute top-0 right-0"
-            >
+            <Circle className="border-3 border-background absolute top-0 right-0 bg-sphere-green-10">
               <CheckIcon size={14} className="text-white" strokeWidth={3} />
             </Circle>
           </div>
