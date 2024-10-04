@@ -135,6 +135,7 @@ const config: Config = {
           secondary: 'hsl(var(--text-secondary))',
           tertiary: 'hsl(var(--text-tertiary))',
           quaternary: 'hsl(var(--text-quaternary))',
+          foreground: 'hsl(var(--text-foreground))',
         },
         caption: 'hsl(var(--caption))',
         progress: {
