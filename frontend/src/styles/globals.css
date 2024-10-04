@@ -147,6 +147,14 @@
 
     /* Caption color */
     --caption: 0 0% 98.82%;
+
+    /* Progress color */
+    --progress: 0 0% 91.76%;
+    --progress-foreground: 0 0% 100%;
+
+    /* Circle color */
+    --circle: 0 0% 100%;
+    --circle-foreground: 0 0% 90.98%;
   }
   .dark {
     --body: 218.18 25.98% 24.9%;
@@ -224,6 +232,15 @@
     --text-secondary: 232.17 14.11% 68.04%;
     --text-tertiary: 0 0% 98.04%;
     --text-quaternary: 232.17 14.11% 68.04%;
+
+    /* Progress color */
+    --progress: 218 25.86% 22.75%;
+    --progress-foreground: 217.67 25.75% 32.75%;
+
+    /* Circle color */
+    --circle: 217.5 25% 18.82%;
+    --circle-foreground: 217.71 25.55% 26.86%;
+
   }
 }
 
