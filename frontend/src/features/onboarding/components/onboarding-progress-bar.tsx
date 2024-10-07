@@ -1,13 +1,7 @@
 import { memo } from 'react';
 
-// Icons
-import {
-  FlagIcon,
-  ImageIcon,
-  LockIcon,
-  SmileIcon,
-  UserIcon,
-} from 'lucide-react';
+// Constants
+import { ONBOARDING_STEPS } from '../constants/onboarding';
 
 // Components
 import { Circle } from '@/components/ui/circle';
@@ -16,47 +10,19 @@ import { Progress } from '@/components/ui/progress';
 // Utils
 import { cn } from '@/utils/cn';
 
-interface OnboardingStep {
-  label: string;
-  description: string;
-  icon: JSX.Element;
-}
+// Models
+import { OnboardingStep } from '../models/onboarding';
 
 interface OnboardingProgressBarProps {
   currentStep: number;
   totalSteps?: OnboardingStep[];
 }
 
-const DEFAULT_STEPS: OnboardingStep[] = [
-  {
-    label: 'Select an account type',
-    description: 'Select an account type to get started',
-    icon: <SmileIcon size={16} />,
-  },
-  {
-    label: 'About your info',
-    description: 'About your info to get started',
-    icon: <UserIcon size={16} />,
-  },
-  {
-    label: 'Update image profile',
-    description: 'Update image profile to get started',
-    icon: <ImageIcon size={16} />,
-  },
-  {
-    label: 'Secure your account',
-    description: 'Secure your account to get started',
-    icon: <LockIcon size={16} />,
-  },
-  {
-    label: 'Completed',
-    description: 'Completed to get started',
-    icon: <FlagIcon size={16} />,
-  },
-];
-
 export const OnboardingProgressBar = memo(
-  ({ currentStep, totalSteps = DEFAULT_STEPS }: OnboardingProgressBarProps) => {
+  ({
+    currentStep,
+    totalSteps = ONBOARDING_STEPS,
+  }: OnboardingProgressBarProps) => {
     const progressIncrement = 100 / (totalSteps.length - 1);
     const progress = Math.min((currentStep - 1) * progressIncrement, 100);
 
