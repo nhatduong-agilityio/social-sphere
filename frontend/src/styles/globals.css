@@ -37,11 +37,15 @@
 
     --primary: 0 0% 100%;
 
-    --primary-foreground: 229.29 11.29% 51.37%;
+    --primary-foreground: 0 0% 60%;
 
-    --secondary: 0 0% 96.86%;
+    --secondary: 237.27 16.18% 26.67%;
 
-    --secondary-foreground: 0 0% 21.18%;
+    --secondary-foreground: 229.29 11.29% 51.37%;
+
+    --tertiary: 0 0% 21.18%;
+
+    --tertiary-foreground: 0 0% 98.82%;
 
     --muted: 220 14.3% 95.9%;
 
@@ -140,13 +144,6 @@
     --button-primary: 213.85 48.95% 46.86%;
     --button-primary-foreground: 0 0% 100%;
 
-    /* Text color */
-    --text-foreground: 0 0% 60%;
-    --text-primary: 237.27 16.18% 26.67%;
-    --text-secondary: 229.29 11.29% 51.37%;
-    --text-tertiary: 0 0% 21.18%;
-    --text-quaternary: 0 0% 98.82%;
-
     /* Caption color */
     --caption: 0 0% 98.82%;
 
@@ -178,9 +175,13 @@
 
     --primary-foreground: 232.17 14.11% 68.04%;
 
-    --secondary: 220 25.23% 20.98%;
+    --secondary: 0 0% 98.04%;
 
-    --secondary-foreground: 0 0% 98.04%;
+    --secondary-foreground: 232.17 14.11% 68.04%;
+
+    --tertiary: 0 0% 98.04%;
+
+    --tertiary-foreground: 232.17 14.11% 68.04%;
 
     --muted: 215 27.9% 16.9%;
 
@@ -227,13 +228,6 @@
     /* Button color */
     --button: 218.57 25% 10.98%;
     --button-foreground: 0 0% 100%;
-
-    /* Text color */
-    --text: 232.17 14.11% 68.04%;
-    --text-primary: 0 0% 98.04%;
-    --text-secondary: 232.17 14.11% 68.04%;
-    --text-tertiary: 0 0% 98.04%;
-    --text-quaternary: 232.17 14.11% 68.04%;
 
     /* Progress color */
     --progress: 218 25.86% 22.75%;

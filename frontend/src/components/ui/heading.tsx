@@ -6,7 +6,7 @@ import { cn } from '@/utils/cn';
 const headingVariants = cva('font-montserrat text-xl', {
   variants: {
     variant: {
-      default: 'text-text-primary',
+      default: 'text-secondary',
       caption:
         'text-caption [text-shadow:_4px_4px_hsl(var(--sphere-60)),8px_8px_hsl(var(--sphere-60))]',
     },
