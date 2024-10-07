@@ -15,8 +15,47 @@ import {
 } from '@/components/ui/tooltip';
 import { UserCard } from '@/components/sections/user-card';
 import Panel from '@/components/sections/panel';
+import NavTab from '@/components/sections/nav-tab';
+import { TABS_TRIGGER } from '@/constants/nav-tab';
 
 const Homepage = () => {
+  const tabsContent = [
+    {
+      value: 'overview',
+      children: <div>Overview</div>,
+    },
+    {
+      value: 'personalInfo',
+      children: (
+        <Panel
+          panelTile="Friends"
+          countItems={10}
+          startIcon={<UsersRound size={24} />}
+          buttonLabel="Invitations"
+        >
+          <UserCard user={{ id: '1', firstName: 'Nhat', lastName: 'Duong' }} />
+          <UserCard
+            user={{
+              id: '1',
+              firstName: 'Loc',
+              lastName: 'Vo',
+              avatar: 'https://github.com/shadcn.png',
+              countFriends: 25,
+            }}
+          />
+        </Panel>
+      ),
+    },
+    {
+      value: 'education',
+      children: <div>Education</div>,
+    },
+    {
+      value: 'jobs',
+      children: <div>Jobs</div>,
+    },
+  ];
+
   return (
     <main className="container flex flex-col mx-auto gap-4">
       <h1 className="text-lg font-semibold">This is homepage</h1>
@@ -85,6 +124,8 @@ const Homepage = () => {
           }}
         />
       </Panel>
+
+      <NavTab tabsTrigger={TABS_TRIGGER} tabsContent={tabsContent} />
     </main>
   );
 };
