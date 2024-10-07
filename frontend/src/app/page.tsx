@@ -1,5 +1,5 @@
 // Icons
-import { LockIcon, UserIcon, EllipsisVertical } from 'lucide-react';
+import { LockIcon, UserIcon, EllipsisVertical, UsersRound } from 'lucide-react';
 
 // Components
 import { BrandLink } from '@/components/sections/brand-link';
@@ -14,6 +14,7 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip';
 import { UserCard } from '@/components/sections/user-card';
+import Panel from '@/components/sections/panel';
 
 const Homepage = () => {
   return (
@@ -66,6 +67,24 @@ const Homepage = () => {
         }}
         endIcon={<EllipsisVertical size={24} />}
       />
+
+      <Panel
+        panelTile="Friends"
+        countItems={10}
+        startIcon={<UsersRound size={24} />}
+        buttonLabel="Invitations"
+      >
+        <UserCard user={{ id: '1', firstName: 'Nhat', lastName: 'Duong' }} />
+        <UserCard
+          user={{
+            id: '1',
+            firstName: 'Loc',
+            lastName: 'Vo',
+            avatar: 'https://github.com/shadcn.png',
+            countFriends: 25,
+          }}
+        />
+      </Panel>
     </main>
   );
 };

@@ -17,13 +17,13 @@ interface UserCardProps extends ComponentProps<typeof Card> {
 }
 
 export const UserCard = ({ user, endIcon, ...props }: UserCardProps) => {
-  const { avatar, firstName, lastName, countFriends } = user;
+  const { avatar, firstName, lastName, countFriends = 0 } = user;
 
   const fullName = `${firstName} ${lastName}`.trim();
 
   return (
     <Card
-      className="p-3 flex items-center justify-between max-w-96 group cursor-pointer"
+      className="p-3 flex w-full items-center justify-between group cursor-pointer"
       {...props}
     >
       <div className="flex items-center gap-3">
