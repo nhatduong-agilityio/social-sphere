@@ -20,7 +20,7 @@ export const SelectAccountTypeImage = memo(
         <Image
           src={mainSrc}
           alt={alt}
-          className="absolute top-[15%] left-0 transform scale-125"
+          className="absolute top-[-23%] left-0 transform scale-125 hidden md:block"
           sizes="(max-width: 768px) 100vw, 50vw"
           priority
           style={imageStyle}

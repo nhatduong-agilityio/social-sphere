@@ -7,7 +7,10 @@ const Card = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => (
     <div
       ref={ref}
-      className={cn('rounded-md bg-card border hover:shadow', className)}
+      className={cn(
+        'rounded-md bg-card border border-border-secondary hover:shadow',
+        className,
+      )}
       {...props}
     />
   ),
@@ -40,7 +43,7 @@ const CardDescription = forwardRef<
   <p
     ref={ref}
     className={cn(
-      'font-roboto font-normal text-base leading-6 text-primary-foreground',
+      'font-roboto font-normal text-base text-primary-foreground',
       className,
     )}
     {...props}
