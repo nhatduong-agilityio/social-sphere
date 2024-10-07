@@ -25,7 +25,7 @@ const TooltipContent = forwardRef<
     {...props}
   >
     {props.children}
-    <TooltipPrimitive.Arrow className="fill-current text-text-primary" />
+    <TooltipPrimitive.Arrow className="fill-current text-secondary" />
   </TooltipPrimitive.Content>
 ));
 TooltipContent.displayName = TooltipPrimitive.Content.displayName;

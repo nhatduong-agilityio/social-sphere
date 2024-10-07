@@ -40,7 +40,7 @@ const CardDescription = forwardRef<
   <p
     ref={ref}
     className={cn(
-      'font-roboto font-normal text-base leading-6 text-text-foreground',
+      'font-roboto font-normal text-base leading-6 text-primary-foreground',
       className,
     )}
     {...props}

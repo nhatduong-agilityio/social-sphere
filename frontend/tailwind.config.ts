@@ -71,6 +71,10 @@ const config: Config = {
           DEFAULT: 'hsl(var(--secondary))',
           foreground: 'hsl(var(--secondary-foreground))',
         },
+        tertiary: {
+          DEFAULT: 'hsl(var(--tertiary))',
+          foreground: 'hsl(var(--tertiary-foreground))',
+        },
         muted: {
           DEFAULT: 'hsl(var(--muted))',
           foreground: 'hsl(var(--muted-foreground))',
@@ -154,80 +158,47 @@ const config: Config = {
       fontSize: {
         tn: [
           'var(--font-tn)',
-          {
-            lineHeight: 'var(--line-height-tn)',
-            fontWeight: '500',
-          },
+          { lineHeight: 'var(--line-height-tn)', fontWeight: '500' },
         ],
         '2xs': [
           'var(--font-2xs)',
-          {
-            lineHeight: 'var(--line-height-2xs)',
-            fontWeight: '400',
-          },
+          { lineHeight: 'var(--line-height-2xs)', fontWeight: '400' },
         ],
         xs: [
           'var(--font-xs)',
-          {
-            lineHeight: 'var(--line-height-xs)',
-            fontWeight: '500',
-          },
+          { lineHeight: 'var(--line-height-xs)', fontWeight: '500' },
         ],
         sm: [
           'var(--font-sm)',
-          {
-            lineHeight: 'var(--line-height-sm)',
-            fontWeight: '500',
-          },
+          { lineHeight: 'var(--line-height-sm)', fontWeight: '500' },
         ],
         base: [
           'var(--font-base)',
-          {
-            lineHeight: 'var(--line-height-base)',
-            fontWeight: '400',
-          },
+          { lineHeight: 'var(--line-height-base)', fontWeight: '400' },
         ],
         md: [
           'var(--font-md)',
-          {
-            lineHeight: 'var(--line-height-md)',
-            fontWeight: '400',
-          },
+          { lineHeight: 'var(--line-height-md)', fontWeight: '400' },
         ],
         lg: [
           'var(--font-lg)',
-          {
-            lineHeight: 'var(--line-height-lg)',
-            fontWeight: '600',
-          },
+          { lineHeight: 'var(--line-height-lg)', fontWeight: '600' },
         ],
         xl: [
           'var(--font-xl)',
-          {
-            lineHeight: 'var(--line-height-2xl)',
-            fontWeight: '600',
-          },
+          { lineHeight: 'var(--line-height-2xl)', fontWeight: '600' },
         ],
         '2xl': [
           'var(--font-2xl)',
-          {
-            lineHeight: 'var(--line-height-xl)',
-            fontWeight: '600',
-          },
+          { lineHeight: 'var(--line-height-xl)', fontWeight: '600' },
         ],
         '3xl': [
           'var(--font-3xl)',
-          {
-            lineHeight: 'var(--line-height-3xl)',
-            fontWeight: '700',
-          },
+          { lineHeight: 'var(--line-height-3xl)', fontWeight: '700' },
         ],
         '4xl': [
           'var(--font-4xl)',
-          {
-            lineHeight: 'var(--line-height-4xl)',
-            fontWeight: '700',
-          },
+          { lineHeight: 'var(--line-height-4xl)', fontWeight: '700' },
         ],
       },
       keyframes: {
@@ -352,4 +323,5 @@ const config: Config = {
   },
   plugins: [require('tailwindcss-animate')],
 };
+
 export default config;
