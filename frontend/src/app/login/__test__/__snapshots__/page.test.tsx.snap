@@ -12,7 +12,7 @@ exports[`LoginPage Renders a heading 1`] = `
         class="flex flex-col items-center mb-2"
       >
         <div
-          class="w-[110px] h-[110px] rounded-full border border-border-quaternary p-[7px] relative"
+          class="w-[110px] h-[110px] rounded-full border border-gray-900 p-[7px] relative"
         >
           <span
             class="relative flex shrink-0 overflow-hidden rounded-full w-full h-full"
@@ -24,7 +24,7 @@ exports[`LoginPage Renders a heading 1`] = `
             </span>
           </span>
           <div
-            class="rounded-full flex justify-center items-center h-8 w-8 border-3 border-background absolute top-0 right-0 bg-sphere-green-10"
+            class="rounded-full flex justify-center items-center h-8 w-8 border-3 border-background absolute top-0 right-0 bg-secondary"
           >
             <svg
               class="lucide lucide-check text-white"
@@ -52,7 +52,7 @@ exports[`LoginPage Renders a heading 1`] = `
           class="relative flex items-center"
         >
           <div
-            class="absolute top-1/2 -translate-y-1/2 transition-all duration-300 ease-in-out left-3 text-icon-secondary"
+            class="absolute top-1/2 -translate-y-1/2 transition-all duration-300 ease-in-out left-3 text-gray-900"
           >
             <svg
               class="lucide lucide-user"
@@ -79,7 +79,7 @@ exports[`LoginPage Renders a heading 1`] = `
           <input
             aria-describedby=":r0:-form-item-description"
             aria-invalid="false"
-            class="flex h-10 w-full rounded-lg border border-input bg-background px-3 py-2 text-base file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-300 ease-in-out focus:border-sphere-30 pl-10"
+            class="flex h-10 w-full rounded-lg border border-input bg-white dark:bg-dark-500 px-3 py-2 text-base file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-300 ease-in-out focus:border-blue-100 dark:border-input pl-10"
             id=":r0:-form-item"
             name="username"
             placeholder="jennadavis@gmail.com"
@@ -94,7 +94,7 @@ exports[`LoginPage Renders a heading 1`] = `
           class="relative flex items-center"
         >
           <div
-            class="absolute top-1/2 -translate-y-1/2 transition-all duration-300 ease-in-out left-3 text-icon-secondary"
+            class="absolute top-1/2 -translate-y-1/2 transition-all duration-300 ease-in-out left-3 text-gray-900"
           >
             <svg
               class="lucide lucide-lock"
@@ -124,7 +124,7 @@ exports[`LoginPage Renders a heading 1`] = `
           <input
             aria-describedby=":r1:-form-item-description"
             aria-invalid="false"
-            class="flex h-10 w-full rounded-lg border border-input bg-background px-3 py-2 text-base file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-300 ease-in-out focus:border-sphere-30 pl-10"
+            class="flex h-10 w-full rounded-lg border border-input bg-white dark:bg-dark-500 px-3 py-2 text-base file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-300 ease-in-out focus:border-blue-100 dark:border-input pl-10"
             id=":r1:-form-item"
             name="password"
             placeholder="●●●●●●●"
@@ -134,13 +134,13 @@ exports[`LoginPage Renders a heading 1`] = `
         </div>
       </div>
       <button
-        class="inline-flex items-center justify-center whitespace-nowrap text-base font-medium ring-offset-background outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border border-button-primary bg-button-primary text-button-primary-foreground hover:opacity-80 hover:shadow-sphere-primary transition-all duration-300 ease-in-out px-4 py-2 w-full h-[46px] rounded-full"
+        class="inline-flex items-center justify-center whitespace-nowrap text-base font-medium ring-offset-background outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border border-blue-600 bg-blue-600 text-white hover:opacity-80 hover:shadow-sphere-primary transition-all duration-300 ease-in-out px-4 py-2 w-full h-[46px] rounded-full"
         type="submit"
       >
         Login
       </button>
       <button
-        class="inline-flex items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring text-button-foreground hover:text-button-primary p-0 h-9"
+        class="inline-flex items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring text-neutral-100 hover:text-blue-600 p-0 h-9"
       >
         Forgot password?
       </button>
@@ -150,7 +150,7 @@ exports[`LoginPage Renders a heading 1`] = `
     >
       <button
         aria-checked="false"
-        class="peer inline-flex shrink-0 cursor-pointer items-center rounded-full border border-border-secondary dark:border-sphere-30 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=unchecked]:bg-background h-[31px] w-[54px]"
+        class="peer inline-flex shrink-0 cursor-pointer items-center rounded-full border border-gray-800 dark:border-sphere-30 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=unchecked]:bg-background h-[31px] w-[54px]"
         data-state="unchecked"
         role="switch"
         type="button"
