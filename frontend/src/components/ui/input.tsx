@@ -6,12 +6,12 @@ import { cva, VariantProps } from 'class-variance-authority';
 import { cn } from '@/utils/cn';
 
 const inputVariants = cva(
-  'flex h-10 w-full rounded-lg border border-input bg-background px-3 py-2 text-base file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50',
+  'flex h-10 w-full rounded-lg border border-input bg-white dark:bg-dark-500 px-3 py-2 text-base file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50',
   {
     variants: {
       variant: {
         default: '',
-        icon: 'transition-all duration-300 ease-in-out focus:border-sphere-30',
+        icon: 'transition-all duration-300 ease-in-out focus:border-blue-100 dark:border-input',
       },
     },
     defaultVariants: {
@@ -41,7 +41,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           className={cn(
             `absolute top-1/2 -translate-y-1/2 transition-all duration-300 ease-in-out`,
             position === 'left' ? 'left-3' : 'right-3',
-            isFocused ? 'text-sphere-30' : 'text-icon-secondary',
+            isFocused ? 'text-blue-100' : 'text-gray-900',
           )}
         >
           {icon}
