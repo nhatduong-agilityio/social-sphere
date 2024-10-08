@@ -1,5 +1,7 @@
-const EnterAboutInfo = () => {
-  return <>enter</>;
+import { EnterAboutInfo } from '@/features/onboarding/components/enter-about-info';
+
+const EnterAboutInfoPage = () => {
+  return <EnterAboutInfo />;
 };
 
-export default EnterAboutInfo;
+export default EnterAboutInfoPage;

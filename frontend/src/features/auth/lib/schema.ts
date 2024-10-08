@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
-// Minimum 8 characters, at least one uppercase letter, one lowercase letter.
-export const passwordValidation = new RegExp(/^[A-Za-z\d@$!%*?&.]{8,}$/);
+// Constants
+import { PASSWORD_REGEX } from '@/constants/regex';
 
 export const FormSchema = z.object({
   username: z.string().min(2, {
@@ -10,7 +10,7 @@ export const FormSchema = z.object({
   password: z
     .string()
     .min(8, { message: 'Password must be at least 8 characters long' })
-    .regex(passwordValidation, {
+    .regex(PASSWORD_REGEX, {
       message: 'Password must include uppercase, lowercase.',
     }),
 });
