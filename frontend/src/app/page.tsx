@@ -17,6 +17,7 @@ import { UserCard } from '@/components/sections/user-card';
 import Panel from '@/components/sections/panel';
 import NavTab from '@/components/sections/nav-tab';
 import { TABS_TRIGGER } from '@/constants/nav-tab';
+import Banner from '@/components/sections/profile-banner';
 
 const Homepage = () => {
   const tabsContent = [
@@ -33,7 +34,10 @@ const Homepage = () => {
           startIcon={<UsersRound size={24} />}
           buttonLabel="Invitations"
         >
-          <UserCard user={{ id: '1', firstName: 'Nhat', lastName: 'Duong' }} />
+          <UserCard
+            user={{ id: '1', firstName: 'Nhat', lastName: 'Duong' }}
+            endIcon={<EllipsisVertical size={24} />}
+          />
           <UserCard
             user={{
               id: '1',
@@ -42,6 +46,7 @@ const Homepage = () => {
               avatar: 'https://github.com/shadcn.png',
               countFriends: 25,
             }}
+            endIcon={<EllipsisVertical size={24} />}
           />
         </Panel>
       ),
@@ -113,7 +118,10 @@ const Homepage = () => {
         startIcon={<UsersRound size={24} />}
         buttonLabel="Invitations"
       >
-        <UserCard user={{ id: '1', firstName: 'Nhat', lastName: 'Duong' }} />
+        <UserCard
+          user={{ id: '1', firstName: 'Nhat', lastName: 'Duong' }}
+          endIcon={<EllipsisVertical size={24} />}
+        />
         <UserCard
           user={{
             id: '1',
@@ -122,8 +130,11 @@ const Homepage = () => {
             avatar: 'https://github.com/shadcn.png',
             countFriends: 25,
           }}
+          endIcon={<EllipsisVertical size={24} />}
         />
       </Panel>
+
+      <Banner />
 
       <NavTab tabsTrigger={TABS_TRIGGER} tabsContent={tabsContent} />
     </main>
