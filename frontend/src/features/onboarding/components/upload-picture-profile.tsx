@@ -19,6 +19,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { OnboardingFormWrapper } from './onboarding-form-wrapper';
+import { OnboardingFormNavigation } from './onboarding-form-navigation';
 
 // Libs
 import { PictureProfileSchema } from '../lib/schema';
@@ -132,10 +133,7 @@ export const UploadPictureProfile = () => {
               )}
             />
           </div>
-          <div className="flex gap-2 justify-end">
-            <Button onClick={handleBackButton}>Back</Button>
-            <Button type="submit">Next</Button>
-          </div>
+          <OnboardingFormNavigation onBackClick={handleBackButton} />
         </form>
       </Form>
     </OnboardingFormWrapper>

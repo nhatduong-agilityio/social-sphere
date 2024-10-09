@@ -16,8 +16,8 @@ import {
 } from '@/components/ui/form';
 import { EnterAboutInfoSchema } from '../lib/schema';
 import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
 import { OnboardingFormWrapper } from './onboarding-form-wrapper';
+import { OnboardingFormNavigation } from './onboarding-form-navigation';
 
 // Stores
 import { useOnboardingStore } from '../stores/onboarding-steps';
@@ -61,9 +61,7 @@ export const EnterAboutInfo = () => {
               name="firstName"
               render={({ field }) => (
                 <FormItem variant="bordered">
-                  <FormLabel size="tiny" className="pl-2">
-                    FIRST NAME
-                  </FormLabel>
+                  <FormLabel size="tiny">FIRST NAME</FormLabel>
                   <FormControl>
                     <Input
                       variant="ghost"
@@ -71,7 +69,7 @@ export const EnterAboutInfo = () => {
                       {...field}
                     />
                   </FormControl>
-                  <FormMessage className="pl-2" />
+                  <FormMessage />
                 </FormItem>
               )}
             />
@@ -80,9 +78,7 @@ export const EnterAboutInfo = () => {
               name="lastName"
               render={({ field }) => (
                 <FormItem variant="bordered">
-                  <FormLabel size="tiny" className="pl-2">
-                    LAST NAME
-                  </FormLabel>
+                  <FormLabel size="tiny">LAST NAME</FormLabel>
                   <FormControl>
                     <Input
                       variant="ghost"
@@ -90,7 +86,7 @@ export const EnterAboutInfo = () => {
                       {...field}
                     />
                   </FormControl>
-                  <FormMessage className="pl-2" />
+                  <FormMessage />
                 </FormItem>
               )}
             />
@@ -99,25 +95,21 @@ export const EnterAboutInfo = () => {
               name="email"
               render={({ field }) => (
                 <FormItem variant="bordered">
-                  <FormLabel size="tiny" className="pl-2">
-                    EMAIL
-                  </FormLabel>
+                  <FormLabel size="tiny">EMAIL</FormLabel>
                   <FormControl>
                     <Input
                       variant="ghost"
+                      type="email"
                       placeholder="Enter your email"
                       {...field}
                     />
                   </FormControl>
-                  <FormMessage className="pl-2" />
+                  <FormMessage />
                 </FormItem>
               )}
             />
           </div>
-          <div className="flex gap-2 justify-end">
-            <Button onClick={handleBackButton}>Back</Button>
-            <Button type="submit">Next</Button>
-          </div>
+          <OnboardingFormNavigation onBackClick={handleBackButton} />
         </form>
       </Form>
     </OnboardingFormWrapper>
