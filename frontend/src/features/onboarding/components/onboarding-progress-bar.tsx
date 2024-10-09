@@ -38,11 +38,11 @@ export const OnboardingProgressBar = memo(
               size="lg"
               variant="primary"
               className={cn(
-                'text-icon-secondary',
+                'text-gray-900 dark:text-neutral-100',
                 index < currentStep &&
-                  'border-sphere-30 text-sphere-30 shadow-sphere-secondary transition-all duration-300 ease-in-out',
+                  'border-primary dark:border-primary text-primary dark:text-primary shadow-sphere-secondary transition-all duration-300 ease-in-out',
                 index === currentStep - 1 &&
-                  'border-sphere-50 text-sphere-50 shadow-sphere-primary transition-all duration-300 ease-in-out',
+                  'border-blue-600 dark:border-blue-600 text-blue-600 dark:text-blue-600 shadow-sphere-primary transition-all duration-300 ease-in-out',
               )}
             >
               {icon}

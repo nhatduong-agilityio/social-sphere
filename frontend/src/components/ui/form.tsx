@@ -9,7 +9,6 @@ import {
   useContext,
   useId,
 } from 'react';
-import * as LabelPrimitive from '@radix-ui/react-label';
 import { Slot } from '@radix-ui/react-slot';
 import {
   Controller,
@@ -19,9 +18,10 @@ import {
   FormProvider,
   useFormContext,
 } from 'react-hook-form';
+import { cva, VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/utils/cn';
-import { Label } from '@/components/ui/label';
+import { Label, labelVariants } from '@/components/ui/label';
 
 const Form = FormProvider;
 
@@ -80,13 +80,40 @@ const FormItemContext = createContext<FormItemContextValue>(
   {} as FormItemContextValue,
 );
 
-const FormItem = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => {
+const formItemVariants = cva('space-y-2', {
+  variants: {
+    variant: {
+      default: '',
+      bordered:
+        'border border-gray-600 bg-gray-50 dark:border-dark-200 dark:bg-dark-600 rounded-md p-2 pt-1 space-y-0',
+    },
+    size: {
+      default: 'text-base',
+      small: 'text-sm',
+      large: 'text-lg',
+    },
+  },
+  defaultVariants: {
+    variant: 'default',
+    size: 'default',
+  },
+});
+
+interface FormItemProps
+  extends HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof formItemVariants> {}
+
+const FormItem = forwardRef<HTMLDivElement, FormItemProps>(
+  ({ className, variant, size, ...props }, ref) => {
     const id = useId();
 
     return (
       <FormItemContext.Provider value={{ id }}>
-        <div ref={ref} className={cn('space-y-2', className)} {...props} />
+        <div
+          ref={ref}
+          className={cn(formItemVariants({ variant, size, className }))}
+          {...props}
+        />
       </FormItemContext.Provider>
     );
   },
@@ -94,15 +121,22 @@ const FormItem = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
 FormItem.displayName = 'FormItem';
 
 const FormLabel = forwardRef<
-  ElementRef<typeof LabelPrimitive.Root>,
-  ComponentPropsWithoutRef<typeof LabelPrimitive.Root>
->(({ className, ...props }, ref) => {
+  ElementRef<typeof Label>,
+  ComponentPropsWithoutRef<typeof Label>
+>(({ className, variant, size, ...props }, ref) => {
   const { error, formItemId } = useFormField();
 
   return (
     <Label
       ref={ref}
-      className={cn(error && 'text-destructive', className)}
+      className={cn(
+        labelVariants({
+          size,
+          variant,
+          className,
+        }),
+        error && 'text-destructive',
+      )}
       htmlFor={formItemId}
       {...props}
     />

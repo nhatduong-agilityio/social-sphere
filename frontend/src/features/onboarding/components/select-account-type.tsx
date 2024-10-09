@@ -54,14 +54,13 @@ export const SelectAccountType = () => {
                   subDarkSrc={subDarkSrc}
                   alt={title}
                 />
-                <CardTitle className="font-montserrat font-semibold py-2">
+                <CardTitle className="font-montserrat font-semi-lg font-semibold py-2">
                   {title}
                 </CardTitle>
                 <CardDescription>{description}</CardDescription>
               </CardHeader>
               <CardFooter>
                 <Button
-                  variant="primary"
                   className="w-full"
                   onClick={() => handleContinueButton(title)}
                 >

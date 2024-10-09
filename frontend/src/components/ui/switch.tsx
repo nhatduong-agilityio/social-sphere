@@ -12,12 +12,12 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/utils/cn';
 
 const switchVariants = cva(
-  'peer inline-flex shrink-0 cursor-pointer items-center rounded-full border border-gray-800 dark:border-sphere-30 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50',
+  'peer inline-flex shrink-0 cursor-pointer items-center rounded-full border border-gray-800 dark:border-blue-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50',
   {
     variants: {
       variant: {
         default:
-          'data-[state=checked]:bg-primary data-[state=unchecked]:bg-background',
+          'data-[state=checked]:bg-dark-800 data-[state=unchecked]:bg-background',
       },
       size: {
         default: 'h-[31px] w-[54px]',
@@ -48,7 +48,7 @@ const Switch = forwardRef<
   >
     <SwitchPrimitives.Thumb
       className={cn(
-        'pointer-events-none flex items-center justify-center rounded-full bg-background dark:bg-sphere-30 ring-0 transition-transform',
+        'pointer-events-none flex items-center justify-center rounded-full bg-background dark:bg-blue-100 ring-0 transition-transform',
         'h-[26px] w-[26px] data-[state=checked]:translate-x-6',
       )}
     >

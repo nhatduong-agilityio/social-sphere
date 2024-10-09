@@ -46,7 +46,7 @@ exports[`LoginPage Renders a heading 1`] = `
         </div>
       </div>
       <div
-        class="space-y-2"
+        class="space-y-2 text-base"
       >
         <div
           class="relative flex items-center"
@@ -88,7 +88,7 @@ exports[`LoginPage Renders a heading 1`] = `
         </div>
       </div>
       <div
-        class="space-y-2"
+        class="space-y-2 text-base"
       >
         <div
           class="relative flex items-center"
@@ -150,18 +150,18 @@ exports[`LoginPage Renders a heading 1`] = `
     >
       <button
         aria-checked="false"
-        class="peer inline-flex shrink-0 cursor-pointer items-center rounded-full border border-gray-800 dark:border-sphere-30 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=unchecked]:bg-background h-[31px] w-[54px]"
+        class="peer inline-flex shrink-0 cursor-pointer items-center rounded-full border border-gray-800 dark:border-blue-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-dark-800 data-[state=unchecked]:bg-background h-[31px] w-[54px]"
         data-state="unchecked"
         role="switch"
         type="button"
         value="on"
       >
         <span
-          class="pointer-events-none flex items-center justify-center rounded-full bg-background dark:bg-sphere-30 ring-0 transition-transform h-[26px] w-[26px] data-[state=checked]:translate-x-6"
+          class="pointer-events-none flex items-center justify-center rounded-full bg-background dark:bg-blue-100 ring-0 transition-transform h-[26px] w-[26px] data-[state=checked]:translate-x-6"
           data-state="unchecked"
         >
           <svg
-            class="lucide lucide-sun text-sphere-yellow-20"
+            class="lucide lucide-sun text-yellow-400"
             fill="none"
             height="12"
             stroke="currentColor"

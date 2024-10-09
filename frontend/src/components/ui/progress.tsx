@@ -7,12 +7,12 @@ import { cva, VariantProps } from 'class-variance-authority';
 import { cn } from '@/utils/cn';
 
 const progressVariants = cva(
-  'relative w-full bg-progress overflow-hidden rounded-full',
+  'relative w-full bg-gray-600 dark:bg-dark-300 overflow-hidden rounded-full',
   {
     variants: {
       variant: {
-        default: 'bg-progress',
-        secondary: 'border-6 border-progress-foreground',
+        default: 'bg-gray-600 dark:bg-dark-300',
+        secondary: 'border-6 border-white dark:border-blue-800',
       },
       size: {
         default: 'h-4',

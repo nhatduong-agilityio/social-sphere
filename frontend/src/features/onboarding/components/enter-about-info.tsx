@@ -11,6 +11,7 @@ import {
   FormControl,
   FormField,
   FormItem,
+  FormLabel,
   FormMessage,
 } from '@/components/ui/form';
 import { EnterAboutInfoSchema } from '../lib/schema';
@@ -54,14 +55,21 @@ export const EnterAboutInfo = () => {
           onSubmit={form.handleSubmit(handleNextButton)}
           className="flex flex-col gap-5 w-full max-w-[330px] md:max-w-[540px] animate-fade-in-left"
         >
-          <div className="flex flex-col w-full gap-3 p-[30px] bg-card rounded-md">
+          <div className="flex flex-col w-full gap-5 p-[30px] bg-white dark:bg-dark-800 border rounded-md">
             <FormField
               control={form.control}
               name="firstName"
               render={({ field }) => (
-                <FormItem>
+                <FormItem variant="bordered">
+                  <FormLabel size="tiny" className="pl-2">
+                    FIRST NAME
+                  </FormLabel>
                   <FormControl>
-                    <Input placeholder="Enter your first name" {...field} />
+                    <Input
+                      variant="ghost"
+                      placeholder="Enter your first name"
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -71,9 +79,16 @@ export const EnterAboutInfo = () => {
               control={form.control}
               name="lastName"
               render={({ field }) => (
-                <FormItem>
+                <FormItem variant="bordered">
+                  <FormLabel size="tiny" className="pl-2">
+                    LAST NAME
+                  </FormLabel>
                   <FormControl>
-                    <Input placeholder="Enter your last name" {...field} />
+                    <Input
+                      variant="ghost"
+                      placeholder="Enter your last name"
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -83,9 +98,16 @@ export const EnterAboutInfo = () => {
               control={form.control}
               name="email"
               render={({ field }) => (
-                <FormItem>
+                <FormItem variant="bordered">
+                  <FormLabel size="tiny" className="pl-2">
+                    EMAIL
+                  </FormLabel>
                   <FormControl>
-                    <Input placeholder="Enter your email" {...field} />
+                    <Input
+                      variant="ghost"
+                      placeholder="Enter your email"
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

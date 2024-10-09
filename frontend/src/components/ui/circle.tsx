@@ -6,9 +6,9 @@ import { cn } from '@/utils/cn';
 const circleVariants = cva('rounded-full flex justify-center items-center', {
   variants: {
     variant: {
-      default: 'bg-sphere-50',
+      default: 'bg-blue-600',
       primary:
-        'bg-circle border-[1.4px] border-circle-foreground shadow-[-1px_3px_10px_0_rgba(0,0,0,.06)]',
+        'bg-white dark:bg-dark-600 border-[1.4px] border-gray-600 dark:border-blue-800 shadow-[-1px_3px_10px_0_rgba(0,0,0,.06)]',
     },
     size: {
       default: 'h-8 w-8',

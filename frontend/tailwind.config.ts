@@ -106,7 +106,7 @@ const config: Config = {
           400: 'hsl(var(--blue-400))',
           500: 'hsl(var(--blue-500))',
           600: 'hsl(var(--blue-600))',
-          700: 'var(--blue-700)',
+          700: 'hsl(var(--blue-700))',
           800: 'hsl(var(--blue-800))',
           900: 'hsl(var(--blue-900))',
         },
@@ -119,6 +119,9 @@ const config: Config = {
           DEFAULT: 'hsl(var(--red))',
           100: 'hsl(var(--red-100))',
         },
+        yellow: {
+          400: 'hsl(var(--yellow-400))',
+        },
         neutral: {
           100: 'hsl(var(--neutral-100))',
           200: 'hsl(var(--neutral-200))',
@@ -130,7 +133,7 @@ const config: Config = {
           800: 'hsl(var(--neutral-800))',
         },
         dark: {
-          100: 'var(--dark-100)',
+          100: 'hsl(var(--dark-100))',
           200: 'hsl(var(--dark-200))',
           300: 'hsl(var(--dark-300))',
           400: 'hsl(var(--dark-400))',
@@ -139,6 +142,7 @@ const config: Config = {
           700: 'hsl(var(--dark-700))',
           800: 'hsl(var(--dark-800))',
           900: 'hsl(var(--dark-900))',
+          950: 'hsl(var(--dark-950))',
         },
         black: {
           DEFAULT: 'hsl(var(--black))',
@@ -150,9 +154,9 @@ const config: Config = {
         roboto: ['var(--font-roboto)'],
       },
       fontSize: {
-        tn: [
-          'var(--font-tn)',
-          { lineHeight: 'var(--line-height-tn)', fontWeight: '500' },
+        '3xs': [
+          'var(--font-3xs)',
+          { lineHeight: 'var(--line-height-3xs)', fontWeight: '500' },
         ],
         '2xs': [
           'var(--font-2xs)',
@@ -173,6 +177,10 @@ const config: Config = {
         md: [
           'var(--font-md)',
           { lineHeight: 'var(--line-height-md)', fontWeight: '400' },
+        ],
+        'semi-lg': [
+          'var(--font-semi-lg)',
+          { lineHeight: 'var(--line-height-semi-lg)', fontWeight: '400' },
         ],
         lg: [
           'var(--font-lg)',

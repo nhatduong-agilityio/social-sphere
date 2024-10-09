@@ -13,7 +13,7 @@ export const SwitchTheme = () => {
       checked={isDarkTheme}
       onCheckedChange={toggleTheme}
       uncheckedIcon={<MoonIcon size={12} className="text-white" />}
-      checkedIcon={<SunIcon size={12} className="text-sphere-yellow-20" />}
+      checkedIcon={<SunIcon size={12} className="text-yellow-400" />}
     />
   ) : null;
 };

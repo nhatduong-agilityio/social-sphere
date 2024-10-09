@@ -45,8 +45,8 @@
     --blue-400: 213.29 74.55% 56.86%;
     --blue-500: 214 49.18% 47.84%;
     --blue-600: 213.85 48.95% 46.86%;
-    --blue-700: #3d70b280;
-    --blue-800: 217.83 25.84% 34.9%;
+    --blue-700: 217.83 25.84% 34.9%;
+    --blue-800: 217.67 25.75% 32.75%;
     --blue-900: 216.67 25.71% 27.45%;
 
     --green: 152.54 79.45% 50.39%;
@@ -55,6 +55,8 @@
 
     --red: 359.47 93.42% 52.35%;
     --red-100: 359.41 93.52% 42.35%;
+
+    --yellow-400: 47.94 85.31% 51.96%;
 
     --neutral-100: 232.17 14.11% 68.04%;
     --neutral-200: 0 0% 60%;
@@ -74,6 +76,7 @@
     --dark-700: 219.13 25.27% 17.84%;
     --dark-800: 218.18 25.58% 16.86%;
     --dark-900: 215.29 26.15% 12.75%;
+    --dark-950: 219 26.32% 14.9%;
 
     --black: 0 0% 0%;
     --black-99: #00000099;
@@ -85,12 +88,13 @@
     --radius-lg: 0.65rem;
 
     /* Font size */
-    --font-tn: 0.7rem;
+    --font-3xs: 0.7rem;
     --font-2xs: 0.75rem;
     --font-xs: 0.8rem;
     --font-sm: 0.85rem;
     --font-base: 0.9rem;
     --font-md: 0.95rem;
+    --font-semi-lg: 1rem;
     --font-lg: 1.1rem;
     --font-xl: 1.2rem;
     --font-2xl: 1.4rem;
@@ -98,11 +102,12 @@
     --font-4xl: 3.2rem;
 
     /* Line height */
-    --line-height-tn: 1.05rem;
+    --line-height-3xs: 1.05rem;
     --line-height-2xs: 1.125rem;
     --line-height-xs: 1.2rem;
     --line-height-sm: 1.275rem;
     --line-height-base: 1.35rem;
+    --line-height-semi-lg: 1.5rem;
     --line-height-md: 1.425rem;
     --line-height-lg: 1.2375rem;
     --line-height-xl: 1.68rem;
@@ -155,6 +160,6 @@
   }
 
   .text-button {
-    @apply text-neutral-200 dark:text-white
+    @apply text-neutral-200 dark:text-white hover:text-white
   }
 }

@@ -12,6 +12,8 @@ const inputVariants = cva(
       variant: {
         default: '',
         icon: 'transition-all duration-300 ease-in-out focus:border-blue-100 dark:border-input',
+        ghost:
+          'border-0 bg-transparent dark:bg-transparent px-2.5 py-1 transition-all duration-300 ease-in-out focus:border-blue-100 dark:border-input',
       },
     },
     defaultVariants: {
