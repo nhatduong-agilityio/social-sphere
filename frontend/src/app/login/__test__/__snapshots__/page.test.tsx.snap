@@ -46,7 +46,7 @@ exports[`LoginPage Renders a heading 1`] = `
         </div>
       </div>
       <div
-        class="space-y-2 text-base"
+        class="space-y-2"
       >
         <div
           class="relative flex items-center"
@@ -79,7 +79,8 @@ exports[`LoginPage Renders a heading 1`] = `
           <input
             aria-describedby=":r0:-form-item-description"
             aria-invalid="false"
-            class="flex h-10 w-full rounded-lg border border-input bg-white dark:bg-dark-500 px-3 py-2 text-base file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-300 ease-in-out focus:border-blue-100 dark:border-input pl-10"
+            autocomplete="off"
+            class="flex h-10 w-full rounded-lg border border-input bg-white dark:bg-dark-500 px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-xs file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-300 ease-in-out focus:border-blue-100 dark:border-input pl-10"
             id=":r0:-form-item"
             name="username"
             placeholder="jennadavis@gmail.com"
@@ -88,7 +89,7 @@ exports[`LoginPage Renders a heading 1`] = `
         </div>
       </div>
       <div
-        class="space-y-2 text-base"
+        class="space-y-2"
       >
         <div
           class="relative flex items-center"
@@ -124,7 +125,8 @@ exports[`LoginPage Renders a heading 1`] = `
           <input
             aria-describedby=":r1:-form-item-description"
             aria-invalid="false"
-            class="flex h-10 w-full rounded-lg border border-input bg-white dark:bg-dark-500 px-3 py-2 text-base file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-300 ease-in-out focus:border-blue-100 dark:border-input pl-10"
+            autocomplete="off"
+            class="flex h-10 w-full rounded-lg border border-input bg-white dark:bg-dark-500 px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-xs file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-300 ease-in-out focus:border-blue-100 dark:border-input pl-10"
             id=":r1:-form-item"
             name="password"
             placeholder="●●●●●●●"
@@ -134,13 +136,13 @@ exports[`LoginPage Renders a heading 1`] = `
         </div>
       </div>
       <button
-        class="inline-flex items-center justify-center whitespace-nowrap text-base font-medium ring-offset-background outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border border-blue-600 bg-blue-600 text-white hover:opacity-80 hover:shadow-sphere-primary transition-all duration-300 ease-in-out px-4 py-2 w-full h-[46px] rounded-full"
+        class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border border-blue-600 bg-blue-600 text-white hover:opacity-80 hover:shadow-sphere-primary transition-all duration-300 ease-in-out px-4 py-2 w-full h-[46px] rounded-full"
         type="submit"
       >
         Login
       </button>
       <button
-        class="inline-flex items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring text-neutral-100 hover:text-blue-600 p-0 h-9"
+        class="inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring text-neutral-100 hover:text-blue-600 p-0 h-9"
       >
         Forgot password?
       </button>

@@ -38,7 +38,7 @@ export const UserCard = ({ user, endIcon, ...props }: UserCardProps) => {
         </Avatar>
 
         <div className="flex flex-col">
-          <CardTitle className="text-base">{fullName}</CardTitle>
+          <CardTitle className="text-sm">{fullName}</CardTitle>
           <CardDescription>{countFriends} Friends</CardDescription>
         </div>
       </div>

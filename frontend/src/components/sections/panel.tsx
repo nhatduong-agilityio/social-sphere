@@ -34,7 +34,7 @@ const Panel = ({
           <div className="relative">
             <Button onClick={handleClick}>{buttonLabel}</Button>
             {countItems > 0 && (
-              <span className="absolute top-[-8px] left-[-15px] flex items-center justify-center ml-2 min-w-6 h-6 bg-blue-600 rounded-full text-xs text-white">
+              <span className="absolute top-[-8px] left-[-15px] flex items-center justify-center ml-2 min-w-6 h-6 bg-blue-600 rounded-full text-2xs text-white">
                 {countItems}
               </span>
             )}

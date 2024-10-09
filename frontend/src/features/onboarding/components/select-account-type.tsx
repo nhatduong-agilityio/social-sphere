@@ -54,7 +54,7 @@ export const SelectAccountType = () => {
                   subDarkSrc={subDarkSrc}
                   alt={title}
                 />
-                <CardTitle className="font-montserrat font-semi-lg font-semibold py-2">
+                <CardTitle className="font-montserrat text-base font-semibold py-2">
                   {title}
                 </CardTitle>
                 <CardDescription>{description}</CardDescription>

@@ -19,6 +19,52 @@ const config: Config = {
       '4': '4px',
       '6': '6px',
     },
+    fontSize: {
+      '4xs': [
+        'var(--font-4xs)',
+        { lineHeight: 'var(--line-height-4xs)', fontWeight: '500' },
+      ],
+      '3xs': [
+        'var(--font-3xs)',
+        { lineHeight: 'var(--line-height-3xs)', fontWeight: '400' },
+      ],
+      '2xs': [
+        'var(--font-2xs)',
+        { lineHeight: 'var(--line-height-2xs)', fontWeight: '500' },
+      ],
+      xs: [
+        'var(--font-xs)',
+        { lineHeight: 'var(--line-height-xs)', fontWeight: '500' },
+      ],
+      sm: [
+        'var(--font-sm)',
+        { lineHeight: 'var(--line-height-sm)', fontWeight: '400' },
+      ],
+      md: [
+        'var(--font-md)',
+        { lineHeight: 'var(--line-height-md)', fontWeight: '400' },
+      ],
+      lg: [
+        'var(--font-lg)',
+        { lineHeight: 'var(--line-height-lg)', fontWeight: '600' },
+      ],
+      xl: [
+        'var(--font-xl)',
+        { lineHeight: 'var(--line-height-2xl)', fontWeight: '600' },
+      ],
+      '2xl': [
+        'var(--font-2xl)',
+        { lineHeight: 'var(--line-height-xl)', fontWeight: '600' },
+      ],
+      '3xl': [
+        'var(--font-3xl)',
+        { lineHeight: 'var(--line-height-3xl)', fontWeight: '700' },
+      ],
+      '4xl': [
+        'var(--font-4xl)',
+        { lineHeight: 'var(--line-height-4xl)', fontWeight: '700' },
+      ],
+    },
     extend: {
       boxShadow: {
         'sphere-primary':
@@ -153,56 +199,6 @@ const config: Config = {
         montserrat: ['var(--font-montserrat)'],
         roboto: ['var(--font-roboto)'],
       },
-      fontSize: {
-        '3xs': [
-          'var(--font-3xs)',
-          { lineHeight: 'var(--line-height-3xs)', fontWeight: '500' },
-        ],
-        '2xs': [
-          'var(--font-2xs)',
-          { lineHeight: 'var(--line-height-2xs)', fontWeight: '400' },
-        ],
-        xs: [
-          'var(--font-xs)',
-          { lineHeight: 'var(--line-height-xs)', fontWeight: '500' },
-        ],
-        sm: [
-          'var(--font-sm)',
-          { lineHeight: 'var(--line-height-sm)', fontWeight: '500' },
-        ],
-        base: [
-          'var(--font-base)',
-          { lineHeight: 'var(--line-height-base)', fontWeight: '400' },
-        ],
-        md: [
-          'var(--font-md)',
-          { lineHeight: 'var(--line-height-md)', fontWeight: '400' },
-        ],
-        'semi-lg': [
-          'var(--font-semi-lg)',
-          { lineHeight: 'var(--line-height-semi-lg)', fontWeight: '400' },
-        ],
-        lg: [
-          'var(--font-lg)',
-          { lineHeight: 'var(--line-height-lg)', fontWeight: '600' },
-        ],
-        xl: [
-          'var(--font-xl)',
-          { lineHeight: 'var(--line-height-2xl)', fontWeight: '600' },
-        ],
-        '2xl': [
-          'var(--font-2xl)',
-          { lineHeight: 'var(--line-height-xl)', fontWeight: '600' },
-        ],
-        '3xl': [
-          'var(--font-3xl)',
-          { lineHeight: 'var(--line-height-3xl)', fontWeight: '700' },
-        ],
-        '4xl': [
-          'var(--font-4xl)',
-          { lineHeight: 'var(--line-height-4xl)', fontWeight: '700' },
-        ],
-      },
       keyframes: {
         'fade-in': {
           '0%': { opacity: '0' },
@@ -226,7 +222,7 @@ const config: Config = {
           '0%': {
             transform: 'translate3d(0, 20px, 0)',
           },
-          '100%:': {
+          '100%': {
             transform: 'translate3d(0, 0, 0)',
             opacity: '1',
           },
@@ -312,7 +308,7 @@ const config: Config = {
       animation: {
         'fade-in': 'fade-in 0.5s ease-out',
         'fade-in-left': 'fade-in-left 0.5s',
-        'fade-in-up': 'fade-in-left 0.5s',
+        'fade-in-up': 'fade-in-up 0.5s',
         'fade-out': 'fade-out 0.7s ease-out',
         'slide-in': 'slide-in 1s cubic-bezier(0.16, 0.81, 0.32, 1)',
         'bounce-in-left': 'bounce-in-left 0.7s ease-in-out',
