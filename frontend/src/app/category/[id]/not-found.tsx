@@ -10,7 +10,7 @@ const NotFound = () => (
     <p>Could not find the requested Category.</p>
     <Link
       href={ROUTER.CATEGORY}
-      className="mt-4 rounded-md bg-blue-500 px-4 py-2 text-sm text-white transition-colors hover:bg-blue-400"
+      className="mt-4 rounded-md bg-blue-500 px-4 py-2 text-xs text-white transition-colors hover:bg-blue-400"
     >
       Go Back
     </Link>

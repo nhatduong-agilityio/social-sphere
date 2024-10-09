@@ -53,7 +53,7 @@ export const EnterAboutInfo = () => {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(handleNextButton)}
-          className="flex flex-col gap-5 w-full max-w-[330px] md:max-w-[540px] animate-fade-in-left"
+          className="flex flex-col gap-5 w-full"
         >
           <div className="flex flex-col w-full gap-5 p-[30px] bg-white dark:bg-dark-800 border rounded-md">
             <FormField
@@ -71,7 +71,7 @@ export const EnterAboutInfo = () => {
                       {...field}
                     />
                   </FormControl>
-                  <FormMessage />
+                  <FormMessage className="pl-2" />
                 </FormItem>
               )}
             />
@@ -90,7 +90,7 @@ export const EnterAboutInfo = () => {
                       {...field}
                     />
                   </FormControl>
-                  <FormMessage />
+                  <FormMessage className="pl-2" />
                 </FormItem>
               )}
             />
@@ -109,7 +109,7 @@ export const EnterAboutInfo = () => {
                       {...field}
                     />
                   </FormControl>
-                  <FormMessage />
+                  <FormMessage className="pl-2" />
                 </FormItem>
               )}
             />

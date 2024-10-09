@@ -88,8 +88,8 @@ const formItemVariants = cva('space-y-2', {
         'border border-gray-600 bg-gray-50 dark:border-dark-200 dark:bg-dark-600 rounded-md p-2 pt-1 space-y-0',
     },
     size: {
-      default: 'text-base',
-      small: 'text-sm',
+      default: '',
+      small: 'text-xs',
       large: 'text-lg',
     },
   },
@@ -199,7 +199,7 @@ const FormMessage = forwardRef<
     <p
       ref={ref}
       id={formMessageId}
-      className={cn('text-sm font-medium text-destructive', className)}
+      className={cn('text-xs font-medium text-destructive', className)}
       {...props}
     >
       {body}

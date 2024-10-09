@@ -14,8 +14,8 @@ const labelVariants = cva(
         default: 'text-neutral-400 font-medium leading-none ',
       },
       size: {
-        default: 'text-sm',
-        tiny: 'text-3xs',
+        default: 'text-xs',
+        tiny: 'text-4xs',
       },
     },
     defaultVariants: {

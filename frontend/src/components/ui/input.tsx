@@ -6,7 +6,7 @@ import { cva, VariantProps } from 'class-variance-authority';
 import { cn } from '@/utils/cn';
 
 const inputVariants = cva(
-  'flex h-10 w-full rounded-lg border border-input bg-white dark:bg-dark-500 px-3 py-2 text-base file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50',
+  'flex h-10 w-full rounded-lg border border-input bg-white dark:bg-dark-500 px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-xs file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50',
   {
     variants: {
       variant: {
@@ -69,6 +69,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             endIcon && 'pr-10',
           )}
           ref={ref}
+          autoComplete="off"
           onFocus={handleFocus}
           onBlur={handleBlur}
           {...props}
