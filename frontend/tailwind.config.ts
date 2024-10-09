@@ -316,6 +316,7 @@ const config: Config = {
         'bounce-in-up': 'bounce-in-up 0.7s ease-in-out',
         'bounce-in-down': 'bounce-in-down 0.7s ease-in-out',
         'flip-in-x': 'flip-in-x 1s ease-out',
+        'spin-fast': 'spin 0.7s linear infinite',
       },
     },
   },
