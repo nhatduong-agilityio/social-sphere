@@ -7,20 +7,35 @@ import * as LabelPrimitive from '@radix-ui/react-label';
 import { cn } from '@/utils/cn';
 
 const labelVariants = cva(
-  'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
+  'peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
+  {
+    variants: {
+      variant: {
+        default: 'text-neutral-400 font-medium leading-none ',
+      },
+      size: {
+        default: 'text-sm',
+        tiny: 'text-3xs',
+      },
+    },
+    defaultVariants: {
+      variant: 'default',
+      size: 'default',
+    },
+  },
 );
 
 const Label = forwardRef<
   ElementRef<typeof LabelPrimitive.Root>,
   ComponentPropsWithoutRef<typeof LabelPrimitive.Root> &
     VariantProps<typeof labelVariants>
->(({ className, ...props }, ref) => (
+>(({ className, variant, size, ...props }, ref) => (
   <LabelPrimitive.Root
     ref={ref}
-    className={cn(labelVariants(), className)}
+    className={cn(labelVariants({ variant, size, className }))}
     {...props}
   />
 ));
 Label.displayName = LabelPrimitive.Root.displayName;
 
-export { Label };
+export { Label, labelVariants };

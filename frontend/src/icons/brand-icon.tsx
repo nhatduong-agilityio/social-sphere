@@ -8,7 +8,7 @@ const BrandIcon = ({ className, ...props }: SVGAttributes<SVGSVGElement>) => (
     height={38}
     viewBox="0 0 210.7 210.7"
     fill="none"
-    className={cn('text-brand', className)}
+    className={cn('text-blue-600 dark:text-white', className)}
     {...props}
   >
     <path
