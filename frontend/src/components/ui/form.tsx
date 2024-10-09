@@ -85,7 +85,7 @@ const formItemVariants = cva('space-y-2', {
     variant: {
       default: '',
       bordered:
-        'border border-gray-600 bg-gray-50 dark:border-dark-200 dark:bg-dark-600 rounded-md p-2 pt-1 space-y-0',
+        'border border-gray-600 bg-gray-50 dark:border-dark-200 dark:bg-dark-600 rounded-md p-2 pt-1 space-y-0 px-4',
     },
     size: {
       default: '',
