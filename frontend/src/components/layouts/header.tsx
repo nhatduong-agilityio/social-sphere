@@ -19,10 +19,16 @@ import {
   MenuIcon,
   MessageSquareIcon,
   SearchIcon,
+  ShoppingCartIcon,
 } from 'lucide-react';
 
 // Hooks
 import { useDisclosure } from '@/hooks/use-disclosure';
+import { CircleOverlay } from '../sections/circle-overlay';
+import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
+import { PopoverContainer } from '../ui/popover';
+import { Text } from '../ui/text';
+import { SwitchTheme } from '../sections/switch-theme';
 
 interface HeaderProps {
   isAuthenticated?: boolean;
@@ -133,8 +139,40 @@ export const Header = memo(({ isAuthenticated = true }: HeaderProps) => {
               ))}
             </div>
           </div>
-          <div className="w-full max-w-[320px] hidden lg:flex">
-            <SearchInput variant="primary" />
+          <div className="w-full justify-end items-center gap-6 hidden lg:flex">
+            <div className="w-full max-w-[320px] flex">
+              <SearchInput variant="primary" />
+            </div>
+            <CircleOverlay
+              circleSize="tiny"
+              circleClassName="border-0 w-2 h-2 top-0.5 right-0.5 bg-blue-600"
+            >
+              <Button
+                variant="unstyle"
+                className="w-9 p-0 h-full hover:bg-transparent"
+              >
+                <ShoppingCartIcon size={18} />
+              </Button>
+            </CircleOverlay>
+            <PopoverContainer
+              trigger={
+                <CircleOverlay circleSize="tiny">
+                  <Avatar className="w-full h-full">
+                    <AvatarImage src="https://github.com/shadcn.png" />
+                    <AvatarFallback>CN</AvatarFallback>
+                  </Avatar>
+                </CircleOverlay>
+              }
+              content={
+                <div className="grid gap-4">
+                  <div className="flex justify-between items-center p-4">
+                    <Text variant="primary">Jenna Davis</Text>
+                    <SwitchTheme />
+                  </div>
+                </div>
+              }
+              contentClassName="p-0"
+            />
           </div>
           <Button variant="unstyle" className="w-[58px] h-full lg:hidden">
             <MenuIcon size={18} />
