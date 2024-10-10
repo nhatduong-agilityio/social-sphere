@@ -57,20 +57,18 @@ const ProfileHeader = ({
   );
 
   return (
-    <div>
-      <div className="flex flex-col items-center justify-center relative">
-        <Banner />
+    <div className="flex flex-col items-center justify-center relative">
+      <Banner />
 
-        <div className="w-full flex justify-between pt-2">
-          <div className="hidden md:block space-x-2">
-            <Button className={baseStyleButton}>Timeline</Button>
-            <Button className={baseStyleButton}>About</Button>
-          </div>
-          {avatarContent}
-          <div className="hidden md:block space-x-2">
-            <Button className={baseStyleButton}>Friends</Button>
-            <Button className={baseStyleButton}>Photos</Button>
-          </div>
+      <div className="w-full flex justify-between pt-2">
+        <div className="hidden md:block space-x-2">
+          <Button className={baseStyleButton}>Timeline</Button>
+          <Button className={baseStyleButton}>About</Button>
+        </div>
+        {avatarContent}
+        <div className="hidden md:block space-x-2">
+          <Button className={baseStyleButton}>Friends</Button>
+          <Button className={baseStyleButton}>Photos</Button>
         </div>
       </div>
     </div>
