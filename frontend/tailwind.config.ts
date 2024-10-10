@@ -73,6 +73,7 @@ const config: Config = {
           '0 14px 26px -12px rgba(85,150,230,.42),0 4px 23px 0px rgba(0,0,0,.12),0 8px 10px -5px rgba(85,150,230,.2)',
         'sphere-destructive':
           '0 14px 26px -12px rgba(247,20,22,.42),0 4px 23px 0px rgba(0,0,0,.12),0 8px 10px -5px rgba(247,20,22,.2)',
+        'sphere-light': '-1px 3px 10px 0 rgba(0,0,0,.06)',
       },
       spacing: {
         400: '400px',
