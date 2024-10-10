@@ -1,43 +1,53 @@
 import { memo } from 'react';
-import Link from 'next/link';
-
-// Constants
-import { ROUTER } from '@/constants/router';
 
 // Components
-import {
-  LinkWithIcon,
-  type LinkWithIconProps,
-} from '@/components/ui/link-with-icon';
 import { BrandLink } from '../sections/brand-link';
 
 // Utils
 import { cn } from '@/utils/cn';
 
 // Icons
-import { CubeIcon } from '@/icons/cube-icon';
-import { BugAntIcon } from '@/icons/bug-ant-icon';
-import { UserIcon } from '@/icons/user-icon';
-import { BoltIcon } from '@/icons/bolt-icon';
+import { Button } from '../ui/button';
+import {
+  BellIcon,
+  GripIcon,
+  HeartIcon,
+  MailIcon,
+  MenuIcon,
+  MessageSquareIcon,
+  SearchIcon,
+} from 'lucide-react';
 
-const NAVIGATION_ITEMS: LinkWithIconProps[] = [
+const NAVIGATION_ITEMS = [
   {
-    url: ROUTER.CATEGORY,
-    text: 'Category',
-    title: 'Category Listing',
-    icon: <CubeIcon customClass="w-4 h-4 mr-2" />,
+    title: 'Friend Requests',
+    icon: <HeartIcon size={18} />,
+    styles: 'hover:bg-red-600 hover:shadow-sphere-destructive',
   },
   {
-    url: `${ROUTER.CATEGORY}?showError=true`,
-    text: 'Error Page',
-    title: 'Demo Error Page',
-    icon: <BugAntIcon customClass="w-4 h-4 mr-2" />,
+    title: 'Notifications',
+    icon: <BellIcon size={18} />,
+    styles: 'hover:bg-blue-50',
   },
   {
-    url: ROUTER.LOGIN,
-    text: 'Login',
-    title: 'Login',
-    icon: <UserIcon customClass="w-4 h-4 mr-2" />,
+    title: 'Messages',
+    icon: <MailIcon size={18} />,
+    styles: 'hover:bg-blue-50',
+  },
+  {
+    title: 'Chat',
+    icon: <MessageSquareIcon size={18} />,
+    styles: 'hover:bg-blue-600 hover:shadow-sphere-secondary hidden lg:flex',
+  },
+  {
+    title: 'Applications',
+    icon: <GripIcon size={18} />,
+    styles: 'hover:bg-blue-600 hover:shadow-sphere-secondary',
+  },
+  {
+    title: 'Search',
+    icon: <SearchIcon size={18} />,
+    styles: 'hover:bg-blue-600 hover:shadow-sphere-secondary flex lg:hidden',
   },
 ];
 
@@ -49,27 +59,32 @@ export const Header = memo(({ isAuthenticated = true }: HeaderProps) => (
   <header
     className={cn(
       'sticky top-0 border bg-background dark:border-dark-950 dark:bg-dark-950 z-50',
-      isAuthenticated ? 'h-[58px]' : 'h-[55px]',
+      isAuthenticated ? 'h-[58px] dark:bg-dark-100 pl-3 lg:pr-3' : 'h-[55px]',
     )}
   >
     {isAuthenticated ? (
-      <nav className="container mx-auto h-full flex justify-between items-center">
-        <div>
-          <Link href="/" title="Homepage">
-            <BoltIcon customClass="text-blue-600 w-8 h-8" />
-          </Link>
+      <nav className="w-full h-full flex justify-between items-center">
+        <div className="flex gap-5 lg:gap-8 md:flex-1 lg:flex">
+          <div className="animate-heartbeat">
+            <BrandLink size={38} />
+          </div>
+          <div className="flex gap-3 md:flex-1 md:justify-center lg:justify-start">
+            {NAVIGATION_ITEMS.map(({ title, styles, icon }) => (
+              <Button
+                className={cn(
+                  'w-[38px] h-[38px] p-0 border-none radius-md bg-transparent text-icon',
+                  styles,
+                )}
+                key={title}
+              >
+                {icon}
+              </Button>
+            ))}
+          </div>
         </div>
-        <div className="flex gap-2">
-          {NAVIGATION_ITEMS.map(({ url, text, title, icon }) => (
-            <LinkWithIcon
-              key={url}
-              url={url}
-              text={text}
-              title={title}
-              icon={icon}
-            />
-          ))}
-        </div>
+        <Button variant="unstyle" className="w-[58px] h-full lg:hidden">
+          <MenuIcon size={18} />
+        </Button>
       </nav>
     ) : (
       <div className="w-full flex justify-center">

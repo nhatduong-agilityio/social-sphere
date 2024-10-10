@@ -55,6 +55,7 @@
 
     --red: 359.47 93.42% 52.35%;
     --red-100: 359.41 93.52% 42.35%;
+    --red-600: 351.79 85.48% 48.63%;
 
     --yellow-400: 47.94 85.31% 51.96%;
 
@@ -159,5 +160,9 @@
 
   .text-button {
     @apply text-neutral-200 dark:text-white hover:text-white
+  }
+
+  .text-icon {
+    @apply text-neutral-200 dark:text-neutral-100 hover:text-white
   }
 }
