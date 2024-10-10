@@ -8,7 +8,7 @@ const circleVariants = cva('rounded-full flex justify-center items-center', {
     variant: {
       default: 'bg-blue-600',
       primary:
-        'bg-white dark:bg-dark-600 border-[1.4px] border-gray-600 dark:border-blue-800 shadow-[-1px_3px_10px_0_rgba(0,0,0,.06)]',
+        'bg-white dark:bg-dark-600 border-[1.4px] border-gray-600 dark:border-blue-800 shadow-sphere-light',
     },
     size: {
       default: 'h-8 w-8',
