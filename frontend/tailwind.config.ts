@@ -71,6 +71,8 @@ const config: Config = {
           '0 14px 26px -12px rgba(61,112,178,.42),0 4px 23px 0px rgba(0,0,0,.12),0 8px 10px -5px rgba(61,112,178,.2)',
         'sphere-secondary':
           '0 14px 26px -12px rgba(85,150,230,.42),0 4px 23px 0px rgba(0,0,0,.12),0 8px 10px -5px rgba(85,150,230,.2)',
+        'sphere-destructive':
+          '0 14px 26px -12px rgba(247,20,22,.42),0 4px 23px 0px rgba(0,0,0,.12),0 8px 10px -5px rgba(247,20,22,.2)',
       },
       spacing: {
         400: '400px',
@@ -304,6 +306,17 @@ const config: Config = {
             transform: 'perspective(400px)',
           },
         },
+        heartbeat: {
+          '0%': {
+            transform: 'scale(1)',
+          },
+          '10%': {
+            transform: 'scale(1.1)',
+          },
+          '20%': {
+            transform: 'scale(1)',
+          },
+        },
       },
       animation: {
         'fade-in': 'fade-in 0.5s ease-out',
@@ -317,6 +330,7 @@ const config: Config = {
         'bounce-in-down': 'bounce-in-down 0.7s ease-in-out',
         'flip-in-x': 'flip-in-x 1s ease-out',
         'spin-fast': 'spin 0.7s linear infinite',
+        heartbeat: 'heartbeat 1s infinite',
       },
     },
   },

@@ -22,6 +22,8 @@ const buttonVariants = cva(
           'bg-destructive text-destructive-foreground hover:bg-destructive/90',
         link: 'text-neutral-100 hover:text-blue-600 border-none',
         rounded: 'rounded-full',
+        unstyle:
+          'bg-transparent border-none rounded-none hover:bg-gray-100 dark:hover:bg-transparent text-neutral-200 dark:text-neutral-100',
       },
       size: {
         default: 'h-10 px-4 py-2',
