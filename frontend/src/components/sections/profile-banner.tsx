@@ -12,26 +12,22 @@ import { IMAGES } from '@/constants/images';
 
 interface BannerProps {
   imageUrl?: string | StaticImageData;
-  height?: string;
 }
 
-const Banner = ({
-  imageUrl = IMAGES.PROFILE_BANNER.url,
-  height = 'h-80',
-}: BannerProps) => {
+const Banner = ({ imageUrl = IMAGES.PROFILE_BANNER.url }: BannerProps) => {
   const handleErrorImage = (e: SyntheticEvent<HTMLImageElement, Event>) => {
     e.currentTarget.src = IMAGES.PROFILE_BANNER_FALLBACK.url;
   };
 
   return (
-    <div className={`relative w-full ${height} group`}>
+    <div className="relative w-full h-56 md:h-80 group">
       <Image
         src={imageUrl}
         alt={IMAGES.PROFILE_BANNER.alt}
         fill
         quality={100}
         priority
-        className="absolute inset-0"
+        className="absolute inset-0 rounded-sm"
         sizes="(max-width: 768px) 100vw"
         style={{ objectFit: 'cover' }}
         onError={handleErrorImage}
@@ -42,7 +38,7 @@ const Banner = ({
         <Button
           variant="rounded"
           size="sm"
-          className="flex items-center justify-center bg-transparent group-hover:border group-hover:border-white border-white text-white rounded-sm"
+          className="flex items-center justify-center bg-transparent group border-transparent group-hover:border group-hover:border-white text-white rounded-sm"
         >
           <Camera className="text-2xl" />
           <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity">

@@ -5,4 +5,5 @@ export interface UserDetail {
   email?: string;
   avatar?: string;
   countFriends?: number;
+  job?: string;
 }

@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button';
 import { UserDetail } from '@/types/user';
 
 // Utils
-import { getFirstLetters } from '@/utils/converter';
+import { getFirstLetters } from '@/utils/string';
 
 interface UserCardProps extends ComponentProps<typeof Card> {
   user: UserDetail;
