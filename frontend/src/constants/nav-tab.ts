@@ -5,25 +5,29 @@ import {
   BriefcaseBusiness,
 } from 'lucide-react';
 
-export const TABS_TRIGGER = [
+export const TABS = [
   {
-    value: 'overview',
+    key: 'overview',
     label: 'Overview',
+    href: '/user-profile/overview',
     icon: CircleCheckBig,
   },
   {
-    value: 'personalInfo',
+    key: 'personal-info',
     label: 'Personal Info',
+    href: '/user-profile/personal-info',
     icon: Grip,
   },
   {
-    value: 'education',
+    key: 'education',
     label: 'Education',
+    href: '/user-profile/education',
     icon: GraduationCap,
   },
   {
-    value: 'jobs',
+    key: 'jobs',
     label: 'Jobs',
+    href: '/user-profile/jobs',
     icon: BriefcaseBusiness,
   },
 ];

@@ -23,7 +23,7 @@ export const UserCard = ({ user, endIcon, ...props }: UserCardProps) => {
 
   return (
     <Card
-      className="p-3 flex w-full items-center justify-between group cursor-pointer"
+      className="p-3 flex w-full items-center justify-between group cursor-pointer dark:bg-dark-400 dark:border-dark-400"
       {...props}
     >
       <div className="flex items-center gap-3">
