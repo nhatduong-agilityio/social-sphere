@@ -9,7 +9,7 @@ import Banner from '@/components/sections/profile-banner';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 // Images
-import AvatarPlaceholder from '../../../../public/images/avatar-placeholder.svg';
+import AvatarPlaceholder from '../../../public/images/avatar-placeholder.svg';
 
 // Utils
 import { cn } from '@/utils/cn';

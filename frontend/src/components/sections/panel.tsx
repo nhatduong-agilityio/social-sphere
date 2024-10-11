@@ -45,7 +45,9 @@ const Panel = ({
           </Button>
         </div>
       </CardHeader>
-      <CardContent className="w-full flex gap-5">{children}</CardContent>
+      <CardContent className="flex flex-col md:flex-row gap-5">
+        {children}
+      </CardContent>
     </Card>
   );
 };
