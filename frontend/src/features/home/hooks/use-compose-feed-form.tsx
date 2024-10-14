@@ -4,12 +4,17 @@ import { useForm } from 'react-hook-form';
 type ComposeFeedFormValues = {
   content: string;
   media: File;
+  accessItems: string[];
+  activityRole: string;
+  storyRole: string;
 };
 
 export const useComposeFeedForm = () => {
   const form = useForm<ComposeFeedFormValues>({
     defaultValues: {
       content: '',
+      activityRole: 'Friends',
+      storyRole: 'Friends',
     },
   });
 

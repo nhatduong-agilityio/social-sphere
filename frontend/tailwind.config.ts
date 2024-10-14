@@ -197,9 +197,9 @@ const config: Config = {
           900: 'hsl(var(--dark-900))',
           950: 'hsl(var(--dark-950))',
         },
-        black: {
-          DEFAULT: 'hsl(var(--black))',
-          99: 'var(--black-99)',
+        black: 'hsl(var(--black))',
+        'black-haze': {
+          50: 'hsl(var(--black-haze-50))',
         },
       },
       fontFamily: {
