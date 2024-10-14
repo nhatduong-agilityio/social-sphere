@@ -41,8 +41,8 @@ export const Header = memo(({ isAuthenticated = true }: HeaderProps) => {
     () => [
       {
         title: 'Friend Requests',
-        icon: <HeartIcon size={18} />,
-        styles: 'hover:bg-red-600 hover:shadow-sphere-destructive',
+        icon: <HeartIcon size={18} className="hover:animate-heartbeat" />,
+        styles: 'hover:nav-item-destructive',
       },
       {
         title: 'Notifications',
@@ -57,19 +57,17 @@ export const Header = memo(({ isAuthenticated = true }: HeaderProps) => {
       {
         title: 'Chat',
         icon: <MessageSquareIcon size={18} />,
-        styles:
-          'hover:bg-blue-600 hover:shadow-sphere-secondary hidden lg:flex',
+        styles: 'hover:nav-item-secondary hidden lg:flex',
       },
       {
         title: 'Applications',
         icon: <GripIcon size={18} />,
-        styles: 'hover:bg-blue-600 hover:shadow-sphere-secondary',
+        styles: 'hover:nav-item-secondary',
       },
       {
         title: 'Search',
         icon: <SearchIcon size={18} />,
-        styles:
-          'hover:bg-blue-600 hover:shadow-sphere-secondary flex lg:hidden',
+        styles: 'hover:nav-item-secondary flex lg:hidden',
       },
     ],
     [],
@@ -129,7 +127,7 @@ export const Header = memo(({ isAuthenticated = true }: HeaderProps) => {
                 <Button
                   key={title}
                   className={cn(
-                    'w-[38px] h-[38px] p-0 border-none radius-md bg-transparent text-icon',
+                    'w-[38px] h-[38px] p-0 border-none radius-md bg-transparent text-icon dark:hover:text-white',
                     styles,
                   )}
                   onClick={() => handleButtonClick(title)}

@@ -7,8 +7,11 @@ const config: Config = {
     container: {
       center: true,
       padding: {
-        DEFAULT: '24px',
-        lg: '48px',
+        DEFAULT: '12px',
+      },
+      screens: {
+        lg: '1262px',
+        '2xl': '1368px',
       },
     },
     borderWidth: {
@@ -96,6 +99,7 @@ const config: Config = {
         tn: 'var(--radius-tn)',
         md: 'var(--radius-md)',
         lg: 'var(--radius-lg)',
+        xl: 'var(--radius-xl)',
       },
       colors: {
         background: {
