@@ -13,7 +13,15 @@ import { ImageIcon, PenLineIcon, VideoIcon, XIcon } from 'lucide-react';
 // Utils
 import { cn } from '@/utils/cn';
 
-export const ComposeTabHeader = () => {
+interface ComposeTabHeaderProps {
+  isOverlayOpen: boolean;
+  onCloseOverlay: () => void;
+}
+
+export const ComposeTabHeader = ({
+  isOverlayOpen,
+  onCloseOverlay,
+}: ComposeTabHeaderProps) => {
   const TABS = useMemo(
     () => [
       {
@@ -57,9 +65,14 @@ export const ComposeTabHeader = () => {
       ))}
       <TabsTrigger asChild disabled value="">
         <div className="w-full px-4 py-2.5 justify-end border-b dark:border-none rounded-b-none data-[state=active]:border-b-card data-[state=active]:shadow-none data-[state=active]:bg-white data-[state=active]:dark:bg-dark-800 data-[state=active]:text-neutral-400">
-          <Circle className="bg-gray-50 dark:bg-dark-500 hover:bg-gray-600 hover:dark:bg-dark-900 rounded-full w-[30px] h-[30px] cursor-pointer">
-            <XIcon size={16} className="text-neutral-400" />
-          </Circle>
+          {isOverlayOpen ? (
+            <Circle
+              className="bg-gray-50 dark:bg-dark-500 hover:bg-gray-600 hover:dark:bg-dark-900 rounded-full w-[30px] h-[30px] cursor-pointer"
+              onClick={onCloseOverlay}
+            >
+              <XIcon size={16} className="text-neutral-400" />
+            </Circle>
+          ) : null}
         </div>
       </TabsTrigger>
     </TabsList>
