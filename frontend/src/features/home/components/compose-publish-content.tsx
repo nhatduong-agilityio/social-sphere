@@ -15,6 +15,7 @@ import { ComposeOptions } from './compose-options';
 
 // Hooks
 import { useComposeFeedForm } from '../hooks/use-compose-feed-form';
+import { ComposeSelectAccess } from './compose-select-access';
 
 interface ComposePublishContentProps {
   isOverlayOpen: boolean;
@@ -69,23 +70,26 @@ export const ComposePublishContent = memo(
           />
 
           {isOverlayOpen && (
-            <div className="p-2 flex gap-2 border-t border-gray-600 dark:border-dark-500">
-              <Button
-                size="md"
-                variant="fixed"
-                className="p-[6px] pl-2 pr-3 text-2xs"
-              >
-                <EllipsisVerticalIcon size={16} className="mr-1" /> View More
-              </Button>
-              <Button
-                type="submit"
-                size="md"
-                variant="primary"
-                className="w-full hover:shadow-none hover:opacity-100"
-              >
-                Publish
-              </Button>
-            </div>
+            <>
+              <ComposeSelectAccess />
+              <div className="p-2 flex gap-2 border-t border-gray-600 dark:border-dark-500">
+                <Button
+                  size="md"
+                  variant="fixed"
+                  className="p-[6px] pl-2 pr-3 text-2xs"
+                >
+                  <EllipsisVerticalIcon size={16} className="mr-1" /> View More
+                </Button>
+                <Button
+                  type="submit"
+                  size="md"
+                  variant="primary"
+                  className="w-full hover:shadow-none hover:opacity-100"
+                >
+                  Publish
+                </Button>
+              </div>
+            </>
           )}
         </form>
       </Form>

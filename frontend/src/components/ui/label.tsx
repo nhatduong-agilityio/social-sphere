@@ -12,6 +12,8 @@ const labelVariants = cva(
     variants: {
       variant: {
         default: 'text-neutral-400 font-medium leading-none ',
+        neutral: 'text-neutral-700 dark:text-neutral-100',
+        darkNeutral: 'text-neutral-800 dark:text-neutral-100',
       },
       size: {
         default: 'text-xs',
