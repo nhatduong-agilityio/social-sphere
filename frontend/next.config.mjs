@@ -4,12 +4,9 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'loremflickr.com',
-        port: '',
-        pathname: '/**',
+        hostname: '**',
       },
     ],
-    domains: ['localhost'],
   },
 };
 
