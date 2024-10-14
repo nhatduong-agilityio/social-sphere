@@ -139,5 +139,3 @@ export const UploadPictureProfile = () => {
     </OnboardingFormWrapper>
   );
 };
-
-export default UploadPictureProfile;
