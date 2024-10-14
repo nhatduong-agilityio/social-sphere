@@ -32,6 +32,7 @@ import { cn } from '@/utils/cn';
 interface ComposeOptionsProps {
   mediaInputRef: RefObject<HTMLInputElement>;
   onFileChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  onOpenOverlay: () => void;
 }
 
 interface OptionButtonProps {
@@ -62,7 +63,7 @@ const OptionButton = ({
 );
 
 export const ComposeOptions = memo(
-  ({ mediaInputRef, onFileChange }: ComposeOptionsProps) => {
+  ({ mediaInputRef, onFileChange, onOpenOverlay }: ComposeOptionsProps) => {
     const { isOpen: isOpenComposeOptions, onOpen: onOpenComposeOptions } =
       useDisclosure();
 
@@ -70,10 +71,15 @@ export const ComposeOptions = memo(
       mediaInputRef.current?.click();
     }, [mediaInputRef]);
 
+    const handleOptionShowMore = useCallback(() => {
+      onOpenComposeOptions();
+      onOpenOverlay();
+    }, [onOpenComposeOptions, onOpenOverlay]);
+
     return (
       <div
         className={cn(
-          'flex gap-2.5 justify-start items-center border-b border-gray-600 dark:border-dark-500 p-2',
+          'flex gap-2.5 justify-start items-center p-2',
           isOpenComposeOptions && 'grid grid-cols-2 gap-2.5',
         )}
       >
@@ -114,7 +120,7 @@ export const ComposeOptions = memo(
             <OptionButton icon={ImageIcon} text="Post GIF" />
           </>
         ) : (
-          <OptionButton icon={EllipsisIcon} onClick={onOpenComposeOptions} />
+          <OptionButton icon={EllipsisIcon} onClick={handleOptionShowMore} />
         )}
       </div>
     );

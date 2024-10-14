@@ -15,7 +15,7 @@ const buttonVariants = cva(
         fixed:
           'bg-white hover:border-gray-900 text-neutral-800 dark:text-white border-gray-800 dark:border-dark-500 dark:bg-dark-100',
         primary:
-          'bg-blue-600 text-white hover:opacity-80 hover:shadow-sphere-primary border-blue-600',
+          'bg-primary text-primary-foreground hover:opacity-80 hover:shadow-sphere-primary border-primary',
         outline:
           'bg-white text-neutral-800 dark:text-white hover:text-white hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 border-gray-800 dark:border-dark-500 dark:bg-dark-100',
         destructive:
@@ -28,6 +28,7 @@ const buttonVariants = cva(
       size: {
         default: 'h-10 px-4 py-2',
         sm: 'h-9 px-3',
+        md: 'h-[38px]',
         lg: 'h-11 px-8',
         icon: 'h-10 w-10',
         link: 'w-fit h-fit',
