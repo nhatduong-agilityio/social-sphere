@@ -12,9 +12,13 @@ import { IMAGES } from '@/constants/images';
 
 interface BannerProps {
   imageUrl?: string | StaticImageData;
+  onClick?: () => void;
 }
 
-const Banner = ({ imageUrl = IMAGES.PROFILE_BANNER.url }: BannerProps) => {
+const Banner = ({
+  imageUrl = IMAGES.PROFILE_BANNER.url,
+  onClick,
+}: BannerProps) => {
   const handleErrorImage = (e: SyntheticEvent<HTMLImageElement, Event>) => {
     e.currentTarget.src = IMAGES.PROFILE_BANNER_FALLBACK.url;
   };
@@ -36,6 +40,7 @@ const Banner = ({ imageUrl = IMAGES.PROFILE_BANNER.url }: BannerProps) => {
 
       <div className="absolute z-20 top-0 left-0 m-4">
         <Button
+          onClick={onClick}
           variant="rounded"
           size="sm"
           className="flex items-center justify-center bg-transparent group border-transparent group-hover:border group-hover:border-white text-white rounded-sm"

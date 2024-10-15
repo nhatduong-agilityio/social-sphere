@@ -5,8 +5,8 @@ import { PlusIcon } from 'lucide-react';
 
 // Components
 import { Button } from '@/components/ui/button';
-import Banner from '@/components/sections/profile-banner';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import UploadBannerProfile from '@/features/profile/components/upload-banner-profile';
 
 // Images
 import AvatarPlaceholder from '../../../../public/images/avatar-placeholder.svg';
@@ -58,7 +58,7 @@ const ProfileHeader = ({
 
   return (
     <div className="flex flex-col items-center justify-center relative">
-      <Banner />
+      <UploadBannerProfile />
 
       <div className="w-full flex justify-between pt-2">
         <div className="hidden md:block space-x-2">
