@@ -33,6 +33,7 @@ interface ComposeOptionsProps {
   mediaInputRef: RefObject<HTMLInputElement>;
   onFileChange: (event: ChangeEvent<HTMLInputElement>) => void;
   onOpenOverlay: () => void;
+  onOpenGifPicker: () => void;
 }
 
 interface OptionButtonProps {
@@ -63,7 +64,12 @@ const OptionButton = ({
 );
 
 export const ComposeOptions = memo(
-  ({ mediaInputRef, onFileChange, onOpenOverlay }: ComposeOptionsProps) => {
+  ({
+    mediaInputRef,
+    onFileChange,
+    onOpenOverlay,
+    onOpenGifPicker,
+  }: ComposeOptionsProps) => {
     const { isOpen: isOpenComposeOptions, onOpen: onOpenComposeOptions } =
       useDisclosure();
 
@@ -117,7 +123,11 @@ export const ComposeOptions = memo(
             <OptionButton icon={TagIcon} text="Tag friends" />
             <OptionButton icon={MapPinIcon} text="Post location" />
             <OptionButton icon={Link2Icon} text="Share link" />
-            <OptionButton icon={ImageIcon} text="Post GIF" />
+            <OptionButton
+              icon={ImageIcon}
+              text="Post GIF"
+              onClick={onOpenGifPicker}
+            />
           </>
         ) : (
           <OptionButton icon={EllipsisIcon} onClick={handleOptionShowMore} />
