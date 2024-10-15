@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, useRef } from 'react';
+import { memo, useCallback, useRef } from 'react';
 
 // Icons
 import { EllipsisVerticalIcon } from 'lucide-react';
@@ -12,10 +12,13 @@ import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { ComposeMediaPreview } from './compose-media-preview';
 import { ComposeOptions } from './compose-options';
+import { ComposeSelectAccess } from './compose-select-access';
+import { ComposeGifPreview } from './compose-gif-preview';
+import { GifPicker } from './gif-picker';
 
 // Hooks
 import { useComposeFeedForm } from '../hooks/use-compose-feed-form';
-import { ComposeSelectAccess } from './compose-select-access';
+import { useDisclosure } from '@/hooks/use-disclosure';
 
 interface ComposePublishContentProps {
   isOverlayOpen: boolean;
@@ -24,9 +27,30 @@ interface ComposePublishContentProps {
 
 export const ComposePublishContent = memo(
   ({ isOverlayOpen, onOpenOverlay }: ComposePublishContentProps) => {
-    const { form, selectedImageUrl, handleFileChange, handleRemoveMedia } =
-      useComposeFeedForm();
+    const {
+      form,
+      selectedImageUrl,
+      selectedGifUrl,
+      handleFileChange,
+      handleRemoveMedia,
+      handleGifSelect,
+      handleRemoveGif,
+    } = useComposeFeedForm();
     const mediaInputRef = useRef<HTMLInputElement>(null);
+
+    const {
+      isOpen: isOpenGifPicker,
+      onOpen: onOpenGifPicker,
+      onClose: onCloseGifPicker,
+    } = useDisclosure();
+
+    const handleSelectedGif = useCallback(
+      (gifUrl: string) => {
+        handleGifSelect(gifUrl);
+        onCloseGifPicker();
+      },
+      [handleGifSelect, onCloseGifPicker],
+    );
 
     return (
       <Form {...form}>
@@ -62,11 +86,26 @@ export const ComposePublishContent = memo(
                 onRemove={handleRemoveMedia}
               />
             )}
+
+            {selectedGifUrl && (
+              <ComposeGifPreview
+                imageUrl={selectedGifUrl}
+                onRemove={handleRemoveGif}
+              />
+            )}
+
+            {isOpenGifPicker && (
+              <GifPicker
+                onGifSelect={handleSelectedGif}
+                onCloseGifPicker={onCloseGifPicker}
+              />
+            )}
           </div>
           <ComposeOptions
             mediaInputRef={mediaInputRef}
             onFileChange={handleFileChange}
             onOpenOverlay={onOpenOverlay}
+            onOpenGifPicker={onOpenGifPicker}
           />
 
           {isOverlayOpen && (

@@ -7,6 +7,7 @@ type ComposeFeedFormValues = {
   accessItems: string[];
   activityRole: string;
   storyRole: string;
+  gifUrl: string;
 };
 
 export const useComposeFeedForm = () => {
@@ -15,10 +16,12 @@ export const useComposeFeedForm = () => {
       content: '',
       activityRole: 'Friends',
       storyRole: 'Friends',
+      gifUrl: '',
     },
   });
 
   const [selectedImageUrl, setSelectedImageUrl] = useState<string>('');
+  const [selectedGifUrl, setSelectedGifUrl] = useState<string>('');
 
   const handleFileChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
@@ -39,10 +42,25 @@ export const useComposeFeedForm = () => {
     setSelectedImageUrl('');
   }, [selectedImageUrl]);
 
+  const handleGifSelect = useCallback(
+    (gifUrl: string) => {
+      form.setValue('gifUrl', gifUrl);
+      setSelectedGifUrl(gifUrl);
+    },
+    [form],
+  );
+
+  const handleRemoveGif = useCallback(() => {
+    setSelectedGifUrl('');
+  }, []);
+
   return {
     form,
     selectedImageUrl,
+    selectedGifUrl,
     handleFileChange,
     handleRemoveMedia,
+    handleGifSelect,
+    handleRemoveGif,
   };
 };
