@@ -3,9 +3,9 @@
 import { ReactNode } from 'react';
 
 // Components
-import ProfileHeader from '@/components/layouts/profile-header';
-import ProfileSubHeader from '@/components/layouts/profile-sub-header';
-import NavTab from '@/components/layouts/profile-nav-tab';
+import ProfileHeader from '@/features/profile/components/profile-header';
+import ProfileSubHeader from '@/features/profile/components/profile-sub-header';
+import NavTab from '@/features/profile/components/profile-nav-tab';
 
 // Constants
 import { TABS } from '@/constants/nav-tab';

@@ -31,7 +31,7 @@ const Video = ({ thumbnail, videoSrc, duration, alt }: VideoProps) => {
         fill
         quality={100}
         priority
-        className="absolute inset-0 rounded-lg"
+        className="absolute inset-0 rounded-lg opacity-70"
         sizes="(max-width: 768px) 100vw"
         style={{ objectFit: 'cover' }}
       />
