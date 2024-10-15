@@ -1,26 +1,18 @@
-import LocationCard from '@/features/profile/components/location-card';
-import Photo from '@/features/profile/components/photo';
-import Video from '@/features/profile/components/video';
-import { convertSecondsToMinutes } from '@/utils/number';
+import FriendPanel from '@/features/profile/components/friend-panel';
+import LocationPanel from '@/features/profile/components/location-panel';
+import PhotoPanel from '@/features/profile/components/photo-panel';
+import VideoPanel from '@/features/profile/components/video-panel';
 
 const PersonalInfoPage = () => {
   return (
-    <div className="flex gap-10">
-      <Photo
-        src="https://friendkit.cssninja.io/assets/img/demo/profile/about/photos/1.jpg"
-        alt="https://friendkit.cssninja.io/assets/img/demo/profile/about/photos/1.jpg"
-      />
-      <LocationCard
-        title="New York, USA"
-        src="https://friendkit.cssninja.io/assets/img/demo/profile/about/photos/1.jpg"
-        alt="https://friendkit.cssninja.io/assets/img/demo/profile/about/photos/1.jpg"
-      />
-      <Video
-        thumbnail="https://friendkit.cssninja.io/assets/img/demo/profile/about/videos/1.jpg"
-        alt="https://friendkit.cssninja.io/assets/img/demo/profile/about/videos/1.jpg"
-        videoSrc="https://friendkit.cssninja.io/assets/img/demo/profile/about/videos/1.jpg"
-        duration={convertSecondsToMinutes(200)}
-      />
+    <div className="flex flex-col gap-8">
+      <FriendPanel />
+
+      <PhotoPanel />
+
+      <VideoPanel />
+
+      <LocationPanel />
     </div>
   );
 };

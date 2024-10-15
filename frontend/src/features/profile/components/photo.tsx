@@ -26,7 +26,7 @@ const Photo = ({ src, alt }: PhotoProps) => {
         fill
         quality={100}
         priority
-        className="absolute inset-0 rounded-sm"
+        className="absolute inset-0 rounded-lg"
         sizes="(max-width: 768px) 100vw"
         style={{ objectFit: 'cover' }}
       />

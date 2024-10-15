@@ -23,7 +23,7 @@ const Panel = ({
   handleClick,
 }: PanelProps) => {
   return (
-    <Card>
+    <Card className="w-full">
       <CardHeader className="flex flex-row justify-between">
         <div className="flex items-center gap-3">
           {startIcon}

@@ -9,11 +9,12 @@ interface PlaceProps {
   title: string;
   src: string;
   alt: string;
+  rating: number;
 }
 
-const LocationCard = ({ title, src, alt }: PlaceProps) => (
-  <Card className="rounded-lg flex flex-col items-start dark:bg-dark-300 relative w-[248px] h-[235px]0 p-3">
-    <div className="relative  w-[223px] h-[167px]">
+const LocationCard = ({ title, src, alt, rating }: PlaceProps) => (
+  <Card className="rounded-lg flex flex-col items-start dark:bg-dark-300 relative w-60 h-[235px] p-3">
+    <div className="relative  w-[215px] h-[167px]">
       <Image
         src={src}
         alt={alt}
@@ -26,7 +27,7 @@ const LocationCard = ({ title, src, alt }: PlaceProps) => (
       />
     </div>
     <CardTitle className="text-sm mt-1">{title}</CardTitle>
-    <Rating initialRating={4} />
+    <Rating initialRating={rating} />
   </Card>
 );
 
