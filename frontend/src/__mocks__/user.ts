@@ -7,6 +7,10 @@ export const MOCK_FRIENDS: UserDetail[] = [
     lastName: 'Doe',
     countFriends: 3,
     avatar: 'https://i.pravatar.cc/300',
+    location: {
+      city: 'Melbourne',
+      countryCode: 'au',
+    },
   },
   {
     id: '2',
@@ -14,6 +18,10 @@ export const MOCK_FRIENDS: UserDetail[] = [
     lastName: 'Schwartz',
     countFriends: 1,
     avatar: 'https://i.pravatar.cc/300',
+    location: {
+      city: 'New York',
+      countryCode: 'us',
+    },
   },
   {
     id: '3',
@@ -21,6 +29,10 @@ export const MOCK_FRIENDS: UserDetail[] = [
     lastName: 'Lasalle',
     countFriends: 2,
     avatar: 'https://i.pravatar.cc/300',
+    location: {
+      city: 'Berlin',
+      countryCode: 'de',
+    },
   },
   {
     id: '4',
@@ -28,6 +40,10 @@ export const MOCK_FRIENDS: UserDetail[] = [
     lastName: 'Johnson',
     countFriends: 4,
     avatar: 'https://i.pravatar.cc/300',
+    location: {
+      city: 'London',
+      countryCode: 'gb',
+    },
   },
   {
     id: '5',
@@ -35,6 +51,10 @@ export const MOCK_FRIENDS: UserDetail[] = [
     lastName: 'Bergmann',
     countFriends: 0,
     avatar: 'https://i.pravatar.cc/300',
+    location: {
+      city: 'Los Angeles',
+      countryCode: 'us',
+    },
   },
   {
     id: '6',
@@ -42,6 +62,10 @@ export const MOCK_FRIENDS: UserDetail[] = [
     lastName: 'Kim',
     countFriends: 0,
     avatar: 'https://i.pravatar.cc/300',
+    location: {
+      city: 'Ha Noi',
+      countryCode: 'vn',
+    },
   },
 ];
 

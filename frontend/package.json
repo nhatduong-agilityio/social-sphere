@@ -66,6 +66,7 @@
     "lint-staged": "^15.2.2",
     "postcss": "^8",
     "prettier": "3.2.5",
+    "react-circle-flags": "^0.0.20",
     "storybook": "^8.1.2",
     "tailwind-merge": "^2.3.0",
     "tailwindcss": "^3.4.1",

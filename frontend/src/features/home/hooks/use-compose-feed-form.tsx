@@ -8,6 +8,7 @@ type ComposeFeedFormValues = {
   activityRole: string;
   storyRole: string;
   gifUrl: string;
+  tagFriends: string[];
 };
 
 export const useComposeFeedForm = () => {
@@ -17,11 +18,13 @@ export const useComposeFeedForm = () => {
       activityRole: 'Friends',
       storyRole: 'Friends',
       gifUrl: '',
+      tagFriends: [],
     },
   });
 
   const [selectedImageUrl, setSelectedImageUrl] = useState<string>('');
   const [selectedGifUrl, setSelectedGifUrl] = useState<string>('');
+  const [selectedTagFriends, setSelectedTagFriends] = useState<string[]>([]);
 
   const handleFileChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
@@ -54,13 +57,48 @@ export const useComposeFeedForm = () => {
     setSelectedGifUrl('');
   }, []);
 
+  const handleTagFriends = useCallback(
+    (friendId: string) => {
+      setSelectedTagFriends((prevTaggedFriends) => {
+        const updatedFriends = prevTaggedFriends.includes(friendId)
+          ? prevTaggedFriends.filter((id) => id !== friendId)
+          : [...prevTaggedFriends, friendId];
+        form.setValue('tagFriends', updatedFriends);
+        return updatedFriends;
+      });
+    },
+    [form],
+  );
+
+  const handleRemoveFriend = useCallback(
+    (friendId: string) => {
+      setSelectedTagFriends((prevTaggedFriends) => {
+        const updatedFriends = prevTaggedFriends.filter(
+          (id) => id !== friendId,
+        );
+        form.setValue('tagFriends', updatedFriends);
+        return updatedFriends;
+      });
+    },
+    [form],
+  );
+
+  const handleRemoveAllFriends = useCallback(() => {
+    setSelectedTagFriends([]);
+    form.setValue('tagFriends', []);
+  }, [form]);
+
   return {
     form,
     selectedImageUrl,
     selectedGifUrl,
+    selectedTagFriends,
     handleFileChange,
     handleRemoveMedia,
     handleGifSelect,
     handleRemoveGif,
+    handleTagFriends,
+    handleRemoveFriend,
+    handleRemoveAllFriends,
   };
 };
