@@ -6,4 +6,8 @@ export interface UserDetail {
   avatar?: string;
   countFriends?: number;
   job?: string;
+  location?: {
+    countryCode: string;
+    city: string;
+  };
 }

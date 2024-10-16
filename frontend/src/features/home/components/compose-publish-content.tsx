@@ -19,6 +19,8 @@ import { GifPicker } from './gif-picker';
 // Hooks
 import { useComposeFeedForm } from '../hooks/use-compose-feed-form';
 import { useDisclosure } from '@/hooks/use-disclosure';
+import { TagFriends } from './tag-friends';
+import { ComposeTagFriendsPreview } from './compose-tag-friends-preview';
 
 interface ComposePublishContentProps {
   isOverlayOpen: boolean;
@@ -31,10 +33,14 @@ export const ComposePublishContent = memo(
       form,
       selectedImageUrl,
       selectedGifUrl,
+      selectedTagFriends,
       handleFileChange,
       handleRemoveMedia,
       handleGifSelect,
       handleRemoveGif,
+      handleRemoveAllFriends,
+      handleRemoveFriend,
+      handleTagFriends,
     } = useComposeFeedForm();
     const mediaInputRef = useRef<HTMLInputElement>(null);
 
@@ -42,6 +48,11 @@ export const ComposePublishContent = memo(
       isOpen: isOpenGifPicker,
       onOpen: onOpenGifPicker,
       onClose: onCloseGifPicker,
+    } = useDisclosure();
+    const {
+      isOpen: isOpenTagFriends,
+      onOpen: onOpenTagFriends,
+      onClose: onCloseTagFriends,
     } = useDisclosure();
 
     const handleSelectedGif = useCallback(
@@ -51,6 +62,11 @@ export const ComposePublishContent = memo(
       },
       [handleGifSelect, onCloseGifPicker],
     );
+
+    const handleOnCloseTagFriends = useCallback(() => {
+      onCloseTagFriends();
+      handleRemoveAllFriends();
+    }, [handleRemoveAllFriends, onCloseTagFriends]);
 
     return (
       <Form {...form}>
@@ -94,10 +110,24 @@ export const ComposePublishContent = memo(
               />
             )}
 
+            {selectedTagFriends && (
+              <ComposeTagFriendsPreview
+                friendIds={selectedTagFriends}
+                onRemoveFriend={handleRemoveFriend}
+              />
+            )}
+
             {isOpenGifPicker && (
               <GifPicker
                 onGifSelect={handleSelectedGif}
                 onCloseGifPicker={onCloseGifPicker}
+              />
+            )}
+
+            {isOpenTagFriends && (
+              <TagFriends
+                onCloseTagFriends={handleOnCloseTagFriends}
+                onSelectFriend={handleTagFriends}
               />
             )}
           </div>
@@ -106,6 +136,7 @@ export const ComposePublishContent = memo(
             onFileChange={handleFileChange}
             onOpenOverlay={onOpenOverlay}
             onOpenGifPicker={onOpenGifPicker}
+            onOpenTagFriends={onOpenTagFriends}
           />
 
           {isOverlayOpen && (
