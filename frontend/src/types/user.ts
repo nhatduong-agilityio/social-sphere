@@ -4,6 +4,7 @@ export interface UserDetail {
   lastName: string;
   email?: string;
   avatar?: string;
+  banner?: string;
   countFriends?: number;
   job?: string;
   location?: {

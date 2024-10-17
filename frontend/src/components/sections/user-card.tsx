@@ -2,14 +2,16 @@ import { ComponentProps, ReactNode } from 'react';
 
 // Components
 import { Card, CardDescription, CardTitle } from '@/components/ui/card';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 
 // Types
 import { UserDetail } from '@/types/user';
 
+// Constants
+import UserPopover from './user-popover';
+
 // Utils
-import { getFirstLetters } from '@/utils/string';
+import { getFullName } from '@/utils/string';
 
 interface UserCardProps extends ComponentProps<typeof Card> {
   user: UserDetail;
@@ -17,9 +19,7 @@ interface UserCardProps extends ComponentProps<typeof Card> {
 }
 
 export const UserCard = ({ user, endIcon, ...props }: UserCardProps) => {
-  const { avatar, firstName, lastName, countFriends = 0 } = user;
-
-  const fullName = `${firstName} ${lastName}`.trim();
+  const { firstName, lastName, countFriends = 0 } = user;
 
   return (
     <Card
@@ -27,18 +27,12 @@ export const UserCard = ({ user, endIcon, ...props }: UserCardProps) => {
       {...props}
     >
       <div className="flex items-center gap-3">
-        <Avatar>
-          <AvatarImage
-            src={avatar}
-            alt={`Avatar of the user-${fullName} in team`}
-          />
-          <AvatarFallback>
-            {getFirstLetters(firstName, lastName)}
-          </AvatarFallback>
-        </Avatar>
+        <UserPopover user={user} />
 
         <div className="flex flex-col">
-          <CardTitle className="text-sm">{fullName}</CardTitle>
+          <CardTitle className="text-sm">
+            {getFullName(firstName, lastName)}
+          </CardTitle>
           <CardDescription>{countFriends} Friends</CardDescription>
         </div>
       </div>

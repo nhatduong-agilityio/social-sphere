@@ -8,6 +8,7 @@ import { UserDetail } from '@/types/user';
 
 // Utils
 import { formatNumber } from '@/utils/number';
+import { getFullName } from '@/utils/string';
 
 interface ProfileSubHeaderProps {
   user: UserDetail;
@@ -15,8 +16,6 @@ interface ProfileSubHeaderProps {
 
 const ProfileSubHeader = ({ user }: ProfileSubHeaderProps) => {
   const { countFriends = 0, firstName, lastName, job } = user;
-
-  const fullName = `${firstName} ${lastName}`.trim();
 
   return (
     <div className="flex items-end justify-between py-3">
@@ -28,7 +27,9 @@ const ProfileSubHeader = ({ user }: ProfileSubHeaderProps) => {
       </div>
 
       <div className="text-center flex-1 md:pt-0 pt-12">
-        <h2 className="font-semibold font-montserrat text-xl">{fullName}</h2>
+        <h2 className="font-semibold font-montserrat text-xl">
+          {getFullName(firstName, lastName)}
+        </h2>
         <span className="font-roboto text-neutral-100 text-sm">{job}</span>
       </div>
 
