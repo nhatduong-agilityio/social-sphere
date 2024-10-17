@@ -28,11 +28,22 @@ export interface AutoCompleteInputProps
   extends InputHTMLAttributes<HTMLInputElement>,
     VariantProps<typeof autoCompleteInputVariants> {
   startIcon: ReactNode;
+  additionalStartIconClass?: string;
   onClose?: () => void;
 }
 
 const AutoCompleteInput = forwardRef<HTMLInputElement, AutoCompleteInputProps>(
-  ({ className, startIcon, variant = 'default', onClose, ...props }, ref) => {
+  (
+    {
+      additionalStartIconClass,
+      className,
+      startIcon,
+      variant = 'default',
+      onClose,
+      ...props
+    },
+    ref,
+  ) => {
     const { isFocused, handleBlur, handleFocus } = useFocusState();
 
     return (
@@ -41,6 +52,7 @@ const AutoCompleteInput = forwardRef<HTMLInputElement, AutoCompleteInputProps>(
           className={cn(
             'absolute top-1/2 -translate-y-1/2 transition-all duration-300 ease-in-out left-3',
             isFocused ? 'text-ring' : 'text-gray-900 dark:text-primary',
+            additionalStartIconClass,
           )}
         >
           {startIcon}

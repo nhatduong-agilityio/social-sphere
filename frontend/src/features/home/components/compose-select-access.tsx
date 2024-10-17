@@ -1,6 +1,6 @@
 'use client';
 
-import { Fragment, useCallback } from 'react';
+import { Fragment, useCallback, useMemo } from 'react';
 
 // Icons
 import { BellIcon, ChevronDownIcon, PlusIcon, SmileIcon } from 'lucide-react';
@@ -21,9 +21,6 @@ import {
   FormLabel,
 } from '@/components/ui/form';
 import { Circle } from '@/components/ui/circle';
-
-// Hooks
-import { useComposeFeedForm } from '../hooks/use-compose-feed-form';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -36,15 +33,25 @@ import { Text } from '@/components/ui/text';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 
+// Hooks
+import { useComposeFeedForm } from '../hooks/use-compose-feed-form';
+
+// Types
+import { Option } from '@/types/option';
+
 const RoleDropdown = ({
   name,
   roles,
 }: {
   name: 'activityRole' | 'storyRole';
-  roles: { label: string; description: string; icon: JSX.Element }[];
+  roles: Option[];
 }) => {
   const { form } = useComposeFeedForm();
   const value = form.watch(name);
+
+  const selectedOption = useMemo(() => {
+    return roles.find((role) => role.value === value) || roles[0];
+  }, [roles, value]);
 
   return (
     <FormField
@@ -64,38 +71,40 @@ const RoleDropdown = ({
                     variant="darkNeutral"
                     className="text-2xs user-select-none truncate max-w-[50%]"
                   >
-                    {value}
+                    {selectedOption.label}
                   </Label>
                   <ChevronDownIcon size={16} />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-[280px] p-0 py-2">
-                {roles.map(({ label, description, icon: Icon }, index) => (
-                  <Fragment key={label}>
-                    {index === roles.length - 1 && <DropdownMenuSeparator />}
-                    <DropdownMenuItem
-                      key={label}
-                      onClick={() => optionField.onChange(label)}
-                      className="flex items-center gap-2.5 py-2 px-4 h-[50px]"
-                    >
-                      {Icon}
-                      <div className="flex flex-col">
-                        <Heading
-                          headingLevel="h3"
-                          className="text-xs font-roboto"
-                        >
-                          {label}
-                        </Heading>
-                        <Text
-                          variant="primary"
-                          className="text-2xs font-normal"
-                        >
-                          {description}
-                        </Text>
-                      </div>
-                    </DropdownMenuItem>
-                  </Fragment>
-                ))}
+                {roles.map(
+                  ({ label, description, value, icon: Icon }, index) => (
+                    <Fragment key={label}>
+                      {index === roles.length - 1 && <DropdownMenuSeparator />}
+                      <DropdownMenuItem
+                        key={label}
+                        onClick={() => optionField.onChange(value)}
+                        className="flex items-center gap-2.5 py-2 px-4 h-[50px]"
+                      >
+                        {Icon}
+                        <div className="flex flex-col">
+                          <Heading
+                            headingLevel="h3"
+                            className="text-xs font-roboto"
+                          >
+                            {label}
+                          </Heading>
+                          <Text
+                            variant="primary"
+                            className="text-2xs font-normal"
+                          >
+                            {description}
+                          </Text>
+                        </div>
+                      </DropdownMenuItem>
+                    </Fragment>
+                  ),
+                )}
               </DropdownMenuContent>
             </DropdownMenu>
           </FormControl>
@@ -148,7 +157,7 @@ export const ComposeSelectAccess = () => {
         name="accessItems"
         render={() => (
           <FormItem className="space-y-0">
-            {ACCESS_ITEMS.map(({ label }) => (
+            {ACCESS_ITEMS.map(({ label, value }) => (
               <FormField
                 key={label}
                 control={form.control}
@@ -163,15 +172,15 @@ export const ComposeSelectAccess = () => {
                         <Checkbox
                           className="w-[22px] h-[22px]"
                           variant="circle"
-                          checked={field.value?.includes(label)}
+                          checked={field.value?.includes(value)}
                           onCheckedChange={(checked) => {
                             const currentValue = Array.isArray(field.value)
                               ? field.value
                               : [];
                             return checked
-                              ? field.onChange([...currentValue, label])
+                              ? field.onChange([...currentValue, value])
                               : field.onChange(
-                                  currentValue.filter((item) => item !== label),
+                                  currentValue.filter((item) => item !== value),
                                 );
                           }}
                         />
