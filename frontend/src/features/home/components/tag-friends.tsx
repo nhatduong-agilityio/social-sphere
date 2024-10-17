@@ -51,7 +51,7 @@ const FriendItem = ({
           </Circle>
         )}
       </div>
-      <Text className="text-base leading-[18.2px] dark:text-gray-100">
+      <Text className="leading-[18.2px] dark:text-gray-100">
         {getFullName(firstName, lastName)}
         <br />
         <Label className="text-2xs dark:text-neutral-100">

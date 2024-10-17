@@ -15,12 +15,13 @@ import { ComposeOptions } from './compose-options';
 import { ComposeSelectAccess } from './compose-select-access';
 import { ComposeGifPreview } from './compose-gif-preview';
 import { GifPicker } from './gif-picker';
+import { TagFriends } from './tag-friends';
+import { ComposeTagFriendsPreview } from './compose-tag-friends-preview';
+import { MoodActivityPicker } from './mood-activity-picker';
 
 // Hooks
 import { useComposeFeedForm } from '../hooks/use-compose-feed-form';
 import { useDisclosure } from '@/hooks/use-disclosure';
-import { TagFriends } from './tag-friends';
-import { ComposeTagFriendsPreview } from './compose-tag-friends-preview';
 
 interface ComposePublishContentProps {
   isOverlayOpen: boolean;
@@ -34,6 +35,7 @@ export const ComposePublishContent = memo(
       selectedImageUrl,
       selectedGifUrl,
       selectedTagFriends,
+      handleSelectMood,
       handleFileChange,
       handleRemoveMedia,
       handleGifSelect,
@@ -53,6 +55,11 @@ export const ComposePublishContent = memo(
       isOpen: isOpenTagFriends,
       onOpen: onOpenTagFriends,
       onClose: onCloseTagFriends,
+    } = useDisclosure();
+    const {
+      isOpen: isOpenMoods,
+      onOpen: onOpenMoods,
+      onClose: onCloseMoods,
     } = useDisclosure();
 
     const handleSelectedGif = useCallback(
@@ -130,6 +137,13 @@ export const ComposePublishContent = memo(
                 onSelectFriend={handleTagFriends}
               />
             )}
+
+            {isOpenMoods && (
+              <MoodActivityPicker
+                onCloseMoodActivityPicker={onCloseMoods}
+                onSelectMood={handleSelectMood}
+              />
+            )}
           </div>
           <ComposeOptions
             mediaInputRef={mediaInputRef}
@@ -137,6 +151,7 @@ export const ComposePublishContent = memo(
             onOpenOverlay={onOpenOverlay}
             onOpenGifPicker={onOpenGifPicker}
             onOpenTagFriends={onOpenTagFriends}
+            onOpenMoods={onOpenMoods}
           />
 
           {isOverlayOpen && (

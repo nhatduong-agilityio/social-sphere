@@ -35,6 +35,7 @@ interface ComposeOptionsProps {
   onOpenOverlay: () => void;
   onOpenGifPicker: () => void;
   onOpenTagFriends: () => void;
+  onOpenMoods: () => void;
 }
 
 interface OptionButtonProps {
@@ -71,6 +72,7 @@ export const ComposeOptions = memo(
     onOpenOverlay,
     onOpenGifPicker,
     onOpenTagFriends,
+    onOpenMoods,
   }: ComposeOptionsProps) => {
     const { isOpen: isOpenComposeOptions, onOpen: onOpenComposeOptions } =
       useDisclosure();
@@ -118,6 +120,7 @@ export const ComposeOptions = memo(
         <OptionButton
           icon={() => <EmojiIcon customClass="w-5 h-5" />}
           text={isOpenComposeOptions ? 'Mood/Activity' : 'Activity'}
+          onClick={onOpenMoods}
         />
 
         {isOpenComposeOptions ? (
