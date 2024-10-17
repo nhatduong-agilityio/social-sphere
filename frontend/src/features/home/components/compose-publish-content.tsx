@@ -16,7 +16,7 @@ import { ComposeSelectAccess } from './compose-select-access';
 import { ComposeGifPreview } from './compose-gif-preview';
 import { GifPicker } from './gif-picker';
 import { TagFriends } from './tag-friends';
-import { ComposeTagFriendsPreview } from './compose-tag-friends-preview';
+import { ComposeActivityPreview } from './compose-activity-preview';
 import { MoodActivityPicker } from './mood-activity-picker';
 
 // Hooks
@@ -35,14 +35,15 @@ export const ComposePublishContent = memo(
       selectedImageUrl,
       selectedGifUrl,
       selectedTagFriends,
+      selectedMood,
       handleSelectMood,
       handleFileChange,
       handleRemoveMedia,
       handleGifSelect,
       handleRemoveGif,
-      handleRemoveAllFriends,
       handleRemoveFriend,
       handleTagFriends,
+      handleRemoveMood,
     } = useComposeFeedForm();
     const mediaInputRef = useRef<HTMLInputElement>(null);
 
@@ -62,6 +63,22 @@ export const ComposePublishContent = memo(
       onClose: onCloseMoods,
     } = useDisclosure();
 
+    const handleOpenGifPicker = useCallback(() => {
+      onOpenGifPicker();
+      onCloseTagFriends();
+      onCloseMoods();
+    }, [onCloseMoods, onCloseTagFriends, onOpenGifPicker]);
+    const handleOpenTagFriends = useCallback(() => {
+      onCloseGifPicker();
+      onOpenTagFriends();
+      onCloseMoods();
+    }, [onCloseGifPicker, onCloseMoods, onOpenTagFriends]);
+    const handleOpenMoods = useCallback(() => {
+      onCloseGifPicker();
+      onCloseTagFriends();
+      onOpenMoods();
+    }, [onCloseGifPicker, onCloseTagFriends, onOpenMoods]);
+
     const handleSelectedGif = useCallback(
       (gifUrl: string) => {
         handleGifSelect(gifUrl);
@@ -72,8 +89,7 @@ export const ComposePublishContent = memo(
 
     const handleOnCloseTagFriends = useCallback(() => {
       onCloseTagFriends();
-      handleRemoveAllFriends();
-    }, [handleRemoveAllFriends, onCloseTagFriends]);
+    }, [onCloseTagFriends]);
 
     return (
       <Form {...form}>
@@ -117,8 +133,9 @@ export const ComposePublishContent = memo(
               />
             )}
 
-            {selectedTagFriends && (
-              <ComposeTagFriendsPreview
+            {(selectedTagFriends || selectedMood) && (
+              <ComposeActivityPreview
+                mood={selectedMood}
                 friendIds={selectedTagFriends}
                 onRemoveFriend={handleRemoveFriend}
               />
@@ -140,8 +157,10 @@ export const ComposePublishContent = memo(
 
             {isOpenMoods && (
               <MoodActivityPicker
+                defaultMood={selectedMood}
                 onCloseMoodActivityPicker={onCloseMoods}
                 onSelectMood={handleSelectMood}
+                onRemoveMood={handleRemoveMood}
               />
             )}
           </div>
@@ -149,9 +168,9 @@ export const ComposePublishContent = memo(
             mediaInputRef={mediaInputRef}
             onFileChange={handleFileChange}
             onOpenOverlay={onOpenOverlay}
-            onOpenGifPicker={onOpenGifPicker}
-            onOpenTagFriends={onOpenTagFriends}
-            onOpenMoods={onOpenMoods}
+            onOpenGifPicker={handleOpenGifPicker}
+            onOpenTagFriends={handleOpenTagFriends}
+            onOpenMoods={handleOpenMoods}
           />
 
           {isOverlayOpen && (
@@ -159,6 +178,7 @@ export const ComposePublishContent = memo(
               <ComposeSelectAccess />
               <div className="p-2 flex gap-2 border-t border-gray-600 dark:border-dark-500">
                 <Button
+                  type="button"
                   size="md"
                   variant="fixed"
                   className="p-[6px] pl-2 pr-3 text-2xs"

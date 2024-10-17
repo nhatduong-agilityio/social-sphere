@@ -1,6 +1,7 @@
 'use client';
 
 import { Fragment, memo, useEffect, useState } from 'react';
+import { CircleFlag } from 'react-circle-flags';
 
 // Icons
 import { XIcon } from 'lucide-react';
@@ -22,8 +23,15 @@ import { UserDetail } from '@/types/user';
 
 // Utils
 import { cn } from '@/utils/cn';
+import { getMoodOptions } from '../utils/feed';
+import Image from 'next/image';
+import { MOODS } from '../constants/compose-form';
 
-interface ComposeTagFriendsPreviewProps {
+interface ComposeActivityPreviewProps {
+  mood: {
+    title: string;
+    content: string;
+  };
   friendIds: string[];
   onRemoveFriend: (friendId: string) => void;
 }
@@ -42,7 +50,7 @@ const FriendLink = ({
       url={`${ROUTER.USER_PROFILE}/${friend.id}`}
       text={getFullName(friend.firstName, friend.lastName)}
       additionalClass={cn(
-        'border-none w-fit text-primary',
+        'border-none w-fit text-primary hover:dark:bg-transparent',
         index > 0 && 'ml-8',
       )}
     />
@@ -73,9 +81,11 @@ const FriendTag = ({
   </div>
 );
 
-export const ComposeTagFriendsPreview = memo(
-  ({ friendIds, onRemoveFriend }: ComposeTagFriendsPreviewProps) => {
+export const ComposeActivityPreview = memo(
+  ({ mood, friendIds, onRemoveFriend }: ComposeActivityPreviewProps) => {
     const [allFriends, setAllFriends] = useState<UserDetail[]>([]);
+    const { title, content } = mood;
+    const { moodOption, moodDetail } = getMoodOptions(title, content);
 
     useEffect(() => {
       const fetchFriends = async () => {
@@ -89,20 +99,56 @@ export const ComposeTagFriendsPreview = memo(
     const matchedFriends =
       allFriends?.filter((friend) => friendIds.includes(friend.id)) || [];
 
-    if (!matchedFriends.length) return null;
+    if (content === '' && friendIds.length === 0) {
+      return null;
+    }
 
     return (
       <div className="flex flex-col gap-2 mb-2">
         <Label className="w-fit flex flex-wrap items-center text-center bg-gray-200 dark:bg-dark-500 px-2 py-0.5 rounded-full">
-          - with &nbsp;
-          {matchedFriends.map((friend, index) => (
-            <FriendLink
-              key={friend.id}
-              friend={friend}
-              index={index}
-              total={matchedFriends.length}
-            />
-          ))}
+          {moodDetail && (
+            <div className="flex items-center gap-3 pr-1 text-2xs">
+              <div className="w-[14px] h-[14px] rounded-full relative">
+                {moodDetail.icon ? (
+                  <Image
+                    alt={moodDetail.value || 'Mood item image'}
+                    src={`${moodDetail.icon}`}
+                    fill
+                    sizes="14px"
+                    style={{
+                      objectFit: 'cover',
+                      width: '100%',
+                      height: '100%',
+                      borderRadius: '100%',
+                    }}
+                  />
+                ) : (
+                  <CircleFlag countryCode={moodDetail.value} />
+                )}
+              </div>
+              {moodOption.value !== MOODS.STATUS && `is ${moodOption.label}`}
+              <LinkWithIcon
+                url="/"
+                text={moodDetail.label}
+                additionalClass={cn(
+                  'border-none w-fit text-primary  hover:dark:bg-transparent mr-3',
+                )}
+              />
+            </div>
+          )}
+          {matchedFriends.length > 0 && (
+            <>
+              - with&nbsp;
+              {matchedFriends.map((friend, index) => (
+                <FriendLink
+                  key={friend.id}
+                  friend={friend}
+                  index={index}
+                  total={matchedFriends.length}
+                />
+              ))}
+            </>
+          )}
         </Label>
         <div className="flex flex-wrap gap-[6px]">
           {matchedFriends.map((friend) => (
@@ -118,4 +164,4 @@ export const ComposeTagFriendsPreview = memo(
   },
 );
 
-ComposeTagFriendsPreview.displayName = 'ComposeTagFriendsPreview';
+ComposeActivityPreview.displayName = 'ComposeActivityPreview';
