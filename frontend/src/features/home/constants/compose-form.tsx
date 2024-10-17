@@ -1,3 +1,4 @@
+import { COUNTRIES } from '@/constants/countries';
 import { Option } from '@/types/option';
 import { GlobeIcon, LockIcon, UserIcon, UsersIcon } from 'lucide-react';
 
@@ -128,6 +129,115 @@ export const MOOD_DETAILS: Record<string, Option[]> = {
       icon: '/images/energy-drink.svg',
     },
     { label: 'a smoothie', value: 'smoothie', icon: '/images/smoothie.svg' },
+  ],
+  [MOODS.EATING]: [
+    {
+      label: 'a good meal',
+      value: 'meal',
+      icon: '/images/meal.svg',
+    },
+    {
+      label: 'at the restaurant',
+      value: 'restaurant',
+      icon: '/images/restaurant.svg',
+    },
+    {
+      label: 'candy',
+      value: 'candy',
+      icon: '/images/candy.svg',
+    },
+    {
+      label: 'a piece of cheese',
+      value: 'cheese',
+      icon: '/images/cheese.svg',
+    },
+    {
+      label: 'a pack of fries',
+      value: 'fries',
+      icon: '/images/fries.svg',
+    },
+  ],
+  [MOODS.READING]: [
+    {
+      label: 'The Colony',
+      description: 'by Isac Galinov',
+      value: 'theColony',
+      icon: '/images/book.svg',
+    },
+    {
+      label: 'My Trial',
+      description: 'by Franz Fafka',
+      value: 'myTrial',
+      icon: '/images/book.svg',
+    },
+    {
+      label: 'The Sand Planet',
+      description: 'by Franck Ferbet',
+      value: 'theSandPlanet',
+      icon: '/images/book.svg',
+    },
+    {
+      label: 'The Call of Gods',
+      description: 'by John Belcks',
+      value: 'theCallOfGods',
+      icon: '/images/book.svg',
+    },
+    {
+      label: 'The Lord Of Time',
+      description: 'by Franck Bright',
+      value: 'theLordOfTime',
+      icon: '/images/book.svg',
+    },
+    {
+      label: 'Les Miséreux',
+      description: 'by Victor Hugues',
+      value: 'lesMisereux',
+      icon: '/images/book.svg',
+    },
+  ],
+  [MOODS.WATCHING]: [
+    {
+      label: 'Traffic Flow',
+      description: 'TV Show',
+      value: 'trafficFlow',
+      icon: '/images/movie.svg',
+    },
+    {
+      label: 'Alien Parasit',
+      description: 'Movie',
+      value: 'alienParasit',
+      icon: '/images/movie.svg',
+    },
+    {
+      label: 'Galaxy Wars',
+      description: 'Movie',
+      value: 'galaxyWars',
+      icon: '/images/movie.svg',
+    },
+    {
+      label: 'The Great Invasion',
+      description: 'Movie',
+      value: 'theGreatInvasion',
+      icon: '/images/movie.svg',
+    },
+    {
+      label: 'The Dark Ages',
+      description: 'TV Show',
+      value: 'theDarkAges',
+      icon: '/images/movie.svg',
+    },
+    {
+      label: 'Freaking Holdup',
+      description: 'TV Show',
+      value: 'freakingHoldup',
+      icon: '/images/movie.svg',
+    },
+  ],
+  [MOODS.TRAVELING]: [
+    ...COUNTRIES.map(({ name, code }) => ({
+      label: name,
+      value: code,
+    })),
   ],
   // Add other mood details here (eating, reading, watching, travelling)
 };

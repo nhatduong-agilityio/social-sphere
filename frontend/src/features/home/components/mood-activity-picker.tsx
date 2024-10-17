@@ -1,11 +1,12 @@
 import { useState, useEffect, useCallback, useMemo, memo, useRef } from 'react';
+import { CircleFlag } from 'react-circle-flags';
 import Image from 'next/image';
 
 // Icons
 import { SearchIcon } from 'lucide-react';
 
 // Constants
-import { MOOD_DETAILS, MOOD_OPTIONS } from '../constants/compose-form';
+import { MOOD_DETAILS, MOOD_OPTIONS, MOODS } from '../constants/compose-form';
 
 // Components
 import { AutoCompleteInput } from '@/components/sections/auto-complete-input';
@@ -30,13 +31,17 @@ import { getMoodTitle } from '../utils/feed';
 interface MoodActivityPickerProps {
   onSelectMood: (data: { title: string; content: string }) => void;
   onCloseMoodActivityPicker: () => void;
+  onRemoveMood: () => void;
+  defaultMood?: { title: string; content: string };
 }
 
 const MoodItem = ({
   mood,
+  isTraveling = false,
   onSelectMood,
 }: {
   mood: Option;
+  isTraveling?: boolean;
   onSelectMood: (value: string) => void;
 }) => {
   const { label, description, icon, value } = mood;
@@ -53,8 +58,18 @@ const MoodItem = ({
             src={`${icon}`}
             fill
             sizes="36px"
-            style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+            style={{
+              objectFit: 'cover',
+              width: '100%',
+              height: '100%',
+              borderRadius: '100%',
+            }}
           />
+        </div>
+      )}
+      {isTraveling && (
+        <div className="w-[22px] h-[22px] rounded-full relative">
+          <CircleFlag countryCode={value} />
         </div>
       )}
       <Text className="leading-[18.2px] dark:text-gray-100">
@@ -73,14 +88,21 @@ const MoodItem = ({
 };
 
 export const MoodActivityPicker = memo(
-  ({ onSelectMood, onCloseMoodActivityPicker }: MoodActivityPickerProps) => {
+  ({
+    defaultMood,
+    onSelectMood,
+    onCloseMoodActivityPicker,
+    onRemoveMood,
+  }: MoodActivityPickerProps) => {
     const refWrapper = useRef<HTMLDivElement>(null);
     const { isFocused, handleFocus, handleBlur } = useFocusState();
 
     const [searchMood, setSearchMood] = useState('');
     const [currentOptions, setCurrentOptions] =
       useState<Option[]>(MOOD_OPTIONS);
-    const [selectedMood, setSelectedMood] = useState<string | null>(null);
+    const [selectedMood, setSelectedMood] = useState<string | null>(
+      defaultMood ? defaultMood.title : null,
+    );
 
     const debouncedSearchMood = useDebounce(searchMood, 300);
 
@@ -124,19 +146,25 @@ export const MoodActivityPicker = memo(
       [selectedMood, onSelectMood, onCloseMoodActivityPicker],
     );
 
+    const handleCloseInput = useCallback(() => {
+      onRemoveMood();
+      onCloseMoodActivityPicker();
+    }, [onCloseMoodActivityPicker, onRemoveMood]);
+
     const moodsList = useMemo(
       () => (
         <ul className="shadow-sphere-light">
           {currentOptions.map((mood) => (
             <MoodItem
-              key={mood.label}
+              key={mood.value}
               mood={mood}
+              isTraveling={selectedMood === MOODS.TRAVELING}
               onSelectMood={handleSelectMood}
             />
           ))}
         </ul>
       ),
-      [currentOptions, handleSelectMood],
+      [currentOptions, handleSelectMood, selectedMood],
     );
 
     useOnClickOutside(refWrapper, handleBlur);
@@ -148,8 +176,10 @@ export const MoodActivityPicker = memo(
           startIcon={
             selectedMood ? (
               <Button
+                type="button"
                 variant="unstyle"
                 className="text-white dark:text-white text-2xs border p-0 px-2.5 bg-neutral-400 h-9 rounded-s-[4px] hover:bg-neutral-400/80 hover:dark:bg-neutral-400"
+                onClick={handleFocus}
               >
                 {getMoodTitle(selectedMood)}
               </Button>
@@ -157,12 +187,12 @@ export const MoodActivityPicker = memo(
               <SearchIcon size={16} />
             )
           }
-          className={cn(selectedMood && 'pl-16')}
+          className={cn(selectedMood && 'pl-[74px]')}
           placeholder="What are you doing right now?"
           variant="square"
           value={searchMood}
           onChange={(e) => setSearchMood(e.target.value)}
-          onClose={onCloseMoodActivityPicker}
+          onClose={handleCloseInput}
           onFocus={handleFocus}
         />
         {isFocused && (
