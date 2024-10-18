@@ -1,4 +1,5 @@
 import { ComposeFeedCard } from './compose-feed-card';
+import SuggestFriendsWidget from './suggest-friends-widget';
 
 export const ActivityFeed = () => {
   return (
@@ -11,7 +12,7 @@ export const ActivityFeed = () => {
           <ComposeFeedCard />
         </div>
         <div className="hidden lg:flex col-span-3 flex-col gap-6">
-          <h3>this is widgets 2</h3>
+          <SuggestFriendsWidget />
         </div>
       </div>
     </div>
