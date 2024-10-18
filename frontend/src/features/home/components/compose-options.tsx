@@ -36,6 +36,8 @@ interface ComposeOptionsProps {
   onOpenGifPicker: () => void;
   onOpenTagFriends: () => void;
   onOpenMoods: () => void;
+  onOpenShareLink: () => void;
+  onOpenLocation: () => void;
 }
 
 interface OptionButtonProps {
@@ -73,6 +75,8 @@ export const ComposeOptions = memo(
     onOpenGifPicker,
     onOpenTagFriends,
     onOpenMoods,
+    onOpenShareLink,
+    onOpenLocation,
   }: ComposeOptionsProps) => {
     const { isOpen: isOpenComposeOptions, onOpen: onOpenComposeOptions } =
       useDisclosure();
@@ -130,8 +134,16 @@ export const ComposeOptions = memo(
               text="Tag friends"
               onClick={onOpenTagFriends}
             />
-            <OptionButton icon={MapPinIcon} text="Post location" />
-            <OptionButton icon={Link2Icon} text="Share link" />
+            <OptionButton
+              icon={MapPinIcon}
+              text="Post location"
+              onClick={onOpenLocation}
+            />
+            <OptionButton
+              icon={Link2Icon}
+              text="Share link"
+              onClick={onOpenShareLink}
+            />
             <OptionButton
               icon={ImageIcon}
               text="Post GIF"
