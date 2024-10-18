@@ -13,6 +13,8 @@ type ComposeFeedFormValues = {
     title: string;
     content: string;
   };
+  sharedLink: string;
+  location: string;
 };
 
 const initMoodState = {
@@ -30,6 +32,8 @@ export const useComposeFeedForm = () => {
       gifUrl: '',
       tagFriends: [],
       mood: initMoodState,
+      sharedLink: '',
+      location: '',
     },
   });
 

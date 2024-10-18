@@ -6,7 +6,7 @@ import { GifResponse } from '@/features/home/models/gif';
 export const GET = async (request: NextRequest) => {
   const searchParams = request.nextUrl.searchParams;
   const query = searchParams.get('query');
-  const TENOR_API_KEY = process.env.TENOR_API_KEY;
+  const TENOR_API_KEY = process.env.NEXT_PUBLIC_TENOR_API_KEY;
   const TENOR_API_URL = 'https://tenor.googleapis.com/v2';
 
   try {

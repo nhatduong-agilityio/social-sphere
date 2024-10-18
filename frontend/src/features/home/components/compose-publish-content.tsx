@@ -6,9 +6,7 @@ import { memo, useCallback, useRef } from 'react';
 import { EllipsisVerticalIcon } from 'lucide-react';
 
 // Components
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Form, FormControl, FormField, FormItem } from '@/components/ui/form';
-import { Textarea } from '@/components/ui/textarea';
+import { Form } from '@/components/ui/form';
 import { Button } from '@/components/ui/button';
 import { ComposeMediaPreview } from './compose-media-preview';
 import { ComposeOptions } from './compose-options';
@@ -18,10 +16,13 @@ import { GifPicker } from './gif-picker';
 import { TagFriends } from './tag-friends';
 import { ComposeActivityPreview } from './compose-activity-preview';
 import { MoodActivityPicker } from './mood-activity-picker';
+import { ShareLinkPicker } from './share-link-picker';
+import { LocationPicker } from './location-picker';
+import { ComposeFormContent } from './compose-form-content';
 
 // Hooks
 import { useComposeFeedForm } from '../hooks/use-compose-feed-form';
-import { useDisclosure } from '@/hooks/use-disclosure';
+import { useComposeDisclosure } from '../hooks/use-compose-disclosure';
 
 interface ComposePublishContentProps {
   isOverlayOpen: boolean;
@@ -45,80 +46,36 @@ export const ComposePublishContent = memo(
       handleTagFriends,
       handleRemoveMood,
     } = useComposeFeedForm();
+
+    const {
+      gifPicker,
+      tagFriends,
+      moods,
+      shareLink,
+      location,
+      onOpenGifPicker,
+      onOpenTagFriends,
+      onOpenMoods,
+      onOpenShareLink,
+      onOpenLocation,
+    } = useComposeDisclosure();
+
     const mediaInputRef = useRef<HTMLInputElement>(null);
-
-    const {
-      isOpen: isOpenGifPicker,
-      onOpen: onOpenGifPicker,
-      onClose: onCloseGifPicker,
-    } = useDisclosure();
-    const {
-      isOpen: isOpenTagFriends,
-      onOpen: onOpenTagFriends,
-      onClose: onCloseTagFriends,
-    } = useDisclosure();
-    const {
-      isOpen: isOpenMoods,
-      onOpen: onOpenMoods,
-      onClose: onCloseMoods,
-    } = useDisclosure();
-
-    const handleOpenGifPicker = useCallback(() => {
-      onOpenGifPicker();
-      onCloseTagFriends();
-      onCloseMoods();
-    }, [onCloseMoods, onCloseTagFriends, onOpenGifPicker]);
-    const handleOpenTagFriends = useCallback(() => {
-      onCloseGifPicker();
-      onOpenTagFriends();
-      onCloseMoods();
-    }, [onCloseGifPicker, onCloseMoods, onOpenTagFriends]);
-    const handleOpenMoods = useCallback(() => {
-      onCloseGifPicker();
-      onCloseTagFriends();
-      onOpenMoods();
-    }, [onCloseGifPicker, onCloseTagFriends, onOpenMoods]);
 
     const handleSelectedGif = useCallback(
       (gifUrl: string) => {
         handleGifSelect(gifUrl);
-        onCloseGifPicker();
+        gifPicker.onClose();
       },
-      [handleGifSelect, onCloseGifPicker],
+      [gifPicker, handleGifSelect],
     );
-
-    const handleOnCloseTagFriends = useCallback(() => {
-      onCloseTagFriends();
-    }, [onCloseTagFriends]);
 
     return (
       <Form {...form}>
         <form>
           <div className="border-b border-gray-600 dark:border-dark-500 p-4">
-            <div className="flex flex-row">
-              <Avatar className="w-[42px] h-[42px]">
-                <AvatarImage src="https://github.com/shadcn.png" />
-                <AvatarFallback>CN</AvatarFallback>
-              </Avatar>
-              <FormField
-                control={form.control}
-                name="content"
-                render={({ field }) => (
-                  <FormItem className="ml-5 w-full">
-                    <FormControl>
-                      <Textarea
-                        className="p-0"
-                        variant="ghost"
-                        size="sm"
-                        placeholder="Write something about you..."
-                        onFocus={onOpenOverlay}
-                        {...field}
-                      />
-                    </FormControl>
-                  </FormItem>
-                )}
-              />
-            </div>
+            <ComposeFormContent onOpenOverlay={onOpenOverlay} />
+
             {selectedImageUrl && (
               <ComposeMediaPreview
                 imageUrl={selectedImageUrl}
@@ -141,36 +98,47 @@ export const ComposePublishContent = memo(
               />
             )}
 
-            {isOpenGifPicker && (
+            {gifPicker.isOpen && (
               <GifPicker
                 onGifSelect={handleSelectedGif}
-                onCloseGifPicker={onCloseGifPicker}
+                onCloseGifPicker={gifPicker.onClose}
               />
             )}
 
-            {isOpenTagFriends && (
+            {tagFriends.isOpen && (
               <TagFriends
-                onCloseTagFriends={handleOnCloseTagFriends}
+                onCloseTagFriends={tagFriends.onClose}
                 onSelectFriend={handleTagFriends}
               />
             )}
 
-            {isOpenMoods && (
+            {moods.isOpen && (
               <MoodActivityPicker
                 defaultMood={selectedMood}
-                onCloseMoodActivityPicker={onCloseMoods}
+                onCloseMoodActivityPicker={moods.onClose}
                 onSelectMood={handleSelectMood}
                 onRemoveMood={handleRemoveMood}
               />
             )}
+
+            {shareLink.isOpen && (
+              <ShareLinkPicker onCloseShareLinkPicker={shareLink.onClose} />
+            )}
+
+            {location.isOpen && (
+              <LocationPicker onCloseLocationPicker={location.onClose} />
+            )}
           </div>
+
           <ComposeOptions
             mediaInputRef={mediaInputRef}
             onFileChange={handleFileChange}
             onOpenOverlay={onOpenOverlay}
-            onOpenGifPicker={handleOpenGifPicker}
-            onOpenTagFriends={handleOpenTagFriends}
-            onOpenMoods={handleOpenMoods}
+            onOpenGifPicker={onOpenGifPicker}
+            onOpenTagFriends={onOpenTagFriends}
+            onOpenMoods={onOpenMoods}
+            onOpenShareLink={onOpenShareLink}
+            onOpenLocation={onOpenLocation}
           />
 
           {isOverlayOpen && (
