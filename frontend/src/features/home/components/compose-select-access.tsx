@@ -1,6 +1,7 @@
 'use client';
 
-import { Fragment, useCallback, useMemo } from 'react';
+import { Fragment, useCallback, useMemo, useState } from 'react';
+import { UseFormReturn } from 'react-hook-form';
 
 // Icons
 import { BellIcon, ChevronDownIcon, PlusIcon, SmileIcon } from 'lucide-react';
@@ -34,20 +35,24 @@ import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 
 // Hooks
-import { useComposeFeedForm } from '../hooks/use-compose-feed-form';
+import { ComposeFeedFormValues } from '../hooks/use-compose-feed-form';
 
 // Types
 import { Option } from '@/types/option';
+import { cn } from '@/utils/cn';
+import { ComposeFriendsList } from './compose-friends-list';
 
 const RoleDropdown = ({
   name,
   roles,
+  form,
 }: {
   name: 'activityRole' | 'storyRole';
   roles: Option[];
+  form: UseFormReturn<ComposeFeedFormValues>;
 }) => {
-  const { form } = useComposeFeedForm();
   const value = form.watch(name);
+  const [isOpen, setIsOpen] = useState(false);
 
   const selectedOption = useMemo(() => {
     return roles.find((role) => role.value === value) || roles[0];
@@ -60,20 +65,29 @@ const RoleDropdown = ({
       render={({ field: optionField }) => (
         <FormItem>
           <FormControl>
-            <DropdownMenu>
+            <DropdownMenu onOpenChange={setIsOpen}>
               <DropdownMenuTrigger asChild>
                 <Button
                   variant="fixed"
                   className="h-9 w-[110px] rounded-full p-[6px] flex justify-center items-center gap-1 text-neutral-800 dark:text-neutral-100 dark:bg-transparent hover:dark:bg-card"
                 >
-                  <SmileIcon size={16} />
+                  <SmileIcon
+                    size={16}
+                    className={cn(
+                      'transition-transform duration-300',
+                      isOpen && 'rotate-[360deg]',
+                    )}
+                  />
                   <Label
                     variant="darkNeutral"
-                    className="text-2xs user-select-none truncate max-w-[50%]"
+                    className="text-2xs user-select-none truncate max-w-[50%] font-sans"
                   >
                     {selectedOption.label}
                   </Label>
-                  <ChevronDownIcon size={16} />
+                  <ChevronDownIcon
+                    size={16}
+                    className={cn(isOpen && 'rotate-180')}
+                  />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-[280px] p-0 py-2">
@@ -114,9 +128,15 @@ const RoleDropdown = ({
   );
 };
 
-export const ComposeSelectAccess = () => {
-  const { form } = useComposeFeedForm();
+interface ComposeSelectAccessProps {
+  isOpenFriendsList: boolean;
+  form: UseFormReturn<ComposeFeedFormValues>;
+}
 
+export const ComposeSelectAccess = ({
+  isOpenFriendsList,
+  form,
+}: ComposeSelectAccessProps) => {
   const renderIcons = useCallback((label: string) => {
     const iconMap = {
       [ACCESS_ITEMS[0].label]: (
@@ -140,10 +160,10 @@ export const ComposeSelectAccess = () => {
   const renderDropdownRoles = useCallback((label: string) => {
     const roleMap = {
       [ACCESS_ITEMS[0].label]: (
-        <RoleDropdown name="activityRole" roles={ACTIVITY_ROLES} />
+        <RoleDropdown form={form} name="activityRole" roles={ACTIVITY_ROLES} />
       ),
       [ACCESS_ITEMS[1].label]: (
-        <RoleDropdown name="storyRole" roles={STORY_ROLES} />
+        <RoleDropdown form={form} name="storyRole" roles={STORY_ROLES} />
       ),
     };
 
@@ -151,7 +171,7 @@ export const ComposeSelectAccess = () => {
   }, []);
 
   return (
-    <div className="p-2 border-t border-gray-600 dark:border-dark-500 bg-black-haze-50 dark:bg-card">
+    <div className="max-h-[350px] flex flex-col overflow-auto p-2 border-t border-gray-600 dark:border-dark-500 bg-black-haze-50 dark:bg-card">
       <FormField
         control={form.control}
         name="accessItems"
@@ -196,6 +216,12 @@ export const ComposeSelectAccess = () => {
           </FormItem>
         )}
       />
+
+      {isOpenFriendsList && (
+        <div className="flex flex-col border-t border-gray-600 dark:border-dark-500">
+          <ComposeFriendsList form={form} />
+        </div>
+      )}
     </div>
   );
 };

@@ -7,8 +7,10 @@ import { ComposeTabValue } from '../constants/compose-tab';
 import { Tabs, TabsContent } from '@/components/ui/tabs';
 import { ComposeTabHeader } from './compose-tab-header';
 import { ComposePublishContent } from './compose-publish-content';
-import { ComposeOverlay } from './compose-overlay';
 import { useDisclosure } from '@/hooks/use-disclosure';
+
+// Utils
+import { cn } from '@/utils/cn';
 
 export const ComposeFeedCard = () => {
   const {
@@ -18,8 +20,19 @@ export const ComposeFeedCard = () => {
   } = useDisclosure();
 
   return (
-    <ComposeOverlay isOpen={isOverlayOpen}>
-      <div className="border dark:border-dark-500 rounded-xl bg-card">
+    <>
+      <div
+        className={cn(
+          'hidden fixed inset-0 bg-black opacity-50 dark:opacity-70 z-50',
+          isOverlayOpen && 'block',
+        )}
+      />
+      <div
+        className={cn(
+          'border dark:border-dark-500 rounded-xl bg-card',
+          isOverlayOpen && 'relative z-50',
+        )}
+      >
         <Tabs
           defaultValue={ComposeTabValue.Publish}
           className="flex flex-col gap-4"
@@ -42,6 +55,6 @@ export const ComposeFeedCard = () => {
           </TabsContent>
         </Tabs>
       </div>
-    </ComposeOverlay>
+    </>
   );
 };

@@ -1,6 +1,8 @@
 'use client';
 
 import { memo, useCallback, useRef } from 'react';
+import { UseFormReturn } from 'react-hook-form';
+import Script from 'next/script';
 
 // Icons
 import { MapPinIcon } from 'lucide-react';
@@ -10,18 +12,17 @@ import { AutoCompleteInput } from '@/components/sections/auto-complete-input';
 import { FormControl, FormField, FormItem } from '@/components/ui/form';
 
 // Hooks
-import { useComposeFeedForm } from '../hooks/use-compose-feed-form';
-import Script from 'next/script';
+import { ComposeFeedFormValues } from '../hooks/use-compose-feed-form';
 
 const GOOGLE_MAPS_API_URL = 'https://maps.googleapis.com/maps/api/js';
 
 interface LocationPickerProps {
   onCloseLocationPicker: () => void;
+  form: UseFormReturn<ComposeFeedFormValues>;
 }
 
 export const LocationPicker = memo(
-  ({ onCloseLocationPicker }: LocationPickerProps) => {
-    const { form } = useComposeFeedForm();
+  ({ onCloseLocationPicker, form }: LocationPickerProps) => {
     const autocompleteRef = useRef<google.maps.places.Autocomplete | null>(
       null,
     );

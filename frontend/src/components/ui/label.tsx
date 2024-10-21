@@ -7,7 +7,7 @@ import * as LabelPrimitive from '@radix-ui/react-label';
 import { cn } from '@/utils/cn';
 
 const labelVariants = cva(
-  'peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
+  'font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
   {
     variants: {
       variant: {
