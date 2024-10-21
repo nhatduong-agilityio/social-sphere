@@ -5,6 +5,5 @@ export const getFirstLetters = (firstName: string, lastName: string) => {
   return firstInitial + lastInitial;
 };
 
-export const getFullName = (firstName: string, lastName: string) => {
-  return [firstName, lastName].join(' ').trim();
-};
+export const getFullName = (firstName: string, lastName: string) =>
+  [firstName, lastName].join(' ').trim();

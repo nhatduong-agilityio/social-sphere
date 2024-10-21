@@ -18,19 +18,17 @@ const Layout = ({
   uploadPictureProfile: ReactNode;
   secureAccount: ReactNode;
   confirmEmail: ReactNode;
-}) => {
-  return (
-    <OnboardingLayout>
-      {children}
-      <OnboardingContainer
-        selectAccountType={selectAccountType}
-        enterAboutInfo={enterAboutInfo}
-        uploadPictureProfile={uploadPictureProfile}
-        secureAccount={secureAccount}
-        confirmEmail={confirmEmail}
-      />
-    </OnboardingLayout>
-  );
-};
+}) => (
+  <OnboardingLayout>
+    {children}
+    <OnboardingContainer
+      selectAccountType={selectAccountType}
+      enterAboutInfo={enterAboutInfo}
+      uploadPictureProfile={uploadPictureProfile}
+      secureAccount={secureAccount}
+      confirmEmail={confirmEmail}
+    />
+  </OnboardingLayout>
+);
 
 export default Layout;

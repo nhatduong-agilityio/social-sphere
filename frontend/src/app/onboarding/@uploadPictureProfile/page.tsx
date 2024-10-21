@@ -1,7 +1,5 @@
 import { UploadPictureProfile } from '@/features/onboarding/components/upload-picture-profile';
 
-const UploadPictureProfilePage = () => {
-  return <UploadPictureProfile />;
-};
+const UploadPictureProfilePage = () => <UploadPictureProfile />;
 
 export default UploadPictureProfilePage;

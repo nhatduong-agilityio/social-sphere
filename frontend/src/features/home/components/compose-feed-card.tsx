@@ -21,43 +21,39 @@ export const ComposeFeedCard = ({
   isOverlayOpen,
   onOpensOverlay,
   onCloseOverlay,
-}: ComposeFeedCardProps) => {
-  return (
-    <>
-      <div
-        className={cn(
-          'hidden fixed inset-0 bg-black opacity-50 dark:opacity-70 z-50',
-          isOverlayOpen && 'block',
-        )}
-      />
-      <div
-        className={cn(
-          'border dark:border-dark-500 rounded-xl bg-card',
-          isOverlayOpen && 'relative z-50',
-        )}
+}: ComposeFeedCardProps) => (
+  <>
+    <div
+      className={cn(
+        'hidden fixed inset-0 bg-black opacity-50 dark:opacity-70 z-50',
+        isOverlayOpen && 'block',
+      )}
+    />
+    <div
+      className={cn(
+        'border dark:border-dark-500 rounded-xl bg-card',
+        isOverlayOpen && 'relative z-50',
+      )}
+    >
+      <Tabs
+        defaultValue={ComposeTabValue.Publish}
+        className="flex flex-col gap-4"
       >
-        <Tabs
-          defaultValue={ComposeTabValue.Publish}
-          className="flex flex-col gap-4"
-        >
-          <ComposeTabHeader
+        <ComposeTabHeader
+          isOverlayOpen={isOverlayOpen}
+          onCloseOverlay={onCloseOverlay}
+        />
+        <TabsContent value={ComposeTabValue.Publish}>
+          <ComposePublishContent
             isOverlayOpen={isOverlayOpen}
-            onCloseOverlay={onCloseOverlay}
+            onOpenOverlay={onOpensOverlay}
           />
-          <TabsContent value={ComposeTabValue.Publish}>
-            <ComposePublishContent
-              isOverlayOpen={isOverlayOpen}
-              onOpenOverlay={onOpensOverlay}
-            />
-          </TabsContent>
-          <TabsContent value={ComposeTabValue.Albums}>
-            albums contents
-          </TabsContent>
-          <TabsContent value={ComposeTabValue.Video}>
-            video contents
-          </TabsContent>
-        </Tabs>
-      </div>
-    </>
-  );
-};
+        </TabsContent>
+        <TabsContent value={ComposeTabValue.Albums}>
+          albums contents
+        </TabsContent>
+        <TabsContent value={ComposeTabValue.Video}>video contents</TabsContent>
+      </Tabs>
+    </div>
+  </>
+);

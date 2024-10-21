@@ -18,22 +18,20 @@ export const CircleOverlay = memo(
     className = '',
     circleClassName = '',
     circleSize = 'default',
-  }: CircleOverlayProps) => {
-    return (
-      <div className={cn('relative w-9 h-9', className)}>
-        {children}
-        <Circle
-          size={circleSize}
-          className={cn(
-            'border-[1.4px] border-background absolute top-0 right-0 bg-secondary',
-            circleClassName,
-          )}
-        >
-          {circleContent}
-        </Circle>
-      </div>
-    );
-  },
+  }: CircleOverlayProps) => (
+    <div className={cn('relative w-9 h-9', className)}>
+      {children}
+      <Circle
+        size={circleSize}
+        className={cn(
+          'border-[1.4px] border-background absolute top-0 right-0 bg-secondary',
+          circleClassName,
+        )}
+      >
+        {circleContent}
+      </Circle>
+    </div>
+  ),
 );
 
 CircleOverlay.displayName = 'CircleOverlay';
