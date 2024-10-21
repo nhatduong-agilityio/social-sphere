@@ -7,18 +7,21 @@ import { ComposeTabValue } from '../constants/compose-tab';
 import { Tabs, TabsContent } from '@/components/ui/tabs';
 import { ComposeTabHeader } from './compose-tab-header';
 import { ComposePublishContent } from './compose-publish-content';
-import { useDisclosure } from '@/hooks/use-disclosure';
 
 // Utils
 import { cn } from '@/utils/cn';
 
-export const ComposeFeedCard = () => {
-  const {
-    isOpen: isOverlayOpen,
-    onOpen: onOpensOverlay,
-    onClose: onCloseOverlay,
-  } = useDisclosure();
+interface ComposeFeedCardProps {
+  isOverlayOpen: boolean;
+  onOpensOverlay: () => void;
+  onCloseOverlay: () => void;
+}
 
+export const ComposeFeedCard = ({
+  isOverlayOpen,
+  onOpensOverlay,
+  onCloseOverlay,
+}: ComposeFeedCardProps) => {
   return (
     <>
       <div
