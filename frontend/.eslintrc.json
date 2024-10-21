@@ -6,9 +6,7 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:storybook/recommended"
   ],
-  "plugins": [
-    "@typescript-eslint"
-  ],
+  "plugins": ["@typescript-eslint"],
   "rules": {
     "object-shorthand": "warn",
     "no-console": "warn",
@@ -21,9 +19,13 @@
         "caughtErrorsIgnorePattern": "^_"
       }
     ],
-    "react/self-closing-comp": ["warn", {
-      "component": true,
-      "html": true
-    }]
+    "react/self-closing-comp": [
+      "warn",
+      {
+        "component": true,
+        "html": true
+      }
+    ],
+    "arrow-body-style": ["error", "as-needed"]
   }
 }
