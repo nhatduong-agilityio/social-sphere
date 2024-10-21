@@ -157,18 +157,25 @@ export const ComposeSelectAccess = ({
     return iconMap[label] || null;
   }, []);
 
-  const renderDropdownRoles = useCallback((label: string) => {
-    const roleMap = {
-      [ACCESS_ITEMS[0].label]: (
-        <RoleDropdown form={form} name="activityRole" roles={ACTIVITY_ROLES} />
-      ),
-      [ACCESS_ITEMS[1].label]: (
-        <RoleDropdown form={form} name="storyRole" roles={STORY_ROLES} />
-      ),
-    };
+  const renderDropdownRoles = useCallback(
+    (label: string) => {
+      const roleMap = {
+        [ACCESS_ITEMS[0].label]: (
+          <RoleDropdown
+            form={form}
+            name="activityRole"
+            roles={ACTIVITY_ROLES}
+          />
+        ),
+        [ACCESS_ITEMS[1].label]: (
+          <RoleDropdown form={form} name="storyRole" roles={STORY_ROLES} />
+        ),
+      };
 
-    return roleMap[label] || null;
-  }, []);
+      return roleMap[label] || null;
+    },
+    [form],
+  );
 
   return (
     <div className="max-h-[350px] flex flex-col overflow-auto p-2 border-t border-gray-600 dark:border-dark-500 bg-black-haze-50 dark:bg-card">
