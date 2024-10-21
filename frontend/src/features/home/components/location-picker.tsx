@@ -1,8 +1,7 @@
 'use client';
 
-import { memo, useCallback, useRef } from 'react';
+import { memo, useCallback, useMemo, useState } from 'react';
 import { UseFormReturn } from 'react-hook-form';
-import Script from 'next/script';
 
 // Icons
 import { MapPinIcon } from 'lucide-react';
@@ -10,11 +9,16 @@ import { MapPinIcon } from 'lucide-react';
 // Components
 import { AutoCompleteInput } from '@/components/sections/auto-complete-input';
 import { FormControl, FormField, FormItem } from '@/components/ui/form';
+import { Text } from '@/components/ui/text';
 
 // Hooks
 import { ComposeFeedFormValues } from '../hooks/use-compose-feed-form';
 
-const GOOGLE_MAPS_API_URL = 'https://maps.googleapis.com/maps/api/js';
+// Types
+import { MapboxFeature } from '@/types/map-box';
+
+// Actions
+import { getLocations } from '../actions/get-locations';
 
 interface LocationPickerProps {
   onCloseLocationPicker: () => void;
@@ -23,35 +27,58 @@ interface LocationPickerProps {
 
 export const LocationPicker = memo(
   ({ onCloseLocationPicker, form }: LocationPickerProps) => {
-    const autocompleteRef = useRef<google.maps.places.Autocomplete | null>(
-      null,
+    const [suggestions, setSuggestions] = useState<string[]>([]);
+
+    const handleInputChange = useCallback(
+      async (event: React.ChangeEvent<HTMLInputElement>) => {
+        const query = event.target.value;
+        if (query.length > 2) {
+          const { data } = await getLocations(query);
+
+          if (!data) return setSuggestions([]);
+
+          setSuggestions(
+            data.features.map((feature: MapboxFeature) => feature.place_name),
+          );
+        } else {
+          setSuggestions([]);
+        }
+      },
+      [],
     );
 
-    const initAutocomplete = useCallback(() => {
-      const input = document.getElementById(
-        'location-input',
-      ) as HTMLInputElement;
-      autocompleteRef.current = new google.maps.places.Autocomplete(input);
-
-      autocompleteRef.current.addListener('place_changed', () => {
-        const place = autocompleteRef.current?.getPlace();
-        if (place?.formatted_address) {
-          form.setValue('location', place.formatted_address);
-        }
-      });
-    }, [form]);
+    const handleSuggestionClick = useCallback(
+      (suggestion: string) => {
+        form.setValue('location', suggestion);
+        setSuggestions([]);
+      },
+      [form],
+    );
 
     const handleClose = useCallback(() => {
       form.setValue('location', '');
       onCloseLocationPicker();
     }, [form, onCloseLocationPicker]);
 
+    const locationsList = useMemo(
+      () => (
+        <ul className="shadow-sphere-light">
+          {suggestions.map((suggestion) => (
+            <li
+              key={suggestion}
+              className="cursor-pointer flex items-center px-3 py-1 gap-2.5 hover:bg-gray-600 hover:dark:bg-dark-500"
+              onClick={() => handleSuggestionClick(suggestion)}
+            >
+              <Text className="leading-4 dark:text-gray-100">{suggestion}</Text>
+            </li>
+          ))}
+        </ul>
+      ),
+      [handleSuggestionClick, suggestions],
+    );
+
     return (
-      <>
-        <Script
-          src={`${GOOGLE_MAPS_API_URL}?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&libraries=places`}
-          onLoad={initAutocomplete}
-        />
+      <div className="relative">
         <FormField
           control={form.control}
           name="location"
@@ -65,12 +92,21 @@ export const LocationPicker = memo(
                   placeholder="Enter a location"
                   onClose={handleClose}
                   {...field}
+                  onChange={(e) => {
+                    field.onChange(e);
+                    handleInputChange(e);
+                  }}
                 />
               </FormControl>
             </FormItem>
           )}
         />
-      </>
+        {suggestions.length > 0 && (
+          <div className="absolute z-50 top-9 left-0 w-full max-h-[320px] overflow-auto rounded-[4px] border border-input bg-white dark:bg-dark-500 transition-all duration-300 ease-in-out">
+            {locationsList}
+          </div>
+        )}
+      </div>
     );
   },
 );
