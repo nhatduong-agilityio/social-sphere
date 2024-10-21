@@ -54,9 +54,10 @@ const RoleDropdown = ({
   const value = form.watch(name);
   const [isOpen, setIsOpen] = useState(false);
 
-  const selectedOption = useMemo(() => {
-    return roles.find((role) => role.value === value) || roles[0];
-  }, [roles, value]);
+  const selectedOption = useMemo(
+    () => roles.find((role) => role.value === value) || roles[0],
+    [roles, value],
+  );
 
   return (
     <FormField

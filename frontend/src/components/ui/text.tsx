@@ -27,15 +27,13 @@ export interface TextProps
     VariantProps<typeof textVariants> {}
 
 const Text = React.forwardRef<HTMLParagraphElement, TextProps>(
-  ({ variant, size, className, ...props }, ref) => {
-    return (
-      <p
-        ref={ref}
-        className={cn(textVariants({ variant, size, className }))}
-        {...props}
-      />
-    );
-  },
+  ({ variant, size, className, ...props }, ref) => (
+    <p
+      ref={ref}
+      className={cn(textVariants({ variant, size, className }))}
+      {...props}
+    />
+  ),
 );
 Text.displayName = 'Text';
 

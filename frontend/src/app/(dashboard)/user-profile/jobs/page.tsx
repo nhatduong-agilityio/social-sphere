@@ -1,5 +1,3 @@
-const JobsPage = () => {
-  return <div>JobsPage</div>;
-};
+const JobsPage = () => <div>JobsPage</div>;
 
 export default JobsPage;

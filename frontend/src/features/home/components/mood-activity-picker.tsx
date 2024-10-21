@@ -107,15 +107,14 @@ export const MoodActivityPicker = memo(
     const debouncedSearchMood = useDebounce(searchMood, 300);
 
     const filterOptions = useCallback(
-      (options: Option[], searchTerm: string) => {
-        return options.filter(
+      (options: Option[], searchTerm: string) =>
+        options.filter(
           (option) =>
             option.label.toLowerCase().includes(searchTerm.toLowerCase()) ||
             option.description
               ?.toLowerCase()
               .includes(searchTerm.toLowerCase()),
-        );
-      },
+        ),
       [],
     );
 

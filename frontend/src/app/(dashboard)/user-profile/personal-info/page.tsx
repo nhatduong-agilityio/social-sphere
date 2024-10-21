@@ -3,18 +3,16 @@ import LocationPanel from '@/features/profile/components/location-panel';
 import PhotoPanel from '@/features/profile/components/photo-panel';
 import VideoPanel from '@/features/profile/components/video-panel';
 
-const PersonalInfoPage = () => {
-  return (
-    <div className="flex flex-col gap-8">
-      <FriendPanel />
+const PersonalInfoPage = () => (
+  <div className="flex flex-col gap-8">
+    <FriendPanel />
 
-      <PhotoPanel />
+    <PhotoPanel />
 
-      <VideoPanel />
+    <VideoPanel />
 
-      <LocationPanel />
-    </div>
-  );
-};
+    <LocationPanel />
+  </div>
+);
 
 export default PersonalInfoPage;

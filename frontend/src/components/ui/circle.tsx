@@ -31,15 +31,13 @@ export interface CircleProps
     VariantProps<typeof circleVariants> {}
 
 const Circle = forwardRef<HTMLDivElement, CircleProps>(
-  ({ className, variant, size, ...props }, ref) => {
-    return (
-      <div
-        className={cn(circleVariants({ variant, size, className }))}
-        ref={ref}
-        {...props}
-      />
-    );
-  },
+  ({ className, variant, size, ...props }, ref) => (
+    <div
+      className={cn(circleVariants({ variant, size, className }))}
+      ref={ref}
+      {...props}
+    />
+  ),
 );
 Circle.displayName = 'Circle';
 
