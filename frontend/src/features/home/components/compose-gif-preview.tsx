@@ -13,7 +13,7 @@ interface ComposeGifPreviewProps {
 
 export const ComposeGifPreview = memo(
   ({ imageUrl, onRemove }: ComposeGifPreviewProps) => (
-    <div className="w-[140px] h-[169px] relative">
+    <div className="w-[140px] h-[169px] relative mb-3">
       <img
         alt="Gif of feed"
         src={imageUrl}

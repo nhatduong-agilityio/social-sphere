@@ -1,4 +1,7 @@
+'use client';
+
 import { memo, useCallback } from 'react';
+import { UseFormReturn } from 'react-hook-form';
 
 // Icons
 import { Link2Icon } from 'lucide-react';
@@ -8,16 +11,15 @@ import { AutoCompleteInput } from '@/components/sections/auto-complete-input';
 import { FormControl, FormField, FormItem } from '@/components/ui/form';
 
 // Hooks
-import { useComposeFeedForm } from '../hooks/use-compose-feed-form';
+import { ComposeFeedFormValues } from '../hooks/use-compose-feed-form';
 
 interface ShareLinkPickerProps {
   onCloseShareLinkPicker: () => void;
+  form: UseFormReturn<ComposeFeedFormValues>;
 }
 
 export const ShareLinkPicker = memo(
-  ({ onCloseShareLinkPicker }: ShareLinkPickerProps) => {
-    const { form } = useComposeFeedForm();
-
+  ({ onCloseShareLinkPicker, form }: ShareLinkPickerProps) => {
     const handleClose = useCallback(() => {
       form.setValue('sharedLink', '');
       onCloseShareLinkPicker();

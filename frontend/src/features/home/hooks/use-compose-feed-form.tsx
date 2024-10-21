@@ -1,7 +1,7 @@
 import { useState, useCallback, ChangeEvent } from 'react';
 import { useForm } from 'react-hook-form';
 
-type ComposeFeedFormValues = {
+export type ComposeFeedFormValues = {
   content: string;
   media: File | null;
   accessItems: string[];
@@ -15,6 +15,7 @@ type ComposeFeedFormValues = {
   };
   sharedLink: string;
   location: string;
+  sendFriends: string[];
 };
 
 const initMoodState = {
@@ -34,6 +35,7 @@ export const useComposeFeedForm = () => {
       mood: initMoodState,
       sharedLink: '',
       location: '',
+      sendFriends: [],
     },
   });
 
@@ -53,6 +55,8 @@ export const useComposeFeedForm = () => {
         const imageUrl = URL.createObjectURL(file);
         setSelectedImageUrl(imageUrl);
       }
+      // Reset the file input value
+      event.target.value = '';
     },
     [form],
   );

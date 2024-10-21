@@ -14,7 +14,7 @@ interface ComposeMediaPreviewProps {
 
 export const ComposeMediaPreview = memo(
   ({ imageUrl, onRemove }: ComposeMediaPreviewProps) => (
-    <div className="w-[140px] h-[169px] relative">
+    <div className="w-[140px] h-[169px] relative mb-3">
       <Image
         alt="Media of feed"
         src={imageUrl}

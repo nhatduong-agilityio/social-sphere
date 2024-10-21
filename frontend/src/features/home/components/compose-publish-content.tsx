@@ -23,6 +23,7 @@ import { ComposeFormContent } from './compose-form-content';
 // Hooks
 import { useComposeFeedForm } from '../hooks/use-compose-feed-form';
 import { useComposeDisclosure } from '../hooks/use-compose-disclosure';
+import { useDisclosure } from '@/hooks/use-disclosure';
 
 interface ComposePublishContentProps {
   isOverlayOpen: boolean;
@@ -59,6 +60,7 @@ export const ComposePublishContent = memo(
       onOpenShareLink,
       onOpenLocation,
     } = useComposeDisclosure();
+    const viewMore = useDisclosure();
 
     const mediaInputRef = useRef<HTMLInputElement>(null);
 
@@ -70,11 +72,16 @@ export const ComposePublishContent = memo(
       [gifPicker, handleGifSelect],
     );
 
+    const disableButton = !form.getValues('content');
+
     return (
       <Form {...form}>
         <form>
           <div className="border-b border-gray-600 dark:border-dark-500 p-4">
-            <ComposeFormContent onOpenOverlay={onOpenOverlay} />
+            <ComposeFormContent
+              formControl={form.control}
+              onOpenOverlay={onOpenOverlay}
+            />
 
             {selectedImageUrl && (
               <ComposeMediaPreview
@@ -122,11 +129,17 @@ export const ComposePublishContent = memo(
             )}
 
             {shareLink.isOpen && (
-              <ShareLinkPicker onCloseShareLinkPicker={shareLink.onClose} />
+              <ShareLinkPicker
+                form={form}
+                onCloseShareLinkPicker={shareLink.onClose}
+              />
             )}
 
             {location.isOpen && (
-              <LocationPicker onCloseLocationPicker={location.onClose} />
+              <LocationPicker
+                form={form}
+                onCloseLocationPicker={location.onClose}
+              />
             )}
           </div>
 
@@ -143,21 +156,29 @@ export const ComposePublishContent = memo(
 
           {isOverlayOpen && (
             <>
-              <ComposeSelectAccess />
+              <ComposeSelectAccess
+                form={form}
+                isOpenFriendsList={viewMore.isOpen}
+              />
               <div className="p-2 flex gap-2 border-t border-gray-600 dark:border-dark-500">
-                <Button
-                  type="button"
-                  size="md"
-                  variant="fixed"
-                  className="p-[6px] pl-2 pr-3 text-2xs"
-                >
-                  <EllipsisVerticalIcon size={16} className="mr-1" /> View More
-                </Button>
+                {!viewMore.isOpen && (
+                  <Button
+                    type="button"
+                    size="md"
+                    variant="fixed"
+                    className="p-[6px] pl-2 pr-3 text-2xs font-sans"
+                    onClick={viewMore.onOpen}
+                  >
+                    <EllipsisVerticalIcon size={16} className="mr-1" /> View
+                    More
+                  </Button>
+                )}
                 <Button
                   type="submit"
                   size="md"
                   variant="primary"
-                  className="w-full hover:shadow-none hover:opacity-100"
+                  className="w-full hover:shadow-none hover:opacity-100 text-2xs"
+                  disabled={disableButton}
                 >
                   Publish
                 </Button>
