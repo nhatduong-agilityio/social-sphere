@@ -9,39 +9,38 @@ interface SelectAccountTypeImageProps {
 }
 
 export const SelectAccountTypeImage = memo(
-  ({ mainSrc, subLightSrc, subDarkSrc, alt }: SelectAccountTypeImageProps) => {
-    const imageStyle = {
-      maxWidth: '100%',
-      height: 'auto',
-    };
-
-    return (
-      <div className="relative">
-        <Image
-          src={mainSrc}
-          alt={alt}
-          className="absolute top-[-23%] left-0 transform scale-125 hidden md:block"
-          sizes="(max-width: 768px) 100vw, 50vw"
-          priority
-          style={imageStyle}
-        />
-        <Image
-          src={subLightSrc}
-          alt={`${alt}-light`}
-          className="mt-[-5%] dark:hidden"
-          sizes="(max-width: 768px) 100vw, 50vw"
-          style={imageStyle}
-        />
-        <Image
-          src={subDarkSrc}
-          alt={`${alt}-dark`}
-          className="mt-[-5%] hidden dark:block"
-          sizes="(max-width: 768px) 100vw, 50vw"
-          style={imageStyle}
-        />
-      </div>
-    );
-  },
+  ({ mainSrc, subLightSrc, subDarkSrc, alt }: SelectAccountTypeImageProps) => (
+    <div className="relative m-auto w-[269px] h-[207px]">
+      <Image
+        src={mainSrc}
+        alt={alt}
+        className="absolute transform scale-125 hidden md:block z-10"
+        sizes="(max-width: 768px) 100vw, 50vw"
+        fill
+        quality={100}
+        priority
+        style={{ objectFit: 'cover', top: '-15%', left: 0 }}
+      />
+      <Image
+        src={subLightSrc}
+        alt={`${alt}-light`}
+        className="mt-[-5%] dark:hidden"
+        sizes="(max-width: 768px) 100vw, 50vw"
+        fill
+        priority
+        style={{ objectFit: 'cover' }}
+      />
+      <Image
+        src={subDarkSrc}
+        alt={`${alt}-dark`}
+        className="mt-[-5%] hidden dark:block"
+        sizes="(max-width: 768px) 100vw, 50vw"
+        fill
+        priority
+        style={{ objectFit: 'cover' }}
+      />
+    </div>
+  ),
 );
 
 SelectAccountTypeImage.displayName = 'SelectAccountTypeImage';

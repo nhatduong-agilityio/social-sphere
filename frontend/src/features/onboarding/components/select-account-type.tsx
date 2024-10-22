@@ -47,7 +47,7 @@ export const SelectAccountType = () => {
         {SELECT_ACCOUNT_TYPES.map(
           ({ mainSrc, subDarkSrc, subLightSrc, title, description }, index) => (
             <Card key={`${title}-${index}`} className="p-2.5">
-              <CardHeader className="text-center">
+              <CardHeader className="text-center pt-2.5">
                 <SelectAccountTypeImage
                   mainSrc={mainSrc}
                   subLightSrc={subLightSrc}
