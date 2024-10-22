@@ -27,16 +27,11 @@ import { PictureProfileSchema } from '../lib/schema';
 // Stores
 import { useOnboardingStore } from '../stores/onboarding-steps';
 
-// Images
-import AvatarPlaceholder from '../../../../public/images/avatar-placeholder.svg';
-
 export const UploadPictureProfile = () => {
   const { currentStep, setCurrentStep, onboardingData, setOnboardingData } =
     useOnboardingStore();
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const [selectedImageUrl, setSelectedImageUrl] = useState<string>(
-    AvatarPlaceholder.src,
-  );
+  const [selectedImageUrl, setSelectedImageUrl] = useState<string | null>();
 
   const form = useForm<z.infer<typeof PictureProfileSchema>>({
     resolver: zodResolver(PictureProfileSchema),
@@ -84,7 +79,10 @@ export const UploadPictureProfile = () => {
     () => (
       <div className="w-[120px] h-[120px] rounded-full border-[1.4px] border-gray-900 dark:border-blue-800 p-[8.5px] relative">
         <Avatar className="w-full h-full">
-          <AvatarImage src={selectedImageUrl} alt="Profile picture" />
+          <AvatarImage
+            src={selectedImageUrl || '/images/avatar-placeholder.svg'}
+            alt="Profile picture"
+          />
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
         <Button

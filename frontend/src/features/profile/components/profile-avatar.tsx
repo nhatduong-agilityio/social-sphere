@@ -27,14 +27,9 @@ import { PictureProfileSchema } from '../lib/schema';
 // Utils
 import { cn } from '@/utils/cn';
 
-// Images
-import AvatarPlaceholder from '../../../../public/images/avatar-placeholder.svg';
-
 export const ProfileAvatar = () => {
   const [isActive, setIsActive] = useState<boolean>(false);
-  const [selectedImageUrl, setSelectedImageUrl] = useState<string>(
-    AvatarPlaceholder.src,
-  );
+  const [selectedImageUrl, setSelectedImageUrl] = useState<string | null>();
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -146,7 +141,10 @@ export const ProfileAvatar = () => {
     <Form {...form}>
       <div className="w-[110px] h-[110px] rounded-full p-[8.5px] absolute md:bottom-0 bottom-[-50px] left-0 right-0 mx-auto z-10">
         <Avatar className="w-[full] h-[full]">
-          <AvatarImage src={selectedImageUrl} alt="Profile picture" />
+          <AvatarImage
+            src={selectedImageUrl || '/images/avatar-placeholder.svg'}
+            alt="Profile picture"
+          />
           <AvatarFallback className="w-24 h-24 rounded-full bg-slate-500">
             CN
           </AvatarFallback>

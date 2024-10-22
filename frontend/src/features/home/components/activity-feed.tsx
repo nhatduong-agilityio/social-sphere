@@ -12,9 +12,6 @@ import { useDisclosure } from '@/hooks/use-disclosure';
 // Mocks
 import { MOCK_FRIENDS } from '@/__mocks__/user';
 
-// Images
-import AvatarPlaceholder from '../../../../public/images/avatar-placeholder.svg';
-
 // Icons
 import { BirthdayIcon } from '@/icons/birthday-icon';
 import { JobIcon } from '@/icons/job-icon';
@@ -46,7 +43,7 @@ export const ActivityFeed = () => {
         <div className="hidden lg:flex col-span-3 flex-col gap-6">
           <StoriesWidget onAddStory={handleAddStory} />
           <NotificationWidget
-            avatar={MOCK_FRIENDS[0].avatar || AvatarPlaceholder.src}
+            avatar={MOCK_FRIENDS[0].avatar || '/images/avatar-placeholder.svg'}
             iconContent={<BirthdayIcon />}
             customClass="bg-green-100 dark:bg-green-100"
             title="Dan turns 31 today!"
@@ -58,7 +55,7 @@ export const ActivityFeed = () => {
           <SuggestFriendsWidget />
 
           <NotificationWidget
-            avatar={MOCK_FRIENDS[0].avatar || AvatarPlaceholder.src}
+            avatar={MOCK_FRIENDS[0].avatar || '/images/avatar-placeholder.svg'}
             iconContent={<JobIcon />}
             customClass="bg-blue-600 dark:bg-blue-600"
             title="Nelly has a new job!"

@@ -14,7 +14,7 @@ interface PlaceProps {
 
 const LocationCard = ({ title, src, alt, rating }: PlaceProps) => (
   <Card className="rounded-lg flex flex-col items-start dark:bg-dark-300 relative w-60 h-[235px] p-3">
-    <div className="relative  w-[215px] h-[167px]">
+    <div className="relative w-[215px] h-[167px]">
       <Image
         src={src}
         alt={alt}
