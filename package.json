@@ -8,9 +8,13 @@
     "setup": "pnpm install && pnpm setup:frontend && pnpm setup:backend",
     "dev": "pnpm clear && concurrently \"cd frontend && pnpm dev\" \"cd backend && pnpm develop\"",
     "pre:commit": "cd frontend && npx lint-staged",
-    "pre:push": "cd frontend && pnpm test && pnpm build"
+    "pre:push": "cd frontend && pnpm test && pnpm build",
+    "prepare": "husky"
   },
   "dependencies": {
     "concurrently": "^9.0.1"
+  },
+  "devDependencies": {
+    "husky": "^9.1.6"
   }
 }

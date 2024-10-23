@@ -11,6 +11,10 @@ importers:
       concurrently:
         specifier: ^9.0.1
         version: 9.0.1
+    devDependencies:
+      husky:
+        specifier: ^9.1.6
+        version: 9.1.6
 
 packages:
 
@@ -56,6 +60,11 @@ packages:
   has-flag@4.0.0:
     resolution: {integrity: sha512-EykJT/Q1KjTWctppgIAgfSO0tKVuZUjhgMr17kqTumMl6Afv3EISleU7qZUzoXDFTAHTDC4NOoG/ZxU3EvlMPQ==}
     engines: {node: '>=8'}
+
+  husky@9.1.6:
+    resolution: {integrity: sha512-sqbjZKK7kf44hfdE94EoX8MZNk0n7HeW37O4YrVGCF4wzgQjp+akPAkfUK5LZ6KuR/6sqeAVuXHji+RzQgOn5A==}
+    engines: {node: '>=18'}
+    hasBin: true
 
   is-fullwidth-code-point@3.0.0:
     resolution: {integrity: sha512-zymm5+u+sCsSWyD9qNaejV3DFvhCKclKdizYaJUuHA83RLjb7nSuGnddCHGv0hk+KY7BMAlsWeK4Ueg6EV6XQg==}
@@ -155,6 +164,8 @@ snapshots:
   get-caller-file@2.0.5: {}
 
   has-flag@4.0.0: {}
+
+  husky@9.1.6: {}
 
   is-fullwidth-code-point@3.0.0: {}
 
