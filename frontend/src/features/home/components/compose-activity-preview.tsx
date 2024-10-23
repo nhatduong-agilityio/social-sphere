@@ -33,6 +33,7 @@ interface ComposeActivityPreviewProps {
     content: string;
   };
   friendIds: string[];
+  location: string;
   onRemoveFriend: (friendId: string) => void;
 }
 
@@ -82,7 +83,12 @@ const FriendTag = ({
 );
 
 export const ComposeActivityPreview = memo(
-  ({ mood, friendIds, onRemoveFriend }: ComposeActivityPreviewProps) => {
+  ({
+    mood,
+    friendIds,
+    location,
+    onRemoveFriend,
+  }: ComposeActivityPreviewProps) => {
     const [allFriends, setAllFriends] = useState<UserDetail[]>([]);
     const { title, content } = mood;
     const { moodOption, moodDetail } = getMoodOptions(title, content);
@@ -99,7 +105,7 @@ export const ComposeActivityPreview = memo(
     const matchedFriends =
       allFriends?.filter((friend) => friendIds.includes(friend.id)) || [];
 
-    if (content === '' && friendIds.length === 0) {
+    if (content === '' && friendIds.length === 0 && location === '') {
       return null;
     }
 
@@ -147,6 +153,18 @@ export const ComposeActivityPreview = memo(
                   total={matchedFriends.length}
                 />
               ))}
+            </>
+          )}
+          {location && (
+            <>
+              - at&nbsp;
+              <LinkWithIcon
+                url="/"
+                text={location}
+                additionalClass={cn(
+                  'border-none w-fit text-primary  hover:dark:bg-transparent mr-3',
+                )}
+              />
             </>
           )}
         </Label>

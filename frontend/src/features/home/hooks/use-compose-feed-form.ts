@@ -125,12 +125,15 @@ export const useComposeFeedForm = () => {
     form.setValue('mood', initMoodState);
   }, [form]);
 
+  const selectedLocation = form.getValues('location');
+
   return {
     form,
     selectedImageUrl,
     selectedGifUrl,
     selectedTagFriends,
     selectedMood,
+    selectedLocation,
     handleFileChange,
     handleRemoveMedia,
     handleGifSelect,

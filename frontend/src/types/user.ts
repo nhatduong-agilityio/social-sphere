@@ -1,4 +1,4 @@
-export interface UserDetail {
+export type UserDetail = {
   id: string;
   firstName: string;
   lastName: string;
@@ -13,4 +13,4 @@ export interface UserDetail {
     countryCode: string;
     city: string;
   };
-}
+};

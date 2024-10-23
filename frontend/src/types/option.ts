@@ -3,4 +3,5 @@ export type Option = {
   value: string;
   description?: string;
   icon?: JSX.Element | string;
+  action?: () => void;
 };

@@ -38,6 +38,7 @@ export const ComposePublishContent = memo(
       selectedGifUrl,
       selectedTagFriends,
       selectedMood,
+      selectedLocation,
       handleSelectMood,
       handleFileChange,
       handleRemoveMedia,
@@ -97,10 +98,11 @@ export const ComposePublishContent = memo(
               />
             )}
 
-            {(selectedTagFriends || selectedMood) && (
+            {(selectedTagFriends || selectedMood || location) && (
               <ComposeActivityPreview
                 mood={selectedMood}
                 friendIds={selectedTagFriends}
+                location={selectedLocation}
                 onRemoveFriend={handleRemoveFriend}
               />
             )}
@@ -144,6 +146,7 @@ export const ComposePublishContent = memo(
           </div>
 
           <ComposeOptions
+            isOverlayOpen={isOverlayOpen}
             mediaInputRef={mediaInputRef}
             onFileChange={handleFileChange}
             onOpenOverlay={onOpenOverlay}

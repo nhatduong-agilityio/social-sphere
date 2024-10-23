@@ -5,7 +5,7 @@ import { EllipsisVertical, UserPlus } from 'lucide-react';
 // Components
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import UserPopover from '@/components/sections/user-popover';
+import { UserPopover } from '@/components/sections/user-popover';
 import { Text } from '@/components/ui/text';
 
 // Mocks

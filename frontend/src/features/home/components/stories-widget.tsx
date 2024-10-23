@@ -3,8 +3,8 @@ import { EllipsisVertical, Plus } from 'lucide-react';
 // Components
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import UserPopover from '@/components/sections/user-popover';
-import StoryMeta from '@/features/home/components/story-meta';
+import { UserPopover } from '@/components/sections/user-popover';
+import { StoryMeta } from '@/features/home/components/story-meta';
 
 // Mocks
 import { MOCK_FRIENDS } from '@/__mocks__/user';
