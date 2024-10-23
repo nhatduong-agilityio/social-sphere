@@ -1,13 +1,20 @@
-import '@testing-library/jest-dom';
-import { render } from '@testing-library/react';
-
-// Components
+import { render, screen } from '@testing-library/react';
 import LoginPage from '../page';
 
-describe('LoginPage', () => {
-  it('Renders a heading', () => {
-    const { container } = render(<LoginPage />);
+jest.mock('react-dom', () => ({
+  ...jest.requireActual('react-dom'),
+  useFormState: () => [null, jest.fn()],
+  useFormStatus: () => ({ pending: false }),
+}));
 
-    expect(container).toMatchSnapshot();
+describe('LoginPage', () => {
+  it('renders login page with form', () => {
+    render(<LoginPage />);
+
+    expect(
+      screen.getByPlaceholderText('jennadavis@gmail.com'),
+    ).toBeInTheDocument();
+    expect(screen.getByPlaceholderText('●●●●●●●')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /login/i })).toBeInTheDocument();
   });
 });
