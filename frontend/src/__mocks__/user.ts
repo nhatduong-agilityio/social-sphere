@@ -4,6 +4,8 @@ export const MOCK_FRIENDS: UserDetail[] = [
   {
     id: '1',
     firstName: 'John',
+    email: 'admin@gmail.com',
+    password: '1@Dzxcvb',
     lastName: 'Doe',
     countFriends: 3,
     avatar: 'https://i.pravatar.cc/300',

@@ -2,6 +2,7 @@
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
+import { useFormState, useFormStatus } from 'react-dom';
 import { z } from 'zod';
 
 // Icons
@@ -20,37 +21,35 @@ import {
 import { Input } from '@/components/ui/input';
 import { SwitchTheme } from '@/components/sections/switch-theme';
 import { CircleOverlay } from '@/components/sections/circle-overlay';
-
-// Hooks
-import { toast } from '@/hooks/use-toast';
+import { Text } from '@/components/ui/text';
 
 // Libs
 import { FormSchema } from '../lib/schema';
 
+// Actions
+import { login } from '../action/login';
+
+const initialState = {
+  email: '',
+  password: '',
+};
+
 export const LoginForm = () => {
+  const [errorMessage, formAction] = useFormState(login, undefined);
+  const { pending } = useFormStatus();
+
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
-    defaultValues: {
-      username: '',
-      password: '',
-    },
+    defaultValues: initialState,
   });
 
-  const onSubmit = (data: z.infer<typeof FormSchema>) => {
-    toast({
-      title: 'You submitted the following values:',
-      description: (
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      ),
-    });
-  };
+  const isDisabled =
+    !form.formState.isDirty || !form.formState.isValid || pending;
 
   return (
     <Form {...form}>
       <form
-        onSubmit={form.handleSubmit(onSubmit)}
+        action={formAction}
         className="flex flex-col w-full gap-3 max-w-[320px] md:max-w-[380px]"
       >
         <div className="flex flex-col items-center mb-2">
@@ -69,7 +68,7 @@ export const LoginForm = () => {
         </div>
         <FormField
           control={form.control}
-          name="username"
+          name="email"
           render={({ field }) => (
             <FormItem>
               <FormControl>
@@ -102,10 +101,16 @@ export const LoginForm = () => {
             </FormItem>
           )}
         />
+
+        {errorMessage && (
+          <Text className="text-sm text-red-500">{errorMessage}</Text>
+        )}
+
         <Button
           variant="primary"
           type="submit"
           className="w-full h-[46px] rounded-full bg-blue-600 border-blue-600"
+          disabled={isDisabled}
         >
           Login
         </Button>

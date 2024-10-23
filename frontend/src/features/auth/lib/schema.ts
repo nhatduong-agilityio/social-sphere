@@ -1,11 +1,11 @@
 import { z } from 'zod';
 
 // Constants
-import { PASSWORD_REGEX } from '@/constants/regex';
+import { EMAIL_REGEX, PASSWORD_REGEX } from '@/constants/regex';
 
 export const FormSchema = z.object({
-  username: z.string().min(2, {
-    message: 'Username must be at least 2 characters.',
+  email: z.string().regex(EMAIL_REGEX, {
+    message: 'Please enter a valid email address',
   }),
   password: z
     .string()
