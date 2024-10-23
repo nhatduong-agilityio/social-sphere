@@ -8,23 +8,31 @@ import { signIn, signOut } from '@/auth';
 
 // Constants
 import { ROUTER } from '@/constants/router';
-import { AUTH_ERROR_TYPES } from '@/constants/auth';
+import { AUTH_ERROR_TYPES, AUTH_METHOD } from '@/constants/auth';
 import { ERROR_MESSAGES } from '@/constants/message';
 
 const login = async (_: string | undefined, user: FormData) => {
-  try {
-    await signIn('credentials', user);
+  let errorOccurred = false;
 
-    redirect(ROUTER.HOME);
+  try {
+    await signIn(AUTH_METHOD.CREDENTIALS, user);
   } catch (error) {
     if (error instanceof AuthError) {
-      const errorMessages: { [key: string]: string } = {
-        [AUTH_ERROR_TYPES.CREDENTIALS_SIGN_IN]:
-          ERROR_MESSAGES.EMAIL_PASSWORD_INVALID,
-      };
-      return errorMessages[error.type] || ERROR_MESSAGES.UNKNOWN_ERROR;
+      errorOccurred = true;
+
+      switch (error.type) {
+        case AUTH_ERROR_TYPES.CREDENTIALS_SIGN_IN:
+          return ERROR_MESSAGES.EMAIL_PASSWORD_INVALID;
+        default:
+          return ERROR_MESSAGES.UNKNOWN_ERROR;
+      }
     }
+
     throw error;
+  } finally {
+    if (!errorOccurred) {
+      redirect(ROUTER.HOME);
+    }
   }
 };
 
