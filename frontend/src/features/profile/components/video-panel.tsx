@@ -4,7 +4,7 @@ import { Camera } from 'lucide-react';
 import { MOCK_VIDEOS } from '@/__mocks__/user';
 
 // Components
-import Panel from '@/components/sections/panel';
+import { Panel } from '@/components/sections/panel';
 import Video from './video';
 import { convertSecondsToMinutes } from '@/utils/number';
 

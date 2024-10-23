@@ -14,12 +14,13 @@ import { IMAGES } from '@/constants/images';
 
 // Utils
 import { getFirstLetters, getFullName } from '@/utils/string';
+import { memo } from 'react';
 
 interface UserPopoverProps {
   user: UserDetail;
 }
 
-const UserContentPopover = ({ user }: UserPopoverProps) => {
+export const UserContentPopover = memo(({ user }: UserPopoverProps) => {
   const {
     avatar,
     firstName,
@@ -90,6 +91,6 @@ const UserContentPopover = ({ user }: UserPopoverProps) => {
       </CardFooter>
     </Card>
   );
-};
+});
 
-export default UserContentPopover;
+UserContentPopover.displayName = 'UserContentPopover';

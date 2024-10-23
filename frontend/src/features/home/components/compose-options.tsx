@@ -30,6 +30,7 @@ import { useDisclosure } from '@/hooks/use-disclosure';
 import { cn } from '@/utils/cn';
 
 interface ComposeOptionsProps {
+  isOverlayOpen: boolean;
   mediaInputRef: RefObject<HTMLInputElement>;
   onFileChange: (event: ChangeEvent<HTMLInputElement>) => void;
   onOpenOverlay: () => void;
@@ -69,6 +70,7 @@ const OptionButton = ({
 
 export const ComposeOptions = memo(
   ({
+    isOverlayOpen,
     mediaInputRef,
     onFileChange,
     onOpenOverlay,
@@ -90,16 +92,18 @@ export const ComposeOptions = memo(
       onOpenOverlay();
     }, [onOpenComposeOptions, onOpenOverlay]);
 
+    const isOpenMoreOptions = isOverlayOpen && isOpenComposeOptions;
+
     return (
       <div
         className={cn(
           'flex gap-2.5 justify-start items-center p-2',
-          isOpenComposeOptions && 'grid grid-cols-2 gap-2.5',
+          isOpenMoreOptions && 'grid grid-cols-2 gap-2.5',
         )}
       >
         <OptionButton
           icon={CameraIcon}
-          text={isOpenComposeOptions ? 'Photo/Video' : 'Media'}
+          text={isOpenMoreOptions ? 'Photo/Video' : 'Media'}
           onClick={handleOptionClick}
         >
           <FormField
@@ -123,11 +127,11 @@ export const ComposeOptions = memo(
 
         <OptionButton
           icon={() => <EmojiIcon customClass="w-5 h-5" />}
-          text={isOpenComposeOptions ? 'Mood/Activity' : 'Activity'}
+          text={isOpenMoreOptions ? 'Mood/Activity' : 'Activity'}
           onClick={onOpenMoods}
         />
 
-        {isOpenComposeOptions ? (
+        {isOpenMoreOptions ? (
           <>
             <OptionButton
               icon={TagIcon}

@@ -1,10 +1,14 @@
 'use client';
 import { Briefcase, Gift } from 'lucide-react';
 
+// Constants
+import { MOCK_NEWS_FEED } from '@/__mocks__/news-feed';
+
 import { ComposeFeedCard } from './compose-feed-card';
 import NotificationWidget from './notification-widget';
 import StoriesWidget from './stories-widget';
 import SuggestFriendsWidget from './suggest-friends-widget';
+import { NewsFeedCard } from './news-feed-card';
 
 // Hooks
 import { useDisclosure } from '@/hooks/use-disclosure';
@@ -31,7 +35,7 @@ export const ActivityFeed = () => {
     <div className="py-5 min-h-full">
       <div className="h-full grid grid-cols-12 gap-6">
         <div className="hidden lg:flex col-span-3 flex-col gap-6">
-          <h3>this is widgets 1</h3>
+          <SuggestFriendsWidget />
         </div>
         <div className="col-span-12 lg:col-span-6 flex flex-col gap-6">
           <ComposeFeedCard
@@ -39,6 +43,9 @@ export const ActivityFeed = () => {
             onOpensOverlay={onOpensOverlay}
             onCloseOverlay={onCloseOverlay}
           />
+          <div>
+            <NewsFeedCard newsFeed={MOCK_NEWS_FEED} />
+          </div>
         </div>
         <div className="hidden lg:flex col-span-3 flex-col gap-6">
           <StoriesWidget onAddStory={handleAddStory} />
@@ -53,7 +60,6 @@ export const ActivityFeed = () => {
             notificationCount={27}
           />
           <SuggestFriendsWidget />
-
           <NotificationWidget
             avatar={MOCK_FRIENDS[0].avatar || '/images/avatar-placeholder.svg'}
             iconContent={<JobIcon />}

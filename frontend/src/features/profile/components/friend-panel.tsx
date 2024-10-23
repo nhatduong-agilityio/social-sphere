@@ -1,16 +1,31 @@
-import { EllipsisVertical, Users } from 'lucide-react';
+import { Users } from 'lucide-react';
 
 // Mocks
 import { MOCK_FRIENDS } from '@/__mocks__/user';
 
 // Components
-import Panel from '@/components/sections/panel';
-import { UserCard } from '@/components/sections/user-card';
+import { Panel } from '@/components/sections/panel';
+import { UserCardHeader } from '@/components/sections/user-card-header';
+import { Card } from '@/components/ui/card';
+
+// Utils
+import { getFullName } from '@/utils/string';
 
 const FriendPanel = () => {
-  const renderListFriends = MOCK_FRIENDS.map((user) => (
-    <UserCard key={user.id} user={user} endIcon={<EllipsisVertical />} />
-  ));
+  const renderListFriends = MOCK_FRIENDS.map((user) => {
+    const title = getFullName(user.firstName, user.lastName);
+    const description = `${user.countFriends} Friends`;
+    return (
+      <Card key={user.id} className="border-none">
+        <UserCardHeader
+          user={user}
+          title={title}
+          description={description}
+          className="cursor-pointer dark:bg-dark-400 dark:border-dark-400"
+        />
+      </Card>
+    );
+  });
 
   return (
     <Panel
