@@ -2,6 +2,8 @@ export interface UserDetail {
   id: string;
   firstName: string;
   lastName: string;
+  username?: string;
+  password?: string;
   email?: string;
   avatar?: string;
   banner?: string;
