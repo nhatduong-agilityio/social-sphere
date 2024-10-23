@@ -1,3 +1,5 @@
+import { IPagination } from './pagination';
+
 export type UserDetail = {
   id: string;
   firstName: string;
@@ -13,4 +15,9 @@ export type UserDetail = {
     countryCode: string;
     city: string;
   };
+};
+
+export type IUserResponse = {
+  data: UserDetail[];
+  meta: { pagination: IPagination };
 };

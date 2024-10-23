@@ -6,9 +6,14 @@ import { ROUTER } from '@/constants/router';
 const isAuthorized = (auth: Session | null, nextUrl: URL) => {
   const isLoggedIn = !!auth?.user;
   const isSignInPage = nextUrl.pathname === ROUTER.LOGIN;
+  const isOnboardingPage = nextUrl.pathname === ROUTER.ONBOARDING;
 
   if (isLoggedIn && isSignInPage) {
     return Response.redirect(new URL(ROUTER.HOME, nextUrl));
+  }
+
+  if (!isLoggedIn && isOnboardingPage) {
+    return true;
   }
 
   if (!isLoggedIn && !isSignInPage) {
@@ -21,6 +26,7 @@ const isAuthorized = (auth: Session | null, nextUrl: URL) => {
 export const authConfig = {
   pages: {
     signIn: ROUTER.LOGIN,
+    newUser: ROUTER.ONBOARDING,
   },
   callbacks: {
     authorized({ auth, request: { nextUrl } }) {

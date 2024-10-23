@@ -1,5 +1,42 @@
 import type { Struct, Schema } from '@strapi/strapi';
 
+export interface ApiSocialSphereUserSocialSphereUser
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'social_sphere_users';
+  info: {
+    singularName: 'social-sphere-user';
+    pluralName: 'social-sphere-users';
+    displayName: 'social_sphere_user';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    firstName: Schema.Attribute.String;
+    lastName: Schema.Attribute.String;
+    email: Schema.Attribute.Email;
+    password: Schema.Attribute.Text;
+    avatar: Schema.Attribute.String;
+    banner: Schema.Attribute.String;
+    countFriends: Schema.Attribute.BigInteger;
+    job: Schema.Attribute.String;
+    location: Schema.Attribute.JSON;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::social-sphere-user.social-sphere-user'
+    >;
+  };
+}
+
 export interface PluginUploadFile extends Struct.CollectionTypeSchema {
   collectionName: 'files';
   info: {
@@ -850,6 +887,7 @@ export interface AdminTransferTokenPermission
 declare module '@strapi/strapi' {
   export module Public {
     export interface ContentTypeSchemas {
+      'api::social-sphere-user.social-sphere-user': ApiSocialSphereUserSocialSphereUser;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::i18n.locale': PluginI18NLocale;

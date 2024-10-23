@@ -4,11 +4,17 @@ import Credentials from 'next-auth/providers/credentials';
 // Schemas
 import { FormSchema } from '@/features/auth/lib/schema';
 
-// Mocks
-import { MOCK_FRIENDS } from '@/__mocks__/user';
-
 // Config
 import { authConfig } from '@/auth.config';
+
+// Constants
+import { API_ENDPOINT } from '@/constants/api-endpoint';
+
+// Services
+import { apiClient } from '@/services/api';
+
+// Types
+import { IUserResponse } from '@/types/user';
 
 const CredentialsProvider = Credentials({
   authorize: async (credentials) => {
@@ -17,11 +23,17 @@ const CredentialsProvider = Credentials({
     if (parsedCredentials.success) {
       const { email, password } = parsedCredentials.data;
 
-      const user = MOCK_FRIENDS.find(
-        (friend) => friend.email === email && friend.password === password,
-      );
+      const url = `${API_ENDPOINT.USERS}?filters[email][$eq]=${email}&?filters[password][$eq]=${password}`;
 
-      if (user) {
+      const users = await apiClient.get<IUserResponse>(url, {
+        headers: {
+          Authorization: `Bearer ${process.env.API_TOKEN}`,
+        },
+        cache: 'no-store',
+      });
+
+      if (users.data.length > 0) {
+        const user = users.data[0];
         return user;
       } else {
         return null;
