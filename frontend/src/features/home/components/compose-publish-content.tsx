@@ -23,7 +23,7 @@ import { ComposeFormContent } from './compose-form-content';
 // Hooks
 import { useComposeFeedForm } from '../hooks/use-compose-feed-form';
 import { useComposeDisclosure } from '../hooks/use-compose-disclosure';
-import { useDisclosure } from '@/hooks/use-disclosure';
+import { useDisclosure } from '@/hooks';
 
 interface ComposePublishContentProps {
   isOverlayOpen: boolean;

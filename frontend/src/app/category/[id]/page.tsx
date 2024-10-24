@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { ROUTER } from '@/constants';
 
 // Components
-import { ChevronRightIcon } from '@/icons/chevron-right-icon';
+import { ChevronRightIcon } from '@/icons';
 import { CategoryDetailSkeleton } from '@/features/category/components/category-detail-skeleton';
 import { CategoryDetail } from '@/features/category/components/category-detail';
 

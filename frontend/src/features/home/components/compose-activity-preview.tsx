@@ -2,17 +2,18 @@
 
 import { Fragment, memo, useEffect, useState } from 'react';
 import { CircleFlag } from 'react-circle-flags';
+import Image from 'next/image';
 
 // Icons
 import { XIcon } from 'lucide-react';
 
 // Constants
 import { ROUTER } from '@/constants';
+import { MOODS } from '../constants';
 
 // Components
 import { Label } from '@/components/ui/label';
 import { LinkWithIcon } from '@/components/ui/link-with-icon';
-import { getFullName } from '@/utils/string';
 import { Button } from '@/components/ui/button';
 
 // Actions
@@ -22,10 +23,9 @@ import { getTaggedFriends } from '../actions/get-tagged-friends';
 import { UserDetail } from '@/types/user';
 
 // Utils
+import { getFullName } from '@/utils/string';
 import { cn } from '@/utils/cn';
 import { getMoodOptions } from '../utils/feed';
-import Image from 'next/image';
-import { MOODS } from '../constants';
 
 interface ComposeActivityPreviewProps {
   mood: {

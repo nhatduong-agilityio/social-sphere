@@ -1,7 +1,7 @@
 import { memo } from 'react';
 
 // Icons
-import { StarIcon } from '@/icons/star-icon';
+import { StarIcon } from '@/icons';
 
 // Constants
 import { MAX_RATING } from '@/constants';

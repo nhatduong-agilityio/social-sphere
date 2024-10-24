@@ -11,14 +11,13 @@ import { SuggestFriendsWidget } from './suggest-friends-widget';
 import { NewsFeedCard } from './news-feed-card';
 
 // Hooks
-import { useDisclosure } from '@/hooks/use-disclosure';
+import { useDisclosure } from '@/hooks';
 
 // Mocks
 import { MOCK_FRIENDS } from '@/__mocks__/user';
 
 // Icons
-import { BirthdayIcon } from '@/icons/birthday-icon';
-import { JobIcon } from '@/icons/job-icon';
+import { BirthdayIcon, JobIcon } from '@/icons';
 
 export const ActivityFeed = () => {
   const {

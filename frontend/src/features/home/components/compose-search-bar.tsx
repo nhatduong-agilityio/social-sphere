@@ -15,7 +15,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { DialogClose, DialogContainer } from '@/components/ui/dialog';
 
 // Hooks
-import { useDisclosure } from '@/hooks/use-disclosure';
+import { useDisclosure } from '@/hooks';
 
 // Types
 import { UserDetail } from '@/types/user';

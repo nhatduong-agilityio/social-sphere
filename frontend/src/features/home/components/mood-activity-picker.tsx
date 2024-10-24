@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useEffect, useCallback, useMemo, memo, useRef } from 'react';
 import { CircleFlag } from 'react-circle-flags';
 import Image from 'next/image';
@@ -15,14 +17,10 @@ import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 
 // Hooks
-import { useDebounce } from '@/hooks/use-debounce';
-import { useFocusState } from '@/hooks/use-focus-state';
+import { useDebounce, useFocusState, useOnClickOutside } from '@/hooks';
 
 // Types
 import { Option } from '@/types/option';
-
-// Hooks
-import { useOnClickOutside } from '@/hooks/use-on-click-outside';
 
 // Utils
 import { cn } from '@/utils/cn';

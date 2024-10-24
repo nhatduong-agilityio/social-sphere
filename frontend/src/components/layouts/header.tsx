@@ -6,6 +6,11 @@ import { memo, useCallback, useMemo } from 'react';
 import { BrandLink } from '../sections/brand-link';
 import { Button } from '../ui/button';
 import { SearchInput } from '../ui/search-input';
+import { CircleOverlay } from '../sections/circle-overlay';
+import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
+import { PopoverContainer } from '../ui/popover';
+import { Text } from '../ui/text';
+import { SwitchTheme } from '../sections/switch-theme';
 
 // Utils
 import { cn } from '@/utils/cn';
@@ -23,12 +28,7 @@ import {
 } from 'lucide-react';
 
 // Hooks
-import { useDisclosure } from '@/hooks/use-disclosure';
-import { CircleOverlay } from '../sections/circle-overlay';
-import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
-import { PopoverContainer } from '../ui/popover';
-import { Text } from '../ui/text';
-import { SwitchTheme } from '../sections/switch-theme';
+import { useDisclosure } from '@/hooks';
 
 interface HeaderProps {
   isAuthenticated?: boolean;
