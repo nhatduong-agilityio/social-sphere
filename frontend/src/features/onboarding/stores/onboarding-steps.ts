@@ -3,10 +3,10 @@ import { createWithEqualityFn } from 'zustand/traditional';
 import { shallow } from 'zustand/shallow';
 
 // Models
-import { OnboardingAccountType, OnboardingStepData } from '../models';
+import { OnboardingStepData } from '../models';
 
 // Constants
-import { ONBOARDING_STEPS } from '../constants';
+import { AUTH_INITIAL_STATE, ONBOARDING_STEPS } from '../constants';
 
 export type OnboardingState = {
   currentStep: number;
@@ -23,18 +23,7 @@ export type OnboardingStore = OnboardingState & OnboardingActions;
 
 export const onboardingInitState: OnboardingState = {
   currentStep: ONBOARDING_STEPS[0].stepNumber,
-  onboardingData: {
-    accountType: OnboardingAccountType.PublicPerson,
-    aboutInfo: {
-      firstName: '',
-      lastName: '',
-      email: '',
-    },
-    profilePicture: '',
-    accountSecure: {
-      phoneNumber: '',
-    },
-  },
+  onboardingData: AUTH_INITIAL_STATE,
 };
 
 export const useOnboardingStore = createWithEqualityFn<OnboardingStore>()(

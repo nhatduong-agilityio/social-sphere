@@ -24,6 +24,15 @@ import { SecureAccountSchema } from '../lib';
 // Stores
 import { useOnboardingStore } from '../stores';
 
+// Types
+import { IUserRequest } from '@/types';
+
+// Actions
+import { register } from '../actions';
+
+// Hooks
+import { toast } from '@/hooks/use-toast';
+
 export const SecureAccount = () => {
   const [currentStep, setCurrentStep, onboardingData, setOnboardingData] =
     useOnboardingStore((state) => [
@@ -43,13 +52,37 @@ export const SecureAccount = () => {
   });
 
   const handleNextButton = useCallback(
-    ({ phoneNumber }: z.infer<typeof SecureAccountSchema>) => {
+    async ({ phoneNumber, password }: z.infer<typeof SecureAccountSchema>) => {
+      const payload: IUserRequest = {
+        firstName: onboardingData.aboutInfo.firstName,
+        lastName: onboardingData.aboutInfo.lastName,
+        email: onboardingData.aboutInfo.email,
+        password,
+        phoneNumber,
+        profilePicture: onboardingData.profilePicture,
+        accountType: onboardingData.accountType,
+      };
+
+      const response = await register(payload);
+
+      if (response?.error) {
+        return toast({
+          title: 'Error messages:',
+          description: (
+            <pre className="mt-2 w-[340px] rounded-md bg-red-500 p-4">
+              <code className="text-white">{response?.error}</code>
+            </pre>
+          ),
+        });
+      }
+
       setOnboardingData({
         ...onboardingData,
         accountSecure: {
           phoneNumber,
         },
       });
+
       setCurrentStep(currentStep + 1);
     },
     [currentStep, onboardingData, setCurrentStep, setOnboardingData],

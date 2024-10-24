@@ -28,7 +28,7 @@ import { SwitchTheme, CircleOverlay } from '@/components/sections';
 import { FormSchema } from '../lib';
 
 // Actions
-import { login } from '../action';
+import { login } from '../actions';
 
 const initialState = {
   email: '',

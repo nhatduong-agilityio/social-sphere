@@ -12,6 +12,10 @@ const isAuthorized = (auth: Session | null, nextUrl: URL) => {
     return Response.redirect(new URL(ROUTER.HOME, nextUrl));
   }
 
+  if (isLoggedIn && isOnboardingPage) {
+    return Response.redirect(new URL(ROUTER.HOME, nextUrl));
+  }
+
   if (!isLoggedIn && isOnboardingPage) {
     return true;
   }

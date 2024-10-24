@@ -7,7 +7,11 @@ import {
   UserIcon,
 } from 'lucide-react';
 
-import { OnboardingStep } from '../models';
+import {
+  OnboardingAccountType,
+  OnboardingStep,
+  OnboardingStepData,
+} from '../models';
 
 export const ONBOARDING_STEPS: OnboardingStep[] = [
   {
@@ -41,3 +45,16 @@ export const ONBOARDING_STEPS: OnboardingStep[] = [
     icon: <FlagIcon size={16} />,
   },
 ];
+
+export const AUTH_INITIAL_STATE: OnboardingStepData = {
+  accountType: OnboardingAccountType.PublicPerson,
+  aboutInfo: {
+    firstName: '',
+    lastName: '',
+    email: '',
+  },
+  profilePicture: '',
+  accountSecure: {
+    phoneNumber: '',
+  },
+};

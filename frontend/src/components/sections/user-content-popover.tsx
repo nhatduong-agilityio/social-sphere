@@ -29,7 +29,7 @@ interface UserPopoverProps {
 
 export const UserContentPopover = memo(({ user }: UserPopoverProps) => {
   const {
-    avatar,
+    profilePicture,
     firstName,
     lastName,
     countFriends = 0,
@@ -52,7 +52,7 @@ export const UserContentPopover = memo(({ user }: UserPopoverProps) => {
 
         <Avatar className="absolute w-[50px] h-[50px] -bottom-6 right-4 border-3 border-slate-900">
           <AvatarImage
-            src={avatar}
+            src={profilePicture}
             alt={`Avatar of the user-${getFullName(firstName, lastName)} in team`}
           />
           <AvatarFallback>
