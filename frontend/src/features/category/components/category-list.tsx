@@ -2,7 +2,7 @@
 import { getCategoryList } from '@/api/category';
 
 // Models
-import { ROUTER } from '@/constants/router';
+import { ROUTER } from '@/constants';
 import { CategoryModel } from '@/models/category-model';
 
 // Components

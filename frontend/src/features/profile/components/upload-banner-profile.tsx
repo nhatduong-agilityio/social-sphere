@@ -14,7 +14,7 @@ import { Input } from '@/components/ui/input';
 import { PictureProfileSchema } from '../lib/schema';
 
 // Constants
-import { IMAGES } from '@/constants/images';
+import { IMAGES } from '@/constants';
 
 // Hooks
 import { toast } from '@/hooks/use-toast';

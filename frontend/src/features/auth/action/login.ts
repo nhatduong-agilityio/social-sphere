@@ -7,9 +7,12 @@ import { redirect } from 'next/navigation';
 import { signIn, signOut } from '@/auth';
 
 // Constants
-import { ROUTER } from '@/constants/router';
-import { AUTH_ERROR_TYPES, AUTH_METHOD } from '@/constants/auth';
-import { ERROR_MESSAGES } from '@/constants/message';
+import {
+  ROUTER,
+  AUTH_ERROR_TYPES,
+  AUTH_METHOD,
+  ERROR_MESSAGES,
+} from '@/constants';
 
 const login = async (_: string | undefined, user: FormData) => {
   let errorOccurred = false;

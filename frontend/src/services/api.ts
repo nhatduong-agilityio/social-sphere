@@ -1,4 +1,4 @@
-import { BASE_URL } from '@/constants/api-endpoint';
+import { BASE_URL } from '@/constants';
 
 const handleResponse = async <T>(response: Response): Promise<T> => {
   if (!response.ok) {

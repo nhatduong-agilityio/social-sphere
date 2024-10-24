@@ -10,7 +10,7 @@ import {
 } from '@/features/profile/components';
 
 // Constants
-import { TABS } from '@/constants/nav-tab';
+import { TABS } from '@/constants';
 
 export const ProfileLayout = ({ children }: { children: ReactNode }) => (
   <main className="py-2">

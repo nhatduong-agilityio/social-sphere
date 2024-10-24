@@ -1,7 +1,7 @@
 import { memo } from 'react';
 
 // Constants
-import { ONBOARDING_STEPS } from '../constants/onboarding';
+import { ONBOARDING_STEPS } from '../constants';
 
 // Components
 import { Circle } from '@/components/ui/circle';

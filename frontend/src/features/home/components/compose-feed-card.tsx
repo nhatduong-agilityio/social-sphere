@@ -3,7 +3,7 @@
 import { useCallback, useMemo, useState } from 'react';
 
 // Constants
-import { ComposeTabValue, TAB_DIALOG_CONTENT } from '../constants/compose-tab';
+import { ComposeTabValue, TAB_DIALOG_CONTENT } from '../constants';
 
 // Components
 import { Tabs, TabsContent } from '@/components/ui/tabs';

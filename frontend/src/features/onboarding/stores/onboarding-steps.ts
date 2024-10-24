@@ -9,7 +9,7 @@ import {
 } from '../models/onboarding';
 
 // Constants
-import { ONBOARDING_STEPS } from '../constants/onboarding';
+import { ONBOARDING_STEPS } from '../constants';
 
 export type OnboardingState = {
   currentStep: number;

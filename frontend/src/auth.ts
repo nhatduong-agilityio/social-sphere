@@ -8,7 +8,7 @@ import { FormSchema } from '@/features/auth/lib/schema';
 import { authConfig } from '@/auth.config';
 
 // Constants
-import { API_ENDPOINT } from '@/constants/api-endpoint';
+import { API_ENDPOINT } from '@/constants';
 
 // Services
 import { apiClient } from '@/services/api';

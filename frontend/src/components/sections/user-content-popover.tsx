@@ -10,7 +10,7 @@ import { Button } from '@/components/ui/button';
 import { UserDetail } from '@/types/user';
 
 // Constants
-import { IMAGES } from '@/constants/images';
+import { IMAGES } from '@/constants';
 
 // Utils
 import { getFirstLetters, getFullName } from '@/utils/string';

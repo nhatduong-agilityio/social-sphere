@@ -8,7 +8,7 @@ import Image, { StaticImageData } from 'next/image';
 import { Button } from '@/components/ui/button';
 
 // Constants
-import { IMAGES } from '@/constants/images';
+import { IMAGES } from '@/constants';
 
 interface BannerProps {
   imageUrl?: string | StaticImageData;

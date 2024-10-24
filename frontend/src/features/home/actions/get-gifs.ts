@@ -1,6 +1,6 @@
 import { ApiDataResponse } from '@/types/api';
 import { GifResponse, GifItem } from '../models/gif';
-import { API_ENDPOINT } from '@/constants/api-endpoint';
+import { API_ENDPOINT } from '@/constants';
 
 export const getGifs = async (
   queryParams?: string,

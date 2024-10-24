@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 // Constants
-import { EMAIL_REGEX, PASSWORD_REGEX } from '@/constants/regex';
+import { EMAIL_REGEX, PASSWORD_REGEX } from '@/constants';
 
 export const FormSchema = z.object({
   email: z.string().regex(EMAIL_REGEX, {

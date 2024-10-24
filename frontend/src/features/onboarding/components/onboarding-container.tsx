@@ -2,9 +2,11 @@
 
 import { ReactNode } from 'react';
 
+// Constants
+import { ONBOARDING_STEPS } from '../constants';
+
 // Stores
 import { useOnboardingStore } from '../stores/onboarding-steps';
-import { ONBOARDING_STEPS } from '../constants/onboarding';
 
 interface OnboardingContainerProps {
   selectAccountType: ReactNode;

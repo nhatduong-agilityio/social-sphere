@@ -1,5 +1,5 @@
 // Constants
-import { API_ENDPOINT } from '@/constants/api-endpoint';
+import { API_ENDPOINT } from '@/constants';
 
 // Models
 import { CategoryModel } from '@/models/category-model';
