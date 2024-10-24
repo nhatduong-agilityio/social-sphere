@@ -43,7 +43,7 @@ const FriendItem = ({
   friend: UserDetail;
   onSelectFriend: (friendId: string) => void;
 }) => {
-  const { avatar, id, firstName, lastName, location } = friend;
+  const { profilePicture, id, firstName, lastName, location } = friend;
 
   return (
     <li
@@ -52,7 +52,10 @@ const FriendItem = ({
     >
       <div className="w-fit h-fit rounded-full relative">
         <Avatar size="md">
-          <AvatarImage src={avatar} alt={`Avatar of the friend-${id}`} />
+          <AvatarImage
+            src={profilePicture}
+            alt={`Avatar of the friend-${id}`}
+          />
           <AvatarFallback>
             {getFirstLetters(firstName, lastName)}
           </AvatarFallback>

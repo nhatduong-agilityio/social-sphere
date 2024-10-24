@@ -24,6 +24,12 @@ import { useOnboardingStore } from '../stores';
 // Libs
 import { EnterAboutInfoSchema } from '../lib';
 
+// Actions
+import { checkEmailExists } from '../actions';
+
+// Hooks
+import { toast } from '@/hooks/use-toast';
+
 export const EnterAboutInfo = () => {
   const [currentStep, setCurrentStep, onboardingData, setOnboardingData] =
     useOnboardingStore((state) => [
@@ -39,7 +45,20 @@ export const EnterAboutInfo = () => {
   });
 
   const handleNextButton = useCallback(
-    (aboutInfo: z.infer<typeof EnterAboutInfoSchema>) => {
+    async (aboutInfo: z.infer<typeof EnterAboutInfoSchema>) => {
+      const isEmailExist = await checkEmailExists(aboutInfo.email);
+
+      if (isEmailExist) {
+        return toast({
+          title: 'Error messages:',
+          description: (
+            <pre className="mt-2 w-[340px] rounded-md bg-red-500 p-4">
+              <code className="text-white">Email already exists</code>
+            </pre>
+          ),
+        });
+      }
+
       setOnboardingData({ ...onboardingData, aboutInfo });
       setCurrentStep(currentStep + 1);
     },

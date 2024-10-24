@@ -1,5 +1,10 @@
 import { BASE_URL } from '@/constants';
 
+const headers = {
+  'Content-Type': 'application/json',
+  Authorization: `Bearer ${process.env.API_TOKEN}`,
+};
+
 const handleResponse = async <T>(response: Response): Promise<T> => {
   if (!response.ok) {
     throw new Error(`Error: ${response.statusText}`);
@@ -22,6 +27,23 @@ export const get = async <T>(
   return fetchData<T>(url, configOptions || {});
 };
 
-const apiClient = { get };
+export const post = async <T>(
+  path: string,
+  body: object,
+  configOptions?: RequestInit,
+): Promise<T> => {
+  const url = `${BASE_URL}/${path}`;
+
+  const options: RequestInit = {
+    method: 'POST',
+    headers,
+    body: JSON.stringify(body),
+    ...configOptions,
+  };
+
+  return fetchData<T>(url, options);
+};
+
+const apiClient = { get, post };
 
 export { apiClient };

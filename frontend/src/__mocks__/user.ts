@@ -8,7 +8,7 @@ export const MOCK_FRIENDS: UserDetail[] = [
     password: '1@Dzxcvb',
     lastName: 'Doe',
     countFriends: 3,
-    avatar: 'https://i.pravatar.cc/300',
+    profilePicture: 'https://i.pravatar.cc/300',
     location: {
       city: 'Melbourne',
       countryCode: 'au',
@@ -19,7 +19,7 @@ export const MOCK_FRIENDS: UserDetail[] = [
     firstName: 'Nelly',
     lastName: 'Schwartz',
     countFriends: 1,
-    avatar: 'https://i.pravatar.cc/300',
+    profilePicture: 'https://i.pravatar.cc/300',
     location: {
       city: 'New York',
       countryCode: 'us',
@@ -30,7 +30,7 @@ export const MOCK_FRIENDS: UserDetail[] = [
     firstName: 'Mike',
     lastName: 'Lasalle',
     countFriends: 2,
-    avatar: 'https://i.pravatar.cc/300',
+    profilePicture: 'https://i.pravatar.cc/300',
     location: {
       city: 'Berlin',
       countryCode: 'de',
@@ -41,7 +41,7 @@ export const MOCK_FRIENDS: UserDetail[] = [
     firstName: 'Sarah',
     lastName: 'Johnson',
     countFriends: 4,
-    avatar: 'https://i.pravatar.cc/300',
+    profilePicture: 'https://i.pravatar.cc/300',
     location: {
       city: 'London',
       countryCode: 'gb',
@@ -52,7 +52,7 @@ export const MOCK_FRIENDS: UserDetail[] = [
     firstName: 'Stella',
     lastName: 'Bergmann',
     countFriends: 0,
-    avatar: 'https://i.pravatar.cc/300',
+    profilePicture: 'https://i.pravatar.cc/300',
     location: {
       city: 'Los Angeles',
       countryCode: 'us',
@@ -63,7 +63,7 @@ export const MOCK_FRIENDS: UserDetail[] = [
     firstName: 'David',
     lastName: 'Kim',
     countFriends: 0,
-    avatar: 'https://i.pravatar.cc/300',
+    profilePicture: 'https://i.pravatar.cc/300',
     location: {
       city: 'Ha Noi',
       countryCode: 'vn',

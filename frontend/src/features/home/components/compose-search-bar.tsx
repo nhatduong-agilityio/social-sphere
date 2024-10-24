@@ -123,27 +123,29 @@ export const ComposeSearchBar = memo(
                 </Label>
               </div>
               <ul className="p-3">
-                {selectedFriends.map(({ id, firstName, lastName, avatar }) => (
-                  <li key={id} className="flex items-center gap-3 py-[6px]">
-                    <div className="w-10 h-10 relative">
-                      <Avatar>
-                        <AvatarImage
-                          src={avatar}
-                          alt={`Avatar of the user-${getFullName(firstName, lastName)} in team`}
-                        />
-                        <AvatarFallback className="bg-neutral-400">
-                          {getFirstLetters(firstName, lastName)}
-                        </AvatarFallback>
-                      </Avatar>
-                      <Circle className="border-2 border-white absolute bottom-0 right-[-1px] w-[18px] h-[18px] bg-neutral-400">
-                        <CheckIcon size={8} className="text-white" />
-                      </Circle>
-                    </div>
-                    <Label variant="neutral">
-                      {getFullName(firstName, lastName)}
-                    </Label>
-                  </li>
-                ))}
+                {selectedFriends.map(
+                  ({ id, firstName, lastName, profilePicture }) => (
+                    <li key={id} className="flex items-center gap-3 py-[6px]">
+                      <div className="w-10 h-10 relative">
+                        <Avatar>
+                          <AvatarImage
+                            src={profilePicture}
+                            alt={`Avatar of the user-${getFullName(firstName, lastName)} in team`}
+                          />
+                          <AvatarFallback className="bg-neutral-400">
+                            {getFirstLetters(firstName, lastName)}
+                          </AvatarFallback>
+                        </Avatar>
+                        <Circle className="border-2 border-white absolute bottom-0 right-[-1px] w-[18px] h-[18px] bg-neutral-400">
+                          <CheckIcon size={8} className="text-white" />
+                        </Circle>
+                      </div>
+                      <Label variant="neutral">
+                        {getFullName(firstName, lastName)}
+                      </Label>
+                    </li>
+                  ),
+                )}
               </ul>
             </div>
           </div>

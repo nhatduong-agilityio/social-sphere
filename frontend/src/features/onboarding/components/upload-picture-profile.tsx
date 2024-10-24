@@ -33,7 +33,9 @@ export const UploadPictureProfile = () => {
   const { currentStep, setCurrentStep, onboardingData, setOnboardingData } =
     useOnboardingStore();
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const [selectedImageUrl, setSelectedImageUrl] = useState<string | null>();
+  const [selectedImageUrl, setSelectedImageUrl] = useState<string | null>(
+    onboardingData.profilePicture,
+  );
 
   const form = useForm<z.infer<typeof PictureProfileSchema>>({
     resolver: zodResolver(PictureProfileSchema),

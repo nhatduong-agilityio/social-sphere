@@ -24,7 +24,7 @@
     "password": {
       "type": "text"
     },
-    "avatar": {
+    "profilePicture": {
       "type": "string"
     },
     "banner": {
@@ -38,6 +38,12 @@
     },
     "location": {
       "type": "json"
+    },
+    "phoneNumber": {
+      "type": "string"
+    },
+    "accountType": {
+      "type": "string"
     }
   }
 }

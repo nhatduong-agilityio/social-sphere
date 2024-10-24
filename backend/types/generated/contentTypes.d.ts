@@ -17,11 +17,13 @@ export interface ApiSocialSphereUserSocialSphereUser
     lastName: Schema.Attribute.String;
     email: Schema.Attribute.Email;
     password: Schema.Attribute.Text;
-    avatar: Schema.Attribute.String;
+    profilePicture: Schema.Attribute.String;
     banner: Schema.Attribute.String;
     countFriends: Schema.Attribute.BigInteger;
     job: Schema.Attribute.String;
     location: Schema.Attribute.JSON;
+    phoneNumber: Schema.Attribute.String;
+    accountType: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

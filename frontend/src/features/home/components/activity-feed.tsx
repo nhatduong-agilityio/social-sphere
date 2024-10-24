@@ -49,7 +49,9 @@ export const ActivityFeed = () => {
         <div className="hidden lg:flex col-span-3 flex-col gap-6">
           <StoriesWidget onAddStory={handleAddStory} />
           <NotificationWidget
-            avatar={MOCK_FRIENDS[0].avatar || '/images/avatar-placeholder.svg'}
+            avatar={
+              MOCK_FRIENDS[0].profilePicture || '/images/avatar-placeholder.svg'
+            }
             iconContent={<BirthdayIcon />}
             customClass="bg-green-100 dark:bg-green-100"
             title="Dan turns 31 today!"
@@ -60,7 +62,9 @@ export const ActivityFeed = () => {
           />
           <SuggestFriendsWidget />
           <NotificationWidget
-            avatar={MOCK_FRIENDS[0].avatar || '/images/avatar-placeholder.svg'}
+            avatar={
+              MOCK_FRIENDS[0].profilePicture || '/images/avatar-placeholder.svg'
+            }
             iconContent={<JobIcon />}
             customClass="bg-blue-600 dark:bg-blue-600"
             title="Nelly has a new job!"
