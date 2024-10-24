@@ -1,10 +1,10 @@
 'use client';
 
 // Types
-import { PageErrorProps } from '@/types/components';
+import { PageErrorProps } from '@/types';
 
 // Components
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui';
 import { Header } from '@/components/layouts';
 
 export default function GlobalError({

@@ -2,12 +2,21 @@
 
 import { ChangeEvent, useCallback, useMemo, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 
 // Components
-import { Button } from '@/components/ui/button';
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+  Button,
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  Input,
+} from '@/components/ui';
 import {
   Bell,
   Camera,
@@ -17,14 +26,12 @@ import {
   PlusIcon,
 } from 'lucide-react';
 import { PopButton } from './pop-button';
-import { Form, FormControl, FormField, FormItem } from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
 
 // Libs
-import { PictureProfileSchema } from '../lib/schema';
+import { PictureProfileSchema } from '../lib';
 
 // Utils
-import { cn } from '@/utils/cn';
+import { cn } from '@/utils';
 
 // Hooks
 import { toast } from '@/hooks';

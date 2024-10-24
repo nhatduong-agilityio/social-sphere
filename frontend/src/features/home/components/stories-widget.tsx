@@ -2,8 +2,13 @@ import { memo } from 'react';
 import { EllipsisVertical, Plus } from 'lucide-react';
 
 // Components
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Button,
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui';
 import { UserPopover } from '@/components/sections';
 import { StoryMeta } from '@/features/home/components';
 
@@ -11,7 +16,7 @@ import { StoryMeta } from '@/features/home/components';
 import { MOCK_FRIENDS } from '@/__mocks__/user';
 
 // Utils
-import { getFullName } from '@/utils/string';
+import { getFullName } from '@/utils';
 
 interface StoriesWidgetProps {
   onAddStory: () => void;

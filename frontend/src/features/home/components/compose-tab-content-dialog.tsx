@@ -5,18 +5,18 @@ import Image from 'next/image';
 
 // Components
 import {
+  Button,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from '@/components/ui/dialog';
-import { Heading } from '@/components/ui/heading';
-import { Text } from '@/components/ui/text';
-import { Button } from '@/components/ui/button';
-import { Circle } from '@/components/ui/circle';
+  Circle,
+  Heading,
+  Text,
+} from '@/components/ui';
 
 // Utils
-import { cn } from '@/utils/cn';
+import { cn } from '@/utils';
 
 interface ComposeTabContentDialogProps {
   tabContent: {

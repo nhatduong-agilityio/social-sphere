@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 // Components
 import { BrandIcon } from '@/icons';
-import { Heading } from '../ui/heading';
+import { Heading } from '../ui';
 
 export const LoginLayout = ({ children }: { children: ReactNode }) => (
   <main className="h-dvh w-dvw flex flex-row relative">

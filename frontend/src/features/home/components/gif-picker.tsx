@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
@@ -9,7 +10,7 @@ import { SearchIcon } from 'lucide-react';
 import { AutoCompleteInput } from '@/components/sections';
 
 // Models
-import { GifItem } from '../models/gif';
+import { GifItem } from '../models';
 
 // Hooks
 import { useDebounce } from '@/hooks';

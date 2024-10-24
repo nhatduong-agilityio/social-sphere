@@ -5,7 +5,7 @@ import { Metadata } from 'next';
 import { ROUTER } from '@/constants';
 
 // Types
-import { SearchParams } from '@/types/search-params';
+import { SearchParams } from '@/types';
 
 // Features
 import { CategoryListSkeleton } from '@/features/category/components/category-list-skeleton';

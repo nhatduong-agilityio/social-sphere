@@ -5,7 +5,7 @@ import { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { Check } from 'lucide-react';
 
-import { cn } from '@/utils/cn';
+import { cn } from '@/utils';
 
 const checkboxVariants = cva(
   'peer h-4 w-4 shrink-0 border border-gray-900 bg-white dark:bg-popover dark:border-dark-500 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:dark:bg-primary data-[state=checked]:text-primary-foreground',

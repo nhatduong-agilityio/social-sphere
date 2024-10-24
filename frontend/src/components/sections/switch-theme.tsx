@@ -2,7 +2,7 @@
 
 // Components
 import { MoonIcon, SunIcon } from 'lucide-react';
-import { Switch } from '../ui/switch';
+import { Switch } from '../ui';
 
 // Hooks
 import { useSetTheme } from '@/hooks';

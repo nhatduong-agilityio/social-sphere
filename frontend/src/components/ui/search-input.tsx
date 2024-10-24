@@ -4,7 +4,7 @@ import { forwardRef, InputHTMLAttributes } from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
 import { SearchIcon, XIcon } from 'lucide-react';
 
-import { cn } from '@/utils/cn';
+import { cn } from '@/utils';
 
 // Hooks
 import { useFocusState } from '@/hooks';

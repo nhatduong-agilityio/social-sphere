@@ -1,10 +1,11 @@
+/* eslint-disable @next/next/no-img-element */
 import { memo } from 'react';
 
 // Icons
 import { XIcon } from 'lucide-react';
 
 // Components
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui';
 
 interface ComposeGifPreviewProps {
   imageUrl: string;

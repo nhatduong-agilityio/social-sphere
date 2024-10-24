@@ -4,7 +4,7 @@ import { memo } from 'react';
 import Image from 'next/image';
 
 // Components
-import { Card, CardTitle } from '@/components/ui/card';
+import { Card, CardTitle } from '@/components/ui';
 import { Rating } from '@/features/profile/components';
 
 interface PlaceProps {

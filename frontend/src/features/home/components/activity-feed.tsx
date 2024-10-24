@@ -1,9 +1,8 @@
 'use client';
+
 import { Briefcase, Gift } from 'lucide-react';
 
-// Constants
-import { MOCK_NEWS_FEED } from '@/__mocks__/news-feed';
-
+// Components
 import { ComposeFeedCard } from './compose-feed-card';
 import { NotificationWidget } from './notification-widget';
 import { StoriesWidget } from './stories-widget';
@@ -14,6 +13,7 @@ import { NewsFeedCard } from './news-feed-card';
 import { useDisclosure } from '@/hooks';
 
 // Mocks
+import { MOCK_NEWS_FEED } from '@/__mocks__/news-feed';
 import { MOCK_FRIENDS } from '@/__mocks__/user';
 
 // Icons

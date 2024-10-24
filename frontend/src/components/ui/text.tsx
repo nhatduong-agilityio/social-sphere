@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 
-import { cn } from '@/utils/cn';
+import { cn } from '@/utils';
 
 const textVariants = cva('text-sm', {
   variants: {

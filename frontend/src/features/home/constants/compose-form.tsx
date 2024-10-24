@@ -1,5 +1,5 @@
 import { COUNTRIES } from '@/constants';
-import { Option } from '@/types/option';
+import { Option } from '@/types';
 import { GlobeIcon, LockIcon, UserIcon, UsersIcon } from 'lucide-react';
 
 export const ACCESS_ITEMS = [

@@ -9,7 +9,7 @@ import {
   ReactNode,
 } from 'react';
 import { XIcon } from 'lucide-react';
-import { cn } from '@/utils/cn';
+import { cn } from '@/utils';
 
 const Dialog = DialogPrimitive.Root;
 

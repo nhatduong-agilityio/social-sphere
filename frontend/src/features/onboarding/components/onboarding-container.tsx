@@ -6,7 +6,7 @@ import { ReactNode } from 'react';
 import { ONBOARDING_STEPS } from '../constants';
 
 // Stores
-import { useOnboardingStore } from '../stores/onboarding-steps';
+import { useOnboardingStore } from '../stores';
 
 interface OnboardingContainerProps {
   selectAccountType: ReactNode;

@@ -4,14 +4,13 @@ import { useMemo } from 'react';
 import { COMPOSE_TAB_TITLES, ComposeTabValue } from '../constants';
 
 // Components
-import { TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Circle } from '@/components/ui/circle';
+import { Circle, TabsList, TabsTrigger } from '@/components/ui';
 
 // Icons
 import { ImageIcon, PenLineIcon, VideoIcon, XIcon } from 'lucide-react';
 
 // Utils
-import { cn } from '@/utils/cn';
+import { cn } from '@/utils';
 
 interface ComposeTabHeaderProps {
   isOverlayOpen: boolean;

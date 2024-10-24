@@ -1,4 +1,4 @@
-import { CustomClassType } from '@/types/components';
+import { CustomClassType } from '@/types';
 
 export const ChevronRightIcon = ({
   customClass = 'w-6 h-6',

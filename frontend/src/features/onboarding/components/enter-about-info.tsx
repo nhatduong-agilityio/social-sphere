@@ -13,14 +13,16 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form';
-import { EnterAboutInfoSchema } from '../lib/schema';
-import { Input } from '@/components/ui/input';
+  Input,
+} from '@/components/ui';
 import { OnboardingFormWrapper } from './onboarding-form-wrapper';
 import { OnboardingFormNavigation } from './onboarding-form-navigation';
 
 // Stores
-import { useOnboardingStore } from '../stores/onboarding-steps';
+import { useOnboardingStore } from '../stores';
+
+// Libs
+import { EnterAboutInfoSchema } from '../lib';
 
 export const EnterAboutInfo = () => {
   const [currentStep, setCurrentStep, onboardingData, setOnboardingData] =

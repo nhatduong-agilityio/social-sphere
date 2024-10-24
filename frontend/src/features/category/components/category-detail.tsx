@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { getCategoryById } from '@/api/category';
 
 // Utils
-import { isNotFound } from '@/utils/api';
+import { isNotFound } from '@/utils';
 
 type CategoryDetailProps = {
   id: string;

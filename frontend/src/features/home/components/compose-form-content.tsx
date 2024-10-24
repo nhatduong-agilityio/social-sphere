@@ -1,15 +1,21 @@
 'use client';
 
 import { memo } from 'react';
+import { Control } from 'react-hook-form';
 
 // Components
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { FormControl, FormField, FormItem } from '@/components/ui/form';
-import { Textarea } from '@/components/ui/textarea';
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+  FormControl,
+  FormField,
+  FormItem,
+  Textarea,
+} from '@/components/ui';
 
 // Hooks
-import { ComposeFeedFormValues } from '../hooks/use-compose-feed-form';
-import { Control } from 'react-hook-form';
+import { ComposeFeedFormValues } from '../hooks';
 
 interface ComposeFormContentProps {
   onOpenOverlay: () => void;

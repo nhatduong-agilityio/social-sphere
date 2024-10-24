@@ -1,4 +1,4 @@
-import { MapboxResponse } from '@/types/map-box';
+import { MapboxResponse } from '@/types';
 import { NextRequest, NextResponse } from 'next/server';
 
 export const GET = async (request: NextRequest) => {

@@ -1,7 +1,7 @@
 import { memo } from 'react';
 
 // Components
-import { Heading } from '@/components/ui/heading';
+import { Heading } from '@/components/ui';
 
 interface OnboardingHeaderProps {
   title: string;

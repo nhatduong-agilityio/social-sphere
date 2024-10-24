@@ -1,20 +1,27 @@
+import { memo } from 'react';
 import Image from 'next/image';
 import { Bookmark, Ellipsis, MapPin, MessageCircle, Users } from 'lucide-react';
 
 // Components
-import { Card, CardContent, CardFooter, CardTitle } from '@/components/ui/card';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Button } from '@/components/ui/button';
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardTitle,
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+  Button,
+} from '@/components/ui';
 
 // Types
-import { UserDetail } from '@/types/user';
+import { UserDetail } from '@/types';
 
 // Constants
 import { IMAGES } from '@/constants';
 
 // Utils
-import { getFirstLetters, getFullName } from '@/utils/string';
-import { memo } from 'react';
+import { getFirstLetters, getFullName } from '@/utils';
 
 interface UserPopoverProps {
   user: UserDetail;

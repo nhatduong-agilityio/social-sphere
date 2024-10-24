@@ -4,27 +4,28 @@ import { ComponentProps, Fragment, memo, ReactNode } from 'react';
 import { EllipsisVertical } from 'lucide-react';
 
 // Components
-import { CardHeader, CardDescription, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import {
+  Button,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '../ui/dropdown-menu';
-import { Heading } from '../ui/heading';
-import { Text } from '../ui/text';
+  CardHeader,
+  CardDescription,
+  CardTitle,
+  Heading,
+  Text,
+} from '../ui';
 
 // Types
-import { UserDetail } from '@/types/user';
-import { Option } from '@/types/option';
+import { UserDetail, Option } from '@/types';
 
 // Constants
 import { UserPopover } from './user-popover';
 
 // Utils
-import { cn } from '@/utils/cn';
+import { cn } from '@/utils';
 
 interface UserCardHeaderProps extends ComponentProps<typeof CardHeader> {
   user: UserDetail;

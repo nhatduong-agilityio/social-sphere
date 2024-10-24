@@ -1,5 +1,5 @@
-import { Text } from '@/components/ui/text';
 import { memo } from 'react';
+import { Text } from '@/components/ui';
 
 interface StoryMetaProps {
   title: string;

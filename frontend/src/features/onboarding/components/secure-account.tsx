@@ -13,14 +13,16 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form';
-import { SecureAccountSchema } from '../lib/schema';
-import { Input } from '@/components/ui/input';
+  Input,
+} from '@/components/ui';
 import { OnboardingFormWrapper } from './onboarding-form-wrapper';
 import { OnboardingFormNavigation } from './onboarding-form-navigation';
 
+// Libs
+import { SecureAccountSchema } from '../lib';
+
 // Stores
-import { useOnboardingStore } from '../stores/onboarding-steps';
+import { useOnboardingStore } from '../stores';
 
 export const SecureAccount = () => {
   const [currentStep, setCurrentStep, onboardingData, setOnboardingData] =

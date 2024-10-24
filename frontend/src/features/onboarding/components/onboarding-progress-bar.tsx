@@ -4,14 +4,13 @@ import { memo } from 'react';
 import { ONBOARDING_STEPS } from '../constants';
 
 // Components
-import { Circle } from '@/components/ui/circle';
-import { Progress } from '@/components/ui/progress';
+import { Circle, Progress } from '@/components/ui';
 
 // Utils
-import { cn } from '@/utils/cn';
+import { cn } from '@/utils';
 
 // Models
-import { OnboardingStep } from '../models/onboarding';
+import { OnboardingStep } from '../models';
 
 interface OnboardingProgressBarProps {
   currentStep: number;

@@ -7,7 +7,7 @@ import {
   UserIcon,
 } from 'lucide-react';
 
-import { OnboardingStep } from '../models/onboarding';
+import { OnboardingStep } from '../models';
 
 export const ONBOARDING_STEPS: OnboardingStep[] = [
   {

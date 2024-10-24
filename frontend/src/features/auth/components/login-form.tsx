@@ -9,24 +9,26 @@ import { z } from 'zod';
 import { CheckIcon, LockIcon, UserIcon } from 'lucide-react';
 
 // Components
-import { Button } from '@/components/ui/button';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+  Button,
   Form,
   FormControl,
   FormField,
   FormItem,
   FormMessage,
-} from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
+  Input,
+  Text,
+} from '@/components/ui';
 import { SwitchTheme, CircleOverlay } from '@/components/sections';
-import { Text } from '@/components/ui/text';
 
 // Libs
-import { FormSchema } from '../lib/schema';
+import { FormSchema } from '../lib';
 
 // Actions
-import { login } from '../action/login';
+import { login } from '../action';
 
 const initialState = {
   email: '',

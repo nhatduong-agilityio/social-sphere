@@ -2,7 +2,7 @@ import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 
 // Schemas
-import { FormSchema } from '@/features/auth/lib/schema';
+import { FormSchema } from '@/features/auth/lib';
 
 // Config
 import { authConfig } from '@/auth.config';
@@ -11,10 +11,10 @@ import { authConfig } from '@/auth.config';
 import { API_ENDPOINT } from '@/constants';
 
 // Services
-import { apiClient } from '@/services/api';
+import { apiClient } from '@/services';
 
 // Types
-import { IUserResponse } from '@/types/user';
+import { IUserResponse } from '@/types';
 
 const CredentialsProvider = Credentials({
   authorize: async (credentials) => {

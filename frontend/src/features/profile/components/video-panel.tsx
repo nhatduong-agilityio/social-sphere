@@ -8,7 +8,7 @@ import { Panel } from '@/components/sections';
 import { Video } from './video';
 
 // Utils
-import { convertSecondsToMinutes } from '@/utils/number';
+import { convertSecondsToMinutes } from '@/utils';
 
 export const VideoPanel = () => {
   const renderListVideos = MOCK_VIDEOS.map(

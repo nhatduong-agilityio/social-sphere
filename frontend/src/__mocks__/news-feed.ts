@@ -1,4 +1,4 @@
-import { NewsFeed } from '@/types/news-feed';
+import { NewsFeed } from '@/types';
 import { MOCK_FRIENDS } from './user';
 
 export const MOCK_NEWS_FEED: NewsFeed = {

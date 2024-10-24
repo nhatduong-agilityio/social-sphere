@@ -6,8 +6,7 @@ import { memo, useCallback, useRef } from 'react';
 import { EllipsisVerticalIcon } from 'lucide-react';
 
 // Components
-import { Form } from '@/components/ui/form';
-import { Button } from '@/components/ui/button';
+import { Button, Form } from '@/components/ui';
 import { ComposeMediaPreview } from './compose-media-preview';
 import { ComposeOptions } from './compose-options';
 import { ComposeSelectAccess } from './compose-select-access';
@@ -21,8 +20,7 @@ import { LocationPicker } from './location-picker';
 import { ComposeFormContent } from './compose-form-content';
 
 // Hooks
-import { useComposeFeedForm } from '../hooks/use-compose-feed-form';
-import { useComposeDisclosure } from '../hooks/use-compose-disclosure';
+import { useComposeFeedForm, useComposeDisclosure } from '../hooks';
 import { useDisclosure } from '@/hooks';
 
 interface ComposePublishContentProps {

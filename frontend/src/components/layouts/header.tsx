@@ -3,17 +3,19 @@
 import { memo, useCallback, useMemo } from 'react';
 
 // Components
-import { BrandLink } from '../sections/brand-link';
-import { Button } from '../ui/button';
-import { SearchInput } from '../ui/search-input';
-import { CircleOverlay } from '../sections/circle-overlay';
-import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
-import { PopoverContainer } from '../ui/popover';
-import { Text } from '../ui/text';
-import { SwitchTheme } from '../sections/switch-theme';
+import { BrandLink, CircleOverlay, SwitchTheme } from '../sections';
+import {
+  Button,
+  SearchInput,
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+  PopoverContainer,
+  Text,
+} from '../ui';
 
 // Utils
-import { cn } from '@/utils/cn';
+import { cn } from '@/utils';
 
 // Icons
 import {

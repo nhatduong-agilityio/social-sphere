@@ -1,6 +1,5 @@
 // Models
-import { SelectAccountType } from '../models/select-account-type';
-import { OnboardingAccountType } from '../models/onboarding';
+import { SelectAccountType, OnboardingAccountType } from '../models';
 
 export const SELECT_ACCOUNT_TYPES: SelectAccountType[] = [
   {

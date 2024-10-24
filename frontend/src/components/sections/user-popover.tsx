@@ -1,15 +1,19 @@
+import { memo } from 'react';
+
 // Components
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { PopoverContainer } from '@/components/ui/popover';
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+  PopoverContainer,
+} from '@/components/ui';
 import { UserContentPopover } from '@/components/sections';
 
 // Utils
-import { getFirstLetters, getFullName } from '@/utils/string';
+import { getFirstLetters, getFullName, cn } from '@/utils';
 
 // Types
-import { UserDetail } from '@/types/user';
-import { cn } from '@/utils/cn';
-import { memo } from 'react';
+import { UserDetail } from '@/types';
 
 interface UserPopoverProps {
   isStories?: boolean;

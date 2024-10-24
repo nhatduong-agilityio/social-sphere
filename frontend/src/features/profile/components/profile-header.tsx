@@ -1,5 +1,5 @@
 // Components
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui';
 import { UploadBannerProfile } from '@/features/profile/components';
 import { ProfileAvatar } from './profile-avatar';
 

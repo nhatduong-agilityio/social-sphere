@@ -3,10 +3,7 @@ import { createWithEqualityFn } from 'zustand/traditional';
 import { shallow } from 'zustand/shallow';
 
 // Models
-import {
-  OnboardingAccountType,
-  OnboardingStepData,
-} from '../models/onboarding';
+import { OnboardingAccountType, OnboardingStepData } from '../models';
 
 // Constants
 import { ONBOARDING_STEPS } from '../constants';

@@ -1,7 +1,7 @@
 import { forwardRef, HTMLAttributes } from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
 
-import { cn } from '@/utils/cn';
+import { cn } from '@/utils';
 
 const circleVariants = cva('rounded-full flex justify-center items-center', {
   variants: {

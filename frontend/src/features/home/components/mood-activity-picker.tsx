@@ -12,19 +12,17 @@ import { MOOD_DETAILS, MOOD_OPTIONS, MOODS } from '../constants';
 
 // Components
 import { AutoCompleteInput } from '@/components/sections';
-import { Text } from '@/components/ui/text';
-import { Label } from '@/components/ui/label';
-import { Button } from '@/components/ui/button';
+import { Button, Label, Text } from '@/components/ui';
 
 // Hooks
 import { useDebounce, useFocusState, useOnClickOutside } from '@/hooks';
 
 // Types
-import { Option } from '@/types/option';
+import { Option } from '@/types';
 
 // Utils
-import { cn } from '@/utils/cn';
-import { getMoodTitle } from '../utils/feed';
+import { cn } from '@/utils';
+import { getMoodTitle } from '../utils';
 
 interface MoodActivityPickerProps {
   onSelectMood: (data: { title: string; content: string }) => void;

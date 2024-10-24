@@ -6,14 +6,13 @@ import { useCallback, useMemo, useState } from 'react';
 import { ComposeTabValue, TAB_DIALOG_CONTENT } from '../constants';
 
 // Components
-import { Tabs, TabsContent } from '@/components/ui/tabs';
+import { Tabs, TabsContent, Dialog } from '@/components/ui';
 import { ComposeTabHeader } from './compose-tab-header';
 import { ComposePublishContent } from './compose-publish-content';
 import { ComposeTabContentDialog } from './compose-tab-content-dialog';
 
 // Utils
-import { cn } from '@/utils/cn';
-import { Dialog } from '@/components/ui/dialog';
+import { cn } from '@/utils';
 
 interface ComposeFeedCardProps {
   isOverlayOpen: boolean;

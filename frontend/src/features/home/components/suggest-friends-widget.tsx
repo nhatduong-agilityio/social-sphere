@@ -3,16 +3,21 @@ import { useCallback, useState } from 'react';
 import { EllipsisVertical, UserPlus } from 'lucide-react';
 
 // Components
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Button,
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  Text,
+} from '@/components/ui';
 import { UserPopover } from '@/components/sections';
-import { Text } from '@/components/ui/text';
 
 // Mocks
 import { MOCK_FRIENDS } from '@/__mocks__/user';
 
 // Utils
-import { getFullName } from '@/utils/string';
+import { getFullName } from '@/utils';
 
 // Icons
 import { CheckmarkIcon } from '@/icons';

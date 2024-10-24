@@ -5,8 +5,8 @@ import Image from 'next/image';
 import { Heart } from 'lucide-react';
 
 // Components
-import { Button } from '@/components/ui/button';
-import { cn } from '@/utils/cn';
+import { Button } from '@/components/ui';
+import { cn } from '@/utils';
 
 interface PhotoProps {
   src: string;

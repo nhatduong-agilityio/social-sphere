@@ -12,19 +12,16 @@ import { ROUTER } from '@/constants';
 import { MOODS } from '../constants';
 
 // Components
-import { Label } from '@/components/ui/label';
-import { LinkWithIcon } from '@/components/ui/link-with-icon';
-import { Button } from '@/components/ui/button';
+import { Label, LinkWithIcon, Button } from '@/components/ui';
 
 // Actions
-import { getTaggedFriends } from '../actions/get-tagged-friends';
+import { getTaggedFriends } from '../actions';
 
 // Types
-import { UserDetail } from '@/types/user';
+import { UserDetail } from '@/types';
 
 // Utils
-import { getFullName } from '@/utils/string';
-import { cn } from '@/utils/cn';
+import { getFullName, cn } from '@/utils';
 import { getMoodOptions } from '../utils/feed';
 
 interface ComposeActivityPreviewProps {
