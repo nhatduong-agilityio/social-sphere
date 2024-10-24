@@ -1,8 +1,6 @@
 import Image from 'next/image';
 import { OnboardingFormWrapper } from './onboarding-form-wrapper';
-import { Heading } from '@/components/ui/heading';
-import { Text } from '@/components/ui/text';
-import { Button } from '@/components/ui/button';
+import { Heading, Text, Button } from '@/components/ui';
 
 export const ConfirmEmail = () => (
   <OnboardingFormWrapper title="You're all set. Ready?">

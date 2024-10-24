@@ -3,7 +3,7 @@
 import { forwardRef, InputHTMLAttributes, ReactNode } from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
 
-import { cn } from '@/utils/cn';
+import { cn } from '@/utils';
 
 // Hooks
 import { useFocusState } from '@/hooks';

@@ -1,4 +1,4 @@
-import { UserDetail } from '@/types/user';
+import { UserDetail } from '@/types';
 
 export const MOCK_FRIENDS: UserDetail[] = [
   {

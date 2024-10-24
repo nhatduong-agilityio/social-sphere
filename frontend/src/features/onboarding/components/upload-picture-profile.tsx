@@ -8,24 +8,26 @@ import { PlusIcon } from 'lucide-react';
 
 // Components
 import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
   Form,
   FormControl,
   FormDescription,
   FormField,
   FormItem,
   FormMessage,
-} from '@/components/ui/form';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
+  Input,
+  Button,
+} from '@/components/ui';
 import { OnboardingFormWrapper } from './onboarding-form-wrapper';
 import { OnboardingFormNavigation } from './onboarding-form-navigation';
 
 // Libs
-import { PictureProfileSchema } from '../lib/schema';
+import { PictureProfileSchema } from '../lib';
 
 // Stores
-import { useOnboardingStore } from '../stores/onboarding-steps';
+import { useOnboardingStore } from '../stores';
 
 export const UploadPictureProfile = () => {
   const { currentStep, setCurrentStep, onboardingData, setOnboardingData } =

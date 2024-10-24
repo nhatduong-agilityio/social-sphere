@@ -8,17 +8,16 @@ import { MapPinIcon } from 'lucide-react';
 
 // Components
 import { AutoCompleteInput } from '@/components/sections';
-import { FormControl, FormField, FormItem } from '@/components/ui/form';
-import { Text } from '@/components/ui/text';
+import { FormControl, FormField, FormItem, Text } from '@/components/ui';
 
 // Hooks
-import { ComposeFeedFormValues } from '../hooks/use-compose-feed-form';
+import { ComposeFeedFormValues } from '../hooks';
 
 // Types
-import { MapboxFeature } from '@/types/map-box';
+import { MapboxFeature } from '@/types';
 
 // Actions
-import { getLocations } from '../actions/get-locations';
+import { getLocations } from '../actions';
 
 interface LocationPickerProps {
   onCloseLocationPicker: () => void;

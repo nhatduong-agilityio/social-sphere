@@ -6,22 +6,27 @@ import { memo } from 'react';
 import { CheckIcon, PlusIcon, SearchIcon } from 'lucide-react';
 
 // Components
-import { Button } from '@/components/ui/button';
-import { Label } from '@/components/ui/label';
-import { SearchInput } from '@/components/ui/search-input';
-import { Input } from '@/components/ui/input';
-import { Circle } from '@/components/ui/circle';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { DialogClose, DialogContainer } from '@/components/ui/dialog';
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+  Button,
+  Label,
+  SearchInput,
+  Input,
+  Circle,
+  DialogClose,
+  DialogContainer,
+} from '@/components/ui';
 
 // Hooks
 import { useDisclosure } from '@/hooks';
 
 // Types
-import { UserDetail } from '@/types/user';
+import { UserDetail } from '@/types';
 
 // Utils
-import { getFirstLetters, getFullName } from '@/utils/string';
+import { getFirstLetters, getFullName } from '@/utils';
 
 export const ComposeSearchBar = memo(
   ({

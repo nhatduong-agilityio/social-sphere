@@ -10,33 +10,31 @@ import { BellIcon, ChevronDownIcon, PlusIcon, SmileIcon } from 'lucide-react';
 import { ACCESS_ITEMS, ACTIVITY_ROLES, STORY_ROLES } from '../constants';
 
 // Components
-import { Checkbox } from '@/components/ui/checkbox';
 import {
+  Checkbox,
+  Circle,
   FormControl,
   FormField,
   FormItem,
   FormLabel,
-} from '@/components/ui/form';
-import { Circle } from '@/components/ui/circle';
-import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { Heading } from '@/components/ui/heading';
-import { Text } from '@/components/ui/text';
-import { Label } from '@/components/ui/label';
-import { Button } from '@/components/ui/button';
+  Heading,
+  Text,
+  Label,
+  Button,
+} from '@/components/ui';
+import { ComposeFriendsList } from './compose-friends-list';
 
 // Hooks
-import { ComposeFeedFormValues } from '../hooks/use-compose-feed-form';
+import { ComposeFeedFormValues } from '../hooks';
 
 // Types
-import { Option } from '@/types/option';
-import { cn } from '@/utils/cn';
-import { ComposeFriendsList } from './compose-friends-list';
+import { Option } from '@/types';
+import { cn } from '@/utils';
 
 const RoleDropdown = ({
   name,

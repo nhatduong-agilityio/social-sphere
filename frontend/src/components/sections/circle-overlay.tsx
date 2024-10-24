@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 
-import { Circle } from '@/components/ui/circle';
-import { cn } from '@/utils/cn';
+import { Circle } from '@/components/ui';
+import { cn } from '@/utils';
 
 interface CircleOverlayProps {
   children: React.ReactNode;

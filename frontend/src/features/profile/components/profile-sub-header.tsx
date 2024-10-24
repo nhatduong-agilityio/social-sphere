@@ -1,15 +1,14 @@
+import { memo } from 'react';
 import { Clock } from 'lucide-react';
 
 // Components
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui';
 
 // Types
-import { UserDetail } from '@/types/user';
+import { UserDetail } from '@/types';
 
 // Utils
-import { formatNumber } from '@/utils/number';
-import { getFullName } from '@/utils/string';
-import { memo } from 'react';
+import { formatNumber, getFullName } from '@/utils';
 
 interface ProfileSubHeaderProps {
   user: UserDetail;

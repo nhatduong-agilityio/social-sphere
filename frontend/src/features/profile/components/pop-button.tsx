@@ -1,5 +1,5 @@
 import { memo, ReactNode } from 'react';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui';
 
 interface PopButtonProps {
   rotate?: string;

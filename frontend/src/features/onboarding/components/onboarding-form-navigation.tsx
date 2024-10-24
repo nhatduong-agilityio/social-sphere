@@ -1,5 +1,5 @@
-import { Button } from '@/components/ui/button';
 import { memo } from 'react';
+import { Button } from '@/components/ui';
 
 interface OnboardingFormNavigationProps {
   onBackClick: () => void;

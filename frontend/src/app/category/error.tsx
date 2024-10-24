@@ -1,10 +1,10 @@
 'use client'; // Error components must be Client Components
 
 // Types
-import { PageErrorProps } from '@/types/components';
+import { PageErrorProps } from '@/types';
 
 // Components
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui';
 
 const Error = ({
   // error,

@@ -5,10 +5,10 @@ import { MOCK_FRIENDS } from '@/__mocks__/user';
 
 // Components
 import { Panel, UserCardHeader } from '@/components/sections';
-import { Card } from '@/components/ui/card';
+import { Card } from '@/components/ui';
 
 // Utils
-import { getFullName } from '@/utils/string';
+import { getFullName } from '@/utils';
 
 export const FriendPanel = () => {
   const renderListFriends = MOCK_FRIENDS.map((user) => {

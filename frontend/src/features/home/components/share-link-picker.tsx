@@ -8,10 +8,10 @@ import { Link2Icon } from 'lucide-react';
 
 // Components
 import { AutoCompleteInput } from '@/components/sections';
-import { FormControl, FormField, FormItem } from '@/components/ui/form';
+import { FormControl, FormField, FormItem } from '@/components/ui';
 
 // Hooks
-import { ComposeFeedFormValues } from '../hooks/use-compose-feed-form';
+import { ComposeFeedFormValues } from '../hooks';
 
 interface ShareLinkPickerProps {
   onCloseShareLinkPicker: () => void;

@@ -1,8 +1,7 @@
 import { MOCK_FRIENDS } from '@/__mocks__/user';
 
 // Types
-import { ApiDataResponse } from '@/types/api';
-import { UserDetail } from '@/types/user';
+import { ApiDataResponse, UserDetail } from '@/types';
 
 export const getFriends = async (): Promise<ApiDataResponse<UserDetail[]>> => {
   try {

@@ -6,12 +6,11 @@ import { ChangeEvent, useCallback, useRef, useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 // Components
-import { Form, FormControl, FormField, FormItem } from '@/components/ui/form';
+import { Input, Form, FormControl, FormField, FormItem } from '@/components/ui';
 import { Banner } from './profile-banner';
-import { Input } from '@/components/ui/input';
 
 // Libs
-import { PictureProfileSchema } from '../lib/schema';
+import { PictureProfileSchema } from '../lib';
 
 // Constants
 import { IMAGES } from '@/constants';

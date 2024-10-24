@@ -20,8 +20,8 @@ import {
 } from 'react-hook-form';
 import { cva, VariantProps } from 'class-variance-authority';
 
-import { cn } from '@/utils/cn';
-import { Label, labelVariants } from '@/components/ui/label';
+import { cn } from '@/utils';
+import { Label, labelVariants } from '@/components/ui';
 
 const Form = FormProvider;
 

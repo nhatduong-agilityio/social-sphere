@@ -1,5 +1,5 @@
 import { SVGAttributes } from 'react';
-import { cn } from '@/utils/cn';
+import { cn } from '@/utils';
 
 const BrandIcon = ({ className, ...props }: SVGAttributes<SVGSVGElement>) => (
   <svg

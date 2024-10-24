@@ -1,7 +1,7 @@
 'use client';
 
 import { OnboardingProgressBar } from '@/features/onboarding/components';
-import { useOnboardingStore } from '@/features/onboarding/stores/onboarding-steps';
+import { useOnboardingStore } from '@/features/onboarding/stores';
 
 const OnboardingPage = () => {
   const currentStep = useOnboardingStore((state) => state.currentStep);

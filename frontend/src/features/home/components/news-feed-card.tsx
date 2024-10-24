@@ -7,14 +7,13 @@ import { NEWS_FEED_MORE_OPTIONS } from '../constants';
 
 // Components
 import { UserCardHeader } from '@/components/sections';
-import { Card } from '@/components/ui/card';
+import { Card } from '@/components/ui';
 
 // Types
-import { NewsFeed } from '@/types/news-feed';
+import { NewsFeed } from '@/types';
 
 // Utils
-import { formatDate } from '@/utils/date';
-import { getFullName } from '@/utils/string';
+import { formatDate, getFullName } from '@/utils';
 
 interface NewsFeedCardProps {
   newsFeed: NewsFeed;

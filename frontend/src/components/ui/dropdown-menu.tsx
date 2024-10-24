@@ -9,7 +9,7 @@ import {
 } from 'react';
 import { Check, ChevronRight, Circle } from 'lucide-react';
 
-import { cn } from '@/utils/cn';
+import { cn } from '@/utils';
 
 const DropdownMenu = DropdownMenuPrimitive.Root;
 

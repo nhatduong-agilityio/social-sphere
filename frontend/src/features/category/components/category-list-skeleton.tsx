@@ -1,5 +1,5 @@
 // Components
-import { Skeleton } from '@/components/ui/skeleton';
+import { Skeleton } from '@/components/ui';
 
 const CategoryRowSkeleton = () => (
   <div className="border-b mb-1 py-1.5 flex gap-2 items-center">

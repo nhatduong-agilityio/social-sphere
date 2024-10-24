@@ -2,13 +2,19 @@ import { memo } from 'react';
 import { EllipsisVertical } from 'lucide-react';
 
 // Components
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Text } from '@/components/ui/text';
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+  Button,
+  Card,
+  CardContent,
+  CardHeader,
+  Text,
+} from '@/components/ui';
 
 // Utils
-import { cn } from '@/utils/cn';
+import { cn } from '@/utils';
 
 interface NotificationWidgetProps {
   title: string;

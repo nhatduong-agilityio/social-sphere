@@ -2,8 +2,13 @@ import { memo, ReactNode } from 'react';
 import { EllipsisVertical } from 'lucide-react';
 
 // Components
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Button,
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui';
 
 interface PanelProps {
   panelTile: string;

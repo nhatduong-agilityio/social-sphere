@@ -5,7 +5,7 @@ import { Camera } from 'lucide-react';
 import Image, { StaticImageData } from 'next/image';
 
 // Components
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui';
 
 // Constants
 import { IMAGES } from '@/constants';

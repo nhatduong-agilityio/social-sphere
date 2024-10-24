@@ -4,30 +4,31 @@ import { useCallback, useEffect, useState } from 'react';
 import { UseFormReturn } from 'react-hook-form';
 
 // Components
-import { Label } from '@/components/ui/label';
 import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+  Label,
   FormControl,
   FormField,
   FormItem,
   FormLabel,
-} from '@/components/ui/form';
-import { Checkbox } from '@/components/ui/checkbox';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+  Checkbox,
+} from '@/components/ui';
 import { ComposeSearchBar } from './compose-search-bar';
 
 // Hooks
 import { useDebounce } from '@/hooks';
-import { ComposeFeedFormValues } from '../hooks/use-compose-feed-form';
+import { ComposeFeedFormValues } from '../hooks';
 
 // Types
-import { UserDetail } from '@/types/user';
+import { UserDetail } from '@/types';
 
 // Actions
-import { getFriends, getFriendsByName } from '../actions/get-friends';
+import { getFriends, getFriendsByName } from '../actions';
 
 // Utils
-import { getFirstLetters, getFullName } from '@/utils/string';
-import { cn } from '@/utils/cn';
+import { getFirstLetters, getFullName, cn } from '@/utils';
 
 const FriendsList = ({
   friends,

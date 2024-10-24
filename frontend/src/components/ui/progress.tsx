@@ -4,7 +4,7 @@ import { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react';
 import * as ProgressPrimitive from '@radix-ui/react-progress';
 import { cva, VariantProps } from 'class-variance-authority';
 
-import { cn } from '@/utils/cn';
+import { cn } from '@/utils';
 
 const progressVariants = cva(
   'relative w-full bg-gray-600 dark:bg-dark-300 overflow-hidden rounded-full',

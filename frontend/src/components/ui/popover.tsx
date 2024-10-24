@@ -8,7 +8,7 @@ import {
   ReactNode,
 } from 'react';
 
-import { cn } from '@/utils/cn';
+import { cn } from '@/utils';
 
 const Popover = PopoverPrimitive.Root;
 

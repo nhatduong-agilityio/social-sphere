@@ -6,10 +6,10 @@ import Image from 'next/image';
 import { Heart, Play } from 'lucide-react';
 
 // Components
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui';
 
 // Utils
-import { cn } from '@/utils/cn';
+import { cn } from '@/utils';
 
 interface VideoProps {
   thumbnail: string;

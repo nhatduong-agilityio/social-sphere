@@ -14,14 +14,14 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+  Button,
+} from '@/components/ui';
 
 // Stores
-import { useOnboardingStore } from '../stores/onboarding-steps';
+import { useOnboardingStore } from '../stores';
 
 // Models
-import { OnboardingAccountType } from '../models/onboarding';
+import { OnboardingAccountType } from '../models';
 
 export const SelectAccountType = () => {
   const [currentStep, setCurrentStep, onboardingData, setOnboardingData] =

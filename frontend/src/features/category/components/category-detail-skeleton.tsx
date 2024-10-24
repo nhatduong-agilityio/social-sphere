@@ -1,5 +1,5 @@
 // Components
-import { Skeleton } from '@/components/ui/skeleton';
+import { Skeleton } from '@/components/ui';
 
 export const CategoryDetailSkeleton = () => (
   <div className="grid grid-cols-[120px_1fr]">

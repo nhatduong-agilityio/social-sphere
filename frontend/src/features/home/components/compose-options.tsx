@@ -19,15 +19,13 @@ import {
 import { EmojiIcon } from '@/icons';
 
 // Components
-import { Text } from '@/components/ui/text';
-import { Input } from '@/components/ui/input';
-import { FormControl, FormField, FormItem } from '@/components/ui/form';
+import { FormControl, FormField, FormItem, Text, Input } from '@/components/ui';
 
 // Hooks
 import { useDisclosure } from '@/hooks';
 
 // Utils
-import { cn } from '@/utils/cn';
+import { cn } from '@/utils';
 
 interface ComposeOptionsProps {
   isOverlayOpen: boolean;

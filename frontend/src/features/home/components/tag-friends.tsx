@@ -13,13 +13,23 @@ import { AutoCompleteInput } from '@/components/sections';
 import { useDebounce } from '@/hooks';
 
 // Actions
-import { UserDetail } from '@/types/user';
-import { getFriendsByName } from '../actions/get-friends';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { getFirstLetters, getFullName } from '@/utils/string';
-import { Circle } from '@/components/ui/circle';
-import { Text } from '@/components/ui/text';
-import { Label } from '@/components/ui/label';
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+  Circle,
+  Text,
+  Label,
+} from '@/components/ui';
+
+// Actions
+import { getFriendsByName } from '../actions';
+
+// Types
+import { UserDetail } from '@/types';
+
+// Utils
+import { getFirstLetters, getFullName } from '@/utils';
 
 interface TagFriendsProps {
   onSelectFriend: (friendId: string) => void;

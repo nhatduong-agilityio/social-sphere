@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { XIcon } from 'lucide-react';
 
 // Components
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui';
 
 interface ComposeMediaPreviewProps {
   imageUrl: string;

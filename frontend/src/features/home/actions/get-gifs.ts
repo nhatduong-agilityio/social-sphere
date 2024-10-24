@@ -1,5 +1,5 @@
-import { ApiDataResponse } from '@/types/api';
-import { GifResponse, GifItem } from '../models/gif';
+import { ApiDataResponse } from '@/types';
+import { GifResponse, GifItem } from '../models';
 import { API_ENDPOINT } from '@/constants';
 
 export const getGifs = async (
