@@ -1,4 +1,4 @@
-import { UploadPictureProfile } from '@/features/onboarding/components/upload-picture-profile';
+import { UploadPictureProfile } from '@/features/onboarding/components';
 
 const UploadPictureProfilePage = () => <UploadPictureProfile />;
 

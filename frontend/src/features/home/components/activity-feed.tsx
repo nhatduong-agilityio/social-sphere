@@ -5,9 +5,9 @@ import { Briefcase, Gift } from 'lucide-react';
 import { MOCK_NEWS_FEED } from '@/__mocks__/news-feed';
 
 import { ComposeFeedCard } from './compose-feed-card';
-import NotificationWidget from './notification-widget';
-import StoriesWidget from './stories-widget';
-import SuggestFriendsWidget from './suggest-friends-widget';
+import { NotificationWidget } from './notification-widget';
+import { StoriesWidget } from './stories-widget';
+import { SuggestFriendsWidget } from './suggest-friends-widget';
 import { NewsFeedCard } from './news-feed-card';
 
 // Hooks

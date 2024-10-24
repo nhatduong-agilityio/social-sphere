@@ -4,10 +4,10 @@ import { Camera } from 'lucide-react';
 import { MOCK_PHOTOS } from '@/__mocks__/user';
 
 // Components
-import Photo from './photo';
+import { Photo } from './photo';
 import { Panel } from '@/components/sections/panel';
 
-const PhotoPanel = () => {
+export const PhotoPanel = () => {
   const renderListPhotos = MOCK_PHOTOS.map((photo) => (
     <Photo key={photo.id} src={photo.src} alt={photo.alt} />
   ));
@@ -23,5 +23,3 @@ const PhotoPanel = () => {
     </Panel>
   );
 };
-
-export default PhotoPanel;

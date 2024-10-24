@@ -1,4 +1,4 @@
-import { SelectAccountType } from '@/features/onboarding/components/select-account-type';
+import { SelectAccountType } from '@/features/onboarding/components';
 
 const SelectAccountTypePage = () => <SelectAccountType />;
 

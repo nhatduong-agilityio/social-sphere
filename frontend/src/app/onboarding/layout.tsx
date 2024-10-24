@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 // Components
 import { OnboardingLayout } from '@/components/layouts/onboarding-layout';
-import { OnboardingContainer } from '@/features/onboarding/components/onboarding-container';
+import { OnboardingContainer } from '@/features/onboarding/components';
 
 const Layout = ({
   children,

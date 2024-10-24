@@ -1,4 +1,4 @@
-import { ConfirmEmail } from '@/features/onboarding/components/confirm-email';
+import { ConfirmEmail } from '@/features/onboarding/components';
 
 const ConfirmEmailPage = () => <ConfirmEmail />;
 

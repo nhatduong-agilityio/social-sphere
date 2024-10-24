@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import Image from 'next/image';
 import { Heart } from 'lucide-react';
 
@@ -13,7 +13,7 @@ interface PhotoProps {
   alt: string;
 }
 
-const Photo = ({ src, alt }: PhotoProps) => {
+export const Photo = memo(({ src, alt }: PhotoProps) => {
   const [isActive, setIsActive] = useState<boolean>(false);
 
   const handleClickActive = () => setIsActive(!isActive);
@@ -49,6 +49,6 @@ const Photo = ({ src, alt }: PhotoProps) => {
       </div>
     </div>
   );
-};
+});
 
-export default Photo;
+Photo.displayName = 'Photo';

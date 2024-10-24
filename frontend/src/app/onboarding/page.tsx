@@ -1,6 +1,6 @@
 'use client';
 
-import { OnboardingProgressBar } from '@/features/onboarding/components/onboarding-progress-bar';
+import { OnboardingProgressBar } from '@/features/onboarding/components';
 import { useOnboardingStore } from '@/features/onboarding/stores/onboarding-steps';
 
 const OnboardingPage = () => {

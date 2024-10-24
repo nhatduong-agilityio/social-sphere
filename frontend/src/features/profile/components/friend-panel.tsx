@@ -11,7 +11,7 @@ import { Card } from '@/components/ui/card';
 // Utils
 import { getFullName } from '@/utils/string';
 
-const FriendPanel = () => {
+export const FriendPanel = () => {
   const renderListFriends = MOCK_FRIENDS.map((user) => {
     const title = getFullName(user.firstName, user.lastName);
     const description = `${user.countFriends} Friends`;
@@ -40,5 +40,3 @@ const FriendPanel = () => {
     </Panel>
   );
 };
-
-export default FriendPanel;

@@ -3,9 +3,11 @@
 import { ReactNode } from 'react';
 
 // Components
-import ProfileHeader from '@/features/profile/components/profile-header';
-import ProfileSubHeader from '@/features/profile/components/profile-sub-header';
-import NavTab from '@/features/profile/components/profile-nav-tab';
+import {
+  ProfileHeader,
+  ProfileSubHeader,
+  ProfileNavTab,
+} from '@/features/profile/components';
 
 // Constants
 import { TABS } from '@/constants/nav-tab';
@@ -24,7 +26,7 @@ export const ProfileLayout = ({ children }: { children: ReactNode }) => (
     />
 
     <div className="flex md:flex-row flex-col gap-8">
-      <NavTab tabs={TABS} />
+      <ProfileNavTab tabs={TABS} />
 
       <div className="w-full">{children}</div>
     </div>

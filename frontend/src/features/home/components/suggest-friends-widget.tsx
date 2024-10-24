@@ -17,7 +17,7 @@ import { getFullName } from '@/utils/string';
 // Icons
 import { CheckmarkIcon } from '@/icons/checkmark-icon';
 
-const SuggestFriendsWidget = () => {
+export const SuggestFriendsWidget = () => {
   const [addedFriends, setAddedFriends] = useState<string[]>([]);
 
   const handleAddFriend = useCallback(
@@ -82,5 +82,3 @@ const SuggestFriendsWidget = () => {
     </Card>
   );
 };
-
-export default SuggestFriendsWidget;

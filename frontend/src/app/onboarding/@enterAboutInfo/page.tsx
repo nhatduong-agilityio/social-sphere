@@ -1,4 +1,4 @@
-import { EnterAboutInfo } from '@/features/onboarding/components/enter-about-info';
+import { EnterAboutInfo } from '@/features/onboarding/components';
 
 const EnterAboutInfoPage = () => <EnterAboutInfo />;
 

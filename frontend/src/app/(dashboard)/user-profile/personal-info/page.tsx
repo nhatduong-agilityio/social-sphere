@@ -1,7 +1,9 @@
-import FriendPanel from '@/features/profile/components/friend-panel';
-import LocationPanel from '@/features/profile/components/location-panel';
-import PhotoPanel from '@/features/profile/components/photo-panel';
-import VideoPanel from '@/features/profile/components/video-panel';
+import {
+  FriendPanel,
+  LocationPanel,
+  PhotoPanel,
+  VideoPanel,
+} from '@/features/profile/components';
 
 const PersonalInfoPage = () => (
   <div className="flex flex-col gap-8">
