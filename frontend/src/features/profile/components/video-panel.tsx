@@ -5,10 +5,10 @@ import { MOCK_VIDEOS } from '@/__mocks__/user';
 
 // Components
 import { Panel } from '@/components/sections/panel';
-import Video from './video';
+import { Video } from './video';
 import { convertSecondsToMinutes } from '@/utils/number';
 
-const VideoPanel = () => {
+export const VideoPanel = () => {
   const renderListVideos = MOCK_VIDEOS.map(
     ({ id, thumbnail, duration, videoSrc, alt }) => (
       <Video
@@ -32,5 +32,3 @@ const VideoPanel = () => {
     </Panel>
   );
 };
-
-export default VideoPanel;

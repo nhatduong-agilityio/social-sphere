@@ -1,9 +1,9 @@
 // Components
 import { Button } from '@/components/ui/button';
-import UploadBannerProfile from '@/features/profile/components/upload-banner-profile';
+import { UploadBannerProfile } from '@/features/profile/components';
 import { ProfileAvatar } from './profile-avatar';
 
-const ProfileHeader = () => {
+export const ProfileHeader = () => {
   const baseStyleButton = 'w-[140px] border border-gray-900';
 
   return (
@@ -24,5 +24,3 @@ const ProfileHeader = () => {
     </div>
   );
 };
-
-export default ProfileHeader;

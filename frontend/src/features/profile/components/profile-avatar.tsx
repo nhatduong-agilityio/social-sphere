@@ -17,7 +17,7 @@ import {
   Plus,
   PlusIcon,
 } from 'lucide-react';
-import PopButton from './pop-button';
+import { PopButton } from './pop-button';
 import { Form, FormControl, FormField, FormItem } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 

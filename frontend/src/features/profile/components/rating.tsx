@@ -1,3 +1,6 @@
+import { memo } from 'react';
+
+// Icons
 import { StarIcon } from '@/icons/star-icon';
 
 // Constants
@@ -8,7 +11,7 @@ interface RatingProps {
   onRatingChange?: (rating: number) => void;
 }
 
-const Rating = ({ initialRating = 0 }: RatingProps) => (
+export const Rating = memo(({ initialRating = 0 }: RatingProps) => (
   <div className="flex space-x-1">
     {Array.from({ length: MAX_RATING }, (_, index) => {
       const starValue = index + 1;
@@ -17,6 +20,6 @@ const Rating = ({ initialRating = 0 }: RatingProps) => (
       return <StarIcon key={starValue} isActive={isFilled} />;
     })}
   </div>
-);
+));
 
-export default Rating;
+Rating.displayName = 'Rating';

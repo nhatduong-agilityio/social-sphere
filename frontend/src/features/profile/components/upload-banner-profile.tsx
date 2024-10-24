@@ -7,7 +7,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 
 // Components
 import { Form, FormControl, FormField, FormItem } from '@/components/ui/form';
-import Banner from './profile-banner';
+import { Banner } from './profile-banner';
 import { Input } from '@/components/ui/input';
 
 // Libs
@@ -19,7 +19,7 @@ import { IMAGES } from '@/constants/images';
 // Hooks
 import { toast } from '@/hooks/use-toast';
 
-const UploadBannerProfile = () => {
+export const UploadBannerProfile = () => {
   const [selectedImageUrl, setSelectedImageUrl] = useState<string>(
     IMAGES.PROFILE_BANNER.url,
   );
@@ -103,5 +103,3 @@ const UploadBannerProfile = () => {
     </Form>
   );
 };
-
-export default UploadBannerProfile;

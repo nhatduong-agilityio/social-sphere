@@ -1,4 +1,4 @@
-import { SecureAccount } from '@/features/onboarding/components/secure-account';
+import { SecureAccount } from '@/features/onboarding/components';
 
 const SecureAccountPage = () => <SecureAccount />;
 

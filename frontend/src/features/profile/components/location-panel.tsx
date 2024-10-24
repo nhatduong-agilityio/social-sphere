@@ -5,9 +5,9 @@ import { MOCK_LOCATIONS } from '@/__mocks__/user';
 
 // Components
 import { Panel } from '@/components/sections/panel';
-import LocationCard from './location-card';
+import { LocationCard } from './location-card';
 
-const LocationPanel = () => {
+export const LocationPanel = () => {
   const renderLocations = MOCK_LOCATIONS.map(
     ({ id, title, src, alt, rating }) => (
       <LocationCard
@@ -31,5 +31,3 @@ const LocationPanel = () => {
     </Panel>
   );
 };
-
-export default LocationPanel;

@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { EllipsisVertical, Plus } from 'lucide-react';
 
 // Components
@@ -16,7 +17,7 @@ interface StoriesWidgetProps {
   onAddStory: () => void;
 }
 
-const StoriesWidget = ({ onAddStory }: StoriesWidgetProps) => {
+export const StoriesWidget = memo(({ onAddStory }: StoriesWidgetProps) => {
   const renderStoriesFriends = MOCK_FRIENDS.slice(0, 3).map((user) => (
     <div
       key={user.id}
@@ -73,6 +74,6 @@ const StoriesWidget = ({ onAddStory }: StoriesWidgetProps) => {
       </CardContent>
     </Card>
   );
-};
+});
 
-export default StoriesWidget;
+StoriesWidget.displayName = 'StoriesWidget';

@@ -1,9 +1,11 @@
 'use client';
+
+import { memo } from 'react';
 import Image from 'next/image';
 
 // Components
 import { Card, CardTitle } from '@/components/ui/card';
-import Rating from '@/features/profile/components/rating';
+import { Rating } from '@/features/profile/components';
 
 interface PlaceProps {
   title: string;
@@ -12,7 +14,7 @@ interface PlaceProps {
   rating: number;
 }
 
-const LocationCard = ({ title, src, alt, rating }: PlaceProps) => (
+export const LocationCard = memo(({ title, src, alt, rating }: PlaceProps) => (
   <Card className="rounded-lg flex flex-col items-start dark:bg-dark-300 relative w-60 h-[235px] p-3">
     <div className="relative w-[215px] h-[167px]">
       <Image
@@ -29,6 +31,6 @@ const LocationCard = ({ title, src, alt, rating }: PlaceProps) => (
     <CardTitle className="text-sm mt-1">{title}</CardTitle>
     <Rating initialRating={rating} />
   </Card>
-);
+));
 
-export default LocationCard;
+LocationCard.displayName = 'LocationCard';

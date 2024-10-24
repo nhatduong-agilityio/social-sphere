@@ -1,6 +1,6 @@
 'use client';
 
-import { ForwardRefExoticComponent, RefAttributes } from 'react';
+import { ForwardRefExoticComponent, memo, RefAttributes } from 'react';
 import { LucideProps } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
@@ -21,7 +21,7 @@ interface ProfileNavTabProps {
   tabs: TabsType[];
 }
 
-const ProfileNavTab = ({ tabs }: ProfileNavTabProps) => {
+export const ProfileNavTab = memo(({ tabs }: ProfileNavTabProps) => {
   const pathname = usePathname();
 
   return (
@@ -38,6 +38,6 @@ const ProfileNavTab = ({ tabs }: ProfileNavTabProps) => {
       </TabsList>
     </Tabs>
   );
-};
+});
 
-export default ProfileNavTab;
+ProfileNavTab.displayName = 'ProfileNavTab';

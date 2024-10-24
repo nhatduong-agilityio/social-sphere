@@ -9,12 +9,13 @@ import { UserDetail } from '@/types/user';
 // Utils
 import { formatNumber } from '@/utils/number';
 import { getFullName } from '@/utils/string';
+import { memo } from 'react';
 
 interface ProfileSubHeaderProps {
   user: UserDetail;
 }
 
-const ProfileSubHeader = ({ user }: ProfileSubHeaderProps) => {
+export const ProfileSubHeader = memo(({ user }: ProfileSubHeaderProps) => {
   const { countFriends = 0, firstName, lastName, job } = user;
 
   return (
@@ -41,6 +42,6 @@ const ProfileSubHeader = ({ user }: ProfileSubHeaderProps) => {
       </div>
     </div>
   );
-};
+});
 
-export default ProfileSubHeader;
+ProfileSubHeader.displayName = 'ProfileSubHeader';
