@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
 // Components
-import { BrandIcon } from '@/icons/brand-icon';
+import { BrandIcon } from '@/icons';
 import { Heading } from '../ui/heading';
 
 export const LoginLayout = ({ children }: { children: ReactNode }) => (

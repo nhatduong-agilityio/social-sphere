@@ -7,7 +7,7 @@ import { XIcon } from 'lucide-react';
 import { cn } from '@/utils/cn';
 
 // Hooks
-import { useFocusState } from '@/hooks/use-focus-state';
+import { useFocusState } from '@/hooks';
 
 const autoCompleteInputVariants = cva(
   'flex h-9 w-full rounded-lg border border-input hover:border-gray-900 bg-white dark:bg-dark-500 px-10 py-2 text-sm file:border-0 file:bg-transparent file:text-xs file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-300 ease-in-out',

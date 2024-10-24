@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useEffect, useCallback } from 'react';
 
 // Icons
@@ -10,7 +12,7 @@ import { AutoCompleteInput } from '@/components/sections';
 import { GifItem } from '../models/gif';
 
 // Hooks
-import { useDebounce } from '@/hooks/use-debounce';
+import { useDebounce } from '@/hooks';
 
 // Actions
 import { getGifs } from '../actions/get-gifs';

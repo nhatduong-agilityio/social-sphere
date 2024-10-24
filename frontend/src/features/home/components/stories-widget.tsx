@@ -5,7 +5,7 @@ import { EllipsisVertical, Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { UserPopover } from '@/components/sections';
-import { StoryMeta } from '@/features/home/components/story-meta';
+import { StoryMeta } from '@/features/home/components';
 
 // Mocks
 import { MOCK_FRIENDS } from '@/__mocks__/user';

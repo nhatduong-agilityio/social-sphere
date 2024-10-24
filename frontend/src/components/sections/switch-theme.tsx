@@ -5,7 +5,7 @@ import { MoonIcon, SunIcon } from 'lucide-react';
 import { Switch } from '../ui/switch';
 
 // Hooks
-import { useSetTheme } from '@/hooks/theme';
+import { useSetTheme } from '@/hooks';
 
 export const SwitchTheme = () => {
   const { isDarkTheme, toggleTheme, mounted } = useSetTheme();

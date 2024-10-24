@@ -1,4 +1,4 @@
-import { ActivityFeed } from '@/features/home/components/activity-feed';
+import { ActivityFeed } from '@/features/home/components';
 
 const Homepage = () => <ActivityFeed />;
 

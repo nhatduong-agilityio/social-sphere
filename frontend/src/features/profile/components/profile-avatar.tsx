@@ -5,7 +5,6 @@ import { useForm } from 'react-hook-form';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { toast } from '@/hooks/use-toast';
 
 // Components
 import { Button } from '@/components/ui/button';
@@ -26,6 +25,9 @@ import { PictureProfileSchema } from '../lib/schema';
 
 // Utils
 import { cn } from '@/utils/cn';
+
+// Hooks
+import { toast } from '@/hooks';
 
 export const ProfileAvatar = () => {
   const [isActive, setIsActive] = useState<boolean>(false);

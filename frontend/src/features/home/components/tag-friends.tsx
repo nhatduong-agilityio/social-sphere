@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useEffect, useCallback, useMemo, memo } from 'react';
 import { CircleFlag } from 'react-circle-flags';
 
@@ -8,7 +10,7 @@ import { SearchIcon } from 'lucide-react';
 import { AutoCompleteInput } from '@/components/sections';
 
 // Hooks
-import { useDebounce } from '@/hooks/use-debounce';
+import { useDebounce } from '@/hooks';
 
 // Actions
 import { UserDetail } from '@/types/user';

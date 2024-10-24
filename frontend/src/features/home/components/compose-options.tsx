@@ -16,7 +16,7 @@ import {
   Link2Icon,
   ImageIcon,
 } from 'lucide-react';
-import { EmojiIcon } from '@/icons/emoji-icon';
+import { EmojiIcon } from '@/icons';
 
 // Components
 import { Text } from '@/components/ui/text';
@@ -24,7 +24,7 @@ import { Input } from '@/components/ui/input';
 import { FormControl, FormField, FormItem } from '@/components/ui/form';
 
 // Hooks
-import { useDisclosure } from '@/hooks/use-disclosure';
+import { useDisclosure } from '@/hooks';
 
 // Utils
 import { cn } from '@/utils/cn';

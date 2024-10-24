@@ -15,7 +15,7 @@ import { MOCK_FRIENDS } from '@/__mocks__/user';
 import { getFullName } from '@/utils/string';
 
 // Icons
-import { CheckmarkIcon } from '@/icons/checkmark-icon';
+import { CheckmarkIcon } from '@/icons';
 
 export const SuggestFriendsWidget = () => {
   const [addedFriends, setAddedFriends] = useState<string[]>([]);

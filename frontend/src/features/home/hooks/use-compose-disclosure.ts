@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { useDisclosure } from '@/hooks/use-disclosure';
+import { useDisclosure } from '@/hooks';
 
 export const useComposeDisclosure = () => {
   const gifPicker = useDisclosure();

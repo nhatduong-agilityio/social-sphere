@@ -2,7 +2,7 @@ import { memo } from 'react';
 import Link from 'next/link';
 
 // Components
-import { BrandIcon } from '@/icons/brand-icon';
+import { BrandIcon } from '@/icons';
 
 interface BrandLinkProps {
   size?: number;

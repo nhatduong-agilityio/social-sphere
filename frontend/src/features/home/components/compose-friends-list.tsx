@@ -16,7 +16,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { ComposeSearchBar } from './compose-search-bar';
 
 // Hooks
-import { useDebounce } from '@/hooks/use-debounce';
+import { useDebounce } from '@/hooks';
 import { ComposeFeedFormValues } from '../hooks/use-compose-feed-form';
 
 // Types

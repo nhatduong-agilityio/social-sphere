@@ -17,7 +17,7 @@ import { PictureProfileSchema } from '../lib/schema';
 import { IMAGES } from '@/constants';
 
 // Hooks
-import { toast } from '@/hooks/use-toast';
+import { toast } from '@/hooks';
 
 export const UploadBannerProfile = () => {
   const [selectedImageUrl, setSelectedImageUrl] = useState<string>(
