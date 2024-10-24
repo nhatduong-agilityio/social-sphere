@@ -7,7 +7,7 @@ import { UseFormReturn } from 'react-hook-form';
 import { Link2Icon } from 'lucide-react';
 
 // Components
-import { AutoCompleteInput } from '@/components/sections/auto-complete-input';
+import { AutoCompleteInput } from '@/components/sections';
 import { FormControl, FormField, FormItem } from '@/components/ui/form';
 
 // Hooks

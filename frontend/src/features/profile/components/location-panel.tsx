@@ -4,7 +4,7 @@ import { Camera } from 'lucide-react';
 import { MOCK_LOCATIONS } from '@/__mocks__/user';
 
 // Components
-import { Panel } from '@/components/sections/panel';
+import { Panel } from '@/components/sections';
 import { LocationCard } from './location-card';
 
 export const LocationPanel = () => {

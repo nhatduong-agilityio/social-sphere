@@ -19,8 +19,7 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { SwitchTheme } from '@/components/sections/switch-theme';
-import { CircleOverlay } from '@/components/sections/circle-overlay';
+import { SwitchTheme, CircleOverlay } from '@/components/sections';
 import { Text } from '@/components/ui/text';
 
 // Libs

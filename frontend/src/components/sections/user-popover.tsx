@@ -1,7 +1,7 @@
 // Components
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { PopoverContainer } from '@/components/ui/popover';
-import { UserContentPopover } from '@/components/sections/user-content-popover';
+import { UserContentPopover } from '@/components/sections';
 
 // Utils
 import { getFirstLetters, getFullName } from '@/utils/string';

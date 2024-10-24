@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
 // Layouts
-import { ProfileLayout } from '@/components/layouts/profile-layout';
+import { ProfileLayout } from '@/components/layouts';
 
 const Layout = ({ children }: { children: ReactNode }) => (
   <ProfileLayout>{children}</ProfileLayout>

@@ -9,7 +9,7 @@ import { SearchIcon } from 'lucide-react';
 import { MOOD_DETAILS, MOOD_OPTIONS, MOODS } from '../constants';
 
 // Components
-import { AutoCompleteInput } from '@/components/sections/auto-complete-input';
+import { AutoCompleteInput } from '@/components/sections';
 import { Text } from '@/components/ui/text';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';

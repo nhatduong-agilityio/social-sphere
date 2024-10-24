@@ -5,7 +5,7 @@ import { CircleFlag } from 'react-circle-flags';
 import { SearchIcon } from 'lucide-react';
 
 // Components
-import { AutoCompleteInput } from '@/components/sections/auto-complete-input';
+import { AutoCompleteInput } from '@/components/sections';
 
 // Hooks
 import { useDebounce } from '@/hooks/use-debounce';

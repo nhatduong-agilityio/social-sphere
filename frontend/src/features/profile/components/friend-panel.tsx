@@ -4,8 +4,7 @@ import { Users } from 'lucide-react';
 import { MOCK_FRIENDS } from '@/__mocks__/user';
 
 // Components
-import { Panel } from '@/components/sections/panel';
-import { UserCardHeader } from '@/components/sections/user-card-header';
+import { Panel, UserCardHeader } from '@/components/sections';
 import { Card } from '@/components/ui/card';
 
 // Utils

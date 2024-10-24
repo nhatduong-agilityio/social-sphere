@@ -5,7 +5,7 @@ import { MOCK_PHOTOS } from '@/__mocks__/user';
 
 // Components
 import { Photo } from './photo';
-import { Panel } from '@/components/sections/panel';
+import { Panel } from '@/components/sections';
 
 export const PhotoPanel = () => {
   const renderListPhotos = MOCK_PHOTOS.map((photo) => (
