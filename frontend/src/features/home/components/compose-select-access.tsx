@@ -7,11 +7,7 @@ import { UseFormReturn } from 'react-hook-form';
 import { BellIcon, ChevronDownIcon, PlusIcon, SmileIcon } from 'lucide-react';
 
 // Constants
-import {
-  ACCESS_ITEMS,
-  ACTIVITY_ROLES,
-  STORY_ROLES,
-} from '../constants/compose-form';
+import { ACCESS_ITEMS, ACTIVITY_ROLES, STORY_ROLES } from '../constants';
 
 // Components
 import { Checkbox } from '@/components/ui/checkbox';

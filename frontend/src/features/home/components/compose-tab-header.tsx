@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 
 // Constants
-import { COMPOSE_TAB_TITLES, ComposeTabValue } from '../constants/compose-tab';
+import { COMPOSE_TAB_TITLES, ComposeTabValue } from '../constants';
 
 // Components
 import { TabsList, TabsTrigger } from '@/components/ui/tabs';

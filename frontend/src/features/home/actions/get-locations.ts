@@ -1,5 +1,5 @@
 import { ApiDataResponse } from '@/types/api';
-import { API_ENDPOINT } from '@/constants/api-endpoint';
+import { API_ENDPOINT } from '@/constants';
 import { MapboxResponse } from '@/types/map-box';
 
 export const getLocations = async (

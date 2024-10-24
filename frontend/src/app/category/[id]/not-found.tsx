@@ -1,5 +1,5 @@
 // Constants
-import { ROUTER } from '@/constants/router';
+import { ROUTER } from '@/constants';
 
 // Components
 import Link from 'next/link';

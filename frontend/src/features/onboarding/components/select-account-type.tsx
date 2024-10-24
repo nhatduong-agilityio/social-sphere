@@ -3,7 +3,7 @@
 import { useCallback } from 'react';
 
 // Constants
-import { SELECT_ACCOUNT_TYPES } from '../constants/select-account-type';
+import { SELECT_ACCOUNT_TYPES } from '../constants';
 
 // Components
 import { OnboardingHeader } from './onboarding-header';

@@ -1,7 +1,7 @@
 import type { NextAuthConfig, Session } from 'next-auth';
 
 // Constants
-import { ROUTER } from '@/constants/router';
+import { ROUTER } from '@/constants';
 
 const isAuthorized = (auth: Session | null, nextUrl: URL) => {
   const isLoggedIn = !!auth?.user;

@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 // Constants
-import { PASSWORD_REGEX, PHONE_NUMBER_REGEX } from '@/constants/regex';
+import { PASSWORD_REGEX, PHONE_NUMBER_REGEX } from '@/constants';
 
 export const EnterAboutInfoSchema = z.object({
   firstName: z.string().min(1, {

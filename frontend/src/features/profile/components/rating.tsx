@@ -4,7 +4,7 @@ import { memo } from 'react';
 import { StarIcon } from '@/icons/star-icon';
 
 // Constants
-import { MAX_RATING } from '@/constants/rating';
+import { MAX_RATING } from '@/constants';
 
 interface RatingProps {
   initialRating?: number;

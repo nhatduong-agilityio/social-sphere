@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { SearchIcon } from 'lucide-react';
 
 // Constants
-import { MOOD_DETAILS, MOOD_OPTIONS, MOODS } from '../constants/compose-form';
+import { MOOD_DETAILS, MOOD_OPTIONS, MOODS } from '../constants';
 
 // Components
 import { AutoCompleteInput } from '@/components/sections/auto-complete-input';

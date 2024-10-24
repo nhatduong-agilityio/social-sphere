@@ -3,7 +3,7 @@
 import { memo } from 'react';
 
 // Constants
-import { NEWS_FEED_MORE_OPTIONS } from '../constants/news-feed';
+import { NEWS_FEED_MORE_OPTIONS } from '../constants';
 
 // Components
 import { UserCardHeader } from '@/components/sections/user-card-header';

@@ -7,7 +7,7 @@ import { CircleFlag } from 'react-circle-flags';
 import { XIcon } from 'lucide-react';
 
 // Constants
-import { ROUTER } from '@/constants/router';
+import { ROUTER } from '@/constants';
 
 // Components
 import { Label } from '@/components/ui/label';
@@ -25,7 +25,7 @@ import { UserDetail } from '@/types/user';
 import { cn } from '@/utils/cn';
 import { getMoodOptions } from '../utils/feed';
 import Image from 'next/image';
-import { MOODS } from '../constants/compose-form';
+import { MOODS } from '../constants';
 
 interface ComposeActivityPreviewProps {
   mood: {

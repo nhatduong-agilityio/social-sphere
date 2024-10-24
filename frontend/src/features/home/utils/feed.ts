@@ -1,9 +1,4 @@
-import {
-  MOODS_TITLE,
-  MOODS,
-  MOOD_OPTIONS,
-  MOOD_DETAILS,
-} from '../constants/compose-form';
+import { MOODS_TITLE, MOODS, MOOD_OPTIONS, MOOD_DETAILS } from '../constants';
 
 export const getMoodTitle = (label: string) =>
   label ? MOODS_TITLE[label as MOODS] : undefined;

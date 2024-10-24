@@ -1,4 +1,4 @@
-import { COUNTRIES } from '@/constants/countries';
+import { COUNTRIES } from '@/constants';
 import { Option } from '@/types/option';
 import { GlobeIcon, LockIcon, UserIcon, UsersIcon } from 'lucide-react';
 
