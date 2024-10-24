@@ -5,7 +5,7 @@ import { PageErrorProps } from '@/types/components';
 
 // Components
 import { Button } from '@/components/ui/button';
-import { Header } from '@/components/layouts/header';
+import { Header } from '@/components/layouts';
 
 export default function GlobalError({
   // error,

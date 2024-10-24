@@ -7,7 +7,7 @@ import { UseFormReturn } from 'react-hook-form';
 import { MapPinIcon } from 'lucide-react';
 
 // Components
-import { AutoCompleteInput } from '@/components/sections/auto-complete-input';
+import { AutoCompleteInput } from '@/components/sections';
 import { FormControl, FormField, FormItem } from '@/components/ui/form';
 import { Text } from '@/components/ui/text';
 

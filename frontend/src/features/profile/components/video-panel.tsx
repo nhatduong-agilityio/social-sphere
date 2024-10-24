@@ -4,8 +4,10 @@ import { Camera } from 'lucide-react';
 import { MOCK_VIDEOS } from '@/__mocks__/user';
 
 // Components
-import { Panel } from '@/components/sections/panel';
+import { Panel } from '@/components/sections';
 import { Video } from './video';
+
+// Utils
 import { convertSecondsToMinutes } from '@/utils/number';
 
 export const VideoPanel = () => {

@@ -2,8 +2,7 @@ import { ReactNode } from 'react';
 import type { Metadata } from 'next';
 
 // Components
-import { ThemeProvider } from '@/components/providers/theme-provider';
-import { Toaster } from '@/components/providers/toaster';
+import { ThemeProvider, Toaster } from '@/components/providers';
 
 // Styles
 import { montserrat, roboto } from '../styles/fonts';

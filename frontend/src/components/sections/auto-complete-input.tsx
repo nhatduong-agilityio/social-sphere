@@ -32,7 +32,10 @@ export interface AutoCompleteInputProps
   onClose?: () => void;
 }
 
-const AutoCompleteInput = forwardRef<HTMLInputElement, AutoCompleteInputProps>(
+export const AutoCompleteInput = forwardRef<
+  HTMLInputElement,
+  AutoCompleteInputProps
+>(
   (
     {
       additionalStartIconClass,
@@ -79,6 +82,5 @@ const AutoCompleteInput = forwardRef<HTMLInputElement, AutoCompleteInputProps>(
     );
   },
 );
-AutoCompleteInput.displayName = 'AutoCompleteInput';
 
-export { AutoCompleteInput };
+AutoCompleteInput.displayName = 'AutoCompleteInput';

@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { SearchIcon } from 'lucide-react';
 
 // Components
-import { AutoCompleteInput } from '@/components/sections/auto-complete-input';
+import { AutoCompleteInput } from '@/components/sections';
 
 // Models
 import { GifItem } from '../models/gif';

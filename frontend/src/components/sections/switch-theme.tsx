@@ -1,3 +1,5 @@
+'use client';
+
 // Components
 import { MoonIcon, SunIcon } from 'lucide-react';
 import { Switch } from '../ui/switch';

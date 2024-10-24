@@ -6,7 +6,7 @@ import { memo } from 'react';
 import { NEWS_FEED_MORE_OPTIONS } from '../constants';
 
 // Components
-import { UserCardHeader } from '@/components/sections/user-card-header';
+import { UserCardHeader } from '@/components/sections';
 import { Card } from '@/components/ui/card';
 
 // Types
