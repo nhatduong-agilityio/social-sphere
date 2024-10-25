@@ -15,7 +15,7 @@ import {
 } from '../ui';
 
 // Utils
-import { cn } from '@/utils';
+import { cn, getFullName } from '@/utils';
 
 // Icons
 import {
@@ -32,11 +32,23 @@ import {
 // Hooks
 import { useDisclosure } from '@/hooks';
 
+// Types
+import { UserDetail } from '@/types';
+
+// Images
+import AvatarPlaceholder from '../../../public/images/avatar-placeholder.svg';
+
 interface HeaderProps {
+  user?: UserDetail;
   isAuthenticated?: boolean;
 }
 
-export const Header = memo(({ isAuthenticated = true }: HeaderProps) => {
+export const Header = memo(({ isAuthenticated = true, user }: HeaderProps) => {
+  const {
+    firstName = '',
+    lastName = '',
+    profilePicture = AvatarPlaceholder.src,
+  } = user ?? {};
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const NAVIGATION_ITEMS = useMemo(
@@ -158,7 +170,7 @@ export const Header = memo(({ isAuthenticated = true }: HeaderProps) => {
               trigger={
                 <CircleOverlay circleSize="tiny">
                   <Avatar className="w-full h-full">
-                    <AvatarImage src="https://github.com/shadcn.png" />
+                    <AvatarImage src={profilePicture} />
                     <AvatarFallback>CN</AvatarFallback>
                   </Avatar>
                 </CircleOverlay>
@@ -166,7 +178,9 @@ export const Header = memo(({ isAuthenticated = true }: HeaderProps) => {
               content={
                 <div className="grid gap-4">
                   <div className="flex justify-between items-center p-4">
-                    <Text variant="primary">Jenna Davis</Text>
+                    <Text variant="primary">
+                      {getFullName(firstName, lastName)}
+                    </Text>
                     <SwitchTheme />
                   </div>
                 </div>
@@ -180,7 +194,15 @@ export const Header = memo(({ isAuthenticated = true }: HeaderProps) => {
         </nav>
       </>
     ),
-    [NAVIGATION_ITEMS, isOpen, onClose, handleButtonClick],
+    [
+      isOpen,
+      onClose,
+      NAVIGATION_ITEMS,
+      profilePicture,
+      firstName,
+      lastName,
+      handleButtonClick,
+    ],
   );
 
   return (
