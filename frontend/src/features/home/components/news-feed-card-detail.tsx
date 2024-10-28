@@ -90,7 +90,7 @@ export const NewsFeedCardDetail = memo(
         <Text
           className={cn(
             'text-neutral-400 whitespace-break-spaces',
-            gifUrl || (sharedLink && 'mb-3'),
+            (gifUrl || sharedLink) && 'mb-3',
           )}
         >
           <Label className="flex items-center text-sm font-normal text-neutral-400">
