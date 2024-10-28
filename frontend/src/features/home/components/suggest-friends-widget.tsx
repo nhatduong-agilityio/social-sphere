@@ -11,7 +11,7 @@ import {
   CardTitle,
   Text,
 } from '@/components/ui';
-import { UserPopover } from '@/components/sections';
+import { UserCardPopover } from '@/components/sections';
 
 // Mocks
 import { MOCK_FRIENDS } from '@/__mocks__/user';
@@ -38,7 +38,7 @@ export const SuggestFriendsWidget = () => {
       className="p-4 flex w-full border-t border-slate-300 dark:border-slate-600 items-center justify-between group cursor-pointer"
     >
       <div className="flex items-center gap-3">
-        <UserPopover user={user} />
+        <UserCardPopover user={user} />
 
         <div className="flex flex-col">
           <Text className="text-xs">

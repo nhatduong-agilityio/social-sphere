@@ -15,7 +15,7 @@ export const FriendPanel = () => {
     const title = getFullName(user.firstName, user.lastName);
     const description = `${user.countFriends} Friends`;
     return (
-      <Card key={user.id} className="border-none">
+      <Card key={user.id} className="border">
         <UserCardHeader
           user={user}
           title={title}
