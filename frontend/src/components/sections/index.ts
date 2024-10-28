@@ -7,4 +7,4 @@ export * from './panel';
 export * from './switch-theme';
 export * from './user-card-header';
 export * from './user-content-popover';
-export * from './user-popover';
+export * from './user-card-popover';

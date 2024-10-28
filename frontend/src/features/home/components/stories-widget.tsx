@@ -9,7 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui';
-import { UserPopover } from '@/components/sections';
+import { UserCardPopover } from '@/components/sections';
 import { StoryMeta } from '@/features/home/components';
 
 // Mocks
@@ -29,7 +29,7 @@ export const StoriesWidget = memo(({ onAddStory }: StoriesWidgetProps) => {
       className="p-4 flex w-full border-t border-slate-300 dark:border-slate-600 items-center justify-between group cursor-pointer"
     >
       <div className="flex items-center gap-3">
-        <UserPopover user={user} isStories={true} />
+        <UserCardPopover user={user} isStories={true} />
 
         <StoryMeta
           title={getFullName(user.firstName, user.lastName)}

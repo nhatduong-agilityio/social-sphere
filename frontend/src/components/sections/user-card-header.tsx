@@ -22,7 +22,7 @@ import {
 import { UserDetail, Option } from '@/types';
 
 // Constants
-import { UserPopover } from './user-popover';
+import { UserCardPopover } from './user-card-popover';
 
 // Utils
 import { cn } from '@/utils';
@@ -53,7 +53,7 @@ export const UserCardHeader = memo(
       {...props}
     >
       <div className="flex items-center gap-3">
-        <UserPopover user={user} />
+        <UserCardPopover user={user} />
 
         <div className="flex flex-col">
           <CardTitle className="text-sm">{title}</CardTitle>
