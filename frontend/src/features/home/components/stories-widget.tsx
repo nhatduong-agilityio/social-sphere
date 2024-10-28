@@ -59,12 +59,12 @@ export const StoriesWidget = memo(({ onAddStory }: StoriesWidgetProps) => {
             <Button
               size="icon"
               variant="rounded"
-              className="w-11 h-11 border-2 border-dashed dark:border-white group-hover:border-blue-200 hover:border-solid"
+              className="w-11 h-11 border-2 border-dashed dark:border-white group-hover:border-primary hover:border-solid"
               onClick={onAddStory}
             >
               <Plus
                 size={20}
-                className="dark:text-white text-slate-300 group-hover:text-blue-200"
+                className="dark:text-white text-slate-300 group-hover:text-primary"
               />
             </Button>
 

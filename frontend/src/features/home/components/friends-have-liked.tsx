@@ -4,7 +4,7 @@ import { ROUTER } from '@/constants';
 
 // Components
 import { Label, LinkWithIcon } from '@/components/ui';
-import { UserPopover } from '@/components/sections';
+import { UserCardPopover } from '@/components/sections';
 
 // Types
 import { NewsFeedLike, UserDetail } from '@/types';
@@ -40,7 +40,10 @@ const FriendAvatars = ({ newsFeedLikes }: { newsFeedLikes: NewsFeedLike }) => (
         key={friend.id}
         className={cn('relative', index > 0 && 'ml-[-12px]')}
       >
-        <UserPopover user={friend} />
+        <UserCardPopover
+          user={friend}
+          additionalClass="w-[38px] h-[38px] bg-white dark:bg-dark-800"
+        />
       </div>
     ))}
   </div>
