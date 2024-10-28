@@ -133,9 +133,7 @@ export const ComposeActivityPreview = memo(
               <LinkWithIcon
                 url="/"
                 text={moodDetail.label}
-                additionalClass={cn(
-                  'border-none w-fit text-primary  hover:dark:bg-transparent mr-3',
-                )}
+                additionalClass="border-none w-fit text-primary hover:dark:bg-transparent mr-3"
               />
             </div>
           )}
@@ -158,9 +156,7 @@ export const ComposeActivityPreview = memo(
               <LinkWithIcon
                 url="/"
                 text={location}
-                additionalClass={cn(
-                  'border-none w-fit text-primary  hover:dark:bg-transparent mr-3',
-                )}
+                additionalClass="border-none w-fit text-primary hover:dark:bg-transparent mr-3"
               />
             </>
           )}

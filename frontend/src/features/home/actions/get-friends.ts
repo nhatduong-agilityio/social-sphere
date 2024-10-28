@@ -29,3 +29,18 @@ export const getFriendsByName = async (
     return { error: errorMessage };
   }
 };
+
+export const getFriendsByIds = async (
+  friendIds: string[],
+): Promise<ApiDataResponse<UserDetail[]>> => {
+  try {
+    const friends = MOCK_FRIENDS.filter((friend) =>
+      friendIds.includes(friend.id),
+    );
+    return { data: friends };
+  } catch (error) {
+    const errorMessage =
+      (error as Error).message || 'Failed to fetch friends. Please try again.';
+    return { error: errorMessage };
+  }
+};

@@ -9,7 +9,7 @@ import { Button } from '@/components/ui';
 
 interface ComposeGifPreviewProps {
   imageUrl: string;
-  onRemove: () => void;
+  onRemove?: () => void;
 }
 
 export const ComposeGifPreview = memo(
@@ -21,14 +21,16 @@ export const ComposeGifPreview = memo(
         style={{ width: '100%', height: 'auto', objectFit: 'cover' }}
         className="rounded-md"
       />
-      <Button
-        size="icon"
-        variant="unstyle"
-        className="absolute top-[-4px] right-[-4px] bg-white hover:bg-gray-600 dark:bg-dark-900 hover:dark:bg-dark-900 rounded-full w-[30px] h-[30px]"
-        onClick={onRemove}
-      >
-        <XIcon size={16} className="text-neutral-400" />
-      </Button>
+      {onRemove && (
+        <Button
+          size="icon"
+          variant="unstyle"
+          className="absolute top-[-4px] right-[-4px] bg-white hover:bg-gray-600 dark:bg-dark-900 hover:dark:bg-dark-900 rounded-full w-[30px] h-[30px]"
+          onClick={onRemove}
+        >
+          <XIcon size={16} className="text-neutral-400" />
+        </Button>
+      )}
     </div>
   ),
 );

@@ -77,6 +77,7 @@ const config: Config = {
         'sphere-destructive':
           '0 14px 26px -12px rgba(247,20,22,.42),0 4px 23px 0px rgba(0,0,0,.12),0 8px 10px -5px rgba(247,20,22,.2)',
         'sphere-light': '-1px 3px 10px 0 rgba(0,0,0,.06)',
+        'sphere-medium': '0px 5px 43px rgba(0,0,0,.18)',
       },
       spacing: {
         400: '400px',
@@ -322,6 +323,20 @@ const config: Config = {
             transform: 'scale(1)',
           },
         },
+        bouncy: {
+          '0%, 100%': {
+            transform: 'scale(1, 1)',
+          },
+          '25%': {
+            transform: 'scale(0.9, 1.1)',
+          },
+          '50%': {
+            transform: 'scale(1.1, 0.9)',
+          },
+          '75%': {
+            transform: 'scale(0.95, 1.05)',
+          },
+        },
       },
       animation: {
         'fade-in': 'fade-in 0.5s ease-out',
@@ -336,6 +351,7 @@ const config: Config = {
         'flip-in-x': 'flip-in-x 1s ease-out',
         'spin-fast': 'spin 0.7s linear infinite',
         heartbeat: 'heartbeat 1s infinite',
+        bouncy: 'bouncy 0.5s ease-in-out',
       },
     },
   },
