@@ -1,4 +1,4 @@
-import { IPagination } from './pagination';
+import { Pagination } from './pagination';
 
 export type UserDetail = {
   id: string;
@@ -21,7 +21,7 @@ export type UserDetail = {
 
 export type IUserResponse = {
   data: UserDetail[];
-  meta: { pagination: IPagination };
+  meta: { pagination: Pagination };
 };
 
 export type IUserRequest = Omit<UserDetail, 'id'>;
