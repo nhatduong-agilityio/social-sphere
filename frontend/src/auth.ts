@@ -23,18 +23,19 @@ const CredentialsProvider = Credentials({
     if (parsedCredentials.success) {
       const { email, password } = parsedCredentials.data;
 
-      const url = `${API_ENDPOINT.USERS}?filters[email][$eq]=${email}&?filters[password][$eq]=${password}`;
+      const payload = {
+        identifier: email,
+        email,
+        password,
+      };
 
-      const users = await apiClient.get<IUserResponse>(url, {
-        headers: {
-          Authorization: `Bearer ${process.env.API_TOKEN}`,
-        },
-        cache: 'no-store',
-      });
+      const data = await apiClient.post<IUserResponse>(
+        API_ENDPOINT.SIGN_IN,
+        JSON.stringify(payload),
+      );
 
-      if (users.data.length > 0) {
-        const user = users.data[0];
-        return user;
+      if (data.user) {
+        return data.user;
       } else {
         return null;
       }

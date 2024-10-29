@@ -2,7 +2,6 @@ import { BASE_URL } from '@/constants';
 
 const headers = {
   'Content-Type': 'application/json',
-  Authorization: `Bearer ${process.env.API_TOKEN}`,
 };
 
 const handleResponse = async <T>(response: Response): Promise<T> => {
@@ -29,7 +28,7 @@ export const get = async <T>(
 
 export const post = async <T>(
   path: string,
-  body: object,
+  body: BodyInit,
   configOptions?: RequestInit,
 ): Promise<T> => {
   const url = `${BASE_URL}/${path}`;
@@ -37,7 +36,7 @@ export const post = async <T>(
   const options: RequestInit = {
     method: 'POST',
     headers,
-    body: JSON.stringify(body),
+    body,
     ...configOptions,
   };
 

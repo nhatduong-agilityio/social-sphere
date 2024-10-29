@@ -29,6 +29,12 @@ import { PictureProfileSchema } from '../lib';
 // Stores
 import { useOnboardingStore } from '../stores';
 
+// Services
+import { upload } from '@/services';
+
+// Constants
+import { BASE_URL } from '@/constants';
+
 export const UploadPictureProfile = () => {
   const { currentStep, setCurrentStep, onboardingData, setOnboardingData } =
     useOnboardingStore();
@@ -42,18 +48,27 @@ export const UploadPictureProfile = () => {
   });
 
   const handleFileChange = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
+    async (event: React.ChangeEvent<HTMLInputElement>) => {
       const file = event.target.files?.[0];
       if (file) {
         try {
           form.setValue('pictureProfile', file, { shouldValidate: true });
-          const imageUrl = URL.createObjectURL(file);
-          setSelectedImageUrl(imageUrl);
+          await form.trigger('pictureProfile');
+
+          if (!form.formState.errors.pictureProfile) {
+            const imageUrl = await upload(file);
+            setSelectedImageUrl(`${BASE_URL}${imageUrl}`);
+            form.clearErrors('pictureProfile');
+          } else {
+            setSelectedImageUrl(null);
+          }
         } catch (error) {
           form.setError('pictureProfile', {
             type: 'manual',
             message: 'Invalid file. Please select a valid image file.',
           });
+        } finally {
+          form.resetField('pictureProfile');
         }
       }
     },
@@ -64,16 +79,21 @@ export const UploadPictureProfile = () => {
     fileInputRef.current?.click();
   }, []);
 
-  const handleNextButton = useCallback(
-    ({ pictureProfile }: z.infer<typeof PictureProfileSchema>) => {
-      if (pictureProfile) {
-        const imageUrl = URL.createObjectURL(pictureProfile);
-        setOnboardingData({ ...onboardingData, profilePicture: imageUrl });
-        setCurrentStep(currentStep + 1);
-      }
-    },
-    [currentStep, onboardingData, setCurrentStep, setOnboardingData],
-  );
+  const handleNextButton = useCallback(() => {
+    if (selectedImageUrl) {
+      setOnboardingData({
+        ...onboardingData,
+        profilePicture: selectedImageUrl,
+      });
+      setCurrentStep(currentStep + 1);
+    }
+  }, [
+    currentStep,
+    onboardingData,
+    selectedImageUrl,
+    setCurrentStep,
+    setOnboardingData,
+  ]);
 
   const handleBackButton = useCallback(() => {
     setCurrentStep(currentStep - 1);
@@ -90,6 +110,7 @@ export const UploadPictureProfile = () => {
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
         <Button
+          type="button"
           variant="rounded"
           size="icon"
           className="border-3 bg-gray-900 hover:bg-blue-600 border-white dark:border-dark-800 absolute top-0 right-0 w-9 h-9"
