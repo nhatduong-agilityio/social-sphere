@@ -65,7 +65,7 @@ export const ComposeSearchBar = memo(
             <Button
               type="button"
               variant="link"
-              size="link"
+              size="fit"
               className="text-2xs text-neutral-400"
             >
               Create Group

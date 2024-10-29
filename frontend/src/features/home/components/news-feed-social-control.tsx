@@ -14,6 +14,7 @@ import { cn } from '@/utils';
 
 interface NewsFeedSocialControl {
   isLiked?: boolean;
+  onOpenComments: () => void;
 }
 
 interface SocialButtonProps {
@@ -33,7 +34,7 @@ const SocialButton = ({ icon, onClick, className }: SocialButtonProps) => (
 );
 
 export const NewsFeedSocialControl = memo(
-  ({ isLiked: initState = false }: NewsFeedSocialControl) => {
+  ({ isLiked: initState = false, onOpenComments }: NewsFeedSocialControl) => {
     const [isLiked, setIsLiked] = useState(initState);
 
     const handleLikeClick = () => {
@@ -54,6 +55,7 @@ export const NewsFeedSocialControl = memo(
         <SocialButton
           icon={<MessageCircleIcon size={18} />}
           className={defaultButtonStyle}
+          onClick={onOpenComments}
         />
         <SocialButton
           icon={<Link2Icon size={18} />}

@@ -1,4 +1,4 @@
-import { BellIcon, BookmarkIcon, FlagIcon } from 'lucide-react';
+import { BellIcon, BookmarkIcon, FlagIcon, XIcon } from 'lucide-react';
 
 export const NEWS_FEED_MORE_OPTIONS = [
   {
@@ -19,6 +19,21 @@ export const NEWS_FEED_MORE_OPTIONS = [
     label: 'Flag',
     value: 'flag',
     description: 'In case of inappropriate content.',
+    icon: <FlagIcon size={18} strokeWidth={1} className="text-neutral-400" />,
+  },
+];
+
+export const NEWS_FEED_COMMENT_MORE_OPTIONS = [
+  {
+    label: 'Hide',
+    value: 'hide',
+    description: 'Hide this comment.',
+    icon: <XIcon size={18} strokeWidth={1} className="text-neutral-400" />,
+  },
+  {
+    label: 'Report',
+    value: 'report',
+    description: 'Report this comment.',
     icon: <FlagIcon size={18} strokeWidth={1} className="text-neutral-400" />,
   },
 ];
