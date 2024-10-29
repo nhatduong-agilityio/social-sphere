@@ -12,46 +12,66 @@ export const MOCK_NEWS_FEED: NewsFeed = {
     likesRecent: [
       {
         friend: MOCK_FRIENDS[1],
-        createDate: '2024-09-03T22:59:59Z',
+        createdDate: '2024-09-03T22:59:59Z',
       },
       {
         friend: MOCK_FRIENDS[2],
-        createDate: '2024-09-03T23:00:59Z',
+        createdDate: '2024-09-03T23:00:59Z',
       },
       {
         friend: MOCK_FRIENDS[3],
-        createDate: '2024-09-03T23:05:59Z',
+        createdDate: '2024-09-03T23:05:59Z',
       },
       {
         friend: MOCK_FRIENDS[4],
-        createDate: '2024-09-03T23:06:59Z',
+        createdDate: '2024-09-03T23:06:59Z',
       },
       {
         friend: MOCK_FRIENDS[5],
-        createDate: '2024-09-03T23:09:59Z',
+        createdDate: '2024-09-03T23:09:59Z',
       },
     ],
   },
   comments: {
-    data: [
-      {
-        id: 'd4f27ea8-6e4f-4465-0000-2a5d60f25d8f',
-        friendId: MOCK_FRIENDS[1].id,
-        content:
-          'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempo incididunt ut labore et dolore magna aliqua.',
-        createDate: '2024-09-03T22:59:59Z',
-        likes: [MOCK_FRIENDS[5].id],
-        reply: [
-          {
-            id: 'd4f27ea8-6e4f-4465-1111-2a5d60f25d8f',
-            friendId: MOCK_FRIENDS[5].id,
-            content:
-              'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempo incididunt ut labore et dolore magna aliqua.',
-            createDate: '2024-09-03T23:59:59Z',
-          },
-        ],
-      },
-    ],
+    data: {
+      totalComments: 4,
+      comments: [
+        {
+          id: 'd4f27ea8-6e4f-4465-0000-2a5d60f25d8f',
+          friend: MOCK_FRIENDS[1],
+          content:
+            'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempo incididunt ut labore et dolore magna aliqua.',
+          createdDate: '2024-09-03T22:59:59Z',
+          likes: [MOCK_FRIENDS[5]],
+          reply: [
+            {
+              id: 'd4f27ea8-6e4f-4465-1111-2a5d60f25d8f',
+              friend: MOCK_FRIENDS[5],
+              content:
+                'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempo incididunt ut labore et dolore magna aliqua.',
+              createdDate: '2024-09-03T23:59:59Z',
+            },
+            {
+              id: 'd4f27ea8-6e4f-4465-1111-2a5d60231122',
+              friend: MOCK_FRIENDS[5],
+              content:
+                'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempo incididunt ut labore et dolore magna aliqua.',
+              createdDate: '2024-09-03T23:59:59Z',
+            },
+          ],
+          isOwner: true,
+        },
+        {
+          id: 'd4f27ea8-6e4f-4465-0000-2a5d60f25238',
+          friend: MOCK_FRIENDS[1],
+          content:
+            'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempo incididunt ut labore et dolore magna aliqua.',
+          createdDate: '2024-09-03T22:59:59Z',
+          likes: [MOCK_FRIENDS[5]],
+          isOwner: false,
+        },
+      ],
+    },
     meta: {
       pagination: {
         page: 1,
@@ -64,8 +84,8 @@ export const MOCK_NEWS_FEED: NewsFeed = {
   shares: [
     {
       id: 'd4f27ea8-6e4f-4472-9147-2a5d60f25d8f',
-      friendId: MOCK_FRIENDS[0].id,
-      createDate: '2024-09-03T23:59:59Z',
+      friend: MOCK_FRIENDS[0],
+      createdDate: '2024-09-03T23:59:59Z',
     },
   ],
   accessItems: ['activityFeed'],

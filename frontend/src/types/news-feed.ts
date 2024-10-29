@@ -1,29 +1,31 @@
 import { Pagination } from './pagination';
 import { UserDetail } from './user';
 
-export type NewsFeedFriendIds = string[];
-
 export type NewsFeedComment = {
   id: string;
-  friendId: string;
+  friend: UserDetail;
   content: string;
   media?: string;
-  tagFriends?: NewsFeedFriendIds;
+  tagFriends?: UserDetail[];
   gifUrl?: string;
-  createDate: string;
-  likes?: NewsFeedFriendIds;
+  createdDate: string;
+  likes?: UserDetail[];
   reply?: NewsFeedComment[];
+  isOwner?: boolean;
 };
 
-export type NewsFeedCommentList = {
-  data: NewsFeedComment[];
+export type NewsFeedCommentPagination = {
+  data: {
+    comments: NewsFeedComment[];
+    totalComments: number;
+  };
   meta: { pagination: Pagination };
 };
 
 export type NewsFeedShare = {
   id: string;
-  friendId: string;
-  createDate: string;
+  friend: UserDetail;
+  createdDate: string;
 };
 
 export type NewsFeedLike = {
@@ -31,7 +33,7 @@ export type NewsFeedLike = {
   remainingLikes?: number;
   likesRecent: {
     friend: UserDetail;
-    createDate: string;
+    createdDate: string;
   }[];
 };
 
@@ -41,7 +43,7 @@ export type NewsFeed = {
   content: string;
   createdDate: string;
   likes?: NewsFeedLike;
-  comments?: NewsFeedCommentList;
+  comments?: NewsFeedCommentPagination;
   shares?: NewsFeedShare[];
   media?: string;
   accessItems?: string[];
@@ -55,6 +57,6 @@ export type NewsFeed = {
   };
   sharedLink?: string;
   location?: string;
-  sendFriends?: NewsFeedFriendIds;
+  sendFriends?: UserDetail[];
   isLiked?: boolean;
 };

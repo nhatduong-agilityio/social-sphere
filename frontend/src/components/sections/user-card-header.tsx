@@ -33,6 +33,7 @@ interface UserCardHeaderProps extends ComponentProps<typeof CardHeader> {
   description?: string;
   endIcon?: ReactNode;
   moreOptions?: Option[];
+  variant?: 'sm' | 'default';
 }
 
 export const UserCardHeader = memo(
@@ -43,6 +44,7 @@ export const UserCardHeader = memo(
     endIcon = <EllipsisVertical size={20} />,
     moreOptions,
     className,
+    variant = 'default',
     ...props
   }: UserCardHeaderProps) => (
     <CardHeader
@@ -52,12 +54,26 @@ export const UserCardHeader = memo(
       )}
       {...props}
     >
-      <div className="flex items-center gap-3">
-        <UserCardPopover user={user} />
+      <div
+        className={cn('flex items-center', {
+          'gap-4': variant === 'sm',
+          'gap-3': variant === 'default',
+        })}
+      >
+        <UserCardPopover
+          user={user}
+          additionalClass={cn(variant === 'sm' && 'w-9 h-9 p-0')}
+        />
 
         <div className="flex flex-col">
-          <CardTitle className="text-sm">{title}</CardTitle>
-          {description && <CardDescription>{description}</CardDescription>}
+          <CardTitle className={cn('text-sm', variant === 'sm' && 'text-xs')}>
+            {title}
+          </CardTitle>
+          {description && (
+            <CardDescription className={cn(variant === 'sm' && 'text-4xs')}>
+              {description}
+            </CardDescription>
+          )}
         </div>
       </div>
 
