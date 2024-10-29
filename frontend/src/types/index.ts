@@ -6,3 +6,4 @@ export * from './option';
 export * from './pagination';
 export * from './search-params';
 export * from './user';
+export * from './upload';

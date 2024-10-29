@@ -1,5 +1,3 @@
-import { Pagination } from './pagination';
-
 export type UserDetail = {
   id: string;
   firstName: string;
@@ -20,8 +18,8 @@ export type UserDetail = {
 };
 
 export type IUserResponse = {
-  data: UserDetail[];
-  meta: { pagination: Pagination };
+  user: UserDetail;
+  jwt: string;
 };
 
 export type IUserRequest = Omit<UserDetail, 'id'>;

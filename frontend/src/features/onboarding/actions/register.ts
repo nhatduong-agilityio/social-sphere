@@ -10,20 +10,17 @@ import { AUTH_METHOD, API_ENDPOINT, ERROR_MESSAGES } from '@/constants';
 import { apiClient } from '@/services';
 
 // Types
-import { IUserRequest, IUserResponse } from '@/types';
+import { IUserRequest, UserDetail } from '@/types';
 
 const checkEmailExists = async (email: string) => {
   try {
     const url = `${API_ENDPOINT.USERS}?filters[email][$eq]=${email}`;
 
-    const response = await apiClient.get<IUserResponse>(url, {
-      headers: {
-        Authorization: `Bearer ${process.env.API_TOKEN}`,
-      },
+    const response = await apiClient.get<UserDetail[]>(url, {
       cache: 'no-store',
     });
 
-    const isEmailExists = response.data.length > 0;
+    const isEmailExists = response.length > 0;
     return isEmailExists;
   } catch (error) {
     return ERROR_MESSAGES.UNKNOWN_ERROR;
@@ -34,9 +31,15 @@ const register = async (data: IUserRequest) => {
   let errorOccurred = false;
 
   try {
-    await apiClient.post<IUserRequest>(API_ENDPOINT.USERS, {
-      data: { ...data },
-    });
+    const payload = {
+      ...data,
+      username: data.email,
+    };
+
+    await apiClient.post<IUserRequest>(
+      API_ENDPOINT.SIGN_UP,
+      JSON.stringify(payload),
+    );
   } catch (error) {
     errorOccurred = true;
     return { error: ERROR_MESSAGES.UNKNOWN_ERROR };
