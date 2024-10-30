@@ -11,17 +11,17 @@ import { UserDetail } from '@/types';
 import { formatNumber, getFullName } from '@/utils';
 
 interface ProfileSubHeaderProps {
-  user: UserDetail;
+  user?: UserDetail;
 }
 
 export const ProfileSubHeader = memo(({ user }: ProfileSubHeaderProps) => {
-  const { countFriends = 0, firstName, lastName, job } = user;
+  const { countFriends = 0, firstName = '', lastName = '', job } = user ?? {};
 
   return (
-    <div className="flex items-end justify-between py-3">
+    <div className="flex items-start justify-between py-3">
       <div className="hidden md:flex flex-col flex-1">
         <span className="font-montserrat text-[25.6px] font-semibold">
-          {formatNumber(countFriends)}
+          {formatNumber(countFriends) || '0'}
         </span>
         <span className="text-neutral-100 text-4xs uppercase">Friends</span>
       </div>

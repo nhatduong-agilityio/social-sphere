@@ -1,5 +1,3 @@
-'use client';
-
 import { ReactNode } from 'react';
 
 // Components
@@ -9,26 +7,25 @@ import {
   ProfileNavTab,
 } from '@/features/profile/components';
 
-// Constants
-import { TABS } from '@/constants';
+// Actions
+import { getProfile } from '@/features/profile/actions';
 
-export const ProfileLayout = ({ children }: { children: ReactNode }) => (
-  <main className="py-2">
-    <ProfileHeader />
-    <ProfileSubHeader
-      user={{
-        id: '1',
-        firstName: 'John',
-        lastName: 'Doe',
-        job: 'Engineer',
-        countFriends: 3400,
-      }}
-    />
+export const ProfileLayout = async ({ children }: { children: ReactNode }) => {
+  const profile = await getProfile();
 
-    <div className="flex md:flex-row flex-col gap-8">
-      <ProfileNavTab tabs={TABS} />
+  return (
+    <main className="py-2">
+      <ProfileHeader
+        imageUrl={profile?.profilePicture}
+        bannerUrl={profile?.banner}
+      />
+      <ProfileSubHeader user={profile} />
 
-      <div className="w-full">{children}</div>
-    </div>
-  </main>
-);
+      <div className="flex md:flex-row flex-col gap-8">
+        <ProfileNavTab />
+
+        <div className="w-full">{children}</div>
+      </div>
+    </main>
+  );
+};
