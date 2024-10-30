@@ -1,16 +1,17 @@
 'use client';
 
-import { memo, useState } from 'react';
+import { memo, useState, ReactNode, forwardRef } from 'react';
 
 // Icons
 import { Link2Icon, MessageCircleIcon } from 'lucide-react';
 import { HeartIcon } from '@/icons/heart-icon';
 
 // Components
-import { Button } from '@/components/ui';
+import { Button, Dialog, DialogTrigger } from '@/components/ui';
 
 // Utils
 import { cn } from '@/utils';
+import { NewsFeedShareDialog } from './news-feed-share-dialog';
 
 interface NewsFeedSocialControl {
   isLiked?: boolean;
@@ -18,20 +19,25 @@ interface NewsFeedSocialControl {
 }
 
 interface SocialButtonProps {
-  icon: React.ReactNode;
+  icon: ReactNode;
   onClick?: () => void;
   className?: string;
 }
 
-const SocialButton = ({ icon, onClick, className }: SocialButtonProps) => (
-  <Button
-    variant="primary"
-    className={cn('rounded-full p-0 hover:opacity-100 relative', className)}
-    onClick={onClick}
-  >
-    {icon}
-  </Button>
+const SocialButton = forwardRef<HTMLButtonElement, SocialButtonProps>(
+  ({ icon, onClick, className }, ref) => (
+    <Button
+      ref={ref}
+      variant="primary"
+      className={cn('rounded-full p-0 hover:opacity-100 relative', className)}
+      onClick={onClick}
+    >
+      {icon}
+    </Button>
+  ),
 );
+
+SocialButton.displayName = 'SocialButton';
 
 export const NewsFeedSocialControl = memo(
   ({ isLiked: initState = false, onOpenComments }: NewsFeedSocialControl) => {
@@ -51,38 +57,45 @@ export const NewsFeedSocialControl = memo(
     );
 
     return (
-      <div className="flex items-center gap-1">
-        <SocialButton
-          icon={<MessageCircleIcon size={18} />}
-          className={defaultButtonStyle}
-          onClick={onOpenComments}
-        />
-        <SocialButton
-          icon={<Link2Icon size={18} />}
-          className={defaultButtonStyle}
-        />
-        <SocialButton
-          icon={
-            <>
-              <div
-                className={cn(
-                  'absolute inset-0 rounded-full origin-center bg-red-100 transition-all duration-400 z-0',
-                  isLiked ? 'scale-100' : 'scale-0',
-                )}
+      <>
+        <div className="flex items-center gap-1">
+          <SocialButton
+            icon={<MessageCircleIcon size={18} />}
+            className={defaultButtonStyle}
+            onClick={onOpenComments}
+          />
+          <Dialog>
+            <DialogTrigger asChild>
+              <SocialButton
+                icon={<Link2Icon size={18} />}
+                className={defaultButtonStyle}
               />
-              <HeartIcon
-                key={isLiked ? 'liked' : 'unliked'}
-                className={cn(
-                  'w-4 h-4 animate-bouncy relative z-2',
-                  isLiked ? 'text-white' : 'text-red-100 dark:text-white',
-                )}
-              />
-            </>
-          }
-          onClick={handleLikeClick}
-          className={likeButtonStyle}
-        />
-      </div>
+            </DialogTrigger>
+            <NewsFeedShareDialog />
+          </Dialog>
+          <SocialButton
+            icon={
+              <>
+                <div
+                  className={cn(
+                    'absolute inset-0 rounded-full origin-center bg-red-100 transition-all duration-400 z-0',
+                    isLiked ? 'scale-100' : 'scale-0',
+                  )}
+                />
+                <HeartIcon
+                  key={isLiked ? 'liked' : 'unliked'}
+                  className={cn(
+                    'w-4 h-4 animate-bouncy relative z-2',
+                    isLiked ? 'text-white' : 'text-red-100 dark:text-white',
+                  )}
+                />
+              </>
+            }
+            onClick={handleLikeClick}
+            className={likeButtonStyle}
+          />
+        </div>
+      </>
     );
   },
 );

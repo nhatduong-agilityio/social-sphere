@@ -166,7 +166,7 @@ export const NewsFeedCommentForm = memo(
           )}
 
           <div className="flex justify-between items-center p-2">
-            <UserCardPopover user={user} variant="sm" />
+            <UserCardPopover user={user} size="sm" />
             <div className="flex gap-4 items-center">
               <ActionButton onClick={onToggleTagFriends}>
                 <AtSignIcon size={18} />

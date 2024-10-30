@@ -42,7 +42,7 @@ const FriendAvatars = ({ newsFeedLikes }: { newsFeedLikes: NewsFeedLike }) => (
       >
         <UserCardPopover
           user={friend}
-          variant="lg"
+          size="lg"
           additionalAvatarClass="border-[3px] border-white dark:border-dark-800"
         />
       </div>
