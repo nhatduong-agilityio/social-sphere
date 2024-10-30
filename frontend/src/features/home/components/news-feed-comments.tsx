@@ -4,9 +4,17 @@ import { memo } from 'react';
 import { XIcon } from 'lucide-react';
 
 // Components
-import { Button, CardContent, CardHeader, CardTitle } from '@/components/ui';
+import {
+  Button,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui';
 import { NewsFeedCommentPagination } from '@/types';
 import { NewsFeedCommentList } from './news-feed-comment-list';
+import { NewsFeedCommentForm } from './news-feed-comment-form';
+import { MOCK_FRIENDS } from '@/__mocks__/user';
 
 interface NewsFeedCommentsProps {
   comments: NewsFeedCommentPagination;
@@ -23,7 +31,7 @@ export const NewsFeedComments = memo(
       <div>
         <CardHeader className="p-4 flex flex-row justify-between items-center">
           <CardTitle className="text-base text-neutral-400">
-            Comments {totalComments}
+            Comments ({totalComments})
           </CardTitle>
           <Button
             size="icon"
@@ -43,6 +51,9 @@ export const NewsFeedComments = memo(
             />
           ))}
         </CardContent>
+        <CardFooter className="p-4">
+          <NewsFeedCommentForm user={MOCK_FRIENDS[0]} />
+        </CardFooter>
       </div>
     );
   },

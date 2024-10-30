@@ -18,25 +18,40 @@ import {
 interface UserPopoverProps {
   isStories?: boolean;
   user: UserDetail;
+  variant?: 'default' | 'sm' | 'md' | 'lg';
   additionalClass?: string;
+  additionalAvatarClass?: string;
 }
 
 export const UserCardPopover = memo(
-  ({ user, isStories = false, additionalClass }: UserPopoverProps) => {
+  ({
+    user,
+    isStories = false,
+    variant = 'default',
+    additionalClass,
+    additionalAvatarClass,
+  }: UserPopoverProps) => {
     const { profilePicture, firstName, lastName } = user;
+    const sizeWrapper = {
+      default: 'w-12 h-12',
+      sm: 'w-8 h-8',
+      md: 'w-9 h-9',
+      lg: 'w-[38px] h-[38px]',
+    }[variant];
 
     return (
       <HoverCard>
         <HoverCardTrigger
           className={cn(
-            'w-12 h-12 flex items-center justify-center rounded-full p-[3px]',
+            sizeWrapper,
+            'flex items-center justify-center rounded-full',
             {
               'border border-gray-900 dark:border-blue-800': isStories,
             },
             additionalClass,
           )}
         >
-          <Avatar className="w-fit h-fit">
+          <Avatar size={variant} className={additionalAvatarClass}>
             <AvatarImage
               src={profilePicture}
               alt={`Avatar of the user-${getFullName(firstName, lastName)} in team`}

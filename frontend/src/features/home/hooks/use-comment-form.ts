@@ -1,51 +1,22 @@
 import { useState, useCallback, ChangeEvent } from 'react';
 import { useForm } from 'react-hook-form';
 
-export type ComposeFeedFormValues = {
+export type CommentFormValues = {
   content: string;
   media: File | null;
-  accessItems: string[];
-  activityRole: string;
-  storyRole: string;
-  gifUrl: string;
   tagFriends: string[];
-  mood: {
-    title: string;
-    content: string;
-  };
-  sharedLink: string;
-  location: string;
-  sendFriends: string[];
 };
 
-const initMoodState = {
-  title: '',
-  content: '',
-};
-
-export const useComposeFeedForm = () => {
-  const form = useForm<ComposeFeedFormValues>({
+export const useCommentForm = () => {
+  const form = useForm<CommentFormValues>({
     defaultValues: {
       content: '',
-      accessItems: ['activityFeed'],
-      activityRole: 'friends',
-      storyRole: 'friends',
-      gifUrl: '',
       tagFriends: [],
-      mood: initMoodState,
-      sharedLink: '',
-      location: '',
-      sendFriends: [],
     },
   });
 
   const [selectedImageUrl, setSelectedImageUrl] = useState<string>('');
-  const [selectedGifUrl, setSelectedGifUrl] = useState<string>('');
   const [selectedTagFriends, setSelectedTagFriends] = useState<string[]>([]);
-  const [selectedMood, setSelectedMood] = useState<{
-    title: string;
-    content: string;
-  }>(initMoodState);
 
   const handleFileChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
@@ -68,18 +39,6 @@ export const useComposeFeedForm = () => {
     setSelectedImageUrl('');
     form.setValue('media', null);
   }, [form, selectedImageUrl]);
-
-  const handleGifSelect = useCallback(
-    (gifUrl: string) => {
-      form.setValue('gifUrl', gifUrl);
-      setSelectedGifUrl(gifUrl);
-    },
-    [form],
-  );
-
-  const handleRemoveGif = useCallback(() => {
-    setSelectedGifUrl('');
-  }, []);
 
   const handleTagFriends = useCallback(
     (friendId: string) => {
@@ -112,36 +71,14 @@ export const useComposeFeedForm = () => {
     form.setValue('tagFriends', []);
   }, [form]);
 
-  const handleSelectMood = useCallback(
-    (data: { title: string; content: string }) => {
-      setSelectedMood(data);
-      form.setValue('mood', data);
-    },
-    [form],
-  );
-
-  const handleRemoveMood = useCallback(() => {
-    setSelectedMood(initMoodState);
-    form.setValue('mood', initMoodState);
-  }, [form]);
-
-  const selectedLocation = form.getValues('location');
-
   return {
     form,
     selectedImageUrl,
-    selectedGifUrl,
     selectedTagFriends,
-    selectedMood,
-    selectedLocation,
     handleFileChange,
     handleRemoveMedia,
-    handleGifSelect,
-    handleRemoveGif,
     handleTagFriends,
     handleRemoveFriend,
     handleRemoveAllFriends,
-    handleSelectMood,
-    handleRemoveMood,
   };
 };
