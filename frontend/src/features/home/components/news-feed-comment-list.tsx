@@ -52,7 +52,7 @@ export const NewsFeedCommentList = memo(
       <div
         className={cn(
           'flex flex-col',
-          hasBorder && 'border-t border-blue-800 pt-3 mb-6',
+          hasBorder && 'border-t dark:border-blue-800 pt-3 mb-6',
         )}
       >
         <UserCardHeader
@@ -60,7 +60,7 @@ export const NewsFeedCommentList = memo(
           title={title}
           description={description}
           moreOptions={NEWS_FEED_COMMENT_MORE_OPTIONS}
-          variant="sm"
+          variant="md"
           className="p-0"
         />
 

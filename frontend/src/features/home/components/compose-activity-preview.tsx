@@ -25,12 +25,12 @@ import { getFullName, cn } from '@/utils';
 import { getMoodOptions } from '../utils/feed';
 
 interface ComposeActivityPreviewProps {
-  mood: {
+  mood?: {
     title: string;
     content: string;
   };
+  location?: string;
   friendIds: string[];
-  location: string;
   onRemoveFriend: (friendId: string) => void;
 }
 
@@ -87,8 +87,10 @@ export const ComposeActivityPreview = memo(
     onRemoveFriend,
   }: ComposeActivityPreviewProps) => {
     const [allFriends, setAllFriends] = useState<UserDetail[]>([]);
-    const { title, content } = mood;
-    const { moodOption, moodDetail } = getMoodOptions(title, content);
+    const { moodOption, moodDetail } = getMoodOptions(
+      mood?.title,
+      mood?.content,
+    );
 
     useEffect(() => {
       const fetchFriends = async () => {
@@ -102,7 +104,7 @@ export const ComposeActivityPreview = memo(
     const matchedFriends =
       allFriends?.filter((friend) => friendIds.includes(friend.id)) || [];
 
-    if (content === '' && friendIds.length === 0 && location === '') {
+    if (mood?.content === '' && friendIds.length === 0 && location === '') {
       return null;
     }
 

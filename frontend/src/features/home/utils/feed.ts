@@ -3,7 +3,7 @@ import { MOODS_TITLE, MOODS, MOOD_OPTIONS, MOOD_DETAILS } from '../constants';
 export const getMoodTitle = (label: string) =>
   label ? MOODS_TITLE[label as MOODS] : undefined;
 
-export const getMoodOptions = (name: string, content: string) => {
+export const getMoodOptions = (name?: string, content?: string) => {
   const moodOption = MOOD_OPTIONS.find((option) => option.value === name);
 
   if (!moodOption) {
