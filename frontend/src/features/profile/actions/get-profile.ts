@@ -1,8 +1,10 @@
+import { notFound, redirect } from 'next/navigation';
+
 // Auth
 import { auth } from '@/auth';
 
 // Constants
-import { API_ENDPOINT, ERROR_MESSAGES } from '@/constants';
+import { API_ENDPOINT, ROUTER } from '@/constants';
 
 // Services
 import { apiClient } from '@/services';
@@ -11,19 +13,19 @@ import { apiClient } from '@/services';
 import { UserDetail } from '@/types';
 
 export const getProfile = async (): Promise<UserDetail> => {
-  try {
-    const { user } = (await auth()) ?? {};
-    const jwt: string = user?.jwt as string;
+  const { user } = (await auth()) ?? {};
+  const jwt: string = user?.jwt as string;
 
-    const profile = await apiClient.get<UserDetail>(API_ENDPOINT.PROFILE, {
-      headers: {
-        Authorization: `Bearer ${jwt}`,
-      },
-      next: { tags: [API_ENDPOINT.PROFILE] },
-    });
+  if (!jwt) return redirect(ROUTER.LOGIN);
 
-    return profile;
-  } catch (error) {
-    throw ERROR_MESSAGES.UNKNOWN_ERROR;
-  }
+  const profile = await apiClient.get<UserDetail>(API_ENDPOINT.PROFILE, {
+    headers: {
+      Authorization: `Bearer ${jwt}`,
+    },
+    next: { tags: [API_ENDPOINT.PROFILE] },
+  });
+
+  if (!profile) return notFound();
+
+  return profile;
 };
