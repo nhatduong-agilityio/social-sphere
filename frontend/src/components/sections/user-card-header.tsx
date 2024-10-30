@@ -28,12 +28,12 @@ import { UserCardPopover } from './user-card-popover';
 import { cn } from '@/utils';
 
 interface UserCardHeaderProps extends ComponentProps<typeof CardHeader> {
+  variant?: 'default' | 'md';
+  description?: string;
+  moreOptions?: Option[];
+  endIcon?: ReactNode;
   user: UserDetail;
   title: string;
-  description?: string;
-  endIcon?: ReactNode;
-  moreOptions?: Option[];
-  variant?: 'default' | 'sm' | 'md' | 'lg';
 }
 
 export const UserCardHeader = memo(
@@ -57,12 +57,12 @@ export const UserCardHeader = memo(
       <div
         className={cn('flex items-center', {
           'gap-4': variant === 'md',
-          'gap-3': variant === 'default',
+          'gap-3': variant !== 'md',
         })}
       >
         <UserCardPopover
           user={user}
-          variant={variant}
+          size={variant}
           additionalClass={cn(variant === 'md' && 'p-0')}
         />
 

@@ -1,7 +1,10 @@
 import { SVGAttributes } from 'react';
 import { cn } from '@/utils';
 
-const HeartIcon = ({ className, ...props }: SVGAttributes<SVGSVGElement>) => (
+export const HeartIcon = ({
+  className,
+  ...props
+}: SVGAttributes<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
@@ -19,5 +22,3 @@ const HeartIcon = ({ className, ...props }: SVGAttributes<SVGSVGElement>) => (
     />
   </svg>
 );
-
-export { HeartIcon };

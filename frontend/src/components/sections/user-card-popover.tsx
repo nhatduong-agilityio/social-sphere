@@ -17,17 +17,17 @@ import {
 
 interface UserPopoverProps {
   isStories?: boolean;
-  user: UserDetail;
-  variant?: 'default' | 'sm' | 'md' | 'lg';
+  size?: 'default' | 'sm' | 'md' | 'lg';
   additionalClass?: string;
   additionalAvatarClass?: string;
+  user: UserDetail;
 }
 
 export const UserCardPopover = memo(
   ({
     user,
     isStories = false,
-    variant = 'default',
+    size = 'default',
     additionalClass,
     additionalAvatarClass,
   }: UserPopoverProps) => {
@@ -37,7 +37,7 @@ export const UserCardPopover = memo(
       sm: 'w-8 h-8',
       md: 'w-9 h-9',
       lg: 'w-[38px] h-[38px]',
-    }[variant];
+    }[size];
 
     return (
       <HoverCard>
@@ -51,7 +51,7 @@ export const UserCardPopover = memo(
             additionalClass,
           )}
         >
-          <Avatar size={variant} className={additionalAvatarClass}>
+          <Avatar size={size} className={additionalAvatarClass}>
             <AvatarImage
               src={profilePicture}
               alt={`Avatar of the user-${getFullName(firstName, lastName)} in team`}
