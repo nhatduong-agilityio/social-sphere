@@ -18,10 +18,14 @@ import { IMAGES } from '@/constants';
 // Hooks
 import { toast } from '@/hooks';
 
-export const UploadBannerProfile = () => {
-  const [selectedImageUrl, setSelectedImageUrl] = useState<string>(
-    IMAGES.PROFILE_BANNER.url,
-  );
+interface UploadBannerProfileProps {
+  url?: string;
+}
+
+export const UploadBannerProfile = ({
+  url = IMAGES.PROFILE_BANNER.url,
+}: UploadBannerProfileProps) => {
+  const [selectedImageUrl, setSelectedImageUrl] = useState<string>(url);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const form = useForm<z.infer<typeof PictureProfileSchema>>({
@@ -79,7 +83,10 @@ export const UploadBannerProfile = () => {
 
   return (
     <Form {...form}>
-      <Banner imageUrl={selectedImageUrl} onClick={handleUploadButtonClick} />
+      <Banner
+        imageUrl={selectedImageUrl || IMAGES.PROFILE_BANNER.url}
+        onClick={handleUploadButtonClick}
+      />
 
       <FormField
         control={form.control}

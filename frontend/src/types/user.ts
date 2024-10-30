@@ -17,8 +17,7 @@ export type UserDetail = {
   };
 };
 
-export type IUserResponse = {
-  user: UserDetail;
+export type IUserResponse = UserDetail & {
   jwt: string;
 };
 
