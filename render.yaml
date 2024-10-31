@@ -9,9 +9,17 @@ services:
     healthCheckPath: /_health
     envVars:
       - key: NODE_VERSION
-        value: 20.0.0
+        value: 20.0.0 # Keeping your Node version
       - key: NODE_ENV
         value: production
+      # Cloudinary environment variables
+      - key: CLOUDINARY_NAME
+        sync: false # Must be set manually in dashboard
+      - key: CLOUDINARY_KEY
+        sync: false # Must be set manually in dashboard
+      - key: CLOUDINARY_SECRET
+        sync: false # Must be set manually in dashboard
+      # Strapi environment variables
       - key: DATABASE_URL
         fromDatabase:
           name: social-sphere-db
