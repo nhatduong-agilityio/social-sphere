@@ -32,7 +32,7 @@ export const NewsFeedCard = memo(({ newsFeed }: NewsFeedCardProps) => {
     onClose: onCloseComments,
   } = useDisclosure();
 
-  const { user, createdDate, likes, comments, shares, isLiked } = newsFeed;
+  const { user, createdDate, likes, comments, shares } = newsFeed;
 
   const title = getFullName(user.firstName, user.lastName);
   const description = formatDate(createdDate);
@@ -71,7 +71,7 @@ export const NewsFeedCard = memo(({ newsFeed }: NewsFeedCardProps) => {
               />
               <div className="absolute right-0 bottom-[-27px]">
                 <NewsFeedSocialControl
-                  isLiked={isLiked}
+                  newsFeed={newsFeed}
                   onOpenComments={onOpenComments}
                 />
               </div>

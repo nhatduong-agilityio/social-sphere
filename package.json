@@ -9,9 +9,7 @@
     "dev": "pnpm clear && concurrently \"cd frontend && pnpm dev\" \"cd backend && pnpm develop\"",
     "pre:commit": "cd frontend && npx lint-staged",
     "pre:push": "cd frontend && pnpm test && pnpm build",
-    "prepare": "husky",
-    "import": "cd backend && pnpm strapi import -f ../social-sphere.tar.gz",
-    "export": "cd backend && pnpm strapi export --no-encrypt -f ../social-sphere"
+    "prepare": "husky"
   },
   "dependencies": {
     "concurrently": "^9.0.1"

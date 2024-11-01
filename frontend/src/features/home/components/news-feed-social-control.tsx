@@ -8,13 +8,16 @@ import { HeartIcon } from '@/icons/heart-icon';
 
 // Components
 import { Button, Dialog, DialogTrigger } from '@/components/ui';
+import { NewsFeedShareDialog } from './news-feed-share-dialog';
 
 // Utils
 import { cn } from '@/utils';
-import { NewsFeedShareDialog } from './news-feed-share-dialog';
+
+// Types
+import { NewsFeed } from '@/types';
 
 interface NewsFeedSocialControl {
-  isLiked?: boolean;
+  newsFeed: NewsFeed;
   onOpenComments: () => void;
 }
 
@@ -40,8 +43,8 @@ const SocialButton = forwardRef<HTMLButtonElement, SocialButtonProps>(
 SocialButton.displayName = 'SocialButton';
 
 export const NewsFeedSocialControl = memo(
-  ({ isLiked: initState = false, onOpenComments }: NewsFeedSocialControl) => {
-    const [isLiked, setIsLiked] = useState(initState);
+  ({ newsFeed, onOpenComments }: NewsFeedSocialControl) => {
+    const [isLiked, setIsLiked] = useState(newsFeed.isLiked);
 
     const handleLikeClick = () => {
       setIsLiked((prev) => !prev);
@@ -71,7 +74,7 @@ export const NewsFeedSocialControl = memo(
                 className={defaultButtonStyle}
               />
             </DialogTrigger>
-            <NewsFeedShareDialog />
+            <NewsFeedShareDialog newsFeed={newsFeed} />
           </Dialog>
           <SocialButton
             icon={

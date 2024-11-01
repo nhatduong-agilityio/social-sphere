@@ -5,16 +5,9 @@ import { Fragment, memo, useState } from 'react';
 // Icons
 import { ChevronDownIcon } from 'lucide-react';
 
-// Constants
-import { SHARE_OPTIONS } from '../constants/share-news-feed';
-
 // Components
 import {
   Button,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
   Heading,
   Text,
   DropdownMenu,
@@ -30,7 +23,7 @@ import { cn } from '@/utils';
 // Types
 import { Option } from '@/types';
 
-const ShareDropdown = ({ options }: { options: Option[] }) => {
+export const ShareDropdown = memo(({ options }: { options: Option[] }) => {
   const [selectedOption, setSelectedOption] = useState(options[0]);
   const [isOpen, setOpen] = useState(false);
 
@@ -87,16 +80,6 @@ const ShareDropdown = ({ options }: { options: Option[] }) => {
       </DropdownMenuContent>
     </DropdownMenu>
   );
-};
+});
 
-export const NewsFeedShareDialog = memo(() => (
-  <DialogContent className="p-0 gap-0 md:max-w-[480px]">
-    <DialogHeader className="px-3 py-2 border-b border-gray-600 dark:border-dark-500">
-      <ShareDropdown options={SHARE_OPTIONS} />
-      <DialogTitle className="hidden" />
-      <DialogDescription className="hidden" />
-    </DialogHeader>
-  </DialogContent>
-));
-
-NewsFeedShareDialog.displayName = 'NewsFeedShareDialog';
+ShareDropdown.displayName = 'ShareDropdown';

@@ -12,7 +12,7 @@ export type ShareFormValues = {
   friendsMessage: string[];
 };
 
-export const useCommentForm = () => {
+export const useShareForm = () => {
   const form = useForm<ShareFormValues>({
     defaultValues: {
       content: '',
