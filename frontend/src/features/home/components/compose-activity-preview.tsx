@@ -30,6 +30,7 @@ interface ComposeActivityPreviewProps {
     content: string;
   };
   location?: string;
+  hasWithFriends?: boolean;
   friendIds: string[];
   onRemoveFriend: (friendId: string) => void;
 }
@@ -83,6 +84,7 @@ export const ComposeActivityPreview = memo(
   ({
     mood,
     friendIds,
+    hasWithFriends = true,
     location,
     onRemoveFriend,
   }: ComposeActivityPreviewProps) => {
@@ -108,61 +110,65 @@ export const ComposeActivityPreview = memo(
       return null;
     }
 
+    const displayDetail = moodDetail || hasWithFriends || location;
+
     return (
       <div className="flex flex-col gap-2 mb-2">
-        <Label className="w-fit flex flex-wrap items-center text-center bg-gray-200 dark:bg-dark-500 px-2 py-0.5 rounded-full">
-          {moodDetail && (
-            <div className="flex items-center gap-3 pr-1 text-2xs">
-              <div className="w-[14px] h-[14px] rounded-full relative">
-                {moodDetail.icon ? (
-                  <Image
-                    alt={moodDetail.value || 'Mood item image'}
-                    src={`${moodDetail.icon}`}
-                    fill
-                    sizes="14px"
-                    style={{
-                      objectFit: 'cover',
-                      width: '100%',
-                      height: '100%',
-                      borderRadius: '100%',
-                    }}
-                  />
-                ) : (
-                  <CircleFlag countryCode={moodDetail.value} />
-                )}
-              </div>
-              {moodOption.value !== MOODS.STATUS && `is ${moodOption.label}`}
-              <LinkWithIcon
-                url="/"
-                text={moodDetail.label}
-                additionalClass="border-none w-fit text-primary hover:dark:bg-transparent mr-3"
-              />
-            </div>
-          )}
-          {matchedFriends.length > 0 && (
-            <>
-              - with&nbsp;
-              {matchedFriends.map((friend, index) => (
-                <FriendLink
-                  key={friend.id}
-                  friend={friend}
-                  index={index}
-                  total={matchedFriends.length}
+        {displayDetail && (
+          <Label className="w-fit flex flex-wrap items-center text-center bg-gray-200 dark:bg-dark-500 px-2 py-0.5 rounded-full">
+            {moodDetail && (
+              <div className="flex items-center gap-3 pr-1 text-2xs">
+                <div className="w-[14px] h-[14px] rounded-full relative">
+                  {moodDetail.icon ? (
+                    <Image
+                      alt={moodDetail.value || 'Mood item image'}
+                      src={`${moodDetail.icon}`}
+                      fill
+                      sizes="14px"
+                      style={{
+                        objectFit: 'cover',
+                        width: '100%',
+                        height: '100%',
+                        borderRadius: '100%',
+                      }}
+                    />
+                  ) : (
+                    <CircleFlag countryCode={moodDetail.value} />
+                  )}
+                </div>
+                {moodOption.value !== MOODS.STATUS && `is ${moodOption.label}`}
+                <LinkWithIcon
+                  url="/"
+                  text={moodDetail.label}
+                  additionalClass="border-none w-fit text-primary hover:dark:bg-transparent mr-3"
                 />
-              ))}
-            </>
-          )}
-          {location && (
-            <>
-              - at&nbsp;
-              <LinkWithIcon
-                url="/"
-                text={location}
-                additionalClass="border-none w-fit text-primary hover:dark:bg-transparent mr-3"
-              />
-            </>
-          )}
-        </Label>
+              </div>
+            )}
+            {matchedFriends.length > 0 && (
+              <>
+                - with&nbsp;
+                {matchedFriends.map((friend, index) => (
+                  <FriendLink
+                    key={friend.id}
+                    friend={friend}
+                    index={index}
+                    total={matchedFriends.length}
+                  />
+                ))}
+              </>
+            )}
+            {location && (
+              <>
+                - at&nbsp;
+                <LinkWithIcon
+                  url="/"
+                  text={location}
+                  additionalClass="border-none w-fit text-primary hover:dark:bg-transparent mr-3"
+                />
+              </>
+            )}
+          </Label>
+        )}
         <div className="flex flex-wrap gap-[6px]">
           {matchedFriends.map((friend) => (
             <FriendTag

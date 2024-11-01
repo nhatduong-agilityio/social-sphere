@@ -71,7 +71,7 @@ export const NewsFeedShareDialogAbout = memo(
             <FormItem className="w-full border-none">
               <FormControl>
                 <Textarea
-                  className="p-2.5 min-h-0 max-h-[41px] rounded-none"
+                  className="p-2.5 min-h-0 max-h-[41px] rounded-none resize-none"
                   variant="ghost"
                   placeholder="Say something about this..."
                   {...field}

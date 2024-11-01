@@ -20,6 +20,7 @@ import {
   Circle,
   Text,
   Label,
+  Button,
 } from '@/components/ui';
 
 // Actions
@@ -29,9 +30,10 @@ import { getFriendsByName } from '../actions';
 import { UserDetail } from '@/types';
 
 // Utils
-import { getFirstLetters, getFullName } from '@/utils';
+import { cn, getFirstLetters, getFullName } from '@/utils';
 
 interface TagFriendsProps {
+  variant?: 'primary' | 'secondary';
   onSelectFriend: (friendId: string) => void;
   onCloseTagFriends: () => void;
 }
@@ -78,11 +80,16 @@ const FriendItem = ({
 };
 
 export const TagFriends = memo(
-  ({ onSelectFriend, onCloseTagFriends }: TagFriendsProps) => {
+  ({
+    variant = 'primary',
+    onSelectFriend,
+    onCloseTagFriends,
+  }: TagFriendsProps) => {
     const [searchFriend, setSearchFriend] = useState('');
     const [friends, setFriends] = useState<UserDetail[]>([]);
 
     const debouncedSearchFriend = useDebounce(searchFriend, 300);
+    const isSecondary = variant === 'secondary';
 
     const handleFriendsList = useCallback(async () => {
       if (!debouncedSearchFriend) return;
@@ -94,6 +101,15 @@ export const TagFriends = memo(
       handleFriendsList();
     }, [handleFriendsList]);
 
+    const handleSelectFriend = useCallback(
+      (friendId: string) => {
+        onSelectFriend(friendId);
+        setSearchFriend('');
+        setFriends([]);
+      },
+      [onSelectFriend],
+    );
+
     const friendsList = useMemo(
       () => (
         <ul className="shadow-sphere-light">
@@ -101,18 +117,32 @@ export const TagFriends = memo(
             <FriendItem
               key={friend.id}
               friend={friend}
-              onSelectFriend={onSelectFriend}
+              onSelectFriend={handleSelectFriend}
             />
           ))}
         </ul>
       ),
-      [friends, onSelectFriend],
+      [friends, handleSelectFriend],
     );
 
     return (
       <div className="relative">
         <AutoCompleteInput
-          startIcon={<SearchIcon size={16} />}
+          additionalStartIconClass={cn(isSecondary && 'left-0')}
+          startIcon={
+            isSecondary ? (
+              <Button
+                type="button"
+                variant="unstyle"
+                className="text-white dark:text-white text-2xs border p-0 px-2.5 bg-neutral-200 dark:bg-dark-100 h-9 hover:bg-neutral-400/80 hover:dark:bg-neutral-400"
+              >
+                Friends :
+              </Button>
+            ) : (
+              <SearchIcon size={16} />
+            )
+          }
+          className={cn(isSecondary && 'pl-[74px] rounded-e-none')}
           placeholder="Who are you with?"
           variant="square"
           value={searchFriend}
