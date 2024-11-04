@@ -24,46 +24,41 @@ import {
 } from '@/components/ui';
 
 // Actions
-import { getFriendsByName } from '../actions';
+import { getGroupsByName } from '../actions';
 
 // Types
-import { UserDetail } from '@/types';
+import { GroupDetail } from '@/types';
 
 // Utils
-import { cn, getFirstLetters, getFullName } from '@/utils';
+import { cn, getFirstLetters } from '@/utils';
 
-interface TagFriendsProps {
+interface GroupPickerProps {
   hasSelectedValue?: boolean;
   variant?: 'primary' | 'secondary';
   label?: string;
   placeholder?: string;
-  onSelectFriend: (friendId: string) => void;
-  onCloseTagFriends: () => void;
+  onSelectGroup: (groupId: string) => void;
+  onCloseGroupPicker: () => void;
 }
 
-const FriendItem = ({
-  friend,
-  onSelectFriend,
+const GroupItem = ({
+  group,
+  onSelectGroup,
 }: {
-  friend: UserDetail;
-  onSelectFriend: () => void;
+  group: GroupDetail;
+  onSelectGroup: () => void;
 }) => {
-  const { profilePicture, id, firstName, lastName, location } = friend;
+  const { avatar, id, name, description, location } = group;
 
   return (
     <li
       className="cursor-pointer flex items-center px-3 py-1 gap-2.5 hover:bg-gray-600 hover:dark:bg-dark-500"
-      onClick={onSelectFriend}
+      onClick={onSelectGroup}
     >
       <div className="w-fit h-fit rounded-full relative">
         <Avatar size="md">
-          <AvatarImage
-            src={profilePicture}
-            alt={`Avatar of the friend-${id}`}
-          />
-          <AvatarFallback>
-            {getFirstLetters(firstName, lastName)}
-          </AvatarFallback>
+          <AvatarImage src={avatar} alt={`Avatar of the group-${id}`} />
+          <AvatarFallback>{getFirstLetters(name, name)}</AvatarFallback>
         </Avatar>
         {location && (
           <Circle className="border-[1.4px] border-white absolute bottom-0 right-[-3px] w-[18px] h-[18px]">
@@ -72,65 +67,61 @@ const FriendItem = ({
         )}
       </div>
       <Text className="leading-[18.2px] dark:text-gray-100">
-        {getFullName(firstName, lastName)}
+        {name}
         <br />
-        <Label className="text-2xs dark:text-neutral-100">
-          {location?.city}
-        </Label>
+        <Label className="text-2xs dark:text-neutral-100">{description}</Label>
       </Text>
     </li>
   );
 };
 
-export const TagFriends = memo(
+export const GroupPicker = memo(
   ({
     hasSelectedValue = false,
     variant = 'primary',
-    label = 'Friends',
-    placeholder = 'Who are you with?',
-    onSelectFriend,
-    onCloseTagFriends,
-  }: TagFriendsProps) => {
-    const [searchFriend, setSearchFriend] = useState('');
-    const [friends, setFriends] = useState<UserDetail[]>([]);
+    label = 'Group',
+    placeholder = `Your group's name`,
+    onSelectGroup,
+    onCloseGroupPicker,
+  }: GroupPickerProps) => {
+    const [searchGroup, setSearchGroup] = useState('');
+    const [groups, setgroups] = useState<GroupDetail[]>([]);
 
-    const debouncedSearchFriend = useDebounce(searchFriend, 300);
+    const debouncedSearchGroup = useDebounce(searchGroup, 300);
     const isSecondary = variant === 'secondary';
 
-    const handleFriendsList = useCallback(async () => {
-      if (!debouncedSearchFriend) return;
-      const { data } = await getFriendsByName(debouncedSearchFriend);
-      if (data) setFriends(data);
-    }, [debouncedSearchFriend]);
+    const handleGroupsList = useCallback(async () => {
+      if (!debouncedSearchGroup) return;
+      const { data } = await getGroupsByName(debouncedSearchGroup);
+      if (data) setgroups(data);
+    }, [debouncedSearchGroup]);
 
     useEffect(() => {
-      handleFriendsList();
-    }, [handleFriendsList]);
+      handleGroupsList();
+    }, [handleGroupsList]);
 
     const handleSelectFriend = useCallback(
-      ({ id, firstName, lastName }: UserDetail) => {
-        const friendName = getFullName(firstName, lastName);
-
-        onSelectFriend(id);
-        setSearchFriend(hasSelectedValue ? friendName : '');
-        setFriends([]);
+      ({ id, name }: GroupDetail) => {
+        onSelectGroup(id);
+        setSearchGroup(hasSelectedValue ? name : '');
+        setgroups([]);
       },
-      [hasSelectedValue, onSelectFriend],
+      [hasSelectedValue, onSelectGroup],
     );
 
-    const friendsList = useMemo(
+    const groupsList = useMemo(
       () => (
         <ul className="shadow-sphere-light">
-          {friends.map((friend) => (
-            <FriendItem
-              key={friend.id}
-              friend={friend}
-              onSelectFriend={() => handleSelectFriend(friend)}
+          {groups.map((group) => (
+            <GroupItem
+              key={group.id}
+              group={group}
+              onSelectGroup={() => handleSelectFriend(group)}
             />
           ))}
         </ul>
       ),
-      [friends, handleSelectFriend],
+      [groups, handleSelectFriend],
     );
 
     return (
@@ -153,13 +144,13 @@ export const TagFriends = memo(
           className={cn(isSecondary && 'pl-[74px] rounded-e-none')}
           placeholder={placeholder}
           variant="square"
-          value={searchFriend}
-          onChange={(e) => setSearchFriend(e.target.value)}
-          onClose={onCloseTagFriends}
+          value={searchGroup}
+          onChange={(e) => setSearchGroup(e.target.value)}
+          onClose={onCloseGroupPicker}
         />
-        {friends.length > 0 && (
+        {groups.length > 0 && (
           <div className="absolute z-50 top-9 left-0 w-full max-h-[320px] overflow-auto rounded-[4px] border border-input bg-white dark:bg-dark-500 transition-all duration-300 ease-in-out">
-            {friendsList}
+            {groupsList}
           </div>
         )}
       </div>
@@ -167,4 +158,4 @@ export const TagFriends = memo(
   },
 );
 
-TagFriends.displayName = 'TagFriends';
+GroupPicker.displayName = 'GroupPicker';

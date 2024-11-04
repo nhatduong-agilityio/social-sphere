@@ -1,21 +1,6 @@
-export type UserDetail = {
-  id: string;
-  firstName: string;
-  lastName: string;
-  username?: string;
-  password?: string;
-  email?: string;
-  profilePicture?: string;
-  banner?: string;
-  countFriends?: number;
-  job?: string;
-  phoneNumber?: string;
-  accountType?: string;
-  location?: {
-    countryCode: string;
-    city: string;
-  };
-};
+import { UserModel } from '@/models';
+
+export type UserDetail = UserModel;
 
 export type IUserResponse = UserDetail & {
   jwt: string;
