@@ -1,0 +1,10 @@
+{
+  "collectionName": "components_array_users",
+  "info": {
+    "displayName": "User",
+    "icon": "user",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {}
+}

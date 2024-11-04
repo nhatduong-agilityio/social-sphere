@@ -85,6 +85,48 @@
     },
     "accountType": {
       "type": "string"
+    },
+    "commentedPosts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::comment.comment",
+      "mappedBy": "friend"
+    },
+    "groupMember": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::group-member.group-member",
+      "mappedBy": "user"
+    },
+    "likes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::like.like",
+      "mappedBy": "user"
+    },
+    "shares": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::share.share",
+      "mappedBy": "user"
+    },
+    "followerRelationships": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::relationship.relationship",
+      "mappedBy": "follower"
+    },
+    "followedRelationships": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::relationship.relationship",
+      "mappedBy": "followed"
+    },
+    "posts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::post.post",
+      "mappedBy": "author"
     }
   }
 }

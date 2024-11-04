@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "relationships",
+  "info": {
+    "singularName": "relationship",
+    "pluralName": "relationships",
+    "displayName": "Relationship"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "follower": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "followerRelationships"
+    },
+    "followed": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "followedRelationships"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["following", "friends", "pending"],
+      "default": "pending"
+    }
+  }
+}
