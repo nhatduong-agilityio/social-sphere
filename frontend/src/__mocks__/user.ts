@@ -201,3 +201,87 @@ export const MOCK_LOCATIONS = [
     rating: 5,
   },
 ];
+
+export const MOCK_GROUPS = [
+  {
+    id: '1',
+    name: 'Family',
+    description: 'Davis family',
+    members: '39 members',
+    avatar: 'https://i.pravatar.cc/300',
+    location: {
+      city: 'Los Angeles',
+      countryCode: 'us',
+    },
+  },
+  {
+    id: '2',
+    name: 'Crazy Bakers',
+    description: `It's all about making cakes`,
+    members: '8K members',
+    avatar: 'https://i.pravatar.cc/300',
+    location: {
+      city: 'Trelew',
+      countryCode: 'ar',
+    },
+  },
+  {
+    id: '3',
+    name: 'Otaku Zone',
+    description: 'Japanese culture',
+    members: '98K members',
+    avatar: 'https://i.pravatar.cc/300',
+    location: {
+      city: 'Tokyo',
+      countryCode: 'jp',
+    },
+  },
+  {
+    id: '4',
+    name: 'Streetwear',
+    description: 'Urban clothing',
+    members: '519 members',
+    avatar: 'https://i.pravatar.cc/300',
+    location: {
+      city: 'Manchester',
+      countryCode: 'uk',
+    },
+  },
+  {
+    id: '5',
+    name: 'Motivate',
+    description: 'Sports videos',
+    members: '50K members',
+    avatar: 'https://i.pravatar.cc/300',
+    location: {
+      city: 'Madrid',
+      countryCode: 'es-variant',
+    },
+  },
+];
+
+export const MOCK_PAGES = [
+  {
+    id: '1',
+    name: 'Css Ninja',
+    description: 'Share on Css Ninja.',
+    avatar: 'https://friendkit.cssninja.io/assets/img/avatars/hanzo.svg',
+    owner: MOCK_FRIENDS[3],
+  },
+  {
+    id: '2',
+    name: 'NuclearJs',
+    description: 'Share on NuclearJs.',
+    avatar:
+      'https://friendkit.cssninja.io/assets/img/vector/icons/logos/nuclearjs.svg',
+    owner: MOCK_FRIENDS[2],
+  },
+  {
+    id: '3',
+    name: 'Slicer',
+    description: 'Share on Slicer.',
+    avatar:
+      'https://friendkit.cssninja.io/assets/img/vector/icons/logos/slicer.svg',
+    owner: MOCK_FRIENDS[4],
+  },
+];

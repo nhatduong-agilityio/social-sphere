@@ -6,10 +6,10 @@ export type ShareFormValues = {
   tagFriends: string[];
   location: string;
   activityRole: string;
-  friendsFeed: string[];
+  friendsFeed: string;
   group: string;
   page: string;
-  friendsMessage: string[];
+  friendsMessage: string;
 };
 
 export const useShareForm = () => {
@@ -20,6 +20,10 @@ export const useShareForm = () => {
   });
 
   const [selectedTagFriends, setSelectedTagFriends] = useState<string[]>([]);
+  const [selectedFriendsFeed, setSelectedFriendsFeed] = useState<string>('');
+  const [selectedFriendsMessage, setSelectedFriendsMessage] =
+    useState<string>('');
+  const [selectedGroup, setSelectedGroup] = useState<string>('');
 
   const handleTagFriends = useCallback(
     (friendId: string) => {
@@ -52,14 +56,62 @@ export const useShareForm = () => {
     form.setValue('tagFriends', []);
   }, [form]);
 
+  const handleFriendsFeed = useCallback(
+    (friendId: string) => {
+      setSelectedFriendsFeed(friendId);
+      form.setValue('friendsFeed', friendId);
+    },
+    [form],
+  );
+
+  const handleRemoveFriendsFeed = useCallback(() => {
+    setSelectedFriendsFeed('');
+    form.setValue('friendsFeed', '');
+  }, [form]);
+
+  const handleFriendsMessage = useCallback(
+    (friendId: string) => {
+      setSelectedFriendsMessage(friendId);
+      form.setValue('friendsMessage', friendId);
+    },
+    [form],
+  );
+
+  const handleRemoveFriendsMessage = useCallback(() => {
+    setSelectedFriendsMessage('');
+    form.setValue('friendsMessage', '');
+  }, [form]);
+
+  const handleSelectGroup = useCallback(
+    (groupId: string) => {
+      setSelectedGroup(groupId);
+      form.setValue('group', groupId);
+    },
+    [form],
+  );
+
+  const handleRemoveGroup = useCallback(() => {
+    setSelectedGroup('');
+    form.setValue('group', '');
+  }, [form]);
+
   const selectedLocation = form.getValues('location');
 
   return {
     form,
     selectedTagFriends,
     selectedLocation,
+    selectedFriendsFeed,
+    selectedFriendsMessage,
+    selectedGroup,
     handleTagFriends,
     handleRemoveFriend,
     handleRemoveAllFriends,
+    handleFriendsFeed,
+    handleRemoveFriendsFeed,
+    handleFriendsMessage,
+    handleRemoveFriendsMessage,
+    handleSelectGroup,
+    handleRemoveGroup,
   };
 };
