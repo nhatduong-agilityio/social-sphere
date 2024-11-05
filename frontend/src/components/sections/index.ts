@@ -8,3 +8,4 @@ export * from './switch-theme';
 export * from './user-card-header';
 export * from './user-content-popover';
 export * from './user-card-popover';
+export * from './avatar-skeleton';

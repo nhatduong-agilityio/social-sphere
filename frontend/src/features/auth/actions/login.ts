@@ -26,6 +26,10 @@ const login = async (_: string | undefined, user: FormData) => {
       switch (error.type) {
         case AUTH_ERROR_TYPES.CREDENTIALS_SIGN_IN:
           return ERROR_MESSAGES.EMAIL_PASSWORD_INVALID;
+
+        case AUTH_ERROR_TYPES.CALLBACK_ROUTE_ERROR:
+          return ERROR_MESSAGES.EMAIL_PASSWORD_INVALID;
+
         default:
           return ERROR_MESSAGES.UNKNOWN_ERROR;
       }

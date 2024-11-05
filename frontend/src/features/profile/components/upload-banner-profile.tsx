@@ -8,6 +8,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 // Components
 import { Input, Form, FormControl, FormField, FormItem } from '@/components/ui';
 import { Banner } from './profile-banner';
+import { BannerSkeleton } from './banner-skeleton';
 
 // Libs
 import { PictureProfileSchema } from '../lib';
@@ -18,6 +19,15 @@ import { IMAGES } from '@/constants';
 // Hooks
 import { toast } from '@/hooks';
 
+// Services
+import { upload } from '@/services';
+
+// Types
+import { UserDetail } from '@/types';
+
+// Actions
+import { updateProfile } from '../actions';
+
 interface UploadBannerProfileProps {
   url?: string;
 }
@@ -26,6 +36,7 @@ export const UploadBannerProfile = ({
   url = IMAGES.PROFILE_BANNER.url,
 }: UploadBannerProfileProps) => {
   const [selectedImageUrl, setSelectedImageUrl] = useState<string>(url);
+  const [isBannerLoading, setBannerIsLoading] = useState<boolean>(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const form = useForm<z.infer<typeof PictureProfileSchema>>({
@@ -41,11 +52,11 @@ export const UploadBannerProfile = ({
       const file = event.target.files?.[0];
       if (file) {
         try {
-          form.setValue('bannerProfile', file, { shouldValidate: true });
-          const isValid = await form.trigger('bannerProfile');
+          form.setValue('banner', file, { shouldValidate: true });
+          const isValid = await form.trigger('banner');
 
           if (!isValid) {
-            const error = form.formState.errors.bannerProfile;
+            const error = form.formState.errors.banner;
 
             toast({
               title: 'You submitted the following values:',
@@ -56,9 +67,12 @@ export const UploadBannerProfile = ({
               ),
             });
           } else {
-            const imageUrl = URL.createObjectURL(file);
+            setBannerIsLoading((prev) => !prev);
 
-            setSelectedImageUrl(imageUrl);
+            const banner = await upload(file);
+
+            await updateProfile({ banner } as UserDetail);
+            setSelectedImageUrl(banner);
 
             toast({
               description: (
@@ -69,9 +83,11 @@ export const UploadBannerProfile = ({
                 </pre>
               ),
             });
+
+            setBannerIsLoading((prev) => !prev);
           }
         } catch (error) {
-          form.setError('bannerProfile', {
+          form.setError('banner', {
             type: 'manual',
             message: 'Invalid file. Please select a valid image file.',
           });
@@ -83,14 +99,18 @@ export const UploadBannerProfile = ({
 
   return (
     <Form {...form}>
-      <Banner
-        imageUrl={selectedImageUrl || IMAGES.PROFILE_BANNER.url}
-        onClick={handleUploadButtonClick}
-      />
+      {isBannerLoading ? (
+        <BannerSkeleton />
+      ) : (
+        <Banner
+          imageUrl={selectedImageUrl || IMAGES.PROFILE_BANNER.url}
+          onClick={handleUploadButtonClick}
+        />
+      )}
 
       <FormField
         control={form.control}
-        name="bannerProfile"
+        name="banner"
         render={() => (
           <FormItem>
             <FormControl>

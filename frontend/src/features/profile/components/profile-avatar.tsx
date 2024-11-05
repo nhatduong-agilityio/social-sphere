@@ -26,6 +26,7 @@ import {
   PlusIcon,
 } from 'lucide-react';
 import { PopButton } from './pop-button';
+import { AvatarSkeleton } from '@/components/sections';
 
 // Libs
 import { PictureProfileSchema } from '../lib';
@@ -39,6 +40,15 @@ import { toast } from '@/hooks';
 // Images
 import AvatarPlaceholder from '../../../../public/images/avatar-placeholder.svg';
 
+// Services
+import { upload } from '@/services';
+
+// Types
+import { UserDetail } from '@/types';
+
+// Actions
+import { updateProfile } from '../actions';
+
 interface ProfileAvatarProps {
   imageUrl?: string;
 }
@@ -48,6 +58,7 @@ export const ProfileAvatar = ({
 }: ProfileAvatarProps) => {
   const [isActive, setIsActive] = useState<boolean>(false);
   const [selectedImageUrl, setSelectedImageUrl] = useState<string>(imageUrl);
+  const [isAvatarLoading, setAvatarIsLoading] = useState<boolean>(false);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -84,9 +95,14 @@ export const ProfileAvatar = ({
               ),
             });
           } else {
-            const imageUrl = URL.createObjectURL(file);
+            setAvatarIsLoading((prev) => !prev);
 
-            setSelectedImageUrl(imageUrl);
+            const profilePicture = await upload(file);
+
+            await updateProfile({ profilePicture } as UserDetail);
+            setSelectedImageUrl(profilePicture);
+
+            form.clearErrors('pictureProfile');
 
             toast({
               description: (
@@ -97,6 +113,8 @@ export const ProfileAvatar = ({
                 </pre>
               ),
             });
+
+            setAvatarIsLoading((prev) => !prev);
           }
         } catch (error) {
           form.setError('pictureProfile', {
@@ -158,11 +176,17 @@ export const ProfileAvatar = ({
   return (
     <Form {...form}>
       <div className="w-[110px] h-[110px] rounded-full p-[8.5px] absolute md:bottom-0 bottom-[-50px] left-0 right-0 mx-auto z-10">
-        <Avatar className="w-[full] h-[full]">
-          <AvatarImage src={selectedImageUrl} alt="Profile picture" />
-          <AvatarFallback className="w-24 h-24 rounded-full bg-slate-500">
-            CN
-          </AvatarFallback>
+        <Avatar className="w-[full] h-[full] bg-current">
+          {isAvatarLoading ? (
+            <AvatarSkeleton />
+          ) : (
+            <>
+              <AvatarImage src={selectedImageUrl} alt="Profile picture" />
+              <AvatarFallback className="w-24 h-24 rounded-full bg-slate-500">
+                CN
+              </AvatarFallback>
+            </>
+          )}
         </Avatar>
         <Button
           variant="rounded"
@@ -180,7 +204,11 @@ export const ProfileAvatar = ({
           />
         </Button>
 
-        <div className="absolute top-2/3 left-1/2 flex justify-center items-center">
+        <div
+          className={cn(
+            'absolute top-2/3 left-1/2 flex justify-center items-center',
+          )}
+        >
           <div className="relative">
             <PopButton
               rotate="-72deg"
