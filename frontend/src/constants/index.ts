@@ -7,3 +7,4 @@ export * from './nav-tab';
 export * from './rating';
 export * from './regex';
 export * from './router';
+export * from './tags';

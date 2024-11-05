@@ -32,9 +32,6 @@ import { useOnboardingStore } from '../stores';
 // Services
 import { upload } from '@/services';
 
-// Constants
-import { BASE_URL } from '@/constants';
-
 export const UploadPictureProfile = () => {
   const { currentStep, setCurrentStep, onboardingData, setOnboardingData } =
     useOnboardingStore();
@@ -57,7 +54,7 @@ export const UploadPictureProfile = () => {
 
           if (!form.formState.errors.pictureProfile) {
             const imageUrl = await upload(file);
-            setSelectedImageUrl(`${BASE_URL}${imageUrl}`);
+            setSelectedImageUrl(imageUrl);
             form.clearErrors('pictureProfile');
           } else {
             setSelectedImageUrl(null);

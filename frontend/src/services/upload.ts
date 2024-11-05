@@ -10,11 +10,11 @@ export const upload = async (file: File) => {
   const formData = new FormData();
   formData.append('files', file);
 
-  const response = await apiClient.post<IUploadResponse[]>(
-    API_ENDPOINT.UPLOAD,
-    formData,
-    { headers: {} },
-  );
+  const response = await apiClient.post<IUploadResponse[]>({
+    path: API_ENDPOINT.UPLOAD,
+    body: formData,
+    isUpload: true,
+  });
 
   return response[0].url || '';
 };

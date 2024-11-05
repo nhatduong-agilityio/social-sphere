@@ -4,7 +4,7 @@ const MAX_UPLOAD_SIZE = 1024 * 1024 * 3; // 3MB
 const ACCEPTED_FILE_TYPES = ['image/png', 'image/jpeg', 'image/jpg'];
 
 export const PictureProfileSchema = z.object({
-  bannerProfile: z
+  banner: z
     .instanceof(File)
     .optional()
     .refine(

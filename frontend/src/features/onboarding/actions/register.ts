@@ -18,6 +18,7 @@ const checkEmailExists = async (email: string) => {
 
     const response = await apiClient.get<UserDetail[]>(url, {
       cache: 'no-store',
+      headers: {},
     });
 
     const isEmailExists = response.length > 0;
@@ -36,10 +37,10 @@ const register = async (data: IUserRequest) => {
       username: data.email,
     };
 
-    await apiClient.post<IUserRequest>(
-      API_ENDPOINT.SIGN_UP,
-      JSON.stringify(payload),
-    );
+    await apiClient.post<IUserRequest>({
+      path: API_ENDPOINT.SIGN_UP,
+      body: JSON.stringify(payload),
+    });
   } catch (error) {
     errorOccurred = true;
     return { error: ERROR_MESSAGES.UNKNOWN_ERROR };

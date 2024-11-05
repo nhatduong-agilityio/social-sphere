@@ -13,3 +13,4 @@ export * from './rating';
 export * from './upload-banner-profile';
 export * from './video-panel';
 export * from './video';
+export * from './banner-skeleton';

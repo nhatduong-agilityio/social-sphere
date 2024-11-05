@@ -35,10 +35,10 @@ const CredentialsProvider = Credentials({
         password,
       };
 
-      const data = await apiClient.post<TAuthResponse>(
-        API_ENDPOINT.SIGN_IN,
-        JSON.stringify(payload),
-      );
+      const data = await apiClient.post<TAuthResponse>({
+        path: API_ENDPOINT.SIGN_IN,
+        body: JSON.stringify(payload),
+      });
       const { user, jwt } = data;
 
       if (!user) return null;
