@@ -1,15 +1,21 @@
 import { Camera } from 'lucide-react';
 
-// Mocks
-import { MOCK_PHOTOS } from '@/__mocks__/user';
-
 // Components
 import { Photo } from './photo';
 import { Panel } from '@/components/sections';
 
-export const PhotoPanel = () => {
-  const renderListPhotos = MOCK_PHOTOS.map((photo) => (
-    <Photo key={photo.id} src={photo.src} alt={photo.alt} />
+// APIs
+import { getPhotoListByUserId } from '@/api/photo-profile/route';
+
+interface IPhotoPanelProps {
+  userId: string;
+}
+
+export const PhotoPanel = async ({ userId }: IPhotoPanelProps) => {
+  const photos = await getPhotoListByUserId(userId);
+
+  const renderListPhotos = photos.map(({ id, media }) => (
+    <Photo key={id} src={media} alt={media} />
   ));
 
   return (

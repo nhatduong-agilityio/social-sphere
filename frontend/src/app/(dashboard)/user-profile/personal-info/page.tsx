@@ -13,7 +13,7 @@ const PersonalInfoPage = async () => {
     <div className="flex flex-col gap-8">
       <FriendPanel userId={id} />
 
-      <PhotoPanel />
+      <PhotoPanel userId={id} />
 
       <VideoPanel />
 

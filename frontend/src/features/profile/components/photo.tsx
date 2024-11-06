@@ -6,14 +6,16 @@ import { Heart } from 'lucide-react';
 
 // Components
 import { Button } from '@/components/ui';
+
+// Utils
 import { cn } from '@/utils';
 
 interface PhotoProps {
-  src: string;
-  alt: string;
+  src?: string;
+  alt?: string;
 }
 
-export const Photo = memo(({ src, alt }: PhotoProps) => {
+export const Photo = memo(({ src = '', alt = '' }: PhotoProps) => {
   const [isActive, setIsActive] = useState<boolean>(false);
 
   const handleClickActive = () => setIsActive(!isActive);
@@ -26,11 +28,11 @@ export const Photo = memo(({ src, alt }: PhotoProps) => {
         fill
         quality={100}
         priority
-        className="absolute inset-0 rounded-lg"
+        className="absolute inset-0 rounded-lg border dark:border-slate-600"
         sizes="(max-width: 768px) 100vw"
         style={{ objectFit: 'cover' }}
       />
-      <div className="absolute inset-0 z-10 bg-slate-700 bg-opacity-0 group-hover:bg-opacity-50 transition duration-300 ease-in-out" />
+      <div className="absolute inset-0 z-10 rounded-lg bg-slate-700 bg-opacity-0 group-hover:bg-opacity-50 transition duration-300 ease-in-out" />
 
       <div className="absolute z-20 bottom-0 right-0 m-2 opacity-0 translate-y-4 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 ease-in-out">
         <Button
