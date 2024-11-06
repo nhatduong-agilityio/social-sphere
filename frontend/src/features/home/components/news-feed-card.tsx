@@ -32,10 +32,10 @@ export const NewsFeedCard = memo(({ newsFeed }: NewsFeedCardProps) => {
     onClose: onCloseComments,
   } = useDisclosure();
 
-  const { user, createdDate, likes, comments, shares } = newsFeed;
+  const { author, createdAt, likes, comments, shares, media } = newsFeed;
 
-  const title = getFullName(user.firstName, user.lastName);
-  const description = formatDate(createdDate);
+  const title = getFullName(author.firstName, author.lastName);
+  const description = formatDate(createdAt);
   const likesCount = likes?.likesTotal || 0;
   const commentsCount = comments?.data.totalComments || 0;
   const sharesCount = shares?.length || 0;
@@ -50,7 +50,7 @@ export const NewsFeedCard = memo(({ newsFeed }: NewsFeedCardProps) => {
       ) : (
         <>
           <UserCardHeader
-            user={user}
+            user={author}
             title={title}
             description={description}
             moreOptions={NEWS_FEED_MORE_OPTIONS}
@@ -58,24 +58,26 @@ export const NewsFeedCard = memo(({ newsFeed }: NewsFeedCardProps) => {
           />
           <CardContent className="p-4 py-0">
             <NewsFeedCardDetail newsFeed={newsFeed} />
-            <div className="my-2.5 relative w-full h-[207px] md:h-400 lg:h-[256px] xl:h-[323px] 2xl:h-[353px]">
-              <Image
-                src={IMAGES.PROFILE_BANNER_FALLBACK.url}
-                alt={IMAGES.PROFILE_BANNER_FALLBACK.alt}
-                fill
-                quality={100}
-                priority
-                className="rounded-[12px]"
-                sizes="(max-width: 768px) 100vw"
-                style={{ objectFit: 'cover' }}
-              />
-              <div className="absolute right-0 bottom-[-27px]">
-                <NewsFeedSocialControl
-                  newsFeed={newsFeed}
-                  onOpenComments={onOpenComments}
+            {media && (
+              <div className="my-2.5 relative w-full h-[207px] md:h-400 lg:h-[256px] xl:h-[323px] 2xl:h-[353px]">
+                <Image
+                  src={media}
+                  alt={IMAGES.PROFILE_BANNER_FALLBACK.alt}
+                  fill
+                  quality={100}
+                  priority
+                  className="rounded-[12px]"
+                  sizes="(max-width: 768px) 100vw"
+                  style={{ objectFit: 'cover' }}
                 />
+                <div className="absolute right-0 bottom-[-27px]">
+                  <NewsFeedSocialControl
+                    newsFeed={newsFeed}
+                    onOpenComments={onOpenComments}
+                  />
+                </div>
               </div>
-            </div>
+            )}
           </CardContent>
           <CardFooter className="p-4 flex justify-between">
             {likes && <FriendsHaveLiked newsFeedLikes={likes} />}

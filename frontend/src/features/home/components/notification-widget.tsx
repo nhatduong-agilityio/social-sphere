@@ -39,12 +39,9 @@ export const NotificationWidget = memo(
     styleNotificationClass,
   }: NotificationWidgetProps) => (
     <Card
-      className={cn(
-        'relative flex flex-col w-full h-full rounded-lg',
-        customClass,
-      )}
+      className={cn('relative flex flex-col w-full rounded-lg', customClass)}
     >
-      <CardHeader className="flex flex-row items-center justify-between">
+      <CardHeader className="p-4 pb-0 flex flex-row items-center justify-between">
         <Button size="icon" variant="unstyle">
           {iconHeader}
         </Button>
@@ -54,7 +51,7 @@ export const NotificationWidget = memo(
         </Button>
       </CardHeader>
 
-      <CardContent className="z-10 p-4 flex flex-col justify-center items-center">
+      <CardContent className="z-10 p-4 flex flex-col justify-center items-center min-h-[290px]">
         <div className="relative">
           <Avatar className="mb-4">
             <AvatarImage src={avatar} alt="Background image" />

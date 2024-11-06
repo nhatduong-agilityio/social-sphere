@@ -33,7 +33,7 @@ export const NewsFeedShareDialogPreview = memo(
       </div>
       <div className="flex flex-col border p-5 gap-5">
         <div className="flex justify-center gap-3">
-          <UserCardPopover user={newsFeed.user} additionalClass="w-10 h-10" />
+          <UserCardPopover user={newsFeed.author} additionalClass="w-10 h-10" />
           <NewsFeedCardDetail newsFeed={newsFeed} />
         </div>
         <div className="flex gap-2.5 items-center">

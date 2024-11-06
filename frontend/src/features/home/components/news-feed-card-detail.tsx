@@ -11,10 +11,6 @@ interface NewsFeedCardDetailProps {
   newsFeed: NewsFeed;
 }
 
-// TODO: will remove when integrate API
-const DEFAULT_GIF_URL =
-  'https://i.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif';
-
 interface LinkWithIconWrapperProps {
   url: string;
   text: string;
@@ -30,14 +26,8 @@ const LinkWithIconWrapper = ({ url, text }: LinkWithIconWrapperProps) => (
 
 export const NewsFeedCardDetail = memo(
   ({ newsFeed }: NewsFeedCardDetailProps) => {
-    const {
-      content,
-      gifUrl = DEFAULT_GIF_URL,
-      tagFriends,
-      mood,
-      location,
-      sharedLink = DEFAULT_GIF_URL,
-    } = newsFeed;
+    const { content, gifUrl, tagFriends, mood, location, sharedLink } =
+      newsFeed;
 
     const displayMoodOptions = useMemo(() => {
       if (!mood) return null;
@@ -49,7 +39,7 @@ export const NewsFeedCardDetail = memo(
       return (
         <>
           {moodOption.value !== MOODS.STATUS && `is ${moodOption.label} `}
-          <Label className="text-sm text-primary">{moodDetail.label}</Label>
+          <Label className="text-sm text-primary">{moodDetail.label}</Label>.
         </>
       );
     }, [mood]);
@@ -70,6 +60,7 @@ export const NewsFeedCardDetail = memo(
               {index === tagFriends.length - 2 && ' and '}
             </Fragment>
           ))}
+          .
         </>
       );
     }, [tagFriends]);
@@ -80,7 +71,7 @@ export const NewsFeedCardDetail = memo(
       return (
         <>
           &nbsp;at the&nbsp;
-          <LinkWithIconWrapper url={location} text={location} />
+          <LinkWithIconWrapper url={location} text={location} />.
         </>
       );
     }, [location]);
@@ -96,7 +87,7 @@ export const NewsFeedCardDetail = memo(
           <Label className="flex items-center flex-wrap text-sm font-normal text-neutral-400">
             {displayMoodOptions}
             {displayTaggedFriends}
-            {displayLocation}.
+            {displayLocation}
           </Label>
           {content}
         </Text>

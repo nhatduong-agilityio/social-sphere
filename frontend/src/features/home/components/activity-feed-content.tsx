@@ -1,12 +1,16 @@
 'use client';
 
+import { useState } from 'react';
 import { Briefcase, Gift } from 'lucide-react';
+import { useTransition } from 'react';
 
 // Components
 import { ComposeFeedCard } from './compose-feed-card';
 import { NotificationWidget } from './notification-widget';
 import { StoriesWidget } from './stories-widget';
 import { SuggestFriendsWidget } from './suggest-friends-widget';
+import { NewsFeedCardList } from './news-feed-card-list';
+import { Button } from '@/components/ui';
 
 // Hooks
 import { useDisclosure } from '@/hooks';
@@ -16,16 +20,27 @@ import { MOCK_FRIENDS } from '@/__mocks__/user';
 
 // Icons
 import { BirthdayIcon, JobIcon } from '@/icons';
-import { NewsFeedCardList } from './news-feed-card-list';
-import { NewsFeed } from '@/types';
+import { NewsFeed, Pagination } from '@/types';
+
+// Actions
+import { getNewsFeeds } from '../actions/get-news-feeds';
 
 interface ActivityFeedContentProps {
+  authorId: string;
   newsFeeds: NewsFeed[];
+  pagination: Pagination;
 }
 
 export const ActivityFeedContent = ({
-  newsFeeds,
+  authorId,
+  newsFeeds: initialNewsFeeds,
+  pagination,
 }: ActivityFeedContentProps) => {
+  const [newsFeeds, setNewFeeds] = useState<NewsFeed[]>(initialNewsFeeds);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [isPending, startTransition] = useTransition();
+  const [hasMore, setHasMore] = useState(currentPage < pagination.pageCount);
+
   const {
     isOpen: isOverlayOpen,
     onOpen: onOpensOverlay,
@@ -34,6 +49,18 @@ export const ActivityFeedContent = ({
 
   const handleAddStory = () => {
     onOpensOverlay();
+  };
+
+  const loadMore = async () => {
+    startTransition(async () => {
+      const nextPage = currentPage + 1;
+      const { data: newNewsFeeds } = await getNewsFeeds(authorId, nextPage);
+      if (!newNewsFeeds) return;
+
+      setNewFeeds((prev) => [...prev, ...newNewsFeeds.data]);
+      setCurrentPage(nextPage);
+      setHasMore(nextPage < newNewsFeeds.meta.pagination.pageCount);
+    });
   };
 
   return (
@@ -48,8 +75,15 @@ export const ActivityFeedContent = ({
             onOpensOverlay={onOpensOverlay}
             onCloseOverlay={onCloseOverlay}
           />
-          <div>
+          <div className="flex flex-col gap-6">
             <NewsFeedCardList newsFeeds={newsFeeds} />
+
+            {/**TODO: Define common component later  */}
+            {hasMore && (
+              <Button variant="primary" onClick={loadMore} disabled={isPending}>
+                {isPending ? 'Loading...' : 'Load More Posts'}
+              </Button>
+            )}
           </div>
         </div>
         <div className="hidden lg:flex col-span-3 flex-col gap-6">
