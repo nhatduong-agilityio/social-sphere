@@ -51,7 +51,10 @@ export const UserCardPopover = memo(
             additionalClass,
           )}
         >
-          <Avatar size={size} className={additionalAvatarClass}>
+          <Avatar
+            size={size}
+            className={cn('bg-current', additionalAvatarClass)}
+          >
             <AvatarImage
               src={profilePicture}
               alt={`Avatar of the user-${getFullName(firstName, lastName)} in team`}

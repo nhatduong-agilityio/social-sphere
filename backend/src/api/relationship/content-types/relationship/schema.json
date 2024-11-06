@@ -23,7 +23,7 @@
       "target": "plugin::users-permissions.user",
       "inversedBy": "followedRelationships"
     },
-    "status": {
+    "requestStatus": {
       "type": "enumeration",
       "enum": ["following", "friends", "pending"],
       "default": "pending"

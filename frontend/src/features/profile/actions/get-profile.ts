@@ -15,7 +15,7 @@ import { UserDetail } from '@/types';
 export const getProfile = async (userId?: string): Promise<UserDetail> => {
   const { user } = (await auth()) ?? {};
   const jwt: string = user?.jwt as string;
-  const id = userId ?? user?.id;
+  const id = userId ?? (user?.id as string);
   const url = `${API_ENDPOINT.USERS}/${id}`;
 
   if (!jwt) return redirect(ROUTER.LOGIN);

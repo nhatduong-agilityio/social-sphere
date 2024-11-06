@@ -8,3 +8,4 @@ export * from './rating';
 export * from './regex';
 export * from './router';
 export * from './tags';
+export * from './query-url';

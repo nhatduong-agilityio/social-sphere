@@ -34,14 +34,14 @@ export const UserContentPopover = memo(({ user }: UserPopoverProps) => {
     lastName,
     countFriends = 0,
     location,
-    banner = IMAGES.PROFILE_BANNER.url,
+    banner,
   } = user;
 
   return (
     <Card className="h-full p-2">
       <div className="relative w-full h-28">
         <Image
-          src={banner}
+          src={banner || IMAGES.PROFILE_BANNER.url}
           alt={IMAGES.PROFILE_BANNER.alt}
           fill
           quality={100}
@@ -50,7 +50,7 @@ export const UserContentPopover = memo(({ user }: UserPopoverProps) => {
           style={{ objectFit: 'cover' }}
         />
 
-        <Avatar className="absolute w-[50px] h-[50px] -bottom-6 right-4 border-3 border-slate-900">
+        <Avatar className="absolute bg-current w-[50px] h-[50px] -bottom-6 right-4 border-3 border-slate-900">
           <AvatarImage
             src={profilePicture}
             alt={`Avatar of the user-${getFullName(firstName, lastName)} in team`}
@@ -71,15 +71,17 @@ export const UserContentPopover = memo(({ user }: UserPopoverProps) => {
             {countFriends} mutual friend(s)
           </div>
 
-          <div className="flex items-center gap-2 text-sm text-neutral-200">
-            <MapPin size={16} />
-            <div>
-              From{' '}
-              <a className="text-sky-600" href="#">
-                {location?.city}
-              </a>
+          {location && (
+            <div className="flex items-center gap-2 text-sm text-neutral-200">
+              <MapPin size={16} />
+              <div>
+                From{' '}
+                <a className="text-sky-600" href="#">
+                  {location.city}
+                </a>
+              </div>
             </div>
-          </div>
+          )}
         </CardContent>
       </div>
 
