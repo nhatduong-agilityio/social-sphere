@@ -65,3 +65,5 @@ export type NewsFeedsResponse = {
   data: NewsFeed[];
   meta: { pagination: Pagination };
 };
+
+export type TNewsFeedPhotos = { data: NewsFeed[] };
