@@ -1,3 +1,4 @@
+import { getProfile } from '@/features/profile/actions';
 import {
   FriendPanel,
   LocationPanel,
@@ -5,16 +6,20 @@ import {
   VideoPanel,
 } from '@/features/profile/components';
 
-const PersonalInfoPage = () => (
-  <div className="flex flex-col gap-8">
-    <FriendPanel />
+const PersonalInfoPage = async () => {
+  const { id } = await getProfile();
 
-    <PhotoPanel />
+  return (
+    <div className="flex flex-col gap-8">
+      <FriendPanel userId={id} />
 
-    <VideoPanel />
+      <PhotoPanel />
 
-    <LocationPanel />
-  </div>
-);
+      <VideoPanel />
+
+      <LocationPanel />
+    </div>
+  );
+};
 
 export default PersonalInfoPage;

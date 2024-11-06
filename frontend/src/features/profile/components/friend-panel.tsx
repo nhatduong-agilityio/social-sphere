@@ -1,23 +1,28 @@
 import { Users } from 'lucide-react';
 
-// Mocks
-import { MOCK_FRIENDS } from '@/__mocks__/user';
-
 // Components
 import { Panel, UserCardHeader } from '@/components/sections';
 import { Card } from '@/components/ui';
 
 // Utils
 import { getFullName } from '@/utils';
+import { getFriendListByUserId } from '@/api/friends-profile/route';
 
-export const FriendPanel = () => {
-  const renderListFriends = MOCK_FRIENDS.map((user) => {
-    const title = getFullName(user.firstName, user.lastName);
-    const description = `${user.countFriends} Friends`;
+interface IFriendPanelProps {
+  userId: string;
+}
+
+export const FriendPanel = async ({ userId }: IFriendPanelProps) => {
+  const friends = await getFriendListByUserId(userId);
+
+  const renderListFriends = friends.map(({ id, followed }) => {
+    const title = getFullName(followed.firstName, followed.lastName);
+    const description = `${followed.countFriends} Friends`;
+
     return (
-      <Card key={user.id} className="border">
+      <Card key={id} className="border">
         <UserCardHeader
-          user={user}
+          user={followed}
           title={title}
           description={description}
           className="cursor-pointer dark:bg-dark-400 dark:border-dark-400"

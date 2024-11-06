@@ -704,7 +704,9 @@ export interface ApiRelationshipRelationship
       'manyToOne',
       'plugin::users-permissions.user'
     >;
-    status: Schema.Attribute.Enumeration<['following', 'friends', 'pending']> &
+    requestStatus: Schema.Attribute.Enumeration<
+      ['following', 'friends', 'pending']
+    > &
       Schema.Attribute.DefaultTo<'pending'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;

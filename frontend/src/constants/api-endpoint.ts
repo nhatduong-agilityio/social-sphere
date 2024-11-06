@@ -10,4 +10,5 @@ export const API_ENDPOINT = {
   UPLOAD: 'api/upload',
   SIGN_UP: 'api/auth/local/register',
   SIGN_IN: 'api/auth/local',
+  RELATIONSHIP: 'api/relationships',
 };

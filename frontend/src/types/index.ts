@@ -9,3 +9,4 @@ export * from './pagination';
 export * from './search-params';
 export * from './upload';
 export * from './user';
+export * from './friend';
