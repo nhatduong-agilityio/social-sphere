@@ -567,7 +567,6 @@ export interface ApiGroupGroup extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::group-member.group-member'
     >;
-    posts: Schema.Attribute.Relation<'oneToMany', 'api::post.post'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -660,9 +659,17 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
       'plugin::users-permissions.user'
     >;
     content: Schema.Attribute.Text & Schema.Attribute.Required;
-    media: Schema.Attribute.String & Schema.Attribute.Required;
+    media: Schema.Attribute.String;
+    gifUrl: Schema.Attribute.String;
+    tagFriends: Schema.Attribute.JSON;
+    sendFriends: Schema.Attribute.JSON;
+    mood: Schema.Attribute.JSON;
+    sharedLink: Schema.Attribute.String;
+    location: Schema.Attribute.String;
+    accessItems: Schema.Attribute.JSON;
+    activityRole: Schema.Attribute.String;
+    storyRole: Schema.Attribute.String;
     comments: Schema.Attribute.Relation<'oneToMany', 'api::comment.comment'>;
-    group: Schema.Attribute.Relation<'manyToOne', 'api::group.group'>;
     likes: Schema.Attribute.Relation<'oneToMany', 'api::like.like'>;
     shares: Schema.Attribute.Relation<'oneToMany', 'api::share.share'>;
     createdAt: Schema.Attribute.DateTime;

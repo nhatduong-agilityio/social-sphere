@@ -1,10 +1,12 @@
+'use client';
+
 import {
   ChangeEvent,
   ElementType,
   memo,
   ReactNode,
-  RefObject,
   useCallback,
+  useRef,
 } from 'react';
 
 // Icons
@@ -29,7 +31,6 @@ import { cn } from '@/utils';
 
 interface ComposeOptionsProps {
   isOverlayOpen: boolean;
-  mediaInputRef: RefObject<HTMLInputElement>;
   onFileChange: (event: ChangeEvent<HTMLInputElement>) => void;
   onOpenOverlay: () => void;
   onOpenGifPicker: () => void;
@@ -69,7 +70,6 @@ const OptionButton = ({
 export const ComposeOptions = memo(
   ({
     isOverlayOpen,
-    mediaInputRef,
     onFileChange,
     onOpenOverlay,
     onOpenGifPicker,
@@ -78,11 +78,15 @@ export const ComposeOptions = memo(
     onOpenShareLink,
     onOpenLocation,
   }: ComposeOptionsProps) => {
+    const mediaInputRef = useRef<HTMLInputElement>(null);
     const { isOpen: isOpenComposeOptions, onOpen: onOpenComposeOptions } =
       useDisclosure();
 
     const handleOptionClick = useCallback(() => {
-      mediaInputRef.current?.click();
+      if (mediaInputRef.current) {
+        mediaInputRef.current.value = '';
+        mediaInputRef.current.click();
+      }
     }, [mediaInputRef]);
 
     const handleOptionShowMore = useCallback(() => {

@@ -1,6 +1,8 @@
 'use client';
 
-import { memo, useCallback, useRef } from 'react';
+import { memo, useCallback, useEffect } from 'react';
+import { useSession } from 'next-auth/react';
+import { useFormState, useFormStatus } from 'react-dom';
 
 // Icons
 import { EllipsisVerticalIcon } from 'lucide-react';
@@ -21,17 +23,29 @@ import { ComposeFormContent } from './compose-form-content';
 
 // Hooks
 import { useComposeFeedForm, useComposeDisclosure } from '../hooks';
-import { useDisclosure } from '@/hooks';
+import { toast, useDisclosure } from '@/hooks';
+
+// Actions
+import { publishNewsFeed, PublishState } from '../actions';
 
 interface ComposePublishContentProps {
   isOverlayOpen: boolean;
   onOpenOverlay: () => void;
 }
 
+const initialState: PublishState = {
+  message: null,
+  error: null,
+};
+
 export const ComposePublishContent = memo(
   ({ isOverlayOpen, onOpenOverlay }: ComposePublishContentProps) => {
+    const { data: session } = useSession();
+    const userId = session?.user?.id;
+
     const {
       form,
+      getFormData,
       selectedImageUrl,
       selectedGifUrl,
       selectedTagFriends,
@@ -45,7 +59,15 @@ export const ComposePublishContent = memo(
       handleRemoveFriend,
       handleTagFriends,
       handleRemoveMood,
+      handleRemoveAllFriends,
     } = useComposeFeedForm();
+
+    // Management server action to publish post
+    const [state, formAction] = useFormState(
+      publishNewsFeed.bind(null, userId),
+      initialState,
+    );
+    const { pending } = useFormStatus();
 
     const {
       gifPicker,
@@ -61,8 +83,6 @@ export const ComposePublishContent = memo(
     } = useComposeDisclosure();
     const viewMore = useDisclosure();
 
-    const mediaInputRef = useRef<HTMLInputElement>(null);
-
     const handleSelectedGif = useCallback(
       (gifUrl: string) => {
         handleGifSelect(gifUrl);
@@ -71,11 +91,50 @@ export const ComposePublishContent = memo(
       [gifPicker, handleGifSelect],
     );
 
-    const disableButton = !form.getValues('content');
+    const disableButton = !form.getValues('content') || pending;
+
+    const resetFormState = useCallback(() => {
+      form.reset();
+      handleRemoveMedia();
+      handleRemoveGif();
+      handleRemoveAllFriends();
+      handleRemoveMood();
+    }, [
+      form,
+      handleRemoveMedia,
+      handleRemoveGif,
+      handleRemoveAllFriends,
+      handleRemoveMood,
+    ]);
+
+    useEffect(() => {
+      if (state.error) {
+        toast({
+          variant: 'destructive',
+          title: 'Error',
+          description: state.error,
+        });
+      }
+
+      if (state.message) {
+        toast({
+          variant: 'success',
+          title: 'Success',
+          description: state.message,
+        });
+        resetFormState();
+      }
+    }, [resetFormState, state]);
+
+    const handleAction = async (_: FormData) => {
+      const values = form.getValues();
+      const enrichedFormData = getFormData(values);
+      return formAction(enrichedFormData);
+    };
 
     return (
       <Form {...form}>
-        <form>
+        <form action={handleAction}>
           <div className="border-b border-gray-600 dark:border-dark-500 p-4">
             <ComposeFormContent
               formControl={form.control}
@@ -145,7 +204,6 @@ export const ComposePublishContent = memo(
 
           <ComposeOptions
             isOverlayOpen={isOverlayOpen}
-            mediaInputRef={mediaInputRef}
             onFileChange={handleFileChange}
             onOpenOverlay={onOpenOverlay}
             onOpenGifPicker={onOpenGifPicker}
@@ -180,6 +238,7 @@ export const ComposePublishContent = memo(
                   variant="primary"
                   className="w-full hover:shadow-none hover:opacity-100 text-2xs"
                   disabled={disableButton}
+                  isLoading={pending}
                 >
                   Publish
                 </Button>
