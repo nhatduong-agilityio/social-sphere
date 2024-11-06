@@ -94,7 +94,10 @@ export const NewsFeedCommentForm = memo(
     );
 
     const handleOptionClick = useCallback(() => {
-      mediaInputRef.current?.click();
+      if (mediaInputRef.current) {
+        mediaInputRef.current.value = '';
+        mediaInputRef.current.click();
+      }
     }, [mediaInputRef]);
 
     useOnClickOutside(wrapperEmoji, onCloseEmoji);

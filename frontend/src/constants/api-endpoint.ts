@@ -5,6 +5,7 @@ export const API_ENDPOINT = {
   TENOR_PROXY: '/api/tenor-proxy',
   MAPBOX_GEOCODING: '/api/mapbox-geocoding',
   USERS: 'api/users',
+  POSTS: 'api/posts',
   PROFILE: 'api/users/me',
   UPLOAD: 'api/upload',
   SIGN_UP: 'api/auth/local/register',

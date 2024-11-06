@@ -23,20 +23,40 @@
       "required": true
     },
     "media": {
-      "type": "string",
-      "required": true
+      "type": "string"
+    },
+    "gifUrl": {
+      "type": "string"
+    },
+    "tagFriends": {
+      "type": "json"
+    },
+    "sendFriends": {
+      "type": "json"
+    },
+    "mood": {
+      "type": "json"
+    },
+    "sharedLink": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "accessItems": {
+      "type": "json"
+    },
+    "activityRole": {
+      "type": "string"
+    },
+    "storyRole": {
+      "type": "string"
     },
     "comments": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::comment.comment",
       "mappedBy": "post"
-    },
-    "group": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::group.group",
-      "inversedBy": "posts"
     },
     "likes": {
       "type": "relation",

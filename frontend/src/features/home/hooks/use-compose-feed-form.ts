@@ -55,8 +55,6 @@ export const useComposeFeedForm = () => {
         const imageUrl = URL.createObjectURL(file);
         setSelectedImageUrl(imageUrl);
       }
-
-      form.resetField('media');
     },
     [form],
   );
@@ -127,8 +125,37 @@ export const useComposeFeedForm = () => {
 
   const selectedLocation = form.getValues('location');
 
+  const getFormData = (values: ComposeFeedFormValues) => {
+    const formData = new FormData();
+
+    formData.append('content', values.content);
+    formData.append('activityRole', values.activityRole);
+    formData.append('storyRole', values.storyRole);
+    formData.append('gifUrl', values.gifUrl);
+    formData.append('sharedLink', values.sharedLink);
+    formData.append('location', values.location);
+
+    if (values.media) {
+      formData.append('media', values.media);
+    }
+
+    values.accessItems.forEach((item) => formData.append('accessItems', item));
+    values.tagFriends.forEach((friend) =>
+      formData.append('tagFriends', friend),
+    );
+    values.sendFriends.forEach((friend) =>
+      formData.append('sendFriends', friend),
+    );
+
+    formData.append('mood.title', values.mood.title);
+    formData.append('mood.content', values.mood.content);
+
+    return formData;
+  };
+
   return {
     form,
+    getFormData,
     selectedImageUrl,
     selectedGifUrl,
     selectedTagFriends,
