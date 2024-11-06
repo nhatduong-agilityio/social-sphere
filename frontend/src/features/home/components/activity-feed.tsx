@@ -1,11 +1,22 @@
 import { ActivityFeedContent } from './activity-feed-content';
 import { getNewsFeeds } from '../actions/get-news-feeds';
 import { notFound } from 'next/navigation';
-
+import { auth } from '@/auth';
 export const ActivityFeed = async () => {
-  const { data: newsFeeds } = await getNewsFeeds();
+  const session = await auth();
+  const authorId = session?.user?.id;
 
-  if (!newsFeeds) notFound();
+  const { data: newsFeedsResponse } = await getNewsFeeds(
+    session?.user?.id || '',
+  );
 
-  return <ActivityFeedContent newsFeeds={newsFeeds} />;
+  if (!newsFeedsResponse || !authorId) notFound();
+
+  return (
+    <ActivityFeedContent
+      authorId={authorId}
+      newsFeeds={newsFeedsResponse.data}
+      pagination={newsFeedsResponse.meta.pagination}
+    />
+  );
 };

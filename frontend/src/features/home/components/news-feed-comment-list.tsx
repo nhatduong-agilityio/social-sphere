@@ -42,10 +42,10 @@ export const NewsFeedCommentList = memo(
     hasSeparator = false,
     comment,
   }: NewsFeedCommentListProps) => {
-    const { friend, createdDate, content, reply, isOwner } = comment;
+    const { friend, createdAt, content, reply, isOwner } = comment;
 
     const title = getFullName(friend.firstName, friend.lastName);
-    const description = formatDate(createdDate);
+    const description = formatDate(createdAt);
     const replyCount = reply?.length || 0;
 
     return (

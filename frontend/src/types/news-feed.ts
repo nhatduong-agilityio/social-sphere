@@ -8,7 +8,7 @@ export type NewsFeedComment = {
   media?: string;
   tagFriends?: UserDetail[];
   gifUrl?: string;
-  createdDate: string;
+  createdAt: string;
   likes?: UserDetail[];
   reply?: NewsFeedComment[];
   isOwner?: boolean;
@@ -25,7 +25,7 @@ export type NewsFeedCommentPagination = {
 export type NewsFeedShare = {
   id: string;
   friend: UserDetail;
-  createdDate: string;
+  createdAt: string;
 };
 
 export type NewsFeedLike = {
@@ -33,15 +33,15 @@ export type NewsFeedLike = {
   remainingLikes?: number;
   likesRecent: {
     friend: UserDetail;
-    createdDate: string;
+    createdAt: string;
   }[];
 };
 
 export type NewsFeed = {
   id: string;
-  user: UserDetail;
+  author: UserDetail;
   content: string;
-  createdDate: string;
+  createdAt: string;
   likes?: NewsFeedLike;
   comments?: NewsFeedCommentPagination;
   shares?: NewsFeedShare[];
@@ -59,4 +59,9 @@ export type NewsFeed = {
   location?: string;
   sendFriends?: UserDetail[];
   isLiked?: boolean;
+};
+
+export type NewsFeedsResponse = {
+  data: NewsFeed[];
+  meta: { pagination: Pagination };
 };
