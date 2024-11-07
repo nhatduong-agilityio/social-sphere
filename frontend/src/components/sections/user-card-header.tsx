@@ -1,4 +1,5 @@
 import { ComponentProps, Fragment, memo, ReactNode } from 'react';
+import Link from 'next/link';
 
 // Icons
 import { EllipsisVertical } from 'lucide-react';
@@ -22,6 +23,9 @@ import {
 import { UserDetail, Option } from '@/types';
 
 // Constants
+import { ROUTER } from '@/constants';
+
+// Components
 import { UserCardPopover } from './user-card-popover';
 
 // Utils
@@ -67,9 +71,12 @@ export const UserCardHeader = memo(
         />
 
         <div className="flex flex-col">
-          <CardTitle className={cn('text-sm', variant === 'md' && 'text-xs')}>
-            {title}
-          </CardTitle>
+          <Link href={ROUTER.PROFILE_ID_PERSONAL_INFO(user.id)}>
+            <CardTitle className={cn('text-sm', variant === 'md' && 'text-xs')}>
+              {title}
+            </CardTitle>
+          </Link>
+
           {description && (
             <CardDescription className={cn(variant === 'md' && 'text-4xs')}>
               {description}

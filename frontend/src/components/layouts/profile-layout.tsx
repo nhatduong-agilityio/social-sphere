@@ -10,8 +10,16 @@ import {
 // Actions
 import { getProfile } from '@/features/profile/actions';
 
-export const ProfileLayout = async ({ children }: { children: ReactNode }) => {
-  const profile = await getProfile();
+interface ProfileLayoutProps {
+  children: ReactNode;
+  userId: string;
+}
+
+export const ProfileLayout = async ({
+  children,
+  userId,
+}: ProfileLayoutProps) => {
+  const profile = await getProfile(userId);
 
   return (
     <main className="py-2">

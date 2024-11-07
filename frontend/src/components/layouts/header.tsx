@@ -1,6 +1,7 @@
 'use client';
 
 import { memo, useCallback, useMemo } from 'react';
+import Link from 'next/link';
 
 // Components
 import { BrandLink, CircleOverlay, SwitchTheme } from '../sections';
@@ -38,6 +39,9 @@ import { UserDetail } from '@/types';
 // Images
 import AvatarPlaceholder from '../../../public/images/avatar-placeholder.svg';
 
+// Constants
+import { ROUTER } from '@/constants';
+
 interface HeaderProps {
   user?: UserDetail;
   isAuthenticated?: boolean;
@@ -45,6 +49,7 @@ interface HeaderProps {
 
 export const Header = memo(({ isAuthenticated = true, user }: HeaderProps) => {
   const {
+    id = 0,
     firstName = '',
     lastName = '',
     profilePicture = AvatarPlaceholder.src,
@@ -178,9 +183,11 @@ export const Header = memo(({ isAuthenticated = true, user }: HeaderProps) => {
               content={
                 <div className="grid gap-4">
                   <div className="flex justify-between items-center p-4">
-                    <Text variant="primary">
-                      {getFullName(firstName, lastName)}
-                    </Text>
+                    <Link href={ROUTER.PROFILE_ID_PERSONAL_INFO(id)}>
+                      <Text variant="primary">
+                        {getFullName(firstName, lastName)}
+                      </Text>
+                    </Link>
                     <SwitchTheme />
                   </div>
                 </div>
@@ -199,6 +206,7 @@ export const Header = memo(({ isAuthenticated = true, user }: HeaderProps) => {
       onClose,
       NAVIGATION_ITEMS,
       profilePicture,
+      id,
       firstName,
       lastName,
       handleButtonClick,
