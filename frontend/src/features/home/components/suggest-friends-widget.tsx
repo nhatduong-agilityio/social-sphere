@@ -52,9 +52,9 @@ export const SuggestFriendsWidget = () => {
         size="icon"
         variant="rounded"
         className="w-9 h-9 border-none"
-        onClick={() => handleAddFriend(user.id)}
+        onClick={() => handleAddFriend(user.id.toString())}
       >
-        {addedFriends.includes(user.id) ? (
+        {addedFriends.includes(user.id.toString()) ? (
           <CheckmarkIcon />
         ) : (
           <UserPlus

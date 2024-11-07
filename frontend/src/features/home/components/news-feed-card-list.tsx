@@ -7,15 +7,22 @@ import { NewsFeedCard } from './news-feed-card';
 import { NewsFeed } from '@/types';
 
 interface NewsFeedCardListProps {
+  authorId: string;
   newsFeeds: NewsFeed[];
 }
 
-export const NewsFeedCardList = memo(({ newsFeeds }: NewsFeedCardListProps) => (
-  <div className="flex flex-col gap-6">
-    {newsFeeds.map((newsFeed) => (
-      <NewsFeedCard key={newsFeed.id} newsFeed={newsFeed} />
-    ))}
-  </div>
-));
+export const NewsFeedCardList = memo(
+  ({ authorId, newsFeeds }: NewsFeedCardListProps) => (
+    <div className="flex flex-col gap-6">
+      {newsFeeds.map((newsFeed) => (
+        <NewsFeedCard
+          key={newsFeed.id}
+          newsFeed={newsFeed}
+          authorId={authorId}
+        />
+      ))}
+    </div>
+  ),
+);
 
 NewsFeedCardList.displayName = 'NewsFeedCardList';

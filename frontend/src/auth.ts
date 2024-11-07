@@ -43,7 +43,7 @@ const CredentialsProvider = Credentials({
 
       if (!user) return null;
 
-      return { ...user, jwt };
+      return { ...user, id: user.id.toString(), jwt };
     }
     return null;
   },

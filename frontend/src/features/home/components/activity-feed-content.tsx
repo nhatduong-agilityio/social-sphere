@@ -76,7 +76,7 @@ export const ActivityFeedContent = ({
             onCloseOverlay={onCloseOverlay}
           />
           <div className="flex flex-col gap-6">
-            <NewsFeedCardList newsFeeds={newsFeeds} />
+            <NewsFeedCardList newsFeeds={newsFeeds} authorId={authorId} />
 
             {/**TODO: Define common component later  */}
             {hasMore && (

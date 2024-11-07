@@ -111,7 +111,7 @@ export const TagFriends = memo(
       ({ id, firstName, lastName }: UserDetail) => {
         const friendName = getFullName(firstName, lastName);
 
-        onSelectFriend(id);
+        onSelectFriend(id.toString());
         setSearchFriend(hasSelectedValue ? friendName : '');
         setFriends([]);
       },

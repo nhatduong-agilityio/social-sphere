@@ -15,8 +15,10 @@ import { cn } from '@/utils';
 
 // Types
 import { NewsFeed } from '@/types';
+import { toggleLikeNewsFeed } from '../actions';
 
 interface NewsFeedSocialControl {
+  authorId: string;
   newsFeed: NewsFeed;
   onOpenComments: () => void;
 }
@@ -43,12 +45,8 @@ const SocialButton = forwardRef<HTMLButtonElement, SocialButtonProps>(
 SocialButton.displayName = 'SocialButton';
 
 export const NewsFeedSocialControl = memo(
-  ({ newsFeed, onOpenComments }: NewsFeedSocialControl) => {
+  ({ authorId, newsFeed, onOpenComments }: NewsFeedSocialControl) => {
     const [isLiked, setIsLiked] = useState(newsFeed.isLiked);
-
-    const handleLikeClick = () => {
-      setIsLiked((prev) => !prev);
-    };
 
     const defaultButtonStyle =
       'w-[43px] h-[43px] shadow-sphere-secondary hover:bg-blue-50';
@@ -58,6 +56,11 @@ export const NewsFeedSocialControl = memo(
         ? 'shadow-sphere-destructive hover:shadow-sphere-destructive'
         : 'hover:bg-white dark:hover:bg-blue-700 shadow-sphere-medium hover:shadow-sphere-medium',
     );
+
+    const handleLike = async () => {
+      await toggleLikeNewsFeed(Number(newsFeed.id), Number(authorId));
+      setIsLiked((prev) => !prev);
+    };
 
     return (
       <>
@@ -94,7 +97,7 @@ export const NewsFeedSocialControl = memo(
                 />
               </>
             }
-            onClick={handleLikeClick}
+            onClick={handleLike}
             className={likeButtonStyle}
           />
         </div>

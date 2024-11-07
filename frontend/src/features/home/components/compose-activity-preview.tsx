@@ -104,7 +104,9 @@ export const ComposeActivityPreview = memo(
     }, [friendIds]);
 
     const matchedFriends =
-      allFriends?.filter((friend) => friendIds.includes(friend.id)) || [];
+      allFriends?.filter((friend) =>
+        friendIds.includes(friend.id.toString()),
+      ) || [];
 
     if (mood?.content === '' && friendIds.length === 0 && location === '') {
       return null;
@@ -174,7 +176,7 @@ export const ComposeActivityPreview = memo(
             <FriendTag
               key={friend.id}
               friend={friend}
-              onRemove={() => onRemoveFriend(friend.id)}
+              onRemove={() => onRemoveFriend(friend.id.toString())}
             />
           ))}
         </div>

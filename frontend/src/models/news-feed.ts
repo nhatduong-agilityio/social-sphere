@@ -1,5 +1,8 @@
+import { Pagination } from '@/types';
+import { UserModel } from './user-model';
+
 export type NewsFeedModel = {
-  id: string;
+  id: number;
   content: string;
   media?: string;
   author: string;
@@ -18,3 +21,19 @@ export type NewsFeedModel = {
 };
 
 export type NewsFeedPayload = Omit<NewsFeedModel, 'id'>;
+
+export type NewsFeedListModel = Omit<NewsFeedModel, 'author'> & {
+  author: UserModel;
+  createdAt: string;
+  likes: {
+    id: number;
+    createdAt: string;
+    documentId: string;
+    user: UserModel;
+  }[];
+};
+
+export type NewsFeedListResponse = {
+  data: NewsFeedListModel[];
+  meta: { pagination: Pagination };
+};

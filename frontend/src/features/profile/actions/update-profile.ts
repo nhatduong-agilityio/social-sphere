@@ -24,7 +24,7 @@ export const updateProfile = async (data: UserDetail): Promise<UserDetail> => {
 
   if (!profile) return notFound();
 
-  revalidateTag(TAG_KEYS.USER_ID(id));
+  revalidateTag(TAG_KEYS.USER_ID(id.toString()));
 
   return profile;
 };

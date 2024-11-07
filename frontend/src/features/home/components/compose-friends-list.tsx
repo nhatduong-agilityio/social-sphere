@@ -65,7 +65,7 @@ const FriendsList = ({
                     <Checkbox
                       className="w-[22px] h-[22px] group-hover:border-primary transition-colors duration-200"
                       variant="circle"
-                      checked={field.value?.includes(id)}
+                      checked={field.value?.includes(id.toString())}
                       onCheckedChange={(checked) => {
                         const currentValue = Array.isArray(field.value)
                           ? field.value
@@ -73,7 +73,9 @@ const FriendsList = ({
                         return checked
                           ? field.onChange([...currentValue, id])
                           : field.onChange(
-                              currentValue.filter((item) => item !== id),
+                              currentValue.filter(
+                                (item) => item !== id.toString(),
+                              ),
                             );
                       }}
                     />
@@ -125,7 +127,7 @@ export const ComposeFriendsList = ({ form }: ComposeFriendsListProps) => {
 
   const selectedFriendIds = form.watch('sendFriends') || [];
   const selectedFriends = friends.filter((friend) =>
-    selectedFriendIds.includes(friend.id),
+    selectedFriendIds.includes(friend.id.toString()),
   );
 
   return (
