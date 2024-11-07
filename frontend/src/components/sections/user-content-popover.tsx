@@ -18,10 +18,11 @@ import {
 import { UserDetail } from '@/types';
 
 // Constants
-import { IMAGES } from '@/constants';
+import { IMAGES, ROUTER } from '@/constants';
 
 // Utils
 import { getFirstLetters, getFullName } from '@/utils';
+import Link from 'next/link';
 
 interface UserPopoverProps {
   user: UserDetail;
@@ -29,6 +30,7 @@ interface UserPopoverProps {
 
 export const UserContentPopover = memo(({ user }: UserPopoverProps) => {
   const {
+    id,
     profilePicture,
     firstName,
     lastName,
@@ -61,7 +63,10 @@ export const UserContentPopover = memo(({ user }: UserPopoverProps) => {
         </Avatar>
       </div>
 
-      <div className="flex flex-col mt-2">
+      <Link
+        href={ROUTER.PROFILE_ID_PERSONAL_INFO(id)}
+        className="flex flex-col mt-2"
+      >
         <CardTitle className="text-md mb-2">
           {getFullName(firstName, lastName)}
         </CardTitle>
@@ -83,7 +88,7 @@ export const UserContentPopover = memo(({ user }: UserPopoverProps) => {
             </div>
           )}
         </CardContent>
-      </div>
+      </Link>
 
       <CardFooter className="flex p-0 justify-end">
         <Button size="icon" variant="unstyle">
