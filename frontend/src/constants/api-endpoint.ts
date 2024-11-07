@@ -6,6 +6,7 @@ export const API_ENDPOINT = {
   MAPBOX_GEOCODING: '/api/mapbox-geocoding',
   USERS: 'api/users',
   POSTS: 'api/posts',
+  LIKES: 'api/likes',
   PROFILE: 'api/users/me',
   UPLOAD: 'api/upload',
   SIGN_UP: 'api/auth/local/register',

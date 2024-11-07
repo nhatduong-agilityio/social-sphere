@@ -89,6 +89,20 @@ export const put = async <T>(
   return fetchData<T>(url, options);
 };
 
-const apiClient = { get, post, put };
+export const remove = async <T>(
+  path: string,
+  configOptions?: RequestInit,
+): Promise<T> => {
+  const url = `${BASE_URL}/${path}`;
+
+  const options: RequestInit = {
+    method: 'DELETE',
+    ...configOptions,
+  };
+
+  return fetchData<T>(url, options);
+};
+
+const apiClient = { get, post, put, remove };
 
 export { apiClient };

@@ -35,7 +35,7 @@ export const getFriendsByIds = async (
 ): Promise<ApiDataResponse<UserDetail[]>> => {
   try {
     const friends = MOCK_FRIENDS.filter((friend) =>
-      friendIds.includes(friend.id),
+      friendIds.includes(friend.id.toString()),
     );
     return { data: friends };
   } catch (error) {

@@ -38,7 +38,7 @@ export type NewsFeedLike = {
 };
 
 export type NewsFeed = {
-  id: string;
+  id: number;
   author: UserDetail;
   content: string;
   createdAt: string;

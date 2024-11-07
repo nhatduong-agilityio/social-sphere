@@ -10,4 +10,7 @@ export const QUERY_GET_NEWS_FEEDS = (
   page: number = 1,
   pageSize: number = 10,
 ) =>
-  `filters[author][id][$eq]=${authorId}&populate[author]=*&populate[likes]=*&populate[comments]=*&populate[shares]=*&sort[0]=createdAt:desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}`;
+  `filters[author][id][$eq]=${authorId}&populate[author]=*&populate[likes][fields][0]=createdAt&populate[likes][populate][user]=*&populate[likes][sort][createdAt]=desc&populate[comments]=*&populate[shares]=*&sort[createdAt]=desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}`;
+
+export const QUERY_GET_EXISTING_LIKE = (newsFeedId: number, userId: number) =>
+  `filters[user][id][$eq]=${userId}&populate[user]=*&populate[post]=*&filters[post][id][$eq]=${newsFeedId}&filters[user][id][$eq]=${userId}`;
