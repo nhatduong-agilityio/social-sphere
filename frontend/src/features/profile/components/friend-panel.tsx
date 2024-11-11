@@ -6,14 +6,14 @@ import { Card } from '@/components/ui';
 
 // Utils
 import { getFullName } from '@/utils';
-import { getFriendListByUserId } from '@/api/friends-profile/route';
+import { getFriendListByUsername } from '@/api/friends-profile/route';
 
 interface IFriendPanelProps {
-  userId: string;
+  username: string;
 }
 
-export const FriendPanel = async ({ userId }: IFriendPanelProps) => {
-  const friends = await getFriendListByUserId(userId);
+export const FriendPanel = async ({ username }: IFriendPanelProps) => {
+  const friends = await getFriendListByUsername(username);
 
   const renderListFriends = friends.map(({ id, followed }) => {
     const title = getFullName(followed.firstName, followed.lastName);

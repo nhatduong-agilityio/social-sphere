@@ -18,31 +18,31 @@ import { ROUTER } from '@/constants';
 
 export const ProfileNavTab = memo(() => {
   const pathname = usePathname();
-  const { id } = useParams();
+  const { username } = useParams();
 
   const TABS = [
     {
       key: 'overview',
       label: 'Overview',
-      href: ROUTER.PROFILE_ID_OVERVIEW(id as unknown as number),
+      href: ROUTER.PROFILE_ID_OVERVIEW(username as string),
       icon: <CircleCheckBig className="md:mr-2" size={20} />,
     },
     {
       key: 'personal-info',
       label: 'Personal Info',
-      href: ROUTER.PROFILE_ID_PERSONAL_INFO(id as unknown as number),
+      href: ROUTER.PROFILE_ID_PERSONAL_INFO(username as string),
       icon: <Grip className="md:mr-2" size={20} />,
     },
     {
       key: 'education',
       label: 'Education',
-      href: ROUTER.PROFILE_ID_EDUCATION(id as unknown as number),
+      href: ROUTER.PROFILE_ID_EDUCATION(username as string),
       icon: <GraduationCap className="md:mr-2" size={20} />,
     },
     {
       key: 'jobs',
       label: 'Jobs',
-      href: ROUTER.PROFILE_ID_JOBS(id as unknown as number),
+      href: ROUTER.PROFILE_ID_JOBS(username as string),
       icon: <BriefcaseBusiness className="md:mr-2" size={20} />,
     },
   ];

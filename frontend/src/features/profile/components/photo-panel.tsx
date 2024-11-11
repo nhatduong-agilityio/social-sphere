@@ -5,14 +5,14 @@ import { Photo } from './photo';
 import { Panel } from '@/components/sections';
 
 // APIs
-import { getPhotoListByUserId } from '@/api/photo-profile/route';
+import { getPhotoListByUsername } from '@/api/photo-profile/route';
 
 interface IPhotoPanelProps {
-  userId: string;
+  username: string;
 }
 
-export const PhotoPanel = async ({ userId }: IPhotoPanelProps) => {
-  const photos = await getPhotoListByUserId(userId);
+export const PhotoPanel = async ({ username }: IPhotoPanelProps) => {
+  const photos = await getPhotoListByUsername(username);
 
   const renderListPhotos = photos.map(({ id, media }) => (
     <Photo key={id} src={media} alt={media} />

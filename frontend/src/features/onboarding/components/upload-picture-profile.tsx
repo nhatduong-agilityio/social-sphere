@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useRef, useState, useMemo } from 'react';
+import { useCallback, useRef, useState, useMemo, useTransition } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -31,11 +31,13 @@ import { useOnboardingStore } from '../stores';
 
 // Services
 import { upload } from '@/services';
+import { AvatarSkeleton } from '@/components/sections';
 
 export const UploadPictureProfile = () => {
   const { currentStep, setCurrentStep, onboardingData, setOnboardingData } =
     useOnboardingStore();
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const [isPending, startTransition] = useTransition();
   const [selectedImageUrl, setSelectedImageUrl] = useState<string | null>(
     onboardingData.profilePicture,
   );
@@ -53,9 +55,11 @@ export const UploadPictureProfile = () => {
           await form.trigger('pictureProfile');
 
           if (!form.formState.errors.pictureProfile) {
-            const imageUrl = await upload(file);
-            setSelectedImageUrl(imageUrl);
-            form.clearErrors('pictureProfile');
+            startTransition(async () => {
+              const imageUrl = await upload(file);
+              setSelectedImageUrl(imageUrl);
+              form.clearErrors('pictureProfile');
+            });
           } else {
             setSelectedImageUrl(null);
           }
@@ -100,11 +104,17 @@ export const UploadPictureProfile = () => {
     () => (
       <div className="w-[120px] h-[120px] rounded-full border-[1.4px] border-gray-900 dark:border-blue-800 p-[8.5px] relative">
         <Avatar className="w-full h-full">
-          <AvatarImage
-            src={selectedImageUrl || '/images/avatar-placeholder.svg'}
-            alt="Profile picture"
-          />
-          <AvatarFallback>CN</AvatarFallback>
+          {isPending ? (
+            <AvatarSkeleton customClass="w-[120px] h-[120px]" />
+          ) : (
+            <>
+              <AvatarImage
+                src={selectedImageUrl || '/images/avatar-placeholder.svg'}
+                alt="Profile picture"
+              />
+              <AvatarFallback>CN</AvatarFallback>
+            </>
+          )}
         </Avatar>
         <Button
           type="button"
@@ -118,7 +128,7 @@ export const UploadPictureProfile = () => {
         </Button>
       </div>
     ),
-    [selectedImageUrl, handlePlusButtonClick],
+    [isPending, selectedImageUrl, handlePlusButtonClick],
   );
 
   return (

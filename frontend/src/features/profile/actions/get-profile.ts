@@ -1,10 +1,7 @@
-import { notFound, redirect } from 'next/navigation';
-
-// Auth
-import { auth } from '@/auth';
+import { notFound } from 'next/navigation';
 
 // Constants
-import { API_ENDPOINT, ROUTER, TAG_KEYS } from '@/constants';
+import { API_ENDPOINT, TAG_KEYS } from '@/constants';
 
 // Services
 import { apiClient } from '@/services';
@@ -12,20 +9,14 @@ import { apiClient } from '@/services';
 // Types
 import { UserDetail } from '@/types';
 
-export const getProfile = async (userId?: string): Promise<UserDetail> => {
-  const { user } = (await auth()) ?? {};
-  const jwt: string = user?.jwt as string;
-  const id = userId ?? (user?.id as unknown as string);
-  const url = `${API_ENDPOINT.USERS}/${id}`;
+export const getProfile = async (username: string): Promise<UserDetail> => {
+  const url = `${API_ENDPOINT.USERS}?filters[username][$eq]=${username}`;
 
-  if (!jwt) return redirect(ROUTER.LOGIN);
-
-  const profile = await apiClient.get<UserDetail>(url, {
-    headers: { Authorization: `Bearer ${jwt}` },
-    next: { tags: [TAG_KEYS.USER_ID(id)] },
+  const profile = await apiClient.get<UserDetail[]>(url, {
+    next: { tags: [TAG_KEYS.USER_USERNAME(username)] },
   });
 
-  if (!profile) return notFound();
+  if (!profile[0]) return notFound();
 
-  return profile;
+  return profile[0];
 };

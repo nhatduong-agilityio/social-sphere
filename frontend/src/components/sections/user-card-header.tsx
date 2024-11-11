@@ -71,7 +71,7 @@ export const UserCardHeader = memo(
         />
 
         <div className="flex flex-col">
-          <Link href={ROUTER.PROFILE_ID_PERSONAL_INFO(user.id)}>
+          <Link href={ROUTER.PROFILE_ID_PERSONAL_INFO(user.username as string)}>
             <CardTitle className={cn('text-sm', variant === 'md' && 'text-xs')}>
               {title}
             </CardTitle>

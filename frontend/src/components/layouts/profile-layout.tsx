@@ -12,14 +12,14 @@ import { getProfile } from '@/features/profile/actions';
 
 interface ProfileLayoutProps {
   children: ReactNode;
-  userId: string;
+  username: string;
 }
 
 export const ProfileLayout = async ({
   children,
-  userId,
+  username,
 }: ProfileLayoutProps) => {
-  const profile = await getProfile(userId);
+  const profile = await getProfile(username);
 
   return (
     <main className="py-2">

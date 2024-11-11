@@ -15,8 +15,11 @@ import { UserDetail } from '@/types';
 // Actions
 import { getProfile } from './get-profile';
 
-export const updateProfile = async (data: UserDetail): Promise<UserDetail> => {
-  const { id } = await getProfile();
+export const updateProfile = async (
+  params: string,
+  data: UserDetail,
+): Promise<UserDetail> => {
+  const { id } = await getProfile(params);
 
   const url = `${API_ENDPOINT.USERS}/${id}`;
 
@@ -24,7 +27,7 @@ export const updateProfile = async (data: UserDetail): Promise<UserDetail> => {
 
   if (!profile) return notFound();
 
-  revalidateTag(TAG_KEYS.USER_ID(id.toString()));
+  revalidateTag(TAG_KEYS.USER_USERNAME(params));
 
   return profile;
 };

@@ -7,11 +7,11 @@ import { apiClient } from '@/services';
 // Types
 import { TFriends } from '@/types';
 
-export const getFriendListByUserId = async (userId: string) => {
-  const url = `${API_ENDPOINT.RELATIONSHIP}?${QUERY_GETS.FRIENDS(userId)}`;
+export const getFriendListByUsername = async (username: string) => {
+  const url = `${API_ENDPOINT.RELATIONSHIP}?${QUERY_GETS.FRIENDS(username)}`;
 
   const response = await apiClient.get<TFriends>(url, {
-    next: { tags: [TAG_KEYS.RELATIONSHIP(userId)] },
+    next: { tags: [TAG_KEYS.RELATIONSHIP(username)] },
   });
 
   return response.data.map(({ id, followed }) => ({

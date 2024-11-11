@@ -54,6 +54,7 @@ export const SecureAccount = () => {
   const handleNextButton = useCallback(
     async ({ phoneNumber, password }: z.infer<typeof SecureAccountSchema>) => {
       const payload: IUserRequest = {
+        username: onboardingData.aboutInfo.email,
         firstName: onboardingData.aboutInfo.firstName,
         lastName: onboardingData.aboutInfo.lastName,
         email: onboardingData.aboutInfo.email,
