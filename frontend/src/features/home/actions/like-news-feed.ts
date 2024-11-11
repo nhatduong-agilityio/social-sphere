@@ -7,6 +7,7 @@ import { ExitingLikeModel, ExitingLikeResponse } from '@/models';
 // Services
 import { apiClient } from '@/services';
 import { ApiDataResponse } from '@/types';
+import { revalidateTag } from 'next/cache';
 
 type ToggleLikeNewsFeedPayload = {
   newsFeedId: number;
@@ -64,6 +65,8 @@ export const toggleLikeNewsFeed = async (
         }),
       });
     }
+
+    revalidateTag(`news-feed-${newsFeedId}`);
   } catch (error) {
     const errorMessage =
       (error as Error).message ||

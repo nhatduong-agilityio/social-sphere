@@ -1,103 +1,68 @@
-import { Fragment, memo, useMemo } from 'react';
+'use client';
+
+import { useCallback, useEffect, useState } from 'react';
+
+// Components
+import { NewsFeedCard } from './news-feed-card';
+
+// Models
+import { NewsFeedDetailResponse } from '@/models';
 import { NewsFeed } from '@/types';
-import { Label, LinkWithIcon, Text } from '@/components/ui';
-import { getMoodOptions } from '../utils';
-import { MOODS } from '../constants';
-import { ROUTER } from '@/constants';
-import { cn, getFullName } from '@/utils';
-import { ComposeGifPreview } from './compose-gif-preview';
+
+// Actions
+import { toggleLikeNewsFeed } from '../actions';
 
 interface NewsFeedCardDetailProps {
-  newsFeed: NewsFeed;
+  newsFeedId: string;
+  authorId: string;
 }
 
-interface LinkWithIconWrapperProps {
-  url: string;
-  text: string;
-}
+export const NewsFeedCardDetail = ({
+  newsFeedId,
+  authorId,
+}: NewsFeedCardDetailProps) => {
+  const [newsFeed, setNewsFeed] = useState<NewsFeed | null>(null);
 
-const LinkWithIconWrapper = ({ url, text }: LinkWithIconWrapperProps) => (
-  <LinkWithIcon
-    url={url}
-    text={text}
-    additionalClass="border-none w-fit text-sm text-primary hover:bg-transparent"
-  />
-);
+  const fetchNewsFeed = useCallback(async () => {
+    const response = await fetch(`/api/news-feed/${newsFeedId}`);
 
-export const NewsFeedCardDetail = memo(
-  ({ newsFeed }: NewsFeedCardDetailProps) => {
-    const { content, gifUrl, tagFriends, mood, location, sharedLink } =
-      newsFeed;
+    const { data }: NewsFeedDetailResponse = await response.json();
 
-    const displayMoodOptions = useMemo(() => {
-      if (!mood) return null;
+    if (data) {
+      const transformData: NewsFeed = {
+        ...data[0],
+        tagFriends: [],
+        sendFriends: [],
+        likes: {
+          likesTotal: data[0].likes?.length || 0,
+          remainingLikes: Math.max(0, data[0].likes.length - 2),
+          likesRecent: data[0].likes.slice(0, 2).map((like) => ({
+            friend: like.user,
+            createdAt: like.createdAt,
+          })),
+        },
+        createdAt: data[0].createdAt,
+        isLiked: data[0].likes.some(
+          (like) => Number(authorId) === like.user.id,
+        ),
+      };
 
-      const { title, content: moodContent } = mood;
-      const { moodOption, moodDetail } = getMoodOptions(title, moodContent);
+      setNewsFeed(transformData);
+    }
+  }, [authorId, newsFeedId]);
 
-      if (!moodDetail) return null;
-      return (
-        <>
-          {moodOption.value !== MOODS.STATUS && `is ${moodOption.label} `}
-          <Label className="text-sm text-primary">{moodDetail.label}</Label>.
-        </>
-      );
-    }, [mood]);
+  useEffect(() => {
+    fetchNewsFeed();
+  }, [newsFeedId, authorId, fetchNewsFeed]);
 
-    const displayTaggedFriends = useMemo(() => {
-      if (!tagFriends?.length) return null;
+  if (!newsFeed) return null;
 
-      return (
-        <>
-          &nbsp;with&nbsp;
-          {tagFriends.map((friend, index) => (
-            <Fragment key={friend.id}>
-              <LinkWithIconWrapper
-                url={`${ROUTER.USER_PROFILE}/${friend.id}`}
-                text={getFullName(friend.firstName, friend.lastName)}
-              />
-              {index < tagFriends.length - 2 && ', '}
-              {index === tagFriends.length - 2 && ' and '}
-            </Fragment>
-          ))}
-          .
-        </>
-      );
-    }, [tagFriends]);
+  const handleLike = async () => {
+    await toggleLikeNewsFeed(Number(newsFeed.id), Number(authorId));
+    fetchNewsFeed();
+  };
 
-    const displayLocation = useMemo(() => {
-      if (!location) return null;
-
-      return (
-        <>
-          &nbsp;at the&nbsp;
-          <LinkWithIconWrapper url={location} text={location} />.
-        </>
-      );
-    }, [location]);
-
-    return (
-      <div className="flex flex-col font-roboto">
-        <Text
-          className={cn(
-            'text-neutral-400 whitespace-break-spaces text-wrap',
-            (gifUrl || sharedLink) && 'mb-3',
-          )}
-        >
-          <Label className="flex items-center flex-wrap text-sm font-normal text-neutral-400">
-            {displayMoodOptions}
-            {displayTaggedFriends}
-            {displayLocation}
-          </Label>
-          {content}
-        </Text>
-        {gifUrl && <ComposeGifPreview imageUrl={gifUrl} />}
-        {sharedLink && (
-          <LinkWithIconWrapper url={sharedLink} text={sharedLink} />
-        )}
-      </div>
-    );
-  },
-);
-
-NewsFeedCardDetail.displayName = 'NewsFeedCardDetail';
+  return (
+    <NewsFeedCard newsFeed={newsFeed} authorId={authorId} onLike={handleLike} />
+  );
+};

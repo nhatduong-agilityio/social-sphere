@@ -20,23 +20,25 @@ import { MOCK_FRIENDS } from '@/__mocks__/user';
 
 // Icons
 import { BirthdayIcon, JobIcon } from '@/icons';
-import { NewsFeed, Pagination } from '@/types';
+import { Pagination } from '@/types';
 
 // Actions
-import { getNewsFeeds } from '../actions/get-news-feeds';
+import { getNewsFeedIds } from '../actions';
+import { NewsFeedIdModel } from '@/models';
 
 interface ActivityFeedContentProps {
   authorId: string;
-  newsFeeds: NewsFeed[];
+  newsFeedIds: NewsFeedIdModel[];
   pagination: Pagination;
 }
 
 export const ActivityFeedContent = ({
   authorId,
-  newsFeeds: initialNewsFeeds,
+  newsFeedIds: initialNewsFeeds,
   pagination,
 }: ActivityFeedContentProps) => {
-  const [newsFeeds, setNewFeeds] = useState<NewsFeed[]>(initialNewsFeeds);
+  const [newsFeedIds, setNewFeedIds] =
+    useState<NewsFeedIdModel[]>(initialNewsFeeds);
   const [currentPage, setCurrentPage] = useState(1);
   const [isPending, startTransition] = useTransition();
   const [hasMore, setHasMore] = useState(currentPage < pagination.pageCount);
@@ -54,10 +56,10 @@ export const ActivityFeedContent = ({
   const loadMore = async () => {
     startTransition(async () => {
       const nextPage = currentPage + 1;
-      const { data: newNewsFeeds } = await getNewsFeeds(authorId, nextPage);
+      const { data: newNewsFeeds } = await getNewsFeedIds(authorId, nextPage);
       if (!newNewsFeeds) return;
 
-      setNewFeeds((prev) => [...prev, ...newNewsFeeds.data]);
+      setNewFeedIds((prev) => [...prev, ...newNewsFeeds.data]);
       setCurrentPage(nextPage);
       setHasMore(nextPage < newNewsFeeds.meta.pagination.pageCount);
     });
@@ -76,7 +78,7 @@ export const ActivityFeedContent = ({
             onCloseOverlay={onCloseOverlay}
           />
           <div className="flex flex-col gap-6">
-            <NewsFeedCardList newsFeeds={newsFeeds} authorId={authorId} />
+            <NewsFeedCardList newsFeedIds={newsFeedIds} authorId={authorId} />
 
             {/**TODO: Define common component later  */}
             {hasMore && (

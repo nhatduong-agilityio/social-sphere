@@ -14,3 +14,13 @@ export const QUERY_GET_NEWS_FEEDS = (
 
 export const QUERY_GET_EXISTING_LIKE = (newsFeedId: number, userId: number) =>
   `filters[user][id][$eq]=${userId}&populate[user]=*&populate[post]=*&filters[post][id][$eq]=${newsFeedId}&filters[user][id][$eq]=${userId}`;
+
+export const GET_LATEST_NEWSFEED_IDS_BY_AUTHOR_ID = (
+  authorId: string,
+  page: number = 1,
+  pageSize: number = 10,
+) =>
+  `filters[author][id][$eq]=${authorId}&fields[0]=id&sort[createdAt]=desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}`;
+
+export const GET_NEWSFEED_DETAIL_BY_ID = (newsFeedId: string) =>
+  `filters[id][$eq]=${newsFeedId}&populate[author]=*&populate[likes][fields][0]=createdAt&populate[likes][populate][user]=*&populate[likes][sort][createdAt]=desc&populate[comments]=*&populate[shares]=*`;

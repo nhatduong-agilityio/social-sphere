@@ -1,5 +1,10 @@
-import { API_ENDPOINT, QUERY_GET_NEWS_FEEDS } from '@/constants';
-import { NewsFeedListResponse } from '@/models';
+import {
+  API_ENDPOINT,
+  GET_LATEST_NEWSFEED_IDS_BY_AUTHOR_ID,
+  QUERY_GET_NEWS_FEEDS,
+  TAG_KEYS,
+} from '@/constants';
+import { NewsFeedIdsResponse, NewsFeedListResponse } from '@/models';
 import { apiClient } from '@/services';
 
 // Types
@@ -40,6 +45,31 @@ export const getNewsFeeds = async (
     const errorMessage =
       (error as Error).message ||
       'Failed to fetch news feeds. Please try again.';
+    return { error: errorMessage };
+  }
+};
+
+export const getNewsFeedIds = async (
+  userId: string,
+  page: number = 1,
+  pageSize: number = 10,
+): Promise<ApiDataResponse<NewsFeedIdsResponse>> => {
+  try {
+    const query = GET_LATEST_NEWSFEED_IDS_BY_AUTHOR_ID(userId, page, pageSize);
+    const response = await apiClient.get<NewsFeedIdsResponse>(
+      `${API_ENDPOINT.POSTS}?${query}`,
+      {
+        next: {
+          tags: [TAG_KEYS.NEWSFEED_IDS_BY_USER_IN_PAGE(userId, page)],
+        },
+      },
+    );
+
+    return { data: response };
+  } catch (error) {
+    const errorMessage =
+      (error as Error).message ||
+      'Failed to fetch news feed ids. Please try again.';
     return { error: errorMessage };
   }
 };

@@ -11,30 +11,32 @@ import { Card, CardContent, CardFooter } from '@/components/ui';
 import { NewsFeedSocialControl } from './news-feed-social-control';
 import { FriendsHaveLiked } from './friends-have-liked';
 import { NewsFeedSocialCount } from './news-feed-social-count';
+import { NewsFeedComments } from './news-feed-comments';
 
 // Types
 import { NewsFeed } from '@/types';
 
 // Utils
 import { formatDate, getFullName } from '@/utils';
-import { NewsFeedCardDetail } from './news-feed-card-detail';
+import { NewsFeedCardContent } from './news-feed-card-content';
 import { useDisclosure } from '@/hooks';
-import { NewsFeedComments } from './news-feed-comments';
 
 interface NewsFeedCardProps {
   authorId: string;
   newsFeed: NewsFeed;
+  onLike: () => Promise<void>;
 }
 
 export const NewsFeedCard = memo(
-  ({ authorId, newsFeed }: NewsFeedCardProps) => {
+  ({ authorId, newsFeed, onLike }: NewsFeedCardProps) => {
     const {
       isOpen: isOpenComments,
       onOpen: onOpenComments,
       onClose: onCloseComments,
     } = useDisclosure();
 
-    const { author, createdAt, likes, comments, shares, media } = newsFeed;
+    const { author, createdAt, likes, comments, shares, media, isLiked } =
+      newsFeed;
 
     const title = getFullName(author.firstName, author.lastName);
     const description = formatDate(createdAt);
@@ -59,7 +61,7 @@ export const NewsFeedCard = memo(
               className="p-4"
             />
             <CardContent className="p-4 py-0">
-              <NewsFeedCardDetail newsFeed={newsFeed} />
+              <NewsFeedCardContent newsFeed={newsFeed} />
               {media && (
                 <div className="my-2.5 relative w-full h-[207px] md:h-400 lg:h-[256px] xl:h-[323px] 2xl:h-[353px]">
                   <Image
@@ -77,6 +79,8 @@ export const NewsFeedCard = memo(
                       authorId={authorId}
                       newsFeed={newsFeed}
                       onOpenComments={onOpenComments}
+                      isLiked={isLiked}
+                      onLike={onLike}
                     />
                   </div>
                 </div>
