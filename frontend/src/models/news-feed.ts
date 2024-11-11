@@ -22,7 +22,7 @@ export type NewsFeedModel = {
 
 export type NewsFeedPayload = Omit<NewsFeedModel, 'id'>;
 
-export type NewsFeedListModel = Omit<NewsFeedModel, 'author'> & {
+export type NewsFeedDetailModel = Omit<NewsFeedModel, 'author'> & {
   author: UserModel;
   createdAt: string;
   likes: {
@@ -34,6 +34,24 @@ export type NewsFeedListModel = Omit<NewsFeedModel, 'author'> & {
 };
 
 export type NewsFeedListResponse = {
-  data: NewsFeedListModel[];
+  data: NewsFeedDetailModel[];
+  meta: { pagination: Pagination };
+};
+
+export type NewsFeedIdModel = {
+  id: number;
+  createdAt: string;
+  documentId: string;
+};
+
+export type NewsFeedIdsResponse = {
+  data: NewsFeedIdModel[];
+  meta: {
+    pagination: Pagination;
+  };
+};
+
+export type NewsFeedDetailResponse = {
+  data: NewsFeedDetailModel[];
   meta: { pagination: Pagination };
 };

@@ -1,6 +1,4 @@
-'use client';
-
-import { memo, useState, ReactNode, forwardRef } from 'react';
+import { memo, ReactNode, forwardRef } from 'react';
 
 // Icons
 import { Link2Icon, MessageCircleIcon } from 'lucide-react';
@@ -15,12 +13,13 @@ import { cn } from '@/utils';
 
 // Types
 import { NewsFeed } from '@/types';
-import { toggleLikeNewsFeed } from '../actions';
 
 interface NewsFeedSocialControl {
+  isLiked?: boolean;
   authorId: string;
   newsFeed: NewsFeed;
   onOpenComments: () => void;
+  onLike: () => Promise<void>;
 }
 
 interface SocialButtonProps {
@@ -32,6 +31,7 @@ interface SocialButtonProps {
 const SocialButton = forwardRef<HTMLButtonElement, SocialButtonProps>(
   ({ icon, onClick, className }, ref) => (
     <Button
+      type="button"
       ref={ref}
       variant="primary"
       className={cn('rounded-full p-0 hover:opacity-100 relative', className)}
@@ -45,9 +45,7 @@ const SocialButton = forwardRef<HTMLButtonElement, SocialButtonProps>(
 SocialButton.displayName = 'SocialButton';
 
 export const NewsFeedSocialControl = memo(
-  ({ authorId, newsFeed, onOpenComments }: NewsFeedSocialControl) => {
-    const [isLiked, setIsLiked] = useState(newsFeed.isLiked);
-
+  ({ isLiked, newsFeed, onOpenComments, onLike }: NewsFeedSocialControl) => {
     const defaultButtonStyle =
       'w-[43px] h-[43px] shadow-sphere-secondary hover:bg-blue-50';
     const likeButtonStyle = cn(
@@ -56,11 +54,6 @@ export const NewsFeedSocialControl = memo(
         ? 'shadow-sphere-destructive hover:shadow-sphere-destructive'
         : 'hover:bg-white dark:hover:bg-blue-700 shadow-sphere-medium hover:shadow-sphere-medium',
     );
-
-    const handleLike = async () => {
-      await toggleLikeNewsFeed(Number(newsFeed.id), Number(authorId));
-      setIsLiked((prev) => !prev);
-    };
 
     return (
       <>
@@ -97,7 +90,7 @@ export const NewsFeedSocialControl = memo(
                 />
               </>
             }
-            onClick={handleLike}
+            onClick={onLike}
             className={likeButtonStyle}
           />
         </div>

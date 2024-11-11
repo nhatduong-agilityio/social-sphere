@@ -7,7 +7,7 @@ import { IMAGES } from '@/constants';
 // Components
 import { Label } from '@/components/ui';
 import { UserCardPopover } from '@/components/sections';
-import { NewsFeedCardDetail } from '../news-feed-card-detail';
+import { NewsFeedCardContent } from '../news-feed-card-content';
 import { EarthIcon, EyeIcon } from '@/icons';
 
 // Types
@@ -34,7 +34,7 @@ export const NewsFeedShareDialogPreview = memo(
       <div className="flex flex-col border p-5 gap-5">
         <div className="flex justify-center gap-3">
           <UserCardPopover user={newsFeed.author} additionalClass="w-10 h-10" />
-          <NewsFeedCardDetail newsFeed={newsFeed} />
+          <NewsFeedCardContent newsFeed={newsFeed} />
         </div>
         <div className="flex gap-2.5 items-center">
           <Label className="flex text-3xs text-neutral-200 dark:text-neutral-100 gap-0.5">
