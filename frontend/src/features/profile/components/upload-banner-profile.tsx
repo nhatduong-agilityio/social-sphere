@@ -2,8 +2,15 @@
 
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
-import { ChangeEvent, useCallback, useRef, useState } from 'react';
+import {
+  ChangeEvent,
+  useCallback,
+  useRef,
+  useState,
+  useTransition,
+} from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useParams } from 'next/navigation';
 
 // Components
 import { Input, Form, FormControl, FormField, FormItem } from '@/components/ui';
@@ -36,8 +43,9 @@ export const UploadBannerProfile = ({
   url = IMAGES.PROFILE_BANNER.url,
 }: UploadBannerProfileProps) => {
   const [selectedImageUrl, setSelectedImageUrl] = useState<string>(url);
-  const [isBannerLoading, setBannerIsLoading] = useState<boolean>(false);
+  const [isPending, startTransition] = useTransition();
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const { username } = useParams();
 
   const form = useForm<z.infer<typeof PictureProfileSchema>>({
     resolver: zodResolver(PictureProfileSchema),
@@ -67,24 +75,22 @@ export const UploadBannerProfile = ({
               ),
             });
           } else {
-            setBannerIsLoading((prev) => !prev);
+            startTransition(async () => {
+              const banner = await upload(file);
 
-            const banner = await upload(file);
+              await updateProfile(username as string, { banner } as UserDetail);
+              setSelectedImageUrl(banner);
 
-            await updateProfile({ banner } as UserDetail);
-            setSelectedImageUrl(banner);
-
-            toast({
-              description: (
-                <pre className="mt-2 w-[340px] rounded-md bg-green-500 p-4">
-                  <code className="text-white">
-                    Banner Uploaded Successfully
-                  </code>
-                </pre>
-              ),
+              toast({
+                description: (
+                  <pre className="mt-2 w-[340px] rounded-md bg-green-500 p-4">
+                    <code className="text-white">
+                      Banner Uploaded Successfully
+                    </code>
+                  </pre>
+                ),
+              });
             });
-
-            setBannerIsLoading((prev) => !prev);
           }
         } catch (error) {
           form.setError('banner', {
@@ -94,12 +100,12 @@ export const UploadBannerProfile = ({
         }
       }
     },
-    [form],
+    [form, username],
   );
 
   return (
     <Form {...form}>
-      {isBannerLoading ? (
+      {isPending ? (
         <BannerSkeleton />
       ) : (
         <Banner

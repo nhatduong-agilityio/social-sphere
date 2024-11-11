@@ -5,8 +5,11 @@ export const ROUTER = {
   USER_PROFILE: '/user-profile',
   ONBOARDING: '/onboarding',
 
-  PROFILE_ID_OVERVIEW: (id: number) => `/user-profile/${id}/overview`,
-  PROFILE_ID_PERSONAL_INFO: (id: number) => `/user-profile/${id}/personal-info`,
-  PROFILE_ID_EDUCATION: (id: number) => `/user-profile/${id}/education`,
-  PROFILE_ID_JOBS: (id: number) => `/user-profile/${id}/jobs`,
+  PROFILE_ID_OVERVIEW: (username: string) =>
+    `/user-profile/${username}/overview`,
+  PROFILE_ID_PERSONAL_INFO: (username: string) =>
+    `/user-profile/${username}/personal-info`,
+  PROFILE_ID_EDUCATION: (username: string) =>
+    `/user-profile/${username}/education`,
+  PROFILE_ID_JOBS: (username: string) => `/user-profile/${username}/jobs`,
 };

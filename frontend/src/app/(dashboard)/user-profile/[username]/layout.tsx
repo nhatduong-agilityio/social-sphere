@@ -8,7 +8,7 @@ const Layout = ({
   params,
 }: {
   children: ReactNode;
-  params: { id: string };
-}) => <ProfileLayout userId={params.id}>{children}</ProfileLayout>;
+  params: { username: string };
+}) => <ProfileLayout username={params.username}>{children}</ProfileLayout>;
 
 export default Layout;

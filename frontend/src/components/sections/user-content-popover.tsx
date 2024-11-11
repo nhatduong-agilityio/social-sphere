@@ -30,7 +30,7 @@ interface UserPopoverProps {
 
 export const UserContentPopover = memo(({ user }: UserPopoverProps) => {
   const {
-    id,
+    username,
     profilePicture,
     firstName,
     lastName,
@@ -64,7 +64,7 @@ export const UserContentPopover = memo(({ user }: UserPopoverProps) => {
       </div>
 
       <Link
-        href={ROUTER.PROFILE_ID_PERSONAL_INFO(id)}
+        href={ROUTER.PROFILE_ID_PERSONAL_INFO(username)}
         className="flex flex-col mt-2"
       >
         <CardTitle className="text-md mb-2">

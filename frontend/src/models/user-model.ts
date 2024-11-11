@@ -2,7 +2,7 @@ export type UserModel = {
   id: number;
   firstName: string;
   lastName: string;
-  username?: string;
+  username: string;
   password?: string;
   email?: string;
   profilePicture?: string;

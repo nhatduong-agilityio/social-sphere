@@ -9,3 +9,4 @@ export * from './user-card-header';
 export * from './user-content-popover';
 export * from './user-card-popover';
 export * from './avatar-skeleton';
+export * from './panel-skeleton';

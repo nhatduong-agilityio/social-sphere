@@ -1,5 +1,10 @@
+import { cn } from '@/utils';
 import { Skeleton } from '../ui';
 
-export const AvatarSkeleton = () => (
-  <Skeleton className="w-24 h-24 rounded-full" />
+interface AvatarSkeletonProps {
+  customClass?: string;
+}
+
+export const AvatarSkeleton = ({ customClass }: AvatarSkeletonProps) => (
+  <Skeleton className={cn('w-24 h-24 rounded-full', customClass)} />
 );

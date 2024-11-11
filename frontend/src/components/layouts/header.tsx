@@ -50,6 +50,7 @@ interface HeaderProps {
 export const Header = memo(({ isAuthenticated = true, user }: HeaderProps) => {
   const {
     id = 0,
+    username = '',
     firstName = '',
     lastName = '',
     profilePicture = AvatarPlaceholder.src,
@@ -183,7 +184,7 @@ export const Header = memo(({ isAuthenticated = true, user }: HeaderProps) => {
               content={
                 <div className="grid gap-4">
                   <div className="flex justify-between items-center p-4">
-                    <Link href={ROUTER.PROFILE_ID_PERSONAL_INFO(id)}>
+                    <Link href={ROUTER.PROFILE_ID_PERSONAL_INFO(username)}>
                       <Text variant="primary">
                         {getFullName(firstName, lastName)}
                       </Text>

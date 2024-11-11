@@ -1,5 +1,5 @@
 export const TAG_KEYS = {
-  USER_ID: (userId: string) => `api-users-${userId}`,
-  RELATIONSHIP: (userId: string) => `api-relationships-${userId}`,
-  POST_BY_USER: (userId: string) => `api-posts-${userId}`,
+  USER_USERNAME: (username: string) => `api-users-${username}`,
+  RELATIONSHIP: (username: string) => `api-relationships-${username}`,
+  POST_BY_USER: (username: string) => `api-posts-${username}`,
 };

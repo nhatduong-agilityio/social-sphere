@@ -1,9 +1,17 @@
 'use client';
 
-import { ChangeEvent, useCallback, useMemo, useRef, useState } from 'react';
+import {
+  ChangeEvent,
+  useCallback,
+  useMemo,
+  useRef,
+  useState,
+  useTransition,
+} from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
+import { useParams } from 'next/navigation';
 
 // Components
 import {
@@ -58,7 +66,8 @@ export const ProfileAvatar = ({
 }: ProfileAvatarProps) => {
   const [isActive, setIsActive] = useState<boolean>(false);
   const [selectedImageUrl, setSelectedImageUrl] = useState<string>(imageUrl);
-  const [isAvatarLoading, setAvatarIsLoading] = useState<boolean>(false);
+  const [isPending, startTransition] = useTransition();
+  const { username } = useParams();
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -95,26 +104,27 @@ export const ProfileAvatar = ({
               ),
             });
           } else {
-            setAvatarIsLoading((prev) => !prev);
+            startTransition(async () => {
+              const profilePicture = await upload(file);
 
-            const profilePicture = await upload(file);
+              await updateProfile(
+                username as string,
+                { profilePicture } as UserDetail,
+              );
+              setSelectedImageUrl(profilePicture);
 
-            await updateProfile({ profilePicture } as UserDetail);
-            setSelectedImageUrl(profilePicture);
+              form.clearErrors('pictureProfile');
 
-            form.clearErrors('pictureProfile');
-
-            toast({
-              description: (
-                <pre className="mt-2 w-[340px] rounded-md bg-green-500 p-4">
-                  <code className="text-white">
-                    Avatar Uploaded Successfully
-                  </code>
-                </pre>
-              ),
+              toast({
+                description: (
+                  <pre className="mt-2 w-[340px] rounded-md bg-green-500 p-4">
+                    <code className="text-white">
+                      Avatar Uploaded Successfully
+                    </code>
+                  </pre>
+                ),
+              });
             });
-
-            setAvatarIsLoading((prev) => !prev);
           }
         } catch (error) {
           form.setError('pictureProfile', {
@@ -124,7 +134,7 @@ export const ProfileAvatar = ({
         }
       }
     },
-    [form],
+    [form, username],
   );
 
   const popButtons = useMemo(
@@ -177,7 +187,7 @@ export const ProfileAvatar = ({
     <Form {...form}>
       <div className="w-[110px] h-[110px] rounded-full p-[8.5px] absolute md:bottom-0 bottom-[-50px] left-0 right-0 mx-auto z-10">
         <Avatar className="w-[full] h-[full] bg-current">
-          {isAvatarLoading ? (
+          {isPending ? (
             <AvatarSkeleton />
           ) : (
             <>
