@@ -1,6 +1,6 @@
 import { UserModel } from './user-model';
 
-type TFollowed = UserModel & {
+export type TFollowed = UserModel & {
   followedRelationships: Array<{ id: number }>;
 };
 

@@ -1,4 +1,5 @@
 'use client';
+
 import { useCallback, useState } from 'react';
 import { EllipsisVertical, UserPlus } from 'lucide-react';
 
@@ -13,16 +14,22 @@ import {
 } from '@/components/ui';
 import { UserCardPopover } from '@/components/sections';
 
-// Mocks
-import { MOCK_FRIENDS } from '@/__mocks__/user';
-
 // Utils
 import { getFullName } from '@/utils';
 
 // Icons
 import { CheckmarkIcon } from '@/icons';
 
-export const SuggestFriendsWidget = () => {
+// Types
+import { TFollowed } from '@/models';
+
+interface SuggestFriendsWidgetProps {
+  suggestFriends: TFollowed[];
+}
+
+export const SuggestFriendsWidget = ({
+  suggestFriends,
+}: SuggestFriendsWidgetProps) => {
   const [addedFriends, setAddedFriends] = useState<string[]>([]);
 
   const handleAddFriend = useCallback(
@@ -32,7 +39,7 @@ export const SuggestFriendsWidget = () => {
     },
     [addedFriends],
   );
-  const renderSuggestedFriends = MOCK_FRIENDS.slice(0, 5).map((user) => (
+  const renderSuggestedFriends = suggestFriends.map((user) => (
     <div
       key={user.id}
       className="p-4 flex w-full border-t border-slate-300 dark:border-slate-600 items-center justify-between group cursor-pointer"

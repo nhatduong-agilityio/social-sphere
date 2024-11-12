@@ -24,17 +24,19 @@ import { Pagination } from '@/types';
 
 // Actions
 import { getNewsFeedIds } from '../actions';
-import { NewsFeedIdModel } from '@/models';
+import { NewsFeedIdModel, TFollowed } from '@/models';
 
 interface ActivityFeedContentProps {
   authorId: string;
   newsFeedIds: NewsFeedIdModel[];
+  suggestFriends: TFollowed[];
   pagination: Pagination;
 }
 
 export const ActivityFeedContent = ({
   authorId,
   newsFeedIds: initialNewsFeeds,
+  suggestFriends,
   pagination,
 }: ActivityFeedContentProps) => {
   const [newsFeedIds, setNewFeedIds] =
@@ -69,7 +71,7 @@ export const ActivityFeedContent = ({
     <div className="py-5 min-h-full">
       <div className="h-full grid grid-cols-12 gap-6">
         <div className="hidden lg:flex col-span-3 flex-col gap-6">
-          <SuggestFriendsWidget />
+          <SuggestFriendsWidget suggestFriends={suggestFriends} />
         </div>
         <div className="col-span-12 lg:col-span-6 flex flex-col gap-6">
           <ComposeFeedCard
@@ -102,7 +104,7 @@ export const ActivityFeedContent = ({
             styleNotificationClass="border-2 border-green-100"
             notificationCount={27}
           />
-          <SuggestFriendsWidget />
+          <SuggestFriendsWidget suggestFriends={suggestFriends} />
           <NotificationWidget
             avatar={
               MOCK_FRIENDS[0].profilePicture || '/images/avatar-placeholder.svg'
