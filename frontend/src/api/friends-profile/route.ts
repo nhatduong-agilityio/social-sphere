@@ -36,3 +36,16 @@ export const getNonFriendListByUserId = async (userId: string) => {
     countFriends: data.followedRelationships.length,
   }));
 };
+
+export const getAcceptFriendListByUserId = async (userId: string) => {
+  const url = `${API_ENDPOINT.RELATIONSHIP}?${QUERY_GETS.ACCEPT_FRIENDS(userId)}`;
+
+  const response = await apiClient.get<TFriends>(url, {
+    next: { tags: [TAG_KEYS.ACCEPT_FRIENDS(userId)] },
+  });
+
+  return response.data.map((data) => ({
+    ...data,
+    countFriends: data.follower.followedRelationships.length,
+  }));
+};

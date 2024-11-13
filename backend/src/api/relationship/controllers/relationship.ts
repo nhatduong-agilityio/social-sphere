@@ -14,7 +14,7 @@ export default factories.createCoreController(
       const nonFollowingUsers = await strapi.entityService.findMany(
         'plugin::users-permissions.user',
         {
-          filters: { id: { $ne: userId } },
+          filters: { id: { $ne: id } },
           fields: [
             'id',
             'username',
@@ -27,7 +27,11 @@ export default factories.createCoreController(
           ],
           populate: {
             followedRelationships: {
-              filters: { requestStatus: 'friends' },
+              filters: { requestStatus: { $in: ['friends', 'pending'] } },
+              populate: { follower: true },
+            },
+            followerRelationships: {
+              filters: { requestStatus: { $in: ['pending', 'friends'] } },
               populate: { follower: true },
             },
           },
@@ -37,7 +41,9 @@ export default factories.createCoreController(
       const filteredUsers = nonFollowingUsers.filter(
         (user) =>
           !user['followedRelationships'].some(
-            (rel: { follower: { id: number } }) => rel.follower.id === id,
+            (rel: { requestStatus: string; follower: { id: number } }) =>
+              ['friends', 'pending'].includes(rel.requestStatus) &&
+              rel.follower.id === id,
           ),
       );
 

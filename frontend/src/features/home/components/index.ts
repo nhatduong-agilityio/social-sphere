@@ -21,3 +21,4 @@ export * from './stories-widget';
 export * from './story-meta';
 export * from './suggest-friends-widget';
 export * from './tag-friends';
+export * from './accept-friends-widget';

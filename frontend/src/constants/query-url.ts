@@ -4,6 +4,8 @@ export const QUERY_GETS = {
   PHOTOS: (username: string) =>
     `filters[$and][0][author][username][$eq]=${username}&populate[author][fields][0]=id&populate[author][fields][1]=username`,
   SUGGEST_FRIENDS: (userId: string) => `non-friends/${userId}`,
+  ACCEPT_FRIENDS: (userId: string) =>
+    `filters[$and][0][followed][id][$eq]=${userId}&filters[$and][1][requestStatus][$eq]=pending&populate[follower][populate][followedRelationships][filters][requestStatus]=friends&pagination[pageSize]=6`,
 };
 
 export const QUERY_GET_NEWS_FEEDS = (
