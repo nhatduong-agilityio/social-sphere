@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useState } from 'react';
-import { EllipsisVertical, UserPlus } from 'lucide-react';
+import { EllipsisVertical, Loader, UserPlus } from 'lucide-react';
 
 // Components
 import {
@@ -22,28 +22,31 @@ import { CheckmarkIcon } from '@/icons';
 
 // Types
 import { TFollowed } from '@/models';
+import { requestAddFriends } from '../actions';
 
 interface SuggestFriendsWidgetProps {
+  authorId: string;
   suggestFriends: TFollowed[];
 }
 
-export const SuggestFriendsWidget = ({
-  suggestFriends,
-}: SuggestFriendsWidgetProps) => {
-  const [addedFriends, setAddedFriends] = useState<string[]>([]);
+interface SuggestedFriendItemProps {
+  user: TFollowed;
+  handleAddFriend: (userId: string) => void;
+  isPending: { [key: string]: boolean };
+  addedFriends: string[];
+}
 
-  const handleAddFriend = useCallback(
-    (userId: string) => {
-      !addedFriends.includes(userId) &&
-        setAddedFriends((prevAddedFriends) => [...prevAddedFriends, userId]);
-    },
-    [addedFriends],
-  );
-  const renderSuggestedFriends = suggestFriends.map((user) => (
-    <div
-      key={user.id}
-      className="p-4 flex w-full border-t border-slate-300 dark:border-slate-600 items-center justify-between group cursor-pointer"
-    >
+const SuggestedFriendItem = ({
+  user,
+  handleAddFriend,
+  isPending,
+  addedFriends,
+}: SuggestedFriendItemProps) => {
+  const isDisabled =
+    isPending[user.id] || addedFriends.includes(user.id.toString());
+
+  return (
+    <div className="p-4 flex w-full border-t border-slate-300 dark:border-slate-600 items-center justify-between group cursor-pointer">
       <div className="flex items-center gap-3">
         <UserCardPopover user={user} />
 
@@ -60,9 +63,14 @@ export const SuggestFriendsWidget = ({
         variant="rounded"
         className="w-9 h-9 border-none"
         onClick={() => handleAddFriend(user.id.toString())}
+        disabled={isDisabled}
       >
         {addedFriends.includes(user.id.toString()) ? (
-          <CheckmarkIcon />
+          isPending[user.id] ? (
+            <Loader size={20} />
+          ) : (
+            <CheckmarkIcon />
+          )
         ) : (
           <UserPlus
             size={20}
@@ -71,6 +79,38 @@ export const SuggestFriendsWidget = ({
         )}
       </Button>
     </div>
+  );
+};
+
+export const SuggestFriendsWidget = ({
+  authorId,
+  suggestFriends,
+}: SuggestFriendsWidgetProps) => {
+  const [addedFriends, setAddedFriends] = useState<string[]>([]);
+  const [isPending, setIsPending] = useState<{ [key: string]: boolean }>({});
+
+  const handleAddFriend = useCallback(
+    async (userId: string) => {
+      setIsPending((prevPending) => ({ ...prevPending, [userId]: true }));
+
+      await requestAddFriends(authorId, userId);
+
+      setIsPending((prevPending) => ({ ...prevPending, [userId]: false }));
+
+      !addedFriends.includes(userId) &&
+        setAddedFriends((prevAddedFriends) => [...prevAddedFriends, userId]);
+    },
+    [addedFriends, authorId],
+  );
+
+  const renderSuggestedFriends = suggestFriends.map((user) => (
+    <SuggestedFriendItem
+      key={user.id}
+      user={user}
+      handleAddFriend={handleAddFriend}
+      isPending={isPending}
+      addedFriends={addedFriends}
+    />
   ));
 
   return (

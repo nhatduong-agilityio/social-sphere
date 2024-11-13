@@ -35,14 +35,14 @@ export const NewsFeedCardDetail = ({
         sendFriends: [],
         likes: {
           likesTotal: data[0].likes?.length || 0,
-          remainingLikes: Math.max(0, data[0].likes.length - 2),
-          likesRecent: data[0].likes.slice(0, 2).map((like) => ({
+          remainingLikes: Math.max(0, data[0].likes?.length - 2),
+          likesRecent: data[0].likes?.slice(0, 2).map((like) => ({
             friend: like.user,
             createdAt: like.createdAt,
           })),
         },
         createdAt: data[0].createdAt,
-        isLiked: data[0].likes.some(
+        isLiked: data[0].likes?.some(
           (like) => Number(authorId) === like.user.id,
         ),
       };

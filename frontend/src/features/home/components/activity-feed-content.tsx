@@ -107,7 +107,10 @@ export const ActivityFeedContent = ({
             styleNotificationClass="border-2 border-green-100"
             notificationCount={27}
           />
-          <SuggestFriendsWidget suggestFriends={suggestFriends} />
+          <SuggestFriendsWidget
+            suggestFriends={suggestFriends}
+            authorId={authorId}
+          />
 
           <NotificationWidget
             avatar={
