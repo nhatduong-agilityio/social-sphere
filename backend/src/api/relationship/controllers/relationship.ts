@@ -15,6 +15,7 @@ export default factories.createCoreController(
         'plugin::users-permissions.user',
         {
           filters: { id: { $ne: id } },
+          limit: 6,
           fields: [
             'id',
             'username',
@@ -28,11 +29,11 @@ export default factories.createCoreController(
           populate: {
             followedRelationships: {
               filters: { requestStatus: { $in: ['friends', 'pending'] } },
-              populate: { follower: true },
+              populate: { follower: { fields: ['id'] } },
             },
             followerRelationships: {
               filters: { requestStatus: { $in: ['pending', 'friends'] } },
-              populate: { follower: true },
+              populate: { followed: { fields: ['id'] } },
             },
           },
         },
@@ -40,6 +41,10 @@ export default factories.createCoreController(
 
       const filteredUsers = nonFollowingUsers.filter(
         (user) =>
+          !user['followerRelationships'].some(
+            (rel: { requestStatus: string; followed: { id: number } }) =>
+              rel.requestStatus === 'pending' && rel.followed.id === id,
+          ) &&
           !user['followedRelationships'].some(
             (rel: { requestStatus: string; follower: { id: number } }) =>
               ['friends', 'pending'].includes(rel.requestStatus) &&
