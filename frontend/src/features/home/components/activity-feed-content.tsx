@@ -24,12 +24,14 @@ import { Pagination } from '@/types';
 
 // Actions
 import { getNewsFeedIds } from '../actions';
-import { NewsFeedIdModel, TFollowed } from '@/models';
+import { NewsFeedIdModel, TFollowed, TFollower } from '@/models';
+import { AcceptFriendsWidget } from './accept-friends-widget';
 
 interface ActivityFeedContentProps {
   authorId: string;
   newsFeedIds: NewsFeedIdModel[];
   suggestFriends: TFollowed[];
+  acceptFriends: TFollower[];
   pagination: Pagination;
 }
 
@@ -37,6 +39,7 @@ export const ActivityFeedContent = ({
   authorId,
   newsFeedIds: initialNewsFeeds,
   suggestFriends,
+  acceptFriends,
   pagination,
 }: ActivityFeedContentProps) => {
   const [newsFeedIds, setNewFeedIds] =
@@ -71,7 +74,7 @@ export const ActivityFeedContent = ({
     <div className="py-5 min-h-full">
       <div className="h-full grid grid-cols-12 gap-6">
         <div className="hidden lg:flex col-span-3 flex-col gap-6">
-          <SuggestFriendsWidget suggestFriends={suggestFriends} />
+          <AcceptFriendsWidget friends={acceptFriends} />
         </div>
         <div className="col-span-12 lg:col-span-6 flex flex-col gap-6">
           <ComposeFeedCard
@@ -105,6 +108,7 @@ export const ActivityFeedContent = ({
             notificationCount={27}
           />
           <SuggestFriendsWidget suggestFriends={suggestFriends} />
+
           <NotificationWidget
             avatar={
               MOCK_FRIENDS[0].profilePicture || '/images/avatar-placeholder.svg'

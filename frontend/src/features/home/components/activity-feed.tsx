@@ -10,7 +10,10 @@ import { getNewsFeedIds } from '../actions/get-news-feeds';
 import { auth } from '@/auth';
 
 // Api
-import { getNonFriendListByUserId } from '@/api/friends-profile/route';
+import {
+  getAcceptFriendListByUserId,
+  getNonFriendListByUserId,
+} from '@/api/friends-profile/route';
 
 // Types
 import { Pagination } from '@/types';
@@ -20,10 +23,12 @@ export const ActivityFeed = async () => {
   const authorId = session?.user?.id;
   const userId = session?.user?.id || '';
 
-  const [newsFeedIdsResponse, suggestFriendsResponse] = await Promise.all([
-    getNewsFeedIds(userId),
-    getNonFriendListByUserId(userId),
-  ]);
+  const [newsFeedIdsResponse, suggestFriendsResponse, acceptFriendsResponse] =
+    await Promise.all([
+      getNewsFeedIds(userId),
+      getNonFriendListByUserId(userId),
+      getAcceptFriendListByUserId(userId),
+    ]);
 
   const newsFeedIds = newsFeedIdsResponse.data;
 
@@ -33,6 +38,7 @@ export const ActivityFeed = async () => {
     <ActivityFeedContent
       authorId={authorId}
       suggestFriends={suggestFriendsResponse}
+      acceptFriends={acceptFriendsResponse}
       newsFeedIds={newsFeedIds?.data || []}
       pagination={newsFeedIds?.meta.pagination as Pagination}
     />

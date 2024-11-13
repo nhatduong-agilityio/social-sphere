@@ -5,4 +5,5 @@ export const TAG_KEYS = {
   SUGGEST_FRIENDS: (userId: string) => `api-non-friends-${userId}`,
   NEWSFEED_IDS_BY_USER_IN_PAGE: (userId: string, page: number) =>
     `api-news-feed-ids-${userId}-in-page-${page}`,
+  ACCEPT_FRIENDS: (userId: string) => `api-accept-friends-${userId}`,
 };
