@@ -4,15 +4,13 @@ import { Fragment, memo, useEffect, useState } from 'react';
 import { CircleFlag } from 'react-circle-flags';
 import Image from 'next/image';
 
-// Icons
-import { XIcon } from 'lucide-react';
-
 // Constants
 import { ROUTER } from '@/constants';
 import { MOODS } from '../constants';
 
 // Components
-import { Label, LinkWithIcon, Button } from '@/components/ui';
+import { Label, LinkWithIcon } from '@/components/ui';
+import { FriendTag } from './friend-tag';
 
 // Actions
 import { getTaggedFriends } from '../actions';
@@ -46,7 +44,7 @@ const FriendLink = ({
 }) => (
   <Fragment>
     <LinkWithIcon
-      url={`${ROUTER.USER_PROFILE}/${friend.id}`}
+      url={ROUTER.PROFILE_ID_PERSONAL_INFO(friend.username)}
       text={getFullName(friend.firstName, friend.lastName)}
       additionalClass={cn(
         'border-none w-fit text-primary hover:dark:bg-transparent',
@@ -55,29 +53,6 @@ const FriendLink = ({
     />
     {index < total - 1 && ','}
   </Fragment>
-);
-
-const FriendTag = ({
-  friend,
-  onRemove,
-}: {
-  friend: UserDetail;
-  onRemove: () => void;
-}) => (
-  <div className="flex items-center text-3xs text-white">
-    <LinkWithIcon
-      url={`${ROUTER.USER_PROFILE}/${friend.id}`}
-      text={getFullName(friend.firstName, friend.lastName)}
-      additionalClass="border-none rounded-s-[4px] h-full bg-neutral-300 dark:bg-dark-900 hover:underline hover:bg-neutral-300 hover:dark:bg-dark-900 px-[9px]"
-    />
-    <Button
-      variant="unstyle"
-      className="p-0 border-none rounded-e-[4px] w-6 h-6 text-primary bg-gray-300 dark:bg-dark-300 hover:bg-gray-600 hover:dark:bg-dark-300"
-      onClick={onRemove}
-    >
-      <XIcon size={16} />
-    </Button>
-  </div>
 );
 
 export const ComposeActivityPreview = memo(

@@ -1,13 +1,14 @@
 'use server';
 
+import { revalidateTag } from 'next/cache';
+
 // Constants
-import { API_ENDPOINT, QUERY_GET_EXISTING_LIKE } from '@/constants';
+import { API_ENDPOINT, QUERY } from '@/constants';
 import { ExitingLikeModel, ExitingLikeResponse } from '@/models';
 
 // Services
 import { apiClient } from '@/services';
 import { ApiDataResponse } from '@/types';
-import { revalidateTag } from 'next/cache';
 
 type ToggleLikeNewsFeedPayload = {
   newsFeedId: number;
@@ -19,7 +20,7 @@ const getExitingLike = async (
   userId: number,
 ): Promise<ApiDataResponse<ExitingLikeModel[]>> => {
   try {
-    const existingLikeQuery = QUERY_GET_EXISTING_LIKE(newsFeedId, userId);
+    const existingLikeQuery = QUERY.EXISTING_LIKE(newsFeedId, userId);
     const response = await apiClient.get<ExitingLikeResponse>(
       `${API_ENDPOINT.LIKES}?${existingLikeQuery}`,
     );
@@ -33,9 +34,9 @@ const getExitingLike = async (
   }
 };
 
-const removeExitingLike = async (likedID: string) => {
+const removeExitingLike = async (likedId: string) => {
   try {
-    await apiClient.remove(`${API_ENDPOINT.LIKES}/${likedID}`);
+    await apiClient.remove(`${API_ENDPOINT.LIKES}/${likedId}`);
   } catch (error) {
     const errorMessage =
       (error as Error).message ||

@@ -9,17 +9,20 @@ import { NEWS_FEED_COMMENT_MORE_OPTIONS } from '../constants';
 // Components
 import { Button, Circle, Text } from '@/components/ui';
 import { UserCardHeader } from '@/components/sections';
+import { ComposeMediaPreview } from './compose-media-preview';
 
 // Types
 import { NewsFeedComment } from '@/types';
 
 // Utils
 import { cn, formatDate, getFullName } from '@/utils';
+import { CommentReplyValues } from '../stores';
 
 interface NewsFeedCommentListProps {
   hasBorder?: boolean;
   hasSeparator?: boolean;
   comment: NewsFeedComment;
+  onCommentReply: (values: CommentReplyValues) => void;
 }
 
 const CommentButton = ({
@@ -41,12 +44,21 @@ export const NewsFeedCommentList = memo(
     hasBorder = false,
     hasSeparator = false,
     comment,
+    onCommentReply,
   }: NewsFeedCommentListProps) => {
-    const { friend, createdAt, content, reply, isOwner } = comment;
+    const { id, friend, createdAt, content, reply, isOwner, likes, media } =
+      comment;
 
     const title = getFullName(friend.firstName, friend.lastName);
     const description = formatDate(createdAt);
-    const replyCount = reply?.length || 0;
+    const likesCount = likes?.likesTotal || 0;
+
+    const handleReplyComment = () => {
+      onCommentReply({
+        commentId: id,
+        friend,
+      });
+    };
 
     return (
       <div
@@ -65,23 +77,27 @@ export const NewsFeedCommentList = memo(
         />
 
         <div className="flex flex-col mt-2.5 ml-[52px] mr-12 relative">
-          <Text className="text-neutral-400 dark:text-neutral-100">
-            {content}
-          </Text>
+          <div className="flex flex-col gap-2.5">
+            <Text className="text-neutral-400 dark:text-neutral-100">
+              {content}
+            </Text>
+            {media && <ComposeMediaPreview imageUrl={media} />}
+          </div>
           <div className="flex gap-2.5 items-center py-2">
             <CommentButton className="flex items-center text-2xs">
               <ThumbsUpIcon size={12} strokeWidth={2} className="mr-[5px]" />
-              {replyCount}
+              {likesCount}
             </CommentButton>
-            <CommentButton>Reply</CommentButton>
+            <CommentButton onClick={handleReplyComment}>Reply</CommentButton>
             {isOwner && <CommentButton>Edit</CommentButton>}
           </div>
 
-          {reply?.length &&
+          {reply &&
             reply.map((comment) => (
               <NewsFeedCommentList
                 key={comment.id}
                 comment={comment}
+                onCommentReply={onCommentReply}
                 hasBorder
                 hasSeparator
               />

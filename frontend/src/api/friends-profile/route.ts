@@ -1,5 +1,5 @@
 // Constants
-import { API_ENDPOINT, QUERY_GETS, TAG_KEYS } from '@/constants';
+import { API_ENDPOINT, QUERY, TAG_KEYS } from '@/constants';
 import { TFollowed } from '@/models';
 
 // Services
@@ -9,7 +9,7 @@ import { apiClient } from '@/services';
 import { TFriends } from '@/types';
 
 export const getFriendListByUsername = async (username: string) => {
-  const url = `${API_ENDPOINT.RELATIONSHIP}?${QUERY_GETS.FRIENDS(username)}`;
+  const url = `${API_ENDPOINT.RELATIONSHIP}?${QUERY.FRIENDS(username)}`;
 
   const response = await apiClient.get<TFriends>(url, {
     next: { tags: [TAG_KEYS.RELATIONSHIP(username)] },
@@ -25,7 +25,7 @@ export const getFriendListByUsername = async (username: string) => {
 };
 
 export const getNonFriendListByUserId = async (userId: string) => {
-  const url = `${API_ENDPOINT.RELATIONSHIP}/${QUERY_GETS.SUGGEST_FRIENDS(userId)}`;
+  const url = `${API_ENDPOINT.RELATIONSHIP}${QUERY.SUGGEST_FRIENDS(userId)}`;
 
   const response = await apiClient.get<TFollowed[]>(url, {
     next: { tags: [TAG_KEYS.SUGGEST_FRIENDS(userId)] },
@@ -38,7 +38,7 @@ export const getNonFriendListByUserId = async (userId: string) => {
 };
 
 export const getAcceptFriendListByUserId = async (userId: string) => {
-  const url = `${API_ENDPOINT.RELATIONSHIP}?${QUERY_GETS.ACCEPT_FRIENDS(userId)}`;
+  const url = `${API_ENDPOINT.RELATIONSHIP}?${QUERY.ACCEPT_FRIENDS(userId)}`;
 
   const response = await apiClient.get<TFriends>(url, {
     next: { tags: [TAG_KEYS.ACCEPT_FRIENDS(userId)] },

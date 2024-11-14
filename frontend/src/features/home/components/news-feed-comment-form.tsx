@@ -12,10 +12,11 @@ import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem } from '@/components/ui/form';
 import { Textarea } from '@/components/ui/textarea';
 import { UserCardPopover } from '@/components/sections';
-import { Input } from '@/components/ui';
+import { Input, Text } from '@/components/ui';
 import { ComposeMediaPreview } from './compose-media-preview';
 import { TagFriends } from './tag-friends';
 import { ComposeActivityPreview } from './compose-activity-preview';
+import { FriendTag } from './friend-tag';
 
 // Hooks
 import { useCommentForm } from '../hooks';
@@ -23,10 +24,13 @@ import { useDisclosure, useOnClickOutside } from '@/hooks';
 
 // Types
 import { UserDetail } from '@/types';
+import { CommentReplyValues } from '../stores';
 
 interface NewsFeedCommentFormProps {
   user: UserDetail;
+  commentReplyValue: CommentReplyValues;
   onComment: (data: FormData) => void;
+  onClearCommentReply: () => void;
 }
 
 const ActionButton = ({
@@ -45,7 +49,12 @@ const ActionButton = ({
 );
 
 export const NewsFeedCommentForm = memo(
-  ({ user, onComment }: NewsFeedCommentFormProps) => {
+  ({
+    user,
+    commentReplyValue,
+    onComment,
+    onClearCommentReply,
+  }: NewsFeedCommentFormProps) => {
     const {
       form,
       getFormData,
@@ -119,6 +128,20 @@ export const NewsFeedCommentForm = memo(
           action={handleAction}
           className="flex flex-col w-full border dark:border-blue-800 rounded-lg"
         >
+          {commentReplyValue.friend && (
+            <div className="flex gap-2 m-2">
+              <Text
+                size="xs"
+                className="text-neutral-400 dark:text-neutral-100"
+              >
+                Reply comment of:
+              </Text>
+              <FriendTag
+                friend={commentReplyValue.friend}
+                onRemove={onClearCommentReply}
+              />
+            </div>
+          )}
           <FormField
             control={form.control}
             name="content"

@@ -8,6 +8,7 @@ export type CommentPayload = {
   media?: string;
   friend: number;
   post: number;
+  parent?: number;
 };
 
 export type CommentModel = {
@@ -19,6 +20,7 @@ export type CommentModel = {
   createdAt: string;
   updatedAt: string;
   likes: LikeModel[];
+  replies?: CommentModel[];
 };
 
 export type ListCommentsResponse = {

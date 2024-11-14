@@ -1,3 +1,5 @@
+'use client';
+
 import { memo } from 'react';
 
 // Icons
@@ -14,6 +16,7 @@ import {
 import { NewsFeedCommentPagination, UserDetail } from '@/types';
 import { NewsFeedCommentList } from './news-feed-comment-list';
 import { NewsFeedCommentForm } from './news-feed-comment-form';
+import { useCommentReplyStore } from '../stores';
 
 interface NewsFeedCommentsProps {
   comments?: NewsFeedCommentPagination;
@@ -24,15 +27,21 @@ interface NewsFeedCommentsProps {
 
 export const NewsFeedComments = memo(
   ({ comments, author, onCloseComments, onComment }: NewsFeedCommentsProps) => {
-    const { data: commentsList, meta } = comments || {
+    const { data: commentsList, commentTotal } = comments || {
       data: [],
     };
+    const [commentReplyValue, setCommentReplyValue, clearCommentReply] =
+      useCommentReplyStore((state) => [
+        state.commentReplyValue,
+        state.setCommentReplyValue,
+        state.clearCommentReply,
+      ]);
 
     return (
       <div>
         <CardHeader className="p-4 flex flex-row justify-between items-center">
           <CardTitle className="text-base text-neutral-400">
-            Comments ({meta?.pagination.total})
+            Comments ({commentTotal})
           </CardTitle>
           <Button
             size="icon"
@@ -49,11 +58,17 @@ export const NewsFeedComments = memo(
               key={comment.id}
               comment={comment}
               hasBorder={index > 0}
+              onCommentReply={setCommentReplyValue}
             />
           ))}
         </CardContent>
         <CardFooter className="p-4">
-          <NewsFeedCommentForm user={author} onComment={onComment} />
+          <NewsFeedCommentForm
+            user={author}
+            onComment={onComment}
+            commentReplyValue={commentReplyValue}
+            onClearCommentReply={clearCommentReply}
+          />
         </CardFooter>
       </div>
     );

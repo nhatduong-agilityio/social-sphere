@@ -6,4 +6,6 @@ export const getFirstLetters = (firstName: string, lastName: string) => {
 };
 
 export const getFullName = (firstName: string, lastName: string) =>
-  [firstName, lastName].join(' ').trim();
+  [firstName, lastName]
+    .map((name) => name.charAt(0).toUpperCase() + name.slice(1).toLowerCase())
+    .join(' ');

@@ -1,5 +1,5 @@
 // Constants
-import { API_ENDPOINT, QUERY_GETS, TAG_KEYS } from '@/constants';
+import { API_ENDPOINT, QUERY, TAG_KEYS } from '@/constants';
 
 // Services
 import { apiClient } from '@/services';
@@ -8,7 +8,7 @@ import { apiClient } from '@/services';
 import { TNewsFeedPhotos } from '@/types';
 
 export const getPhotoListByUsername = async (username: string) => {
-  const url = `${API_ENDPOINT.POSTS}?${QUERY_GETS.PHOTOS(username)}`;
+  const url = `${API_ENDPOINT.POSTS}?${QUERY.PHOTOS(username)}`;
 
   const response = await apiClient.get<TNewsFeedPhotos>(url, {
     next: { tags: [TAG_KEYS.POST_BY_USER(username)] },

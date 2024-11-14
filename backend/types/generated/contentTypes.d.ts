@@ -531,6 +531,8 @@ export interface ApiCommentComment extends Struct.CollectionTypeSchema {
     >;
     post: Schema.Attribute.Relation<'manyToOne', 'api::post.post'>;
     likes: Schema.Attribute.Relation<'oneToMany', 'api::like.like'>;
+    parent: Schema.Attribute.Relation<'manyToOne', 'api::comment.comment'>;
+    replies: Schema.Attribute.Relation<'oneToMany', 'api::comment.comment'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

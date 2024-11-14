@@ -1,9 +1,5 @@
 import { NextResponse } from 'next/server';
-import {
-  API_ENDPOINT,
-  GET_LIST_COMMENTS_IN_NEWSFEED_BY_ID,
-  TAG_KEYS,
-} from '@/constants';
+import { API_ENDPOINT, QUERY, TAG_KEYS } from '@/constants';
 import { apiClient } from '@/services';
 import { ListCommentsResponse } from '@/models';
 
@@ -15,7 +11,7 @@ export const GET = async (
   const page = searchParams.get('page');
   const pageSize = searchParams.get('pageSize');
 
-  const query = GET_LIST_COMMENTS_IN_NEWSFEED_BY_ID(
+  const query = QUERY.LIST_COMMENTS_IN_NEWS_FEED_BY_ID(
     params.id,
     Number(page!),
     Number(pageSize!),
@@ -24,7 +20,7 @@ export const GET = async (
     `${API_ENDPOINT.COMMENTS}?${query}`,
     {
       next: {
-        tags: [TAG_KEYS.LIST_COMMENTS_IN_NEWSFEED_BY_ID_IN_PAGE(params.id, 1)],
+        tags: [TAG_KEYS.LIST_COMMENTS_IN_NEWS_FEED_BY_ID_IN_PAGE(params.id, 1)],
       },
     },
   );
