@@ -6,6 +6,7 @@ export type TFollowed = UserModel & {
 
 export type TFollower = {
   id: number;
+  documentId: string;
   follower: UserModel & {
     followedRelationships: Array<{ id: number }>;
   };
@@ -13,6 +14,7 @@ export type TFollower = {
 
 export type TFriendModel = {
   id: number;
+  documentId: string;
   followed: TFollowed;
   follower: TFollowed;
 };

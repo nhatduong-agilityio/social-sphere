@@ -17,7 +17,7 @@ import { Tabs, TabsList, TabsTrigger } from '@/components/ui';
 import { ROUTER } from '@/constants';
 
 export const ProfileNavTab = memo(() => {
-  const pathname = usePathname();
+  const pathname = decodeURIComponent(usePathname() || '');
   const { username } = useParams();
 
   const TABS = [
@@ -52,7 +52,7 @@ export const ProfileNavTab = memo(() => {
       <TabsList>
         {TABS.map(({ key, label, icon, href }) => (
           <Link key={key} href={href}>
-            <TabsTrigger value={href}>
+            <TabsTrigger value={decodeURIComponent(href)}>
               {icon}
               <span className="hidden md:block">{label}</span>
             </TabsTrigger>
