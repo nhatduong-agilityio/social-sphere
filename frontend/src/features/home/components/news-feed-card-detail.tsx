@@ -6,16 +6,22 @@ import { useCallback, useEffect, useState } from 'react';
 import { NewsFeedCard } from './news-feed-card';
 
 // Models
-import { NewsFeedDetailResponse } from '@/models';
-import { NewsFeed } from '@/types';
+import { ListCommentsResponse, NewsFeedDetailResponse } from '@/models';
+import { ActionState, NewsFeed } from '@/types';
 
 // Actions
-import { toggleLikeNewsFeed } from '../actions';
+import { publishComment, toggleLikeNewsFeed } from '../actions';
+import { useFormState } from 'react-dom';
 
 interface NewsFeedCardDetailProps {
   newsFeedId: string;
   authorId: string;
 }
+
+const initialState: ActionState = {
+  message: null,
+  error: null,
+};
 
 export const NewsFeedCardDetail = ({
   newsFeedId,
@@ -23,10 +29,23 @@ export const NewsFeedCardDetail = ({
 }: NewsFeedCardDetailProps) => {
   const [newsFeed, setNewsFeed] = useState<NewsFeed | null>(null);
 
+  // Management server action to publish post
+  const [_, formAction] = useFormState(
+    publishComment.bind(null, {
+      id: Number(newsFeedId),
+      authorId: Number(authorId),
+    }),
+    initialState,
+  );
+
   const fetchNewsFeed = useCallback(async () => {
     const response = await fetch(`/api/news-feed/${newsFeedId}`);
+    const commentResponse = await fetch(
+      `/api/comment/${newsFeedId}?page=1&pageSize=10`,
+    );
 
     const { data }: NewsFeedDetailResponse = await response.json();
+    const listCommentsData: ListCommentsResponse = await commentResponse.json();
 
     if (data) {
       const transformData: NewsFeed = {
@@ -45,6 +64,25 @@ export const NewsFeedCardDetail = ({
         isLiked: data[0].likes?.some(
           (like) => Number(authorId) === like.user.id,
         ),
+        comments: {
+          ...listCommentsData,
+          data: listCommentsData.data.map((comment) => ({
+            ...comment,
+            isOwner: Number(authorId) === comment.friend.id,
+            // reply: comment.reply?.map((reply) => ({
+            //   ...reply,
+            //   isOwner: Number(authorId) === reply.friend.id,
+            // })),
+            tagFriends: [],
+            likes: {
+              likesTotal: comment.likes?.length || 0,
+              likesRecent: comment.likes?.slice(0, 2).map((like) => ({
+                friend: like.user,
+                createdAt: like.createdAt,
+              })),
+            },
+          })),
+        },
       };
 
       setNewsFeed(transformData);
@@ -62,7 +100,17 @@ export const NewsFeedCardDetail = ({
     fetchNewsFeed();
   };
 
+  const handleComment = (data: FormData) => {
+    formAction(data);
+    fetchNewsFeed();
+  };
+
   return (
-    <NewsFeedCard newsFeed={newsFeed} authorId={authorId} onLike={handleLike} />
+    <NewsFeedCard
+      newsFeed={newsFeed}
+      authorId={authorId}
+      onLike={handleLike}
+      onComment={handleComment}
+    />
   );
 };

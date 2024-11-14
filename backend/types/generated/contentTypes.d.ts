@@ -524,11 +524,13 @@ export interface ApiCommentComment extends Struct.CollectionTypeSchema {
   attributes: {
     content: Schema.Attribute.Text & Schema.Attribute.Required;
     media: Schema.Attribute.String;
+    tagFriends: Schema.Attribute.JSON;
     friend: Schema.Attribute.Relation<
       'manyToOne',
       'plugin::users-permissions.user'
     >;
     post: Schema.Attribute.Relation<'manyToOne', 'api::post.post'>;
+    likes: Schema.Attribute.Relation<'oneToMany', 'api::like.like'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -630,6 +632,7 @@ export interface ApiLikeLike extends Struct.CollectionTypeSchema {
       'plugin::users-permissions.user'
     >;
     post: Schema.Attribute.Relation<'manyToOne', 'api::post.post'>;
+    comment: Schema.Attribute.Relation<'manyToOne', 'api::comment.comment'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

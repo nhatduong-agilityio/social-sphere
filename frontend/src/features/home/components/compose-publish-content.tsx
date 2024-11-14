@@ -26,14 +26,15 @@ import { useComposeFeedForm, useComposeDisclosure } from '../hooks';
 import { toast, useDisclosure } from '@/hooks';
 
 // Actions
-import { publishNewsFeed, PublishState } from '../actions';
+import { publishNewsFeed } from '../actions';
+import { ActionState } from '@/types';
 
 interface ComposePublishContentProps {
   isOverlayOpen: boolean;
   onOpenOverlay: () => void;
 }
 
-const initialState: PublishState = {
+const initialState: ActionState = {
   message: null,
   error: null,
 };

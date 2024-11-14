@@ -26,8 +26,6 @@ export const useCommentForm = () => {
         const imageUrl = URL.createObjectURL(file);
         setSelectedImageUrl(imageUrl);
       }
-
-      form.resetField('media');
     },
     [form],
   );
@@ -71,10 +69,27 @@ export const useCommentForm = () => {
     form.setValue('tagFriends', []);
   }, [form]);
 
+  const getFormData = (values: CommentFormValues) => {
+    const formData = new FormData();
+
+    formData.append('content', values.content);
+
+    if (values.media) {
+      formData.append('media', values.media);
+    }
+
+    values.tagFriends.forEach((friend) =>
+      formData.append('tagFriends', friend),
+    );
+
+    return formData;
+  };
+
   return {
     form,
     selectedImageUrl,
     selectedTagFriends,
+    getFormData,
     handleFileChange,
     handleRemoveMedia,
     handleTagFriends,

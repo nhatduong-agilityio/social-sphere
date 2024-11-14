@@ -23,6 +23,12 @@
       "relation": "manyToOne",
       "target": "api::post.post",
       "inversedBy": "likes"
+    },
+    "comment": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::comment.comment",
+      "inversedBy": "likes"
     }
   }
 }

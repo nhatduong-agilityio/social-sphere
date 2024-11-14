@@ -2,6 +2,7 @@
 
 import { ComponentProps, memo, useCallback, useRef } from 'react';
 import Picker, { EmojiClickData } from 'emoji-picker-react';
+import { useFormStatus } from 'react-dom';
 
 // Icons
 import { AtSignIcon, CameraIcon, SmileIcon } from 'lucide-react';
@@ -25,6 +26,7 @@ import { UserDetail } from '@/types';
 
 interface NewsFeedCommentFormProps {
   user: UserDetail;
+  onComment: (data: FormData) => void;
 }
 
 const ActionButton = ({
@@ -43,9 +45,10 @@ const ActionButton = ({
 );
 
 export const NewsFeedCommentForm = memo(
-  ({ user }: NewsFeedCommentFormProps) => {
+  ({ user, onComment }: NewsFeedCommentFormProps) => {
     const {
       form,
+      getFormData,
       handleFileChange,
       selectedImageUrl,
       handleRemoveMedia,
@@ -67,6 +70,8 @@ export const NewsFeedCommentForm = memo(
       onClose: onCloseTagFriends,
       onToggle: onToggleTagFriends,
     } = useDisclosure();
+
+    const { pending } = useFormStatus();
 
     const onEmojiClick = useCallback(
       (emoji: EmojiClickData) => {
@@ -102,9 +107,18 @@ export const NewsFeedCommentForm = memo(
 
     useOnClickOutside(wrapperEmoji, onCloseEmoji);
 
+    const handleAction = async (_: FormData) => {
+      const values = form.getValues();
+      const enrichedFormData = getFormData(values);
+      return onComment(enrichedFormData);
+    };
+
     return (
       <Form {...form}>
-        <form className="flex flex-col w-full border dark:border-blue-800 rounded-lg">
+        <form
+          action={handleAction}
+          className="flex flex-col w-full border dark:border-blue-800 rounded-lg"
+        >
           <FormField
             control={form.control}
             name="content"
@@ -190,7 +204,11 @@ export const NewsFeedCommentForm = memo(
               <ActionButton onClick={handleOptionClick}>
                 <CameraIcon size={18} />
               </ActionButton>
-              <Button variant="primary" className="text-2xs h-9">
+              <Button
+                variant="primary"
+                className="text-2xs h-9"
+                disabled={pending}
+              >
                 Post Comment
               </Button>
             </div>
