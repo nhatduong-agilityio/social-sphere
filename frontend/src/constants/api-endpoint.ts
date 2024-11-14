@@ -12,4 +12,5 @@ export const API_ENDPOINT = {
   SIGN_UP: 'api/auth/local/register',
   SIGN_IN: 'api/auth/local',
   RELATIONSHIP: 'api/relationships',
+  COMMENTS: 'api/comments',
 };

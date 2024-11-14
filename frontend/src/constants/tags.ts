@@ -6,4 +6,6 @@ export const TAG_KEYS = {
   NEWSFEED_IDS_BY_USER_IN_PAGE: (userId: string, page: number) =>
     `api-news-feed-ids-${userId}-in-page-${page}`,
   ACCEPT_FRIENDS: (userId: string) => `api-accept-friends-${userId}`,
+  LIST_COMMENTS_IN_NEWSFEED_BY_ID_IN_PAGE: (newsFeedId: string, page: number) =>
+    `api-list-comments-in-news-feed-by-${newsFeedId}-in-page-${page}`,
 };

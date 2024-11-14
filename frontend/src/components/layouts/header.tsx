@@ -49,7 +49,6 @@ interface HeaderProps {
 
 export const Header = memo(({ isAuthenticated = true, user }: HeaderProps) => {
   const {
-    id = 0,
     username = '',
     firstName = '',
     lastName = '',
@@ -207,7 +206,7 @@ export const Header = memo(({ isAuthenticated = true, user }: HeaderProps) => {
       onClose,
       NAVIGATION_ITEMS,
       profilePicture,
-      id,
+      username,
       firstName,
       lastName,
       handleButtonClick,

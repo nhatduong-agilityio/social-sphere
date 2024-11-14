@@ -70,7 +70,7 @@ export const NewsFeedCardList = memo(
               });
             }
           },
-          { threshold: 0.1 },
+          { threshold: 0.05 },
         );
 
         if (observerRefs.current[newsFeedId.id]) {
@@ -92,7 +92,11 @@ export const NewsFeedCardList = memo(
     return (
       <div className="flex flex-col gap-6">
         {displayedIds.map((newsFeedId) => (
-          <div key={newsFeedId.id} ref={setRef(newsFeedId.id)}>
+          <div
+            key={newsFeedId.id}
+            ref={setRef(newsFeedId.id)}
+            className="min-h-56"
+          >
             {visibleDetails.has(newsFeedId.id) && (
               <NewsFeedCardDetail
                 newsFeedId={newsFeedId.id.toString()}

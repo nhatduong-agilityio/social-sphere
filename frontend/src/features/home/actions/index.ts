@@ -7,3 +7,4 @@ export * from './create-news-feed';
 export * from './get-news-feeds';
 export * from './like-news-feed';
 export * from './request-add-friends';
+export * from './publish-comment';

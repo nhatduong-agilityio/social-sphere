@@ -10,3 +10,4 @@ export * from './search-params';
 export * from './upload';
 export * from './user';
 export * from './friend';
+export * from './action';

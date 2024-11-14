@@ -12,6 +12,7 @@ import { ComposeFeedFormValues } from '../hooks';
 
 // Types
 import { NewsFeedPayload } from '@/models';
+import { ActionState } from '@/types';
 
 export const createNewsFeed = async (data: NewsFeedPayload) => {
   try {
@@ -27,11 +28,6 @@ export const createNewsFeed = async (data: NewsFeedPayload) => {
   }
 };
 
-export type PublishState = {
-  message?: string | null;
-  error?: string | null;
-};
-
 const createPayload = (
   values: ComposeFeedFormValues,
   userId: string,
@@ -44,9 +40,9 @@ const createPayload = (
 
 export const publishNewsFeed = async (
   authorId: string | undefined,
-  prevState: PublishState,
+  prevState: ActionState,
   formData: FormData,
-): Promise<PublishState> => {
+): Promise<ActionState> => {
   try {
     if (!authorId) {
       return {

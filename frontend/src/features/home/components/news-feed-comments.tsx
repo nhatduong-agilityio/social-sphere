@@ -11,27 +11,28 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui';
-import { NewsFeedCommentPagination } from '@/types';
+import { NewsFeedCommentPagination, UserDetail } from '@/types';
 import { NewsFeedCommentList } from './news-feed-comment-list';
 import { NewsFeedCommentForm } from './news-feed-comment-form';
-import { MOCK_FRIENDS } from '@/__mocks__/user';
 
 interface NewsFeedCommentsProps {
-  comments: NewsFeedCommentPagination;
+  comments?: NewsFeedCommentPagination;
+  author: UserDetail;
   onCloseComments: () => void;
+  onComment: (data: FormData) => void;
 }
 
 export const NewsFeedComments = memo(
-  ({ comments, onCloseComments }: NewsFeedCommentsProps) => {
-    const {
-      data: { totalComments, comments: commentsList },
-    } = comments;
+  ({ comments, author, onCloseComments, onComment }: NewsFeedCommentsProps) => {
+    const { data: commentsList, meta } = comments || {
+      data: [],
+    };
 
     return (
       <div>
         <CardHeader className="p-4 flex flex-row justify-between items-center">
           <CardTitle className="text-base text-neutral-400">
-            Comments ({totalComments})
+            Comments ({meta?.pagination.total})
           </CardTitle>
           <Button
             size="icon"
@@ -52,7 +53,7 @@ export const NewsFeedComments = memo(
           ))}
         </CardContent>
         <CardFooter className="p-4">
-          <NewsFeedCommentForm user={MOCK_FRIENDS[0]} />
+          <NewsFeedCommentForm user={author} onComment={onComment} />
         </CardFooter>
       </div>
     );

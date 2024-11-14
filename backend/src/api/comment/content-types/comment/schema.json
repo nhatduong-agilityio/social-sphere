@@ -19,6 +19,9 @@
     "media": {
       "type": "string"
     },
+    "tagFriends": {
+      "type": "json"
+    },
     "friend": {
       "type": "relation",
       "relation": "manyToOne",
@@ -30,6 +33,12 @@
       "relation": "manyToOne",
       "target": "api::post.post",
       "inversedBy": "comments"
+    },
+    "likes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::like.like",
+      "mappedBy": "comment"
     }
   }
 }

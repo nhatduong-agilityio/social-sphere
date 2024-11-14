@@ -1,33 +1,6 @@
 import { Pagination } from './pagination';
 import { UserDetail } from './user';
 
-export type NewsFeedComment = {
-  id: string;
-  friend: UserDetail;
-  content: string;
-  media?: string;
-  tagFriends?: UserDetail[];
-  gifUrl?: string;
-  createdAt: string;
-  likes?: UserDetail[];
-  reply?: NewsFeedComment[];
-  isOwner?: boolean;
-};
-
-export type NewsFeedCommentPagination = {
-  data: {
-    comments: NewsFeedComment[];
-    totalComments: number;
-  };
-  meta: { pagination: Pagination };
-};
-
-export type NewsFeedShare = {
-  id: string;
-  friend: UserDetail;
-  createdAt: string;
-};
-
 export type NewsFeedLike = {
   likesTotal: number;
   remainingLikes?: number;
@@ -35,6 +8,30 @@ export type NewsFeedLike = {
     friend: UserDetail;
     createdAt: string;
   }[];
+};
+
+export type NewsFeedComment = {
+  id: number;
+  friend: UserDetail;
+  content: string;
+  media?: string;
+  tagFriends?: UserDetail[];
+  gifUrl?: string;
+  createdAt: string;
+  likes?: NewsFeedLike;
+  reply?: NewsFeedComment[];
+  isOwner?: boolean;
+};
+
+export type NewsFeedCommentPagination = {
+  data: NewsFeedComment[];
+  meta: { pagination: Pagination };
+};
+
+export type NewsFeedShare = {
+  id: string;
+  friend: UserDetail;
+  createdAt: string;
 };
 
 export type NewsFeed = {

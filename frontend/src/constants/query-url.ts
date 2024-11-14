@@ -27,3 +27,10 @@ export const GET_LATEST_NEWSFEED_IDS_BY_AUTHOR_ID = (
 
 export const GET_NEWSFEED_DETAIL_BY_ID = (newsFeedId: string) =>
   `filters[id][$eq]=${newsFeedId}&populate[author]=*&populate[likes][fields][0]=createdAt&populate[likes][populate][user]=*&populate[likes][sort][createdAt]=desc&populate[comments]=*&populate[shares]=*`;
+
+export const GET_LIST_COMMENTS_IN_NEWSFEED_BY_ID = (
+  newsFeedId: string,
+  page: number = 1,
+  pageSize: number = 10,
+) =>
+  `filters[post][id][$eq]=${newsFeedId}&populate[friend]=*&populate[likes][fields][0]=createdAt&populate[likes]&pagination[page]=${page}&pagination[pageSize]=${pageSize}&sort[createdAt]=desc`;
