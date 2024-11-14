@@ -2,7 +2,6 @@ export const ROUTER = {
   HOME: '/',
   CATEGORY: '/category',
   LOGIN: '/login',
-  USER_PROFILE: '/user-profile',
   ONBOARDING: '/onboarding',
 
   PROFILE_ID_OVERVIEW: (username: string) =>

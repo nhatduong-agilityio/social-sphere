@@ -26,7 +26,7 @@ const FriendLink = ({
 
   return (
     <LinkWithIcon
-      url={`${ROUTER.USER_PROFILE}/${friend.id}`}
+      url={ROUTER.PROFILE_ID_PERSONAL_INFO(friend.username)}
       text={fullName}
       additionalClass={additionalClass}
     />

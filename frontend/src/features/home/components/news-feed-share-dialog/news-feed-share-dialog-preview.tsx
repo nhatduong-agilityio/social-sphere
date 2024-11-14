@@ -19,7 +19,7 @@ interface NewsFeedShareDialogPreviewProps {
 
 export const NewsFeedShareDialogPreview = memo(
   ({ newsFeed }: NewsFeedShareDialogPreviewProps) => (
-    <div className="flex flex-col">
+    <div className="flex flex-col bg-black-haze-50 dark:bg-dark-100">
       <div className="relative h-[177px] md:h-[256px]">
         <Image
           src={IMAGES.PROFILE_BANNER_FALLBACK.url}
@@ -32,7 +32,7 @@ export const NewsFeedShareDialogPreview = memo(
         />
       </div>
       <div className="flex flex-col border p-5 gap-5">
-        <div className="flex justify-center gap-3">
+        <div className="flex justify-items-start gap-3">
           <UserCardPopover user={newsFeed.author} additionalClass="w-10 h-10" />
           <NewsFeedCardContent newsFeed={newsFeed} />
         </div>

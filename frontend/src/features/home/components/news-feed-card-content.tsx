@@ -53,7 +53,7 @@ export const NewsFeedCardContent = memo(
           {tagFriends.map((friend, index) => (
             <Fragment key={friend.id}>
               <LinkWithIconWrapper
-                url={`${ROUTER.USER_PROFILE}/${friend.id}`}
+                url={ROUTER.PROFILE_ID_PERSONAL_INFO(friend.username)}
                 text={getFullName(friend.firstName, friend.lastName)}
               />
               {index < tagFriends.length - 2 && ', '}

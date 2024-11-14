@@ -3,7 +3,7 @@
 import { memo, useCallback, useEffect, useRef, useState } from 'react';
 import { NewsFeedCardDetail } from './news-feed-card-detail';
 
-// Modesl
+// Models
 import { NewsFeedIdModel } from '@/models';
 
 interface NewsFeedCardListProps {

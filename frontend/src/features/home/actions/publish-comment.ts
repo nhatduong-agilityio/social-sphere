@@ -29,14 +29,10 @@ export const createComment = async (data: CommentPayload) => {
 };
 
 const createPayload = (
-  userId: number,
-  newsFeedId: number,
-  values: CommentFormValues,
+  currentPayload: CommentPayload,
   imageUrl?: string,
 ): CommentPayload => ({
-  friend: userId,
-  post: newsFeedId,
-  ...values,
+  ...currentPayload,
   media: imageUrl || '',
 });
 
@@ -44,12 +40,13 @@ export const publishComment = async (
   newsDeed: {
     id: number;
     authorId: number;
+    commentId?: number;
   },
   prevState: ActionState,
   formData: FormData,
 ): Promise<ActionState> => {
   try {
-    const { id, authorId } = newsDeed;
+    const { id, authorId, commentId } = newsDeed;
 
     if (!authorId) {
       return {
@@ -63,18 +60,25 @@ export const publishComment = async (
     const media = formData.get('media') as File;
     const tagFriends = formData.getAll('tagFriends') as string[];
 
-    let payload: CommentPayload;
     const formValues: CommentFormValues = {
       content,
       media,
       tagFriends,
     };
 
+    let payload: CommentPayload = {
+      friend: authorId,
+      post: id,
+      parent: commentId,
+      ...formValues,
+      media: '',
+    };
+
     if (media) {
       const imageUrl = await upload(media);
-      payload = createPayload(authorId, id, formValues, imageUrl);
+      payload = createPayload(payload, imageUrl);
     } else {
-      payload = createPayload(authorId, id, formValues);
+      payload = createPayload(payload);
     }
 
     await createComment(payload);

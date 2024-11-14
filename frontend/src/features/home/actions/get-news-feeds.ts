@@ -1,9 +1,4 @@
-import {
-  API_ENDPOINT,
-  GET_LATEST_NEWSFEED_IDS_BY_AUTHOR_ID,
-  QUERY_GET_NEWS_FEEDS,
-  TAG_KEYS,
-} from '@/constants';
+import { API_ENDPOINT, QUERY, TAG_KEYS } from '@/constants';
 import { NewsFeedIdsResponse, NewsFeedListResponse } from '@/models';
 import { apiClient } from '@/services';
 
@@ -16,7 +11,7 @@ export const getNewsFeeds = async (
   pageSize: number = 10,
 ): Promise<ApiDataResponse<NewsFeedsResponse>> => {
   try {
-    const query = QUERY_GET_NEWS_FEEDS(userId, page, pageSize);
+    const query = QUERY.NEWS_FEEDS(userId, page, pageSize);
     const response = await apiClient.get<NewsFeedListResponse>(
       `${API_ENDPOINT.POSTS}?${query}`,
       {
@@ -55,12 +50,16 @@ export const getNewsFeedIds = async (
   pageSize: number = 10,
 ): Promise<ApiDataResponse<NewsFeedIdsResponse>> => {
   try {
-    const query = GET_LATEST_NEWSFEED_IDS_BY_AUTHOR_ID(userId, page, pageSize);
+    const query = QUERY.LATEST_NEWS_FEED_IDS_BY_AUTHOR_ID(
+      userId,
+      page,
+      pageSize,
+    );
     const response = await apiClient.get<NewsFeedIdsResponse>(
       `${API_ENDPOINT.POSTS}?${query}`,
       {
         next: {
-          tags: [TAG_KEYS.NEWSFEED_IDS_BY_USER_IN_PAGE(userId, page)],
+          tags: [TAG_KEYS.NEWS_FEED_IDS_BY_USER_IN_PAGE(userId, page)],
         },
       },
     );

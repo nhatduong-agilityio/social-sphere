@@ -12,6 +12,7 @@ import { ActionState, NewsFeed } from '@/types';
 // Actions
 import { publishComment, toggleLikeNewsFeed } from '../actions';
 import { useFormState } from 'react-dom';
+import { useCommentReplyStore } from '../stores';
 
 interface NewsFeedCardDetailProps {
   newsFeedId: string;
@@ -28,12 +29,16 @@ export const NewsFeedCardDetail = ({
   authorId,
 }: NewsFeedCardDetailProps) => {
   const [newsFeed, setNewsFeed] = useState<NewsFeed | null>(null);
+  const [commentReplyValue, clearCommentReply] = useCommentReplyStore(
+    (state) => [state.commentReplyValue, state.clearCommentReply],
+  );
 
-  // Management server action to publish post
+  // Management server action to publish comment
   const [_, formAction] = useFormState(
     publishComment.bind(null, {
       id: Number(newsFeedId),
       authorId: Number(authorId),
+      commentId: commentReplyValue.commentId,
     }),
     initialState,
   );
@@ -66,13 +71,28 @@ export const NewsFeedCardDetail = ({
         ),
         comments: {
           ...listCommentsData,
+          commentTotal: listCommentsData.data.reduce((acc, comment) => {
+            // Count the comment itself
+            let count = 1;
+            // Add the number of replies
+            count += comment.replies?.length || 0;
+            return acc + count;
+          }, 0),
           data: listCommentsData.data.map((comment) => ({
             ...comment,
             isOwner: Number(authorId) === comment.friend.id,
-            // reply: comment.reply?.map((reply) => ({
-            //   ...reply,
-            //   isOwner: Number(authorId) === reply.friend.id,
-            // })),
+            reply: comment.replies?.map((reply) => ({
+              ...reply,
+              isOwner: Number(authorId) === reply.friend.id,
+              tagFriends: [],
+              likes: {
+                likesTotal: reply.likes?.length || 0,
+                likesRecent: reply.likes?.slice(0, 2).map((like) => ({
+                  friend: like.user,
+                  createdAt: like.createdAt,
+                })),
+              },
+            })),
             tagFriends: [],
             likes: {
               likesTotal: comment.likes?.length || 0,
@@ -103,6 +123,7 @@ export const NewsFeedCardDetail = ({
   const handleComment = (data: FormData) => {
     formAction(data);
     fetchNewsFeed();
+    clearCommentReply();
   };
 
   return (

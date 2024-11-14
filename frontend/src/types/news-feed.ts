@@ -25,6 +25,7 @@ export type NewsFeedComment = {
 
 export type NewsFeedCommentPagination = {
   data: NewsFeedComment[];
+  commentTotal: number;
   meta: { pagination: Pagination };
 };
 
