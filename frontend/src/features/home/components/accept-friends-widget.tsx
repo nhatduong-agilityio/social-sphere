@@ -1,7 +1,13 @@
 'use client';
 
-import { useCallback, useState } from 'react';
-import { EllipsisVertical, UserPlus } from 'lucide-react';
+import { useCallback, useTransition } from 'react';
+import {
+  Ellipsis,
+  EllipsisVertical,
+  Loader,
+  UserMinus,
+  UserPlus,
+} from 'lucide-react';
 
 // Components
 import {
@@ -10,6 +16,7 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
+  DropdownMenuItem,
   Text,
 } from '@/components/ui';
 import { UserCardPopover } from '@/components/sections';
@@ -17,27 +24,48 @@ import { UserCardPopover } from '@/components/sections';
 // Utils
 import { getFullName } from '@/utils';
 
-// Icons
-import { CheckmarkIcon } from '@/icons';
-
 // Types
 import { TFollower } from '@/models';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+} from '@radix-ui/react-dropdown-menu';
+
+// Actions
+import { acceptedFriend, rejectedFriend } from '../actions';
 
 interface AcceptFriendsWidgetProps {
+  authorId: string;
   friends: TFollower[];
 }
 
-export const AcceptFriendsWidget = ({ friends }: AcceptFriendsWidgetProps) => {
-  const [addedFriends, setAddedFriends] = useState<string[]>([]);
+export const AcceptFriendsWidget = ({
+  authorId,
+  friends,
+}: AcceptFriendsWidgetProps) => {
+  const [isAcceptPending, startAcceptedTransition] = useTransition();
+  const [isRejectedPending, startRejectedTransition] = useTransition();
 
-  const handleAddFriend = useCallback(
-    (userId: string) => {
-      !addedFriends.includes(userId) &&
-        setAddedFriends((prevAddedFriends) => [...prevAddedFriends, userId]);
+  const handleAcceptedFriend = useCallback(
+    (userId: string, relationshipId: string) => {
+      startAcceptedTransition(async () => {
+        await acceptedFriend(authorId, userId, relationshipId);
+      });
     },
-    [addedFriends],
+    [authorId],
   );
-  const renderAcceptedFriends = friends.map(({ follower }) => (
+
+  const handleRejectedFriend = useCallback(
+    async (relationshipId: string) => {
+      startRejectedTransition(async () => {
+        await rejectedFriend(relationshipId, authorId);
+      });
+    },
+    [authorId],
+  );
+
+  const renderAcceptedFriends = friends.map(({ follower, documentId }) => (
     <div
       key={follower.id}
       className="p-4 flex w-full border-t border-slate-300 dark:border-slate-600 items-center justify-between group cursor-pointer"
@@ -55,21 +83,40 @@ export const AcceptFriendsWidget = ({ friends }: AcceptFriendsWidgetProps) => {
         </div>
       </div>
 
-      <Button
-        size="icon"
-        variant="rounded"
-        className="w-9 h-9 border-none"
-        onClick={() => handleAddFriend(follower.id.toString())}
-      >
-        {addedFriends.includes(follower.id.toString()) ? (
-          <CheckmarkIcon />
-        ) : (
-          <UserPlus
-            size={20}
-            className="text-slate-600 group-hover:text-slate-500"
-          />
-        )}
-      </Button>
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button variant="rounded" size="icon" className="border-none">
+            <Ellipsis size={16} />
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent className="w-24 p-0 py-2 bg-white dark:bg-card rounded-md border border-slate-300 dark:border-slate-600">
+          <DropdownMenuItem
+            className="flex gap-3 w-full"
+            onClick={() =>
+              handleAcceptedFriend(follower.id.toString(), documentId)
+            }
+          >
+            {isAcceptPending ? (
+              <Loader size={16} className="text-blue-400 animate-spin" />
+            ) : (
+              <UserPlus size={16} className="text-blue-400 " />
+            )}
+            <Text className="text-4xs text-blue-400">Accept</Text>
+          </DropdownMenuItem>
+          <DropdownMenuItem
+            className="flex gap-3 w-full"
+            onClick={() => handleRejectedFriend(documentId)}
+          >
+            {isRejectedPending ? (
+              <Loader size={16} className="text-blue-400 animate-spin" />
+            ) : (
+              <UserMinus size={16} className="text-red-400" />
+            )}
+
+            <Text className="text-4xs text-red-400">Reject</Text>
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
     </div>
   ));
 

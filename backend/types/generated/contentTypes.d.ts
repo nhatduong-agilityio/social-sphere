@@ -696,6 +696,7 @@ export interface ApiRelationshipRelationship
     singularName: 'relationship';
     pluralName: 'relationships';
     displayName: 'Relationship';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -710,7 +711,7 @@ export interface ApiRelationshipRelationship
       'plugin::users-permissions.user'
     >;
     requestStatus: Schema.Attribute.Enumeration<
-      ['following', 'friends', 'pending']
+      ['following', 'friends', 'pending', 'rejected']
     > &
       Schema.Attribute.DefaultTo<'pending'>;
     createdAt: Schema.Attribute.DateTime;

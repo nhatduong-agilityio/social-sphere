@@ -6,6 +6,8 @@ export const QUERY = {
   SUGGEST_FRIENDS: (userId: string) => `/non-friends/${userId}`,
   ACCEPT_FRIENDS: (userId: string) =>
     `filters[$and][0][followed][id][$eq]=${userId}&filters[$and][1][requestStatus][$eq]=pending&populate[follower][populate][followedRelationships][filters][requestStatus]=friends&pagination[pageSize]=6`,
+  REJECT_FRIENDS: (follower: string, followed: string) =>
+    `filters[$and][0][follower][id][$eq]=${follower}&?filters[$and][1][followed][id][$eq]=${followed}&filters[requestStatus][$eq]=rejected`,
   NEWS_FEEDS: (authorId: string, page: number = 1, pageSize: number = 10) =>
     `filters[author][id][$eq]=${authorId}&populate[author]=*&populate[likes][fields][0]=createdAt&populate[likes][populate][user]=*&populate[likes][sort][createdAt]=desc&populate[comments]=*&populate[shares]=*&sort[createdAt]=desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}`,
   EXISTING_LIKE: (newsFeedId: number, userId: number) =>

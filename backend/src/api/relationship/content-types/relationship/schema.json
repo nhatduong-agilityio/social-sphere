@@ -4,7 +4,8 @@
   "info": {
     "singularName": "relationship",
     "pluralName": "relationships",
-    "displayName": "Relationship"
+    "displayName": "Relationship",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -25,7 +26,12 @@
     },
     "requestStatus": {
       "type": "enumeration",
-      "enum": ["following", "friends", "pending"],
+      "enum": [
+        "following",
+        "friends",
+        "pending",
+        "rejected"
+      ],
       "default": "pending"
     }
   }
