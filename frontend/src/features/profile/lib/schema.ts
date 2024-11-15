@@ -27,3 +27,15 @@ export const PictureProfileSchema = z.object({
       'File must be a PNG, JPEG, or JPG',
     ),
 });
+
+export const OverviewSchema = z.object({
+  firstName: z.string().min(1, {
+    message: 'First name is required.',
+  }),
+  lastName: z.string().min(1, {
+    message: 'Last name is required.',
+  }),
+  job: z.string().optional(),
+  location: z.string().optional(),
+  bio: z.string().optional(),
+});

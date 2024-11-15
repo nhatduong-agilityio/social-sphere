@@ -1,3 +1,5 @@
-const OverviewPage = () => <div>Overview Page</div>;
+import { OverviewContent } from '@/features/profile/components';
+
+const OverviewPage = () => <OverviewContent />;
 
 export default OverviewPage;

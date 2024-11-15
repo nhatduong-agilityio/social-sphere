@@ -14,3 +14,6 @@ export * from './upload-banner-profile';
 export * from './video-panel';
 export * from './video';
 export * from './banner-skeleton';
+export * from './overview-input';
+export * from './overview-content';
+export * from './overview-bio';
