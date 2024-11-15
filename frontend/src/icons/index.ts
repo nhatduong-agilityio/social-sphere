@@ -20,3 +20,6 @@ export * from './map-marker-icon';
 export * from './star-icon';
 export * from './text-box-icon';
 export * from './user-icon';
+export * from './work-icon';
+export * from './study-icon';
+export * from './location-icon';
