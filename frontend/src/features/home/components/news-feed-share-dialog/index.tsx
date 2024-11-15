@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 
 // Constants
 import { SHARE_OPTIONS } from '../../constants/share-news-feed';
@@ -17,28 +17,30 @@ import { NewsFeedShareDialogControl } from './news-feed-share-dialog-control';
 import { NewsFeedShareDialogPreview } from './news-feed-share-dialog-preview';
 import { NewsFeedShareDialogAbout } from './news-feed-share-dialog-about';
 import { ShareDropdown } from './share-dropdown';
+import { ShareLocationPicker } from './share-location-picker';
+import { TagFriends } from '../tag-friends';
+import { ComposeActivityPreview } from '../compose-activity-preview';
+import { SelectedOptionContent } from './selected-option-content';
 
 // Types
 import { NewsFeed, Option } from '@/types';
 
 // Hooks
 import { useShareForm } from '../../hooks';
-import { TagFriends } from '../tag-friends';
-import { ComposeActivityPreview } from '../compose-activity-preview';
 import { useShareActionsDisclosure } from '../../hooks/use-share-actions-disclosure';
-import { ShareLocationPicker } from './share-location-picker';
-import { SelectedOptionContent } from './selected-option-content';
 
 interface NewsFeedShareDialogProps {
   newsFeed: NewsFeed;
+  onShare: (data: FormData) => void;
 }
 
 export const NewsFeedShareDialog = memo(
-  ({ newsFeed }: NewsFeedShareDialogProps) => {
+  ({ newsFeed, onShare }: NewsFeedShareDialogProps) => {
     const {
       form,
-      handleTagFriends,
       selectedTagFriends,
+      handleTagFriends,
+      getFormData,
       handleRemoveFriend,
       handleFriendsFeed,
       handleRemoveFriendsFeed,
@@ -53,10 +55,21 @@ export const NewsFeedShareDialog = memo(
       SHARE_OPTIONS[0],
     );
 
+    const handleRemove = useCallback((removeCallback: () => void) => {
+      removeCallback();
+      setSelectedOption(SHARE_OPTIONS[0]);
+    }, []);
+
+    const handleAction = async (_: FormData) => {
+      const values = form.getValues();
+      const enrichedFormData = getFormData(values);
+      return onShare(enrichedFormData);
+    };
+
     return (
       <DialogContent className="p-0 gap-0 md:max-w-[480px]">
         <Form {...form}>
-          <form className="w-full">
+          <form className="w-full" action={handleAction}>
             <DialogHeader className="p-2 border-b border-gray-600 dark:border-dark-500">
               <ShareDropdown
                 options={SHARE_OPTIONS}
@@ -72,11 +85,11 @@ export const NewsFeedShareDialog = memo(
                 selectedOption={selectedOption}
                 onFriendsFeed={handleFriendsFeed}
                 onRemoveFriendsFeed={handleRemoveFriendsFeed}
-                onSelectedOption={setSelectedOption}
                 onFriendsMessage={handleFriendsMessage}
                 onRemoveFriendsMessage={handleRemoveFriendsMessage}
                 onSelectGroup={handleSelectGroup}
                 onRemoveGroup={handleRemoveGroup}
+                onRemove={handleRemove}
               />
 
               <div className="flex flex-col px-3 py-2">

@@ -16,6 +16,13 @@ export const useShareForm = () => {
   const form = useForm<ShareFormValues>({
     defaultValues: {
       content: '',
+      tagFriends: [],
+      activityRole: 'friends',
+      location: '',
+      friendsFeed: '',
+      group: '',
+      page: '',
+      friendsMessage: '',
     },
   });
 
@@ -97,6 +104,23 @@ export const useShareForm = () => {
 
   const selectedLocation = form.getValues('location');
 
+  const getFormData = (values: ShareFormValues) => {
+    const formData = new FormData();
+
+    formData.append('content', values.content);
+    formData.append('activityRole', values.activityRole);
+    formData.append('location', values.location);
+    values.tagFriends.forEach((friend) =>
+      formData.append('tagFriends', friend),
+    );
+    formData.append('friendsFeed', values.friendsFeed);
+    formData.append('group', values.group);
+    formData.append('page', values.page);
+    formData.append('friendsMessage', values.friendsMessage);
+
+    return formData;
+  };
+
   return {
     form,
     selectedTagFriends,
@@ -104,6 +128,7 @@ export const useShareForm = () => {
     selectedFriendsFeed,
     selectedFriendsMessage,
     selectedGroup,
+    getFormData,
     handleTagFriends,
     handleRemoveFriend,
     handleRemoveAllFriends,

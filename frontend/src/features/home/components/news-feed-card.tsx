@@ -26,10 +26,11 @@ interface NewsFeedCardProps {
   newsFeed: NewsFeed;
   onLike: () => Promise<void>;
   onComment: (data: FormData) => void;
+  onShare: (data: FormData) => void;
 }
 
 export const NewsFeedCard = memo(
-  ({ authorId, newsFeed, onLike, onComment }: NewsFeedCardProps) => {
+  ({ authorId, newsFeed, onLike, onComment, onShare }: NewsFeedCardProps) => {
     const {
       isOpen: isOpenComments,
       onOpen: onOpenComments,
@@ -42,7 +43,7 @@ export const NewsFeedCard = memo(
     const title = getFullName(author.firstName, author.lastName);
     const description = formatDate(createdAt);
     const likesCount = likes?.likesTotal || 0;
-    const commentsCount = comments?.meta.pagination.total ?? 0;
+    const commentsCount = comments?.commentTotal || 0;
     const sharesCount = shares?.length || 0;
 
     return (
@@ -84,6 +85,7 @@ export const NewsFeedCard = memo(
                       onOpenComments={onOpenComments}
                       isLiked={isLiked}
                       onLike={onLike}
+                      onShare={onShare}
                     />
                   </div>
                 </div>

@@ -23,6 +23,51 @@
       "relation": "manyToOne",
       "target": "api::post.post",
       "inversedBy": "shares"
+    },
+    "content": {
+      "type": "text"
+    },
+    "activityRole": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "tagFriends": {
+      "type": "json"
+    },
+    "friendsFeed": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "sharedPosts",
+      "required": false
+    },
+    "group": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::group.group",
+      "inversedBy": "posts",
+      "required": false
+    },
+    "page": {
+      "type": "string",
+      "required": false
+    },
+    "friendsMessage": {
+      "type": "string",
+      "required": false
+    },
+    "shareType": {
+      "type": "enumeration",
+      "enum": [
+        "yourFeed",
+        "friendsFeed",
+        "group",
+        "page",
+        "friendsMessage"
+      ],
+      "default": "yourFeed"
     }
   }
 }

@@ -7,6 +7,7 @@ export const API_ENDPOINT = {
   USERS: 'api/users',
   POSTS: 'api/posts',
   LIKES: 'api/likes',
+  SHARES: 'api/shares',
   PROFILE: 'api/users/me',
   UPLOAD: 'api/upload',
   SIGN_UP: 'api/auth/local/register',

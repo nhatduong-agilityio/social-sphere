@@ -20,6 +20,7 @@ interface NewsFeedSocialControl {
   newsFeed: NewsFeed;
   onOpenComments: () => void;
   onLike: () => Promise<void>;
+  onShare: (data: FormData) => void;
 }
 
 interface SocialButtonProps {
@@ -45,7 +46,13 @@ const SocialButton = forwardRef<HTMLButtonElement, SocialButtonProps>(
 SocialButton.displayName = 'SocialButton';
 
 export const NewsFeedSocialControl = memo(
-  ({ isLiked, newsFeed, onOpenComments, onLike }: NewsFeedSocialControl) => {
+  ({
+    isLiked,
+    newsFeed,
+    onOpenComments,
+    onLike,
+    onShare,
+  }: NewsFeedSocialControl) => {
     const defaultButtonStyle =
       'w-[43px] h-[43px] shadow-sphere-secondary hover:bg-blue-50';
     const likeButtonStyle = cn(
@@ -70,7 +77,7 @@ export const NewsFeedSocialControl = memo(
                 className={defaultButtonStyle}
               />
             </DialogTrigger>
-            <NewsFeedShareDialog newsFeed={newsFeed} />
+            <NewsFeedShareDialog newsFeed={newsFeed} onShare={onShare} />
           </Dialog>
           <SocialButton
             icon={

@@ -1,3 +1,5 @@
+'use client';
+
 import { BellIcon, BookmarkIcon, FlagIcon, XIcon } from 'lucide-react';
 
 export const NEWS_FEED_MORE_OPTIONS = [
