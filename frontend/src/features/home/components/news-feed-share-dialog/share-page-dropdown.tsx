@@ -1,7 +1,10 @@
 'use client';
 
-import { Fragment, useMemo } from 'react';
+import { Fragment, useEffect } from 'react';
 import { ChevronDownIcon } from 'lucide-react';
+import { UseFormReturn } from 'react-hook-form';
+
+// Components
 import {
   Button,
   Heading,
@@ -17,9 +20,14 @@ import {
   AvatarImage,
   AvatarFallback,
 } from '@/components/ui';
+
+// Utils
 import { cn } from '@/utils';
-import { UseFormReturn } from 'react-hook-form';
+
+// Hooks
 import { ShareFormValues } from '../../hooks';
+
+// Types
 import { SocialPageModel } from '@/models';
 
 interface SharePageDropdownProps {
@@ -58,12 +66,12 @@ const PageMenuItem = ({
 
 export const SharePageDropdown = ({ form, pages }: SharePageDropdownProps) => {
   const value = form.watch('page');
-  const selectedPage = useMemo(
-    () => pages.find((page) => page.id === value) || pages[0],
-    [pages, value],
-  );
+  const selectedPage = pages.find((page) => page.id === value) || pages[0];
 
-  if (!selectedPage) return null;
+  // Set the initial value for the page field
+  useEffect(() => {
+    form.setValue('page', selectedPage.id);
+  }, [form, selectedPage.id]);
 
   return (
     <FormField

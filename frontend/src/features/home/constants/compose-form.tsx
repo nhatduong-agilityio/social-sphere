@@ -1,3 +1,5 @@
+'use client';
+
 import { COUNTRIES } from '@/constants';
 import { Option } from '@/types';
 import { GlobeIcon, LockIcon, UserIcon, UsersIcon } from 'lucide-react';

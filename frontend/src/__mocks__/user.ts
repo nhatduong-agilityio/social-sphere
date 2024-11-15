@@ -2,8 +2,9 @@ import { UserDetail } from '@/types';
 
 export const MOCK_FRIENDS: UserDetail[] = [
   {
-    id: '1',
+    id: 1,
     firstName: 'John',
+    username: 'johndoe',
     email: 'admin@gmail.com',
     password: '1@Dzxcvb',
     lastName: 'Doe',
@@ -15,7 +16,8 @@ export const MOCK_FRIENDS: UserDetail[] = [
     },
   },
   {
-    id: '2',
+    id: 2,
+    username: 'nellyschwartz',
     firstName: 'Nelly',
     lastName: 'Schwartz',
     countFriends: 1,
@@ -26,7 +28,8 @@ export const MOCK_FRIENDS: UserDetail[] = [
     },
   },
   {
-    id: '3',
+    id: 3,
+    username: 'mikelasalle',
     firstName: 'Mike',
     lastName: 'Lasalle',
     countFriends: 2,
@@ -37,7 +40,8 @@ export const MOCK_FRIENDS: UserDetail[] = [
     },
   },
   {
-    id: '4',
+    id: 4,
+    username: 'sarahjohnson',
     firstName: 'Sarah',
     lastName: 'Johnson',
     countFriends: 4,
@@ -48,7 +52,8 @@ export const MOCK_FRIENDS: UserDetail[] = [
     },
   },
   {
-    id: '5',
+    id: 5,
+    username: 'stellabergmann',
     firstName: 'Stella',
     lastName: 'Bergmann',
     countFriends: 0,
@@ -59,7 +64,8 @@ export const MOCK_FRIENDS: UserDetail[] = [
     },
   },
   {
-    id: '6',
+    id: 6,
+    username: 'davidkim',
     firstName: 'David',
     lastName: 'Kim',
     countFriends: 0,

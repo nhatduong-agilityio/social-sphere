@@ -495,6 +495,7 @@ export interface PluginUsersPermissionsUser
       'api::relationship.relationship'
     >;
     posts: Schema.Attribute.Relation<'oneToMany', 'api::post.post'>;
+    sharedPosts: Schema.Attribute.Relation<'oneToMany', 'api::share.share'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -571,6 +572,7 @@ export interface ApiGroupGroup extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::group-member.group-member'
     >;
+    posts: Schema.Attribute.Relation<'oneToMany', 'api::share.share'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -746,6 +748,21 @@ export interface ApiShareShare extends Struct.CollectionTypeSchema {
       'plugin::users-permissions.user'
     >;
     post: Schema.Attribute.Relation<'manyToOne', 'api::post.post'>;
+    content: Schema.Attribute.Text;
+    activityRole: Schema.Attribute.String;
+    location: Schema.Attribute.String;
+    tagFriends: Schema.Attribute.JSON;
+    friendsFeed: Schema.Attribute.Relation<
+      'manyToOne',
+      'plugin::users-permissions.user'
+    >;
+    group: Schema.Attribute.Relation<'manyToOne', 'api::group.group'>;
+    page: Schema.Attribute.String;
+    friendsMessage: Schema.Attribute.String;
+    shareType: Schema.Attribute.Enumeration<
+      ['yourFeed', 'friendsFeed', 'group', 'page', 'friendsMessage']
+    > &
+      Schema.Attribute.DefaultTo<'yourFeed'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

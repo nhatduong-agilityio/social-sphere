@@ -10,9 +10,10 @@ import { ListCommentsResponse, NewsFeedDetailResponse } from '@/models';
 import { ActionState, NewsFeed } from '@/types';
 
 // Actions
-import { publishComment, toggleLikeNewsFeed } from '../actions';
+import { publishComment, shareNewFeeds, toggleLikeNewsFeed } from '../actions';
 import { useFormState } from 'react-dom';
 import { useCommentReplyStore } from '../stores';
+import { toast } from '@/hooks';
 
 interface NewsFeedCardDetailProps {
   newsFeedId: string;
@@ -39,6 +40,13 @@ export const NewsFeedCardDetail = ({
       id: Number(newsFeedId),
       authorId: Number(authorId),
       commentId: commentReplyValue.commentId,
+    }),
+    initialState,
+  );
+  const [shareState, shareAction] = useFormState(
+    shareNewFeeds.bind(null, {
+      id: Number(newsFeedId),
+      authorId: Number(authorId),
     }),
     initialState,
   );
@@ -113,6 +121,24 @@ export const NewsFeedCardDetail = ({
     fetchNewsFeed();
   }, [newsFeedId, authorId, fetchNewsFeed]);
 
+  useEffect(() => {
+    if (shareState.error) {
+      toast({
+        variant: 'destructive',
+        title: 'Error',
+        description: shareState.error,
+      });
+    }
+
+    if (shareState.message) {
+      toast({
+        variant: 'success',
+        title: 'Success',
+        description: shareState.message,
+      });
+    }
+  }, [shareState]);
+
   if (!newsFeed) return null;
 
   const handleLike = async () => {
@@ -126,12 +152,17 @@ export const NewsFeedCardDetail = ({
     clearCommentReply();
   };
 
+  const handleShare = (formData: FormData) => {
+    shareAction(formData);
+  };
+
   return (
     <NewsFeedCard
       newsFeed={newsFeed}
       authorId={authorId}
       onLike={handleLike}
       onComment={handleComment}
+      onShare={handleShare}
     />
   );
 };

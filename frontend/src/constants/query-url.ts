@@ -26,4 +26,5 @@ export const QUERY = {
     pageSize: number = 10,
   ) =>
     `filters[post][id][$eq]=${newsFeedId}&filters[parent][$null]=true&populate[friend]=*&populate[likes][fields][0]=createdAt&populate[likes]&populate[replies][populate][friend]=*&populate[replies][populate][likes][fields][0]=createdAt&populate[replies][populate][likes]&pagination[page]=${page}&pagination[pageSize]=${pageSize}&sort[createdAt]=desc`,
+  CREATE_SHARE: '/create',
 };

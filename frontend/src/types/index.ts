@@ -11,3 +11,4 @@ export * from './upload';
 export * from './user';
 export * from './friend';
 export * from './action';
+export * from './share-news-feed';
