@@ -17,9 +17,10 @@ import { NewsFeedComments } from './news-feed-comments';
 import { NewsFeed } from '@/types';
 
 // Utils
-import { formatDate, getFullName } from '@/utils';
+import { cn, formatDate, getFullName } from '@/utils';
 import { NewsFeedCardContent } from './news-feed-card-content';
 import { useDisclosure } from '@/hooks';
+import { NewsFeedCardPreview } from './news-feed-card-preview';
 
 interface NewsFeedCardProps {
   authorId: string;
@@ -37,8 +38,16 @@ export const NewsFeedCard = memo(
       onClose: onCloseComments,
     } = useDisclosure();
 
-    const { author, createdAt, likes, comments, shares, media, isLiked } =
-      newsFeed;
+    const {
+      author,
+      createdAt,
+      likes,
+      comments,
+      shares,
+      media,
+      isLiked,
+      sharedFrom,
+    } = newsFeed;
 
     const title = getFullName(author.firstName, author.lastName);
     const description = formatDate(createdAt);
@@ -66,8 +75,14 @@ export const NewsFeedCard = memo(
             />
             <CardContent className="p-4 py-0">
               <NewsFeedCardContent newsFeed={newsFeed} />
-              {media && (
-                <div className="my-2.5 relative w-full h-[207px] md:h-400 lg:h-[256px] xl:h-[323px] 2xl:h-[353px]">
+              <div
+                className={cn(
+                  'my-2.5 relative w-full ',
+                  media &&
+                    'h-[207px] md:h-400 lg:h-[256px] xl:h-[323px] 2xl:h-[353px]',
+                )}
+              >
+                {media && (
                   <Image
                     src={media}
                     alt={IMAGES.PROFILE_BANNER_FALLBACK.alt}
@@ -78,18 +93,19 @@ export const NewsFeedCard = memo(
                     sizes="(max-width: 768px) 100vw"
                     style={{ objectFit: 'cover' }}
                   />
-                  <div className="absolute right-0 bottom-[-27px]">
-                    <NewsFeedSocialControl
-                      authorId={authorId}
-                      newsFeed={newsFeed}
-                      onOpenComments={onOpenComments}
-                      isLiked={isLiked}
-                      onLike={onLike}
-                      onShare={onShare}
-                    />
-                  </div>
+                )}
+                {sharedFrom && <NewsFeedCardPreview newsFeed={sharedFrom} />}
+                <div className="absolute right-0 bottom-[-27px]">
+                  <NewsFeedSocialControl
+                    authorId={authorId}
+                    newsFeed={newsFeed}
+                    onOpenComments={onOpenComments}
+                    isLiked={isLiked}
+                    onLike={onLike}
+                    onShare={onShare}
+                  />
                 </div>
-              )}
+              </div>
             </CardContent>
             <CardFooter className="p-4 flex justify-between">
               {likes && <FriendsHaveLiked newsFeedLikes={likes} />}

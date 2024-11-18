@@ -57,6 +57,7 @@ export type NewsFeed = {
   location?: string;
   sendFriends?: UserDetail[];
   isLiked?: boolean;
+  sharedFrom?: NewsFeed;
 };
 
 export type NewsFeedsResponse = {

@@ -31,6 +31,7 @@ export type NewsFeedDetailModel = Omit<NewsFeedModel, 'author'> & {
     documentId: string;
     user: UserModel;
   }[];
+  sharedFrom?: NewsFeedDetailModel;
 };
 
 export type NewsFeedListResponse = {

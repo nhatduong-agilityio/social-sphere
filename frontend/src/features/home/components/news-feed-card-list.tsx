@@ -1,6 +1,8 @@
 'use client';
 
 import { memo, useCallback, useEffect, useRef, useState } from 'react';
+
+// Components
 import { NewsFeedCardDetail } from './news-feed-card-detail';
 
 // Models
@@ -13,14 +15,11 @@ interface NewsFeedCardListProps {
 
 export const NewsFeedCardList = memo(
   ({ authorId, newsFeedIds }: NewsFeedCardListProps) => {
-    const [displayedIds, setDisplayedIds] = useState<NewsFeedIdModel[]>([]);
-    const [visibleDetails, setVisibleDetails] = useState<Set<number>>(
-      new Set(),
-    );
-    const observerRefs = useRef<{ [key: number]: HTMLDivElement | null }>({});
     const ITEMS_PER_BATCH = 2;
+    const [displayedIds, setDisplayedIds] = useState<NewsFeedIdModel[]>([]);
+    const observerRef = useRef<IntersectionObserver | null>(null);
+    const lastItemRef = useRef<HTMLDivElement | null>(null);
 
-    // Load first 2 items initially
     useEffect(() => {
       const initialIds = newsFeedIds.slice(0, ITEMS_PER_BATCH);
       setDisplayedIds(initialIds);
@@ -38,71 +37,42 @@ export const NewsFeedCardList = memo(
     }, [newsFeedIds]);
 
     useEffect(() => {
-      const observers: { [key: string]: IntersectionObserver } = {};
+      if (!lastItemRef.current) return;
 
-      displayedIds.forEach((newsFeedId) => {
-        const observer = new IntersectionObserver(
-          (entries) => {
-            const entry = entries[0];
+      observerRef.current = new IntersectionObserver(
+        (entries) => {
+          const entry = entries[0];
+          if (
+            entry.isIntersecting &&
+            displayedIds.length < newsFeedIds.length
+          ) {
+            loadMoreIds();
+          }
+        },
+        { threshold: 0.1 },
+      );
 
-            if (entry.isIntersecting) {
-              // Add to visible set to trigger detail fetch
-              setVisibleDetails((prev) => {
-                const newSet = new Set(prev);
-                newSet.add(newsFeedId.id);
-                return newSet;
-              });
-
-              // If this is one of the last two items, load more
-              const idIndex = displayedIds.indexOf(newsFeedId);
-              if (
-                idIndex >= displayedIds.length - 2 &&
-                displayedIds.length < newsFeedIds.length
-              ) {
-                loadMoreIds();
-              }
-            } else {
-              // Optionally, remove from visible set when out of view
-              setVisibleDetails((prev) => {
-                const newSet = new Set(prev);
-                newSet.delete(newsFeedId.id);
-                return newSet;
-              });
-            }
-          },
-          { threshold: 0.05 },
-        );
-
-        if (observerRefs.current[newsFeedId.id]) {
-          observer.observe(observerRefs.current[newsFeedId.id]!);
-        }
-
-        observers[newsFeedId.id] = observer;
-      });
+      observerRef.current.observe(lastItemRef.current);
 
       return () => {
-        Object.values(observers).forEach((observer) => observer.disconnect());
+        if (observerRef.current) {
+          observerRef.current.disconnect();
+        }
       };
-    }, [displayedIds, loadMoreIds, newsFeedIds.length]);
-
-    const setRef = (id: number) => (element: HTMLDivElement | null) => {
-      observerRefs.current[id] = element;
-    };
+    }, [displayedIds.length, loadMoreIds, newsFeedIds.length]);
 
     return (
       <div className="flex flex-col gap-6">
-        {displayedIds.map((newsFeedId) => (
+        {displayedIds.map((newsFeedId, index) => (
           <div
             key={newsFeedId.id}
-            ref={setRef(newsFeedId.id)}
+            ref={index === displayedIds.length - 1 ? lastItemRef : null}
             className="min-h-56"
           >
-            {visibleDetails.has(newsFeedId.id) && (
-              <NewsFeedCardDetail
-                newsFeedId={newsFeedId.id.toString()}
-                authorId={authorId}
-              />
-            )}
+            <NewsFeedCardDetail
+              newsFeedId={newsFeedId.id.toString()}
+              authorId={authorId}
+            />
           </div>
         ))}
       </div>

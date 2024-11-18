@@ -111,6 +111,29 @@ export const NewsFeedCardDetail = ({
             },
           })),
         },
+        sharedFrom: data[0].sharedFrom
+          ? ({
+              ...data[0].sharedFrom,
+              tagFriends: [],
+              sendFriends: [],
+              likes: {
+                likesTotal: data[0].sharedFrom.likes?.length || 0,
+                remainingLikes: Math.max(
+                  0,
+                  data[0].sharedFrom.likes?.length - 2,
+                ),
+                likesRecent: data[0].sharedFrom.likes
+                  ?.slice(0, 2)
+                  .map((like) => ({
+                    friend: like.user,
+                    createdAt: like.createdAt,
+                  })),
+              },
+              isLiked: data[0].sharedFrom.likes?.some(
+                (like) => Number(authorId) === like.user.id,
+              ),
+            } as NewsFeed)
+          : undefined,
       };
 
       setNewsFeed(transformData);

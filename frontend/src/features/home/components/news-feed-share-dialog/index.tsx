@@ -14,7 +14,7 @@ import {
   Form,
 } from '@/components/ui';
 import { NewsFeedShareDialogControl } from './news-feed-share-dialog-control';
-import { NewsFeedShareDialogPreview } from './news-feed-share-dialog-preview';
+import { NewsFeedCardPreview } from '../news-feed-card-preview';
 import { NewsFeedShareDialogAbout } from './news-feed-share-dialog-about';
 import { ShareDropdown } from './share-dropdown';
 import { ShareLocationPicker } from './share-location-picker';
@@ -94,7 +94,7 @@ export const NewsFeedShareDialog = memo(
 
               <div className="flex flex-col px-3 py-2">
                 <NewsFeedShareDialogAbout form={form} />
-                <NewsFeedShareDialogPreview newsFeed={newsFeed} />
+                <NewsFeedCardPreview newsFeed={newsFeed} />
               </div>
 
               {tagFriends.isOpen && (

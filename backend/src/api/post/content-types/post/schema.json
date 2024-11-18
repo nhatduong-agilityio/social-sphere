@@ -69,6 +69,20 @@
       "relation": "oneToMany",
       "target": "api::share.share",
       "mappedBy": "post"
+    },
+    "sharedFrom": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::post.post",
+      "inversedBy": "sharedPosts",
+      "required": false
+    },
+    "sharedPosts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::post.post",
+      "mappedBy": "sharedFrom",
+      "required": false
     }
   }
 }

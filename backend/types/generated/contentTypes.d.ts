@@ -679,6 +679,8 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
     comments: Schema.Attribute.Relation<'oneToMany', 'api::comment.comment'>;
     likes: Schema.Attribute.Relation<'oneToMany', 'api::like.like'>;
     shares: Schema.Attribute.Relation<'oneToMany', 'api::share.share'>;
+    sharedFrom: Schema.Attribute.Relation<'manyToOne', 'api::post.post'>;
+    sharedPosts: Schema.Attribute.Relation<'oneToMany', 'api::post.post'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
