@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { Briefcase, Gift } from 'lucide-react';
 import { useTransition } from 'react';
 
@@ -58,9 +58,10 @@ export const ActivityFeedContent = ({
     onOpensOverlay();
   };
 
-  const loadMore = async () => {
+  const loadMore = useCallback(async () => {
     startTransition(async () => {
       const nextPage = currentPage + 1;
+
       const { data: newNewsFeeds } = await getNewsFeedIds(authorId, nextPage);
       if (!newNewsFeeds) return;
 
@@ -68,7 +69,7 @@ export const ActivityFeedContent = ({
       setCurrentPage(nextPage);
       setHasMore(nextPage < newNewsFeeds.meta.pagination.pageCount);
     });
-  };
+  }, [authorId, currentPage]);
 
   return (
     <div className="py-5 min-h-full">

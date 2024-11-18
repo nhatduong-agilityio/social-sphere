@@ -23,7 +23,26 @@ export default factories.createCoreController(
         shareType,
       } = data;
 
-      // Base required fields
+      // Create new post with shared content
+      const newPost = await strapi.db.query('api::post.post').create({
+        data: {
+          content,
+          author: userId,
+          sharedFrom: postId,
+          tagFriends,
+          location,
+          activityRole,
+          publishedAt: new Date(),
+        },
+        populate: {
+          author: true,
+          sharedFrom: {
+            populate: ['author', 'media', 'likes', 'comments'],
+          },
+        },
+      });
+
+      // Create share record linking everything together
       const shareData = {
         post: postId,
         user: userId,
@@ -62,7 +81,12 @@ export default factories.createCoreController(
         },
       });
 
-      return { data: share };
+      return {
+        data: {
+          ...share,
+          newPost,
+        },
+      };
     },
 
     async getSharedPosts(ctx) {

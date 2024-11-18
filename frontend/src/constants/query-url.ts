@@ -19,7 +19,7 @@ export const QUERY = {
   ) =>
     `filters[author][id][$eq]=${authorId}&fields[0]=id&sort[createdAt]=desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}`,
   NEWS_FEED_DETAIL_BY_ID: (newsFeedId: string) =>
-    `filters[id][$eq]=${newsFeedId}&populate[author]=*&populate[likes][fields][0]=createdAt&populate[likes][populate][user]=*&populate[likes][sort][createdAt]=desc&populate[comments]=*&populate[shares]=*`,
+    `filters[id][$eq]=${newsFeedId}&populate[author]=*&populate[likes][fields][0]=createdAt&populate[likes][populate][user]=*&populate[likes][sort][createdAt]=desc&populate[comments]=*&populate[shares]=*&populate[sharedFrom][populate][author]=*`,
   LIST_COMMENTS_IN_NEWS_FEED_BY_ID: (
     newsFeedId: string,
     page: number = 1,

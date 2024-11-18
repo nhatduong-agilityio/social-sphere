@@ -33,6 +33,7 @@ export const getNewsFeeds = async (
       },
       createdAt: item.createdAt,
       isLiked: item.likes.some((like) => Number(userId) === like.user.id),
+      sharedFrom: undefined,
     }));
 
     return { data: { ...response, data: transformApiResponse } };

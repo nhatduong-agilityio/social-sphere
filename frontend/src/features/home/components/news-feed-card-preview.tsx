@@ -7,19 +7,19 @@ import { IMAGES } from '@/constants';
 // Components
 import { Label } from '@/components/ui';
 import { UserCardPopover } from '@/components/sections';
-import { NewsFeedCardContent } from '../news-feed-card-content';
+import { NewsFeedCardContent } from './news-feed-card-content';
 import { EarthIcon, EyeIcon } from '@/icons';
 
 // Types
 import { NewsFeed } from '@/types';
 
-interface NewsFeedShareDialogPreviewProps {
+interface NewsFeedCardPreviewProps {
   newsFeed: NewsFeed;
 }
 
-export const NewsFeedShareDialogPreview = memo(
-  ({ newsFeed }: NewsFeedShareDialogPreviewProps) => (
-    <div className="flex flex-col bg-black-haze-50 dark:bg-dark-100">
+export const NewsFeedCardPreview = memo(
+  ({ newsFeed }: NewsFeedCardPreviewProps) => (
+    <div className="flex flex-col bg-black-haze-50 dark:bg-dark-100 ">
       {newsFeed.media && (
         <div className="relative h-[177px] md:h-[256px]">
           <Image
@@ -53,4 +53,4 @@ export const NewsFeedShareDialogPreview = memo(
   ),
 );
 
-NewsFeedShareDialogPreview.displayName = 'NewsFeedShareDialogPreview';
+NewsFeedCardPreview.displayName = 'NewsFeedCardPreview';
