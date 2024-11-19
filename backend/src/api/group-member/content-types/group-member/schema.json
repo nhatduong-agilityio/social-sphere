@@ -26,7 +26,10 @@
     },
     "role": {
       "type": "enumeration",
-      "enum": ["admin", "member"],
+      "enum": [
+        "admin",
+        "member"
+      ],
       "default": "member"
     }
   }

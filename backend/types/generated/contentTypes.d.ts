@@ -496,6 +496,9 @@ export interface PluginUsersPermissionsUser
     >;
     posts: Schema.Attribute.Relation<'oneToMany', 'api::post.post'>;
     sharedPosts: Schema.Attribute.Relation<'oneToMany', 'api::share.share'>;
+    job: Schema.Attribute.String;
+    bio: Schema.Attribute.Text;
+    location: Schema.Attribute.JSON;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

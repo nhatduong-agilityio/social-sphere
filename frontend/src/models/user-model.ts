@@ -15,4 +15,5 @@ export type UserModel = {
     countryCode: string;
     city: string;
   };
+  bio?: string;
 };

@@ -27,7 +27,7 @@ const autoCompleteInputVariants = cva(
 export interface AutoCompleteInputProps
   extends InputHTMLAttributes<HTMLInputElement>,
     VariantProps<typeof autoCompleteInputVariants> {
-  startIcon: ReactNode;
+  startIcon?: ReactNode;
   additionalStartIconClass?: string;
   onClose?: () => void;
 }

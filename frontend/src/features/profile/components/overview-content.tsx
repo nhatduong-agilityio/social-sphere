@@ -3,40 +3,52 @@ import { OverviewInput } from './overview-input';
 import { OverviewBio } from './overview-bio';
 
 // Icons
-import { LocationIcon, StudyIcon, WorkIcon } from '@/icons';
+import { StudyIcon, WorkIcon } from '@/icons';
 
-export const OverviewContent = () => (
-  <div className="flex gap-3 md:flex-row flex-col">
-    <div className="flex w-full gap-4 flex-col">
-      <OverviewInput
-        nameField="firstName"
-        icon={<WorkIcon className="rounded-full" />}
-        nameLabel="FIRST NAME"
-        placeholder="Enter your first name"
-      />
+// Actions
+import { getProfile } from '../actions';
 
-      <OverviewInput
-        nameField="lastName"
-        icon={<WorkIcon className="rounded-full" />}
-        nameLabel="LAST NAME"
-        placeholder="Enter your last name"
-      />
+// Components
+import { LocationPicker } from './location-picker';
 
-      <OverviewInput
-        nameField="job"
-        icon={<StudyIcon className="rounded-full" />}
-        nameLabel="JOB"
-        placeholder="Enter your job"
-      />
+interface OverviewContentProps {
+  username: string;
+}
 
-      <OverviewInput
-        nameField="location"
-        icon={<LocationIcon className="rounded-full" />}
-        nameLabel="LOCATION"
-        placeholder="Enter your location"
-      />
+export const OverviewContent = async ({ username }: OverviewContentProps) => {
+  const profile = await getProfile(username);
+
+  return (
+    <div className="flex gap-3 md:flex-row flex-col">
+      <div className="flex w-full gap-4 flex-col">
+        <OverviewInput
+          user={profile}
+          nameField="firstName"
+          icon={<WorkIcon className="rounded-full" />}
+          nameLabel="FIRST NAME"
+          placeholder="Enter your first name"
+        />
+
+        <OverviewInput
+          user={profile}
+          nameField="lastName"
+          icon={<WorkIcon className="rounded-full" />}
+          nameLabel="LAST NAME"
+          placeholder="Enter your last name"
+        />
+
+        <OverviewInput
+          user={profile}
+          nameField="job"
+          icon={<StudyIcon className="rounded-full" />}
+          nameLabel="JOB"
+          placeholder="Enter your job"
+        />
+
+        <LocationPicker user={profile} />
+      </div>
+
+      <OverviewBio user={profile} />
     </div>
-
-    <OverviewBio />
-  </div>
-);
+  );
+};

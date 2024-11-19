@@ -133,6 +133,15 @@
       "relation": "oneToMany",
       "target": "api::share.share",
       "mappedBy": "friendsFeed"
+    },
+    "job": {
+      "type": "string"
+    },
+    "bio": {
+      "type": "text"
+    },
+    "location": {
+      "type": "json"
     }
   }
 }
