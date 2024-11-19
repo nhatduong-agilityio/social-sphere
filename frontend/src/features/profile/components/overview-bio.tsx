@@ -35,6 +35,7 @@ export const OverviewBio = ({ user }: OverviewBioProps) => {
     defaultValues: {
       firstName: user.firstName || '',
       lastName: user.lastName || '',
+      location: user.location || {},
       bio: user.bio || '',
     },
   });

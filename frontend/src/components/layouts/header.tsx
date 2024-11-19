@@ -183,7 +183,7 @@ export const Header = memo(({ isAuthenticated = true, user }: HeaderProps) => {
               content={
                 <div className="grid gap-4">
                   <div className="flex justify-between items-center p-4">
-                    <Link href={ROUTER.PROFILE_ID_PERSONAL_INFO(username)}>
+                    <Link href={ROUTER.PROFILE_MAIN(username)}>
                       <Text variant="primary">
                         {getFullName(firstName, lastName)}
                       </Text>
