@@ -20,15 +20,56 @@ import {
 // Hooks
 import { OverviewSchema } from '../lib';
 
-export const OverviewBio = () => {
+// Types
+import { UserModel } from '@/models';
+import { updateProfile } from '../actions';
+import { toast } from '@/hooks';
+
+interface OverviewBioProps {
+  user: UserModel;
+}
+
+export const OverviewBio = ({ user }: OverviewBioProps) => {
   const form = useForm<z.infer<typeof OverviewSchema>>({
     resolver: zodResolver(OverviewSchema),
-    defaultValues: {},
+    defaultValues: {
+      firstName: user.firstName || '',
+      lastName: user.lastName || '',
+      bio: user.bio || '',
+    },
   });
+
+  const handleUpdateBio = async (data: z.infer<typeof OverviewSchema>) => {
+    try {
+      await updateProfile(user.username, {
+        ...user,
+        bio: data.bio,
+      });
+
+      toast({
+        description: (
+          <pre className="mt-2 w-[340px] rounded-md bg-green-500 p-4">
+            <code className="text-white">Bio updated successfully</code>
+          </pre>
+        ),
+      });
+    } catch (error) {
+      toast({
+        description: (
+          <pre className="mt-2 w-[340px] rounded-md bg-red-500 p-4">
+            <code className="text-white">Something went wrong</code>
+          </pre>
+        ),
+      });
+    }
+  };
 
   return (
     <Form {...form}>
-      <form className="w-full h-full flex items-end gap-2 group justify-between dark:bg-slate-800 bg-white border rounded-md p-8">
+      <form
+        onSubmit={form.handleSubmit(handleUpdateBio)}
+        className="relative w-full h-full flex items-end gap-2 group justify-between dark:bg-slate-800 bg-white border rounded-md p-8"
+      >
         <div className="flex w-full h-full items-center gap-3">
           <FormField
             control={form.control}
@@ -56,9 +97,9 @@ export const OverviewBio = () => {
           type="submit"
           variant="rounded"
           size="icon"
-          className="w-[48px] h-[42px] opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100
+          className="w-[42px] h-[42px] right-10 absolute opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100
                rounded-full bg-blue-50 group-hover:bg-blue-100
-               flex items-center justify-center transition-all duration-300 group-hover:rotate-180"
+            items-center justify-center transition-all duration-300 group-hover:rotate-180"
         >
           <ArrowLeft size={16} />
         </Button>

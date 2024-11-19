@@ -36,6 +36,9 @@ export const OverviewSchema = z.object({
     message: 'Last name is required.',
   }),
   job: z.string().optional(),
-  location: z.string().optional(),
   bio: z.string().optional(),
+  location: z.object({
+    city: z.string(),
+    countryCode: z.string(),
+  }),
 });

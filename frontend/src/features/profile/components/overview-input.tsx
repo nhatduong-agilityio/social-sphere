@@ -20,10 +20,20 @@ import {
 // Hooks
 import { OverviewSchema } from '../lib';
 
+// Types
+import { UserModel } from '@/models';
+
+// Actions
+import { updateProfile } from '../actions';
+
+// Hooks
+import { toast } from '@/hooks';
+
 interface OverviewInputProps {
-  nameField: 'firstName' | 'lastName' | 'job' | 'location';
+  nameField: 'firstName' | 'lastName' | 'job';
   nameLabel: string;
   placeholder: string;
+  user: UserModel;
   icon: JSX.Element;
 }
 
@@ -31,16 +41,49 @@ export const OverviewInput = ({
   icon,
   nameField,
   nameLabel,
+  user,
   placeholder,
 }: OverviewInputProps) => {
   const form = useForm<z.infer<typeof OverviewSchema>>({
     resolver: zodResolver(OverviewSchema),
-    defaultValues: {},
+    defaultValues: {
+      firstName: user.firstName || '',
+      lastName: user.lastName || '',
+      job: user.job || '',
+    },
   });
+
+  const handleSubmit = async (data: z.infer<typeof OverviewSchema>) => {
+    try {
+      await updateProfile(user.username, {
+        ...user,
+        [nameField]: data[nameField],
+      });
+
+      toast({
+        description: (
+          <pre className="mt-2 w-[340px] rounded-md bg-green-500 p-4">
+            <code className="text-white">{nameLabel} updated successfully</code>
+          </pre>
+        ),
+      });
+    } catch (error) {
+      toast({
+        description: (
+          <pre className="mt-2 w-[340px] rounded-md bg-red-500 p-4">
+            <code className="text-white">Something went wrong</code>
+          </pre>
+        ),
+      });
+    }
+  };
 
   return (
     <Form {...form}>
-      <form className="flex items-center group justify-between dark:bg-slate-800 bg-white border rounded-md p-2">
+      <form
+        onSubmit={form.handleSubmit(handleSubmit)}
+        className="flex items-center group justify-between dark:bg-slate-800 bg-white border rounded-md p-2"
+      >
         <div className="flex items-center gap-3">
           <div className="w-10 h-10">{icon}</div>
 

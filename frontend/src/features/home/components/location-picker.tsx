@@ -49,6 +49,7 @@ export const LocationPicker = memo(
     const handleSuggestionClick = useCallback(
       (suggestion: string) => {
         form.setValue('location', suggestion);
+
         setSuggestions([]);
       },
       [form],
