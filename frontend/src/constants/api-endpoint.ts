@@ -8,6 +8,7 @@ export const API_ENDPOINT = {
   POSTS: 'api/posts',
   LIKES: 'api/likes',
   SHARES: 'api/shares',
+  GROUPS: 'api/groups',
   PROFILE: 'api/users/me',
   UPLOAD: 'api/upload',
   SIGN_UP: 'api/auth/local/register',

@@ -14,20 +14,6 @@ import { ComposeFeedFormValues } from '../hooks';
 import { NewsFeedPayload } from '@/models';
 import { ActionState } from '@/types';
 
-export const createNewsFeed = async (data: NewsFeedPayload) => {
-  try {
-    await apiClient.post<NewsFeedPayload>({
-      path: API_ENDPOINT.POSTS,
-      body: JSON.stringify({ data }),
-    });
-  } catch (error) {
-    const errorMessage =
-      (error as Error).message ||
-      'Failed to create a news feed. Please try again.';
-    return { error: errorMessage };
-  }
-};
-
 const createPayload = (
   values: ComposeFeedFormValues,
   userId: string,
@@ -40,9 +26,9 @@ const createPayload = (
 
 export const publishNewsFeed = async (
   authorId: string | undefined,
-  prevState: ActionState,
+  prevState: ActionState<NewsFeedPayload>,
   formData: FormData,
-): Promise<ActionState> => {
+): Promise<ActionState<NewsFeedPayload>> => {
   try {
     if (!authorId) {
       return {
@@ -89,9 +75,13 @@ export const publishNewsFeed = async (
       payload = createPayload(formValues, authorId);
     }
 
-    await createNewsFeed(payload);
+    const { data: response } = await apiClient.post<{ data: NewsFeedPayload }>({
+      path: API_ENDPOINT.POSTS,
+      body: JSON.stringify({ data: payload }),
+    });
 
     return {
+      data: response,
       message: 'News feed published successfully',
       error: null,
     };

@@ -16,9 +16,9 @@ export const shareNewFeeds = async (
     id: number;
     authorId: number;
   },
-  prevState: ActionState,
+  prevState: ActionState<SharePayload>,
   formData: FormData,
-): Promise<ActionState> => {
+): Promise<ActionState<SharePayload>> => {
   try {
     const { id, authorId } = newsDeed;
 
@@ -61,12 +61,13 @@ export const shareNewFeeds = async (
       shareType,
     };
 
-    await apiClient.post<SharePayload>({
+    const { data: response } = await apiClient.post<{ data: SharePayload }>({
       path: `${API_ENDPOINT.SHARES}${QUERY.CREATE_SHARE}`,
       body: JSON.stringify({ data: payload }),
     });
 
     return {
+      data: response,
       message: 'Shared successfully',
       error: null,
     };

@@ -215,10 +215,6 @@ export const MOCK_GROUPS = [
     description: 'Davis family',
     members: '39 members',
     avatar: 'https://i.pravatar.cc/300',
-    location: {
-      city: 'Los Angeles',
-      countryCode: 'us',
-    },
   },
   {
     id: '2',
@@ -226,10 +222,6 @@ export const MOCK_GROUPS = [
     description: `It's all about making cakes`,
     members: '8K members',
     avatar: 'https://i.pravatar.cc/300',
-    location: {
-      city: 'Trelew',
-      countryCode: 'ar',
-    },
   },
   {
     id: '3',
@@ -248,10 +240,6 @@ export const MOCK_GROUPS = [
     description: 'Urban clothing',
     members: '519 members',
     avatar: 'https://i.pravatar.cc/300',
-    location: {
-      city: 'Manchester',
-      countryCode: 'uk',
-    },
   },
   {
     id: '5',
@@ -259,10 +247,6 @@ export const MOCK_GROUPS = [
     description: 'Sports videos',
     members: '50K members',
     avatar: 'https://i.pravatar.cc/300',
-    location: {
-      city: 'Madrid',
-      countryCode: 'es-variant',
-    },
   },
 ];
 

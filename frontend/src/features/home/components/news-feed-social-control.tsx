@@ -48,6 +48,7 @@ SocialButton.displayName = 'SocialButton';
 export const NewsFeedSocialControl = memo(
   ({
     isLiked,
+    authorId,
     newsFeed,
     onOpenComments,
     onLike,
@@ -77,7 +78,11 @@ export const NewsFeedSocialControl = memo(
                 className={defaultButtonStyle}
               />
             </DialogTrigger>
-            <NewsFeedShareDialog newsFeed={newsFeed} onShare={onShare} />
+            <NewsFeedShareDialog
+              authorId={authorId}
+              newsFeed={newsFeed}
+              onShare={onShare}
+            />
           </Dialog>
           <SocialButton
             icon={

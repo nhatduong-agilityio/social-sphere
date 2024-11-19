@@ -1,26 +1,38 @@
-import { MOCK_GROUPS } from '@/__mocks__/user';
+'use server';
+
+import { API_ENDPOINT, QUERY, TAG_KEYS } from '@/constants';
+import { GroupsResponse } from '@/models';
+import { apiClient } from '@/services';
 
 // Types
-import { ApiDataResponse, GroupDetail } from '@/types';
+import { ApiDataResponse, GroupDetail, GroupsListResponse } from '@/types';
 
-export const getGroups = async (): Promise<ApiDataResponse<GroupDetail[]>> => {
+export const getGroups = async (
+  userId: string,
+  searchName?: string,
+  page: number = 1,
+  pageSize: number = 10,
+): Promise<ApiDataResponse<GroupsListResponse>> => {
   try {
-    return { data: MOCK_GROUPS };
-  } catch (error) {
-    const errorMessage =
-      (error as Error).message || 'Failed to fetch groups. Please try again.';
-    return { error: errorMessage };
-  }
-};
+    const query = QUERY.GROUPS(userId, searchName, page, pageSize);
 
-export const getGroupsByName = async (
-  name: string,
-): Promise<ApiDataResponse<GroupDetail[]>> => {
-  try {
-    const groups = MOCK_GROUPS.filter((group) =>
-      group.name.toLowerCase().includes(name.toLowerCase()),
+    const response = await apiClient.get<GroupsResponse>(
+      `${API_ENDPOINT.GROUPS}?${query}`,
+      {
+        next: {
+          tags: [TAG_KEYS.LIST_GROUPS_BY_USER_IN_PAGE(userId, page)],
+        },
+      },
     );
-    return { data: groups };
+
+    const transformApiResponse: GroupDetail[] = response.data.map((item) => ({
+      ...item,
+      members: item.groupMembers,
+      author: item.createdUser,
+      newsFeeds: item.posts,
+    }));
+
+    return { data: { ...response, data: transformApiResponse } };
   } catch (error) {
     const errorMessage =
       (error as Error).message || 'Failed to fetch groups. Please try again.';

@@ -30,12 +30,13 @@ import { useShareForm } from '../../hooks';
 import { useShareActionsDisclosure } from '../../hooks/use-share-actions-disclosure';
 
 interface NewsFeedShareDialogProps {
+  authorId: string;
   newsFeed: NewsFeed;
   onShare: (data: FormData) => void;
 }
 
 export const NewsFeedShareDialog = memo(
-  ({ newsFeed, onShare }: NewsFeedShareDialogProps) => {
+  ({ authorId, newsFeed, onShare }: NewsFeedShareDialogProps) => {
     const {
       form,
       selectedTagFriends,
@@ -82,6 +83,7 @@ export const NewsFeedShareDialog = memo(
             <div className="w-full">
               <SelectedOptionContent
                 form={form}
+                authorId={authorId}
                 selectedOption={selectedOption}
                 onFriendsFeed={handleFriendsFeed}
                 onRemoveFriendsFeed={handleRemoveFriendsFeed}

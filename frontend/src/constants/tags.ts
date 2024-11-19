@@ -10,4 +10,6 @@ export const TAG_KEYS = {
     newsFeedId: string,
     page: number,
   ) => `api-list-comments-in-news-feed-by-${newsFeedId}-in-page-${page}`,
+  LIST_GROUPS_BY_USER_IN_PAGE: (userId: string, page: number) =>
+    `api-list-groups-${userId}-in-page-${page}`,
 };

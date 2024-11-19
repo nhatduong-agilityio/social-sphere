@@ -29,4 +29,11 @@ export const QUERY = {
   CREATE_SHARE: '/create',
   PROFILE: (username: string) =>
     `filters[username][$eq]=${username}&populate[followedRelationships][filters][requestStatus]=friends`,
+  GROUPS: (
+    authorId: string,
+    searchName = '',
+    page: number = 1,
+    pageSize: number = 10,
+  ) =>
+    `filters[$or][0][createdUser][id][$eq]=${authorId}&filters[$or][1][groupMembers][user][id][$eq]=${authorId}&populate=*&filters[name][$containsi]=${searchName}&sort[createdAt]=desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}`,
 };

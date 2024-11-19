@@ -28,13 +28,14 @@ import { toast, useDisclosure } from '@/hooks';
 // Actions
 import { publishNewsFeed } from '../actions';
 import { ActionState } from '@/types';
+import { NewsFeedPayload } from '@/models';
 
 interface ComposePublishContentProps {
   isOverlayOpen: boolean;
   onOpenOverlay: () => void;
 }
 
-const initialState: ActionState = {
+const initialState: ActionState<NewsFeedPayload> = {
   message: null,
   error: null,
 };

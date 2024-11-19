@@ -16,7 +16,7 @@ import { GifItem } from '../models';
 import { useDebounce } from '@/hooks';
 
 // Actions
-import { getGifs } from '../actions/get-gifs';
+import { getGifs } from '../actions';
 
 interface GifPickerProps {
   onGifSelect: (gifUrl: string) => void;
