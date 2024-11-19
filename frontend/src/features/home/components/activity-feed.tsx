@@ -17,6 +17,7 @@ import {
 
 // Types
 import { Pagination } from '@/types';
+import { TFollower } from '@/models';
 
 export const ActivityFeed = async () => {
   const session = await auth();
@@ -38,7 +39,7 @@ export const ActivityFeed = async () => {
     <ActivityFeedContent
       authorId={authorId}
       suggestFriends={suggestFriendsResponse}
-      acceptFriends={acceptFriendsResponse}
+      acceptFriends={acceptFriendsResponse as TFollower[]}
       newsFeedIds={newsFeedIds?.data || []}
       pagination={newsFeedIds?.meta.pagination as Pagination}
     />

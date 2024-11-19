@@ -18,3 +18,6 @@ export * from './overview-input';
 export * from './overview-content';
 export * from './overview-bio';
 export * from './location-picker';
+export * from './new-feed-list';
+export * from './new-feed-content';
+export * from './new-friends-widget';
