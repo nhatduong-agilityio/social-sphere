@@ -6,7 +6,12 @@ import { useCallback, useEffect, useState } from 'react';
 import { NewsFeedCard } from './news-feed-card';
 
 // Models
-import { ListCommentsResponse, NewsFeedDetailResponse } from '@/models';
+import {
+  CommentPayload,
+  ListCommentsResponse,
+  NewsFeedDetailResponse,
+  SharePayload,
+} from '@/models';
 import { ActionState, NewsFeed } from '@/types';
 
 // Actions
@@ -20,7 +25,12 @@ interface NewsFeedCardDetailProps {
   authorId: string;
 }
 
-const initialState: ActionState = {
+const initialCommentState: ActionState<CommentPayload> = {
+  message: null,
+  error: null,
+};
+
+const initialShareState: ActionState<SharePayload> = {
   message: null,
   error: null,
 };
@@ -41,14 +51,14 @@ export const NewsFeedCardDetail = ({
       authorId: Number(authorId),
       commentId: commentReplyValue.commentId,
     }),
-    initialState,
+    initialCommentState,
   );
   const [shareState, shareAction] = useFormState(
     shareNewFeeds.bind(null, {
       id: Number(newsFeedId),
       authorId: Number(authorId),
     }),
-    initialState,
+    initialShareState,
   );
 
   const fetchNewsFeed = useCallback(async () => {

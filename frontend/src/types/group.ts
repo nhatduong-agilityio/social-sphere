@@ -1,11 +1,21 @@
+import { NewsFeed } from './news-feed';
+import { Pagination } from './pagination';
+import { UserDetail } from './user';
+
 export type GroupDetail = {
-  id: string;
+  id: number;
+  avatar?: string;
+  createdAt?: string;
+  documentId?: string;
   name: string;
-  description: string;
-  members: string;
-  avatar: string;
-  location?: {
-    countryCode: string;
-    city: string;
-  };
+  description?: string;
+  isPrivate: boolean;
+  author: UserDetail;
+  members: UserDetail[];
+  newsFeeds: NewsFeed[];
+};
+
+export type GroupsListResponse = {
+  data: GroupDetail[];
+  meta: { pagination: Pagination };
 };

@@ -14,20 +14,6 @@ import { CommentFormValues } from '../hooks';
 import { CommentPayload } from '@/models';
 import { ActionState } from '@/types';
 
-export const createComment = async (data: CommentPayload) => {
-  try {
-    await apiClient.post<CommentPayload>({
-      path: API_ENDPOINT.COMMENTS,
-      body: JSON.stringify({ data }),
-    });
-  } catch (error) {
-    const errorMessage =
-      (error as Error).message ||
-      'Failed to create a comment. Please try again.';
-    return { error: errorMessage };
-  }
-};
-
 const createPayload = (
   currentPayload: CommentPayload,
   imageUrl?: string,
@@ -42,9 +28,9 @@ export const publishComment = async (
     authorId: number;
     commentId?: number;
   },
-  prevState: ActionState,
+  prevState: ActionState<CommentPayload>,
   formData: FormData,
-): Promise<ActionState> => {
+): Promise<ActionState<CommentPayload>> => {
   try {
     const { id, authorId, commentId } = newsDeed;
 
@@ -81,9 +67,13 @@ export const publishComment = async (
       payload = createPayload(payload);
     }
 
-    await createComment(payload);
+    const { data: response } = await apiClient.post<{ data: CommentPayload }>({
+      path: API_ENDPOINT.COMMENTS,
+      body: JSON.stringify({ data: payload }),
+    });
 
     return {
+      data: response,
       message: 'Comment published successfully',
       error: null,
     };

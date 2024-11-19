@@ -5,3 +5,4 @@ export * from './news-feed';
 export * from './likes-models';
 export * from './comment';
 export * from './share-models';
+export * from './group-model';

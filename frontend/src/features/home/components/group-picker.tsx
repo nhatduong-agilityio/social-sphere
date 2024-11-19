@@ -24,7 +24,7 @@ import {
 } from '@/components/ui';
 
 // Actions
-import { getGroupsByName } from '../actions';
+import { getGroups } from '../actions';
 
 // Types
 import { GroupDetail } from '@/types';
@@ -37,6 +37,7 @@ interface GroupPickerProps {
   variant?: 'primary' | 'secondary';
   label?: string;
   placeholder?: string;
+  authorId: string;
   onSelectGroup: (groupId: string) => void;
   onCloseGroupPicker: () => void;
 }
@@ -48,7 +49,7 @@ const GroupItem = ({
   group: GroupDetail;
   onSelectGroup: () => void;
 }) => {
-  const { avatar, id, name, description, location } = group;
+  const { avatar, id, name, description } = group;
 
   return (
     <li
@@ -62,7 +63,7 @@ const GroupItem = ({
         </Avatar>
         {location && (
           <Circle className="border-[1.4px] border-white absolute bottom-0 right-[-3px] w-[18px] h-[18px]">
-            <CircleFlag countryCode={location.countryCode} />
+            <CircleFlag countryCode="vn" />
           </Circle>
         )}
       </div>
@@ -81,6 +82,7 @@ export const GroupPicker = memo(
     variant = 'primary',
     label = 'Group',
     placeholder = `Your group's name`,
+    authorId,
     onSelectGroup,
     onCloseGroupPicker,
   }: GroupPickerProps) => {
@@ -92,9 +94,12 @@ export const GroupPicker = memo(
 
     const handleGroupsList = useCallback(async () => {
       if (!debouncedSearchGroup) return;
-      const { data } = await getGroupsByName(debouncedSearchGroup);
-      if (data) setgroups(data);
-    }, [debouncedSearchGroup]);
+      const { data: response } = await getGroups(
+        authorId,
+        debouncedSearchGroup,
+      );
+      if (response) setgroups(response.data);
+    }, [authorId, debouncedSearchGroup]);
 
     useEffect(() => {
       handleGroupsList();
@@ -102,7 +107,7 @@ export const GroupPicker = memo(
 
     const handleSelectFriend = useCallback(
       ({ id, name }: GroupDetail) => {
-        onSelectGroup(id);
+        onSelectGroup(id.toString());
         setSearchGroup(hasSelectedValue ? name : '');
         setgroups([]);
       },

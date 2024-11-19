@@ -20,12 +20,13 @@ import { MOCK_FRIENDS } from '@/__mocks__/user';
 
 // Icons
 import { BirthdayIcon, JobIcon } from '@/icons';
-import { Pagination } from '@/types';
+import { GroupsListResponse, Pagination } from '@/types';
 
 // Actions
 import { getNewsFeedIds } from '../actions';
 import { NewsFeedIdModel, TFollowed, TFollower } from '@/models';
 import { AcceptFriendsWidget } from './accept-friends-widget';
+import { GroupsWidget } from './groups-widget';
 
 interface ActivityFeedContentProps {
   authorId: string;
@@ -33,6 +34,7 @@ interface ActivityFeedContentProps {
   suggestFriends: TFollowed[];
   acceptFriends: TFollower[];
   pagination: Pagination;
+  groups?: GroupsListResponse;
 }
 
 export const ActivityFeedContent = ({
@@ -41,6 +43,7 @@ export const ActivityFeedContent = ({
   suggestFriends,
   acceptFriends,
   pagination,
+  groups,
 }: ActivityFeedContentProps) => {
   const [newsFeedIds, setNewFeedIds] =
     useState<NewsFeedIdModel[]>(initialNewsFeeds);
@@ -76,6 +79,7 @@ export const ActivityFeedContent = ({
       <div className="h-full grid grid-cols-12 gap-6">
         <div className="hidden lg:flex col-span-3 flex-col gap-6">
           <AcceptFriendsWidget friends={acceptFriends} authorId={authorId} />
+          <GroupsWidget groups={groups} authorId={authorId} />
         </div>
         <div className="col-span-12 lg:col-span-6 flex flex-col gap-6">
           <ComposeFeedCard

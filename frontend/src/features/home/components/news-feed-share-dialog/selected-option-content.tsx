@@ -16,6 +16,7 @@ import { Option } from '@/types';
 import { ShareFormValues } from '../../hooks';
 
 interface SelectedOptionContentProps {
+  authorId: string;
   form: UseFormReturn<ShareFormValues>;
   selectedOption: Option;
   onFriendsFeed: (friendId: string) => void;
@@ -28,6 +29,7 @@ interface SelectedOptionContentProps {
 }
 
 export const SelectedOptionContent = ({
+  authorId,
   form,
   selectedOption,
   onFriendsFeed,
@@ -49,6 +51,7 @@ export const SelectedOptionContent = ({
     ),
     [SHARE_OPTIONS[2].value]: (
       <GroupPicker
+        authorId={authorId}
         hasSelectedValue
         variant="secondary"
         onSelectGroup={onSelectGroup}

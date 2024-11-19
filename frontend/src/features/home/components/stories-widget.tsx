@@ -43,7 +43,9 @@ export const StoriesWidget = memo(({ onAddStory }: StoriesWidgetProps) => {
     <Card className="w-full rounded-lg">
       <CardHeader className="flex flex-row px-4 py-2 justify-between">
         <div className="flex items-center gap-4">
-          <CardTitle className="text-sm font-normal">Stories</CardTitle>
+          <CardTitle className="text-sm font-normal text-neutral-400 dark:text-gray-100">
+            Stories
+          </CardTitle>
         </div>
 
         <div className="flex items-center gap-3">
