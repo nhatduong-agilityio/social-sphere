@@ -14,4 +14,6 @@ export const TAG_KEYS = {
     `api-list-groups-${userId}-in-page-${page}`,
   GROUP_DETAIL_BY_GROUP_NAME: (groupName: string) =>
     `api-group-detail-by-${groupName}`,
+  GROUP_MEMBERS_BY_GROUP_ID_IN_PAGE: (groupId: string, page: number) =>
+    `api-group-members-by-${groupId}-in-page-${page}`,
 };

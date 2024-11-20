@@ -5,7 +5,12 @@ import { GroupsResponse } from '@/models';
 import { apiClient } from '@/services';
 
 // Types
-import { ApiDataResponse, GroupDetail, GroupsListResponse } from '@/types';
+import {
+  ApiDataResponse,
+  GroupDetail,
+  GroupMembersResponse,
+  GroupsListResponse,
+} from '@/types';
 
 export const getGroups = async (
   userId: string,
@@ -67,6 +72,40 @@ export const getGroupByName = async (
     const errorMessage =
       (error as Error).message ||
       'Failed to fetch group detail. Please try again.';
+    return { error: errorMessage };
+  }
+};
+
+export const getGroupMembers = async (
+  groupId: number,
+  page: number = 1,
+  pageSize: number = 10,
+): Promise<ApiDataResponse<GroupMembersResponse>> => {
+  try {
+    const query = QUERY.GROUP_MEMBERS_BY_GROUP_ID(
+      groupId.toString(),
+      page,
+      pageSize,
+    );
+
+    const response = await apiClient.get<GroupMembersResponse>(
+      `${API_ENDPOINT.GROUP_MEMBERS}?${query}`,
+      {
+        next: {
+          tags: [
+            TAG_KEYS.GROUP_MEMBERS_BY_GROUP_ID_IN_PAGE(
+              groupId.toString(),
+              page,
+            ),
+          ],
+        },
+      },
+    );
+
+    return { data: response };
+  } catch (error) {
+    const errorMessage =
+      (error as Error).message || 'Failed to fetch groups. Please try again.';
     return { error: errorMessage };
   }
 };

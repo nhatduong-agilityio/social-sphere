@@ -37,7 +37,7 @@ import { useDisclosure } from '@/hooks';
 import { UserDetail } from '@/types';
 
 // Images
-import AvatarPlaceholder from '../../../public/images/avatar-placeholder.svg';
+import AvatarPlaceholder from '@public/images/avatar-placeholder.svg';
 
 // Constants
 import { ROUTER } from '@/constants';

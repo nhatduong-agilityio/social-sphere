@@ -22,8 +22,9 @@ import { TFollower } from '@/models';
 
 export const ActivityFeed = async () => {
   const session = await auth();
-  const authorId = session?.user?.id;
-  const userId = session?.user?.id || '';
+  const userId = session?.user?.id;
+
+  if (!userId) notFound();
 
   const [
     newsFeedIdsResponse,
@@ -39,11 +40,9 @@ export const ActivityFeed = async () => {
 
   const newsFeedIds = newsFeedIdsResponse.data;
 
-  if (!newsFeedIdsResponse || !authorId) notFound();
-
   return (
     <ActivityFeedContent
-      authorId={authorId}
+      authorId={userId}
       suggestFriends={suggestFriendsResponse}
       acceptFriends={acceptFriendsResponse as TFollower[]}
       newsFeedIds={newsFeedIds?.data || []}

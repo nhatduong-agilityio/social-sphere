@@ -9,6 +9,7 @@ export const API_ENDPOINT = {
   LIKES: 'api/likes',
   SHARES: 'api/shares',
   GROUPS: 'api/groups',
+  GROUP_MEMBERS: 'api/group-members',
   PROFILE: 'api/users/me',
   UPLOAD: 'api/upload',
   SIGN_UP: 'api/auth/local/register',
