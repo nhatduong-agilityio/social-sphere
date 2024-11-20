@@ -3,6 +3,7 @@
 import { memo, useCallback, useEffect, useState, useTransition } from 'react';
 import { EllipsisVertical, Plus } from 'lucide-react';
 import { useFormState } from 'react-dom';
+import { useRouter } from 'next/navigation';
 
 // Components
 import {
@@ -27,11 +28,12 @@ import { getFirstLetters } from '@/utils';
 import { ActionState, GroupDetail, GroupsListResponse } from '@/types';
 
 // Actions
-import { createGroup, getGroups } from '../actions';
+import { createGroup, getGroups } from '@/features/group/actions';
 
 // Hooks
 import { toast } from '@/hooks';
 import { GroupModel } from '@/models';
+import { ROUTER } from '@/constants';
 
 interface GroupsWidgetProps {
   authorId: string;
@@ -44,6 +46,7 @@ const initialState: ActionState<GroupModel> = {
 };
 
 export const GroupsWidget = memo(({ authorId, groups }: GroupsWidgetProps) => {
+  const router = useRouter();
   const [initialGroups, setInitialGroups] = useState<GroupDetail[]>(
     groups?.data || [],
   );
@@ -81,6 +84,10 @@ export const GroupsWidget = memo(({ authorId, groups }: GroupsWidgetProps) => {
     });
   };
 
+  const handleNavigate = (groupName: string) => {
+    router.push(ROUTER.GROUP_NAME(groupName));
+  };
+
   useEffect(() => {
     if (createState.error) {
       toast({
@@ -113,6 +120,7 @@ export const GroupsWidget = memo(({ authorId, groups }: GroupsWidgetProps) => {
       <div
         key={documentId}
         className="p-4 flex w-full border-t border-slate-300 dark:border-slate-600 items-center justify-between group cursor-pointer"
+        onClick={() => handleNavigate(name)}
       >
         <div className="flex items-center gap-3">
           <Avatar>

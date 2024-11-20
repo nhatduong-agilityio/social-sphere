@@ -39,3 +39,34 @@ export const getGroups = async (
     return { error: errorMessage };
   }
 };
+
+export const getGroupByName = async (
+  groupName: string,
+): Promise<ApiDataResponse<GroupDetail>> => {
+  try {
+    const query = QUERY.GROUP_DETAIL_BY_NAME(groupName);
+
+    const response = await apiClient.get<GroupsResponse>(
+      `${API_ENDPOINT.GROUPS}?${query}`,
+      {
+        next: {
+          tags: [TAG_KEYS.GROUP_DETAIL_BY_GROUP_NAME(groupName)],
+        },
+      },
+    );
+
+    const transformApiResponse: GroupDetail = {
+      ...response.data[0],
+      members: response.data[0].groupMembers,
+      author: response.data[0].createdUser,
+      newsFeeds: response.data[0].posts,
+    };
+
+    return { data: transformApiResponse };
+  } catch (error) {
+    const errorMessage =
+      (error as Error).message ||
+      'Failed to fetch group detail. Please try again.';
+    return { error: errorMessage };
+  }
+};

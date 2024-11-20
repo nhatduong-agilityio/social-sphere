@@ -24,7 +24,7 @@ import {
 } from '@/components/ui';
 
 // Actions
-import { getGroups } from '../actions';
+import { getGroups } from '@/features/group/actions';
 
 // Types
 import { GroupDetail } from '@/types';

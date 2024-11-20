@@ -10,7 +10,6 @@ import {
   useTransition,
 } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useParams } from 'next/navigation';
 
 // Components
 import { Input, Form, FormControl, FormField, FormItem } from '@/components/ui';
@@ -29,22 +28,21 @@ import { toast } from '@/hooks';
 import { upload } from '@/services';
 
 // Types
-import { UserDetail } from '@/types';
+import { GroupDetail } from '@/types';
 
 // Actions
-import { updateProfile } from '../actions';
+import { updateGroupBanner } from '../actions';
 
-interface UploadBannerProfileProps {
-  url?: string;
+interface UploadBannerGroupProps {
+  group: GroupDetail;
 }
 
-export const UploadBannerProfile = ({
-  url = IMAGES.PROFILE_BANNER.url,
-}: UploadBannerProfileProps) => {
-  const [selectedImageUrl, setSelectedImageUrl] = useState<string>(url);
+export const UploadBannerGroup = ({ group }: UploadBannerGroupProps) => {
+  const [selectedImageUrl, setSelectedImageUrl] = useState<string>(
+    group.banner || IMAGES.PROFILE_BANNER.url,
+  );
   const [isPending, startTransition] = useTransition();
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const { username } = useParams();
 
   const form = useForm<z.infer<typeof PictureProfileSchema>>({
     resolver: zodResolver(PictureProfileSchema),
@@ -77,7 +75,7 @@ export const UploadBannerProfile = ({
             startTransition(async () => {
               const banner = await upload(file);
 
-              await updateProfile(username as string, { banner } as UserDetail);
+              await updateGroupBanner(group.documentId, banner);
               setSelectedImageUrl(banner);
 
               toast({
@@ -99,7 +97,7 @@ export const UploadBannerProfile = ({
         }
       }
     },
-    [form, username],
+    [form, group],
   );
 
   return (

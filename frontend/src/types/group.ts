@@ -6,7 +6,8 @@ export type GroupDetail = {
   id: number;
   avatar?: string;
   createdAt?: string;
-  documentId?: string;
+  documentId: string;
+  banner?: string;
   name: string;
   description?: string;
   isPrivate: boolean;

@@ -1,6 +1,5 @@
 export * from './get-friends';
 export * from './get-gifs';
-export * from './get-groups';
 export * from './get-locations';
 export * from './get-tagged-friends';
 export * from './create-news-feed';
@@ -9,4 +8,3 @@ export * from './like-news-feed';
 export * from './request-add-friends';
 export * from './publish-comment';
 export * from './share-news-feed';
-export * from './create-group';

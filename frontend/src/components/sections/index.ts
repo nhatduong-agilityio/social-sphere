@@ -10,3 +10,5 @@ export * from './user-content-popover';
 export * from './user-card-popover';
 export * from './avatar-skeleton';
 export * from './panel-skeleton';
+export * from './banner';
+export * from './banner-skeleton';
