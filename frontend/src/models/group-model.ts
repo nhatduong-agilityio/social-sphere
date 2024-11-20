@@ -1,6 +1,13 @@
 import { NewsFeed, Pagination } from '@/types';
 import { UserModel } from './user-model';
 
+export type GroupMemberModel = {
+  id: number;
+  documentId: string;
+  role: 'admin' | 'member';
+  user: UserModel;
+};
+
 export type GroupModel = {
   id: number;
   createdAt: string;
@@ -11,7 +18,7 @@ export type GroupModel = {
   description: string;
   isPrivate: boolean;
   createdUser: UserModel;
-  groupMembers: UserModel[];
+  groupMembers: GroupMemberModel[];
   posts: NewsFeed[];
 };
 

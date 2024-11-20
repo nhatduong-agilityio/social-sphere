@@ -38,4 +38,10 @@ export const QUERY = {
     `filters[$or][0][createdUser][id][$eq]=${authorId}&filters[$or][1][groupMembers][user][id][$eq]=${authorId}&populate=*&filters[name][$containsi]=${searchName}&sort[createdAt]=desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}`,
   GROUP_DETAIL_BY_NAME: (name: string) =>
     `filters[name][$eq]=${name}&populate[createdUser]=*&populate[groupMembers][populate][user]=*&populate[posts]=*`,
+  GROUP_MEMBERS_BY_GROUP_ID: (
+    groupId: string,
+    page: number = 1,
+    pageSize: number = 10,
+  ) =>
+    `filters[group][id][$eq]=${groupId}&populate[user]=*&sort[createdAt]=desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}`,
 };

@@ -12,15 +12,15 @@ import { apiClient } from '@/services';
 // Types
 import { GroupDetail } from '@/types';
 
-export const updateGroupBanner = async (
+export const updateGroup = async (
   groupId: string,
-  banner: string,
+  data: GroupDetail,
 ): Promise<GroupDetail> => {
   const url = `${API_ENDPOINT.GROUPS}/${groupId}`;
 
   const { data: groupDetail } = await apiClient.put<{ data: GroupDetail }>(
     url,
-    JSON.stringify({ data: { banner } }),
+    JSON.stringify({ data }),
   );
 
   if (!groupDetail) return notFound();

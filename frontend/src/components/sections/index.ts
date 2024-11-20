@@ -12,3 +12,4 @@ export * from './avatar-skeleton';
 export * from './panel-skeleton';
 export * from './banner';
 export * from './banner-skeleton';
+export * from './pop-button';

@@ -31,7 +31,7 @@ import { upload } from '@/services';
 import { GroupDetail } from '@/types';
 
 // Actions
-import { updateGroupBanner } from '../actions';
+import { updateGroup } from '../actions';
 
 interface UploadBannerGroupProps {
   group: GroupDetail;
@@ -75,7 +75,7 @@ export const UploadBannerGroup = ({ group }: UploadBannerGroupProps) => {
             startTransition(async () => {
               const banner = await upload(file);
 
-              await updateGroupBanner(group.documentId, banner);
+              await updateGroup(group.documentId, { banner } as GroupDetail);
               setSelectedImageUrl(banner);
 
               toast({

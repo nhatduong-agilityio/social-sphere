@@ -567,7 +567,6 @@ export interface ApiGroupGroup extends Struct.CollectionTypeSchema {
     name: Schema.Attribute.String & Schema.Attribute.Required;
     description: Schema.Attribute.Text;
     avatar: Schema.Attribute.String;
-    banner: Schema.Attribute.String;
     isPrivate: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     createdUser: Schema.Attribute.Relation<
       'oneToOne',

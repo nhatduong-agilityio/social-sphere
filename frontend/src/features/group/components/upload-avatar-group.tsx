@@ -11,7 +11,6 @@ import {
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { useParams } from 'next/navigation';
 
 // Components
 import {
@@ -51,22 +50,21 @@ import AvatarPlaceholder from '@public/images/avatar-placeholder.svg';
 import { upload } from '@/services';
 
 // Types
-import { UserDetail } from '@/types';
+import { GroupDetail } from '@/types';
 
 // Actions
-import { updateProfile } from '../actions';
+import { updateGroup } from '../actions';
 
-interface ProfileAvatarProps {
-  imageUrl?: string;
+interface UploadAvatarGroupProps {
+  group: GroupDetail;
 }
 
-export const ProfileAvatar = ({
-  imageUrl = AvatarPlaceholder.src,
-}: ProfileAvatarProps) => {
+export const UploadAvatarGroup = ({ group }: UploadAvatarGroupProps) => {
   const [isActive, setIsActive] = useState<boolean>(false);
-  const [selectedImageUrl, setSelectedImageUrl] = useState<string>(imageUrl);
+  const [selectedImageUrl, setSelectedImageUrl] = useState<string>(
+    group.avatar || AvatarPlaceholder.src,
+  );
   const [isPending, startTransition] = useTransition();
-  const { username } = useParams();
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -106,10 +104,9 @@ export const ProfileAvatar = ({
             startTransition(async () => {
               const profilePicture = await upload(file);
 
-              await updateProfile(
-                username as string,
-                { profilePicture } as UserDetail,
-              );
+              await updateGroup(group.documentId, {
+                avatar: profilePicture,
+              } as GroupDetail);
               setSelectedImageUrl(profilePicture);
 
               form.clearErrors('pictureProfile');
@@ -133,7 +130,7 @@ export const ProfileAvatar = ({
         }
       }
     },
-    [form, username],
+    [form, group],
   );
 
   const popButtons = useMemo(
@@ -184,7 +181,7 @@ export const ProfileAvatar = ({
 
   return (
     <Form {...form}>
-      <div className="w-[110px] h-[110px] rounded-full p-[8.5px] absolute md:bottom-0 bottom-[-50px] left-0 right-0 mx-auto z-10">
+      <div className="w-[110px] h-[110px] rounded-full p-[8.5px] absolute bottom-[-50px] left-0 right-0 mx-auto z-10">
         <Avatar className="w-[full] h-[full] bg-current">
           {isPending ? (
             <AvatarSkeleton />

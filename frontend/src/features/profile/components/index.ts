@@ -3,7 +3,6 @@ export * from './location-card';
 export * from './location-panel';
 export * from './photo-panel';
 export * from './photo';
-export * from './pop-button';
 export * from './profile-avatar';
 export * from './profile-header';
 export * from './profile-nav-tab';
