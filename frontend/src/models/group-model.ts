@@ -7,6 +7,7 @@ export type GroupModel = {
   documentId: string;
   name: string;
   avatar: string;
+  banner: string;
   description: string;
   isPrivate: boolean;
   createdUser: UserModel;
@@ -18,6 +19,7 @@ export type GroupPayload = {
   name: string;
   description?: string;
   avatar?: string;
+  banner?: string;
   isPrivate: boolean;
   createdUser: number;
 };

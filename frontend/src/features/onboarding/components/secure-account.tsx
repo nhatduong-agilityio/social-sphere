@@ -62,7 +62,6 @@ export const SecureAccount = () => {
         phoneNumber,
         profilePicture: onboardingData.profilePicture,
         accountType: onboardingData.accountType,
-        followedRelationships: [],
       };
 
       const response = await register(payload);

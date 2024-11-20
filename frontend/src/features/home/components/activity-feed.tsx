@@ -4,7 +4,8 @@ import { notFound } from 'next/navigation';
 import { ActivityFeedContent } from './activity-feed-content';
 
 // Actions
-import { getNewsFeedIds, getGroups } from '../actions';
+import { getNewsFeedIds } from '../actions';
+import { getGroups } from '@/features/group/actions';
 
 // Auth
 import { auth } from '@/auth';

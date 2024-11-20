@@ -36,4 +36,6 @@ export const QUERY = {
     pageSize: number = 10,
   ) =>
     `filters[$or][0][createdUser][id][$eq]=${authorId}&filters[$or][1][groupMembers][user][id][$eq]=${authorId}&populate=*&filters[name][$containsi]=${searchName}&sort[createdAt]=desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}`,
+  GROUP_DETAIL_BY_NAME: (name: string) =>
+    `filters[name][$eq]=${name}&populate[createdUser]=*&populate[groupMembers][populate][user]=*&populate[posts]=*`,
 };

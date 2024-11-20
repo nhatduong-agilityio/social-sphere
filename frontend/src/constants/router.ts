@@ -3,6 +3,7 @@ export const ROUTER = {
   CATEGORY: '/category',
   LOGIN: '/login',
   ONBOARDING: '/onboarding',
+  GROUP_NAME: (groupName: string) => `/group/${groupName}`,
 
   PROFILE_ID_OVERVIEW: (username: string) =>
     `/user-profile/${username}/overview`,

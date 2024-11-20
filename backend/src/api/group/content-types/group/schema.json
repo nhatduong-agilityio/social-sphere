@@ -23,6 +23,10 @@
       "type": "string",
       "required": false
     },
+    "banner": {
+      "type": "string",
+      "required": false
+    },
     "isPrivate": {
       "type": "boolean",
       "default": true
