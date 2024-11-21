@@ -13,3 +13,5 @@ export * from './panel-skeleton';
 export * from './banner';
 export * from './banner-skeleton';
 export * from './pop-button';
+export * from './post-skeleton';
+export * from './widget-skeleton';
