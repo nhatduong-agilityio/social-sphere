@@ -8,6 +8,8 @@ import { getFriendListByUsername } from '@/api/friends-profile/route';
 
 // Types
 import { Pagination, TNewFriends } from '@/types';
+
+// Actions
 import { getNewsFeedIds } from '../actions';
 
 interface NewFeedListProps {

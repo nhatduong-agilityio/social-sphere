@@ -1,5 +1,6 @@
 // Components
 import { OverviewInput } from './overview-input';
+import { LocationPicker } from './location-picker';
 import { OverviewBio } from './overview-bio';
 
 // Icons
@@ -7,9 +8,6 @@ import { StudyIcon, WorkIcon } from '@/icons';
 
 // Actions
 import { getProfile } from '../actions';
-
-// Components
-import { LocationPicker } from './location-picker';
 
 interface OverviewContentProps {
   username: string;
