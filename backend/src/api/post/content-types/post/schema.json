@@ -83,6 +83,25 @@
       "target": "api::post.post",
       "mappedBy": "sharedFrom",
       "required": false
+    },
+    "shareType": {
+      "type": "enumeration",
+      "enum": [
+        "yourFeed",
+        "friendsFeed",
+        "group",
+        "page",
+        "friendsMessage"
+      ],
+      "default": "yourFeed",
+      "required": false
+    },
+    "group": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::group.group",
+      "inversedBy": "postsGroup",
+      "required": false
     }
   }
 }

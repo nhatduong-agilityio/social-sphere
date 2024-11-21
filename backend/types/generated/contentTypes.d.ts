@@ -567,6 +567,7 @@ export interface ApiGroupGroup extends Struct.CollectionTypeSchema {
     name: Schema.Attribute.String & Schema.Attribute.Required;
     description: Schema.Attribute.Text;
     avatar: Schema.Attribute.String;
+    banner: Schema.Attribute.String;
     isPrivate: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     createdUser: Schema.Attribute.Relation<
       'oneToOne',
@@ -577,6 +578,7 @@ export interface ApiGroupGroup extends Struct.CollectionTypeSchema {
       'api::group-member.group-member'
     >;
     posts: Schema.Attribute.Relation<'oneToMany', 'api::share.share'>;
+    postsGroup: Schema.Attribute.Relation<'oneToMany', 'api::post.post'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -685,6 +687,11 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
     shares: Schema.Attribute.Relation<'oneToMany', 'api::share.share'>;
     sharedFrom: Schema.Attribute.Relation<'manyToOne', 'api::post.post'>;
     sharedPosts: Schema.Attribute.Relation<'oneToMany', 'api::post.post'>;
+    shareType: Schema.Attribute.Enumeration<
+      ['yourFeed', 'friendsFeed', 'group', 'page', 'friendsMessage']
+    > &
+      Schema.Attribute.DefaultTo<'yourFeed'>;
+    group: Schema.Attribute.Relation<'manyToOne', 'api::group.group'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

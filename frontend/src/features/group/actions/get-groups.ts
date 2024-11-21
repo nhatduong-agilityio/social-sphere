@@ -1,7 +1,7 @@
 'use server';
 
 import { API_ENDPOINT, QUERY, TAG_KEYS } from '@/constants';
-import { GroupsResponse } from '@/models';
+import { GroupsResponse, NewsFeedIdsResponse } from '@/models';
 import { apiClient } from '@/services';
 
 // Types
@@ -106,6 +106,37 @@ export const getGroupMembers = async (
   } catch (error) {
     const errorMessage =
       (error as Error).message || 'Failed to fetch groups. Please try again.';
+    return { error: errorMessage };
+  }
+};
+
+export const getNewsFeedIdsInGroup = async (
+  groupId: number,
+  page: number = 1,
+  pageSize: number = 10,
+): Promise<ApiDataResponse<NewsFeedIdsResponse>> => {
+  try {
+    const query = QUERY.LATEST_NEWS_FEED_IDS_BY_GROUP_ID(
+      groupId.toString(),
+      page,
+      pageSize,
+    );
+    const response = await apiClient.get<NewsFeedIdsResponse>(
+      `${API_ENDPOINT.POSTS}?${query}`,
+      {
+        next: {
+          tags: [
+            TAG_KEYS.NEWS_FEED_IDS_BY_GROUP_IN_PAGE(groupId.toString(), page),
+          ],
+        },
+      },
+    );
+
+    return { data: response };
+  } catch (error) {
+    const errorMessage =
+      (error as Error).message ||
+      'Failed to fetch news feed ids. Please try again.';
     return { error: errorMessage };
   }
 };

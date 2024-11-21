@@ -47,6 +47,12 @@
       "relation": "oneToMany",
       "target": "api::share.share",
       "mappedBy": "group"
+    },
+    "postsGroup": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::post.post",
+      "mappedBy": "group"
     }
   }
 }

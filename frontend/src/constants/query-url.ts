@@ -17,7 +17,7 @@ export const QUERY = {
     page: number = 1,
     pageSize: number = 10,
   ) =>
-    `filters[author][id][$eq]=${authorId}&fields[0]=id&sort[createdAt]=desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}`,
+    `filters[author][id][$eq]=${authorId}&filters[shareType][$eq]=yourFeed&fields[0]=id&sort[createdAt]=desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}`,
   NEWS_FEED_DETAIL_BY_ID: (newsFeedId: string) =>
     `filters[id][$eq]=${newsFeedId}&populate[author]=*&populate[likes][fields][0]=createdAt&populate[likes][populate][user]=*&populate[likes][sort][createdAt]=desc&populate[comments]=*&populate[shares]=*&populate[sharedFrom][populate][author]=*`,
   LIST_COMMENTS_IN_NEWS_FEED_BY_ID: (
@@ -44,4 +44,10 @@ export const QUERY = {
     pageSize: number = 10,
   ) =>
     `filters[group][id][$eq]=${groupId}&populate[user]=*&sort[createdAt]=desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}`,
+  LATEST_NEWS_FEED_IDS_BY_GROUP_ID: (
+    groupId: string,
+    page: number = 1,
+    pageSize: number = 10,
+  ) =>
+    `filters[group][id][$eq]=${groupId}&fields[0]=id&sort[createdAt]=desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}`,
 };
