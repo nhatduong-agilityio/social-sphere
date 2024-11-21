@@ -18,8 +18,8 @@ import {
   Dialog,
   DialogTrigger,
 } from '@/components/ui';
-import { StoryMeta } from '@/features/home/components';
-import { GroupFormDialog } from './group-form-dialog';
+import { StoryMeta } from './story-meta';
+import { GroupFormDialog } from '@/features/group/components';
 
 // Utils
 import { getFirstLetters } from '@/utils';

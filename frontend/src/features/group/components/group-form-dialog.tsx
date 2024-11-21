@@ -1,6 +1,7 @@
 'use client';
 
 import { memo, useCallback, useRef } from 'react';
+import { PlusIcon, XIcon } from 'lucide-react';
 
 // Components
 import {
@@ -26,22 +27,26 @@ import {
 
 import { AvatarSkeleton } from '@/components/sections';
 import { useGroupForm } from '../hooks';
-import { PlusIcon, XIcon } from 'lucide-react';
 
 interface GroupFormDialogProps {
   isLoading?: boolean;
   onCreate: (data: FormData) => void;
+  initialValues?: {
+    name: string;
+    description?: string;
+    avatar?: string;
+  };
 }
 
 export const GroupFormDialog = memo(
-  ({ isLoading = false, onCreate }: GroupFormDialogProps) => {
+  ({ isLoading = false, initialValues, onCreate }: GroupFormDialogProps) => {
     const {
       form,
       selectedImageUrl,
       getFormData,
       handleFileChange,
       handleRemoveMedia,
-    } = useGroupForm();
+    } = useGroupForm(initialValues);
 
     const mediaInputRef = useRef<HTMLInputElement>(null);
 
@@ -177,6 +182,8 @@ export const GroupFormDialog = memo(
                 <Button
                   variant="primary"
                   className="h-8 text-2xs px-5 bg-blue-600"
+                  isLoading={isLoading}
+                  disabled={isLoading}
                 >
                   Publish
                 </Button>
