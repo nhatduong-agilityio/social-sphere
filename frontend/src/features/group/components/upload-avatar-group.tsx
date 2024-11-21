@@ -3,6 +3,7 @@
 import {
   ChangeEvent,
   useCallback,
+  useEffect,
   useMemo,
   useRef,
   useState,
@@ -62,7 +63,7 @@ interface UploadAvatarGroupProps {
 export const UploadAvatarGroup = ({ group }: UploadAvatarGroupProps) => {
   const [isActive, setIsActive] = useState<boolean>(false);
   const [selectedImageUrl, setSelectedImageUrl] = useState<string>(
-    group.avatar || AvatarPlaceholder.src,
+    AvatarPlaceholder.src,
   );
   const [isPending, startTransition] = useTransition();
 
@@ -71,6 +72,10 @@ export const UploadAvatarGroup = ({ group }: UploadAvatarGroupProps) => {
   const form = useForm<z.infer<typeof PictureProfileSchema>>({
     resolver: zodResolver(PictureProfileSchema),
   });
+
+  useEffect(() => {
+    setSelectedImageUrl(group.avatar || AvatarPlaceholder.src);
+  }, [group]);
 
   const handleActiveButton = useCallback(
     () => setIsActive(!isActive),
