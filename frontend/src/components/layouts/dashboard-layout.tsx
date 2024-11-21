@@ -19,7 +19,7 @@ export const DashboardLayout = async ({
   if (!jwt) return redirect(ROUTER.LOGIN);
 
   return (
-    <main className="min-h-screen w-full bg-body grid grid-rows-[auto_1fr]">
+    <main className="h-screen min-w-max bg-body grid grid-rows-[auto_1fr]">
       <HeaderContainer username={user?.username as string} />
       <section className="container flex flex-col gap-4">{children}</section>
     </main>

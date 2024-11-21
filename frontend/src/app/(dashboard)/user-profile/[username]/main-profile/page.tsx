@@ -3,6 +3,8 @@ import { getProfile } from '@/features/profile/actions';
 
 // Components
 import { NewFeedList } from '@/features/profile/components';
+import { NewFeedSkeleton } from '@/features/profile/components/skeletons';
+import { Suspense } from 'react';
 
 const MainProfilePage = async ({
   params,
@@ -12,7 +14,9 @@ const MainProfilePage = async ({
   const profile = await getProfile(params.username);
 
   return (
-    <NewFeedList authorId={String(profile.id)} username={params.username} />
+    <Suspense fallback={<NewFeedSkeleton />}>
+      <NewFeedList authorId={String(profile.id)} username={params.username} />
+    </Suspense>
   );
 };
 
