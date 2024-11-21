@@ -671,7 +671,7 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
       'manyToOne',
       'plugin::users-permissions.user'
     >;
-    content: Schema.Attribute.Text & Schema.Attribute.Required;
+    content: Schema.Attribute.Text;
     media: Schema.Attribute.String;
     gifUrl: Schema.Attribute.String;
     tagFriends: Schema.Attribute.JSON;

@@ -13,17 +13,20 @@ import { ComposeTabContentDialog } from './compose-tab-content-dialog';
 
 // Utils
 import { cn } from '@/utils';
+import { NewsFeedIdModel } from '@/models';
 
 interface ComposeFeedCardProps {
   isOverlayOpen: boolean;
   onOpensOverlay: () => void;
   onCloseOverlay: () => void;
+  onUpdateNewsFeedIds: (newNewsFeedIds: NewsFeedIdModel) => void;
 }
 
 export const ComposeFeedCard = ({
   isOverlayOpen,
   onOpensOverlay,
   onCloseOverlay,
+  onUpdateNewsFeedIds,
 }: ComposeFeedCardProps) => {
   const [currentTab, setCurrentTab] = useState<ComposeTabValue>(
     ComposeTabValue.Publish,
@@ -70,6 +73,7 @@ export const ComposeFeedCard = ({
             <ComposePublishContent
               isOverlayOpen={isOverlayOpen}
               onOpenOverlay={onOpensOverlay}
+              onUpdateNewsFeedIds={onUpdateNewsFeedIds}
             />
           </TabsContent>
         </Tabs>

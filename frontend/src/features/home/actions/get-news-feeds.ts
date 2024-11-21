@@ -21,6 +21,7 @@ export const getNewsFeeds = async (
 
     const transformApiResponse: NewsFeed[] = response.data.map((item) => ({
       ...item,
+      documentId: item.documentId,
       tagFriends: [],
       sendFriends: [],
       likes: {

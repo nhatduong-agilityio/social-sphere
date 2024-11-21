@@ -153,6 +153,20 @@ export const useComposeFeedForm = () => {
     return formData;
   };
 
+  const resetFormState = useCallback(() => {
+    form.reset();
+    handleRemoveMedia();
+    handleRemoveGif();
+    handleRemoveAllFriends();
+    handleRemoveMood();
+  }, [
+    form,
+    handleRemoveMedia,
+    handleRemoveGif,
+    handleRemoveAllFriends,
+    handleRemoveMood,
+  ]);
+
   return {
     form,
     getFormData,
@@ -170,5 +184,6 @@ export const useComposeFeedForm = () => {
     handleRemoveAllFriends,
     handleSelectMood,
     handleRemoveMood,
+    resetFormState,
   };
 };

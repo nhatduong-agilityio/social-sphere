@@ -1,14 +1,9 @@
-import { notFound } from 'next/navigation';
-
 // Components
 import { ActivityFeedContent } from './activity-feed-content';
 
 // Actions
 import { getNewsFeedIds } from '../actions';
 import { getGroups } from '@/features/group/actions';
-
-// Auth
-import { auth } from '@/auth';
 
 // Api
 import {
@@ -17,36 +12,31 @@ import {
 } from '@/api/friends-profile/route';
 
 // Types
-import { Pagination } from '@/types';
 import { TFollower } from '@/models';
 
-export const ActivityFeed = async () => {
-  const session = await auth();
-  const userId = session?.user?.id;
+interface ActivityFeedProps {
+  authorId: string;
+}
 
-  if (!userId) notFound();
-
+export const ActivityFeed = async ({ authorId }: ActivityFeedProps) => {
   const [
     newsFeedIdsResponse,
     suggestFriendsResponse,
     acceptFriendsResponse,
     groupsResponse,
   ] = await Promise.all([
-    getNewsFeedIds(userId),
-    getNonFriendListByUserId(userId),
-    getAcceptFriendListByUserId(userId),
-    getGroups(userId),
+    getNewsFeedIds(authorId),
+    getNonFriendListByUserId(authorId),
+    getAcceptFriendListByUserId(authorId),
+    getGroups(authorId),
   ]);
-
-  const newsFeedIds = newsFeedIdsResponse.data;
 
   return (
     <ActivityFeedContent
-      authorId={userId}
+      authorId={authorId}
       suggestFriends={suggestFriendsResponse}
       acceptFriends={acceptFriendsResponse as TFollower[]}
-      newsFeedIds={newsFeedIds?.data || []}
-      pagination={newsFeedIds?.meta.pagination as Pagination}
+      newsFeedIdsPagination={newsFeedIdsResponse.data}
       groups={groupsResponse.data}
     />
   );

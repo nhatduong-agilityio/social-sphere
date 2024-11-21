@@ -4,6 +4,7 @@ import { UserModel } from './user-model';
 export type NewsFeedModel = {
   id: number;
   content: string;
+  documentId?: string;
   media?: string;
   author: string;
   gifUrl?: string;

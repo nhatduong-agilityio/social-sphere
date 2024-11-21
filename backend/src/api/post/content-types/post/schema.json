@@ -20,7 +20,7 @@
     },
     "content": {
       "type": "text",
-      "required": true
+      "required": false
     },
     "media": {
       "type": "string"

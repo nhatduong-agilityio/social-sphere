@@ -37,6 +37,7 @@ export type NewsFeedShare = {
 
 export type NewsFeed = {
   id: number;
+  documentId?: string;
   author: UserDetail;
   content: string;
   createdAt: string;
