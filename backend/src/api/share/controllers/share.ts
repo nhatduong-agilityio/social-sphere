@@ -106,6 +106,8 @@ export default factories.createCoreController(
             sharedLink: null,
             accessItems: [],
             storyRole: null,
+            shareType,
+            group,
           },
         };
 
