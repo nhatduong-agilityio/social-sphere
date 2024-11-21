@@ -7,10 +7,21 @@ import { HomeSkeleton } from '@/features/home/components/skeletons';
 // Constants
 import { ROUTER } from '@/constants';
 
-const Homepage = () => (
-  <Suspense key={ROUTER.HOME} fallback={<HomeSkeleton />}>
-    <ActivityFeed />
-  </Suspense>
-);
+// Hooks
+import { auth } from '@/auth';
+import { notFound } from 'next/navigation';
+
+const Homepage = async () => {
+  const session = await auth();
+  const userId = session?.user?.id;
+
+  if (!userId) notFound();
+
+  return (
+    <Suspense key={ROUTER.HOME} fallback={<HomeSkeleton />}>
+      <ActivityFeed authorId={userId} />
+    </Suspense>
+  );
+};
 
 export default Homepage;

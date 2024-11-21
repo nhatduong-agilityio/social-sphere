@@ -1,7 +1,9 @@
 'use server';
 
+import { revalidateTag } from 'next/cache';
+
 // Constants
-import { API_ENDPOINT, QUERY } from '@/constants';
+import { API_ENDPOINT, QUERY, TAG_KEYS } from '@/constants';
 
 // Services
 import { apiClient } from '@/services';
@@ -65,6 +67,8 @@ export const shareNewFeeds = async (
       path: `${API_ENDPOINT.SHARES}${QUERY.CREATE_SHARE}`,
       body: JSON.stringify({ data: payload }),
     });
+
+    group && revalidateTag(TAG_KEYS.NEWS_FEED_IDS_BY_GROUP_IN_PAGE(group, 1));
 
     return {
       data: response,

@@ -1,7 +1,7 @@
 'use server';
 
 // Constants
-import { API_ENDPOINT } from '@/constants';
+import { API_ENDPOINT, TAG_KEYS } from '@/constants';
 
 // Services
 import { apiClient } from '@/services';
@@ -12,7 +12,8 @@ import { ComposeFeedFormValues } from '../hooks';
 
 // Types
 import { NewsFeedPayload } from '@/models';
-import { ActionState } from '@/types';
+import { ActionState, NewsFeed } from '@/types';
+import { revalidateTag } from 'next/cache';
 
 const createPayload = (
   values: ComposeFeedFormValues,
@@ -26,9 +27,9 @@ const createPayload = (
 
 export const publishNewsFeed = async (
   authorId: string | undefined,
-  prevState: ActionState<NewsFeedPayload>,
+  prevState: ActionState<NewsFeed>,
   formData: FormData,
-): Promise<ActionState<NewsFeedPayload>> => {
+): Promise<ActionState<NewsFeed>> => {
   try {
     if (!authorId) {
       return {
@@ -75,10 +76,12 @@ export const publishNewsFeed = async (
       payload = createPayload(formValues, authorId);
     }
 
-    const { data: response } = await apiClient.post<{ data: NewsFeedPayload }>({
+    const { data: response } = await apiClient.post<{ data: NewsFeed }>({
       path: API_ENDPOINT.POSTS,
       body: JSON.stringify({ data: payload }),
     });
+
+    revalidateTag(TAG_KEYS.NEWS_FEED_IDS_BY_USER_IN_PAGE(authorId, 1));
 
     return {
       data: response,

@@ -20,36 +20,41 @@ import { MOCK_FRIENDS } from '@/__mocks__/user';
 
 // Icons
 import { BirthdayIcon, JobIcon } from '@/icons';
-import { GroupsListResponse, Pagination } from '@/types';
+import { GroupsListResponse } from '@/types';
 
 // Actions
-import { getNewsFeedIds } from '../actions';
-import { NewsFeedIdModel, TFollowed, TFollower } from '@/models';
+import {
+  NewsFeedIdModel,
+  NewsFeedIdsResponse,
+  TFollowed,
+  TFollower,
+} from '@/models';
 import { AcceptFriendsWidget } from './accept-friends-widget';
 import { GroupsWidget } from './groups-widget';
 
 interface ActivityFeedContentProps {
   authorId: string;
-  newsFeedIds: NewsFeedIdModel[];
   suggestFriends: TFollowed[];
   acceptFriends: TFollower[];
-  pagination: Pagination;
+  newsFeedIdsPagination?: NewsFeedIdsResponse;
   groups?: GroupsListResponse;
 }
 
 export const ActivityFeedContent = ({
   authorId,
-  newsFeedIds: initialNewsFeeds,
+  newsFeedIdsPagination,
   suggestFriends,
   acceptFriends,
-  pagination,
   groups,
 }: ActivityFeedContentProps) => {
-  const [newsFeedIds, setNewFeedIds] =
-    useState<NewsFeedIdModel[]>(initialNewsFeeds);
+  const [newsFeedIds, setNewFeedIds] = useState<NewsFeedIdModel[]>(
+    newsFeedIdsPagination?.data || [],
+  );
   const [currentPage, setCurrentPage] = useState(1);
   const [isPending, startTransition] = useTransition();
-  const [hasMore, setHasMore] = useState(currentPage < pagination.pageCount);
+  const [hasMore, setHasMore] = useState(
+    currentPage < (newsFeedIdsPagination?.meta.pagination.pageCount || 1),
+  );
 
   const {
     isOpen: isOverlayOpen,
@@ -61,18 +66,32 @@ export const ActivityFeedContent = ({
     onOpensOverlay();
   };
 
-  const loadMore = useCallback(async () => {
+  const loadMore = async () => {
+    if (isPending) return; // Prevent multiple calls while loading
+
     startTransition(async () => {
       const nextPage = currentPage + 1;
 
-      const { data: newNewsFeeds } = await getNewsFeedIds(authorId, nextPage);
-      if (!newNewsFeeds) return;
+      const response = await fetch(
+        `/api/news-feed?&authorId=${authorId}&page=${nextPage}&pageSize=10`,
+      );
 
-      setNewFeedIds((prev) => [...prev, ...newNewsFeeds.data]);
+      if (!response.ok) return;
+
+      const newsFeedIdsResponse: NewsFeedIdsResponse = await response.json();
+
+      setNewFeedIds((prev) => [...prev, ...newsFeedIdsResponse.data]);
       setCurrentPage(nextPage);
-      setHasMore(nextPage < newNewsFeeds.meta.pagination.pageCount);
+      setHasMore(nextPage < newsFeedIdsResponse.meta.pagination.pageCount);
     });
-  }, [authorId, currentPage]);
+  };
+
+  const handleUpdateNewsFeedIds = useCallback(
+    (newNewsFeedIds: NewsFeedIdModel) => {
+      setNewFeedIds((prev) => [...[newNewsFeedIds], ...prev]);
+    },
+    [],
+  );
 
   return (
     <div className="py-5 min-h-full">
@@ -86,13 +105,19 @@ export const ActivityFeedContent = ({
             isOverlayOpen={isOverlayOpen}
             onOpensOverlay={onOpensOverlay}
             onCloseOverlay={onCloseOverlay}
+            onUpdateNewsFeedIds={handleUpdateNewsFeedIds}
           />
           <div className="flex flex-col gap-6">
             <NewsFeedCardList newsFeedIds={newsFeedIds} authorId={authorId} />
 
             {/**TODO: Define common component later  */}
             {hasMore && (
-              <Button variant="primary" onClick={loadMore} disabled={isPending}>
+              <Button
+                variant="primary"
+                onClick={loadMore}
+                disabled={isPending}
+                isLoading={isPending}
+              >
                 {isPending ? 'Loading...' : 'Load More Posts'}
               </Button>
             )}

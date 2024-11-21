@@ -27,21 +27,26 @@ import { toast, useDisclosure } from '@/hooks';
 
 // Actions
 import { publishNewsFeed } from '../actions';
-import { ActionState } from '@/types';
-import { NewsFeedPayload } from '@/models';
+import { ActionState, NewsFeed } from '@/types';
+import { NewsFeedIdModel } from '@/models';
 
 interface ComposePublishContentProps {
   isOverlayOpen: boolean;
   onOpenOverlay: () => void;
+  onUpdateNewsFeedIds: (newNewsFeedIds: NewsFeedIdModel) => void;
 }
 
-const initialState: ActionState<NewsFeedPayload> = {
+const initialState: ActionState<NewsFeed> = {
   message: null,
   error: null,
 };
 
 export const ComposePublishContent = memo(
-  ({ isOverlayOpen, onOpenOverlay }: ComposePublishContentProps) => {
+  ({
+    isOverlayOpen,
+    onOpenOverlay,
+    onUpdateNewsFeedIds,
+  }: ComposePublishContentProps) => {
     const { data: session } = useSession();
     const userId = session?.user?.id;
 
@@ -61,7 +66,7 @@ export const ComposePublishContent = memo(
       handleRemoveFriend,
       handleTagFriends,
       handleRemoveMood,
-      handleRemoveAllFriends,
+      resetFormState,
     } = useComposeFeedForm();
 
     // Management server action to publish post
@@ -95,20 +100,6 @@ export const ComposePublishContent = memo(
 
     const disableButton = !form.getValues('content') || pending;
 
-    const resetFormState = useCallback(() => {
-      form.reset();
-      handleRemoveMedia();
-      handleRemoveGif();
-      handleRemoveAllFriends();
-      handleRemoveMood();
-    }, [
-      form,
-      handleRemoveMedia,
-      handleRemoveGif,
-      handleRemoveAllFriends,
-      handleRemoveMood,
-    ]);
-
     useEffect(() => {
       if (state.error) {
         toast({
@@ -118,15 +109,23 @@ export const ComposePublishContent = memo(
         });
       }
 
-      if (state.message) {
+      if (state.message && state.data) {
         toast({
           variant: 'success',
           title: 'Success',
           description: state.message,
         });
+
+        onUpdateNewsFeedIds({
+          id: state.data.id,
+          createdAt: state.data.createdAt,
+          documentId: state.data.documentId || '',
+        });
+
         resetFormState();
       }
-    }, [resetFormState, state]);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [onUpdateNewsFeedIds, state]);
 
     const handleAction = async (_: FormData) => {
       const values = form.getValues();
