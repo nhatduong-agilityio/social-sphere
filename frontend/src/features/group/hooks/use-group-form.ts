@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useCallback, ChangeEvent } from 'react';
 import { useForm } from 'react-hook-form';
 
