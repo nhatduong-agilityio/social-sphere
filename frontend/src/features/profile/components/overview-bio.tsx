@@ -18,18 +18,26 @@ import {
 } from '@/components/ui';
 
 // Hooks
+import { toast } from '@/hooks';
+
+// Libs
 import { OverviewSchema } from '../lib';
 
 // Types
 import { UserModel } from '@/models';
+
+// Actions
 import { updateProfile } from '../actions';
-import { toast } from '@/hooks';
+
+// Utils
+import { cn } from '@/utils';
 
 interface OverviewBioProps {
+  isDisabled?: boolean;
   user: UserModel;
 }
 
-export const OverviewBio = ({ user }: OverviewBioProps) => {
+export const OverviewBio = ({ isDisabled = false, user }: OverviewBioProps) => {
   const form = useForm<z.infer<typeof OverviewSchema>>({
     resolver: zodResolver(OverviewSchema),
     defaultValues: {
@@ -86,6 +94,7 @@ export const OverviewBio = ({ user }: OverviewBioProps) => {
                     variant="ghost"
                     placeholder="Enter your bio"
                     {...field}
+                    disabled={isDisabled}
                   />
                 </FormControl>
                 <FormMessage />
@@ -98,9 +107,10 @@ export const OverviewBio = ({ user }: OverviewBioProps) => {
           type="submit"
           variant="rounded"
           size="icon"
-          className="w-[42px] h-[42px] right-10 absolute opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100
-               rounded-full bg-blue-50 group-hover:bg-blue-100
-            items-center justify-center transition-all duration-300 group-hover:rotate-180"
+          className={cn(
+            'w-[42px] h-[42px] right-10 absolute opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100 rounded-full bg-blue-50 group-hover:bg-blue-100 items-center justify-center transition-all duration-300 group-hover:rotate-180',
+            isDisabled && 'hidden',
+          )}
         >
           <ArrowLeft size={16} />
         </Button>

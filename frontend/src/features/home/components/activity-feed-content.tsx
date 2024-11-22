@@ -14,6 +14,8 @@ import { StoriesWidget } from './stories-widget';
 import { SuggestFriendsWidget } from './suggest-friends-widget';
 import { NewsFeedCardList } from './news-feed-card-list';
 import { Button } from '@/components/ui';
+import { AcceptFriendsWidget } from './accept-friends-widget';
+import { GroupsWidget } from './groups-widget';
 
 // Hooks
 import { useDisclosure } from '@/hooks';
@@ -26,15 +28,15 @@ import { BirthdayIcon, JobIcon } from '@/icons';
 import { GroupsListResponse } from '@/types';
 
 // Actions
+import { fetchNewsFeedIds } from '@/actions';
+
+// Models
 import {
   NewsFeedIdModel,
   NewsFeedIdsResponse,
   TFollowed,
   TFollower,
 } from '@/models';
-import { AcceptFriendsWidget } from './accept-friends-widget';
-import { GroupsWidget } from './groups-widget';
-import { fetchNewsFeedIds } from '@/actions';
 
 interface ActivityFeedContentProps {
   authorId: string;
@@ -102,7 +104,9 @@ export const ActivityFeedContent = ({
     <div className="py-5 min-h-full">
       <div className="h-full grid grid-cols-12 gap-6">
         <div className="hidden lg:flex col-span-3 flex-col gap-6">
-          <AcceptFriendsWidget friends={acceptFriends} authorId={authorId} />
+          {acceptFriends.length > 0 && (
+            <AcceptFriendsWidget friends={acceptFriends} authorId={authorId} />
+          )}
           <GroupsWidget groups={groups} authorId={authorId} />
         </div>
         <div className="col-span-12 lg:col-span-6 flex flex-col gap-6">

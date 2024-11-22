@@ -163,7 +163,10 @@ export const UploadPictureProfile = () => {
               )}
             />
           </div>
-          <OnboardingFormNavigation onBackClick={handleBackButton} />
+          <OnboardingFormNavigation
+            isDisabled={!selectedImageUrl}
+            onBackClick={handleBackButton}
+          />
         </form>
       </Form>
     </OnboardingFormWrapper>
