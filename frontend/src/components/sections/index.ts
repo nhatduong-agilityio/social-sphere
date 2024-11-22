@@ -15,3 +15,4 @@ export * from './banner-skeleton';
 export * from './pop-button';
 export * from './post-skeleton';
 export * from './widget-skeleton';
+export * from './header-popover';
