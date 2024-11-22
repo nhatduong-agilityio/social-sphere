@@ -5,6 +5,9 @@ import { EllipsisVertical, Plus } from 'lucide-react';
 import { useFormState } from 'react-dom';
 import { useRouter } from 'next/navigation';
 
+// Constants
+import { PAGE_SIZE, ROUTER, CURRENT_PAGE } from '@/constants';
+
 // Components
 import {
   Avatar,
@@ -26,14 +29,14 @@ import { getFirstLetters } from '@/utils';
 
 // Types
 import { ActionState, GroupDetail, GroupsListResponse } from '@/types';
+import { GroupModel } from '@/models';
 
 // Actions
-import { createGroup, getGroups } from '@/features/group/actions';
+import { createGroup } from '@/features/group/actions';
+import { fetchGroups } from '@/actions';
 
 // Hooks
 import { toast } from '@/hooks';
-import { GroupModel } from '@/models';
-import { ROUTER } from '@/constants';
 
 interface GroupsWidgetProps {
   authorId: string;
@@ -50,10 +53,10 @@ export const GroupsWidget = memo(({ authorId, groups }: GroupsWidgetProps) => {
   const [initialGroups, setInitialGroups] = useState<GroupDetail[]>(
     groups?.data || [],
   );
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(CURRENT_PAGE);
   const [isPending, startTransition] = useTransition();
   const [hasMore, setHasMore] = useState(
-    currentPage < (groups?.meta?.pagination?.pageCount || 1),
+    currentPage < (groups?.meta?.pagination?.pageCount || CURRENT_PAGE),
   );
 
   const [createState, createAction] = useFormState(
@@ -62,21 +65,22 @@ export const GroupsWidget = memo(({ authorId, groups }: GroupsWidgetProps) => {
   );
 
   const loadMore = useCallback(async () => {
+    if (isPending) return; // Prevent multiple calls while loading
+
     startTransition(async () => {
       const nextPage = currentPage + 1;
 
-      const { data: newNewsFeeds } = await getGroups(
+      const groupResponse = await fetchGroups({
         authorId,
-        undefined,
-        nextPage,
-      );
-      if (!newNewsFeeds) return;
+        page: nextPage,
+        pageSize: PAGE_SIZE,
+      });
 
-      setInitialGroups((prev) => [...prev, ...newNewsFeeds.data]);
+      setInitialGroups((prev) => [...prev, ...groupResponse.data]);
       setCurrentPage(nextPage);
-      setHasMore(nextPage < newNewsFeeds.meta.pagination.pageCount);
+      setHasMore(nextPage < groupResponse.meta.pagination.pageCount);
     });
-  }, [authorId, currentPage]);
+  }, [authorId, currentPage, isPending]);
 
   const handleCreate = async (data: FormData) => {
     startTransition(async () => {
@@ -181,7 +185,12 @@ export const GroupsWidget = memo(({ authorId, groups }: GroupsWidgetProps) => {
       </Card>
 
       {hasMore && (
-        <Button variant="primary" onClick={loadMore} disabled={isPending}>
+        <Button
+          variant="primary"
+          onClick={loadMore}
+          disabled={isPending}
+          isLoading={isPending}
+        >
           {isPending ? 'Loading...' : 'Load More Groups'}
         </Button>
       )}

@@ -3,17 +3,20 @@
 import { useCallback, useState } from 'react';
 import { useTransition } from 'react';
 
+// Constants
+import { PAGE_SIZE, CURRENT_PAGE } from '@/constants';
+
 // Components
 import { Button } from '@/components/ui';
 import { NewFriendsWidget } from './new-friends-widget';
 import { NewsFeedCardList } from '@/features/home/components/news-feed-card-list';
 
-// Actions
-import { getNewsFeedIds } from '../actions';
-
 // Types
 import { NewsFeedIdModel } from '@/models';
 import { Pagination, TNewFriends } from '@/types';
+
+// Actions
+import { fetchNewsFeedIds } from '@/actions';
 
 interface NewFeedContentProps {
   authorId: string;
@@ -30,22 +33,29 @@ export const NewFeedContent = ({
 }: NewFeedContentProps) => {
   const [newsFeedIds, setNewFeedIds] =
     useState<NewsFeedIdModel[]>(initialNewsFeeds);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(CURRENT_PAGE);
   const [isPending, startTransition] = useTransition();
   const [hasMore, setHasMore] = useState(currentPage < pagination.pageCount);
 
   const loadMore = useCallback(async () => {
+    if (isPending) return; // Prevent multiple calls while loading
+
     startTransition(async () => {
       const nextPage = currentPage + 1;
 
-      const { data: newNewsFeeds } = await getNewsFeedIds(authorId, nextPage);
-      if (!newNewsFeeds) return;
+      const newsFeedIdsResponse = await fetchNewsFeedIds({
+        authorId,
+        page: nextPage,
+        pageSize: PAGE_SIZE,
+      });
 
-      setNewFeedIds((prev) => [...prev, ...newNewsFeeds.data]);
+      if (!newsFeedIdsResponse) return;
+
+      setNewFeedIds((prev) => [...prev, ...newsFeedIdsResponse.data]);
       setCurrentPage(nextPage);
-      setHasMore(nextPage < newNewsFeeds.meta.pagination.pageCount);
+      setHasMore(nextPage < newsFeedIdsResponse.meta.pagination.pageCount);
     });
-  }, [authorId, currentPage]);
+  }, [authorId, currentPage, isPending]);
 
   return (
     <div className="py-5 min-h-full">
@@ -59,7 +69,12 @@ export const NewFeedContent = ({
 
             {/**TODO: Define common component later  */}
             {hasMore && (
-              <Button variant="primary" onClick={loadMore} disabled={isPending}>
+              <Button
+                variant="primary"
+                onClick={loadMore}
+                disabled={isPending}
+                isLoading={isPending}
+              >
                 {isPending ? 'Loading...' : 'Load More Posts'}
               </Button>
             )}

@@ -4,6 +4,9 @@ import { useCallback, useState } from 'react';
 import { Briefcase, Gift } from 'lucide-react';
 import { useTransition } from 'react';
 
+// Constants
+import { PAGE_SIZE, CURRENT_PAGE } from '@/constants';
+
 // Components
 import { ComposeFeedCard } from './compose-feed-card';
 import { NotificationWidget } from './notification-widget';
@@ -31,6 +34,7 @@ import {
 } from '@/models';
 import { AcceptFriendsWidget } from './accept-friends-widget';
 import { GroupsWidget } from './groups-widget';
+import { fetchNewsFeedIds } from '@/actions';
 
 interface ActivityFeedContentProps {
   authorId: string;
@@ -50,10 +54,11 @@ export const ActivityFeedContent = ({
   const [newsFeedIds, setNewFeedIds] = useState<NewsFeedIdModel[]>(
     newsFeedIdsPagination?.data || [],
   );
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(CURRENT_PAGE);
   const [isPending, startTransition] = useTransition();
   const [hasMore, setHasMore] = useState(
-    currentPage < (newsFeedIdsPagination?.meta.pagination.pageCount || 1),
+    currentPage <
+      (newsFeedIdsPagination?.meta.pagination.pageCount || CURRENT_PAGE),
   );
 
   const {
@@ -72,13 +77,13 @@ export const ActivityFeedContent = ({
     startTransition(async () => {
       const nextPage = currentPage + 1;
 
-      const response = await fetch(
-        `/api/news-feed?&authorId=${authorId}&page=${nextPage}&pageSize=10`,
-      );
+      const newsFeedIdsResponse = await fetchNewsFeedIds({
+        authorId,
+        page: nextPage,
+        pageSize: PAGE_SIZE,
+      });
 
-      if (!response.ok) return;
-
-      const newsFeedIdsResponse: NewsFeedIdsResponse = await response.json();
+      if (!newsFeedIdsResponse) return;
 
       setNewFeedIds((prev) => [...prev, ...newsFeedIdsResponse.data]);
       setCurrentPage(nextPage);
