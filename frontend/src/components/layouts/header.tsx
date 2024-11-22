@@ -1,10 +1,9 @@
 'use client';
 
 import { memo, useCallback, useMemo } from 'react';
-import Link from 'next/link';
 
 // Components
-import { BrandLink, CircleOverlay, SwitchTheme } from '../sections';
+import { BrandLink, CircleOverlay, HeaderPopover } from '../sections';
 import {
   Button,
   SearchInput,
@@ -12,11 +11,10 @@ import {
   AvatarFallback,
   AvatarImage,
   PopoverContainer,
-  Text,
 } from '../ui';
 
 // Utils
-import { cn, getFullName } from '@/utils';
+import { cn } from '@/utils';
 
 // Icons
 import {
@@ -38,9 +36,6 @@ import { UserDetail } from '@/types';
 
 // Images
 import AvatarPlaceholder from '@public/images/avatar-placeholder.svg';
-
-// Constants
-import { ROUTER } from '@/constants';
 
 interface HeaderProps {
   user?: UserDetail;
@@ -181,16 +176,11 @@ export const Header = memo(({ isAuthenticated = true, user }: HeaderProps) => {
                 </CircleOverlay>
               }
               content={
-                <div className="grid gap-4">
-                  <div className="flex justify-between items-center p-4">
-                    <Link href={ROUTER.PROFILE_MAIN(username)}>
-                      <Text variant="primary">
-                        {getFullName(firstName, lastName)}
-                      </Text>
-                    </Link>
-                    <SwitchTheme />
-                  </div>
-                </div>
+                <HeaderPopover
+                  firstName={firstName}
+                  lastName={lastName}
+                  username={username}
+                />
               }
               contentClassName="p-0"
             />
