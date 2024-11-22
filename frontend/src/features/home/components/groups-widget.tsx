@@ -1,7 +1,7 @@
 'use client';
 
 import { memo, useCallback, useEffect, useState, useTransition } from 'react';
-import { EllipsisVertical, Plus } from 'lucide-react';
+import { EllipsisVertical, LogOutIcon, Plus, XIcon } from 'lucide-react';
 import { useFormState } from 'react-dom';
 import { useRouter } from 'next/navigation';
 
@@ -22,7 +22,10 @@ import {
   DialogTrigger,
 } from '@/components/ui';
 import { StoryMeta } from './story-meta';
-import { GroupFormDialog } from '@/features/group/components';
+import {
+  GroupFormDialog,
+  GroupRemoveConfirmDialog,
+} from '@/features/group/components';
 
 // Utils
 import { getFirstLetters } from '@/utils';
@@ -92,6 +95,18 @@ export const GroupsWidget = memo(({ authorId, groups }: GroupsWidgetProps) => {
     router.push(ROUTER.GROUP_NAME(groupName));
   };
 
+  const handleRemoveGroupSuccess = (groupId: string) => {
+    toast({
+      variant: 'success',
+      title: 'Success',
+      description: 'Group removed successfully',
+    });
+
+    setInitialGroups((prevGroups) =>
+      prevGroups.filter((group) => group.documentId !== groupId),
+    );
+  };
+
   useEffect(() => {
     if (createState.error) {
       toast({
@@ -111,27 +126,64 @@ export const GroupsWidget = memo(({ authorId, groups }: GroupsWidgetProps) => {
       const newGroup: GroupDetail = {
         ...createState.data,
         members: createState.data.groupMembers,
-        author: createState.data.createdUser,
+        author: { ...createState.data.createdUser, id: Number(authorId) },
         newsFeeds: createState.data.posts,
       };
 
       setInitialGroups((prev) => [...prev, newGroup]);
     }
-  }, [createState]);
+  }, [authorId, createState]);
 
   const renderStoriesFriends = initialGroups.map(
-    ({ id, documentId, name, description, avatar }) => (
+    ({ id, documentId, author, members, name, description, avatar }) => (
       <div
         key={documentId}
         className="p-4 flex w-full border-t border-slate-300 dark:border-slate-600 items-center justify-between group cursor-pointer"
-        onClick={() => handleNavigate(name)}
       >
-        <div className="flex items-center gap-3">
+        <div
+          className="flex items-center gap-3"
+          onClick={() => handleNavigate(name)}
+        >
           <Avatar>
             <AvatarImage src={avatar} alt={`Avatar of the group-${id}`} />
             <AvatarFallback>{getFirstLetters(name, name)}</AvatarFallback>
           </Avatar>
           <StoryMeta title={name} description={description} />
+        </div>
+
+        <div className="flex items-center gap-2">
+          {author.id.toString() === authorId ? (
+            <GroupRemoveConfirmDialog
+              groupId={documentId}
+              groupName={name}
+              userId={authorId}
+              page={currentPage}
+              trigger={
+                <Button
+                  size="icon"
+                  variant="rounded"
+                  className="w-9 h-9 border-none hover:text-red-600"
+                >
+                  <XIcon size={20} />
+                </Button>
+              }
+              onRemoveSuccess={handleRemoveGroupSuccess}
+            />
+          ) : (
+            members.some((member) => member.id.toString() === authorId) && (
+              <Button
+                size="icon"
+                variant="rounded"
+                className="w-9 h-9 border-none hover:text-black-haze-50"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  // handleQuitGroup(id);
+                }}
+              >
+                <LogOutIcon size={20} />
+              </Button>
+            )
+          )}
         </div>
       </div>
     ),
