@@ -8,42 +8,44 @@ import {
   Heading,
   Text,
 } from '@/components/ui';
-import { useRemoveGroup } from '../hooks';
+import { useLeaveGroup } from '../hooks';
 
-interface GroupRemoveConfirmDialogProps {
+interface GroupLeaveConfirmDialogProps {
   groupId: string;
+  groupMemberId: string;
   groupName?: string;
   userId?: string;
   page?: number;
   trigger: ReactNode;
-  onRemoveSuccess: (groupId: string) => void;
+  onLeaveSuccess: (groupId: string) => void;
 }
 
-export const GroupRemoveConfirmDialog = ({
+export const GroupLeaveConfirmDialog = ({
   groupId,
+  groupMemberId,
   groupName,
   userId,
   page,
   trigger,
-  onRemoveSuccess,
-}: GroupRemoveConfirmDialogProps) => {
-  const { isPending, mutateRemoveGroup } = useRemoveGroup();
+  onLeaveSuccess,
+}: GroupLeaveConfirmDialogProps) => {
+  const { isPending, mutateLeaveGroup } = useLeaveGroup();
 
-  const handleRemoveGroup = async () => {
-    await mutateRemoveGroup({
+  const handleLeaveGroup = async () => {
+    await mutateLeaveGroup({
       groupId,
-      groupName,
+      groupMemberId,
       userId,
       page,
     });
 
-    onRemoveSuccess(groupId);
+    onLeaveSuccess(groupId);
   };
 
   return (
     <DialogContainer
       trigger={trigger}
-      title="Delete Group"
+      title="Leave Group"
       contentClassName="p-0 gap-0 md:max-w-[320px]"
       headerClassName="px-3 py-2 border-b border-gray-600 dark:border-dark-500"
       footerClassName="p-2 border-t border-gray-600 dark:border-dark-500"
@@ -64,20 +66,19 @@ export const GroupRemoveConfirmDialog = ({
             variant="primary"
             disabled={isPending}
             isLoading={isPending}
-            onClick={handleRemoveGroup}
+            onClick={handleLeaveGroup}
           >
-            Delete
+            Leave
           </Button>
         </>
       }
     >
       <div className="flex flex-col text-center p-3">
         <Heading headingLevel="h3" className="text-lg font-semibold mb-2">
-          Are you sure you want to delete this {groupName} group?
+          Are you sure you want to leave {groupName} group?
         </Heading>
         <Text>
-          This action cannot be undone. All group content will be permanently
-          removed.
+          You will no longer have access to this group&apos;s content.
         </Text>
       </div>
     </DialogContainer>
