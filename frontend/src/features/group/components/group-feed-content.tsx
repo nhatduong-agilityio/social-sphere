@@ -3,6 +3,9 @@
 import { useState } from 'react';
 import { useTransition } from 'react';
 
+// Constants
+import { PAGE_SIZE, CURRENT_PAGE } from '@/constants';
+
 // Components
 import { Button } from '@/components/ui';
 import { GroupMembersWidget } from './group-members-widget';
@@ -10,12 +13,12 @@ import { GroupMembersWidget } from './group-members-widget';
 // Features
 import { NewsFeedCardList } from '@/features/home/components/news-feed-card-list';
 
-// Actions
-import { getGroupMembers, getNewsFeedIdsInGroup } from '../actions';
-
 // Models
 import { NewsFeedIdModel, NewsFeedIdsResponse } from '@/models';
 import { GroupMember, GroupMembersResponse } from '@/types';
+
+// Actions
+import { fetchGroupMembers, fetchNewsFeedIds } from '@/actions';
 
 interface GroupFeedContentProps {
   authorId: string;
@@ -33,7 +36,7 @@ export const GroupFeedContent = ({
   const [groupMembers, setGroupMembers] = useState<GroupMember[]>(
     groupMembersPagination.data,
   );
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(CURRENT_PAGE);
   const [isPending, startTransition] = useTransition();
   const [hasMore, setHasMore] = useState(
     currentPage < groupMembersPagination.meta.pagination.pageCount,
@@ -48,14 +51,16 @@ export const GroupFeedContent = ({
   );
 
   const loadMoreMembers = async () => {
+    if (isPending) return;
+
     startTransition(async () => {
       const nextPage = currentPage + 1;
 
-      const { data: groupMembersResponse } = await getGroupMembers(
+      const groupMembersResponse = await fetchGroupMembers({
         groupId,
-        nextPage,
-      );
-      if (!groupMembersResponse) return;
+        page: nextPage,
+        pageSize: PAGE_SIZE,
+      });
 
       setGroupMembers((prev) => [...prev, ...groupMembersResponse.data]);
       setCurrentPage(nextPage);
@@ -64,19 +69,23 @@ export const GroupFeedContent = ({
   };
 
   const loadMoreNewsFeedIds = async () => {
+    if (isPending) return;
+
     startTransition(async () => {
-      const nextPage = currentNewsFeedIdsPage + 1;
+      const nextPage = currentPage + 1;
 
-      const { data: newNewsFeedIdsResponse } = await getNewsFeedIdsInGroup(
+      const newsFeedIdsResponse = await fetchNewsFeedIds({
         groupId,
-        nextPage,
-      );
-      if (!newNewsFeedIdsResponse) return;
+        page: nextPage,
+        pageSize: PAGE_SIZE,
+      });
 
-      setNewsFeedIds((prev) => [...prev, ...newNewsFeedIdsResponse.data]);
+      if (!newsFeedIdsResponse) return;
+
+      setNewsFeedIds((prev) => [...prev, ...newsFeedIdsResponse.data]);
       setCurrentNewsFeedIdsPage(nextPage);
       setHasMoreNewsFeedIds(
-        nextPage < newNewsFeedIdsResponse.meta.pagination.pageCount,
+        nextPage < newsFeedIdsResponse.meta.pagination.pageCount,
       );
     });
   };
@@ -91,6 +100,7 @@ export const GroupFeedContent = ({
               variant="primary"
               onClick={loadMoreMembers}
               disabled={isPending}
+              isLoading={isPending}
             >
               {isPending ? 'Loading...' : 'Load More Members'}
             </Button>
@@ -104,6 +114,7 @@ export const GroupFeedContent = ({
               variant="primary"
               onClick={loadMoreNewsFeedIds}
               disabled={isPending}
+              isLoading={isPending}
             >
               {isPending ? 'Loading...' : 'Load More News Feed'}
             </Button>
