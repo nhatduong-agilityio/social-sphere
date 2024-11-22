@@ -29,10 +29,14 @@ import { updateProfile } from '../actions';
 // Hooks
 import { toast } from '@/hooks';
 
+// Utils
+import { cn } from '@/utils';
+
 interface OverviewInputProps {
   nameField: 'firstName' | 'lastName' | 'job';
   nameLabel: string;
   placeholder: string;
+  isDisabled?: boolean;
   user: UserModel;
   icon: JSX.Element;
 }
@@ -41,6 +45,7 @@ export const OverviewInput = ({
   icon,
   nameField,
   nameLabel,
+  isDisabled = false,
   user,
   placeholder,
 }: OverviewInputProps) => {
@@ -99,6 +104,7 @@ export const OverviewInput = ({
                     className="h-6 p-0 border-none dark:bg-slate-800 text-slate-400 text-2xs"
                     variant="ghost"
                     placeholder={placeholder}
+                    disabled={isDisabled}
                     {...field}
                   />
                 </FormControl>
@@ -112,9 +118,10 @@ export const OverviewInput = ({
           type="submit"
           variant="rounded"
           size="icon"
-          className="w-[42px] h-[42px] opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100
-               rounded-full bg-blue-50 group-hover:bg-blue-100
-               flex items-center justify-center transition-all duration-300 group-hover:rotate-180"
+          className={cn(
+            'w-[42px] h-[42px] opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100 rounded-full bg-blue-50 group-hover:bg-blue-100 flex items-center justify-center transition-all duration-300 group-hover:rotate-180',
+            isDisabled && 'hidden',
+          )}
         >
           <ArrowLeft size={16} />
         </Button>

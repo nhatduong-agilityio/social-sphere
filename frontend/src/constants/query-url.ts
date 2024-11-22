@@ -38,7 +38,7 @@ export const QUERY = {
     `filters[post][id][$eq]=${newsFeedId}&filters[parent][$null]=true&populate[friend]=*&populate[likes][fields][0]=createdAt&populate[likes]&populate[replies][populate][friend]=*&populate[replies][populate][likes][fields][0]=createdAt&populate[replies][populate][likes]&pagination[page]=${page}&pagination[pageSize]=${pageSize}&sort[createdAt]=desc`,
   CREATE_SHARE: '/create',
   PROFILE: (username: string) =>
-    `filters[username][$eq]=${username}&populate[followedRelationships][filters][requestStatus]=friends`,
+    `filters[username][$eq]=${username}&populate[followedRelationships][filters][requestStatus]=friends&populate[followedRelationships][filters][publishedAt][$notNull]=null`,
   GROUPS: (
     authorId: string,
     searchName = '',

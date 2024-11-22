@@ -60,9 +60,12 @@ export const NewFeedContent = ({
   return (
     <div className="py-5 min-h-full">
       <div className="h-full flex w-full gap-6">
-        <div className="hidden lg:flex lg:w-400 col-span-3 flex-col gap-6">
-          <NewFriendsWidget friends={newFriends} />
-        </div>
+        {newFriends.length > 0 && (
+          <div className="hidden lg:flex lg:w-400 col-span-3 flex-col gap-6">
+            <NewFriendsWidget friends={newFriends} />
+          </div>
+        )}
+
         <div className="flex w-full flex-col gap-6">
           <div className="flex flex-col gap-6">
             <NewsFeedCardList newsFeedIds={newsFeedIds} authorId={authorId} />
