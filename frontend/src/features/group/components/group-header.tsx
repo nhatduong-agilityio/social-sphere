@@ -2,7 +2,8 @@
 
 import { useEffect, useOptimistic, useTransition } from 'react';
 import { useFormState } from 'react-dom';
-import { EditIcon } from 'lucide-react';
+import { EditIcon, LogOutIcon, XIcon } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 // Components
 import { Button, Dialog, DialogTrigger } from '@/components/ui';
@@ -22,6 +23,9 @@ import { updateGroupAction } from '../actions';
 
 // Hooks
 import { toast } from '@/hooks';
+import { GroupRemoveConfirmDialog } from './group-remove-confirm-dialog';
+import { GroupLeaveConfirmDialog } from './group-leave-confirm-dialog';
+import { ROUTER } from '@/constants';
 
 interface GroupHeaderProps {
   authorId: string;
@@ -34,6 +38,7 @@ const initialState: ActionState<GroupDetail> = {
 };
 
 export const GroupHeader = ({ group, authorId }: GroupHeaderProps) => {
+  const router = useRouter();
   const [optimisticGroup, addOptimisticGroup] = useOptimistic(
     group,
     (state, newData: GroupDetail) => ({
@@ -52,6 +57,9 @@ export const GroupHeader = ({ group, authorId }: GroupHeaderProps) => {
     authorId === optimisticGroup.author.id.toString() ||
     isGroupAdmin(optimisticGroup.members, authorId);
   const countMembers = optimisticGroup.members?.length;
+  const member = optimisticGroup.members.find(
+    (member) => member.user.id.toString() === authorId,
+  );
   const initialGroupForm = {
     name: optimisticGroup.name,
     description: optimisticGroup.description,
@@ -74,6 +82,19 @@ export const GroupHeader = ({ group, authorId }: GroupHeaderProps) => {
       addOptimisticGroup(newData);
       updateAction(data);
     });
+  };
+
+  const handleRemoveGroupSuccess = (variant: 'remove' | 'leave') => {
+    toast({
+      variant: 'success',
+      title: 'Success',
+      description:
+        variant === 'remove'
+          ? 'Group removed successfully'
+          : 'Left group successfully',
+    });
+
+    router.replace(ROUTER.HOME);
   };
 
   useEffect(() => {
@@ -117,7 +138,7 @@ export const GroupHeader = ({ group, authorId }: GroupHeaderProps) => {
           </span>
         </div>
 
-        <div className="flex justify-end flex-1">
+        <div className="flex items-center justify-end flex-1 gap-2">
           <Dialog>
             <DialogTrigger asChild>
               <Button
@@ -135,6 +156,41 @@ export const GroupHeader = ({ group, authorId }: GroupHeaderProps) => {
               initialValues={initialGroupForm}
             />
           </Dialog>
+          {isAdmin && (
+            <GroupRemoveConfirmDialog
+              groupId={optimisticGroup.documentId}
+              groupName={optimisticGroup.name}
+              userId={authorId}
+              trigger={
+                <Button
+                  size="fit"
+                  variant="unstyle"
+                  className="flex items-center gap-1 hover:text-red-600"
+                >
+                  <XIcon size={20} />
+                </Button>
+              }
+              onRemoveSuccess={(_) => handleRemoveGroupSuccess('remove')}
+            />
+          )}
+          {!isAdmin && member && (
+            <GroupLeaveConfirmDialog
+              groupId={optimisticGroup.documentId}
+              groupMemberId={member.documentId}
+              groupName={optimisticGroup.name}
+              userId={authorId}
+              trigger={
+                <Button
+                  size="fit"
+                  variant="unstyle"
+                  className="flex items-center gap-1 hover:text-dark-900"
+                >
+                  <LogOutIcon size={16} />
+                </Button>
+              }
+              onLeaveSuccess={(_) => handleRemoveGroupSuccess('leave')}
+            />
+          )}
         </div>
       </div>
     </div>

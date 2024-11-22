@@ -24,6 +24,7 @@ import {
 import { StoryMeta } from './story-meta';
 import {
   GroupFormDialog,
+  GroupLeaveConfirmDialog,
   GroupRemoveConfirmDialog,
 } from '@/features/group/components';
 
@@ -31,8 +32,13 @@ import {
 import { getFirstLetters } from '@/utils';
 
 // Types
-import { ActionState, GroupDetail, GroupsListResponse } from '@/types';
-import { GroupModel } from '@/models';
+import {
+  ActionState,
+  GroupDetail,
+  GroupMember,
+  GroupsListResponse,
+} from '@/types';
+import { GroupModel, UserModel } from '@/models';
 
 // Actions
 import { createGroup } from '@/features/group/actions';
@@ -95,11 +101,17 @@ export const GroupsWidget = memo(({ authorId, groups }: GroupsWidgetProps) => {
     router.push(ROUTER.GROUP_NAME(groupName));
   };
 
-  const handleRemoveGroupSuccess = (groupId: string) => {
+  const handleRemoveGroupSuccess = (
+    groupId: string,
+    variant: 'remove' | 'leave',
+  ) => {
     toast({
       variant: 'success',
       title: 'Success',
-      description: 'Group removed successfully',
+      description:
+        variant === 'remove'
+          ? 'Group removed successfully'
+          : 'Left group successfully',
     });
 
     setInitialGroups((prevGroups) =>
@@ -125,7 +137,13 @@ export const GroupsWidget = memo(({ authorId, groups }: GroupsWidgetProps) => {
 
       const newGroup: GroupDetail = {
         ...createState.data,
-        members: createState.data.groupMembers,
+        members: [
+          {
+            user: {
+              id: Number(authorId),
+            } as UserModel,
+          } as GroupMember,
+        ],
         author: { ...createState.data.createdUser, id: Number(authorId) },
         newsFeeds: createState.data.posts,
       };
@@ -135,58 +153,74 @@ export const GroupsWidget = memo(({ authorId, groups }: GroupsWidgetProps) => {
   }, [authorId, createState]);
 
   const renderStoriesFriends = initialGroups.map(
-    ({ id, documentId, author, members, name, description, avatar }) => (
-      <div
-        key={documentId}
-        className="p-4 flex w-full border-t border-slate-300 dark:border-slate-600 items-center justify-between group cursor-pointer"
-      >
-        <div
-          className="flex items-center gap-3"
-          onClick={() => handleNavigate(name)}
-        >
-          <Avatar>
-            <AvatarImage src={avatar} alt={`Avatar of the group-${id}`} />
-            <AvatarFallback>{getFirstLetters(name, name)}</AvatarFallback>
-          </Avatar>
-          <StoryMeta title={name} description={description} />
-        </div>
+    ({ id, documentId, author, members, name, description, avatar }) => {
+      const isAdmin = author.id.toString() === authorId;
+      const member = members.find(
+        (member) => member.user.id.toString() === authorId,
+      );
 
-        <div className="flex items-center gap-2">
-          {author.id.toString() === authorId ? (
-            <GroupRemoveConfirmDialog
-              groupId={documentId}
-              groupName={name}
-              userId={authorId}
-              page={currentPage}
-              trigger={
-                <Button
-                  size="icon"
-                  variant="rounded"
-                  className="w-9 h-9 border-none hover:text-red-600"
-                >
-                  <XIcon size={20} />
-                </Button>
-              }
-              onRemoveSuccess={handleRemoveGroupSuccess}
-            />
-          ) : (
-            members.some((member) => member.id.toString() === authorId) && (
-              <Button
-                size="icon"
-                variant="rounded"
-                className="w-9 h-9 border-none hover:text-black-haze-50"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  // handleQuitGroup(id);
-                }}
-              >
-                <LogOutIcon size={20} />
-              </Button>
-            )
-          )}
+      return (
+        <div
+          key={documentId}
+          className="p-4 flex w-full border-t border-slate-300 dark:border-slate-600 items-center justify-between group"
+        >
+          <div
+            className="w-full flex items-center gap-3 cursor-pointer"
+            onClick={() => handleNavigate(name)}
+          >
+            <Avatar>
+              <AvatarImage src={avatar} alt={`Avatar of the group-${id}`} />
+              <AvatarFallback>{getFirstLetters(name, name)}</AvatarFallback>
+            </Avatar>
+            <StoryMeta title={name} description={description} />
+          </div>
+
+          <div className="flex items-center gap-2">
+            {isAdmin && (
+              <GroupRemoveConfirmDialog
+                groupId={documentId}
+                groupName={name}
+                userId={authorId}
+                page={currentPage}
+                trigger={
+                  <Button
+                    size="icon"
+                    variant="rounded"
+                    className="w-9 h-9 border-none hover:text-red-600"
+                  >
+                    <XIcon size={20} />
+                  </Button>
+                }
+                onRemoveSuccess={(groupId) =>
+                  handleRemoveGroupSuccess(groupId, 'remove')
+                }
+              />
+            )}
+            {!isAdmin && member && (
+              <GroupLeaveConfirmDialog
+                groupId={documentId}
+                groupMemberId={member.documentId}
+                groupName={name}
+                userId={authorId}
+                page={currentPage}
+                trigger={
+                  <Button
+                    size="icon"
+                    variant="rounded"
+                    className="w-9 h-9 border-none hover:text-dark-900"
+                  >
+                    <LogOutIcon size={16} />
+                  </Button>
+                }
+                onLeaveSuccess={(groupId) =>
+                  handleRemoveGroupSuccess(groupId, 'leave')
+                }
+              />
+            )}
+          </div>
         </div>
-      </div>
-    ),
+      );
+    },
   );
 
   return (

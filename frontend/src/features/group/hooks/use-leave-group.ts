@@ -1,24 +1,24 @@
 'use client';
 
 import { useTransition } from 'react';
-import { removeGroupById } from '../actions';
+import { leaveGroupById } from '../actions';
 
-export const useRemoveGroup = () => {
+export const useLeaveGroup = () => {
   const [isPending, startTransition] = useTransition();
 
-  const handleRemoveGroup = (params: {
+  const handleLeaveGroup = (params: {
     groupId: string;
-    groupName?: string;
+    groupMemberId: string;
     userId?: string;
     page?: number;
   }) => {
     startTransition(async () => {
-      await removeGroupById(params);
+      await leaveGroupById(params);
     });
   };
 
   return {
     isPending,
-    mutateRemoveGroup: handleRemoveGroup,
+    mutateLeaveGroup: handleLeaveGroup,
   };
 };
