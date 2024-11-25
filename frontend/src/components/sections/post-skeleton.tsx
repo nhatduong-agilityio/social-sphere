@@ -10,6 +10,8 @@ export const PostSkeleton = () => (
       </div>
     </div>
 
+    <Skeleton className="h-[300px] w-full" />
+
     <div className="flex items-center justify-between">
       <div className="flex gap-3">
         <Skeleton className="h-5 w-5 rounded-full" />
