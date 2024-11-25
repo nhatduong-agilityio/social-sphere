@@ -3,6 +3,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { useFormState, useFormStatus } from 'react-dom';
+import Link from 'next/link';
 import { z } from 'zod';
 
 // Icons
@@ -29,6 +30,9 @@ import { FormSchema } from '../lib';
 
 // Actions
 import { login } from '../actions';
+
+// Constants
+import { ROUTER } from '@/constants';
 
 const initialState = {
   email: '',
@@ -116,7 +120,7 @@ export const LoginForm = () => {
           Login
         </Button>
         <Button variant="link" className="p-0 h-9">
-          Forgot password?
+          <Link href={ROUTER.ONBOARDING}>Do you need an account?</Link>
         </Button>
       </form>
       <div className="absolute top-3 right-3">
