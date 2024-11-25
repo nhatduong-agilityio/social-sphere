@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LocationCard Component should render correctly 1`] = `
+<div>
+  <div
+    class="bg-card border border-gray-800 hover:shadow dark:border-dark-300 rounded-lg flex flex-col items-start dark:bg-dark-300 relative w-60 h-[235px] p-3"
+  >
+    <div
+      class="relative w-[215px] h-[167px]"
+    >
+      <img
+        alt="Test Place"
+        class="absolute inset-0 rounded-sm"
+        data-nimg="fill"
+        decoding="async"
+        fetchpriority="high"
+        sizes="(max-width: 768px) 100vw"
+        src="/_next/image?url=https%3A%2F%2Fexample.com%2Ftest-place.jpg&w=3840&q=100"
+        srcset="/_next/image?url=https%3A%2F%2Fexample.com%2Ftest-place.jpg&w=640&q=100 640w, /_next/image?url=https%3A%2F%2Fexample.com%2Ftest-place.jpg&w=750&q=100 750w, /_next/image?url=https%3A%2F%2Fexample.com%2Ftest-place.jpg&w=828&q=100 828w, /_next/image?url=https%3A%2F%2Fexample.com%2Ftest-place.jpg&w=1080&q=100 1080w, /_next/image?url=https%3A%2F%2Fexample.com%2Ftest-place.jpg&w=1200&q=100 1200w, /_next/image?url=https%3A%2F%2Fexample.com%2Ftest-place.jpg&w=1920&q=100 1920w, /_next/image?url=https%3A%2F%2Fexample.com%2Ftest-place.jpg&w=2048&q=100 2048w, /_next/image?url=https%3A%2F%2Fexample.com%2Ftest-place.jpg&w=3840&q=100 3840w"
+        style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent;"
+      />
+    </div>
+    <h3
+      class="font-roboto font-medium text-sm mt-1"
+    >
+      Test Place
+    </h3>
+    <div
+      class="flex space-x-1"
+    >
+      <svg
+        class="w-[14px] h-[14px] fill-blue-500 stroke-blue-500"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <polygon
+          points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+        />
+      </svg>
+      <svg
+        class="w-[14px] h-[14px] fill-blue-500 stroke-blue-500"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <polygon
+          points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+        />
+      </svg>
+      <svg
+        class="w-[14px] h-[14px] fill-blue-500 stroke-blue-500"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <polygon
+          points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+        />
+      </svg>
+      <svg
+        class="w-[14px] h-[14px] fill-blue-500 stroke-blue-500"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <polygon
+          points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+        />
+      </svg>
+      <svg
+        class="w-[14px] h-[14px]"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <polygon
+          points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;

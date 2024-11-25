@@ -1,8 +1,8 @@
-import { NewsFeed } from '@/types';
+import { NewsFeed, NewsFeedsResponse } from '@/types';
 import { MOCK_FRIENDS } from './user';
 
 export const MOCK_NEWS_FEED: NewsFeed = {
-  id: 'd4f27ea8-6e4f-4465-9147-2a5d60f25d8f',
+  id: 1,
   author: MOCK_FRIENDS[0],
   content: 'Was totally fantastic! People were really excited about this one!',
   createdAt: '2024-09-02T23:59:59Z',
@@ -33,45 +33,82 @@ export const MOCK_NEWS_FEED: NewsFeed = {
     ],
   },
   comments: {
-    data: {
-      totalComments: 4,
-      comments: [
-        {
-          id: 'd4f27ea8-6e4f-4465-0000-2a5d60f25d8f',
-          friend: MOCK_FRIENDS[1],
-          content:
-            'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempo incididunt ut labore et dolore magna aliqua.',
-          createdAt: '2024-09-03T22:59:59Z',
-          likes: [MOCK_FRIENDS[5]],
-          reply: [
+    commentTotal: 5,
+    data: [
+      {
+        id: 1,
+        friend: MOCK_FRIENDS[1],
+        content:
+          'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempo incididunt ut labore et dolore magna aliqua.',
+        createdAt: '2024-09-03T22:59:59Z',
+        likes: {
+          likesTotal: 5,
+          remainingLikes: 3,
+          likesRecent: [
             {
-              id: 'd4f27ea8-6e4f-4465-1111-2a5d60f25d8f',
-              friend: MOCK_FRIENDS[5],
-              content:
-                'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempo incididunt ut labore et dolore magna aliqua.',
-              createdAt: '2024-09-03T23:59:59Z',
+              friend: MOCK_FRIENDS[1],
+              createdAt: '2024-09-03T22:59:59Z',
             },
             {
-              id: 'd4f27ea8-6e4f-4465-1111-2a5d60231122',
-              friend: MOCK_FRIENDS[5],
-              content:
-                'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempo incididunt ut labore et dolore magna aliqua.',
-              createdAt: '2024-09-03T23:59:59Z',
+              friend: MOCK_FRIENDS[2],
+              createdAt: '2024-09-03T23:00:59Z',
+            },
+            {
+              friend: MOCK_FRIENDS[3],
+              createdAt: '2024-09-03T23:05:59Z',
+            },
+            {
+              friend: MOCK_FRIENDS[4],
+              createdAt: '2024-09-03T23:06:59Z',
             },
           ],
-          isOwner: true,
         },
-        {
-          id: 'd4f27ea8-6e4f-4465-0000-2a5d60f25238',
-          friend: MOCK_FRIENDS[1],
-          content:
-            'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempo incididunt ut labore et dolore magna aliqua.',
-          createdAt: '2024-09-03T22:59:59Z',
-          likes: [MOCK_FRIENDS[5]],
-          isOwner: false,
+        reply: [
+          {
+            id: 4,
+            friend: MOCK_FRIENDS[5],
+            content:
+              'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempo incididunt ut labore et dolore magna aliqua.',
+            createdAt: '2024-09-03T23:59:59Z',
+          },
+          {
+            id: 3,
+            friend: MOCK_FRIENDS[5],
+            content:
+              'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempo incididunt ut labore et dolore magna aliqua.',
+            createdAt: '2024-09-03T23:59:59Z',
+          },
+        ],
+        isOwner: true,
+      },
+      {
+        id: 5,
+        friend: MOCK_FRIENDS[1],
+        content:
+          'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempo incididunt ut labore et dolore magna aliqua.',
+        createdAt: '2024-09-03T22:59:59Z',
+        likes: {
+          likesTotal: 5,
+          remainingLikes: 3,
+          likesRecent: [
+            {
+              friend: MOCK_FRIENDS[1],
+              createdAt: '2024-09-03T22:59:59Z',
+            },
+            {
+              friend: MOCK_FRIENDS[2],
+              createdAt: '2024-09-03T23:00:59Z',
+            },
+            {
+              friend: MOCK_FRIENDS[3],
+              createdAt: '2024-09-03T23:05:59Z',
+            },
+          ],
         },
-      ],
-    },
+        isOwner: false,
+      },
+    ],
+
     meta: {
       pagination: {
         page: 1,
@@ -101,4 +138,14 @@ export const MOCK_NEWS_FEED: NewsFeed = {
   isLiked: true,
 };
 
-export const MOCK_NEWS_FEED_LIST: NewsFeed[] = [MOCK_NEWS_FEED];
+export const MOCK_NEWS_FEED_LIST: NewsFeedsResponse = {
+  data: [MOCK_NEWS_FEED],
+  meta: {
+    pagination: {
+      page: 1,
+      pageSize: 10,
+      pageCount: 1,
+      total: 1,
+    },
+  },
+};

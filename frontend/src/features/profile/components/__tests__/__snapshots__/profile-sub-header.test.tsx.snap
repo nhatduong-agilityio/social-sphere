@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProfileSubHeader Component should render correctly 1`] = `
+<div>
+  <div
+    class="flex items-start justify-between py-3"
+  >
+    <div
+      class="hidden md:flex flex-col flex-1"
+    >
+      <span
+        class="font-montserrat text-[25.6px] font-semibold"
+      >
+        3
+      </span>
+      <span
+        class="text-neutral-100 text-4xs uppercase"
+      >
+        Friends
+      </span>
+    </div>
+    <div
+      class="text-center flex-1 md:pt-0 pt-12"
+    >
+      <h2
+        class="font-semibold font-montserrat text-xl"
+      >
+        John Doe
+      </h2>
+      <span
+        class="font-roboto text-neutral-100 text-sm"
+      />
+    </div>
+    <div
+      class="hidden md:flex justify-end flex-1"
+    >
+      <button
+        class="font-roboto justify-center whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring bg-white text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 dark:border-dark-500 dark:bg-dark-100 h-10 px-4 py-2 flex items-center gap-1 border border-gray-900"
+      >
+        <svg
+          class="lucide lucide-clock"
+          fill="none"
+          height="16"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="12"
+            cy="12"
+            r="10"
+          />
+          <polyline
+            points="12 6 12 12 16 14"
+          />
+        </svg>
+        History
+      </button>
+    </div>
+  </div>
+</div>
+`;

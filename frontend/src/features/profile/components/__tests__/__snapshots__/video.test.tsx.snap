@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Video Component should render correctly 1`] = `
+<div>
+  <div
+    class="relative w-[184px] h-[138px] rounded-lg group"
+  >
+    <img
+      alt="Video"
+      class="absolute inset-0 rounded-lg opacity-70"
+      data-nimg="fill"
+      decoding="async"
+      fetchpriority="high"
+      sizes="(max-width: 768px) 100vw"
+      src="/_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Fprofile%2Fabout%2Fvideos%2F1.jpg&w=3840&q=100"
+      srcset="/_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Fprofile%2Fabout%2Fvideos%2F1.jpg&w=640&q=100 640w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Fprofile%2Fabout%2Fvideos%2F1.jpg&w=750&q=100 750w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Fprofile%2Fabout%2Fvideos%2F1.jpg&w=828&q=100 828w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Fprofile%2Fabout%2Fvideos%2F1.jpg&w=1080&q=100 1080w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Fprofile%2Fabout%2Fvideos%2F1.jpg&w=1200&q=100 1200w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Fprofile%2Fabout%2Fvideos%2F1.jpg&w=1920&q=100 1920w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Fprofile%2Fabout%2Fvideos%2F1.jpg&w=2048&q=100 2048w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Fprofile%2Fabout%2Fvideos%2F1.jpg&w=3840&q=100 3840w"
+      style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent;"
+    />
+    <div
+      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+    >
+      <a
+        href=""
+      >
+        <button
+          class="font-roboto whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-primary text-primary-foreground hover:opacity-80 hover:shadow-sphere-primary border-primary px-3 w-[34px] h-[34px] rounded-full inset-0 flex items-center border-none dark:bg-blue-500 justify-center"
+        >
+          <svg
+            class="lucide lucide-play text-white"
+            fill="none"
+            height="20"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <polygon
+              points="6 3 20 12 6 21 6 3"
+            />
+          </svg>
+        </button>
+      </a>
+    </div>
+    <div
+      class="absolute z-20 bottom-0 right-0 m-2 opacity-0 translate-y-4 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 ease-in-out"
+    >
+      <button
+        class="font-roboto whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border text-primary-foreground hover:opacity-80 hover:shadow-sphere-primary border-primary px-3 flex w-9 h-9 rounded-full dark:bg-dark-100 bg-white items-center justify-center border-none"
+      >
+        <svg
+          class="lucide lucide-heart text-dark-100 dark:text-white"
+          fill="none"
+          height="24"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"
+          />
+        </svg>
+      </button>
+    </div>
+    <div
+      class="absolute z-20 bottom-0 left-0 p-2"
+    >
+      <p
+        class="text-2xs text-white"
+      >
+        2:32
+      </p>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FriendPanel Component should render correctly 1`] = `
+<div>
+  <div>
+    <div>
+      <div
+        class="flex items-center gap-3"
+      >
+        <svg
+          class="lucide lucide-users"
+          fill="none"
+          height="24"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"
+          />
+          <circle
+            cx="9"
+            cy="7"
+            r="4"
+          />
+          <path
+            d="M22 21v-2a4 4 0 0 0-3-3.87"
+          />
+          <path
+            d="M16 3.13a4 4 0 0 1 0 7.75"
+          />
+        </svg>
+        <h3>
+          Friends
+        </h3>
+      </div>
+      <div
+        class="flex items-center gap-3"
+      >
+        <div
+          class="relative"
+        >
+          <button>
+            Invitations
+          </button>
+        </div>
+        <button>
+          <svg
+            class="lucide lucide-ellipsis-vertical"
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="12"
+              cy="12"
+              r="1"
+            />
+            <circle
+              cx="12"
+              cy="5"
+              r="1"
+            />
+            <circle
+              cx="12"
+              cy="19"
+              r="1"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div>
+      <div
+        class="w-full grid-cols-1 gap-3 grid md:grid-cols-2"
+      >
+        <div>
+          <div>
+            <div>
+              <a
+                class=""
+                data-state="closed"
+              >
+                <span>
+                  <span />
+                </span>
+              </a>
+              <div
+                class="flex flex-col"
+              >
+                <a
+                  href="/user-profile/thanhloc2503@gmail.com/personal-info"
+                >
+                  <h3 />
+                </a>
+                <p>
+                  3 Friends
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -14,6 +14,7 @@ export const MOCK_FRIENDS: UserDetail[] = [
       city: 'Melbourne',
       countryCode: 'au',
     },
+    followedRelationships: [],
   },
   {
     id: 2,
@@ -26,6 +27,7 @@ export const MOCK_FRIENDS: UserDetail[] = [
       city: 'New York',
       countryCode: 'us',
     },
+    followedRelationships: [],
   },
   {
     id: 3,
@@ -38,6 +40,7 @@ export const MOCK_FRIENDS: UserDetail[] = [
       city: 'Berlin',
       countryCode: 'de',
     },
+    followedRelationships: [],
   },
   {
     id: 4,
@@ -50,6 +53,7 @@ export const MOCK_FRIENDS: UserDetail[] = [
       city: 'London',
       countryCode: 'gb',
     },
+    followedRelationships: [],
   },
   {
     id: 5,
@@ -62,6 +66,7 @@ export const MOCK_FRIENDS: UserDetail[] = [
       city: 'Los Angeles',
       countryCode: 'us',
     },
+    followedRelationships: [],
   },
   {
     id: 6,
@@ -74,6 +79,7 @@ export const MOCK_FRIENDS: UserDetail[] = [
       city: 'Ha Noi',
       countryCode: 'vn',
     },
+    followedRelationships: [],
   },
 ];
 
@@ -273,5 +279,23 @@ export const MOCK_PAGES = [
     avatar:
       'https://friendkit.cssninja.io/assets/img/vector/icons/logos/slicer.svg',
     owner: MOCK_FRIENDS[4],
+  },
+];
+
+export const MOCK_ACCEPTED_FRIENDS = [
+  {
+    id: 38,
+    followed: {
+      id: 8,
+      documentId: 'trmb1a8qbgdk3z8kxfwu31xq',
+      username: 'thanhloc2503@gmail.com',
+      firstName: 'loc thanh',
+      lastName: 'vo',
+      profilePicture:
+        'https://res.cloudinary.com/dreri3j76/image/upload/v1730706043/profile_banner_beb11d29c2.jpg',
+      banner: null,
+      followedRelationships: [Array],
+      countFriends: 3,
+    },
   },
 ];
