@@ -1,6 +1,5 @@
 export const ROUTER = {
   HOME: '/',
-  CATEGORY: '/category',
   LOGIN: '/login',
   ONBOARDING: '/onboarding',
   GROUP_NAME: (groupName: string) => `/group/${groupName}`,

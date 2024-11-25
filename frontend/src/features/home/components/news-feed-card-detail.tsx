@@ -1,10 +1,11 @@
 'use client';
 
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState, useTransition } from 'react';
 import { useFormState } from 'react-dom';
 
 // Components
 import { NewsFeedCard } from './news-feed-card';
+import { PostSkeleton } from '@/components/sections';
 
 // Models
 import { CommentPayload, SharePayload } from '@/models';
@@ -40,6 +41,7 @@ export const NewsFeedCardDetail = ({
   authorId,
 }: NewsFeedCardDetailProps) => {
   const [newsFeed, setNewsFeed] = useState<NewsFeed | null>(null);
+  const [isPending, startTransition] = useTransition();
   const [commentReplyValue, clearCommentReply] = useCommentReplyStore(
     (state) => [state.commentReplyValue, state.clearCommentReply],
   );
@@ -62,12 +64,14 @@ export const NewsFeedCardDetail = ({
   );
 
   const fetchNewsFeed = useCallback(async () => {
-    const newsFeedDetail: NewsFeed = await fetchNewsFeedDetailAndComments({
-      newsFeedId,
-      authorId,
-    });
+    startTransition(async () => {
+      const newsFeedDetail: NewsFeed = await fetchNewsFeedDetailAndComments({
+        newsFeedId,
+        authorId,
+      });
 
-    setNewsFeed(newsFeedDetail);
+      setNewsFeed(newsFeedDetail);
+    });
   }, [authorId, newsFeedId]);
 
   useEffect(() => {
@@ -109,7 +113,9 @@ export const NewsFeedCardDetail = ({
     shareAction(formData);
   };
 
-  return (
+  return isPending ? (
+    <PostSkeleton />
+  ) : (
     <NewsFeedCard
       newsFeed={newsFeed}
       authorId={authorId}
