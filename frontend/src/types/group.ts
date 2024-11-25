@@ -2,10 +2,15 @@ import { NewsFeed } from './news-feed';
 import { Pagination } from './pagination';
 import { UserDetail } from './user';
 
+export enum GroupRole {
+  ADMIN = 'admin',
+  MEMBER = 'member',
+}
+
 export type GroupMember = {
   id: number;
   documentId: string;
-  role: 'admin' | 'member';
+  role: GroupRole;
   user: UserDetail;
 };
 

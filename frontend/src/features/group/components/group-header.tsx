@@ -126,7 +126,9 @@ export const GroupHeader = ({ group, authorId }: GroupHeaderProps) => {
           <span className="font-montserrat text-[25.6px] font-semibold">
             {formatNumber(countMembers) || '0'}
           </span>
-          <span className="text-neutral-100 text-4xs uppercase">Friends</span>
+          <span className="text-neutral-100 text-4xs uppercase">
+            {countMembers > 1 ? 'Members' : 'Member'}
+          </span>
         </div>
 
         <div className="text-center flex-1">

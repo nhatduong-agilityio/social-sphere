@@ -12,6 +12,7 @@ import {
   Text,
 } from '@/components/ui';
 import { UserCardPopover } from '@/components/sections';
+import { GroupInviteMembersInput } from './group-invite-members-input';
 
 // Utils
 import { getFullName } from '@/utils';
@@ -20,7 +21,10 @@ import { getFullName } from '@/utils';
 import { GroupMember } from '@/types';
 
 interface GroupMembersWidgetProps {
+  groupId: number;
+  authorId: string;
   groupMembers: GroupMember[];
+  onRefreshMembers: () => Promise<void>;
 }
 
 interface GroupMemberItemProps {
@@ -47,30 +51,38 @@ const GroupMemberItem = ({ member }: GroupMemberItemProps) => {
 };
 
 export const GroupMembersWidget = ({
+  groupId,
+  authorId,
   groupMembers,
+  onRefreshMembers,
 }: GroupMembersWidgetProps) => {
-  const renderSuggestedFriends = groupMembers.map((member) => (
+  const renderMembers = groupMembers.map((member) => (
     <GroupMemberItem key={member.id} member={member} />
   ));
 
   return (
     <Card className="w-full rounded-lg">
-      <CardHeader className="flex flex-row px-4 py-2 justify-between">
-        <div className="flex items-center gap-4">
-          <CardTitle className="text-sm font-normal text-neutral-400 dark:text-gray-100">
-            Group Members
-          </CardTitle>
+      <CardHeader className="flex flex-col px-4 py-2 justify-between gap-2">
+        <div className="flex justify-between">
+          <div className="flex items-center gap-4">
+            <CardTitle className="text-sm font-normal text-neutral-400 dark:text-gray-100">
+              Group Members
+            </CardTitle>
+          </div>
+          <div className="flex items-center gap-3">
+            <Button size="icon" variant="rounded" className="hover:bg-muted">
+              <EllipsisVertical size={20} className="text-slate-600" />
+            </Button>
+          </div>
         </div>
-
-        <div className="flex items-center gap-3">
-          <Button size="icon" variant="rounded" className="hover:bg-muted">
-            <EllipsisVertical size={20} className="text-slate-600" />
-          </Button>
-        </div>
+        <GroupInviteMembersInput
+          groupMembers={groupMembers}
+          groupId={groupId}
+          authorId={authorId}
+          onInviteSuccess={onRefreshMembers}
+        />
       </CardHeader>
-      <CardContent className="flex flex-col p-0">
-        {renderSuggestedFriends}
-      </CardContent>
+      <CardContent className="flex flex-col p-0">{renderMembers}</CardContent>
     </Card>
   );
 };

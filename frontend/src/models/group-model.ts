@@ -1,10 +1,10 @@
-import { NewsFeed, Pagination } from '@/types';
+import { GroupRole, NewsFeed, Pagination } from '@/types';
 import { UserModel } from './user-model';
 
 export type GroupMemberModel = {
   id: number;
   documentId: string;
-  role: 'admin' | 'member';
+  role: GroupRole;
   user: UserModel;
 };
 
