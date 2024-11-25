@@ -7,6 +7,14 @@ export const QUERY = {
     pageSize: number = PAGE_SIZE,
   ) =>
     `filters[$and][0][follower][username][$eq]=${username}&filters[$and][1][requestStatus][$eq]=friends&populate[followed][fields][0]=id&populate[followed][fields][1]=username&populate[followed][fields][2]=firstName&populate[followed][fields][3]=lastName&populate[followed][fields][4]=profilePicture&populate[followed][fields][5]=banner&populate[followed][populate][followedRelationships][filters][requestStatus]=friends&sort[createdAt]=desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}`,
+  FRIENDS_BY_ID: (
+    userId: string,
+    searchName = '',
+    page: number = CURRENT_PAGE,
+    pageSize: number = PAGE_SIZE,
+  ) =>
+    `filters[$and][0][follower][id][$eq]=${userId}&filters[$and][1][requestStatus][$eq]=friends&populate[followed]=*&filters[followed][username][$containsi]=${searchName}&sort[createdAt]=desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}`,
+
   PHOTOS: (username: string) =>
     `filters[$and][0][author][username][$eq]=${username}&populate[author][fields][0]=id&populate[author][fields][1]=username`,
   SUGGEST_FRIENDS: (userId: string) => `/non-friends/${userId}`,

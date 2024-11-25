@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useTransition } from 'react';
 
 // Constants
-import { PAGE_SIZE, CURRENT_PAGE } from '@/constants';
+import { PAGE_SIZE } from '@/constants';
 
 // Components
 import { Button } from '@/components/ui';
@@ -15,10 +15,13 @@ import { NewsFeedCardList } from '@/features/home/components/news-feed-card-list
 
 // Models
 import { NewsFeedIdModel, NewsFeedIdsResponse } from '@/models';
-import { GroupMember, GroupMembersResponse } from '@/types';
+import { GroupMembersResponse } from '@/types';
 
 // Actions
-import { fetchGroupMembers, fetchNewsFeedIds } from '@/actions';
+import { fetchNewsFeedIds } from '@/actions';
+
+// Hooks
+import { useGroupMembers } from '../hooks';
 
 interface GroupFeedContentProps {
   authorId: string;
@@ -33,14 +36,9 @@ export const GroupFeedContent = ({
   groupMembersPagination,
   newsFeedIdsPagination,
 }: GroupFeedContentProps) => {
-  const [groupMembers, setGroupMembers] = useState<GroupMember[]>(
-    groupMembersPagination.data,
-  );
-  const [currentPage, setCurrentPage] = useState(CURRENT_PAGE);
   const [isPending, startTransition] = useTransition();
-  const [hasMore, setHasMore] = useState(
-    currentPage < groupMembersPagination.meta.pagination.pageCount,
-  );
+  const { groupMembers, hasMore, refreshGroupMembers, loadMoreMembers } =
+    useGroupMembers(groupId, groupMembersPagination);
 
   const [newsFeedIds, setNewsFeedIds] = useState<NewsFeedIdModel[]>(
     newsFeedIdsPagination.data,
@@ -50,29 +48,11 @@ export const GroupFeedContent = ({
     currentNewsFeedIdsPage < newsFeedIdsPagination.meta.pagination.pageCount,
   );
 
-  const loadMoreMembers = async () => {
-    if (isPending) return;
-
-    startTransition(async () => {
-      const nextPage = currentPage + 1;
-
-      const groupMembersResponse = await fetchGroupMembers({
-        groupId,
-        page: nextPage,
-        pageSize: PAGE_SIZE,
-      });
-
-      setGroupMembers((prev) => [...prev, ...groupMembersResponse.data]);
-      setCurrentPage(nextPage);
-      setHasMore(nextPage < groupMembersResponse.meta.pagination.pageCount);
-    });
-  };
-
   const loadMoreNewsFeedIds = async () => {
     if (isPending) return;
 
     startTransition(async () => {
-      const nextPage = currentPage + 1;
+      const nextPage = currentNewsFeedIdsPage + 1;
 
       const newsFeedIdsResponse = await fetchNewsFeedIds({
         groupId,
@@ -94,11 +74,16 @@ export const GroupFeedContent = ({
     <div className="py-5 min-h-full">
       <div className="h-full grid grid-cols-3 gap-6">
         <div className="hidden lg:flex col-span-1 flex-col gap-6">
-          <GroupMembersWidget groupMembers={groupMembers} />
+          <GroupMembersWidget
+            groupMembers={groupMembers}
+            groupId={groupId}
+            authorId={authorId}
+            onRefreshMembers={refreshGroupMembers}
+          />
           {hasMore && (
             <Button
               variant="primary"
-              onClick={loadMoreMembers}
+              onClick={() => startTransition(() => loadMoreMembers())}
               disabled={isPending}
               isLoading={isPending}
             >
