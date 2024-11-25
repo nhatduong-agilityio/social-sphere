@@ -44,7 +44,7 @@ const login = async (_: string | undefined, user: FormData) => {
 };
 
 const logout = async () => {
-  await signOut();
+  await signOut({ redirect: true, redirectTo: ROUTER.LOGIN });
 };
 
 export { login, logout };
