@@ -78,6 +78,7 @@ exports[`NewFeedList component should render correctly 1`] = `
                 >
                   <span
                     class="relative flex shrink-0 overflow-hidden rounded-full h-10 w-10 bg-current"
+                    data-testid="avatar"
                   >
                     <span
                       class="flex h-full w-full items-center justify-center rounded-full bg-muted"

@@ -49,7 +49,10 @@ const DialogContent = forwardRef<
       {...props}
     >
       {children}
-      <DialogPrimitive.Close className="absolute right-3 top-2 flex justify-center items-center rounded-full bg-gray-50 dark:bg-dark-500 hover:bg-gray-600 hover:dark:bg-dark-900 w-[30px] h-[30px] ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
+      <DialogPrimitive.Close
+        aria-label="dialog-close-button"
+        className="absolute right-3 top-2 flex justify-center items-center rounded-full bg-gray-50 dark:bg-dark-500 hover:bg-gray-600 hover:dark:bg-dark-900 w-[30px] h-[30px] ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
+      >
         <XIcon size={18} className="text-neutral-400" />
         <span className="sr-only">Close</span>
       </DialogPrimitive.Close>
