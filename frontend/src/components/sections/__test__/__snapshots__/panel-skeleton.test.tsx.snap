@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PanelSkeleton Component matches snapshot 1`] = `
+<div>
+  <div
+    class="rounded-md bg-card border border-gray-800 hover:shadow dark:border-dark-300 w-full animate-pulse"
+  >
+    <div
+      class="p-5 flex flex-row justify-between"
+    >
+      <div
+        class="flex items-center gap-3"
+      >
+        <div
+          class="animate-pulse w-8 h-8 bg-gray-300 rounded-full"
+        />
+        <div
+          class="animate-pulse w-20 h-8 bg-gray-300 rounded-md"
+        />
+      </div>
+      <div
+        class="flex items-center gap-3"
+      >
+        <div
+          class="relative"
+        >
+          <div
+            class="animate-pulse w-20 h-8 bg-gray-300 rounded-md"
+          />
+        </div>
+        <div
+          class="animate-pulse w-8 h-8 bg-gray-300 rounded-full"
+        />
+      </div>
+    </div>
+    <div
+      class="p-5 pt-0 flex flex-col md:flex-row gap-5"
+    >
+      <div
+        class="rounded-md bg-card border border-gray-800 hover:shadow dark:border-dark-300 w-full"
+      >
+        <div
+          class="animate-pulse h-12 bg-gray-300 rounded-md"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

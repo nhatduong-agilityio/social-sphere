@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostSkeleton Component matches snapshot 1`] = `
+<div>
+  <div
+    class="flex w-full h-fit flex-col gap-6 dark:bg-slate-800 bg-white border rounded-md p-3"
+  >
+    <div
+      class="flex items-center gap-3"
+    >
+      <div
+        class="animate-pulse bg-muted h-12 w-12 rounded-full"
+      />
+      <div
+        class="space-y-2"
+      >
+        <div
+          class="animate-pulse rounded-md bg-muted h-4 w-[250px]"
+        />
+        <div
+          class="animate-pulse rounded-md bg-muted h-4 w-[200px]"
+        />
+      </div>
+    </div>
+    <div
+      class="animate-pulse rounded-md bg-muted h-[300px] w-full"
+    />
+    <div
+      class="flex items-center justify-between"
+    >
+      <div
+        class="flex gap-3"
+      >
+        <div
+          class="animate-pulse bg-muted h-5 w-5 rounded-full"
+        />
+        <div
+          class="animate-pulse bg-muted h-5 w-5 rounded-full"
+        />
+        <div
+          class="animate-pulse bg-muted h-5 w-5 rounded-full"
+        />
+      </div>
+      <div
+        class="flex gap-3"
+      >
+        <div
+          class="animate-pulse bg-muted h-10 w-10 rounded-full"
+        />
+        <div
+          class="animate-pulse bg-muted h-10 w-10 rounded-full"
+        />
+        <div
+          class="animate-pulse bg-muted h-10 w-10 rounded-full"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

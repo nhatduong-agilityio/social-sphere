@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainError Component matches snapshot 1`] = `
+<div>
+  <section
+    class="h-[50dvh] flex justify-center items-center"
+  >
+    <div
+      class="flex flex-col max-w-96 gap-10"
+    >
+      <h2
+        class="font-montserrat text-xl text-heading capitalize"
+        data-testid="global-error-heading"
+      >
+        Test Error Message
+      </h2>
+      <button
+        class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 border-gray-800 dark:border-dark-500 dark:bg-dark-100 h-10 px-4 py-2"
+        data-testid="global-error-button"
+      >
+        Try again
+      </button>
+    </div>
+  </section>
+</div>
+`;

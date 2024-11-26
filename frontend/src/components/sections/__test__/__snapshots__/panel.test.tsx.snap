@@ -1,14 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FriendPanel Component should render correctly 1`] = `
+exports[`Panel Component matches snapshot 1`] = `
 <div>
-  <div>
-    <div>
+  <div
+    class="rounded-md bg-card border border-gray-800 hover:shadow dark:border-dark-300 w-full"
+  >
+    <div
+      class="p-5 flex flex-row justify-between"
+    >
       <div
         class="flex items-center gap-3"
       >
         <svg
           class="lucide lucide-users"
+          data-testid="start-icon"
           fill="none"
           height="24"
           stroke="currentColor"
@@ -34,8 +39,10 @@ exports[`FriendPanel Component should render correctly 1`] = `
             d="M16 3.13a4 4 0 0 1 0 7.75"
           />
         </svg>
-        <h3>
-          Friends
+        <h3
+          class="font-roboto font-medium text-md leading-6"
+        >
+          Test Panel
         </h3>
       </div>
       <div
@@ -44,11 +51,20 @@ exports[`FriendPanel Component should render correctly 1`] = `
         <div
           class="relative"
         >
-          <button>
-            Invitations
+          <button
+            class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 border-gray-800 dark:border-dark-500 dark:bg-dark-100 h-10 px-4 py-2"
+          >
+            Add Item
           </button>
+          <span
+            class="absolute top-[-8px] left-[-15px] flex items-center justify-center ml-2 min-w-6 h-6 bg-blue-600 rounded-full text-2xs text-white"
+          >
+            5
+          </span>
         </div>
-        <button>
+        <button
+          class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border rounded-full h-10 w-10 hover:bg-muted"
+        >
           <svg
             class="lucide lucide-ellipsis-vertical"
             fill="none"
@@ -80,41 +96,13 @@ exports[`FriendPanel Component should render correctly 1`] = `
         </button>
       </div>
     </div>
-    <div>
+    <div
+      class="p-5 pt-0 flex flex-col md:flex-row gap-5"
+    >
       <div
-        class="w-full grid-cols-1 gap-3 grid md:grid-cols-2"
+        data-testid="panel-content"
       >
-        <div>
-          <div>
-            <div
-              data-testid="header-wrapper"
-            >
-              <a
-                class=""
-                data-state="closed"
-                data-testid="avatar-trigger"
-              >
-                <span
-                  data-testid="avatar-wrapper"
-                >
-                  <span />
-                </span>
-              </a>
-              <div
-                class="flex flex-col"
-              >
-                <a
-                  href="/user-profile/thanhloc2503@gmail.com/personal-info"
-                >
-                  <h3 />
-                </a>
-                <p>
-                  3 Friends
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+        Panel Content
       </div>
     </div>
   </div>

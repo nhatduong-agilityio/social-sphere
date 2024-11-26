@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CircleOverlay Component matches snapshot 1`] = `
+<div>
+  <div
+    class="relative w-9 h-9 custom-class"
+    data-testid="circle-overlay"
+  >
+    <div>
+      Child content
+    </div>
+    <div
+      class="rounded-full flex justify-center items-center w-2.5 h-2.5 border-[1.4px] border-background absolute top-0 right-0 bg-secondary custom-circle-class"
+      data-testid="circle"
+    >
+      <span>
+        Status
+      </span>
+    </div>
+  </div>
+</div>
+`;

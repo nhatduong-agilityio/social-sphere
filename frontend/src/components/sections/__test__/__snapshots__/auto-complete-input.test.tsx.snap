@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AutoCompleteInput Component matches snapshot 1`] = `
+<div>
+  <div
+    class="relative w-full flex items-center"
+  >
+    <div
+      class="absolute top-1/2 -translate-y-1/2 transition-all duration-300 ease-in-out left-3 text-gray-900 dark:text-primary"
+    >
+      <svg
+        class="lucide lucide-search"
+        data-testid="search-icon"
+        fill="none"
+        height="24"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle
+          cx="11"
+          cy="11"
+          r="8"
+        />
+        <path
+          d="m21 21-4.3-4.3"
+        />
+      </svg>
+    </div>
+    <input
+      autocomplete="true"
+      class="flex h-9 w-full rounded-lg border border-input hover:border-gray-900 bg-white dark:bg-dark-500 px-10 py-2 text-sm file:border-0 file:bg-transparent file:text-xs file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-300 ease-in-out dark:border-dark-300 custom-class"
+      placeholder="Search..."
+    />
+  </div>
+</div>
+`;

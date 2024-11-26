@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AvatarSkeleton Component matches snapshot 1`] = `
+<div>
+  <div
+    class="animate-pulse bg-muted w-24 h-24 rounded-full"
+    data-testid="avatar-skeleton"
+  />
+</div>
+`;
