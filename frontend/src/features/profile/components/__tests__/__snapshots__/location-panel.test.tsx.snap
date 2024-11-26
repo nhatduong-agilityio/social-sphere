@@ -1,0 +1,625 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LocationPanel Component should render correctly 1`] = `
+<div>
+  <div
+    class="rounded-md bg-card border border-gray-800 hover:shadow dark:border-dark-300 w-full"
+  >
+    <div
+      class="p-5 flex flex-row justify-between"
+    >
+      <div
+        class="flex items-center gap-3"
+      >
+        <svg
+          class="lucide lucide-camera"
+          fill="none"
+          height="24"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"
+          />
+          <circle
+            cx="12"
+            cy="13"
+            r="3"
+          />
+        </svg>
+        <h3
+          class="font-roboto font-medium text-md leading-6"
+        >
+          Places
+        </h3>
+      </div>
+      <div
+        class="flex items-center gap-3"
+      >
+        <div
+          class="relative"
+        >
+          <button
+            class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 border-gray-800 dark:border-dark-500 dark:bg-dark-100 h-10 px-4 py-2"
+          >
+            View All
+          </button>
+        </div>
+        <button
+          class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border rounded-full h-10 w-10 hover:bg-muted"
+        >
+          <svg
+            class="lucide lucide-ellipsis-vertical"
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="12"
+              cy="12"
+              r="1"
+            />
+            <circle
+              cx="12"
+              cy="5"
+              r="1"
+            />
+            <circle
+              cx="12"
+              cy="19"
+              r="1"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div
+      class="p-5 pt-0 flex flex-col md:flex-row gap-5"
+    >
+      <div
+        class="flex flex-wrap gap-3"
+      >
+        <div
+          class="bg-card border border-gray-800 hover:shadow dark:border-dark-300 rounded-lg flex flex-col items-start dark:bg-dark-300 relative w-60 h-[235px] p-3"
+        >
+          <div
+            class="relative w-[215px] h-[167px]"
+          >
+            <img
+              alt="Melbourne"
+              class="absolute inset-0 rounded-sm"
+              data-nimg="fill"
+              decoding="async"
+              fetchpriority="high"
+              sizes="(max-width: 768px) 100vw"
+              src="/_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F16.jpg&w=3840&q=100"
+              srcset="/_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F16.jpg&w=640&q=100 640w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F16.jpg&w=750&q=100 750w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F16.jpg&w=828&q=100 828w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F16.jpg&w=1080&q=100 1080w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F16.jpg&w=1200&q=100 1200w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F16.jpg&w=1920&q=100 1920w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F16.jpg&w=2048&q=100 2048w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F16.jpg&w=3840&q=100 3840w"
+              style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent;"
+            />
+          </div>
+          <h3
+            class="font-roboto font-medium text-sm mt-1"
+          >
+            Melbourne
+          </h3>
+          <div
+            class="flex space-x-1"
+          >
+            <svg
+              class="w-[14px] h-[14px] fill-blue-500 stroke-blue-500"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
+            <svg
+              class="w-[14px] h-[14px] fill-blue-500 stroke-blue-500"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
+            <svg
+              class="w-[14px] h-[14px] fill-blue-500 stroke-blue-500"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
+            <svg
+              class="w-[14px] h-[14px] fill-blue-500 stroke-blue-500"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
+            <svg
+              class="w-[14px] h-[14px] fill-blue-500 stroke-blue-500"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          class="bg-card border border-gray-800 hover:shadow dark:border-dark-300 rounded-lg flex flex-col items-start dark:bg-dark-300 relative w-60 h-[235px] p-3"
+        >
+          <div
+            class="relative w-[215px] h-[167px]"
+          >
+            <img
+              alt="Dany Burgers"
+              class="absolute inset-0 rounded-sm"
+              data-nimg="fill"
+              decoding="async"
+              fetchpriority="high"
+              sizes="(max-width: 768px) 100vw"
+              src="/_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F17.jpg&w=3840&q=100"
+              srcset="/_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F17.jpg&w=640&q=100 640w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F17.jpg&w=750&q=100 750w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F17.jpg&w=828&q=100 828w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F17.jpg&w=1080&q=100 1080w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F17.jpg&w=1200&q=100 1200w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F17.jpg&w=1920&q=100 1920w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F17.jpg&w=2048&q=100 2048w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F17.jpg&w=3840&q=100 3840w"
+              style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent;"
+            />
+          </div>
+          <h3
+            class="font-roboto font-medium text-sm mt-1"
+          >
+            Dany Burgers
+          </h3>
+          <div
+            class="flex space-x-1"
+          >
+            <svg
+              class="w-[14px] h-[14px] fill-blue-500 stroke-blue-500"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
+            <svg
+              class="w-[14px] h-[14px] fill-blue-500 stroke-blue-500"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
+            <svg
+              class="w-[14px] h-[14px] fill-blue-500 stroke-blue-500"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
+            <svg
+              class="w-[14px] h-[14px] fill-blue-500 stroke-blue-500"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
+            <svg
+              class="w-[14px] h-[14px]"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          class="bg-card border border-gray-800 hover:shadow dark:border-dark-300 rounded-lg flex flex-col items-start dark:bg-dark-300 relative w-60 h-[235px] p-3"
+        >
+          <div
+            class="relative w-[215px] h-[167px]"
+          >
+            <img
+              alt="Vethnics Fashion"
+              class="absolute inset-0 rounded-sm"
+              data-nimg="fill"
+              decoding="async"
+              fetchpriority="high"
+              sizes="(max-width: 768px) 100vw"
+              src="/_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F18.jpg&w=3840&q=100"
+              srcset="/_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F18.jpg&w=640&q=100 640w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F18.jpg&w=750&q=100 750w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F18.jpg&w=828&q=100 828w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F18.jpg&w=1080&q=100 1080w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F18.jpg&w=1200&q=100 1200w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F18.jpg&w=1920&q=100 1920w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F18.jpg&w=2048&q=100 2048w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F18.jpg&w=3840&q=100 3840w"
+              style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent;"
+            />
+          </div>
+          <h3
+            class="font-roboto font-medium text-sm mt-1"
+          >
+            Vethnics Fashion
+          </h3>
+          <div
+            class="flex space-x-1"
+          >
+            <svg
+              class="w-[14px] h-[14px] fill-blue-500 stroke-blue-500"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
+            <svg
+              class="w-[14px] h-[14px] fill-blue-500 stroke-blue-500"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
+            <svg
+              class="w-[14px] h-[14px] fill-blue-500 stroke-blue-500"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
+            <svg
+              class="w-[14px] h-[14px] fill-blue-500 stroke-blue-500"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
+            <svg
+              class="w-[14px] h-[14px] fill-blue-500 stroke-blue-500"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          class="bg-card border border-gray-800 hover:shadow dark:border-dark-300 rounded-lg flex flex-col items-start dark:bg-dark-300 relative w-60 h-[235px] p-3"
+        >
+          <div
+            class="relative w-[215px] h-[167px]"
+          >
+            <img
+              alt="The Smoothie Bar"
+              class="absolute inset-0 rounded-sm"
+              data-nimg="fill"
+              decoding="async"
+              fetchpriority="high"
+              sizes="(max-width: 768px) 100vw"
+              src="/_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F19.jpg&w=3840&q=100"
+              srcset="/_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F19.jpg&w=640&q=100 640w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F19.jpg&w=750&q=100 750w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F19.jpg&w=828&q=100 828w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F19.jpg&w=1080&q=100 1080w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F19.jpg&w=1200&q=100 1200w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F19.jpg&w=1920&q=100 1920w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F19.jpg&w=2048&q=100 2048w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F19.jpg&w=3840&q=100 3840w"
+              style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent;"
+            />
+          </div>
+          <h3
+            class="font-roboto font-medium text-sm mt-1"
+          >
+            The Smoothie Bar
+          </h3>
+          <div
+            class="flex space-x-1"
+          >
+            <svg
+              class="w-[14px] h-[14px] fill-blue-500 stroke-blue-500"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
+            <svg
+              class="w-[14px] h-[14px] fill-blue-500 stroke-blue-500"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
+            <svg
+              class="w-[14px] h-[14px] fill-blue-500 stroke-blue-500"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
+            <svg
+              class="w-[14px] h-[14px] fill-blue-500 stroke-blue-500"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
+            <svg
+              class="w-[14px] h-[14px] fill-blue-500 stroke-blue-500"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          class="bg-card border border-gray-800 hover:shadow dark:border-dark-300 rounded-lg flex flex-col items-start dark:bg-dark-300 relative w-60 h-[235px] p-3"
+        >
+          <div
+            class="relative w-[215px] h-[167px]"
+          >
+            <img
+              alt="Eiffel Tower"
+              class="absolute inset-0 rounded-sm"
+              data-nimg="fill"
+              decoding="async"
+              fetchpriority="high"
+              sizes="(max-width: 768px) 100vw"
+              src="/_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F20.jpg&w=3840&q=100"
+              srcset="/_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F20.jpg&w=640&q=100 640w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F20.jpg&w=750&q=100 750w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F20.jpg&w=828&q=100 828w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F20.jpg&w=1080&q=100 1080w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F20.jpg&w=1200&q=100 1200w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F20.jpg&w=1920&q=100 1920w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F20.jpg&w=2048&q=100 2048w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F20.jpg&w=3840&q=100 3840w"
+              style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent;"
+            />
+          </div>
+          <h3
+            class="font-roboto font-medium text-sm mt-1"
+          >
+            Eiffel Tower
+          </h3>
+          <div
+            class="flex space-x-1"
+          >
+            <svg
+              class="w-[14px] h-[14px] fill-blue-500 stroke-blue-500"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
+            <svg
+              class="w-[14px] h-[14px] fill-blue-500 stroke-blue-500"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
+            <svg
+              class="w-[14px] h-[14px] fill-blue-500 stroke-blue-500"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
+            <svg
+              class="w-[14px] h-[14px] fill-blue-500 stroke-blue-500"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
+            <svg
+              class="w-[14px] h-[14px] fill-blue-500 stroke-blue-500"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          class="bg-card border border-gray-800 hover:shadow dark:border-dark-300 rounded-lg flex flex-col items-start dark:bg-dark-300 relative w-60 h-[235px] p-3"
+        >
+          <div
+            class="relative w-[215px] h-[167px]"
+          >
+            <img
+              alt="Lennie Fair"
+              class="absolute inset-0 rounded-sm"
+              data-nimg="fill"
+              decoding="async"
+              fetchpriority="high"
+              sizes="(max-width: 768px) 100vw"
+              src="/_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F21.jpg&w=3840&q=100"
+              srcset="/_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F21.jpg&w=640&q=100 640w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F21.jpg&w=750&q=100 750w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F21.jpg&w=828&q=100 828w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F21.jpg&w=1080&q=100 1080w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F21.jpg&w=1200&q=100 1200w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F21.jpg&w=1920&q=100 1920w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F21.jpg&w=2048&q=100 2048w, /_next/image?url=https%3A%2F%2Ffriendkit.cssninja.io%2Fassets%2Fimg%2Fdemo%2Funsplash%2Fplaces%2F21.jpg&w=3840&q=100 3840w"
+              style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent;"
+            />
+          </div>
+          <h3
+            class="font-roboto font-medium text-sm mt-1"
+          >
+            Lennie Fair
+          </h3>
+          <div
+            class="flex space-x-1"
+          >
+            <svg
+              class="w-[14px] h-[14px] fill-blue-500 stroke-blue-500"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
+            <svg
+              class="w-[14px] h-[14px] fill-blue-500 stroke-blue-500"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
+            <svg
+              class="w-[14px] h-[14px] fill-blue-500 stroke-blue-500"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
+            <svg
+              class="w-[14px] h-[14px] fill-blue-500 stroke-blue-500"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
+            <svg
+              class="w-[14px] h-[14px] fill-blue-500 stroke-blue-500"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

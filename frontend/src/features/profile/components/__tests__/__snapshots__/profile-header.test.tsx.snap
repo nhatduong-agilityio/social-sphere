@@ -1,0 +1,306 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProfileHeader Component should render correctly 1`] = `
+<div>
+  <div
+    class="flex flex-col items-center justify-center relative"
+  >
+    <div
+      class="relative w-full h-56 md:h-80 group"
+    >
+      <img
+        alt="This is banner Image"
+        class="absolute inset-0 rounded-sm"
+        data-nimg="fill"
+        decoding="async"
+        fetchpriority="high"
+        sizes="(max-width: 768px) 100vw"
+        src="http://localhost/_next/image?url=%2Fbanners%2Fprofile-banner.webp&w=3840&q=100"
+        srcset="/_next/image?url=%2Fbanners%2Fprofile-banner.webp&w=640&q=100 640w, /_next/image?url=%2Fbanners%2Fprofile-banner.webp&w=750&q=100 750w, /_next/image?url=%2Fbanners%2Fprofile-banner.webp&w=828&q=100 828w, /_next/image?url=%2Fbanners%2Fprofile-banner.webp&w=1080&q=100 1080w, /_next/image?url=%2Fbanners%2Fprofile-banner.webp&w=1200&q=100 1200w, /_next/image?url=%2Fbanners%2Fprofile-banner.webp&w=1920&q=100 1920w, /_next/image?url=%2Fbanners%2Fprofile-banner.webp&w=2048&q=100 2048w, /_next/image?url=%2Fbanners%2Fprofile-banner.webp&w=3840&q=100 3840w"
+        style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent;"
+      />
+      <div
+        class="absolute inset-0 z-10 bg-slate-700 bg-opacity-0 group-hover:bg-opacity-50 transition duration-300 ease-in-out"
+      />
+      <div
+        class="absolute z-20 top-0 left-0 m-4"
+      >
+        <button
+          class="font-roboto whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border h-9 px-3 flex items-center justify-center bg-transparent group border-transparent group-hover:border group-hover:border-white text-white rounded-sm"
+        >
+          <svg
+            class="lucide lucide-camera text-2xl"
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"
+            />
+            <circle
+              cx="12"
+              cy="13"
+              r="3"
+            />
+          </svg>
+          <span
+            class="ml-2 opacity-0 group-hover:opacity-100 transition-opacity"
+          >
+            Edit cover image
+          </span>
+        </button>
+      </div>
+    </div>
+    <div
+      class="space-y-2"
+    >
+      <div
+        class="relative w-full flex items-center"
+      >
+        <input
+          aria-describedby=":r0:-form-item-description"
+          aria-invalid="false"
+          aria-label="Upload profile picture"
+          autocomplete="off"
+          class="h-10 w-full rounded-lg border border-input bg-white dark:bg-dark-500 px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-xs file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 hidden"
+          id="profile-picture-upload"
+          type="file"
+        />
+      </div>
+    </div>
+    <div
+      class="w-full flex justify-between pt-2"
+    >
+      <div
+        class="hidden md:block space-x-2"
+      >
+        <button
+          class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring bg-white text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 dark:border-dark-500 dark:bg-dark-100 h-10 px-4 py-2 w-[140px] border border-gray-900"
+        >
+          Timeline
+        </button>
+        <a
+          href="/user-profile/admin@gmail.com/overview"
+        >
+          <button
+            class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring bg-white hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 dark:border-dark-500 dark:bg-dark-100 h-10 px-4 py-2 w-[140px] text-blue-600 border border-red-600"
+            disabled=""
+          >
+            About
+          </button>
+        </a>
+      </div>
+      <div
+        class="w-[110px] h-[110px] rounded-full p-[8.5px] absolute md:bottom-0 bottom-[-50px] left-0 right-0 mx-auto z-10"
+      >
+        <span
+          class="relative flex shrink-0 overflow-hidden rounded-full w-[full] h-[full] bg-current"
+        >
+          <span
+            class="flex items-center justify-center w-24 h-24 rounded-full bg-slate-500"
+          >
+            CN
+          </span>
+        </span>
+        <button
+          aria-label="Upload profile picture"
+          class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border rounded-full absolute bg-blue-500 bottom-0 right-2 w-[34px] h-[34px]"
+        >
+          <svg
+            class="lucide lucide-plus text-white transition-all duration-300"
+            fill="none"
+            height="18"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="18"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M5 12h14"
+            />
+            <path
+              d="M12 5v14"
+            />
+          </svg>
+        </button>
+        <div
+          class="absolute top-2/3 left-1/2 flex justify-center items-center"
+        >
+          <div
+            class="relative"
+          >
+            <button
+              class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 border-gray-800 dark:border-dark-500 -z-10 absolute border-none dark:bg-dark-900 rounded-full w-[34px] h-[34px] transition-all duration-300"
+              style="transform: translate(0, -10px) rotate(10deg);"
+            >
+              <svg
+                class="lucide lucide-camera text-slate-400 hover:text-white"
+                fill="none"
+                height="18"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                style="transform: rotate(72deg);"
+                viewBox="0 0 24 24"
+                width="18"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"
+                />
+                <circle
+                  cx="12"
+                  cy="13"
+                  r="3"
+                />
+              </svg>
+            </button>
+            <button
+              class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 border-gray-800 dark:border-dark-500 -z-10 absolute border-none dark:bg-dark-900 rounded-full w-[34px] h-[34px] transition-all duration-300"
+              style="transform: translate(0, -10px) rotate(10deg);"
+            >
+              <svg
+                class="lucide lucide-bell text-slate-400 hover:text-white"
+                fill="none"
+                height="18"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                style="transform: rotate(36deg);"
+                viewBox="0 0 24 24"
+                width="18"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"
+                />
+                <path
+                  d="M10.3 21a1.94 1.94 0 0 0 3.4 0"
+                />
+              </svg>
+            </button>
+            <button
+              class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 border-gray-800 dark:border-dark-500 -z-10 absolute border-none dark:bg-dark-900 rounded-full w-[34px] h-[34px] transition-all duration-300"
+              style="transform: translate(0, -10px) rotate(10deg);"
+            >
+              <svg
+                class="lucide lucide-plus text-slate-400 hover:text-white"
+                fill="none"
+                height="18"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                style="transform: rotate(0deg);"
+                viewBox="0 0 24 24"
+                width="18"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M5 12h14"
+                />
+                <path
+                  d="M12 5v14"
+                />
+              </svg>
+            </button>
+            <button
+              class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 border-gray-800 dark:border-dark-500 -z-10 absolute border-none dark:bg-dark-900 rounded-full w-[34px] h-[34px] transition-all duration-300"
+              style="transform: translate(0, -10px) rotate(10deg);"
+            >
+              <svg
+                class="lucide lucide-message-circle text-slate-400 hover:text-white"
+                fill="none"
+                height="18"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                style="transform: rotate(-36deg);"
+                viewBox="0 0 24 24"
+                width="18"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"
+                />
+              </svg>
+            </button>
+            <button
+              class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 border-gray-800 dark:border-dark-500 -z-10 absolute border-none dark:bg-dark-900 rounded-full w-[34px] h-[34px] transition-all duration-300"
+              style="transform: translate(0, -10px) rotate(10deg);"
+            >
+              <svg
+                class="lucide lucide-mail text-slate-400 hover:text-white"
+                fill="none"
+                height="18"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                style="transform: rotate(-72deg);"
+                viewBox="0 0 24 24"
+                width="18"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  height="16"
+                  rx="2"
+                  width="20"
+                  x="2"
+                  y="4"
+                />
+                <path
+                  d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="space-y-2"
+      >
+        <div
+          class="relative w-full flex items-center"
+        >
+          <input
+            aria-describedby=":r1:-form-item-description"
+            aria-invalid="false"
+            aria-label="Upload profile picture"
+            autocomplete="off"
+            class="h-10 w-full rounded-lg border border-input bg-white dark:bg-dark-500 px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-xs file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 hidden"
+            id="avatar-picture-upload"
+            type="file"
+          />
+        </div>
+      </div>
+      <div
+        class="hidden md:block space-x-2"
+      >
+        <button
+          class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring bg-white text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 dark:border-dark-500 dark:bg-dark-100 h-10 px-4 py-2 w-[140px] border border-gray-900"
+        >
+          Friends
+        </button>
+        <button
+          class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring bg-white text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 dark:border-dark-500 dark:bg-dark-100 h-10 px-4 py-2 w-[140px] border border-gray-900"
+        >
+          Photos
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

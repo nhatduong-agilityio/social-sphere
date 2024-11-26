@@ -1,0 +1,417 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PhotoPanel Component should render correctly 1`] = `
+<div>
+  <div
+    class="rounded-md bg-card border border-gray-800 hover:shadow dark:border-dark-300 w-full"
+  >
+    <div
+      class="p-5 flex flex-row justify-between"
+    >
+      <div
+        class="flex items-center gap-3"
+      >
+        <svg
+          class="lucide lucide-camera"
+          fill="none"
+          height="24"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"
+          />
+          <circle
+            cx="12"
+            cy="13"
+            r="3"
+          />
+        </svg>
+        <h3
+          class="font-roboto font-medium text-md leading-6"
+        >
+          Photos
+        </h3>
+      </div>
+      <div
+        class="flex items-center gap-3"
+      >
+        <div
+          class="relative"
+        >
+          <button
+            class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 border-gray-800 dark:border-dark-500 dark:bg-dark-100 h-10 px-4 py-2"
+          >
+            Albums
+          </button>
+        </div>
+        <button
+          class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border rounded-full h-10 w-10 hover:bg-muted"
+        >
+          <svg
+            class="lucide lucide-ellipsis-vertical"
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="12"
+              cy="12"
+              r="1"
+            />
+            <circle
+              cx="12"
+              cy="5"
+              r="1"
+            />
+            <circle
+              cx="12"
+              cy="19"
+              r="1"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div
+      class="p-5 pt-0 flex flex-col md:flex-row gap-5"
+    >
+      <div
+        class="flex flex-wrap gap-6"
+      >
+        <div
+          class="relative w-36 h-36 group"
+        >
+          <img
+            alt=""
+            class="absolute inset-0 rounded-lg border dark:border-slate-600"
+            data-nimg="fill"
+            decoding="async"
+            fetchpriority="high"
+            src=""
+            style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent;"
+          />
+          <div
+            class="absolute inset-0 z-10 rounded-lg bg-slate-700 bg-opacity-0 group-hover:bg-opacity-50 transition duration-300 ease-in-out"
+          />
+          <div
+            class="absolute z-20 bottom-0 right-0 m-2 opacity-0 translate-y-4 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 ease-in-out"
+          >
+            <button
+              class="font-roboto whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border text-primary-foreground hover:opacity-80 hover:shadow-sphere-primary border-primary px-3 flex w-9 h-9 rounded-full dark:bg-dark-100 bg-white items-center justify-center border-none"
+            >
+              <svg
+                class="lucide lucide-heart text-dark-100 dark:text-white"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div
+          class="relative w-36 h-36 group"
+        >
+          <img
+            alt=""
+            class="absolute inset-0 rounded-lg border dark:border-slate-600"
+            data-nimg="fill"
+            decoding="async"
+            fetchpriority="high"
+            src=""
+            style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent;"
+          />
+          <div
+            class="absolute inset-0 z-10 rounded-lg bg-slate-700 bg-opacity-0 group-hover:bg-opacity-50 transition duration-300 ease-in-out"
+          />
+          <div
+            class="absolute z-20 bottom-0 right-0 m-2 opacity-0 translate-y-4 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 ease-in-out"
+          >
+            <button
+              class="font-roboto whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border text-primary-foreground hover:opacity-80 hover:shadow-sphere-primary border-primary px-3 flex w-9 h-9 rounded-full dark:bg-dark-100 bg-white items-center justify-center border-none"
+            >
+              <svg
+                class="lucide lucide-heart text-dark-100 dark:text-white"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div
+          class="relative w-36 h-36 group"
+        >
+          <img
+            alt=""
+            class="absolute inset-0 rounded-lg border dark:border-slate-600"
+            data-nimg="fill"
+            decoding="async"
+            fetchpriority="high"
+            src=""
+            style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent;"
+          />
+          <div
+            class="absolute inset-0 z-10 rounded-lg bg-slate-700 bg-opacity-0 group-hover:bg-opacity-50 transition duration-300 ease-in-out"
+          />
+          <div
+            class="absolute z-20 bottom-0 right-0 m-2 opacity-0 translate-y-4 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 ease-in-out"
+          >
+            <button
+              class="font-roboto whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border text-primary-foreground hover:opacity-80 hover:shadow-sphere-primary border-primary px-3 flex w-9 h-9 rounded-full dark:bg-dark-100 bg-white items-center justify-center border-none"
+            >
+              <svg
+                class="lucide lucide-heart text-dark-100 dark:text-white"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div
+          class="relative w-36 h-36 group"
+        >
+          <img
+            alt=""
+            class="absolute inset-0 rounded-lg border dark:border-slate-600"
+            data-nimg="fill"
+            decoding="async"
+            fetchpriority="high"
+            src=""
+            style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent;"
+          />
+          <div
+            class="absolute inset-0 z-10 rounded-lg bg-slate-700 bg-opacity-0 group-hover:bg-opacity-50 transition duration-300 ease-in-out"
+          />
+          <div
+            class="absolute z-20 bottom-0 right-0 m-2 opacity-0 translate-y-4 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 ease-in-out"
+          >
+            <button
+              class="font-roboto whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border text-primary-foreground hover:opacity-80 hover:shadow-sphere-primary border-primary px-3 flex w-9 h-9 rounded-full dark:bg-dark-100 bg-white items-center justify-center border-none"
+            >
+              <svg
+                class="lucide lucide-heart text-dark-100 dark:text-white"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div
+          class="relative w-36 h-36 group"
+        >
+          <img
+            alt=""
+            class="absolute inset-0 rounded-lg border dark:border-slate-600"
+            data-nimg="fill"
+            decoding="async"
+            fetchpriority="high"
+            src=""
+            style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent;"
+          />
+          <div
+            class="absolute inset-0 z-10 rounded-lg bg-slate-700 bg-opacity-0 group-hover:bg-opacity-50 transition duration-300 ease-in-out"
+          />
+          <div
+            class="absolute z-20 bottom-0 right-0 m-2 opacity-0 translate-y-4 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 ease-in-out"
+          >
+            <button
+              class="font-roboto whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border text-primary-foreground hover:opacity-80 hover:shadow-sphere-primary border-primary px-3 flex w-9 h-9 rounded-full dark:bg-dark-100 bg-white items-center justify-center border-none"
+            >
+              <svg
+                class="lucide lucide-heart text-dark-100 dark:text-white"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div
+          class="relative w-36 h-36 group"
+        >
+          <img
+            alt=""
+            class="absolute inset-0 rounded-lg border dark:border-slate-600"
+            data-nimg="fill"
+            decoding="async"
+            fetchpriority="high"
+            src=""
+            style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent;"
+          />
+          <div
+            class="absolute inset-0 z-10 rounded-lg bg-slate-700 bg-opacity-0 group-hover:bg-opacity-50 transition duration-300 ease-in-out"
+          />
+          <div
+            class="absolute z-20 bottom-0 right-0 m-2 opacity-0 translate-y-4 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 ease-in-out"
+          >
+            <button
+              class="font-roboto whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border text-primary-foreground hover:opacity-80 hover:shadow-sphere-primary border-primary px-3 flex w-9 h-9 rounded-full dark:bg-dark-100 bg-white items-center justify-center border-none"
+            >
+              <svg
+                class="lucide lucide-heart text-dark-100 dark:text-white"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div
+          class="relative w-36 h-36 group"
+        >
+          <img
+            alt=""
+            class="absolute inset-0 rounded-lg border dark:border-slate-600"
+            data-nimg="fill"
+            decoding="async"
+            fetchpriority="high"
+            src=""
+            style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent;"
+          />
+          <div
+            class="absolute inset-0 z-10 rounded-lg bg-slate-700 bg-opacity-0 group-hover:bg-opacity-50 transition duration-300 ease-in-out"
+          />
+          <div
+            class="absolute z-20 bottom-0 right-0 m-2 opacity-0 translate-y-4 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 ease-in-out"
+          >
+            <button
+              class="font-roboto whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border text-primary-foreground hover:opacity-80 hover:shadow-sphere-primary border-primary px-3 flex w-9 h-9 rounded-full dark:bg-dark-100 bg-white items-center justify-center border-none"
+            >
+              <svg
+                class="lucide lucide-heart text-dark-100 dark:text-white"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div
+          class="relative w-36 h-36 group"
+        >
+          <img
+            alt=""
+            class="absolute inset-0 rounded-lg border dark:border-slate-600"
+            data-nimg="fill"
+            decoding="async"
+            fetchpriority="high"
+            src=""
+            style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent;"
+          />
+          <div
+            class="absolute inset-0 z-10 rounded-lg bg-slate-700 bg-opacity-0 group-hover:bg-opacity-50 transition duration-300 ease-in-out"
+          />
+          <div
+            class="absolute z-20 bottom-0 right-0 m-2 opacity-0 translate-y-4 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 ease-in-out"
+          >
+            <button
+              class="font-roboto whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border text-primary-foreground hover:opacity-80 hover:shadow-sphere-primary border-primary px-3 flex w-9 h-9 rounded-full dark:bg-dark-100 bg-white items-center justify-center border-none"
+            >
+              <svg
+                class="lucide lucide-heart text-dark-100 dark:text-white"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

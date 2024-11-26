@@ -8,6 +8,9 @@ const createJestConfig = nextJest({
 
 // Add any custom config to be passed to Jest
 const config: Config = {
+  clearMocks: true,
+  collectCoverage: true,
+  coverageDirectory: 'coverage',
   coverageProvider: 'v8',
   testEnvironment: 'jsdom',
   collectCoverageFrom: [
@@ -21,8 +24,19 @@ const config: Config = {
     'next-auth/providers/credentials':
       '<rootDir>/src/__mocks__/next-auth-providers-credentials.ts',
     'next-auth': '<rootDir>/src/__mocks__/next-auth.ts',
+    '^@/api(.*)$': '<rootDir>src/api/$1',
+    '^@/utils(.*)$': '<rootDir>src/utils/$1',
+    '^@/components(.*)$': '<rootDir>src/components/$1',
+    '^@/actions(.*)$': '<rootDir>src/actions/$1',
+  },
+  coverageThreshold: {
+    global: {
+      statements: 80,
+      branches: 80,
+      functions: 80,
+      lines: 80,
+    },
   },
 };
 
-// createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
 export default createJestConfig(config);
