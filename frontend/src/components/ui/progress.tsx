@@ -36,6 +36,7 @@ const Progress = forwardRef<
 >(({ className, value, variant, size, ...props }, ref) => (
   <ProgressPrimitive.Root
     ref={ref}
+    aria-label={`${value}-progress-bar`}
     className={cn(progressVariants({ variant, size, className }))}
     {...props}
   >

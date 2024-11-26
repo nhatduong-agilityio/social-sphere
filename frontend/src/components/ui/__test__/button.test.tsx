@@ -9,6 +9,12 @@ describe('Button', () => {
     expect(button).toHaveClass('h-10 px-4 py-2');
   });
 
+  it('renders with loading state', () => {
+    render(<Button isLoading>Loading Button</Button>);
+    const loaderIcon = screen.getByTestId('loader-button');
+    expect(loaderIcon).toHaveClass('animate-spin-fast');
+  });
+
   it('applies custom className', () => {
     render(
       <Button data-testid="custom-button" className="custom-class">
@@ -44,11 +50,5 @@ describe('Button', () => {
     expect(customClasses).toContain('text-neutral-800');
     expect(customClasses).toContain('h-9');
     expect(customClasses).toContain('custom-class');
-  });
-
-  it('renders with loading state', () => {
-    render(<Button isLoading>Loading Button</Button>);
-    const loaderIcon = screen.getByTestId('loader-button');
-    expect(loaderIcon).toHaveClass('animate-spin-fast');
   });
 });

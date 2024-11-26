@@ -41,6 +41,7 @@ const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
     return (
       <div className="relative w-full flex items-center" onBlur={handleBlur}>
         <div
+          data-testid="search-icon-wrapper"
           className={cn(
             'absolute top-1/2 -translate-y-1/2 transition-all duration-300 ease-in-out left-3',
             isFocused
@@ -50,7 +51,7 @@ const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
               : 'text-gray-900 dark:text-primary',
           )}
         >
-          <SearchIcon size={20} />
+          <SearchIcon size={20} data-testid="search-icon" />
         </div>
         <input
           ref={ref}
@@ -68,7 +69,7 @@ const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
             )}
             onClick={onClose}
           >
-            <XIcon size={20} />
+            <XIcon size={20} data-testid="close-icon" />
           </div>
         )}
       </div>
