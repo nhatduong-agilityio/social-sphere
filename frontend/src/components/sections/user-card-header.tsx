@@ -59,6 +59,7 @@ export const UserCardHeader = memo(
       {...props}
     >
       <div
+        data-testid="header-wrapper"
         className={cn('flex items-center', {
           'gap-4': variant === 'md',
           'gap-3': variant !== 'md',

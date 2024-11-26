@@ -12,10 +12,15 @@ export const SwitchTheme = () => {
 
   return mounted ? (
     <Switch
+      data-testid="theme-switch"
       checked={isDarkTheme}
       onCheckedChange={toggleTheme}
-      uncheckedIcon={<MoonIcon size={12} className="text-white" />}
-      checkedIcon={<SunIcon size={12} className="text-yellow-400" />}
+      uncheckedIcon={
+        <MoonIcon data-testid="moon-icon" size={12} className="text-white" />
+      }
+      checkedIcon={
+        <SunIcon data-testid="sun-icon" size={12} className="text-yellow-400" />
+      }
     />
   ) : null;
 };

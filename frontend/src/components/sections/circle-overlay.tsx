@@ -19,9 +19,13 @@ export const CircleOverlay = memo(
     circleClassName = '',
     circleSize = 'default',
   }: CircleOverlayProps) => (
-    <div className={cn('relative w-9 h-9', className)}>
+    <div
+      className={cn('relative w-9 h-9', className)}
+      data-testid="circle-overlay"
+    >
       {children}
       <Circle
+        data-testid="circle"
         size={circleSize}
         className={cn(
           'border-[1.4px] border-background absolute top-0 right-0 bg-secondary',

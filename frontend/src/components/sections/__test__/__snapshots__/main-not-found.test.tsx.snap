@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainNotFound Component matches snapshot 1`] = `
+<div>
+  <section
+    class="h-[50dvh] flex justify-center items-center"
+    data-testid="main-not-found"
+  >
+    <div
+      class="flex flex-col max-w-96 gap-10"
+    >
+      <h2
+        class="font-montserrat text-xl text-heading"
+        data-testid="not-found-heading"
+      >
+        Not Found
+      </h2>
+      <p
+        class="text-foreground text-sm"
+        data-testid="not-found-text"
+      >
+        Could not find requested resource
+      </p>
+      <a
+        data-testid="not-found-link"
+        href="/"
+      >
+        Return Home
+      </a>
+    </div>
+  </section>
+</div>
+`;

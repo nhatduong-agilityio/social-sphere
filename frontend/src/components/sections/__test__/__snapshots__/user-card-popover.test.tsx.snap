@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserCardPopover Component matches snapshot 1`] = `
+<div>
+  <a
+    class="w-12 h-12 flex items-center justify-center rounded-full"
+    data-state="closed"
+    data-testid="avatar-trigger"
+  >
+    <span
+      class="relative flex shrink-0 overflow-hidden rounded-full h-10 w-10 bg-current"
+      data-testid="avatar-wrapper"
+    >
+      <span
+        class="flex h-full w-full items-center justify-center rounded-full bg-muted"
+      >
+        JD
+      </span>
+    </span>
+  </a>
+</div>
+`;

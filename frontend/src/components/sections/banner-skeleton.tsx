@@ -1,5 +1,8 @@
 import { Skeleton } from '../ui';
 
 export const BannerSkeleton = () => (
-  <Skeleton className="relative w-full h-56 md:h-80 group" />
+  <Skeleton
+    data-testid="banner-skeleton"
+    className="relative w-full h-56 md:h-80 group"
+  />
 );

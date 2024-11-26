@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loading Component matches snapshot 1`] = `
+<div>
+  <div
+    class="fixed inset-0 flex justify-center items-center bg-background bg-opacity-50 z-50"
+  >
+    <div
+      class="rounded-full h-24 w-24 bg-primary animate-ping"
+    />
+  </div>
+</div>
+`;

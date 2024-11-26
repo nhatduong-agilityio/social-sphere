@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserCardHeader Component matches snapshot 1`] = `
+<div>
+  <div
+    class="p-3 flex flex-row rounded-md items-center justify-between group"
+  >
+    <div
+      class="flex items-center gap-3"
+      data-testid="header-wrapper"
+    >
+      <a
+        class="w-12 h-12 flex items-center justify-center rounded-full"
+        data-state="closed"
+        data-testid="avatar-trigger"
+      >
+        <span
+          class="relative flex shrink-0 overflow-hidden rounded-full h-10 w-10 bg-current"
+          data-testid="avatar-wrapper"
+        >
+          <span
+            class="flex h-full w-full items-center justify-center rounded-full bg-muted"
+          >
+            JD
+          </span>
+        </span>
+      </a>
+      <div
+        class="flex flex-col"
+      >
+        <a
+          href="/user-profile/johndoe/personal-info"
+        >
+          <h3
+            class="font-roboto font-medium text-sm"
+          >
+            User Profile
+          </h3>
+        </a>
+        <p
+          class="font-roboto font-normal text-sm text-neutral-200"
+        >
+          Profile details
+        </p>
+      </div>
+    </div>
+    <button
+      aria-expanded="false"
+      aria-haspopup="menu"
+      class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border rounded-full hover:bg-muted opacity-0 group-hover:opacity-100 transition-opacity duration-200 w-8 h-8"
+      data-state="closed"
+      id="radix-:r4:"
+      type="button"
+    >
+      <svg
+        class="lucide lucide-ellipsis-vertical"
+        fill="none"
+        height="20"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle
+          cx="12"
+          cy="12"
+          r="1"
+        />
+        <circle
+          cx="12"
+          cy="5"
+          r="1"
+        />
+        <circle
+          cx="12"
+          cy="19"
+          r="1"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;

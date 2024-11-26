@@ -70,6 +70,7 @@ export const AutoCompleteInput = forwardRef<
         />
         {onClose && (
           <div
+            data-testid="close-icon"
             className={cn(
               'absolute top-1/2 -translate-y-1/2 transition-all duration-300 ease-in-out text-gray-900 dark:text-white hover:dark:text-neutral-700 hover:text-neutral-700 right-3',
             )}

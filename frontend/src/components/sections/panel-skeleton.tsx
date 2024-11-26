@@ -24,5 +24,3 @@ export const PanelSkeleton = () => (
     </CardContent>
   </Card>
 );
-
-PanelSkeleton.displayName = 'PanelSkeleton';

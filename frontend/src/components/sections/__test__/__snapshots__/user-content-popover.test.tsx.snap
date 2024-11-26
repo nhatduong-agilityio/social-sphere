@@ -1,0 +1,197 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserContentPopover Component matches snapshot 1`] = `
+<div>
+  <div
+    class="rounded-md bg-card border border-gray-800 hover:shadow dark:border-dark-300 h-full p-2"
+    data-testid="user-popover-card"
+  >
+    <div
+      class="relative w-full h-28"
+      data-testid="banner-wrapper"
+    >
+      <img
+        alt="This is banner Image"
+        data-nimg="fill"
+        data-testid="banner-image"
+        decoding="async"
+        fetchpriority="high"
+        sizes="(max-width: 768px) 100vw"
+        src="/_next/image?url=%2Fbanners%2Fprofile-banner.webp&w=3840&q=100"
+        srcset="/_next/image?url=%2Fbanners%2Fprofile-banner.webp&w=640&q=100 640w, /_next/image?url=%2Fbanners%2Fprofile-banner.webp&w=750&q=100 750w, /_next/image?url=%2Fbanners%2Fprofile-banner.webp&w=828&q=100 828w, /_next/image?url=%2Fbanners%2Fprofile-banner.webp&w=1080&q=100 1080w, /_next/image?url=%2Fbanners%2Fprofile-banner.webp&w=1200&q=100 1200w, /_next/image?url=%2Fbanners%2Fprofile-banner.webp&w=1920&q=100 1920w, /_next/image?url=%2Fbanners%2Fprofile-banner.webp&w=2048&q=100 2048w, /_next/image?url=%2Fbanners%2Fprofile-banner.webp&w=3840&q=100 3840w"
+        style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent;"
+      />
+      <span
+        class="flex shrink-0 overflow-hidden rounded-full absolute bg-current w-[50px] h-[50px] -bottom-6 right-4 border-3 border-slate-900"
+        data-testid="user-avatar"
+      >
+        <span
+          class="flex h-full w-full items-center justify-center rounded-full bg-muted"
+        >
+          JD
+        </span>
+      </span>
+    </div>
+    <a
+      class="flex flex-col mt-2"
+      data-testid="profile-link"
+      href="/user-profile/johndoe/personal-info"
+    >
+      <h3
+        class="font-roboto font-medium text-md mb-2"
+      >
+        John Doe
+      </h3>
+      <div
+        class="flex flex-col gap-2 p-0"
+      >
+        <div
+          class="flex items-center gap-3 text-sm text-neutral-200"
+        >
+          <svg
+            class="lucide lucide-users"
+            fill="none"
+            height="16"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"
+            />
+            <circle
+              cx="9"
+              cy="7"
+              r="4"
+            />
+            <path
+              d="M22 21v-2a4 4 0 0 0-3-3.87"
+            />
+            <path
+              d="M16 3.13a4 4 0 0 1 0 7.75"
+            />
+          </svg>
+          3
+           mutual friend(s)
+        </div>
+        <div
+          class="flex items-center gap-2 text-sm text-neutral-200"
+        >
+          <svg
+            class="lucide lucide-map-pin"
+            fill="none"
+            height="16"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"
+            />
+            <circle
+              cx="12"
+              cy="10"
+              r="3"
+            />
+          </svg>
+          <div>
+            From
+             
+            <a
+              class="text-sky-600"
+              href="#"
+            >
+              Melbourne
+            </a>
+          </div>
+        </div>
+      </div>
+    </a>
+    <div
+      class="items-center flex p-0 justify-end"
+      data-testid="action-buttons"
+    >
+      <button
+        class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-transparent border-none rounded-none hover:bg-gray-100 dark:hover:bg-transparent text-neutral-200 dark:text-neutral-100 h-10 w-10"
+      >
+        <svg
+          class="lucide lucide-ellipsis"
+          fill="none"
+          height="16"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="12"
+            cy="12"
+            r="1"
+          />
+          <circle
+            cx="19"
+            cy="12"
+            r="1"
+          />
+          <circle
+            cx="5"
+            cy="12"
+            r="1"
+          />
+        </svg>
+      </button>
+      <button
+        class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-transparent border-none rounded-none hover:bg-gray-100 dark:hover:bg-transparent text-neutral-200 dark:text-neutral-100 h-10 w-10"
+      >
+        <svg
+          class="lucide lucide-bookmark"
+          fill="none"
+          height="16"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"
+          />
+        </svg>
+      </button>
+      <button
+        class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-transparent border-none rounded-none hover:bg-gray-100 dark:hover:bg-transparent text-neutral-200 dark:text-neutral-100 h-10 w-10"
+      >
+        <svg
+          class="lucide lucide-message-circle"
+          fill="none"
+          height="16"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;

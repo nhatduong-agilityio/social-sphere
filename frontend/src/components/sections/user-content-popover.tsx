@@ -40,9 +40,10 @@ export const UserContentPopover = memo(({ user }: UserPopoverProps) => {
   } = user;
 
   return (
-    <Card className="h-full p-2">
-      <div className="relative w-full h-28">
+    <Card data-testid="user-popover-card" className="h-full p-2">
+      <div data-testid="banner-wrapper" className="relative w-full h-28">
         <Image
+          data-testid="banner-image"
           src={banner || IMAGES.PROFILE_BANNER.url}
           alt={IMAGES.PROFILE_BANNER.alt}
           fill
@@ -52,7 +53,10 @@ export const UserContentPopover = memo(({ user }: UserPopoverProps) => {
           style={{ objectFit: 'cover' }}
         />
 
-        <Avatar className="absolute bg-current w-[50px] h-[50px] -bottom-6 right-4 border-3 border-slate-900">
+        <Avatar
+          data-testid="user-avatar"
+          className="absolute bg-current w-[50px] h-[50px] -bottom-6 right-4 border-3 border-slate-900"
+        >
           <AvatarImage
             src={profilePicture}
             alt={`Avatar of the user-${getFullName(firstName, lastName)} in team`}
@@ -64,6 +68,7 @@ export const UserContentPopover = memo(({ user }: UserPopoverProps) => {
       </div>
 
       <Link
+        data-testid="profile-link"
         href={ROUTER.PROFILE_ID_PERSONAL_INFO(username)}
         className="flex flex-col mt-2"
       >
@@ -90,7 +95,7 @@ export const UserContentPopover = memo(({ user }: UserPopoverProps) => {
         </CardContent>
       </Link>
 
-      <CardFooter className="flex p-0 justify-end">
+      <CardFooter data-testid="action-buttons" className="flex p-0 justify-end">
         <Button size="icon" variant="unstyle">
           <Ellipsis size={16} />
         </Button>

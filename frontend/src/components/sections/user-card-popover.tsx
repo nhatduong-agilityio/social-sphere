@@ -42,6 +42,7 @@ export const UserCardPopover = memo(
     return (
       <HoverCard>
         <HoverCardTrigger
+          data-testid="avatar-trigger"
           className={cn(
             sizeWrapper,
             'flex items-center justify-center rounded-full',
@@ -52,10 +53,12 @@ export const UserCardPopover = memo(
           )}
         >
           <Avatar
+            data-testid="avatar-wrapper"
             size={size}
             className={cn('bg-current', additionalAvatarClass)}
           >
             <AvatarImage
+              data-testid="avatar-image"
               src={profilePicture}
               alt={`Avatar of the user-${getFullName(firstName, lastName)} in team`}
             />

@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BannerSkeleton Component matches snapshot 1`] = `
+<div>
+  <div
+    class="animate-pulse rounded-md bg-muted relative w-full h-56 md:h-80 group"
+    data-testid="banner-skeleton"
+  />
+</div>
+`;

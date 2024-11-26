@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WidgetSkeleton Component matches snapshot 1`] = `
+<div>
+  <div
+    class="hidden lg:flex col-span-3 flex-col gap-6 dark:bg-slate-800 bg-white border rounded-md p-3"
+  >
+    <div
+      class="border-b border-slate-300 dark:border-slate-600 pb-4"
+    >
+      <div
+        class="animate-pulse rounded-md bg-muted h-4 w-[250px]"
+      />
+    </div>
+    <div
+      class="flex gap-3"
+    >
+      <div
+        class="animate-pulse bg-muted h-12 w-12 rounded-full"
+      />
+      <div
+        class="space-y-2"
+      >
+        <div
+          class="animate-pulse rounded-md bg-muted h-4 w-[250px]"
+        />
+        <div
+          class="animate-pulse rounded-md bg-muted h-4 w-[200px]"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
