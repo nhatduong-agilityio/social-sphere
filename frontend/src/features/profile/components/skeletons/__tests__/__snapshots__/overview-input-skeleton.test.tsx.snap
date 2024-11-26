@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OverviewInputSkeleton  Component should render correctly 1`] = `
+<div>
+  <div
+    class="flex items-center justify-between dark:bg-slate-800 bg-white border rounded-md p-2"
+  >
+    <div
+      class="flex items-center gap-4"
+    >
+      <div
+        class="animate-pulse bg-muted h-10 w-10 rounded-full"
+      />
+      <div
+        class="space-y-2"
+      >
+        <div
+          class="animate-pulse rounded-md bg-muted h-4 w-[250px]"
+        />
+        <div
+          class="animate-pulse rounded-md bg-muted h-4 w-[200px]"
+        />
+      </div>
+    </div>
+    <div
+      class="animate-pulse bg-muted h-12 w-12 rounded-full"
+    />
+  </div>
+</div>
+`;

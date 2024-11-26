@@ -50,6 +50,7 @@ export const Video = memo(
         <div className="absolute z-20 bottom-0 right-0 m-2 opacity-0 translate-y-4 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 ease-in-out">
           <Button
             variant="primary"
+            title="video-button"
             size="sm"
             className={cn(
               'flex w-9 h-9 rounded-full dark:bg-dark-100 bg-white items-center justify-center border-none',

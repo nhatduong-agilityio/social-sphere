@@ -31,7 +31,14 @@ const config: Config = {
     '^@/actions(.*)$': '<rootDir>src/actions/$1',
     '^@/features(.*)$': '<rootDir>src/features/$1',
     '^@/hooks(.*)$': '<rootDir>src/hooks/$1',
+    '^@/services(.*)$': '<rootDir>src/services/$1',
   },
+  coveragePathIgnorePatterns: [
+    '<rootDir>/src/app',
+    '<rootDir>/src/styles/fonts.ts',
+    '<rootDir>/src/models',
+    '<rootDir>/src/features/profile/components/skeletons/index.ts',
+  ],
 };
 
 export default createJestConfig(config);
