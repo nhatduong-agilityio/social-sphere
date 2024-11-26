@@ -54,7 +54,11 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       );
 
     return (
-      <div className="relative w-full flex items-center" onBlur={handleBlur}>
+      <div
+        className="relative w-full flex items-center"
+        onBlur={handleBlur}
+        data-testid="input-container"
+      >
         {renderIcon(startIcon, 'left', isFocused)}
         <input
           type={type}
@@ -67,6 +71,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           autoComplete="off"
           onFocus={handleFocus}
           onBlur={handleBlur}
+          data-testid="input-element"
           {...props}
         />
         {renderIcon(endIcon, 'right', isFocused)}
@@ -76,4 +81,4 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 );
 Input.displayName = 'Input';
 
-export { Input };
+export { Input, inputVariants };
