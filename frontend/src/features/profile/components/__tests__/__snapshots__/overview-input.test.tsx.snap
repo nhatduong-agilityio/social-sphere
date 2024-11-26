@@ -39,12 +39,14 @@ exports[`OverviewInput Component should render correctly 1`] = `
         </label>
         <div
           class="relative w-full flex items-center"
+          data-testid="input-container"
         >
           <input
             aria-describedby=":r0:-form-item-description"
             aria-invalid="false"
             autocomplete="off"
             class="flex w-full rounded-lg border-input file:border-0 file:bg-transparent file:text-xs file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 border-0 bg-transparent transition-all duration-300 ease-in-out focus:border-ring dark:border-input h-6 p-0 border-none dark:bg-slate-800 text-slate-400 text-2xs"
+            data-testid="input-element"
             id=":r0:-form-item"
             name="firstName"
             placeholder="Enter your first name"

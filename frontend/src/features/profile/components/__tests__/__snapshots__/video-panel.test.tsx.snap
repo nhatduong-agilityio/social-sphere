@@ -137,6 +137,7 @@ exports[`VideoPanel Component should render correctly 1`] = `
           >
             <button
               class="font-roboto whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border text-primary-foreground hover:opacity-80 hover:shadow-sphere-primary border-primary px-3 flex w-9 h-9 rounded-full dark:bg-dark-100 bg-white items-center justify-center border-none"
+              title="video-button"
             >
               <svg
                 class="lucide lucide-heart text-dark-100 dark:text-white"
@@ -213,6 +214,7 @@ exports[`VideoPanel Component should render correctly 1`] = `
           >
             <button
               class="font-roboto whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border text-primary-foreground hover:opacity-80 hover:shadow-sphere-primary border-primary px-3 flex w-9 h-9 rounded-full dark:bg-dark-100 bg-white items-center justify-center border-none"
+              title="video-button"
             >
               <svg
                 class="lucide lucide-heart text-dark-100 dark:text-white"
@@ -289,6 +291,7 @@ exports[`VideoPanel Component should render correctly 1`] = `
           >
             <button
               class="font-roboto whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border text-primary-foreground hover:opacity-80 hover:shadow-sphere-primary border-primary px-3 flex w-9 h-9 rounded-full dark:bg-dark-100 bg-white items-center justify-center border-none"
+              title="video-button"
             >
               <svg
                 class="lucide lucide-heart text-dark-100 dark:text-white"
@@ -365,6 +368,7 @@ exports[`VideoPanel Component should render correctly 1`] = `
           >
             <button
               class="font-roboto whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border text-primary-foreground hover:opacity-80 hover:shadow-sphere-primary border-primary px-3 flex w-9 h-9 rounded-full dark:bg-dark-100 bg-white items-center justify-center border-none"
+              title="video-button"
             >
               <svg
                 class="lucide lucide-heart text-dark-100 dark:text-white"
@@ -441,6 +445,7 @@ exports[`VideoPanel Component should render correctly 1`] = `
           >
             <button
               class="font-roboto whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border text-primary-foreground hover:opacity-80 hover:shadow-sphere-primary border-primary px-3 flex w-9 h-9 rounded-full dark:bg-dark-100 bg-white items-center justify-center border-none"
+              title="video-button"
             >
               <svg
                 class="lucide lucide-heart text-dark-100 dark:text-white"

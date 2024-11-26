@@ -1,0 +1,131 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OverviewSkeleton Component should render correctly 1`] = `
+<div>
+  <div
+    class="flex gap-3 md:flex-row flex-col"
+  >
+    <div
+      class="flex w-full gap-4 flex-col"
+    >
+      <div
+        class="flex items-center justify-between dark:bg-slate-800 bg-white border rounded-md p-2"
+      >
+        <div
+          class="flex items-center gap-4"
+        >
+          <div
+            class="animate-pulse bg-muted h-10 w-10 rounded-full"
+          />
+          <div
+            class="space-y-2"
+          >
+            <div
+              class="animate-pulse rounded-md bg-muted h-4 w-[250px]"
+            />
+            <div
+              class="animate-pulse rounded-md bg-muted h-4 w-[200px]"
+            />
+          </div>
+        </div>
+        <div
+          class="animate-pulse bg-muted h-12 w-12 rounded-full"
+        />
+      </div>
+      <div
+        class="flex items-center justify-between dark:bg-slate-800 bg-white border rounded-md p-2"
+      >
+        <div
+          class="flex items-center gap-4"
+        >
+          <div
+            class="animate-pulse bg-muted h-10 w-10 rounded-full"
+          />
+          <div
+            class="space-y-2"
+          >
+            <div
+              class="animate-pulse rounded-md bg-muted h-4 w-[250px]"
+            />
+            <div
+              class="animate-pulse rounded-md bg-muted h-4 w-[200px]"
+            />
+          </div>
+        </div>
+        <div
+          class="animate-pulse bg-muted h-12 w-12 rounded-full"
+        />
+      </div>
+      <div
+        class="flex items-center justify-between dark:bg-slate-800 bg-white border rounded-md p-2"
+      >
+        <div
+          class="flex items-center gap-4"
+        >
+          <div
+            class="animate-pulse bg-muted h-10 w-10 rounded-full"
+          />
+          <div
+            class="space-y-2"
+          >
+            <div
+              class="animate-pulse rounded-md bg-muted h-4 w-[250px]"
+            />
+            <div
+              class="animate-pulse rounded-md bg-muted h-4 w-[200px]"
+            />
+          </div>
+        </div>
+        <div
+          class="animate-pulse bg-muted h-12 w-12 rounded-full"
+        />
+      </div>
+      <div
+        class="flex items-center justify-between dark:bg-slate-800 bg-white border rounded-md p-2"
+      >
+        <div
+          class="flex items-center gap-4"
+        >
+          <div
+            class="animate-pulse bg-muted h-10 w-10 rounded-full"
+          />
+          <div
+            class="space-y-2"
+          >
+            <div
+              class="animate-pulse rounded-md bg-muted h-4 w-[250px]"
+            />
+            <div
+              class="animate-pulse rounded-md bg-muted h-4 w-[200px]"
+            />
+          </div>
+        </div>
+        <div
+          class="animate-pulse bg-muted h-12 w-12 rounded-full"
+        />
+      </div>
+    </div>
+    <div
+      class="w-full flex items-end gap-2 justify-between dark:bg-slate-800 bg-white border rounded-md p-8"
+    >
+      <div
+        class="flex w-full h-full gap-3"
+      >
+        <div
+          class="animate-pulse rounded-md bg-muted h-4 w-[250px]"
+        />
+        <div
+          class="space-y-2"
+        >
+          <div
+            class="animate-pulse rounded-md bg-muted w-full h-56 p-0 border-none dark:bg-slate-800 text-slate-400"
+          />
+        </div>
+      </div>
+      <div
+        class="animate-pulse bg-muted h-10 w-10 rounded-full"
+      />
+    </div>
+  </div>
+</div>
+`;
