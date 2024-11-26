@@ -105,6 +105,7 @@ export const OverviewBio = ({ isDisabled = false, user }: OverviewBioProps) => {
 
         <Button
           type="submit"
+          title="bio-button"
           variant="rounded"
           size="icon"
           className={cn(

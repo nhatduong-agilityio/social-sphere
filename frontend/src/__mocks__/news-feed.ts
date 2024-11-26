@@ -145,7 +145,7 @@ export const MOCK_NEWS_FEED_LIST: NewsFeedsResponse = {
       page: 1,
       pageSize: 10,
       pageCount: 1,
-      total: 1,
+      total: 100,
     },
   },
 };
