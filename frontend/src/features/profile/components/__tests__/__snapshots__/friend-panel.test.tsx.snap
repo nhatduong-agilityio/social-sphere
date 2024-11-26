@@ -91,7 +91,9 @@ exports[`FriendPanel Component should render correctly 1`] = `
                 class=""
                 data-state="closed"
               >
-                <span>
+                <span
+                  data-testid="avatar"
+                >
                   <span />
                 </span>
               </a>

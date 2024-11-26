@@ -36,6 +36,7 @@ export interface AvatarProps
 const Avatar = forwardRef<ElementRef<typeof AvatarPrimitive.Root>, AvatarProps>(
   ({ className, variant, size, ...props }, ref) => (
     <AvatarPrimitive.Root
+      data-testid="avatar"
       ref={ref}
       className={cn(avatarVariants({ variant, size, className }))}
       {...props}

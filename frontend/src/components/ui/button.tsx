@@ -70,6 +70,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       >
         {isLoading ? (
           <LoaderCircleIcon
+            data-testid="loader-button"
             size={14}
             strokeWidth={3}
             strokeLinecap="square"
