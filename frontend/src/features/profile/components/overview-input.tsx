@@ -116,6 +116,7 @@ export const OverviewInput = ({
 
         <Button
           type="submit"
+          title="input-button"
           variant="rounded"
           size="icon"
           className={cn(

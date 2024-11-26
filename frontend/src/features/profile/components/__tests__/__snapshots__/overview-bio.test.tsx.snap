@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OverviewBio Component should render correctly 1`] = `
+<div>
+  <form
+    class="relative w-full h-full flex items-end gap-2 group justify-between dark:bg-slate-800 bg-white border rounded-md p-8"
+  >
+    <div
+      class="flex w-full h-full items-center gap-3"
+    >
+      <div
+        class="w-full h-full space-y-0"
+      >
+        <label
+          class="font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-neutral-400 font-medium text-lg dark:text-white"
+          for=":r0:-form-item"
+        >
+          About Me
+        </label>
+        <textarea
+          aria-describedby=":r0:-form-item-description"
+          aria-invalid="false"
+          class="flex rounded-md border border-input bg-card ring-offset-background placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 focus:outline-none min-h-[80px] w-full h-56 p-0 border-none dark:bg-slate-800 text-slate-400 text-md"
+          id=":r0:-form-item"
+          name="bio"
+          placeholder="Enter your bio"
+        />
+      </div>
+    </div>
+    <button
+      class="font-roboto inline-flex whitespace-nowrap text-sm font-medium ring-offset-background ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border w-[42px] h-[42px] right-10 absolute opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100 rounded-full bg-blue-50 group-hover:bg-blue-100 items-center justify-center transition-all duration-300 group-hover:rotate-180"
+      title="bio-button"
+      type="submit"
+    >
+      <svg
+        class="lucide lucide-arrow-left"
+        fill="none"
+        height="16"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="m12 19-7-7 7-7"
+        />
+        <path
+          d="M19 12H5"
+        />
+      </svg>
+    </button>
+  </form>
+</div>
+`;

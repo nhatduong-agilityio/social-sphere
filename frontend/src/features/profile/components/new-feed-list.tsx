@@ -25,7 +25,7 @@ export const NewFeedList = async ({ authorId, username }: NewFeedListProps) => {
 
   const newsFeedIds = newsFeedIdsResponse.data;
 
-  if (!newsFeedIdsResponse || !authorId) notFound();
+  if (!newsFeedIds || !authorId) notFound();
 
   return (
     <NewFeedContent

@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LocationPicker component should render correctly 1`] = `
+<div>
+  <form
+    class="relative flex items-center group justify-between dark:bg-slate-800 bg-white border rounded-md p-2"
+  >
+    <div
+      class="flex items-center gap-3"
+    >
+      <div
+        class="w-10 h-10"
+      >
+        <svg
+          class="rounded-full"
+          enable-background="new -155 247 300 300"
+          viewBox="-155 247 300 300"
+          xml:space="preserve"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M-154.8 247.2h299.6v299.6h-299.6z"
+            fill="#322644"
+          />
+          <path
+            d="M-38.6 361c.2 0 .2.1.2.2 0 .8-.2 1.6-.6 1.6l-6.3.9c-.9.2-1.3.6-1.4 1.9-.5 6.2-1 26-1.3 31.1-.1 5.7-.7 29.3-.7 32.5 0 1 .7 1.3 1.5 1.3 3.3 0 16.2-.8 21.3-2.2 1.2-.5 2.6-1.2 3.4-2.4l6.5-10.4c.1-.2.2-.3.5-.2.5.1 1.3.9 1.3 1.3l-3.1 15.7c-.2.7-.3 1-1.4 1-.5 0-4.4-.1-11.1-.3-6.5-.1-15.8-.2-27.2-.2-4.5 0-8.7.1-14.2.2-.2 0-.2-.1-.2-.3 0-.6.2-1.4.6-1.4l5.2-1c.8-.1 1.3-.5 1.3-1.7.1-3.8-.2-25.3-.2-30 0-4.4-.2-29.1-.5-32.7 0-1.3-.2-1.6-1.3-1.9l-4.5-1c-.3-.1-.6-.7-.6-1.4 0-.2 0-.3.3-.3h32.5zm62.5-.3c4.1 0 7.2.1 9.8.2.3 0 .8.2.9.5 3.7 12.6 15.7 52.7 20.4 67.1.2.7.8 1.3 1.5 1.5l4.3 1.2c.3.1.6.7.6 1.5 0 .1-.1.2-.3.2-2.4 0-8-.2-13.9-.2-6.5 0-12.8.1-15.9.2-.3 0-.3-.1-.3-.2 0-.7.3-1.5.7-1.6l6.3-1c.9-.1 1-.9.8-1.9-1.3-3.8-5.6-15-6.9-19-5.2.1-18.7.5-24.8.9-.3 0-.7.3-.8.9-.7 3.4-2.9 12.8-3.6 17-.1 1.4.3 1.7 1.2 2l6.1 1.2c.3 0 .7.8.7 1.5 0 .2-.1.2-.3.2-2.9-.1-7.6-.2-12.2-.2-4 0-7.4.1-9.8.2-.2 0-.2-.1-.2-.3 0-.3.2-1.4.6-1.5l2.9-.9c.9-.2 1.5-.7 2.1-2.1 5.7-14 17.8-49.7 23-63.9 1-2.8 2.6-3.4 7.2-3.4h-.1zm-6.3 9.2c-.6 1.7-.9 2.9-1.2 4-2.9 9.7-6.6 23.2-8.8 31.2-.1.5.2.8.6.8 5.4.7 17.8 1.2 22.8 1-2-5.6-8-22.5-11.2-32.9-.3-1-.8-2.4-1.5-4.1h-.7z"
+            fill="#fff"
+          />
+        </svg>
+      </div>
+      <div
+        class="space-y-0"
+      >
+        <label
+          class="font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-neutral-400 font-medium text-4xs"
+          for=":r0:-form-item"
+        >
+          LOCATION
+        </label>
+        <div
+          class="relative w-full flex items-center"
+        >
+          <div
+            class="absolute top-1/2 -translate-y-1/2 transition-all duration-300 ease-in-out left-3 text-gray-900 dark:text-primary"
+          />
+          <input
+            aria-describedby=":r0:-form-item-description"
+            aria-invalid="false"
+            autocomplete="true"
+            class="flex w-full rounded-lg border border-input hover:border-gray-900 bg-white file:border-0 file:bg-transparent file:text-xs file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-300 ease-in-out dark:border-dark-300 dark:bg-slate-800 h-6 p-0 text-slate-400 text-2xs border-none"
+            id="location-input"
+            placeholder="Enter a location"
+            value="Melbourne"
+          />
+        </div>
+      </div>
+    </div>
+    <button
+      class="font-roboto whitespace-nowrap text-sm font-medium ring-offset-background ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border w-[42px] h-[42px] opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100 rounded-full bg-blue-50 group-hover:bg-blue-100 flex items-center justify-center transition-all duration-300 group-hover:rotate-180"
+      title="location-button"
+      type="submit"
+    >
+      <svg
+        class="lucide lucide-arrow-left"
+        fill="none"
+        height="16"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="m12 19-7-7 7-7"
+        />
+        <path
+          d="M19 12H5"
+        />
+      </svg>
+    </button>
+  </form>
+</div>
+`;

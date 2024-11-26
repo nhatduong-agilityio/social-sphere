@@ -183,6 +183,7 @@ export const LocationPicker = memo(
 
           <Button
             type="submit"
+            title="location-button"
             variant="rounded"
             size="icon"
             className={cn(

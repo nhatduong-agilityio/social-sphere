@@ -21,6 +21,7 @@ const config: Config = {
   ],
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   moduleNameMapper: {
+    '^@/(.*)$': '<rootDir>/src/$1',
     'next-auth/providers/credentials':
       '<rootDir>/src/__mocks__/next-auth-providers-credentials.ts',
     'next-auth': '<rootDir>/src/__mocks__/next-auth.ts',
@@ -28,6 +29,8 @@ const config: Config = {
     '^@/utils(.*)$': '<rootDir>src/utils/$1',
     '^@/components(.*)$': '<rootDir>src/components/$1',
     '^@/actions(.*)$': '<rootDir>src/actions/$1',
+    '^@/features(.*)$': '<rootDir>src/features/$1',
+    '^@/hooks(.*)$': '<rootDir>src/hooks/$1',
   },
 };
 
