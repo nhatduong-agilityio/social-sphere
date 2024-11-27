@@ -3,9 +3,9 @@ import { Camera } from 'lucide-react';
 // Components
 import { Photo } from './photo';
 import { Panel } from '@/components/sections';
+import { getPhotoListByUsername } from '../actions/photo-profile';
 
 // APIs
-import { getPhotoListByUsername } from '@/api/photo-profile/route';
 
 interface IPhotoPanelProps {
   username: string;

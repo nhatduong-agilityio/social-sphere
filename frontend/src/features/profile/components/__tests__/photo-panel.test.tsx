@@ -7,7 +7,7 @@ import { PhotoPanel } from '../photo-panel';
 import { MOCK_PHOTOS } from '@/__mocks__/user';
 
 // Mock the API function
-jest.mock('@/api/photo-profile/route', () => ({
+jest.mock('../../actions/photo-profile', () => ({
   getPhotoListByUsername: () => MOCK_PHOTOS,
 }));
 

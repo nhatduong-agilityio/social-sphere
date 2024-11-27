@@ -1,7 +1,7 @@
 import { render, waitFor } from '@testing-library/react';
 
 // APIs
-import { getFriendListByUsername } from '@/api/friends-profile/route';
+import { getFriendListByUsername } from '../../actions/friends-profile';
 
 // Components
 import { FriendPanel } from '../friend-panel';
@@ -10,7 +10,7 @@ import { FriendPanel } from '../friend-panel';
 import { MOCK_ACCEPTED_FRIENDS } from '@/__mocks__/user';
 
 // Mock the API function
-jest.mock('@/api/friends-profile/route', () => ({
+jest.mock('../../actions/friends-profile', () => ({
   getFriendListByUsername: jest.fn(),
 }));
 

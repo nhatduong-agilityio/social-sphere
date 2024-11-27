@@ -4,13 +4,13 @@ import { notFound } from 'next/navigation';
 import { NewFeedContent } from './new-feed-content';
 
 // Api
-import { getFriendListByUsername } from '@/api/friends-profile/route';
 
 // Types
 import { Pagination, TNewFriends } from '@/types';
 
 // Actions
 import { getNewsFeedIds } from '../actions';
+import { getFriendListByUsername } from '../actions/friends-profile';
 
 interface NewFeedListProps {
   username: string;

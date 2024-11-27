@@ -9,7 +9,7 @@ import { getGroups } from '@/features/group/actions';
 import {
   getAcceptFriendListByUserId,
   getNonFriendListByUserId,
-} from '@/api/friends-profile/route';
+} from '@/features/profile/actions/friends-profile';
 
 // Types
 import { TFollower } from '@/models';
