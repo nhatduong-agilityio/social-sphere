@@ -19,31 +19,16 @@ const getExitingLike = async (
   newsFeedId: number,
   userId: number,
 ): Promise<ApiDataResponse<ExitingLikeModel[]>> => {
-  try {
-    const existingLikeQuery = QUERY.EXISTING_LIKE(newsFeedId, userId);
-    const response = await apiClient.get<ExitingLikeResponse>(
-      `${API_ENDPOINT.LIKES}?${existingLikeQuery}`,
-    );
+  const existingLikeQuery = QUERY.EXISTING_LIKE(newsFeedId, userId);
+  const response = await apiClient.get<ExitingLikeResponse>(
+    `${API_ENDPOINT.LIKES}?${existingLikeQuery}`,
+  );
 
-    return { data: response.data };
-  } catch (error) {
-    const errorMessage =
-      (error as Error).message ||
-      'Failed to get existing like a news feed. Please try again.';
-    return { error: errorMessage };
-  }
+  return { data: response.data };
 };
 
-const removeExitingLike = async (likedId: string) => {
-  try {
-    await apiClient.remove(`${API_ENDPOINT.LIKES}/${likedId}`);
-  } catch (error) {
-    const errorMessage =
-      (error as Error).message ||
-      'Failed to remove liked a news feed. Please try again.';
-    return { error: errorMessage };
-  }
-};
+const removeExitingLike = async (likedId: string) =>
+  await apiClient.remove(`${API_ENDPOINT.LIKES}/${likedId}`);
 
 export const toggleLikeNewsFeed = async (
   newsFeedId: number,
