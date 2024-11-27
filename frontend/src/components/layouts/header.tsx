@@ -137,8 +137,9 @@ export const Header = memo(({ isAuthenticated = true, user }: HeaderProps) => {
               <BrandLink size={38} />
             </div>
             <div className="flex gap-3 md:flex-1 md:justify-center lg:justify-start">
-              {NAVIGATION_ITEMS.map(({ title, styles, icon }) => (
+              {NAVIGATION_ITEMS.map(({ title, styles, icon }, index) => (
                 <Button
+                  data-testid={`button-item-navigation-${index}`}
                   key={title}
                   className={cn(
                     'w-[38px] h-[38px] p-0 border-none radius-md bg-transparent text-icon dark:hover:text-white',

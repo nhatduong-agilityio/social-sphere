@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginLayout Component matches snapshot 1`] = `
+<div>
+  <main
+    class="h-dvh w-dvw flex flex-row relative"
+  >
+    <section
+      class="hidden lg:flex container bg-gradient-blue animate-gradientShift duration-12000 ease-in-out infinite justify-center items-center"
+    >
+      <h2
+        class="font-montserrat text-gray-50 [text-shadow:_4px_4px_#3180e1,_8px_8px_#3180e1] text-3xl max-w-[400px] 2xl:text-4xl"
+      >
+        Join an Exciting Social Experience.
+      </h2>
+    </section>
+    <section
+      class="container"
+    >
+      <div>
+        Children Components
+      </div>
+    </section>
+    <div
+      class="hidden lg:flex w-[100px] h-[100px] bg-background absolute rounded-full p-[7px] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10"
+    >
+      <div
+        class="w-full h-full bg-gradient-blue animate-gradientShift duration-12000 ease-in-out infinite rounded-full flex justify-center items-center rotate-[30deg]"
+      >
+        <svg
+          class="dark:text-white text-white w-[54px] h-[54px]"
+          fill="none"
+          height="38"
+          viewBox="0 0 210.7 210.7"
+          width="38"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M77.7 119h16.8l81.9-102.1h-142v177L77.6 140v-21h.1zm0-56.8h62.4l-10.2 12.7H77.7V62.2z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+    </div>
+  </main>
+</div>
+`;

@@ -17,6 +17,7 @@ const config: Config = {
     '<rootDir>/src/**/*.{js,jsx,ts,tsx}',
     '!**/*.d.ts',
     '!<rootDir>/src/**/*.stories.{js,jsx,ts,tsx}',
+    '!<rootDir>/src/**/index.ts',
     '!<rootDir>/node_modules/',
   ],
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],

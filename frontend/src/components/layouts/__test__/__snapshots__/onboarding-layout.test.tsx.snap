@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OnboardingLayout Component matches snapshot 1`] = `
+<div>
+  <main
+    class="h-dvh w-dvw bg-body grid grid-rows-[auto_1fr]"
+  >
+    <header
+      class="sticky top-0 border bg-background dark:border-dark-950 dark:bg-dark-950 z-50 h-[55px]"
+    >
+      <div
+        class="w-full flex justify-center"
+      >
+        <a
+          aria-label="brand-link"
+          class="w-fit outline-none"
+          data-testid="brand-link"
+          href="/"
+        >
+          <svg
+            class="text-blue-600 dark:text-white"
+            fill="none"
+            height="48"
+            viewBox="0 0 210.7 210.7"
+            width="48"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M77.7 119h16.8l81.9-102.1h-142v177L77.6 140v-21h.1zm0-56.8h62.4l-10.2 12.7H77.7V62.2z"
+              fill="currentColor"
+            />
+          </svg>
+        </a>
+      </div>
+    </header>
+    <section
+      class="grid grid-rows-[auto_1fr] place-items-center bg-body"
+    >
+      <div>
+        Children Components
+      </div>
+    </section>
+  </main>
+</div>
+`;
