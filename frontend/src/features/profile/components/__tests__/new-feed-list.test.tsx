@@ -41,7 +41,7 @@ jest.mock('react-dom', () => ({
 }));
 
 // Mock the API function
-jest.mock('@/api/friends-profile/route', () => ({
+jest.mock('../../actions/friends-profile', () => ({
   getFriendListByUsername: () => MOCK_ACCEPTED_FRIENDS,
 }));
 

@@ -6,7 +6,9 @@ import { Card } from '@/components/ui';
 
 // Utils
 import { getFullName } from '@/utils';
-import { getFriendListByUsername } from '@/api/friends-profile/route';
+
+// APIs
+import { getFriendListByUsername } from '../actions/friends-profile';
 
 interface IFriendPanelProps {
   username: string;
