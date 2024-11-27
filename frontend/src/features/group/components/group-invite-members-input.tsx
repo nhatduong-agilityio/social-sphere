@@ -154,6 +154,7 @@ export const GroupInviteMembersInput = ({
                     </Text>
                   </div>
                   <Button
+                    data-testid="button-invite"
                     size="sm"
                     onClick={() => handleInvite(id.toString())}
                     disabled={

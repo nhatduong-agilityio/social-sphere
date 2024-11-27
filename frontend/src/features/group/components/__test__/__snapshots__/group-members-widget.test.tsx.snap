@@ -1,0 +1,182 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GroupMembersWidget matches snapshot 1`] = `
+<div>
+  <div
+    class="bg-card border border-gray-800 hover:shadow dark:border-dark-300 w-full rounded-lg"
+  >
+    <div
+      class="p-5 flex flex-col px-4 py-2 justify-between gap-2"
+    >
+      <div
+        class="flex justify-between"
+      >
+        <div
+          class="flex items-center gap-4"
+        >
+          <h3
+            class="font-roboto text-sm font-normal text-neutral-400 dark:text-gray-100"
+          >
+            Group Members
+          </h3>
+        </div>
+        <div
+          class="flex items-center gap-3"
+        >
+          <button
+            class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border rounded-full h-10 w-10 hover:bg-muted"
+          >
+            <svg
+              class="lucide lucide-ellipsis-vertical text-slate-600"
+              fill="none"
+              height="20"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle
+                cx="12"
+                cy="12"
+                r="1"
+              />
+              <circle
+                cx="12"
+                cy="5"
+                r="1"
+              />
+              <circle
+                cx="12"
+                cy="19"
+                r="1"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div
+        class="relative"
+      >
+        <div
+          class="relative w-full flex items-center"
+        >
+          <div
+            class="absolute top-1/2 -translate-y-1/2 transition-all duration-300 ease-in-out left-3 text-gray-900 dark:text-primary"
+          >
+            <svg
+              class="lucide lucide-search"
+              fill="none"
+              height="16"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle
+                cx="11"
+                cy="11"
+                r="8"
+              />
+              <path
+                d="m21 21-4.3-4.3"
+              />
+            </svg>
+          </div>
+          <input
+            autocomplete="true"
+            class="flex h-9 w-full rounded-lg border border-input hover:border-gray-900 bg-white dark:bg-dark-500 px-10 py-2 text-sm file:border-0 file:bg-transparent file:text-xs file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-300 ease-in-out dark:border-dark-300"
+            placeholder="Search friends to invite..."
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex flex-col p-0"
+    >
+      <div
+        class="p-4 flex w-full border-t border-slate-300 dark:border-slate-600 items-center justify-between group cursor-pointer"
+      >
+        <div
+          class="flex items-center gap-3"
+        >
+          <a
+            class="w-12 h-12 flex items-center justify-center rounded-full"
+            data-state="closed"
+            data-testid="avatar-trigger"
+          >
+            <span
+              class="relative flex shrink-0 overflow-hidden rounded-full h-10 w-10 bg-current"
+              data-testid="avatar-wrapper"
+            >
+              <span
+                class="flex h-full w-full items-center justify-center rounded-full bg-muted"
+              >
+                JD
+              </span>
+            </span>
+          </a>
+          <div
+            class="flex flex-col"
+          >
+            <p
+              class="text-foreground text-xs"
+            >
+              John Doe
+            </p>
+            <span
+              class="text-4xs text-slate-500 capitalize"
+            >
+              admin
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="p-4 flex w-full border-t border-slate-300 dark:border-slate-600 items-center justify-between group cursor-pointer"
+      >
+        <div
+          class="flex items-center gap-3"
+        >
+          <a
+            class="w-12 h-12 flex items-center justify-center rounded-full"
+            data-state="closed"
+            data-testid="avatar-trigger"
+          >
+            <span
+              class="relative flex shrink-0 overflow-hidden rounded-full h-10 w-10 bg-current"
+              data-testid="avatar-wrapper"
+            >
+              <span
+                class="flex h-full w-full items-center justify-center rounded-full bg-muted"
+              >
+                JS
+              </span>
+            </span>
+          </a>
+          <div
+            class="flex flex-col"
+          >
+            <p
+              class="text-foreground text-xs"
+            >
+              Jane Smith
+            </p>
+            <span
+              class="text-4xs text-slate-500 capitalize"
+            >
+              member
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

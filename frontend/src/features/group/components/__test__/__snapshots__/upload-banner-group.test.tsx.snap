@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UploadBannerGroup matches snapshot 1`] = `
+<div>
+  <div
+    class="relative w-full h-56 md:h-80 group"
+  >
+    <img
+      alt="This is banner Image"
+      class="absolute inset-0 rounded-sm"
+      data-nimg="fill"
+      decoding="async"
+      fetchpriority="high"
+      sizes="(max-width: 768px) 100vw"
+      src="http://localhost/_next/image?url=%2Fbanners%2Fprofile-banner.webp&w=3840&q=100"
+      srcset="/_next/image?url=%2Fbanners%2Fprofile-banner.webp&w=640&q=100 640w, /_next/image?url=%2Fbanners%2Fprofile-banner.webp&w=750&q=100 750w, /_next/image?url=%2Fbanners%2Fprofile-banner.webp&w=828&q=100 828w, /_next/image?url=%2Fbanners%2Fprofile-banner.webp&w=1080&q=100 1080w, /_next/image?url=%2Fbanners%2Fprofile-banner.webp&w=1200&q=100 1200w, /_next/image?url=%2Fbanners%2Fprofile-banner.webp&w=1920&q=100 1920w, /_next/image?url=%2Fbanners%2Fprofile-banner.webp&w=2048&q=100 2048w, /_next/image?url=%2Fbanners%2Fprofile-banner.webp&w=3840&q=100 3840w"
+      style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent;"
+    />
+    <div
+      class="absolute inset-0 z-10 bg-slate-700 bg-opacity-0 group-hover:bg-opacity-50 transition duration-300 ease-in-out"
+    />
+    <div
+      class="absolute z-20 top-0 left-0 m-4"
+    >
+      <button
+        class="font-roboto whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border h-9 px-3 flex items-center justify-center bg-transparent group border-transparent group-hover:border group-hover:border-white text-white rounded-sm"
+      >
+        <svg
+          class="lucide lucide-camera text-2xl"
+          fill="none"
+          height="24"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"
+          />
+          <circle
+            cx="12"
+            cy="13"
+            r="3"
+          />
+        </svg>
+        <span
+          class="ml-2 opacity-0 group-hover:opacity-100 transition-opacity"
+        >
+          Edit cover image
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="space-y-2"
+  >
+    <div
+      class="relative w-full flex items-center"
+      data-testid="input-container"
+    >
+      <input
+        aria-describedby=":r0:-form-item-description"
+        aria-invalid="false"
+        aria-label="Upload profile picture"
+        autocomplete="off"
+        class="h-10 w-full rounded-lg border border-input bg-white dark:bg-dark-500 px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-xs file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 hidden"
+        data-testid="input-element"
+        id="profile-picture-upload"
+        type="file"
+      />
+    </div>
+  </div>
+</div>
+`;
