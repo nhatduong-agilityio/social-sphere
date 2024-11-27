@@ -1,0 +1,347 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GroupInviteMembersInput matches snapshot 1`] = `
+<div>
+  <div
+    class="relative"
+  >
+    <div
+      class="relative w-full flex items-center"
+    >
+      <div
+        class="absolute top-1/2 -translate-y-1/2 transition-all duration-300 ease-in-out left-3 text-ring"
+      >
+        <svg
+          class="lucide lucide-search"
+          fill="none"
+          height="16"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="11"
+            cy="11"
+            r="8"
+          />
+          <path
+            d="m21 21-4.3-4.3"
+          />
+        </svg>
+      </div>
+      <input
+        autocomplete="true"
+        class="flex h-9 w-full rounded-lg border border-input hover:border-gray-900 bg-white dark:bg-dark-500 px-10 py-2 text-sm file:border-0 file:bg-transparent file:text-xs file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-300 ease-in-out dark:border-dark-300"
+        placeholder="Search friends to invite..."
+        value=""
+      />
+    </div>
+    <div
+      class="absolute z-50 top-9 left-0 w-full max-h-[320px] overflow-auto rounded-[4px] border border-input bg-white dark:bg-dark-500 transition-all duration-300 ease-in-out"
+    >
+      <ul
+        class="shadow-sphere-light"
+      >
+        <li
+          class="cursor-pointer flex justify-between items-center px-3 py-1 gap-2.5 hover:bg-gray-600 hover:dark:bg-dark-500"
+        >
+          <div
+            class="flex items-center gap-2"
+          >
+            <div
+              class="w-fit h-fit rounded-full relative"
+            >
+              <span
+                class="relative flex shrink-0 overflow-hidden rounded-full h-9 w-9"
+                data-testid="avatar"
+              >
+                <span
+                  class="flex h-full w-full items-center justify-center rounded-full bg-muted"
+                >
+                  JD
+                </span>
+              </span>
+              <div
+                class="rounded-full flex justify-center items-center bg-blue-600 border-[1.4px] border-white absolute bottom-0 right-[-3px] w-[18px] h-[18px]"
+              >
+                <img
+                  data-testid="circle-country-flag"
+                  height="100"
+                  src="https://hatscripts.github.io/circle-flags/flags/au.svg"
+                  title="au"
+                />
+              </div>
+            </div>
+            <p
+              class="text-foreground text-sm leading-[18.2px] dark:text-gray-100"
+            >
+              John Doe
+              <br />
+              <label
+                class="font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-neutral-400 font-medium text-2xs dark:text-neutral-100"
+              >
+                Melbourne
+              </label>
+            </p>
+          </div>
+          <button
+            class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 border-gray-800 dark:border-dark-500 dark:bg-dark-100 h-9 px-3 ml-2"
+            data-testid="button-invite"
+          >
+            Invite
+          </button>
+        </li>
+        <li
+          class="cursor-pointer flex justify-between items-center px-3 py-1 gap-2.5 hover:bg-gray-600 hover:dark:bg-dark-500"
+        >
+          <div
+            class="flex items-center gap-2"
+          >
+            <div
+              class="w-fit h-fit rounded-full relative"
+            >
+              <span
+                class="relative flex shrink-0 overflow-hidden rounded-full h-9 w-9"
+                data-testid="avatar"
+              >
+                <span
+                  class="flex h-full w-full items-center justify-center rounded-full bg-muted"
+                >
+                  NS
+                </span>
+              </span>
+              <div
+                class="rounded-full flex justify-center items-center bg-blue-600 border-[1.4px] border-white absolute bottom-0 right-[-3px] w-[18px] h-[18px]"
+              >
+                <img
+                  data-testid="circle-country-flag"
+                  height="100"
+                  src="https://hatscripts.github.io/circle-flags/flags/us.svg"
+                  title="us"
+                />
+              </div>
+            </div>
+            <p
+              class="text-foreground text-sm leading-[18.2px] dark:text-gray-100"
+            >
+              Nelly Schwartz
+              <br />
+              <label
+                class="font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-neutral-400 font-medium text-2xs dark:text-neutral-100"
+              >
+                New York
+              </label>
+            </p>
+          </div>
+          <button
+            class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 border-gray-800 dark:border-dark-500 dark:bg-dark-100 h-9 px-3 ml-2"
+            data-testid="button-invite"
+          >
+            Invite
+          </button>
+        </li>
+        <li
+          class="cursor-pointer flex justify-between items-center px-3 py-1 gap-2.5 hover:bg-gray-600 hover:dark:bg-dark-500"
+        >
+          <div
+            class="flex items-center gap-2"
+          >
+            <div
+              class="w-fit h-fit rounded-full relative"
+            >
+              <span
+                class="relative flex shrink-0 overflow-hidden rounded-full h-9 w-9"
+                data-testid="avatar"
+              >
+                <span
+                  class="flex h-full w-full items-center justify-center rounded-full bg-muted"
+                >
+                  ML
+                </span>
+              </span>
+              <div
+                class="rounded-full flex justify-center items-center bg-blue-600 border-[1.4px] border-white absolute bottom-0 right-[-3px] w-[18px] h-[18px]"
+              >
+                <img
+                  data-testid="circle-country-flag"
+                  height="100"
+                  src="https://hatscripts.github.io/circle-flags/flags/de.svg"
+                  title="de"
+                />
+              </div>
+            </div>
+            <p
+              class="text-foreground text-sm leading-[18.2px] dark:text-gray-100"
+            >
+              Mike Lasalle
+              <br />
+              <label
+                class="font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-neutral-400 font-medium text-2xs dark:text-neutral-100"
+              >
+                Berlin
+              </label>
+            </p>
+          </div>
+          <button
+            class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 border-gray-800 dark:border-dark-500 dark:bg-dark-100 h-9 px-3 ml-2"
+            data-testid="button-invite"
+          >
+            Invite
+          </button>
+        </li>
+        <li
+          class="cursor-pointer flex justify-between items-center px-3 py-1 gap-2.5 hover:bg-gray-600 hover:dark:bg-dark-500"
+        >
+          <div
+            class="flex items-center gap-2"
+          >
+            <div
+              class="w-fit h-fit rounded-full relative"
+            >
+              <span
+                class="relative flex shrink-0 overflow-hidden rounded-full h-9 w-9"
+                data-testid="avatar"
+              >
+                <span
+                  class="flex h-full w-full items-center justify-center rounded-full bg-muted"
+                >
+                  SJ
+                </span>
+              </span>
+              <div
+                class="rounded-full flex justify-center items-center bg-blue-600 border-[1.4px] border-white absolute bottom-0 right-[-3px] w-[18px] h-[18px]"
+              >
+                <img
+                  data-testid="circle-country-flag"
+                  height="100"
+                  src="https://hatscripts.github.io/circle-flags/flags/gb.svg"
+                  title="gb"
+                />
+              </div>
+            </div>
+            <p
+              class="text-foreground text-sm leading-[18.2px] dark:text-gray-100"
+            >
+              Sarah Johnson
+              <br />
+              <label
+                class="font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-neutral-400 font-medium text-2xs dark:text-neutral-100"
+              >
+                London
+              </label>
+            </p>
+          </div>
+          <button
+            class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 border-gray-800 dark:border-dark-500 dark:bg-dark-100 h-9 px-3 ml-2"
+            data-testid="button-invite"
+          >
+            Invite
+          </button>
+        </li>
+        <li
+          class="cursor-pointer flex justify-between items-center px-3 py-1 gap-2.5 hover:bg-gray-600 hover:dark:bg-dark-500"
+        >
+          <div
+            class="flex items-center gap-2"
+          >
+            <div
+              class="w-fit h-fit rounded-full relative"
+            >
+              <span
+                class="relative flex shrink-0 overflow-hidden rounded-full h-9 w-9"
+                data-testid="avatar"
+              >
+                <span
+                  class="flex h-full w-full items-center justify-center rounded-full bg-muted"
+                >
+                  SB
+                </span>
+              </span>
+              <div
+                class="rounded-full flex justify-center items-center bg-blue-600 border-[1.4px] border-white absolute bottom-0 right-[-3px] w-[18px] h-[18px]"
+              >
+                <img
+                  data-testid="circle-country-flag"
+                  height="100"
+                  src="https://hatscripts.github.io/circle-flags/flags/us.svg"
+                  title="us"
+                />
+              </div>
+            </div>
+            <p
+              class="text-foreground text-sm leading-[18.2px] dark:text-gray-100"
+            >
+              Stella Bergmann
+              <br />
+              <label
+                class="font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-neutral-400 font-medium text-2xs dark:text-neutral-100"
+              >
+                Los Angeles
+              </label>
+            </p>
+          </div>
+          <button
+            class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 border-gray-800 dark:border-dark-500 dark:bg-dark-100 h-9 px-3 ml-2"
+            data-testid="button-invite"
+          >
+            Invite
+          </button>
+        </li>
+        <li
+          class="cursor-pointer flex justify-between items-center px-3 py-1 gap-2.5 hover:bg-gray-600 hover:dark:bg-dark-500"
+        >
+          <div
+            class="flex items-center gap-2"
+          >
+            <div
+              class="w-fit h-fit rounded-full relative"
+            >
+              <span
+                class="relative flex shrink-0 overflow-hidden rounded-full h-9 w-9"
+                data-testid="avatar"
+              >
+                <span
+                  class="flex h-full w-full items-center justify-center rounded-full bg-muted"
+                >
+                  DK
+                </span>
+              </span>
+              <div
+                class="rounded-full flex justify-center items-center bg-blue-600 border-[1.4px] border-white absolute bottom-0 right-[-3px] w-[18px] h-[18px]"
+              >
+                <img
+                  data-testid="circle-country-flag"
+                  height="100"
+                  src="https://hatscripts.github.io/circle-flags/flags/vn.svg"
+                  title="vn"
+                />
+              </div>
+            </div>
+            <p
+              class="text-foreground text-sm leading-[18.2px] dark:text-gray-100"
+            >
+              David Kim
+              <br />
+              <label
+                class="font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-neutral-400 font-medium text-2xs dark:text-neutral-100"
+              >
+                Ha Noi
+              </label>
+            </p>
+          </div>
+          <button
+            class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 border-gray-800 dark:border-dark-500 dark:bg-dark-100 h-9 px-3 ml-2"
+            data-testid="button-invite"
+          >
+            Invite
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;

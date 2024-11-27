@@ -66,9 +66,15 @@ export const GroupFormDialog = memo(
     return (
       <DialogContent className="p-0 gap-0 md:max-w-[480px]">
         <Form {...form}>
-          <form className="w-full" action={handleAction}>
+          <form
+            data-testid="group-form"
+            className="w-full"
+            action={handleAction}
+          >
             <DialogHeader className="p-2 border-b border-gray-600 dark:border-dark-500">
-              <DialogTitle>Create a group</DialogTitle>
+              <DialogTitle data-testid="dialog-title">
+                Create a group
+              </DialogTitle>
               <DialogDescription className="hidden" />
             </DialogHeader>
             <div className="flex flex-col items-center w-full gap-5 p-5">
@@ -90,6 +96,7 @@ export const GroupFormDialog = memo(
                 </Avatar>
                 {selectedImageUrl ? (
                   <Button
+                    data-testid="remove-media-button"
                     size="icon"
                     variant="unstyle"
                     className="absolute top-[-4px] right-[-4px] bg-white hover:bg-gray-600 dark:bg-dark-900 hover:dark:bg-dark-900 rounded-full w-[30px] h-[30px]"
@@ -99,6 +106,7 @@ export const GroupFormDialog = memo(
                   </Button>
                 ) : (
                   <Button
+                    data-testid="upload-button"
                     type="button"
                     variant="rounded"
                     size="icon"
@@ -121,6 +129,7 @@ export const GroupFormDialog = memo(
                   <FormItem>
                     <FormControl>
                       <Input
+                        data-testid="file-input"
                         id="profile-picture-upload"
                         type="file"
                         ref={mediaInputRef}
@@ -142,8 +151,9 @@ export const GroupFormDialog = memo(
                       <FormLabel size="tiny">Group Name</FormLabel>
                       <FormControl>
                         <Input
+                          data-testid="group-name-input"
                           variant="ghost"
-                          placeholder="Enter your first name"
+                          placeholder="Enter your group name"
                           {...field}
                         />
                       </FormControl>
@@ -159,8 +169,9 @@ export const GroupFormDialog = memo(
                       <FormLabel size="tiny">Description</FormLabel>
                       <FormControl>
                         <Input
+                          data-testid="description-input"
                           variant="ghost"
-                          placeholder="Enter your last name"
+                          placeholder="Enter description"
                           {...field}
                         />
                       </FormControl>
@@ -180,6 +191,7 @@ export const GroupFormDialog = memo(
                   </Button>
                 </DialogClose>
                 <Button
+                  data-testid="publish-button"
                   variant="primary"
                   className="h-8 text-2xs px-5 bg-blue-600"
                   isLoading={isLoading}
