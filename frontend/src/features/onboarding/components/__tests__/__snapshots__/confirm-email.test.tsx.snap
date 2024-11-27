@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConfirmEmail component should render correctly 1`] = `
+<div>
+  <div
+    class="w-full flex flex-col items-center gap-5"
+  >
+    <h2
+      class="font-montserrat text-xl text-heading animate-fade-in-up"
+    >
+      You're all set. Ready?
+    </h2>
+    <div
+      class="w-full max-w-[330px] md:max-w-[540px] animate-fade-in-left"
+    >
+      <div
+        class="flex flex-col items-center w-full gap-5 p-[30px] bg-white dark:bg-dark-800 border rounded-md"
+      >
+        <div
+          class="relative w-[120px] h-[120px]"
+        >
+          <img
+            alt="Confirm Email Image"
+            data-nimg="fill"
+            decoding="async"
+            fetchpriority="high"
+            src="/images/mailbox.svg"
+            style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent;"
+          />
+        </div>
+        <div
+          class="text-center max-w-[370px] my-3 mx-auto"
+        >
+          <h3
+            class="font-roboto font-medium text-neutral-700 dark:text-gray-100 text-base"
+          >
+            Congratz, you successfully created your account.
+          </h3>
+          <p
+            class="text-neutral-100 text-sm"
+          >
+            We just sent you a confirmation email. PLease confirm your account within 24 hours.
+          </p>
+          <button
+            class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 dark:border-dark-500 dark:bg-dark-100 h-10 px-4 py-2 w-full max-w-[280px] mx-auto mt-5 text-primary dark:text-white hover:text-white border-primary"
+          >
+            Let Me In
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

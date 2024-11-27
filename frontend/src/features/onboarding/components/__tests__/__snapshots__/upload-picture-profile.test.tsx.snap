@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UploadPictureProfile Component should render correctly 1`] = `
+<div>
+  <div
+    class="w-full flex flex-col items-center gap-5"
+  >
+    <h2
+      class="font-montserrat text-xl text-heading animate-fade-in-up"
+    >
+      Upload a profile picture.
+    </h2>
+    <div
+      class="w-full max-w-[330px] md:max-w-[540px] animate-fade-in-left"
+    >
+      <form
+        class="flex flex-col gap-5 w-full"
+      >
+        <div
+          class="flex flex-col items-center w-full p-[30px] bg-white dark:bg-dark-800 border rounded-md"
+        >
+          <div
+            class="w-[120px] h-[120px] rounded-full border-[1.4px] border-gray-900 dark:border-blue-800 p-[8.5px] relative"
+          >
+            <span
+              class="relative flex shrink-0 overflow-hidden rounded-full w-full h-full"
+              data-testid="avatar"
+            >
+              <span
+                class="flex h-full w-full items-center justify-center rounded-full bg-muted"
+              >
+                CN
+              </span>
+            </span>
+            <button
+              aria-label="Upload profile picture"
+              class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring rounded-full border-3 bg-gray-900 hover:bg-blue-600 border-white dark:border-dark-800 absolute top-0 right-0 w-9 h-9"
+              title="upload-button"
+              type="button"
+            >
+              <svg
+                class="lucide lucide-plus text-white"
+                fill="none"
+                height="14"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="3"
+                viewBox="0 0 24 24"
+                width="14"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M5 12h14"
+                />
+                <path
+                  d="M12 5v14"
+                />
+              </svg>
+            </button>
+          </div>
+          <p
+            class="text-sm text-neutral-200 dark:text-neutral-100 mt-5"
+            id="undefined-form-item-description"
+          >
+            Only images with a size lower than 3MB are allowed.
+          </p>
+          <div
+            class="space-y-2"
+          >
+            <div
+              class="relative w-full flex items-center"
+              data-testid="input-container"
+            >
+              <input
+                aria-describedby=":r0:-form-item-description"
+                aria-invalid="false"
+                aria-label="Upload profile picture"
+                autocomplete="off"
+                class="h-10 w-full rounded-lg border border-input bg-white dark:bg-dark-500 px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-xs file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 hidden"
+                data-testid="input-element"
+                id="profile-picture-upload"
+                title="Upload profile picture"
+                type="file"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex gap-2 justify-end"
+        >
+          <button
+            class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white hover:border-gray-900 text-neutral-800 dark:text-white border-gray-800 dark:border-dark-500 dark:bg-dark-100 h-10 py-2 px-[22px]"
+          >
+            Back
+          </button>
+          <button
+            class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white text-neutral-800 dark:text-white hover:text-white hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 border-gray-800 dark:border-dark-500 dark:bg-dark-100 h-10 py-2 px-[22px]"
+            disabled=""
+            type="submit"
+          >
+            Next
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;

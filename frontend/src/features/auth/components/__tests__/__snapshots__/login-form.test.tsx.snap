@@ -1,0 +1,223 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginForm component should render correctly 1`] = `
+<div>
+  <form
+    class="flex flex-col w-full gap-3 max-w-[320px] md:max-w-[380px]"
+  >
+    <div
+      class="flex flex-col items-center mb-2"
+    >
+      <div
+        class="relative w-[110px] h-[110px] rounded-full border border-gray-900 p-[7px]"
+        data-testid="circle-overlay"
+      >
+        <span
+          class="relative flex shrink-0 overflow-hidden rounded-full w-full h-full"
+          data-testid="avatar"
+        >
+          <span
+            class="flex h-full w-full items-center justify-center rounded-full bg-muted"
+          >
+            CN
+          </span>
+        </span>
+        <div
+          class="rounded-full flex justify-center items-center h-8 w-8 border-background absolute top-0 right-0 bg-secondary border-3"
+          data-testid="circle"
+        >
+          <svg
+            class="lucide lucide-check text-white"
+            fill="none"
+            height="14"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="3"
+            viewBox="0 0 24 24"
+            width="14"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20 6 9 17l-5-5"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      class="space-y-2"
+    >
+      <div
+        class="relative w-full flex items-center"
+        data-testid="input-container"
+      >
+        <div
+          class="absolute top-1/2 -translate-y-1/2 transition-all duration-300 ease-in-out left-3 text-gray-900"
+        >
+          <svg
+            class="lucide lucide-user"
+            fill="none"
+            height="18"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="18"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"
+            />
+            <circle
+              cx="12"
+              cy="7"
+              r="4"
+            />
+          </svg>
+        </div>
+        <input
+          aria-describedby=":r0:-form-item-description"
+          aria-invalid="false"
+          autocomplete="off"
+          class="flex h-10 w-full rounded-lg border border-input bg-white dark:bg-dark-500 px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-xs file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-300 ease-in-out focus:border-ring dark:border-input pl-10"
+          data-testid="input-element"
+          id=":r0:-form-item"
+          name="email"
+          placeholder="jennadavis@gmail.com"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      class="space-y-2"
+    >
+      <div
+        class="relative w-full flex items-center"
+        data-testid="input-container"
+      >
+        <div
+          class="absolute top-1/2 -translate-y-1/2 transition-all duration-300 ease-in-out left-3 text-gray-900"
+        >
+          <svg
+            class="lucide lucide-lock"
+            fill="none"
+            height="18"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="18"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              height="11"
+              rx="2"
+              ry="2"
+              width="18"
+              x="3"
+              y="11"
+            />
+            <path
+              d="M7 11V7a5 5 0 0 1 10 0v4"
+            />
+          </svg>
+        </div>
+        <input
+          aria-describedby=":r1:-form-item-description"
+          aria-invalid="false"
+          autocomplete="off"
+          class="flex h-10 w-full rounded-lg border border-input bg-white dark:bg-dark-500 px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-xs file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-300 ease-in-out focus:border-ring dark:border-input pl-10"
+          data-testid="input-element"
+          id=":r1:-form-item"
+          name="password"
+          placeholder="●●●●●●●"
+          title="password"
+          type="password"
+          value=""
+        />
+      </div>
+    </div>
+    <button
+      class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border text-primary-foreground hover:opacity-80 hover:shadow-sphere-primary px-4 py-2 w-full h-[46px] rounded-full bg-blue-600 border-blue-600"
+      disabled=""
+      type="submit"
+    >
+      Login
+    </button>
+    <button
+      class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border text-neutral-100 hover:text-blue-600 border-none p-0 h-9"
+    >
+      <a
+        href="/onboarding"
+      >
+        Do you need an account?
+      </a>
+    </button>
+  </form>
+  <div
+    class="absolute top-3 right-3"
+  >
+    <button
+      aria-checked="false"
+      class="peer inline-flex shrink-0 cursor-pointer items-center rounded-full border border-gray-800 dark:border-blue-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-dark-800 data-[state=unchecked]:bg-background h-[31px] w-[54px]"
+      data-state="unchecked"
+      data-testid="theme-switch"
+      role="switch"
+      type="button"
+      value="on"
+    >
+      <span
+        class="pointer-events-none flex items-center justify-center rounded-full bg-background dark:bg-blue-100 ring-0 transition-transform h-[26px] w-[26px] data-[state=checked]:translate-x-6"
+        data-state="unchecked"
+      >
+        <svg
+          class="lucide lucide-sun text-yellow-400"
+          data-testid="sun-icon"
+          fill="none"
+          height="12"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="12"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="12"
+            cy="12"
+            r="4"
+          />
+          <path
+            d="M12 2v2"
+          />
+          <path
+            d="M12 20v2"
+          />
+          <path
+            d="m4.93 4.93 1.41 1.41"
+          />
+          <path
+            d="m17.66 17.66 1.41 1.41"
+          />
+          <path
+            d="M2 12h2"
+          />
+          <path
+            d="M20 12h2"
+          />
+          <path
+            d="m6.34 17.66-1.41 1.41"
+          />
+          <path
+            d="m19.07 4.93-1.41 1.41"
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
+</div>
+`;
