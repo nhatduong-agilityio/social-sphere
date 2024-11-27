@@ -2,7 +2,7 @@
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { useFormState, useFormStatus } from 'react-dom';
+import { useFormState } from 'react-dom';
 import Link from 'next/link';
 import { z } from 'zod';
 
@@ -41,15 +41,13 @@ const initialState = {
 
 export const LoginForm = () => {
   const [errorMessage, formAction] = useFormState(login, undefined);
-  const { pending } = useFormStatus();
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: initialState,
   });
 
-  const isDisabled =
-    !form.formState.isDirty || !form.formState.isValid || pending;
+  const isDisabled = !form.formState.isDirty || !form.formState.isValid;
 
   return (
     <Form {...form}>
@@ -95,6 +93,7 @@ export const LoginForm = () => {
             <FormItem>
               <FormControl>
                 <Input
+                  title="password"
                   type="password"
                   startIcon={<LockIcon size="18" />}
                   variant="icon"

@@ -118,6 +118,7 @@ export const UploadPictureProfile = () => {
         </Avatar>
         <Button
           type="button"
+          title="upload-button"
           variant="rounded"
           size="icon"
           className="border-3 bg-gray-900 hover:bg-blue-600 border-white dark:border-dark-800 absolute top-0 right-0 w-9 h-9"
@@ -150,6 +151,7 @@ export const UploadPictureProfile = () => {
                 <FormItem>
                   <FormControl>
                     <Input
+                      title="Upload profile picture"
                       id="profile-picture-upload"
                       type="file"
                       ref={fileInputRef}
