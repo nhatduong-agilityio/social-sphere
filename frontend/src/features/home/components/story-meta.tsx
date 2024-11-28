@@ -9,7 +9,9 @@ interface StoryMetaProps {
 export const StoryMeta = memo(({ title, description }: StoryMetaProps) => (
   <div className="flex flex-col">
     <Text className="text-xs">{title}</Text>
-    <span className="text-4xs text-slate-500">{description}</span>
+    <span className="text-4xs dark:text-slate-400 text-slate-500">
+      {description}
+    </span>
   </div>
 ));
 

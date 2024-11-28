@@ -80,11 +80,11 @@ export const NewsFeedCardContent = memo(
       <div className="flex flex-col font-roboto">
         <Text
           className={cn(
-            'text-neutral-400 whitespace-break-spaces text-wrap',
+            'dark:text-slate-400 text-slate-600 whitespace-break-spaces text-wrap',
             (gifUrl || sharedLink) && 'mb-3',
           )}
         >
-          <Label className="flex items-center flex-wrap text-sm font-normal text-neutral-400">
+          <Label className="flex items-center flex-wrap text-sm font-normal dark:text-slate-400 text-slate-600">
             {displayMoodOptions}
             {displayTaggedFriends}
             {displayLocation}

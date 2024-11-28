@@ -54,12 +54,12 @@ const OptionButton = ({
   children,
 }: OptionButtonProps) => (
   <div
-    className="flex items-center bg-gray-200 dark:bg-dark-300 text-neutral-300 hover:text-neutral-700 hover:dark:text-white px-4 py-[6px] rounded-full cursor-pointer"
+    className="flex items-center bg-gray-200 dark:bg-dark-300 dark:text-slate-400 text-slate-600 hover:text-neutral-700 hover:dark:text-white px-4 py-[6px] rounded-full cursor-pointer"
     onClick={onClick}
   >
     <Icon size={20} />
     {text && (
-      <Text size="xs" className="px-2 text-neutral-300">
+      <Text size="xs" className="px-2 dark:text-slate-400 text-slate-600">
         {text}
       </Text>
     )}

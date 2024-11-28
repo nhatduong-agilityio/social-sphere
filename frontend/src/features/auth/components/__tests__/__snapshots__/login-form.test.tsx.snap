@@ -141,21 +141,22 @@ exports[`LoginForm component should render correctly 1`] = `
       </div>
     </div>
     <button
-      class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border text-primary-foreground hover:opacity-80 hover:shadow-sphere-primary px-4 py-2 w-full h-[46px] rounded-full bg-blue-600 border-blue-600"
+      class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border text-white dark:hover:opacity-85 hover:opacity-75 hover:shadow-sphere-primary px-4 py-2 w-full h-[46px] rounded-full bg-blue-600 border-blue-600 dark:text-slate-50"
       disabled=""
       type="submit"
     >
       Login
     </button>
-    <button
-      class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border text-neutral-100 hover:text-blue-600 border-none p-0 h-9"
+    <a
+      class="flex justify-center"
+      href="/onboarding"
     >
-      <a
-        href="/onboarding"
+      <button
+        class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border dark:text-neutral-50 text-neutral-600 hover:text-blue-600 border-none p-0 h-9"
       >
         Do you need an account?
-      </a>
-    </button>
+      </button>
+    </a>
   </form>
   <div
     class="absolute top-3 right-3"
@@ -166,6 +167,7 @@ exports[`LoginForm component should render correctly 1`] = `
       data-state="unchecked"
       data-testid="theme-switch"
       role="switch"
+      title="switch-theme"
       type="button"
       value="on"
     >

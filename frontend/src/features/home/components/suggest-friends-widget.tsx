@@ -60,6 +60,7 @@ const SuggestedFriendItem = ({
 
       <Button
         size="icon"
+        aria-label="AddFriend"
         variant="rounded"
         className="w-9 h-9 border-none"
         onClick={() => handleAddFriend(user.id.toString())}
@@ -117,13 +118,18 @@ export const SuggestFriendsWidget = ({
     <Card className="w-full rounded-lg">
       <CardHeader className="flex flex-row px-4 py-2 justify-between">
         <div className="flex items-center gap-4">
-          <CardTitle className="text-sm font-normal text-neutral-400 dark:text-gray-100">
+          <CardTitle className="text-sm font-normal dark:text-neutral-50 text-neutral-600">
             Suggested Friends
           </CardTitle>
         </div>
 
         <div className="flex items-center gap-3">
-          <Button size="icon" variant="rounded" className="hover:bg-muted">
+          <Button
+            aria-label="SeeMore"
+            size="icon"
+            variant="rounded"
+            className="hover:bg-muted"
+          >
             <EllipsisVertical size={20} className="text-slate-600" />
           </Button>
         </div>

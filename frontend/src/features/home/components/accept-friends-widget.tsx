@@ -124,7 +124,7 @@ export const AcceptFriendsWidget = ({
     <Card className="w-full rounded-lg">
       <CardHeader className="flex flex-row px-4 py-2 justify-between">
         <div className="flex items-center gap-4">
-          <CardTitle className="text-sm font-normal text-neutral-400 dark:text-gray-100">
+          <CardTitle className="text-sm font-normal dark:text-neutral-50 text-neutral-600">
             Accepted Friends
           </CardTitle>
         </div>

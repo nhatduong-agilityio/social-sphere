@@ -90,6 +90,7 @@ export const UserCardHeader = memo(
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button
+              aria-label="SeeMore"
               size="icon"
               variant="rounded"
               className="hover:bg-muted opacity-0 group-hover:opacity-100 transition-opacity duration-200 w-8 h-8"
