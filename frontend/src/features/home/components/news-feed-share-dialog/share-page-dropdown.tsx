@@ -43,6 +43,7 @@ const PageMenuItem = ({
   onChange: (id: string) => void;
 }) => (
   <DropdownMenuItem
+    data-testid="dropdown-item"
     onClick={() => onChange(page.id)}
     className="flex items-center gap-2.5 py-[6px] px-4 h-[50px] group"
   >
@@ -84,6 +85,7 @@ export const SharePageDropdown = ({ form, pages }: SharePageDropdownProps) => {
               <div className="flex justify-between items-center p-2">
                 <DropdownMenuTrigger asChild>
                   <Button
+                    data-testid="dropdown-trigger"
                     type="button"
                     variant="fixed"
                     className={cn(

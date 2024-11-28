@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SharePageDropdown matches snapshot 1`] = `
+<div>
+  <div
+    class="space-y-2"
+  >
+    <div
+      class="flex justify-between items-center p-2"
+    >
+      <button
+        aria-expanded="false"
+        aria-haspopup="menu"
+        class="font-roboto whitespace-nowrap font-medium ring-offset-background ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring hover:border-gray-900 border-gray-800 dark:border-dark-500 text-2xs border h-8 w-fit rounded-lg px-3 py-2.5 flex justify-center items-center gap-1 text-neutral-700 dark:text-white bg-black-haze-50 dark:bg-transparent hover:dark:bg-card transition-all duration-200"
+        data-state="closed"
+        data-testid="dropdown-trigger"
+        id="radix-:r1:"
+        type="button"
+      >
+        <span
+          class="relative flex shrink-0 overflow-hidden rounded-full w-5 h-5"
+          data-testid="avatar"
+        >
+          <span
+            class="flex h-full w-full items-center justify-center rounded-full bg-muted"
+          >
+            PA
+          </span>
+        </span>
+        Css Ninja
+        <svg
+          class="lucide lucide-chevron-down"
+          fill="none"
+          height="16"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="m6 9 6 6 6-6"
+          />
+        </svg>
+      </button>
+      <span
+        class="relative flex shrink-0 overflow-hidden rounded-full w-6 h-6"
+        data-testid="avatar"
+      >
+        <span
+          class="flex h-full w-full items-center justify-center rounded-full bg-muted"
+        >
+          PA
+        </span>
+      </span>
+    </div>
+  </div>
+</div>
+`;

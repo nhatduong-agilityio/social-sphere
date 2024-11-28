@@ -135,7 +135,7 @@ export const ComposePublishContent = memo(
 
     return (
       <Form {...form}>
-        <form action={handleAction}>
+        <form data-testid="compose-form" action={handleAction}>
           <div className="border-b border-gray-600 dark:border-dark-500 p-4">
             <ComposeFormContent
               formControl={form.control}
@@ -234,6 +234,7 @@ export const ComposePublishContent = memo(
                   </Button>
                 )}
                 <Button
+                  data-testid="publish-button"
                   type="submit"
                   size="md"
                   variant="primary"

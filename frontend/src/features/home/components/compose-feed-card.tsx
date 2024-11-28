@@ -49,6 +49,7 @@ export const ComposeFeedCard = ({
   return (
     <>
       <div
+        data-testid="overlay"
         className={cn(
           'fixed inset-0 bg-black opacity-50 dark:opacity-70 z-50',
           isOverlayOpen ? 'block' : 'hidden',

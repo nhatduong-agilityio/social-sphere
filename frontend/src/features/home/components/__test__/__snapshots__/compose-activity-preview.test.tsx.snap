@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ComposeActivityPreview renders mood with friends correctly 1`] = `
+<div>
+  <div
+    class="flex flex-col gap-2 mb-2"
+  >
+    <label
+      class="font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-neutral-400 font-medium text-xs w-fit flex flex-wrap items-center text-center bg-gray-200 dark:bg-dark-500 px-2 py-0.5 rounded-full"
+    >
+      <div
+        class="flex items-center gap-3 pr-1 text-2xs"
+      >
+        <div
+          class="w-[14px] h-[14px] rounded-full relative"
+        >
+          <img
+            alt="awesome"
+            data-nimg="fill"
+            decoding="async"
+            loading="lazy"
+            src="/images/awesome.svg"
+            style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 100%;"
+          />
+        </div>
+        <a
+          class="flex items-center hover:bg-slate-50 border-none w-fit text-primary hover:dark:bg-transparent mr-3"
+          href="/"
+          title="Awesome"
+        >
+          Awesome
+        </a>
+      </div>
+      - at 
+      <a
+        class="flex items-center hover:bg-slate-50 border-none w-fit text-primary hover:dark:bg-transparent mr-3"
+        href="/"
+        title="New York"
+      >
+        New York
+      </a>
+    </label>
+    <div
+      class="flex flex-wrap gap-[6px]"
+    />
+  </div>
+</div>
+`;
+
+exports[`ComposeActivityPreview renders nothing when no content is provided 1`] = `<div />`;
+
+exports[`ComposeActivityPreview renders when partial content is provided 1`] = `
+<div>
+  <div
+    class="flex flex-col gap-2 mb-2"
+  >
+    <label
+      class="font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-neutral-400 font-medium text-xs w-fit flex flex-wrap items-center text-center bg-gray-200 dark:bg-dark-500 px-2 py-0.5 rounded-full"
+    />
+    <div
+      class="flex flex-wrap gap-[6px]"
+    />
+  </div>
+</div>
+`;

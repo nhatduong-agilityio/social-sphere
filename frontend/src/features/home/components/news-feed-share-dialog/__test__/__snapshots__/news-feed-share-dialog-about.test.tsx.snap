@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewsFeedShareDialogAbout matches snapshot 1`] = `
+<div>
+  <div
+    class="flex items-center"
+  >
+    <div
+      class="space-y-2 w-full border-none"
+    >
+      <textarea
+        aria-describedby=":r0:-form-item-description"
+        aria-invalid="false"
+        class="flex w-full border border-input bg-card text-sm ring-offset-background placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 border-none focus:outline-none p-2.5 min-h-0 max-h-[41px] rounded-none resize-none"
+        id=":r0:-form-item"
+        name="content"
+        placeholder="Say something about this..."
+      />
+    </div>
+    <div
+      class="flex relative px-3"
+    >
+      <button
+        class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border dark:text-neutral-50 border-none w-fit h-fit text-neutral-300 hover:text-primary dark:hover:text-primary text-3xs"
+        type="button"
+      >
+        <svg
+          class="lucide lucide-smile"
+          fill="none"
+          height="16"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="12"
+            cy="12"
+            r="10"
+          />
+          <path
+            d="M8 14s1.5 2 4 2 4-2 4-2"
+          />
+          <line
+            x1="9"
+            x2="9.01"
+            y1="9"
+            y2="9"
+          />
+          <line
+            x1="15"
+            x2="15.01"
+            y1="9"
+            y2="9"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;

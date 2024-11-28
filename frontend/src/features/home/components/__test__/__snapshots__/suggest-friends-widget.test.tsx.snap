@@ -1,0 +1,216 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SuggestFriendsWidget matches snapshot 1`] = `
+<div>
+  <div
+    class="bg-card border border-gray-800 hover:shadow dark:border-dark-300 w-full rounded-lg"
+  >
+    <div
+      class="p-5 flex flex-row px-4 py-2 justify-between"
+    >
+      <div
+        class="flex items-center gap-4"
+      >
+        <h3
+          class="font-roboto text-sm font-normal dark:text-neutral-50 text-neutral-600"
+        >
+          Suggested Friends
+        </h3>
+      </div>
+      <div
+        class="flex items-center gap-3"
+      >
+        <button
+          aria-label="SeeMore"
+          class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border rounded-full h-10 w-10 hover:bg-muted"
+        >
+          <svg
+            class="lucide lucide-ellipsis-vertical text-slate-600"
+            fill="none"
+            height="20"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="12"
+              cy="12"
+              r="1"
+            />
+            <circle
+              cx="12"
+              cy="5"
+              r="1"
+            />
+            <circle
+              cx="12"
+              cy="19"
+              r="1"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div
+      class="flex flex-col p-0"
+    >
+      <div
+        class="p-4 flex w-full border-t border-slate-300 dark:border-slate-600 items-center justify-between group cursor-pointer"
+      >
+        <div
+          class="flex items-center gap-3"
+        >
+          <a
+            class="w-12 h-12 flex items-center justify-center rounded-full"
+            data-state="closed"
+            data-testid="avatar-trigger"
+          >
+            <span
+              class="relative flex shrink-0 overflow-hidden rounded-full h-10 w-10 bg-current"
+              data-testid="avatar-wrapper"
+            >
+              <span
+                class="flex h-full w-full items-center justify-center rounded-full bg-muted"
+              >
+                JD
+              </span>
+            </span>
+          </a>
+          <div
+            class="flex flex-col"
+          >
+            <p
+              class="text-foreground text-xs"
+            >
+              John Doe
+            </p>
+            <span
+              class="text-4xs text-slate-500"
+            >
+              Melbourne
+            </span>
+          </div>
+        </div>
+        <button
+          aria-label="AddFriend"
+          class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border rounded-full w-9 h-9 border-none"
+        >
+          <svg
+            class="lucide lucide-user-plus text-slate-600 group-hover:text-slate-500"
+            fill="none"
+            height="20"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"
+            />
+            <circle
+              cx="9"
+              cy="7"
+              r="4"
+            />
+            <line
+              x1="19"
+              x2="19"
+              y1="8"
+              y2="14"
+            />
+            <line
+              x1="22"
+              x2="16"
+              y1="11"
+              y2="11"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        class="p-4 flex w-full border-t border-slate-300 dark:border-slate-600 items-center justify-between group cursor-pointer"
+      >
+        <div
+          class="flex items-center gap-3"
+        >
+          <a
+            class="w-12 h-12 flex items-center justify-center rounded-full"
+            data-state="closed"
+            data-testid="avatar-trigger"
+          >
+            <span
+              class="relative flex shrink-0 overflow-hidden rounded-full h-10 w-10 bg-current"
+              data-testid="avatar-wrapper"
+            >
+              <span
+                class="flex h-full w-full items-center justify-center rounded-full bg-muted"
+              >
+                NS
+              </span>
+            </span>
+          </a>
+          <div
+            class="flex flex-col"
+          >
+            <p
+              class="text-foreground text-xs"
+            >
+              Nelly Schwartz
+            </p>
+            <span
+              class="text-4xs text-slate-500"
+            >
+              New York
+            </span>
+          </div>
+        </div>
+        <button
+          aria-label="AddFriend"
+          class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border rounded-full w-9 h-9 border-none"
+        >
+          <svg
+            class="lucide lucide-user-plus text-slate-600 group-hover:text-slate-500"
+            fill="none"
+            height="20"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"
+            />
+            <circle
+              cx="9"
+              cy="7"
+              r="4"
+            />
+            <line
+              x1="19"
+              x2="19"
+              y1="8"
+              y2="14"
+            />
+            <line
+              x1="22"
+              x2="16"
+              y1="11"
+              y2="11"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

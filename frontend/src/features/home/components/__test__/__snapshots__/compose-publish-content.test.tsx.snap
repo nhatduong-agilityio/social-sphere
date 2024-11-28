@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ComposePublishContent matches snapshot 1`] = `
+<div>
+  <form
+    data-testid="compose-form"
+  >
+    <div
+      class="border-b border-gray-600 dark:border-dark-500 p-4"
+    >
+      <div
+        data-testid="mock-form-content"
+      />
+      <div
+        data-testid="mock-activity-preview"
+      />
+    </div>
+    <div
+      data-testid="mock-compose-options"
+    />
+  </form>
+</div>
+`;

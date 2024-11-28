@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ComposeGifPreview renders gif image correctly 1`] = `
+<div>
+  <div
+    class="w-[140px] h-[169px] relative mb-3"
+  >
+    <img
+      alt="Gif of feed"
+      class="rounded-md"
+      src="https://example.com/test.gif"
+      style="width: 100%; height: auto; object-fit: cover;"
+    />
+  </div>
+</div>
+`;

@@ -1,0 +1,181 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewsFeedCardPreview matches snapshot with media 1`] = `
+<div>
+  <div
+    class="flex flex-col bg-black-haze-50 dark:bg-dark-100 "
+  >
+    <div
+      class="relative h-[177px] md:h-[256px]"
+    >
+      <img
+        alt="This is banner image fallback"
+        data-nimg="fill"
+        decoding="async"
+        fetchpriority="high"
+        sizes="(max-width: 768px) 100vw"
+        src="/_next/image?url=%2Ftest-image.jpg&w=3840&q=100"
+        srcset="/_next/image?url=%2Ftest-image.jpg&w=640&q=100 640w, /_next/image?url=%2Ftest-image.jpg&w=750&q=100 750w, /_next/image?url=%2Ftest-image.jpg&w=828&q=100 828w, /_next/image?url=%2Ftest-image.jpg&w=1080&q=100 1080w, /_next/image?url=%2Ftest-image.jpg&w=1200&q=100 1200w, /_next/image?url=%2Ftest-image.jpg&w=1920&q=100 1920w, /_next/image?url=%2Ftest-image.jpg&w=2048&q=100 2048w, /_next/image?url=%2Ftest-image.jpg&w=3840&q=100 3840w"
+        style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent;"
+      />
+    </div>
+    <div
+      class="flex flex-col border p-5 gap-5"
+    >
+      <div
+        class="flex justify-items-start gap-3"
+      >
+        <a
+          class="flex items-center justify-center rounded-full w-10 h-10"
+          data-state="closed"
+          data-testid="avatar-trigger"
+        >
+          <span
+            class="relative flex shrink-0 overflow-hidden rounded-full h-10 w-10 bg-current"
+            data-testid="avatar-wrapper"
+          >
+            <span
+              class="flex h-full w-full items-center justify-center rounded-full bg-muted"
+            >
+              JD
+            </span>
+          </span>
+        </a>
+        <div
+          class="flex flex-col font-roboto"
+        >
+          <p
+            class="text-sm dark:text-slate-400 text-slate-600 whitespace-break-spaces text-wrap"
+          >
+            <label
+              class="font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 flex items-center flex-wrap text-sm font-normal dark:text-slate-400 text-slate-600"
+            />
+            Test content
+          </p>
+        </div>
+      </div>
+      <div
+        class="flex gap-2.5 items-center"
+      >
+        <label
+          class="font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-medium flex text-3xs dark:text-slate-400 text-slate-600 gap-0.5"
+        >
+          <svg
+            class="w-4 h-4"
+            fill="currentColor"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M17.9 17.39c-.26-.8-1.01-1.39-1.9-1.39h-1v-3a1 1 0 00-1-1H8v-2h2a1 1 0 001-1V7h2a2 2 0 002-2v-.41a7.984 7.984 0 012.9 12.8M11 19.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.22.21-1.79L9 15v1a2 2 0 002 2m1-16A10 10 0 002 12a10 10 0 0010 10 10 10 0 0010-10A10 10 0 0012 2z"
+            />
+          </svg>
+          Public
+        </label>
+        <label
+          class="font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-medium flex text-3xs dark:text-slate-400 text-slate-600 gap-0.5"
+        >
+          <svg
+            class="w-4 h-4"
+            fill="currentColor"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 9a3 3 0 00-3 3 3 3 0 003 3 3 3 0 003-3 3 3 0 00-3-3m0 8a5 5 0 01-5-5 5 5 0 015-5 5 5 0 015 5 5 5 0 01-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5z"
+            />
+          </svg>
+          163 views
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`NewsFeedCardPreview matches snapshot without media 1`] = `
+<div>
+  <div
+    class="flex flex-col bg-black-haze-50 dark:bg-dark-100 "
+  >
+    <div
+      class="flex flex-col border p-5 gap-5"
+    >
+      <div
+        class="flex justify-items-start gap-3"
+      >
+        <a
+          class="flex items-center justify-center rounded-full w-10 h-10"
+          data-state="closed"
+          data-testid="avatar-trigger"
+        >
+          <span
+            class="relative flex shrink-0 overflow-hidden rounded-full h-10 w-10 bg-current"
+            data-testid="avatar-wrapper"
+          >
+            <span
+              class="flex h-full w-full items-center justify-center rounded-full bg-muted"
+            >
+              JD
+            </span>
+          </span>
+        </a>
+        <div
+          class="flex flex-col font-roboto"
+        >
+          <p
+            class="text-sm dark:text-slate-400 text-slate-600 whitespace-break-spaces text-wrap"
+          >
+            <label
+              class="font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 flex items-center flex-wrap text-sm font-normal dark:text-slate-400 text-slate-600"
+            />
+            Test content
+          </p>
+        </div>
+      </div>
+      <div
+        class="flex gap-2.5 items-center"
+      >
+        <label
+          class="font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-medium flex text-3xs dark:text-slate-400 text-slate-600 gap-0.5"
+        >
+          <svg
+            class="w-4 h-4"
+            fill="currentColor"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M17.9 17.39c-.26-.8-1.01-1.39-1.9-1.39h-1v-3a1 1 0 00-1-1H8v-2h2a1 1 0 001-1V7h2a2 2 0 002-2v-.41a7.984 7.984 0 012.9 12.8M11 19.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.22.21-1.79L9 15v1a2 2 0 002 2m1-16A10 10 0 002 12a10 10 0 0010 10 10 10 0 0010-10A10 10 0 0012 2z"
+            />
+          </svg>
+          Public
+        </label>
+        <label
+          class="font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-medium flex text-3xs dark:text-slate-400 text-slate-600 gap-0.5"
+        >
+          <svg
+            class="w-4 h-4"
+            fill="currentColor"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 9a3 3 0 00-3 3 3 3 0 003 3 3 3 0 003-3 3 3 0 00-3-3m0 8a5 5 0 01-5-5 5 5 0 015-5 5 5 0 015 5 5 5 0 01-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5z"
+            />
+          </svg>
+          163 views
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+`;

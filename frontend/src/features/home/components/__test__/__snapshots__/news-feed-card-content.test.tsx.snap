@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewsFeedCardContent matches snapshot 1`] = `
+<div>
+  <div
+    class="flex flex-col font-roboto"
+  >
+    <p
+      class="text-sm dark:text-slate-400 text-slate-600 whitespace-break-spaces text-wrap mb-3"
+    >
+      <label
+        class="font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 flex items-center flex-wrap text-sm font-normal dark:text-slate-400 text-slate-600"
+      >
+        is drinking 
+        <label
+          class="font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-medium text-sm text-primary"
+        >
+          water
+        </label>
+        .
+         with 
+        <a
+          class="flex items-center border-none w-fit text-sm text-primary hover:bg-transparent"
+          href="/user-profile/johndoe/personal-info"
+          title="John Doe"
+        >
+          John Doe
+        </a>
+         and 
+        <a
+          class="flex items-center border-none w-fit text-sm text-primary hover:bg-transparent"
+          href="/user-profile/nellyschwartz/personal-info"
+          title="Nelly Schwartz"
+        >
+          Nelly Schwartz
+        </a>
+        .
+         at the 
+        <a
+          class="flex items-center border-none w-fit text-sm text-primary hover:bg-transparent"
+          href="New York"
+          title="New York"
+        >
+          New York
+        </a>
+        .
+      </label>
+      Test content
+    </p>
+    <div
+      class="w-[140px] h-[169px] relative mb-3"
+    >
+      <img
+        alt="Gif of feed"
+        class="rounded-md"
+        src="test.gif"
+        style="width: 100%; height: auto; object-fit: cover;"
+      />
+    </div>
+    <a
+      class="flex items-center border-none w-fit text-sm text-primary hover:bg-transparent"
+      href="https://example.com"
+      title="https://example.com"
+    >
+      https://example.com
+    </a>
+  </div>
+</div>
+`;

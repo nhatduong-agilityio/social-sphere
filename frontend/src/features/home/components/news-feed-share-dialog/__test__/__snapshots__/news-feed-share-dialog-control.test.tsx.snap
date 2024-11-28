@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewsFeedShareDialogControl matches snapshot 1`] = `
+<div>
+  <div
+    class="flex-col-reverse sm:flex-row sm:space-x-2 flex w-full sm:justify-between p-2 bg-black-haze-50 dark:bg-transparent border-t border-gray-600 dark:border-dark-500 rounded-b-xl"
+  >
+    <div
+      class="flex"
+    >
+      <button
+        class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-transparent border-none dark:text-neutral-100 w-[34px] h-[34px] p-0 rounded-[4px] text-neutral-200 hover:dark:text-white hover:bg-gray-600 hover:dark:bg-dark-400"
+        type="button"
+      >
+        <svg
+          class="w-[18px] h-[18px]"
+          fill="currentColor"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M15 14c-2.67 0-8 1.33-8 4v2h16v-2c0-2.67-5.33-4-8-4m-9-4V7H4v3H1v2h3v3h2v-3h3v-2m6 2a4 4 0 004-4 4 4 0 00-4-4 4 4 0 00-4 4 4 4 0 004 4z"
+          />
+        </svg>
+      </button>
+      <button
+        class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-transparent border-none dark:text-neutral-100 w-[34px] h-[34px] p-0 rounded-[4px] text-neutral-200 hover:dark:text-white hover:bg-gray-600 hover:dark:bg-dark-400"
+        type="button"
+      >
+        <svg
+          class="w-[18px] h-[18px]"
+          fill="currentColor"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 11.5A2.5 2.5 0 019.5 9 2.5 2.5 0 0112 6.5 2.5 2.5 0 0114.5 9a2.5 2.5 0 01-2.5 2.5M12 2a7 7 0 00-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 00-7-7z"
+          />
+        </svg>
+      </button>
+      <div
+        class="space-y-2"
+      >
+        <div
+          aria-expanded="false"
+          aria-haspopup="menu"
+          class="flex items-center"
+          data-state="closed"
+          data-testid="dropdown-trigger"
+          id="radix-:r4:"
+          type="button"
+        >
+          <button
+            class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-transparent border-none dark:text-neutral-100 w-[34px] h-[34px] p-0 rounded-[4px] text-neutral-200 hover:dark:text-white hover:bg-gray-600 hover:dark:bg-dark-400"
+            type="button"
+          >
+            <svg
+              class="w-[18px] h-[18px]"
+              fill="currentColor"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8.5 2C6 2 4 4 4 6.5V7c-1.11 0-2 .89-2 2v9c0 1.11.89 2 2 2h4.72c1.46 1.29 3.34 2 5.28 2a8 8 0 008-8 8 8 0 00-8-8c-.34 0-.68.03-1 .08C12.76 3.77 10.82 2 8.5 2m0 2A2.5 2.5 0 0111 6.5V7H6v-.5A2.5 2.5 0 018.5 4M14 8a6 6 0 016 6 6 6 0 01-6 6 6 6 0 01-6-6 6 6 0 016-6m-1 2v5l3.64 2.19.78-1.29-2.92-1.75V10H13z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex gap-2"
+    >
+      <button
+        class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border hover:border-gray-900 text-neutral-800 dark:text-white dark:border-dark-500 dark:bg-dark-100 py-2 h-8 text-2xs px-5 border-gray-600 bg-gray-600 hover:bg-gray-800"
+        type="button"
+      >
+        Cancel
+      </button>
+      <button
+        class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border text-white dark:hover:opacity-85 hover:opacity-75 hover:shadow-sphere-primary border-primary py-2 h-8 text-2xs px-5 bg-blue-600"
+      >
+        Publish
+      </button>
+    </div>
+  </div>
+</div>
+`;

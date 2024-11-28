@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StoryMeta matches snapshot 1`] = `
+<div>
+  <div
+    class="flex flex-col"
+  >
+    <p
+      class="text-foreground text-xs"
+    >
+      Test Story
+    </p>
+    <span
+      class="text-4xs dark:text-slate-400 text-slate-500"
+    >
+      Test Description
+    </span>
+  </div>
+</div>
+`;
+
+exports[`StoryMeta matches snapshot without description 1`] = `
+<div>
+  <div
+    class="flex flex-col"
+  >
+    <p
+      class="text-foreground text-xs"
+    >
+      Test Story
+    </p>
+    <span
+      class="text-4xs dark:text-slate-400 text-slate-500"
+    />
+  </div>
+</div>
+`;
+
+exports[`StoryMeta renders with long text 1`] = `
+<div>
+  <div
+    class="flex flex-col"
+  >
+    <p
+      class="text-foreground text-xs"
+    >
+      Very Long Story Title That Might Wrap
+    </p>
+    <span
+      class="text-4xs dark:text-slate-400 text-slate-500"
+    >
+      A very long description that might need to wrap to multiple lines
+    </span>
+  </div>
+</div>
+`;

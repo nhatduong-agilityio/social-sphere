@@ -49,7 +49,10 @@ export const ShareActivityDropdown = memo(
             <FormControl>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <div className="flex items-center">
+                  <div
+                    data-testid="dropdown-trigger"
+                    className="flex items-center"
+                  >
                     {trigger}
                     {selectedOption !== ACTIVITY_ROLES[0] && (
                       <Label
@@ -69,6 +72,7 @@ export const ShareActivityDropdown = memo(
                           <DropdownMenuSeparator />
                         )}
                         <DropdownMenuItem
+                          data-testid="dropdown-item"
                           key={label}
                           onClick={() => optionField.onChange(value)}
                           className="flex items-center gap-2.5 py-2 px-4 h-[50px]"

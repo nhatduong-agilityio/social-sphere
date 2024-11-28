@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ShareLinkPicker matches snapshot 1`] = `
+<div>
+  <div
+    class="space-y-2 w-full"
+  >
+    <div
+      class="relative w-full flex items-center"
+    >
+      <div
+        class="absolute top-1/2 -translate-y-1/2 transition-all duration-300 ease-in-out left-3 text-gray-900 dark:text-primary"
+      >
+        <svg
+          class="lucide lucide-link2"
+          fill="none"
+          height="16"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M9 17H7A5 5 0 0 1 7 7h2"
+          />
+          <path
+            d="M15 7h2a5 5 0 1 1 0 10h-2"
+          />
+          <line
+            x1="8"
+            x2="16"
+            y1="12"
+            y2="12"
+          />
+        </svg>
+      </div>
+      <input
+        aria-describedby=":r0:-form-item-description"
+        aria-invalid="false"
+        autocomplete="true"
+        class="flex h-9 w-full rounded-lg border border-input hover:border-gray-900 bg-white dark:bg-dark-500 px-10 py-2 text-sm file:border-0 file:bg-transparent file:text-xs file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-300 ease-in-out dark:border-dark-300 dark:text-neutral-200"
+        id=":r0:-form-item"
+        name="sharedLink"
+        placeholder="Enter the link URL"
+        type="url"
+        value=""
+      />
+      <div
+        class="absolute top-1/2 -translate-y-1/2 transition-all duration-300 ease-in-out text-gray-900 dark:text-white hover:dark:text-neutral-700 hover:text-neutral-700 right-3"
+        data-testid="close-icon"
+      >
+        <svg
+          class="lucide lucide-x"
+          fill="none"
+          height="16"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M18 6 6 18"
+          />
+          <path
+            d="m6 6 12 12"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;

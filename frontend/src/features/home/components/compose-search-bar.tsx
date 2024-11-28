@@ -46,6 +46,7 @@ export const ComposeSearchBar = memo(
       <div className="flex items-center gap-2">
         {isOpen ? (
           <SearchInput
+            data-testid="search-input"
             placeholder="Search People"
             className="lg:h-9 rounded-full hover:border-gray-900"
             value={searchFriend}
