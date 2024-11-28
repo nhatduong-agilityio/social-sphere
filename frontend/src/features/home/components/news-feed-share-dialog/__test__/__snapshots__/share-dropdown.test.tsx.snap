@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ShareDropdown matches snapshot 1`] = `
+<div>
+  <button
+    aria-expanded="false"
+    aria-haspopup="menu"
+    class="font-roboto whitespace-nowrap font-medium ring-offset-background ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border hover:border-gray-900 border-gray-800 dark:border-dark-500 text-2xs border-none h-8 w-fit rounded-lg px-3 py-2.5 flex justify-center items-center gap-1 text-neutral-700 dark:text-white bg-black-haze-50 dark:bg-transparent hover:dark:bg-card transition-all duration-200"
+    data-state="closed"
+    data-testid="dropdown-trigger"
+    id="radix-:r0:"
+    type="button"
+  >
+    <span
+      class="flex gap-1 leading-[21px] [&>svg]:w-5 [&>svg]:h-5 [&>svg]:text-neutral-700 [&>svg]:dark:text-white [&>svg]:transition-colors [&>svg]:duration-200"
+    >
+      <svg
+        class="w-22 h-22 text-neutral-200"
+        fill="currentColor"
+        height="24px"
+        viewBox="0 0 24 24"
+        width="24px"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3 7h6v6H3V7m0-4h18v2H3V3m18 4v2H11V7h10m0 4v2H11v-2h10M3 15h14v2H3v-2m0 4h18v2H3v-2z"
+        />
+      </svg>
+      Share in your feed
+    </span>
+    <svg
+      class="lucide lucide-chevron-down"
+      fill="none"
+      height="16"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      viewBox="0 0 24 24"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="m6 9 6 6 6-6"
+      />
+    </svg>
+  </button>
+</div>
+`;

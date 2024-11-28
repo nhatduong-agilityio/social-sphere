@@ -1,0 +1,164 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewsFeedCommentForm matches snapshot 1`] = `
+<div>
+  <form
+    class="flex flex-col w-full border dark:border-blue-800 rounded-lg"
+  >
+    <div
+      class="space-y-2 w-full border-none rounded-lg"
+    >
+      <textarea
+        aria-describedby=":r0:-form-item-description"
+        aria-invalid="false"
+        class="flex w-full border border-input bg-card text-sm ring-offset-background placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 border-none focus:outline-none min-h-[128px] p-2.5 bg:transparent dark:bg-dark-500 rounded-none rounded-t-lg"
+        id=":r0:-form-item"
+        name="content"
+        placeholder="Write a comment..."
+      />
+    </div>
+    <div
+      class="space-y-2"
+    >
+      <div
+        class="relative w-full flex items-center"
+        data-testid="input-container"
+      >
+        <input
+          aria-describedby=":r1:-form-item-description"
+          aria-invalid="false"
+          aria-label="Upload Media Comment"
+          autocomplete="off"
+          class="h-10 w-full rounded-lg border border-input bg-white dark:bg-dark-500 px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-xs file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 hidden"
+          data-testid="input-element"
+          id="media-comment-upload"
+          type="file"
+        />
+      </div>
+    </div>
+    <div
+      class="flex justify-between items-center p-2"
+    >
+      <a
+        class="w-8 h-8 flex items-center justify-center rounded-full"
+        data-state="closed"
+        data-testid="avatar-trigger"
+      >
+        <span
+          class="relative flex shrink-0 overflow-hidden rounded-full h-8 w-8 bg-current"
+          data-testid="avatar-wrapper"
+        >
+          <span
+            class="flex h-full w-full items-center justify-center rounded-full bg-muted"
+          >
+            JD
+          </span>
+        </span>
+      </a>
+      <div
+        class="flex gap-4 items-center"
+      >
+        <button
+          class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border dark:text-neutral-50 border-none w-fit h-fit text-neutral-300 hover:text-primary dark:hover:text-primary text-3xs"
+          type="button"
+        >
+          <svg
+            class="lucide lucide-at-sign"
+            fill="none"
+            height="18"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="18"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="12"
+              cy="12"
+              r="4"
+            />
+            <path
+              d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"
+            />
+          </svg>
+        </button>
+        <div
+          class="flex relative"
+        >
+          <button
+            class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border dark:text-neutral-50 border-none w-fit h-fit text-neutral-300 hover:text-primary dark:hover:text-primary text-3xs"
+            type="button"
+          >
+            <svg
+              class="lucide lucide-smile"
+              fill="none"
+              height="18"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="18"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle
+                cx="12"
+                cy="12"
+                r="10"
+              />
+              <path
+                d="M8 14s1.5 2 4 2 4-2 4-2"
+              />
+              <line
+                x1="9"
+                x2="9.01"
+                y1="9"
+                y2="9"
+              />
+              <line
+                x1="15"
+                x2="15.01"
+                y1="9"
+                y2="9"
+              />
+            </svg>
+          </button>
+        </div>
+        <button
+          class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border dark:text-neutral-50 border-none w-fit h-fit text-neutral-300 hover:text-primary dark:hover:text-primary text-3xs"
+          type="button"
+        >
+          <svg
+            class="lucide lucide-camera"
+            fill="none"
+            height="18"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="18"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"
+            />
+            <circle
+              cx="12"
+              cy="13"
+              r="3"
+            />
+          </svg>
+        </button>
+        <button
+          class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-primary text-white dark:hover:opacity-85 hover:opacity-75 hover:shadow-sphere-primary border-primary px-4 py-2 text-2xs h-9"
+        >
+          Post Comment
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+`;

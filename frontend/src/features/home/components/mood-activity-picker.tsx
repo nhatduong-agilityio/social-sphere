@@ -44,6 +44,7 @@ const MoodItem = ({
 
   return (
     <li
+      data-testid="mood-item"
       className="cursor-pointer flex items-center px-3 py-1 gap-2.5 hover:bg-gray-600 hover:dark:bg-dark-500"
       onClick={() => onSelectMood(value)}
     >

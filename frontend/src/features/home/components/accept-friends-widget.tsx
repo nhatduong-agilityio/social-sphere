@@ -18,6 +18,9 @@ import {
   CardTitle,
   DropdownMenuItem,
   Text,
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
 } from '@/components/ui';
 import { UserCardPopover } from '@/components/sections';
 
@@ -26,11 +29,6 @@ import { getFullName } from '@/utils';
 
 // Types
 import { TFollower } from '@/models';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuTrigger,
-} from '@radix-ui/react-dropdown-menu';
 
 // Actions
 import { acceptedFriend, rejectedFriend } from '../actions';
@@ -85,32 +83,55 @@ export const AcceptFriendsWidget = ({
 
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="rounded" size="icon" className="border-none">
+          <Button
+            data-testid="dropdown-trigger"
+            variant="rounded"
+            size="icon"
+            className="border-none"
+          >
             <Ellipsis size={16} />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-24 p-0 py-2 bg-white dark:bg-card rounded-md border border-slate-300 dark:border-slate-600">
           <DropdownMenuItem
+            data-testid="accept-friend-dropdown"
             className="flex gap-3 w-full"
             onClick={() =>
               handleAcceptedFriend(follower.id.toString(), documentId)
             }
           >
             {isAcceptPending ? (
-              <Loader size={16} className="text-blue-400 animate-spin" />
+              <Loader
+                data-testid="accept-loader"
+                size={16}
+                className="text-blue-400 animate-spin"
+              />
             ) : (
-              <UserPlus size={16} className="text-blue-400 " />
+              <UserPlus
+                data-testid="accept-icon"
+                size={16}
+                className="text-blue-400 "
+              />
             )}
             <Text className="text-4xs text-blue-400">Accept</Text>
           </DropdownMenuItem>
           <DropdownMenuItem
+            data-testid="reject-friend-dropdown"
             className="flex gap-3 w-full"
             onClick={() => handleRejectedFriend(documentId)}
           >
             {isRejectedPending ? (
-              <Loader size={16} className="text-blue-400 animate-spin" />
+              <Loader
+                data-testid="reject-loader"
+                size={16}
+                className="text-blue-400 animate-spin"
+              />
             ) : (
-              <UserMinus size={16} className="text-red-400" />
+              <UserMinus
+                data-testid="reject-icon"
+                size={16}
+                className="text-red-400"
+              />
             )}
 
             <Text className="text-4xs text-red-400">Reject</Text>

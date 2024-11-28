@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ComposeFormContent renders with avatar and textarea 1`] = `
+<div>
+  <div
+    class="flex flex-row"
+  >
+    <span
+      class="relative flex shrink-0 overflow-hidden rounded-full w-[42px] h-[42px]"
+      data-testid="avatar"
+    >
+      <span
+        class="flex h-full w-full items-center justify-center rounded-full bg-muted"
+      >
+        CN
+      </span>
+    </span>
+    <div
+      class="space-y-2 ml-5 w-full"
+    >
+      <textarea
+        aria-describedby=":r0:-form-item-description"
+        aria-invalid="false"
+        class="flex w-full rounded-md border border-input bg-card text-sm ring-offset-background placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 border-none focus:outline-none min-h-[66px] p-0"
+        id=":r0:-form-item"
+        name="content"
+        placeholder="Write something about you..."
+      />
+    </div>
+  </div>
+</div>
+`;

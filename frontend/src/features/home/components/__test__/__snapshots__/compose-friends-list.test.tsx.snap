@@ -1,0 +1,309 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ComposeFriendsList renders friends list with search bar 1`] = `
+<div>
+  <div
+    class="flex flex-col"
+  >
+    <div
+      class="flex justify-between items-center py-4 px-2.5"
+    >
+      <label
+        class="font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-neutral-400 font-medium text-2xs"
+      >
+        Send in a message
+      </label>
+      <div
+        class="flex items-center gap-2"
+      >
+        <div
+          class="relative w-full flex items-center"
+        >
+          <div
+            class="absolute top-1/2 -translate-y-1/2 transition-all duration-300 ease-in-out left-3 text-ring"
+            data-testid="search-icon-wrapper"
+          >
+            <svg
+              class="lucide lucide-search"
+              data-testid="search-icon"
+              fill="none"
+              height="20"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle
+                cx="11"
+                cy="11"
+                r="8"
+              />
+              <path
+                d="m21 21-4.3-4.3"
+              />
+            </svg>
+          </div>
+          <input
+            autocomplete="off"
+            class="flex h-9 w-full border border-input bg-white dark:bg-dark-500 px-10 py-2 text-sm file:border-0 file:bg-transparent file:text-xs file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-300 ease-in-out focus:border-ring dark:border-input lg:h-9 rounded-full hover:border-gray-900"
+            data-testid="search-input"
+            placeholder="Search People"
+            value=""
+          />
+        </div>
+        <button
+          aria-controls="radix-:r0:"
+          aria-expanded="false"
+          aria-haspopup="dialog"
+          class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border dark:text-neutral-50 hover:text-blue-600 border-none w-fit h-fit text-2xs text-neutral-400"
+          data-state="closed"
+          type="button"
+        >
+          Create Group
+        </button>
+      </div>
+    </div>
+    <div
+      class="space-y-2 px-[6px]"
+    >
+      <div
+        class="flex justify-between items-center py-[6px] space-y-0 group"
+      >
+        <div
+          class="flex items-center space-x-2.5 space-y-0"
+        >
+          <button
+            aria-checked="false"
+            aria-describedby=":r4:-form-item-description"
+            aria-invalid="false"
+            class="peer shrink-0 border border-gray-900 bg-white dark:bg-popover dark:border-dark-500 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:dark:bg-primary data-[state=checked]:text-primary-foreground rounded-full w-[22px] h-[22px] group-hover:border-primary transition-colors duration-200"
+            data-state="unchecked"
+            id=":r4:-form-item"
+            role="checkbox"
+            type="button"
+            value="on"
+          />
+          <div
+            class="flex items-center space-x-2.5"
+          >
+            <span
+              class="relative flex shrink-0 overflow-hidden rounded-full w-[38px] h-[38px]"
+              data-testid="avatar"
+            >
+              <span
+                class="flex h-full w-full items-center justify-center rounded-full bg-muted"
+              >
+                JD
+              </span>
+            </span>
+            <label
+              class="font-medium font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-neutral-700 dark:text-neutral-100 text-xs"
+              for=":r4:-form-item"
+            >
+              John Doe
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex justify-between items-center py-[6px] space-y-0 group"
+      >
+        <div
+          class="flex items-center space-x-2.5 space-y-0"
+        >
+          <button
+            aria-checked="false"
+            aria-describedby=":r5:-form-item-description"
+            aria-invalid="false"
+            class="peer shrink-0 border border-gray-900 bg-white dark:bg-popover dark:border-dark-500 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:dark:bg-primary data-[state=checked]:text-primary-foreground rounded-full w-[22px] h-[22px] group-hover:border-primary transition-colors duration-200"
+            data-state="unchecked"
+            id=":r5:-form-item"
+            role="checkbox"
+            type="button"
+            value="on"
+          />
+          <div
+            class="flex items-center space-x-2.5"
+          >
+            <span
+              class="relative flex shrink-0 overflow-hidden rounded-full w-[38px] h-[38px]"
+              data-testid="avatar"
+            >
+              <span
+                class="flex h-full w-full items-center justify-center rounded-full bg-muted"
+              >
+                NS
+              </span>
+            </span>
+            <label
+              class="font-medium font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-neutral-700 dark:text-neutral-100 text-xs"
+              for=":r5:-form-item"
+            >
+              Nelly Schwartz
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex justify-between items-center py-[6px] space-y-0 group"
+      >
+        <div
+          class="flex items-center space-x-2.5 space-y-0"
+        >
+          <button
+            aria-checked="false"
+            aria-describedby=":r6:-form-item-description"
+            aria-invalid="false"
+            class="peer shrink-0 border border-gray-900 bg-white dark:bg-popover dark:border-dark-500 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:dark:bg-primary data-[state=checked]:text-primary-foreground rounded-full w-[22px] h-[22px] group-hover:border-primary transition-colors duration-200"
+            data-state="unchecked"
+            id=":r6:-form-item"
+            role="checkbox"
+            type="button"
+            value="on"
+          />
+          <div
+            class="flex items-center space-x-2.5"
+          >
+            <span
+              class="relative flex shrink-0 overflow-hidden rounded-full w-[38px] h-[38px]"
+              data-testid="avatar"
+            >
+              <span
+                class="flex h-full w-full items-center justify-center rounded-full bg-muted"
+              >
+                ML
+              </span>
+            </span>
+            <label
+              class="font-medium font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-neutral-700 dark:text-neutral-100 text-xs"
+              for=":r6:-form-item"
+            >
+              Mike Lasalle
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex justify-between items-center py-[6px] space-y-0 group"
+      >
+        <div
+          class="flex items-center space-x-2.5 space-y-0"
+        >
+          <button
+            aria-checked="false"
+            aria-describedby=":r7:-form-item-description"
+            aria-invalid="false"
+            class="peer shrink-0 border border-gray-900 bg-white dark:bg-popover dark:border-dark-500 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:dark:bg-primary data-[state=checked]:text-primary-foreground rounded-full w-[22px] h-[22px] group-hover:border-primary transition-colors duration-200"
+            data-state="unchecked"
+            id=":r7:-form-item"
+            role="checkbox"
+            type="button"
+            value="on"
+          />
+          <div
+            class="flex items-center space-x-2.5"
+          >
+            <span
+              class="relative flex shrink-0 overflow-hidden rounded-full w-[38px] h-[38px]"
+              data-testid="avatar"
+            >
+              <span
+                class="flex h-full w-full items-center justify-center rounded-full bg-muted"
+              >
+                SJ
+              </span>
+            </span>
+            <label
+              class="font-medium font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-neutral-700 dark:text-neutral-100 text-xs"
+              for=":r7:-form-item"
+            >
+              Sarah Johnson
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex justify-between items-center py-[6px] space-y-0 group"
+      >
+        <div
+          class="flex items-center space-x-2.5 space-y-0"
+        >
+          <button
+            aria-checked="false"
+            aria-describedby=":r8:-form-item-description"
+            aria-invalid="false"
+            class="peer shrink-0 border border-gray-900 bg-white dark:bg-popover dark:border-dark-500 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:dark:bg-primary data-[state=checked]:text-primary-foreground rounded-full w-[22px] h-[22px] group-hover:border-primary transition-colors duration-200"
+            data-state="unchecked"
+            id=":r8:-form-item"
+            role="checkbox"
+            type="button"
+            value="on"
+          />
+          <div
+            class="flex items-center space-x-2.5"
+          >
+            <span
+              class="relative flex shrink-0 overflow-hidden rounded-full w-[38px] h-[38px]"
+              data-testid="avatar"
+            >
+              <span
+                class="flex h-full w-full items-center justify-center rounded-full bg-muted"
+              >
+                SB
+              </span>
+            </span>
+            <label
+              class="font-medium font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-neutral-700 dark:text-neutral-100 text-xs"
+              for=":r8:-form-item"
+            >
+              Stella Bergmann
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex justify-between items-center py-[6px] space-y-0 group"
+      >
+        <div
+          class="flex items-center space-x-2.5 space-y-0"
+        >
+          <button
+            aria-checked="false"
+            aria-describedby=":r9:-form-item-description"
+            aria-invalid="false"
+            class="peer shrink-0 border border-gray-900 bg-white dark:bg-popover dark:border-dark-500 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:dark:bg-primary data-[state=checked]:text-primary-foreground rounded-full w-[22px] h-[22px] group-hover:border-primary transition-colors duration-200"
+            data-state="unchecked"
+            id=":r9:-form-item"
+            role="checkbox"
+            type="button"
+            value="on"
+          />
+          <div
+            class="flex items-center space-x-2.5"
+          >
+            <span
+              class="relative flex shrink-0 overflow-hidden rounded-full w-[38px] h-[38px]"
+              data-testid="avatar"
+            >
+              <span
+                class="flex h-full w-full items-center justify-center rounded-full bg-muted"
+              >
+                DK
+              </span>
+            </span>
+            <label
+              class="font-medium font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-neutral-700 dark:text-neutral-100 text-xs"
+              for=":r9:-form-item"
+            >
+              David Kim
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

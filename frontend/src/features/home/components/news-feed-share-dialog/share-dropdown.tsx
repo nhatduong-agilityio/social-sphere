@@ -37,6 +37,7 @@ export const ShareDropdown = memo(
       <DropdownMenu onOpenChange={setOpen}>
         <DropdownMenuTrigger asChild>
           <Button
+            data-testid="dropdown-trigger"
             variant="fixed"
             className={cn(
               'text-2xs border-none h-8 w-fit rounded-lg px-3 py-2.5 flex justify-center items-center gap-1 text-neutral-700 dark:text-white bg-black-haze-50 dark:bg-transparent hover:dark:bg-card transition-all duration-200',
@@ -62,6 +63,7 @@ export const ShareDropdown = memo(
                 <DropdownMenuSeparator className="my-2" />
               )}
               <DropdownMenuItem
+                data-testid="dropdown-item"
                 key={label}
                 onClick={() =>
                   onSelectedOption({ label, description, value, icon: Icon })

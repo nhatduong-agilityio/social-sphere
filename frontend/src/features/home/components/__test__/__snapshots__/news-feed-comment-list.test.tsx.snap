@@ -1,0 +1,451 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewsFeedCommentList matches snapshot 1`] = `
+<div>
+  <div
+    class="flex flex-col"
+  >
+    <div
+      class="flex flex-row rounded-md items-center justify-between group p-0"
+    >
+      <div
+        class="flex items-center gap-4"
+        data-testid="header-wrapper"
+      >
+        <a
+          class="w-9 h-9 flex items-center justify-center rounded-full p-0"
+          data-state="closed"
+          data-testid="avatar-trigger"
+        >
+          <span
+            class="relative flex shrink-0 overflow-hidden rounded-full h-9 w-9 bg-current"
+            data-testid="avatar-wrapper"
+          >
+            <span
+              class="flex h-full w-full items-center justify-center rounded-full bg-muted"
+            >
+              JD
+            </span>
+          </span>
+        </a>
+        <div
+          class="flex flex-col"
+        >
+          <a
+            href="/user-profile/johndoe/personal-info"
+          >
+            <h3
+              class="font-roboto font-medium text-xs"
+            >
+              John Doe
+            </h3>
+          </a>
+          <p
+            class="font-roboto font-normal dark:text-slate-400 text-slate-500 text-4xs"
+          >
+            January 1 2024, 7:00 PM
+          </p>
+        </div>
+      </div>
+      <button
+        aria-expanded="false"
+        aria-haspopup="menu"
+        aria-label="SeeMore"
+        class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border rounded-full hover:bg-muted opacity-0 group-hover:opacity-100 transition-opacity duration-200 w-8 h-8"
+        data-state="closed"
+        id="radix-:r0:"
+        type="button"
+      >
+        <svg
+          class="lucide lucide-ellipsis-vertical"
+          fill="none"
+          height="20"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="12"
+            cy="12"
+            r="1"
+          />
+          <circle
+            cx="12"
+            cy="5"
+            r="1"
+          />
+          <circle
+            cx="12"
+            cy="19"
+            r="1"
+          />
+        </svg>
+      </button>
+    </div>
+    <div
+      class="flex flex-col mt-2.5 ml-[52px] mr-12 relative"
+    >
+      <div
+        class="flex flex-col gap-2.5"
+      >
+        <p
+          class="text-sm text-neutral-400 dark:text-neutral-100"
+        >
+          Test comment
+        </p>
+        <div
+          class="w-[140px] h-[169px] relative mb-3"
+        >
+          <img
+            alt="Media of feed"
+            class="rounded-md"
+            data-nimg="fill"
+            decoding="async"
+            loading="lazy"
+            sizes="140px"
+            src="/_next/image?url=%2Ftest-image.jpg&w=3840&q=75"
+            srcset="/_next/image?url=%2Ftest-image.jpg&w=16&q=75 16w, /_next/image?url=%2Ftest-image.jpg&w=32&q=75 32w, /_next/image?url=%2Ftest-image.jpg&w=48&q=75 48w, /_next/image?url=%2Ftest-image.jpg&w=64&q=75 64w, /_next/image?url=%2Ftest-image.jpg&w=96&q=75 96w, /_next/image?url=%2Ftest-image.jpg&w=128&q=75 128w, /_next/image?url=%2Ftest-image.jpg&w=256&q=75 256w, /_next/image?url=%2Ftest-image.jpg&w=384&q=75 384w, /_next/image?url=%2Ftest-image.jpg&w=640&q=75 640w, /_next/image?url=%2Ftest-image.jpg&w=750&q=75 750w, /_next/image?url=%2Ftest-image.jpg&w=828&q=75 828w, /_next/image?url=%2Ftest-image.jpg&w=1080&q=75 1080w, /_next/image?url=%2Ftest-image.jpg&w=1200&q=75 1200w, /_next/image?url=%2Ftest-image.jpg&w=1920&q=75 1920w, /_next/image?url=%2Ftest-image.jpg&w=2048&q=75 2048w, /_next/image?url=%2Ftest-image.jpg&w=3840&q=75 3840w"
+            style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent;"
+          />
+        </div>
+      </div>
+      <div
+        class="flex gap-2.5 items-center py-2"
+      >
+        <button
+          class="font-roboto justify-center whitespace-nowrap rounded-lg font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border dark:text-neutral-50 text-neutral-600 hover:text-blue-600 border-none w-fit h-fit flex items-center text-2xs"
+        >
+          <svg
+            class="lucide lucide-thumbs-up mr-[5px]"
+            fill="none"
+            height="12"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="12"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7 10v12"
+            />
+            <path
+              d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"
+            />
+          </svg>
+          5
+        </button>
+        <button
+          class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border border-none w-fit h-fit text-neutral-300 dark:text-gray-100 hover:text-primary dark:hover:text-primary text-3xs"
+        >
+          Reply
+        </button>
+        <button
+          class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border border-none w-fit h-fit text-neutral-300 dark:text-gray-100 hover:text-primary dark:hover:text-primary text-3xs"
+        >
+          Edit
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`NewsFeedCommentList matches snapshot with replies 1`] = `
+<div>
+  <div
+    class="flex flex-col"
+  >
+    <div
+      class="flex flex-row rounded-md items-center justify-between group p-0"
+    >
+      <div
+        class="flex items-center gap-4"
+        data-testid="header-wrapper"
+      >
+        <a
+          class="w-9 h-9 flex items-center justify-center rounded-full p-0"
+          data-state="closed"
+          data-testid="avatar-trigger"
+        >
+          <span
+            class="relative flex shrink-0 overflow-hidden rounded-full h-9 w-9 bg-current"
+            data-testid="avatar-wrapper"
+          >
+            <span
+              class="flex h-full w-full items-center justify-center rounded-full bg-muted"
+            >
+              JD
+            </span>
+          </span>
+        </a>
+        <div
+          class="flex flex-col"
+        >
+          <a
+            href="/user-profile/johndoe/personal-info"
+          >
+            <h3
+              class="font-roboto font-medium text-xs"
+            >
+              John Doe
+            </h3>
+          </a>
+          <p
+            class="font-roboto font-normal dark:text-slate-400 text-slate-500 text-4xs"
+          >
+            January 1 2024, 7:00 PM
+          </p>
+        </div>
+      </div>
+      <button
+        aria-expanded="false"
+        aria-haspopup="menu"
+        aria-label="SeeMore"
+        class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border rounded-full hover:bg-muted opacity-0 group-hover:opacity-100 transition-opacity duration-200 w-8 h-8"
+        data-state="closed"
+        id="radix-:r2:"
+        type="button"
+      >
+        <svg
+          class="lucide lucide-ellipsis-vertical"
+          fill="none"
+          height="20"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="12"
+            cy="12"
+            r="1"
+          />
+          <circle
+            cx="12"
+            cy="5"
+            r="1"
+          />
+          <circle
+            cx="12"
+            cy="19"
+            r="1"
+          />
+        </svg>
+      </button>
+    </div>
+    <div
+      class="flex flex-col mt-2.5 ml-[52px] mr-12 relative"
+    >
+      <div
+        class="flex flex-col gap-2.5"
+      >
+        <p
+          class="text-sm text-neutral-400 dark:text-neutral-100"
+        >
+          Test comment
+        </p>
+        <div
+          class="w-[140px] h-[169px] relative mb-3"
+        >
+          <img
+            alt="Media of feed"
+            class="rounded-md"
+            data-nimg="fill"
+            decoding="async"
+            loading="lazy"
+            sizes="140px"
+            src="/_next/image?url=%2Ftest-image.jpg&w=3840&q=75"
+            srcset="/_next/image?url=%2Ftest-image.jpg&w=16&q=75 16w, /_next/image?url=%2Ftest-image.jpg&w=32&q=75 32w, /_next/image?url=%2Ftest-image.jpg&w=48&q=75 48w, /_next/image?url=%2Ftest-image.jpg&w=64&q=75 64w, /_next/image?url=%2Ftest-image.jpg&w=96&q=75 96w, /_next/image?url=%2Ftest-image.jpg&w=128&q=75 128w, /_next/image?url=%2Ftest-image.jpg&w=256&q=75 256w, /_next/image?url=%2Ftest-image.jpg&w=384&q=75 384w, /_next/image?url=%2Ftest-image.jpg&w=640&q=75 640w, /_next/image?url=%2Ftest-image.jpg&w=750&q=75 750w, /_next/image?url=%2Ftest-image.jpg&w=828&q=75 828w, /_next/image?url=%2Ftest-image.jpg&w=1080&q=75 1080w, /_next/image?url=%2Ftest-image.jpg&w=1200&q=75 1200w, /_next/image?url=%2Ftest-image.jpg&w=1920&q=75 1920w, /_next/image?url=%2Ftest-image.jpg&w=2048&q=75 2048w, /_next/image?url=%2Ftest-image.jpg&w=3840&q=75 3840w"
+            style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent;"
+          />
+        </div>
+      </div>
+      <div
+        class="flex gap-2.5 items-center py-2"
+      >
+        <button
+          class="font-roboto justify-center whitespace-nowrap rounded-lg font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border dark:text-neutral-50 text-neutral-600 hover:text-blue-600 border-none w-fit h-fit flex items-center text-2xs"
+        >
+          <svg
+            class="lucide lucide-thumbs-up mr-[5px]"
+            fill="none"
+            height="12"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="12"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7 10v12"
+            />
+            <path
+              d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"
+            />
+          </svg>
+          5
+        </button>
+        <button
+          class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border border-none w-fit h-fit text-neutral-300 dark:text-gray-100 hover:text-primary dark:hover:text-primary text-3xs"
+        >
+          Reply
+        </button>
+        <button
+          class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border border-none w-fit h-fit text-neutral-300 dark:text-gray-100 hover:text-primary dark:hover:text-primary text-3xs"
+        >
+          Edit
+        </button>
+      </div>
+      <div
+        class="flex flex-col border-t dark:border-blue-800 pt-3 mb-6"
+      >
+        <div
+          class="flex flex-row rounded-md items-center justify-between group p-0"
+        >
+          <div
+            class="flex items-center gap-4"
+            data-testid="header-wrapper"
+          >
+            <a
+              class="w-9 h-9 flex items-center justify-center rounded-full p-0"
+              data-state="closed"
+              data-testid="avatar-trigger"
+            >
+              <span
+                class="relative flex shrink-0 overflow-hidden rounded-full h-9 w-9 bg-current"
+                data-testid="avatar-wrapper"
+              >
+                <span
+                  class="flex h-full w-full items-center justify-center rounded-full bg-muted"
+                >
+                  NS
+                </span>
+              </span>
+            </a>
+            <div
+              class="flex flex-col"
+            >
+              <a
+                href="/user-profile/nellyschwartz/personal-info"
+              >
+                <h3
+                  class="font-roboto font-medium text-xs"
+                >
+                  Nelly Schwartz
+                </h3>
+              </a>
+              <p
+                class="font-roboto font-normal dark:text-slate-400 text-slate-500 text-4xs"
+              >
+                January 2 2024, 7:00 PM
+              </p>
+            </div>
+          </div>
+          <button
+            aria-expanded="false"
+            aria-haspopup="menu"
+            aria-label="SeeMore"
+            class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border rounded-full hover:bg-muted opacity-0 group-hover:opacity-100 transition-opacity duration-200 w-8 h-8"
+            data-state="closed"
+            id="radix-:r4:"
+            type="button"
+          >
+            <svg
+              class="lucide lucide-ellipsis-vertical"
+              fill="none"
+              height="20"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle
+                cx="12"
+                cy="12"
+                r="1"
+              />
+              <circle
+                cx="12"
+                cy="5"
+                r="1"
+              />
+              <circle
+                cx="12"
+                cy="19"
+                r="1"
+              />
+            </svg>
+          </button>
+        </div>
+        <div
+          class="flex flex-col mt-2.5 ml-[52px] mr-12 relative"
+        >
+          <div
+            class="flex flex-col gap-2.5"
+          >
+            <p
+              class="text-sm text-neutral-400 dark:text-neutral-100"
+            >
+              Reply comment
+            </p>
+          </div>
+          <div
+            class="flex gap-2.5 items-center py-2"
+          >
+            <button
+              class="font-roboto justify-center whitespace-nowrap rounded-lg font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border dark:text-neutral-50 text-neutral-600 hover:text-blue-600 border-none w-fit h-fit flex items-center text-2xs"
+            >
+              <svg
+                class="lucide lucide-thumbs-up mr-[5px]"
+                fill="none"
+                height="12"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="12"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7 10v12"
+                />
+                <path
+                  d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"
+                />
+              </svg>
+              0
+            </button>
+            <button
+              class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border border-none w-fit h-fit text-neutral-300 dark:text-gray-100 hover:text-primary dark:hover:text-primary text-3xs"
+            >
+              Reply
+            </button>
+          </div>
+          <div
+            class="absolute top-0 left-[-36px] h-full w-[1.4px] bg-gray-600 dark:bg-dark-200"
+          >
+            <div
+              class="rounded-full flex justify-center items-center bg-white border-[1.4px] border-gray-600 w-[14px] h-[14px] shadow-sphere-light absolute top-[calc((100%_-14px)_/_2)] left-[-7px] dark:border-dark-200 dark:bg-dark-200"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

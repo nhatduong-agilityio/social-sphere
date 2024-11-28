@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ShareActivityDropdown matches snapshot 1`] = `
+<div>
+  <div
+    class="space-y-2"
+  >
+    <div
+      aria-expanded="false"
+      aria-haspopup="menu"
+      class="flex items-center"
+      data-state="closed"
+      data-testid="dropdown-trigger"
+      id="radix-:r1:"
+      type="button"
+    >
+      <button>
+        Trigger Button
+      </button>
+    </div>
+  </div>
+</div>
+`;

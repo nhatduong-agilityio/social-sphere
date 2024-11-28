@@ -1,0 +1,353 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotificationWidget matches snapshot 1`] = `
+<div>
+  <div
+    class="bg-card border border-gray-800 hover:shadow dark:border-dark-300 relative flex flex-col w-full rounded-lg test-class"
+  >
+    <div
+      class="p-4 pb-0 flex flex-row items-center justify-between"
+    >
+      <button
+        aria-label="HeaderLeftButton"
+        class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-transparent border-none rounded-none hover:bg-gray-100 dark:hover:bg-transparent text-neutral-200 dark:text-neutral-100 h-10 w-10"
+      >
+        <svg
+          class="lucide lucide-bell"
+          fill="none"
+          height="24"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"
+          />
+          <path
+            d="M10.3 21a1.94 1.94 0 0 0 3.4 0"
+          />
+        </svg>
+      </button>
+      <button
+        aria-label="HeaderRightButton"
+        class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-transparent border-none rounded-none hover:bg-gray-100 dark:hover:bg-transparent text-neutral-200 dark:text-neutral-100 h-10 w-10"
+      >
+        <svg
+          class="lucide lucide-ellipsis-vertical text-white"
+          fill="none"
+          height="24"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="12"
+            cy="12"
+            r="1"
+          />
+          <circle
+            cx="12"
+            cy="5"
+            r="1"
+          />
+          <circle
+            cx="12"
+            cy="19"
+            r="1"
+          />
+        </svg>
+      </button>
+    </div>
+    <div
+      class="z-10 p-4 flex flex-col justify-center items-center min-h-[290px]"
+    >
+      <div
+        class="relative"
+      >
+        <span
+          class="relative flex shrink-0 overflow-hidden rounded-full h-10 w-10 mb-4"
+          data-testid="avatar"
+        >
+          <span
+            class="flex h-full w-full items-center justify-center rounded-full bg-muted"
+          >
+            CN
+          </span>
+        </span>
+        <div
+          class="absolute w-[26px] flex items-center justify-center text-xs text-center text-white h-[26px] bottom-9 left-7 bg-slate-800 rounded-full notification-style"
+        >
+          5
+        </div>
+      </div>
+      <div
+        class="text-center"
+      >
+        <p
+          class="font-medium text-md text-white"
+        >
+          Test Notification
+        </p>
+        <p
+          class="text-sm text-white"
+        >
+          Test Description
+        </p>
+        <button
+          class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border h-10 px-4 py-2 mt-4 text-white rounded-lg border-white"
+        >
+          Write Message
+        </button>
+      </div>
+    </div>
+    <div
+      class="absolute bottom-0 right-0 w-80 h-80"
+    >
+      <div>
+        Icon Content
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`NotificationWidget matches snapshot with custom classes 1`] = `
+<div>
+  <div
+    class="bg-card border border-gray-800 hover:shadow dark:border-dark-300 relative flex flex-col w-full rounded-lg custom-class"
+  >
+    <div
+      class="p-4 pb-0 flex flex-row items-center justify-between"
+    >
+      <button
+        aria-label="HeaderLeftButton"
+        class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-transparent border-none rounded-none hover:bg-gray-100 dark:hover:bg-transparent text-neutral-200 dark:text-neutral-100 h-10 w-10"
+      >
+        <svg
+          class="lucide lucide-bell"
+          fill="none"
+          height="24"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"
+          />
+          <path
+            d="M10.3 21a1.94 1.94 0 0 0 3.4 0"
+          />
+        </svg>
+      </button>
+      <button
+        aria-label="HeaderRightButton"
+        class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-transparent border-none rounded-none hover:bg-gray-100 dark:hover:bg-transparent text-neutral-200 dark:text-neutral-100 h-10 w-10"
+      >
+        <svg
+          class="lucide lucide-ellipsis-vertical text-white"
+          fill="none"
+          height="24"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="12"
+            cy="12"
+            r="1"
+          />
+          <circle
+            cx="12"
+            cy="5"
+            r="1"
+          />
+          <circle
+            cx="12"
+            cy="19"
+            r="1"
+          />
+        </svg>
+      </button>
+    </div>
+    <div
+      class="z-10 p-4 flex flex-col justify-center items-center min-h-[290px]"
+    >
+      <div
+        class="relative"
+      >
+        <span
+          class="relative flex shrink-0 overflow-hidden rounded-full h-10 w-10 mb-4"
+          data-testid="avatar"
+        >
+          <span
+            class="flex h-full w-full items-center justify-center rounded-full bg-muted"
+          >
+            CN
+          </span>
+        </span>
+        <div
+          class="absolute w-[26px] flex items-center justify-center text-xs text-center text-white h-[26px] bottom-9 left-7 bg-slate-800 rounded-full custom-notification"
+        >
+          5
+        </div>
+      </div>
+      <div
+        class="text-center"
+      >
+        <p
+          class="font-medium text-md text-white"
+        >
+          Test Notification
+        </p>
+        <p
+          class="text-sm text-white"
+        >
+          Test Description
+        </p>
+        <button
+          class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border h-10 px-4 py-2 mt-4 text-white rounded-lg border-white"
+        >
+          Write Message
+        </button>
+      </div>
+    </div>
+    <div
+      class="absolute bottom-0 right-0 w-80 h-80"
+    >
+      <div>
+        Icon Content
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`NotificationWidget matches snapshot without notification count 1`] = `
+<div>
+  <div
+    class="bg-card border border-gray-800 hover:shadow dark:border-dark-300 relative flex flex-col w-full rounded-lg test-class"
+  >
+    <div
+      class="p-4 pb-0 flex flex-row items-center justify-between"
+    >
+      <button
+        aria-label="HeaderLeftButton"
+        class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-transparent border-none rounded-none hover:bg-gray-100 dark:hover:bg-transparent text-neutral-200 dark:text-neutral-100 h-10 w-10"
+      >
+        <svg
+          class="lucide lucide-bell"
+          fill="none"
+          height="24"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"
+          />
+          <path
+            d="M10.3 21a1.94 1.94 0 0 0 3.4 0"
+          />
+        </svg>
+      </button>
+      <button
+        aria-label="HeaderRightButton"
+        class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-transparent border-none rounded-none hover:bg-gray-100 dark:hover:bg-transparent text-neutral-200 dark:text-neutral-100 h-10 w-10"
+      >
+        <svg
+          class="lucide lucide-ellipsis-vertical text-white"
+          fill="none"
+          height="24"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="12"
+            cy="12"
+            r="1"
+          />
+          <circle
+            cx="12"
+            cy="5"
+            r="1"
+          />
+          <circle
+            cx="12"
+            cy="19"
+            r="1"
+          />
+        </svg>
+      </button>
+    </div>
+    <div
+      class="z-10 p-4 flex flex-col justify-center items-center min-h-[290px]"
+    >
+      <div
+        class="relative"
+      >
+        <span
+          class="relative flex shrink-0 overflow-hidden rounded-full h-10 w-10 mb-4"
+          data-testid="avatar"
+        >
+          <span
+            class="flex h-full w-full items-center justify-center rounded-full bg-muted"
+          >
+            CN
+          </span>
+        </span>
+      </div>
+      <div
+        class="text-center"
+      >
+        <p
+          class="font-medium text-md text-white"
+        >
+          Test Notification
+        </p>
+        <p
+          class="text-sm text-white"
+        >
+          Test Description
+        </p>
+        <button
+          class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border h-10 px-4 py-2 mt-4 text-white rounded-lg border-white"
+        >
+          Write Message
+        </button>
+      </div>
+    </div>
+    <div
+      class="absolute bottom-0 right-0 w-80 h-80"
+    >
+      <div>
+        Icon Content
+      </div>
+    </div>
+  </div>
+</div>
+`;

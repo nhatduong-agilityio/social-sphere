@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewsFeedCardList handles empty news feed list 1`] = `
+<div
+  class="flex flex-col gap-6"
+/>
+`;
+
+exports[`NewsFeedCardList matches snapshot 1`] = `
+<div>
+  <div
+    class="flex flex-col gap-6"
+  >
+    <div
+      class="min-h-56"
+    >
+      <div
+        data-testid="news-feed-card"
+      >
+        News Feed 
+        1
+         by Author 
+        1
+      </div>
+    </div>
+    <div
+      class="min-h-56"
+    >
+      <div
+        data-testid="news-feed-card"
+      >
+        News Feed 
+        2
+         by Author 
+        1
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,251 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ComposeSelectAccess renders access items with checkboxes 1`] = `
+<div>
+  <div
+    class="max-h-[350px] flex flex-col overflow-auto p-2 border-t border-gray-600 dark:border-dark-500 bg-black-haze-50 dark:bg-card"
+  >
+    <div
+      class="space-y-0"
+    >
+      <div
+        class="flex justify-between items-center rounded-[4px] py-[6px] px-2 hover:bg-gray-500 hover:dark:bg-dark-300 space-y-0"
+      >
+        <div
+          class="flex items-center space-x-2.5 space-y-0"
+        >
+          <button
+            aria-checked="false"
+            aria-describedby=":r1:-form-item-description"
+            aria-invalid="false"
+            class="peer shrink-0 border border-gray-900 bg-white dark:bg-popover dark:border-dark-500 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:dark:bg-primary data-[state=checked]:text-primary-foreground rounded-full w-[22px] h-[22px]"
+            data-state="unchecked"
+            id=":r1:-form-item"
+            role="checkbox"
+            type="button"
+            value="on"
+          />
+          <div
+            class="rounded-full flex justify-center items-center bg-white dark:bg-popover border border-gray-600 dark:border-dark-500 text-neutral-200 h-10 w-10"
+          >
+            <svg
+              class="lucide lucide-bell"
+              fill="none"
+              height="18"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="18"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"
+              />
+              <path
+                d="M10.3 21a1.94 1.94 0 0 0 3.4 0"
+              />
+            </svg>
+          </div>
+          <label
+            class="font-medium font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-neutral-700 dark:text-neutral-100 text-xs"
+            for=":r1:-form-item"
+          >
+            Activity Feed
+          </label>
+        </div>
+        <div
+          class="space-y-2"
+        >
+          <button
+            aria-expanded="false"
+            aria-haspopup="menu"
+            class="font-roboto whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white hover:border-gray-900 border-gray-800 dark:border-dark-500 h-9 w-[110px] rounded-full p-[6px] flex justify-center items-center gap-1 text-neutral-800 dark:text-neutral-100 dark:bg-transparent hover:dark:bg-card"
+            data-state="closed"
+            id="radix-:r3:"
+            type="button"
+          >
+            <svg
+              class="lucide lucide-smile transition-transform duration-300"
+              fill="none"
+              height="16"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle
+                cx="12"
+                cy="12"
+                r="10"
+              />
+              <path
+                d="M8 14s1.5 2 4 2 4-2 4-2"
+              />
+              <line
+                x1="9"
+                x2="9.01"
+                y1="9"
+                y2="9"
+              />
+              <line
+                x1="15"
+                x2="15.01"
+                y1="9"
+                y2="9"
+              />
+            </svg>
+            <label
+              class="peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-neutral-800 dark:text-neutral-100 text-2xs user-select-none truncate max-w-[50%] font-sans"
+            >
+              Public
+            </label>
+            <svg
+              class="lucide lucide-chevron-down"
+              fill="none"
+              height="16"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m6 9 6 6 6-6"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div
+        class="flex justify-between items-center rounded-[4px] py-[6px] px-2 hover:bg-gray-500 hover:dark:bg-dark-300 space-y-0"
+      >
+        <div
+          class="flex items-center space-x-2.5 space-y-0"
+        >
+          <button
+            aria-checked="false"
+            aria-describedby=":r5:-form-item-description"
+            aria-invalid="false"
+            class="peer shrink-0 border border-gray-900 bg-white dark:bg-popover dark:border-dark-500 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:dark:bg-primary data-[state=checked]:text-primary-foreground rounded-full w-[22px] h-[22px]"
+            data-state="unchecked"
+            id=":r5:-form-item"
+            role="checkbox"
+            type="button"
+            value="on"
+          />
+          <div
+            class="w-fit rounded-full relative"
+          >
+            <div
+              class="rounded-full flex justify-center items-center bg-white dark:bg-popover border border-gray-600 dark:border-dark-500 text-neutral-200 h-10 w-10"
+            />
+            <div
+              class="rounded-full flex justify-center items-center bg-blue-600 border-2 border-gray-600 dark:border-popover absolute bottom-[-1px] right-[-8px] w-[22px] h-[22px]"
+            >
+              <svg
+                class="lucide lucide-plus text-white"
+                fill="none"
+                height="10"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="3"
+                viewBox="0 0 24 24"
+                width="10"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M5 12h14"
+                />
+                <path
+                  d="M12 5v14"
+                />
+              </svg>
+            </div>
+          </div>
+          <label
+            class="font-medium font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-neutral-700 dark:text-neutral-100 text-xs"
+            for=":r5:-form-item"
+          >
+            My Story
+          </label>
+        </div>
+        <div
+          class="space-y-2"
+        >
+          <button
+            aria-expanded="false"
+            aria-haspopup="menu"
+            class="font-roboto whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white hover:border-gray-900 border-gray-800 dark:border-dark-500 h-9 w-[110px] rounded-full p-[6px] flex justify-center items-center gap-1 text-neutral-800 dark:text-neutral-100 dark:bg-transparent hover:dark:bg-card"
+            data-state="closed"
+            id="radix-:r7:"
+            type="button"
+          >
+            <svg
+              class="lucide lucide-smile transition-transform duration-300"
+              fill="none"
+              height="16"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle
+                cx="12"
+                cy="12"
+                r="10"
+              />
+              <path
+                d="M8 14s1.5 2 4 2 4-2 4-2"
+              />
+              <line
+                x1="9"
+                x2="9.01"
+                y1="9"
+                y2="9"
+              />
+              <line
+                x1="15"
+                x2="15.01"
+                y1="9"
+                y2="9"
+              />
+            </svg>
+            <label
+              class="peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-neutral-800 dark:text-neutral-100 text-2xs user-select-none truncate max-w-[50%] font-sans"
+            >
+              Public
+            </label>
+            <svg
+              class="lucide lucide-chevron-down"
+              fill="none"
+              height="16"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m6 9 6 6 6-6"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

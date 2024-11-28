@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ComposeMediaPreview renders media image correctly 1`] = `
+<div>
+  <div
+    class="w-[140px] h-[169px] relative mb-3"
+  >
+    <img
+      alt="Media of feed"
+      class="rounded-md"
+      data-nimg="fill"
+      decoding="async"
+      loading="lazy"
+      sizes="140px"
+      src="/_next/image?url=https%3A%2F%2Fexample.com%2Ftest.jpg&w=3840&q=75"
+      srcset="/_next/image?url=https%3A%2F%2Fexample.com%2Ftest.jpg&w=16&q=75 16w, /_next/image?url=https%3A%2F%2Fexample.com%2Ftest.jpg&w=32&q=75 32w, /_next/image?url=https%3A%2F%2Fexample.com%2Ftest.jpg&w=48&q=75 48w, /_next/image?url=https%3A%2F%2Fexample.com%2Ftest.jpg&w=64&q=75 64w, /_next/image?url=https%3A%2F%2Fexample.com%2Ftest.jpg&w=96&q=75 96w, /_next/image?url=https%3A%2F%2Fexample.com%2Ftest.jpg&w=128&q=75 128w, /_next/image?url=https%3A%2F%2Fexample.com%2Ftest.jpg&w=256&q=75 256w, /_next/image?url=https%3A%2F%2Fexample.com%2Ftest.jpg&w=384&q=75 384w, /_next/image?url=https%3A%2F%2Fexample.com%2Ftest.jpg&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fexample.com%2Ftest.jpg&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fexample.com%2Ftest.jpg&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fexample.com%2Ftest.jpg&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fexample.com%2Ftest.jpg&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fexample.com%2Ftest.jpg&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fexample.com%2Ftest.jpg&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fexample.com%2Ftest.jpg&w=3840&q=75 3840w"
+      style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent;"
+    />
+  </div>
+</div>
+`;

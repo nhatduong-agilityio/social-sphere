@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ActivityFeed renders successfully with all data 1`] = `
+<div>
+  <div
+    data-testid="mocked-content"
+  >
+    Mocked Content
+  </div>
+</div>
+`;

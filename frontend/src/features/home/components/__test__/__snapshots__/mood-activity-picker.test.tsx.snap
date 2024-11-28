@@ -1,0 +1,343 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MoodActivityPicker handle click mood item 1`] = `
+<div>
+  <div
+    class="relative"
+  >
+    <div
+      class="relative w-full flex items-center"
+    >
+      <div
+        class="absolute top-1/2 -translate-y-1/2 transition-all duration-300 ease-in-out text-ring left-0"
+      >
+        <button
+          class="font-roboto inline-flex items-center justify-center whitespace-nowrap font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border-none rounded-none text-white dark:text-white text-2xs border p-0 px-2.5 bg-neutral-400 h-9 rounded-s-[4px] hover:bg-neutral-400/80 hover:dark:bg-neutral-400"
+          type="button"
+        >
+          Drinks
+        </button>
+      </div>
+      <input
+        autocomplete="true"
+        class="flex h-9 w-full border border-input hover:border-gray-900 bg-white dark:bg-dark-500 px-10 py-2 text-sm file:border-0 file:bg-transparent file:text-xs file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-300 ease-in-out rounded-[4px] dark:border-dark-300 pl-[74px]"
+        placeholder="What are you doing right now?"
+        value=""
+      />
+      <div
+        class="absolute top-1/2 -translate-y-1/2 transition-all duration-300 ease-in-out text-gray-900 dark:text-white hover:dark:text-neutral-700 hover:text-neutral-700 right-3"
+        data-testid="close-icon"
+      >
+        <svg
+          class="lucide lucide-x"
+          fill="none"
+          height="16"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M18 6 6 18"
+          />
+          <path
+            d="m6 6 12 12"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="absolute z-50 top-9 left-0 w-full max-h-[320px] overflow-auto rounded-[4px] border border-input bg-white dark:bg-dark-500 transition-all duration-300 ease-in-out"
+    >
+      <ul
+        class="shadow-sphere-light"
+      >
+        <li
+          class="cursor-pointer flex items-center px-3 py-1 gap-2.5 hover:bg-gray-600 hover:dark:bg-dark-500"
+          data-testid="mood-item"
+        >
+          <div
+            class="w-9 h-9 rounded-full relative"
+          >
+            <img
+              alt="Mood item image"
+              data-nimg="fill"
+              decoding="async"
+              loading="lazy"
+              src="/images/water.svg"
+              style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 100%;"
+            />
+          </div>
+          <p
+            class="text-foreground text-sm leading-[18.2px] dark:text-gray-100"
+          >
+            water
+          </p>
+        </li>
+        <li
+          class="cursor-pointer flex items-center px-3 py-1 gap-2.5 hover:bg-gray-600 hover:dark:bg-dark-500"
+          data-testid="mood-item"
+        >
+          <div
+            class="w-9 h-9 rounded-full relative"
+          >
+            <img
+              alt="Mood item image"
+              data-nimg="fill"
+              decoding="async"
+              loading="lazy"
+              src="/images/coffee.svg"
+              style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 100%;"
+            />
+          </div>
+          <p
+            class="text-foreground text-sm leading-[18.2px] dark:text-gray-100"
+          >
+            a coffee
+          </p>
+        </li>
+        <li
+          class="cursor-pointer flex items-center px-3 py-1 gap-2.5 hover:bg-gray-600 hover:dark:bg-dark-500"
+          data-testid="mood-item"
+        >
+          <div
+            class="w-9 h-9 rounded-full relative"
+          >
+            <img
+              alt="Mood item image"
+              data-nimg="fill"
+              decoding="async"
+              loading="lazy"
+              src="/images/soda.svg"
+              style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 100%;"
+            />
+          </div>
+          <p
+            class="text-foreground text-sm leading-[18.2px] dark:text-gray-100"
+          >
+            a soda
+          </p>
+        </li>
+        <li
+          class="cursor-pointer flex items-center px-3 py-1 gap-2.5 hover:bg-gray-600 hover:dark:bg-dark-500"
+          data-testid="mood-item"
+        >
+          <div
+            class="w-9 h-9 rounded-full relative"
+          >
+            <img
+              alt="Mood item image"
+              data-nimg="fill"
+              decoding="async"
+              loading="lazy"
+              src="/images/energy-drink.svg"
+              style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 100%;"
+            />
+          </div>
+          <p
+            class="text-foreground text-sm leading-[18.2px] dark:text-gray-100"
+          >
+            an energy drink
+          </p>
+        </li>
+        <li
+          class="cursor-pointer flex items-center px-3 py-1 gap-2.5 hover:bg-gray-600 hover:dark:bg-dark-500"
+          data-testid="mood-item"
+        >
+          <div
+            class="w-9 h-9 rounded-full relative"
+          >
+            <img
+              alt="Mood item image"
+              data-nimg="fill"
+              decoding="async"
+              loading="lazy"
+              src="/images/smoothie.svg"
+              style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 100%;"
+            />
+          </div>
+          <p
+            class="text-foreground text-sm leading-[18.2px] dark:text-gray-100"
+          >
+            a smoothie
+          </p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`MoodActivityPicker matches snapshot 1`] = `
+<div>
+  <div
+    class="relative"
+  >
+    <div
+      class="relative w-full flex items-center"
+    >
+      <div
+        class="absolute top-1/2 -translate-y-1/2 transition-all duration-300 ease-in-out text-ring left-0"
+      >
+        <button
+          class="font-roboto inline-flex items-center justify-center whitespace-nowrap font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border-none rounded-none text-white dark:text-white text-2xs border p-0 px-2.5 bg-neutral-400 h-9 rounded-s-[4px] hover:bg-neutral-400/80 hover:dark:bg-neutral-400"
+          type="button"
+        >
+          Drinks
+        </button>
+      </div>
+      <input
+        autocomplete="true"
+        class="flex h-9 w-full border border-input hover:border-gray-900 bg-white dark:bg-dark-500 px-10 py-2 text-sm file:border-0 file:bg-transparent file:text-xs file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-300 ease-in-out rounded-[4px] dark:border-dark-300 pl-[74px]"
+        placeholder="What are you doing right now?"
+        value=""
+      />
+      <div
+        class="absolute top-1/2 -translate-y-1/2 transition-all duration-300 ease-in-out text-gray-900 dark:text-white hover:dark:text-neutral-700 hover:text-neutral-700 right-3"
+        data-testid="close-icon"
+      >
+        <svg
+          class="lucide lucide-x"
+          fill="none"
+          height="16"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M18 6 6 18"
+          />
+          <path
+            d="m6 6 12 12"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="absolute z-50 top-9 left-0 w-full max-h-[320px] overflow-auto rounded-[4px] border border-input bg-white dark:bg-dark-500 transition-all duration-300 ease-in-out"
+    >
+      <ul
+        class="shadow-sphere-light"
+      >
+        <li
+          class="cursor-pointer flex items-center px-3 py-1 gap-2.5 hover:bg-gray-600 hover:dark:bg-dark-500"
+          data-testid="mood-item"
+        >
+          <div
+            class="w-9 h-9 rounded-full relative"
+          >
+            <img
+              alt="Mood item image"
+              data-nimg="fill"
+              decoding="async"
+              loading="lazy"
+              src="/images/water.svg"
+              style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 100%;"
+            />
+          </div>
+          <p
+            class="text-foreground text-sm leading-[18.2px] dark:text-gray-100"
+          >
+            water
+          </p>
+        </li>
+        <li
+          class="cursor-pointer flex items-center px-3 py-1 gap-2.5 hover:bg-gray-600 hover:dark:bg-dark-500"
+          data-testid="mood-item"
+        >
+          <div
+            class="w-9 h-9 rounded-full relative"
+          >
+            <img
+              alt="Mood item image"
+              data-nimg="fill"
+              decoding="async"
+              loading="lazy"
+              src="/images/coffee.svg"
+              style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 100%;"
+            />
+          </div>
+          <p
+            class="text-foreground text-sm leading-[18.2px] dark:text-gray-100"
+          >
+            a coffee
+          </p>
+        </li>
+        <li
+          class="cursor-pointer flex items-center px-3 py-1 gap-2.5 hover:bg-gray-600 hover:dark:bg-dark-500"
+          data-testid="mood-item"
+        >
+          <div
+            class="w-9 h-9 rounded-full relative"
+          >
+            <img
+              alt="Mood item image"
+              data-nimg="fill"
+              decoding="async"
+              loading="lazy"
+              src="/images/soda.svg"
+              style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 100%;"
+            />
+          </div>
+          <p
+            class="text-foreground text-sm leading-[18.2px] dark:text-gray-100"
+          >
+            a soda
+          </p>
+        </li>
+        <li
+          class="cursor-pointer flex items-center px-3 py-1 gap-2.5 hover:bg-gray-600 hover:dark:bg-dark-500"
+          data-testid="mood-item"
+        >
+          <div
+            class="w-9 h-9 rounded-full relative"
+          >
+            <img
+              alt="Mood item image"
+              data-nimg="fill"
+              decoding="async"
+              loading="lazy"
+              src="/images/energy-drink.svg"
+              style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 100%;"
+            />
+          </div>
+          <p
+            class="text-foreground text-sm leading-[18.2px] dark:text-gray-100"
+          >
+            an energy drink
+          </p>
+        </li>
+        <li
+          class="cursor-pointer flex items-center px-3 py-1 gap-2.5 hover:bg-gray-600 hover:dark:bg-dark-500"
+          data-testid="mood-item"
+        >
+          <div
+            class="w-9 h-9 rounded-full relative"
+          >
+            <img
+              alt="Mood item image"
+              data-nimg="fill"
+              decoding="async"
+              loading="lazy"
+              src="/images/smoothie.svg"
+              style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent; border-radius: 100%;"
+            />
+          </div>
+          <p
+            class="text-foreground text-sm leading-[18.2px] dark:text-gray-100"
+          >
+            a smoothie
+          </p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;

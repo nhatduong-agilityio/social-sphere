@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ShareLocationPicker matches snapshot 1`] = `
+<div>
+  <div
+    class="relative"
+  >
+    <div
+      class="space-y-2 w-full"
+    >
+      <div
+        class="relative w-full flex items-center"
+      >
+        <div
+          class="absolute top-1/2 -translate-y-1/2 transition-all duration-300 ease-in-out text-gray-900 dark:text-primary left-0"
+        >
+          <button
+            class="font-roboto inline-flex items-center justify-center whitespace-nowrap font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border-none rounded-none text-white dark:text-white text-2xs border p-0 px-2.5 bg-neutral-200 dark:bg-dark-100 h-9 hover:bg-neutral-400/80 hover:dark:bg-neutral-400"
+            type="button"
+          >
+            Location :
+          </button>
+        </div>
+        <input
+          aria-describedby=":r0:-form-item-description"
+          aria-invalid="false"
+          autocomplete="true"
+          class="flex h-9 w-full rounded-lg border border-input hover:border-gray-900 bg-white dark:bg-dark-500 px-10 py-2 text-sm file:border-0 file:bg-transparent file:text-xs file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-300 ease-in-out dark:border-dark-300 pl-[85px] rounded-e-none"
+          id="location-input"
+          name="location"
+          placeholder="Where are you?"
+          value=""
+        />
+        <div
+          class="absolute top-1/2 -translate-y-1/2 transition-all duration-300 ease-in-out text-gray-900 dark:text-white hover:dark:text-neutral-700 hover:text-neutral-700 right-3"
+          data-testid="close-icon"
+        >
+          <svg
+            class="lucide lucide-x"
+            fill="none"
+            height="16"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M18 6 6 18"
+            />
+            <path
+              d="m6 6 12 12"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

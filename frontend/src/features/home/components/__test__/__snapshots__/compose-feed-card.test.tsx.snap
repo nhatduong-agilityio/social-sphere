@@ -1,0 +1,982 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ComposeFeedCard renders correctly when overlay is closed 1`] = `
+<div>
+  <div
+    class="fixed inset-0 bg-black opacity-50 dark:opacity-70 z-50 hidden"
+    data-testid="overlay"
+  />
+  <div
+    class="border dark:border-dark-500 rounded-xl bg-card"
+  >
+    <div
+      class="flex flex-col gap-4"
+      data-orientation="horizontal"
+      dir="ltr"
+    >
+      <div
+        aria-orientation="horizontal"
+        class="items-center justify-between text-muted-foreground w-full flex flex-row md:flex-row border-0 p-0 bg-gray-50 dark:bg-dark-500 rounded-t-xl gap-0"
+        data-orientation="horizontal"
+        role="tablist"
+        style="outline: none;"
+        tabindex="0"
+      >
+        <button
+          aria-controls="radix-:r0:-content-publish"
+          aria-selected="true"
+          class="flex items-center md:w-64 h-10 whitespace-nowrap rounded-md text-sm font-medium font-roboto w-full px-4 py-2.5 justify-center border-b dark:text-slate-400 text-slate-500 dark:border-none hover:bg-gray-300 hover:border-gray-800 hover:dark:bg-dark-500 rounded-b-none data-[state=active]:border-b-card data-[state=active]:shadow-none data-[state=active]:bg-white data-[state=active]:dark:bg-dark-800 data-[state=active]:dark:text-neutral-200 data-[state=active]:text-neutral-500 rounded-tl-xl rounded-tr-[4px] data-[state=active]:rounded-es-[4px] data-[state=active]:border-r"
+          data-orientation="horizontal"
+          data-radix-collection-item=""
+          data-state="active"
+          id="radix-:r0:-trigger-publish"
+          role="tab"
+          tabindex="-1"
+          type="button"
+        >
+          <svg
+            class="lucide lucide-pen-line mr-2"
+            fill="none"
+            height="16"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 20h9"
+            />
+            <path
+              d="M16.376 3.622a1 1 0 0 1 3.002 3.002L7.368 18.635a2 2 0 0 1-.855.506l-2.872.838a.5.5 0 0 1-.62-.62l.838-2.872a2 2 0 0 1 .506-.854z"
+            />
+          </svg>
+          Publish
+        </button>
+        <button
+          aria-controls="radix-:r0:-content-albums"
+          aria-selected="false"
+          class="flex items-center md:w-64 h-10 whitespace-nowrap text-sm font-medium font-roboto w-full px-4 py-2.5 justify-center border-b dark:text-slate-400 text-slate-500 dark:border-none hover:bg-gray-300 hover:border-gray-800 hover:dark:bg-dark-500 data-[state=active]:border-b-card data-[state=active]:shadow-none data-[state=active]:bg-white data-[state=active]:dark:bg-dark-800 data-[state=active]:dark:text-neutral-200 data-[state=active]:text-neutral-500 rounded-none data-[state=active]:border-x data-[state=active]:rounded-t-[4px]"
+          data-orientation="horizontal"
+          data-radix-collection-item=""
+          data-state="inactive"
+          id="radix-:r0:-trigger-albums"
+          role="tab"
+          tabindex="-1"
+          type="button"
+        >
+          <svg
+            class="lucide lucide-image mr-2"
+            fill="none"
+            height="16"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              height="18"
+              rx="2"
+              ry="2"
+              width="18"
+              x="3"
+              y="3"
+            />
+            <circle
+              cx="9"
+              cy="9"
+              r="2"
+            />
+            <path
+              d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"
+            />
+          </svg>
+          Albums
+        </button>
+        <button
+          aria-controls="radix-:r0:-content-video"
+          aria-selected="false"
+          class="flex items-center md:w-64 h-10 whitespace-nowrap rounded-md text-sm font-medium font-roboto w-full px-4 py-2.5 justify-center border-b dark:text-slate-400 text-slate-500 dark:border-none hover:bg-gray-300 hover:border-gray-800 hover:dark:bg-dark-500 rounded-b-none data-[state=active]:border-b-card data-[state=active]:shadow-none data-[state=active]:bg-white data-[state=active]:dark:bg-dark-800 data-[state=active]:dark:text-neutral-200 data-[state=active]:text-neutral-500 rounded-t-[4px] data-[state=active]:border-x"
+          data-orientation="horizontal"
+          data-radix-collection-item=""
+          data-state="inactive"
+          id="radix-:r0:-trigger-video"
+          role="tab"
+          tabindex="-1"
+          type="button"
+        >
+          <svg
+            class="lucide lucide-video mr-2"
+            fill="none"
+            height="16"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"
+            />
+            <rect
+              height="12"
+              rx="2"
+              width="14"
+              x="2"
+              y="6"
+            />
+          </svg>
+          Video
+        </button>
+        <div
+          aria-controls="radix-:r0:-content-"
+          aria-selected="false"
+          class="flex items-center w-fit md:w-64 h-10 justify-start whitespace-nowrap rounded-md px-3 py-1.5 text-sm font-medium font-roboto data-[state=active]:shadow-lg data-[state=active]:bg-blue-400 data-[state=active]:text-white w-full px-4 py-2.5 justify-end border-b dark:border-none rounded-b-none data-[state=active]:border-b-card data-[state=active]:shadow-none data-[state=active]:bg-white data-[state=active]:dark:bg-dark-800 data-[state=active]:text-neutral-400"
+          data-disabled=""
+          data-orientation="horizontal"
+          data-radix-collection-item=""
+          data-state="inactive"
+          disabled=""
+          id="radix-:r0:-trigger-"
+          role="tab"
+          tabindex="-1"
+          type="button"
+        />
+      </div>
+      <div
+        aria-labelledby="radix-:r0:-trigger-publish"
+        class="mt-2 w-full"
+        data-orientation="horizontal"
+        data-state="active"
+        id="radix-:r0:-content-publish"
+        role="tabpanel"
+        style="animation-duration: 0s;"
+        tabindex="0"
+      >
+        <form
+          data-testid="compose-form"
+        >
+          <div
+            class="border-b border-gray-600 dark:border-dark-500 p-4"
+          >
+            <div
+              class="flex flex-row"
+            >
+              <span
+                class="relative flex shrink-0 overflow-hidden rounded-full w-[42px] h-[42px]"
+                data-testid="avatar"
+              >
+                <span
+                  class="flex h-full w-full items-center justify-center rounded-full bg-muted"
+                >
+                  CN
+                </span>
+              </span>
+              <div
+                class="space-y-2 ml-5 w-full"
+              >
+                <textarea
+                  aria-describedby=":r5:-form-item-description"
+                  aria-invalid="false"
+                  class="flex w-full rounded-md border border-input bg-card text-sm ring-offset-background placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 border-none focus:outline-none min-h-[66px] p-0"
+                  id=":r5:-form-item"
+                  name="content"
+                  placeholder="Write something about you..."
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex gap-2.5 justify-start items-center p-2"
+          >
+            <div
+              class="flex items-center bg-gray-200 dark:bg-dark-300 dark:text-slate-400 text-slate-600 hover:text-neutral-700 hover:dark:text-white px-4 py-[6px] rounded-full cursor-pointer"
+            >
+              <svg
+                class="lucide lucide-camera"
+                fill="none"
+                height="20"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"
+                />
+                <circle
+                  cx="12"
+                  cy="13"
+                  r="3"
+                />
+              </svg>
+              <p
+                class="text-xs px-2 dark:text-slate-400 text-slate-600"
+              >
+                Media
+              </p>
+              <div
+                class="space-y-2"
+              >
+                <div
+                  class="relative w-full flex items-center"
+                  data-testid="input-container"
+                >
+                  <input
+                    aria-describedby=":r6:-form-item-description"
+                    aria-invalid="false"
+                    aria-label="Upload Media Publish"
+                    autocomplete="off"
+                    class="h-10 w-full rounded-lg border border-input bg-white dark:bg-dark-500 px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-xs file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 hidden"
+                    data-testid="input-element"
+                    id="media-publish-upload"
+                    type="file"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="flex items-center bg-gray-200 dark:bg-dark-300 dark:text-slate-400 text-slate-600 hover:text-neutral-700 hover:dark:text-white px-4 py-[6px] rounded-full cursor-pointer"
+            >
+              <svg
+                class="w-5 h-5"
+                height="24px"
+                viewBox="0 0 24 24"
+                width="24px"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M24 12c0-6.629-5.371-12-12-12S0 5.371 0 12s5.371 12 12 12 12-5.371 12-12zm0 0"
+                  fill="#ffc10e"
+                />
+                <path
+                  d="M19.879 12.008a7.879 7.879 0 11-15.758 0zm0 0"
+                  fill="#fff"
+                />
+                <path
+                  d="M10.238 7.86a1.885 1.885 0 10-3.769.003 1.885 1.885 0 003.77-.004zm0 0M17.363 7.86a1.884 1.884 0 10-3.767.001 1.884 1.884 0 003.767-.002zm0 0"
+                  fill="#333"
+                />
+              </svg>
+              <p
+                class="text-xs px-2 dark:text-slate-400 text-slate-600"
+              >
+                Activity
+              </p>
+            </div>
+            <div
+              class="flex items-center bg-gray-200 dark:bg-dark-300 dark:text-slate-400 text-slate-600 hover:text-neutral-700 hover:dark:text-white px-4 py-[6px] rounded-full cursor-pointer"
+            >
+              <svg
+                class="lucide lucide-ellipsis"
+                fill="none"
+                height="20"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="1"
+                />
+                <circle
+                  cx="19"
+                  cy="12"
+                  r="1"
+                />
+                <circle
+                  cx="5"
+                  cy="12"
+                  r="1"
+                />
+              </svg>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ComposeFeedCard renders correctly when overlay is open 1`] = `
+<div>
+  <div
+    class="fixed inset-0 bg-black opacity-50 dark:opacity-70 z-50 block"
+    data-testid="overlay"
+  />
+  <div
+    class="border dark:border-dark-500 rounded-xl bg-card relative z-50"
+  >
+    <div
+      class="flex flex-col gap-4"
+      data-orientation="horizontal"
+      dir="ltr"
+    >
+      <div
+        aria-orientation="horizontal"
+        class="items-center justify-between text-muted-foreground w-full flex flex-row md:flex-row border-0 p-0 bg-gray-50 dark:bg-dark-500 rounded-t-xl gap-0"
+        data-orientation="horizontal"
+        role="tablist"
+        style="outline: none;"
+        tabindex="0"
+      >
+        <button
+          aria-controls="radix-:r7:-content-publish"
+          aria-selected="true"
+          class="flex items-center md:w-64 h-10 whitespace-nowrap rounded-md text-sm font-medium font-roboto w-full px-4 py-2.5 justify-center border-b dark:text-slate-400 text-slate-500 dark:border-none hover:bg-gray-300 hover:border-gray-800 hover:dark:bg-dark-500 rounded-b-none data-[state=active]:border-b-card data-[state=active]:shadow-none data-[state=active]:bg-white data-[state=active]:dark:bg-dark-800 data-[state=active]:dark:text-neutral-200 data-[state=active]:text-neutral-500 rounded-tl-xl rounded-tr-[4px] data-[state=active]:rounded-es-[4px] data-[state=active]:border-r"
+          data-orientation="horizontal"
+          data-radix-collection-item=""
+          data-state="active"
+          id="radix-:r7:-trigger-publish"
+          role="tab"
+          tabindex="-1"
+          type="button"
+        >
+          <svg
+            class="lucide lucide-pen-line mr-2"
+            fill="none"
+            height="16"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 20h9"
+            />
+            <path
+              d="M16.376 3.622a1 1 0 0 1 3.002 3.002L7.368 18.635a2 2 0 0 1-.855.506l-2.872.838a.5.5 0 0 1-.62-.62l.838-2.872a2 2 0 0 1 .506-.854z"
+            />
+          </svg>
+          Publish
+        </button>
+        <button
+          aria-controls="radix-:r7:-content-albums"
+          aria-selected="false"
+          class="flex items-center md:w-64 h-10 whitespace-nowrap text-sm font-medium font-roboto w-full px-4 py-2.5 justify-center border-b dark:text-slate-400 text-slate-500 dark:border-none hover:bg-gray-300 hover:border-gray-800 hover:dark:bg-dark-500 data-[state=active]:border-b-card data-[state=active]:shadow-none data-[state=active]:bg-white data-[state=active]:dark:bg-dark-800 data-[state=active]:dark:text-neutral-200 data-[state=active]:text-neutral-500 rounded-none data-[state=active]:border-x data-[state=active]:rounded-t-[4px]"
+          data-orientation="horizontal"
+          data-radix-collection-item=""
+          data-state="inactive"
+          id="radix-:r7:-trigger-albums"
+          role="tab"
+          tabindex="-1"
+          type="button"
+        >
+          <svg
+            class="lucide lucide-image mr-2"
+            fill="none"
+            height="16"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              height="18"
+              rx="2"
+              ry="2"
+              width="18"
+              x="3"
+              y="3"
+            />
+            <circle
+              cx="9"
+              cy="9"
+              r="2"
+            />
+            <path
+              d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"
+            />
+          </svg>
+          Albums
+        </button>
+        <button
+          aria-controls="radix-:r7:-content-video"
+          aria-selected="false"
+          class="flex items-center md:w-64 h-10 whitespace-nowrap rounded-md text-sm font-medium font-roboto w-full px-4 py-2.5 justify-center border-b dark:text-slate-400 text-slate-500 dark:border-none hover:bg-gray-300 hover:border-gray-800 hover:dark:bg-dark-500 rounded-b-none data-[state=active]:border-b-card data-[state=active]:shadow-none data-[state=active]:bg-white data-[state=active]:dark:bg-dark-800 data-[state=active]:dark:text-neutral-200 data-[state=active]:text-neutral-500 rounded-t-[4px] data-[state=active]:border-x"
+          data-orientation="horizontal"
+          data-radix-collection-item=""
+          data-state="inactive"
+          id="radix-:r7:-trigger-video"
+          role="tab"
+          tabindex="-1"
+          type="button"
+        >
+          <svg
+            class="lucide lucide-video mr-2"
+            fill="none"
+            height="16"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"
+            />
+            <rect
+              height="12"
+              rx="2"
+              width="14"
+              x="2"
+              y="6"
+            />
+          </svg>
+          Video
+        </button>
+        <div
+          aria-controls="radix-:r7:-content-"
+          aria-selected="false"
+          class="flex items-center w-fit md:w-64 h-10 justify-start whitespace-nowrap rounded-md px-3 py-1.5 text-sm font-medium font-roboto data-[state=active]:shadow-lg data-[state=active]:bg-blue-400 data-[state=active]:text-white w-full px-4 py-2.5 justify-end border-b dark:border-none rounded-b-none data-[state=active]:border-b-card data-[state=active]:shadow-none data-[state=active]:bg-white data-[state=active]:dark:bg-dark-800 data-[state=active]:text-neutral-400"
+          data-disabled=""
+          data-orientation="horizontal"
+          data-radix-collection-item=""
+          data-state="inactive"
+          disabled=""
+          id="radix-:r7:-trigger-"
+          role="tab"
+          tabindex="-1"
+          type="button"
+        >
+          <div
+            class="flex justify-center items-center bg-gray-50 dark:bg-dark-500 hover:bg-gray-600 hover:dark:bg-dark-900 rounded-full w-[30px] h-[30px] cursor-pointer"
+          >
+            <svg
+              class="lucide lucide-x text-neutral-400"
+              fill="none"
+              height="16"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18 6 6 18"
+              />
+              <path
+                d="m6 6 12 12"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div
+        aria-labelledby="radix-:r7:-trigger-publish"
+        class="mt-2 w-full"
+        data-orientation="horizontal"
+        data-state="active"
+        id="radix-:r7:-content-publish"
+        role="tabpanel"
+        style="animation-duration: 0s;"
+        tabindex="0"
+      >
+        <form
+          data-testid="compose-form"
+        >
+          <div
+            class="border-b border-gray-600 dark:border-dark-500 p-4"
+          >
+            <div
+              class="flex flex-row"
+            >
+              <span
+                class="relative flex shrink-0 overflow-hidden rounded-full w-[42px] h-[42px]"
+                data-testid="avatar"
+              >
+                <span
+                  class="flex h-full w-full items-center justify-center rounded-full bg-muted"
+                >
+                  CN
+                </span>
+              </span>
+              <div
+                class="space-y-2 ml-5 w-full"
+              >
+                <textarea
+                  aria-describedby=":rc:-form-item-description"
+                  aria-invalid="false"
+                  class="flex w-full rounded-md border border-input bg-card text-sm ring-offset-background placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 border-none focus:outline-none min-h-[66px] p-0"
+                  id=":rc:-form-item"
+                  name="content"
+                  placeholder="Write something about you..."
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex gap-2.5 justify-start items-center p-2"
+          >
+            <div
+              class="flex items-center bg-gray-200 dark:bg-dark-300 dark:text-slate-400 text-slate-600 hover:text-neutral-700 hover:dark:text-white px-4 py-[6px] rounded-full cursor-pointer"
+            >
+              <svg
+                class="lucide lucide-camera"
+                fill="none"
+                height="20"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"
+                />
+                <circle
+                  cx="12"
+                  cy="13"
+                  r="3"
+                />
+              </svg>
+              <p
+                class="text-xs px-2 dark:text-slate-400 text-slate-600"
+              >
+                Media
+              </p>
+              <div
+                class="space-y-2"
+              >
+                <div
+                  class="relative w-full flex items-center"
+                  data-testid="input-container"
+                >
+                  <input
+                    aria-describedby=":rd:-form-item-description"
+                    aria-invalid="false"
+                    aria-label="Upload Media Publish"
+                    autocomplete="off"
+                    class="h-10 w-full rounded-lg border border-input bg-white dark:bg-dark-500 px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-xs file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 hidden"
+                    data-testid="input-element"
+                    id="media-publish-upload"
+                    type="file"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="flex items-center bg-gray-200 dark:bg-dark-300 dark:text-slate-400 text-slate-600 hover:text-neutral-700 hover:dark:text-white px-4 py-[6px] rounded-full cursor-pointer"
+            >
+              <svg
+                class="w-5 h-5"
+                height="24px"
+                viewBox="0 0 24 24"
+                width="24px"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M24 12c0-6.629-5.371-12-12-12S0 5.371 0 12s5.371 12 12 12 12-5.371 12-12zm0 0"
+                  fill="#ffc10e"
+                />
+                <path
+                  d="M19.879 12.008a7.879 7.879 0 11-15.758 0zm0 0"
+                  fill="#fff"
+                />
+                <path
+                  d="M10.238 7.86a1.885 1.885 0 10-3.769.003 1.885 1.885 0 003.77-.004zm0 0M17.363 7.86a1.884 1.884 0 10-3.767.001 1.884 1.884 0 003.767-.002zm0 0"
+                  fill="#333"
+                />
+              </svg>
+              <p
+                class="text-xs px-2 dark:text-slate-400 text-slate-600"
+              >
+                Activity
+              </p>
+            </div>
+            <div
+              class="flex items-center bg-gray-200 dark:bg-dark-300 dark:text-slate-400 text-slate-600 hover:text-neutral-700 hover:dark:text-white px-4 py-[6px] rounded-full cursor-pointer"
+            >
+              <svg
+                class="lucide lucide-ellipsis"
+                fill="none"
+                height="20"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="1"
+                />
+                <circle
+                  cx="19"
+                  cy="12"
+                  r="1"
+                />
+                <circle
+                  cx="5"
+                  cy="12"
+                  r="1"
+                />
+              </svg>
+            </div>
+          </div>
+          <div
+            class="max-h-[350px] flex flex-col overflow-auto p-2 border-t border-gray-600 dark:border-dark-500 bg-black-haze-50 dark:bg-card"
+          >
+            <div
+              class="space-y-0"
+            >
+              <div
+                class="flex justify-between items-center rounded-[4px] py-[6px] px-2 hover:bg-gray-500 hover:dark:bg-dark-300 space-y-0"
+              >
+                <div
+                  class="flex items-center space-x-2.5 space-y-0"
+                >
+                  <button
+                    aria-checked="true"
+                    aria-describedby=":rf:-form-item-description"
+                    aria-invalid="false"
+                    class="peer shrink-0 border border-gray-900 bg-white dark:bg-popover dark:border-dark-500 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:dark:bg-primary data-[state=checked]:text-primary-foreground rounded-full w-[22px] h-[22px]"
+                    data-state="checked"
+                    id=":rf:-form-item"
+                    role="checkbox"
+                    type="button"
+                    value="on"
+                  >
+                    <span
+                      class="flex items-center justify-center text-current"
+                      data-state="checked"
+                      style="pointer-events: none;"
+                    >
+                      <svg
+                        class="lucide lucide-check h-4 w-4"
+                        fill="none"
+                        height="24"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                        width="24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M20 6 9 17l-5-5"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                  <input
+                    aria-hidden="true"
+                    checked=""
+                    style="transform: translateX(-100%); position: absolute; pointer-events: none; opacity: 0; margin: 0px; width: 0px; height: 0px;"
+                    tabindex="-1"
+                    type="checkbox"
+                    value="on"
+                  />
+                  <div
+                    class="rounded-full flex justify-center items-center bg-white dark:bg-popover border border-gray-600 dark:border-dark-500 text-neutral-200 h-10 w-10"
+                  >
+                    <svg
+                      class="lucide lucide-bell"
+                      fill="none"
+                      height="18"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      width="18"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"
+                      />
+                      <path
+                        d="M10.3 21a1.94 1.94 0 0 0 3.4 0"
+                      />
+                    </svg>
+                  </div>
+                  <label
+                    class="font-medium font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-neutral-700 dark:text-neutral-100 text-xs"
+                    for=":rf:-form-item"
+                  >
+                    Activity Feed
+                  </label>
+                </div>
+                <div
+                  class="space-y-2"
+                >
+                  <button
+                    aria-expanded="false"
+                    aria-haspopup="menu"
+                    class="font-roboto whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white hover:border-gray-900 border-gray-800 dark:border-dark-500 h-9 w-[110px] rounded-full p-[6px] flex justify-center items-center gap-1 text-neutral-800 dark:text-neutral-100 dark:bg-transparent hover:dark:bg-card"
+                    data-state="closed"
+                    id="radix-:rh:"
+                    type="button"
+                  >
+                    <svg
+                      class="lucide lucide-smile transition-transform duration-300"
+                      fill="none"
+                      height="16"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="12"
+                        cy="12"
+                        r="10"
+                      />
+                      <path
+                        d="M8 14s1.5 2 4 2 4-2 4-2"
+                      />
+                      <line
+                        x1="9"
+                        x2="9.01"
+                        y1="9"
+                        y2="9"
+                      />
+                      <line
+                        x1="15"
+                        x2="15.01"
+                        y1="9"
+                        y2="9"
+                      />
+                    </svg>
+                    <label
+                      class="peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-neutral-800 dark:text-neutral-100 text-2xs user-select-none truncate max-w-[50%] font-sans"
+                    >
+                      Friends
+                    </label>
+                    <svg
+                      class="lucide lucide-chevron-down"
+                      fill="none"
+                      height="16"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="m6 9 6 6 6-6"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div
+                class="flex justify-between items-center rounded-[4px] py-[6px] px-2 hover:bg-gray-500 hover:dark:bg-dark-300 space-y-0"
+              >
+                <div
+                  class="flex items-center space-x-2.5 space-y-0"
+                >
+                  <button
+                    aria-checked="false"
+                    aria-describedby=":rj:-form-item-description"
+                    aria-invalid="false"
+                    class="peer shrink-0 border border-gray-900 bg-white dark:bg-popover dark:border-dark-500 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:dark:bg-primary data-[state=checked]:text-primary-foreground rounded-full w-[22px] h-[22px]"
+                    data-state="unchecked"
+                    id=":rj:-form-item"
+                    role="checkbox"
+                    type="button"
+                    value="on"
+                  />
+                  <input
+                    aria-hidden="true"
+                    style="transform: translateX(-100%); position: absolute; pointer-events: none; opacity: 0; margin: 0px; width: 0px; height: 0px;"
+                    tabindex="-1"
+                    type="checkbox"
+                    value="on"
+                  />
+                  <div
+                    class="w-fit rounded-full relative"
+                  >
+                    <div
+                      class="rounded-full flex justify-center items-center bg-white dark:bg-popover border border-gray-600 dark:border-dark-500 text-neutral-200 h-10 w-10"
+                    />
+                    <div
+                      class="rounded-full flex justify-center items-center bg-blue-600 border-2 border-gray-600 dark:border-popover absolute bottom-[-1px] right-[-8px] w-[22px] h-[22px]"
+                    >
+                      <svg
+                        class="lucide lucide-plus text-white"
+                        fill="none"
+                        height="10"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="3"
+                        viewBox="0 0 24 24"
+                        width="10"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M5 12h14"
+                        />
+                        <path
+                          d="M12 5v14"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <label
+                    class="font-medium font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-neutral-700 dark:text-neutral-100 text-xs"
+                    for=":rj:-form-item"
+                  >
+                    My Story
+                  </label>
+                </div>
+                <div
+                  class="space-y-2"
+                >
+                  <button
+                    aria-expanded="false"
+                    aria-haspopup="menu"
+                    class="font-roboto whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white hover:border-gray-900 border-gray-800 dark:border-dark-500 h-9 w-[110px] rounded-full p-[6px] flex justify-center items-center gap-1 text-neutral-800 dark:text-neutral-100 dark:bg-transparent hover:dark:bg-card"
+                    data-state="closed"
+                    id="radix-:rl:"
+                    type="button"
+                  >
+                    <svg
+                      class="lucide lucide-smile transition-transform duration-300"
+                      fill="none"
+                      height="16"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="12"
+                        cy="12"
+                        r="10"
+                      />
+                      <path
+                        d="M8 14s1.5 2 4 2 4-2 4-2"
+                      />
+                      <line
+                        x1="9"
+                        x2="9.01"
+                        y1="9"
+                        y2="9"
+                      />
+                      <line
+                        x1="15"
+                        x2="15.01"
+                        y1="9"
+                        y2="9"
+                      />
+                    </svg>
+                    <label
+                      class="peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-neutral-800 dark:text-neutral-100 text-2xs user-select-none truncate max-w-[50%] font-sans"
+                    >
+                      Friends
+                    </label>
+                    <svg
+                      class="lucide lucide-chevron-down"
+                      fill="none"
+                      height="16"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="m6 9 6 6 6-6"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="p-2 flex gap-2 border-t border-gray-600 dark:border-dark-500"
+          >
+            <button
+              class="inline-flex items-center justify-center whitespace-nowrap rounded-lg font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white hover:border-gray-900 text-neutral-800 dark:text-white border-gray-800 dark:border-dark-500 dark:bg-dark-100 h-[38px] p-[6px] pl-2 pr-3 text-2xs font-sans"
+              type="button"
+            >
+              <svg
+                class="lucide lucide-ellipsis-vertical mr-1"
+                fill="none"
+                height="16"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="1"
+                />
+                <circle
+                  cx="12"
+                  cy="5"
+                  r="1"
+                />
+                <circle
+                  cx="12"
+                  cy="19"
+                  r="1"
+                />
+              </svg>
+               View More
+            </button>
+            <button
+              class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-primary text-white dark:hover:opacity-85 hover:shadow-sphere-primary border-primary h-[38px] px-3 w-full hover:shadow-none hover:opacity-100 text-2xs"
+              data-testid="publish-button"
+              disabled=""
+              type="submit"
+            >
+              Publish
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+`;

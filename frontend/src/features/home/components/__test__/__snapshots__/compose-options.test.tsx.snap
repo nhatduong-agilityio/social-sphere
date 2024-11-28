@@ -1,0 +1,120 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ComposeOptions renders basic options when overlay is closed 1`] = `
+<div>
+  <div
+    class="flex gap-2.5 justify-start items-center p-2"
+  >
+    <div
+      class="flex items-center bg-gray-200 dark:bg-dark-300 dark:text-slate-400 text-slate-600 hover:text-neutral-700 hover:dark:text-white px-4 py-[6px] rounded-full cursor-pointer"
+    >
+      <svg
+        class="lucide lucide-camera"
+        fill="none"
+        height="20"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"
+        />
+        <circle
+          cx="12"
+          cy="13"
+          r="3"
+        />
+      </svg>
+      <p
+        class="text-xs px-2 dark:text-slate-400 text-slate-600"
+      >
+        Media
+      </p>
+      <div
+        class="space-y-2"
+      >
+        <div
+          class="relative w-full flex items-center"
+          data-testid="input-container"
+        >
+          <input
+            aria-describedby=":r0:-form-item-description"
+            aria-invalid="false"
+            aria-label="Upload Media Publish"
+            autocomplete="off"
+            class="h-10 w-full rounded-lg border border-input bg-white dark:bg-dark-500 px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-xs file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 hidden"
+            data-testid="input-element"
+            id="media-publish-upload"
+            type="file"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex items-center bg-gray-200 dark:bg-dark-300 dark:text-slate-400 text-slate-600 hover:text-neutral-700 hover:dark:text-white px-4 py-[6px] rounded-full cursor-pointer"
+    >
+      <svg
+        class="w-5 h-5"
+        height="24px"
+        viewBox="0 0 24 24"
+        width="24px"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M24 12c0-6.629-5.371-12-12-12S0 5.371 0 12s5.371 12 12 12 12-5.371 12-12zm0 0"
+          fill="#ffc10e"
+        />
+        <path
+          d="M19.879 12.008a7.879 7.879 0 11-15.758 0zm0 0"
+          fill="#fff"
+        />
+        <path
+          d="M10.238 7.86a1.885 1.885 0 10-3.769.003 1.885 1.885 0 003.77-.004zm0 0M17.363 7.86a1.884 1.884 0 10-3.767.001 1.884 1.884 0 003.767-.002zm0 0"
+          fill="#333"
+        />
+      </svg>
+      <p
+        class="text-xs px-2 dark:text-slate-400 text-slate-600"
+      >
+        Activity
+      </p>
+    </div>
+    <div
+      class="flex items-center bg-gray-200 dark:bg-dark-300 dark:text-slate-400 text-slate-600 hover:text-neutral-700 hover:dark:text-white px-4 py-[6px] rounded-full cursor-pointer"
+    >
+      <svg
+        class="lucide lucide-ellipsis"
+        fill="none"
+        height="20"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle
+          cx="12"
+          cy="12"
+          r="1"
+        />
+        <circle
+          cx="19"
+          cy="12"
+          r="1"
+        />
+        <circle
+          cx="5"
+          cy="12"
+          r="1"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
