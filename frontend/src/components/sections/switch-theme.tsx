@@ -12,6 +12,7 @@ export const SwitchTheme = () => {
 
   return mounted ? (
     <Switch
+      title="switch-theme"
       data-testid="theme-switch"
       checked={isDarkTheme}
       onCheckedChange={toggleTheme}
