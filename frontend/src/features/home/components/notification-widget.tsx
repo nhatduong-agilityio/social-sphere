@@ -42,11 +42,11 @@ export const NotificationWidget = memo(
       className={cn('relative flex flex-col w-full rounded-lg', customClass)}
     >
       <CardHeader className="p-4 pb-0 flex flex-row items-center justify-between">
-        <Button size="icon" variant="unstyle">
+        <Button aria-label="HeaderLeftButton" size="icon" variant="unstyle">
           {iconHeader}
         </Button>
 
-        <Button size="icon" variant="unstyle">
+        <Button aria-label="HeaderRightButton" size="icon" variant="unstyle">
           <EllipsisVertical size={24} className="text-white" />
         </Button>
       </CardHeader>

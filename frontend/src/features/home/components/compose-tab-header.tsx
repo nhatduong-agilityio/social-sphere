@@ -54,7 +54,7 @@ export const ComposeTabHeader = ({
           key={value}
           value={value}
           className={cn(
-            'w-full px-4 py-2.5 justify-center border-b dark:border-none hover:bg-gray-300 hover:border-gray-800 hover:dark:bg-dark-500 rounded-b-none data-[state=active]:border-b-card data-[state=active]:shadow-none data-[state=active]:bg-white data-[state=active]:dark:bg-dark-800 data-[state=active]:text-neutral-400',
+            'w-full px-4 py-2.5 justify-center border-b dark:text-slate-400 text-slate-500 dark:border-none hover:bg-gray-300 hover:border-gray-800 hover:dark:bg-dark-500 rounded-b-none data-[state=active]:border-b-card data-[state=active]:shadow-none data-[state=active]:bg-white data-[state=active]:dark:bg-dark-800 data-[state=active]:dark:text-neutral-200 data-[state=active]:text-neutral-500',
             className,
           )}
         >

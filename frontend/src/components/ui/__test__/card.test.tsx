@@ -35,7 +35,7 @@ describe('Card Components', () => {
     );
     const description = screen.getByTestId('card-description');
     expect(description).toHaveClass(
-      'font-roboto font-normal text-sm text-neutral-200',
+      'font-roboto font-normal text-sm dark:text-slate-400 text-slate-500',
     );
   });
 

@@ -139,6 +139,7 @@ export const Header = memo(({ isAuthenticated = true, user }: HeaderProps) => {
             <div className="flex gap-3 md:flex-1 md:justify-center lg:justify-start">
               {NAVIGATION_ITEMS.map(({ title, styles, icon }, index) => (
                 <Button
+                  aria-label={title}
                   data-testid={`button-item-navigation-${index}`}
                   key={title}
                   className={cn(
@@ -161,6 +162,7 @@ export const Header = memo(({ isAuthenticated = true, user }: HeaderProps) => {
               circleClassName="border-0 w-2 h-2 top-0.5 right-0.5 bg-blue-600"
             >
               <Button
+                aria-label="ShoppingCart"
                 variant="unstyle"
                 className="w-9 p-0 h-full hover:bg-transparent"
               >
@@ -171,7 +173,7 @@ export const Header = memo(({ isAuthenticated = true, user }: HeaderProps) => {
               trigger={
                 <CircleOverlay circleSize="tiny">
                   <Avatar className="w-full h-full">
-                    <AvatarImage src={profilePicture} />
+                    <AvatarImage src={profilePicture} alt="Avatar" />
                     <AvatarFallback>CN</AvatarFallback>
                   </Avatar>
                 </CircleOverlay>

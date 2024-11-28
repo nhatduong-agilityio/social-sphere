@@ -23,6 +23,7 @@ exports[`HeaderPopover Component matches snapshot 1`] = `
         data-state="unchecked"
         data-testid="theme-switch"
         role="switch"
+        title="switch-theme"
         type="button"
         value="on"
       >

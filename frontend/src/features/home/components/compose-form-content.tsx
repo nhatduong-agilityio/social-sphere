@@ -25,7 +25,7 @@ export const ComposeFormContent = memo(
   ({ onOpenOverlay, formControl }: ComposeFormContentProps) => (
     <div className="flex flex-row">
       <Avatar className="w-[42px] h-[42px]">
-        <AvatarImage src="https://github.com/shadcn.png" />
+        <AvatarImage src="https://github.com/shadcn.png" alt="Avatar Post" />
         <AvatarFallback>CN</AvatarFallback>
       </Avatar>
       <FormField

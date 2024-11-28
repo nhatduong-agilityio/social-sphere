@@ -39,11 +39,11 @@ export const NewsFeedCardPreview = memo(
           <NewsFeedCardContent newsFeed={newsFeed} />
         </div>
         <div className="flex gap-2.5 items-center">
-          <Label className="flex text-3xs text-neutral-200 dark:text-neutral-100 gap-0.5">
+          <Label className="flex text-3xs dark:text-slate-400 text-slate-600 gap-0.5">
             <EarthIcon className="w-4 h-4" />
             Public
           </Label>
-          <Label className="flex text-3xs text-neutral-200 dark:text-neutral-100 gap-0.5">
+          <Label className="flex text-3xs dark:text-slate-400 text-slate-600 gap-0.5">
             <EyeIcon className="w-4 h-4" />
             163 views
           </Label>
