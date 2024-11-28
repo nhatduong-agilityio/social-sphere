@@ -64,7 +64,10 @@ export const LoginForm = () => {
             }
           >
             <Avatar className="w-full h-full">
-              <AvatarImage src="https://github.com/shadcn.png" />
+              <AvatarImage
+                src="https://github.com/shadcn.png"
+                alt="Avatar Login"
+              />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
           </CircleOverlay>
@@ -113,14 +116,16 @@ export const LoginForm = () => {
         <Button
           variant="primary"
           type="submit"
-          className="w-full h-[46px] rounded-full bg-blue-600 border-blue-600"
+          className="w-full h-[46px] rounded-full bg-blue-600 border-blue-600 dark:text-slate-50"
           disabled={isDisabled}
         >
           Login
         </Button>
-        <Button variant="link" className="p-0 h-9">
-          <Link href={ROUTER.ONBOARDING}>Do you need an account?</Link>
-        </Button>
+        <Link href={ROUTER.ONBOARDING} className="flex justify-center">
+          <Button variant="link" className="p-0 h-9">
+            Do you need an account?
+          </Button>
+        </Link>
       </form>
       <div className="absolute top-3 right-3">
         <SwitchTheme />
