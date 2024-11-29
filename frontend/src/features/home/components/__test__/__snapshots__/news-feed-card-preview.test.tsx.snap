@@ -25,7 +25,7 @@ exports[`NewsFeedCardPreview matches snapshot with media 1`] = `
       <div
         class="flex justify-items-start gap-3"
       >
-        <a
+        <div
           class="flex items-center justify-center rounded-full w-10 h-10"
           data-state="closed"
           data-testid="avatar-trigger"
@@ -40,7 +40,7 @@ exports[`NewsFeedCardPreview matches snapshot with media 1`] = `
               JD
             </span>
           </span>
-        </a>
+        </div>
         <div
           class="flex flex-col font-roboto"
         >
@@ -108,7 +108,7 @@ exports[`NewsFeedCardPreview matches snapshot without media 1`] = `
       <div
         class="flex justify-items-start gap-3"
       >
-        <a
+        <div
           class="flex items-center justify-center rounded-full w-10 h-10"
           data-state="closed"
           data-testid="avatar-trigger"
@@ -123,7 +123,7 @@ exports[`NewsFeedCardPreview matches snapshot without media 1`] = `
               JD
             </span>
           </span>
-        </a>
+        </div>
         <div
           class="flex flex-col font-roboto"
         >

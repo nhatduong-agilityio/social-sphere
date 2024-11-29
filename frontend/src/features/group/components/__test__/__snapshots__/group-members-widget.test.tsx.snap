@@ -106,7 +106,7 @@ exports[`GroupMembersWidget matches snapshot 1`] = `
         <div
           class="flex items-center gap-3"
         >
-          <a
+          <div
             class="w-12 h-12 flex items-center justify-center rounded-full"
             data-state="closed"
             data-testid="avatar-trigger"
@@ -121,7 +121,7 @@ exports[`GroupMembersWidget matches snapshot 1`] = `
                 JD
               </span>
             </span>
-          </a>
+          </div>
           <div
             class="flex flex-col"
           >
@@ -144,7 +144,7 @@ exports[`GroupMembersWidget matches snapshot 1`] = `
         <div
           class="flex items-center gap-3"
         >
-          <a
+          <div
             class="w-12 h-12 flex items-center justify-center rounded-full"
             data-state="closed"
             data-testid="avatar-trigger"
@@ -159,7 +159,7 @@ exports[`GroupMembersWidget matches snapshot 1`] = `
                 JS
               </span>
             </span>
-          </a>
+          </div>
           <div
             class="flex flex-col"
           >

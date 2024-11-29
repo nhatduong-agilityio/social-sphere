@@ -41,31 +41,32 @@ export const UserCardPopover = memo(
 
     return (
       <HoverCard>
-        <HoverCardTrigger
-          data-testid="avatar-trigger"
-          className={cn(
-            sizeWrapper,
-            'flex items-center justify-center rounded-full',
-            {
-              'border border-gray-900 dark:border-blue-800': isStories,
-            },
-            additionalClass,
-          )}
-        >
-          <Avatar
-            data-testid="avatar-wrapper"
-            size={size}
-            className={cn('bg-current', additionalAvatarClass)}
+        <HoverCardTrigger data-testid="avatar-trigger" asChild>
+          <div
+            className={cn(
+              sizeWrapper,
+              'flex items-center justify-center rounded-full',
+              {
+                'border border-gray-900 dark:border-blue-800': isStories,
+              },
+              additionalClass,
+            )}
           >
-            <AvatarImage
-              data-testid="avatar-image"
-              src={profilePicture}
-              alt={`Avatar of the user-${getFullName(firstName, lastName)} in team`}
-            />
-            <AvatarFallback>
-              {getFirstLetters(firstName, lastName)}
-            </AvatarFallback>
-          </Avatar>
+            <Avatar
+              data-testid="avatar-wrapper"
+              size={size}
+              className={cn('bg-current', additionalAvatarClass)}
+            >
+              <AvatarImage
+                data-testid="avatar-image"
+                src={profilePicture}
+                alt={`Avatar of the user-${getFullName(firstName, lastName)} in team`}
+              />
+              <AvatarFallback>
+                {getFirstLetters(firstName, lastName)}
+              </AvatarFallback>
+            </Avatar>
+          </div>
         </HoverCardTrigger>
         <HoverCardContent>
           <UserContentPopover user={user} />
