@@ -10,3 +10,4 @@ export * from './router';
 export * from './tags';
 export * from './query-url';
 export * from './pagination';
+export * from './metadata';

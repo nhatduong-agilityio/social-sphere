@@ -1,6 +1,9 @@
 import { ReactNode } from 'react';
-import type { Metadata } from 'next';
 import { SessionProvider } from 'next-auth/react';
+import { Metadata, Viewport } from 'next';
+
+// Constants
+import { BASE_URL, METADATA } from '@/constants';
 
 // Components
 import { ThemeProvider, Toaster } from '@/components/providers';
@@ -9,15 +12,28 @@ import { ThemeProvider, Toaster } from '@/components/providers';
 import { montserrat, roboto } from '../styles/fonts';
 import '../styles/globals.css';
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
-  title: 'Next.js Boilerplate',
-  description: 'Next.js 14+ boilerplate app',
-  icons: [
-    {
-      rel: 'icon',
-      url: '/favicon.ico',
-    },
-  ],
+  metadataBase: new URL(BASE_URL),
+  title: METADATA.TITLE,
+  description: METADATA.DESCRIPTION,
+  keywords: METADATA.KEY_WORDS,
+  openGraph: {
+    type: 'website',
+    url: BASE_URL,
+    title: METADATA.TITLE,
+    description: METADATA.DESCRIPTION,
+    siteName: METADATA.TITLE,
+  },
+  twitter: {
+    title: METADATA.TITLE,
+    description: METADATA.DESCRIPTION,
+    card: 'summary',
+  },
 };
 
 export default function RootLayout({

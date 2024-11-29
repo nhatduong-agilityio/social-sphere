@@ -11,14 +11,14 @@ import {
   VideoPanel,
 } from '@/features/profile/components';
 
-const PersonalInfoPage = ({ params }: { params: { username: string } }) => (
+const PersonalInfoPage = ({ params }: { params: { slug: string } }) => (
   <div className="flex flex-col gap-8">
     <Suspense fallback={<PanelSkeleton />}>
-      <FriendPanel username={params.username} />
+      <FriendPanel username={params.slug} />
     </Suspense>
 
     <Suspense fallback={<PanelSkeleton />}>
-      <PhotoPanel username={params.username} />
+      <PhotoPanel username={params.slug} />
     </Suspense>
 
     <VideoPanel />

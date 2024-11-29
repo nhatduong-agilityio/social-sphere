@@ -1,4 +1,5 @@
 import { Suspense } from 'react';
+import { notFound } from 'next/navigation';
 
 // Components
 import { ActivityFeed } from '@/features/home/components';
@@ -9,7 +10,6 @@ import { ROUTER } from '@/constants';
 
 // Hooks
 import { auth } from '@/auth';
-import { notFound } from 'next/navigation';
 
 const Homepage = async () => {
   const session = await auth();
