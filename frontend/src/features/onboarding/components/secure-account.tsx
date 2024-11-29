@@ -106,9 +106,15 @@ export const SecureAccount = () => {
               name="password"
               render={({ field }) => (
                 <FormItem variant="bordered">
-                  <FormLabel size="tiny">PASSWORD</FormLabel>
+                  <FormLabel
+                    className="dark:text-slate-200 text-slate-600"
+                    size="tiny"
+                  >
+                    PASSWORD
+                  </FormLabel>
                   <FormControl>
                     <Input
+                      className="dark:text-slate-300 text-slate-500"
                       variant="ghost"
                       type="password"
                       placeholder="Choose a password"
@@ -124,9 +130,15 @@ export const SecureAccount = () => {
               name="repeatPassword"
               render={({ field }) => (
                 <FormItem variant="bordered">
-                  <FormLabel size="tiny">REPEAT PASSWORD</FormLabel>
+                  <FormLabel
+                    className="dark:text-slate-200 text-slate-600"
+                    size="tiny"
+                  >
+                    REPEAT PASSWORD
+                  </FormLabel>
                   <FormControl>
                     <Input
+                      className="dark:text-slate-300 text-slate-500"
                       variant="ghost"
                       type="password"
                       placeholder="Repeat your password"
@@ -142,9 +154,15 @@ export const SecureAccount = () => {
               name="phoneNumber"
               render={({ field }) => (
                 <FormItem variant="bordered">
-                  <FormLabel size="tiny">PHONE NUMBER</FormLabel>
+                  <FormLabel
+                    className="dark:text-slate-200 text-slate-600"
+                    size="tiny"
+                  >
+                    PHONE NUMBER
+                  </FormLabel>
                   <FormControl>
                     <Input
+                      className="dark:text-slate-300 text-slate-500"
                       variant="ghost"
                       placeholder="Enter your phone number"
                       {...field}

@@ -7,9 +7,10 @@ const nextConfig = {
         hostname: '**',
       },
     ],
-    minimumCacheTTL: 60,
-    deviceSizes: [480, 600, 768, 1024, 1280, 1400, 2048, 3840],
+    minimumCacheTTL: 3600,
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    formats: ['image/webp'],
   },
 };
 
