@@ -82,9 +82,15 @@ export const EnterAboutInfo = () => {
               name="firstName"
               render={({ field }) => (
                 <FormItem variant="bordered">
-                  <FormLabel size="tiny">FIRST NAME</FormLabel>
+                  <FormLabel
+                    className="dark:text-slate-200 text-slate-600"
+                    size="tiny"
+                  >
+                    FIRST NAME
+                  </FormLabel>
                   <FormControl>
                     <Input
+                      className="dark:text-slate-300 text-slate-500"
                       variant="ghost"
                       placeholder="Enter your first name"
                       {...field}
@@ -99,9 +105,15 @@ export const EnterAboutInfo = () => {
               name="lastName"
               render={({ field }) => (
                 <FormItem variant="bordered">
-                  <FormLabel size="tiny">LAST NAME</FormLabel>
+                  <FormLabel
+                    className="dark:text-slate-200 text-slate-600"
+                    size="tiny"
+                  >
+                    LAST NAME
+                  </FormLabel>
                   <FormControl>
                     <Input
+                      className="dark:text-slate-300 text-slate-500"
                       variant="ghost"
                       placeholder="Enter your last name"
                       {...field}
@@ -116,9 +128,15 @@ export const EnterAboutInfo = () => {
               name="email"
               render={({ field }) => (
                 <FormItem variant="bordered">
-                  <FormLabel size="tiny">EMAIL</FormLabel>
+                  <FormLabel
+                    className="dark:text-slate-200 text-slate-600"
+                    size="tiny"
+                  >
+                    EMAIL
+                  </FormLabel>
                   <FormControl>
                     <Input
+                      className="dark:text-slate-300 text-slate-500"
                       variant="ghost"
                       type="email"
                       placeholder="Enter your email"

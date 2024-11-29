@@ -61,7 +61,7 @@ export const SelectAccountType = () => {
               </CardHeader>
               <CardFooter>
                 <Button
-                  className="w-full"
+                  className="w-full dark:text-slate-200 text-slate-600"
                   onClick={() => handleContinueButton(title)}
                 >
                   Continue
