@@ -6,7 +6,7 @@ import { Heading } from '../ui';
 
 export const LoginLayout = ({ children }: { children: ReactNode }) => (
   <main className="h-dvh w-dvw flex flex-row relative">
-    <section className="hidden lg:flex container bg-gradient-blue animate-gradientShift duration-12000 ease-in-out infinite justify-center items-center">
+    <section className="hidden lg:flex container bg-gradient-blue animate-gradientShift duration-12000 ease-in-out infinite justify-center items-center contain-paint">
       <Heading
         size="3xl"
         variant="caption"

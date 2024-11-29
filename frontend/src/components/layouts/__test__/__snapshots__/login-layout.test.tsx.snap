@@ -6,7 +6,7 @@ exports[`LoginLayout Component matches snapshot 1`] = `
     class="h-dvh w-dvw flex flex-row relative"
   >
     <section
-      class="hidden lg:flex container bg-gradient-blue animate-gradientShift duration-12000 ease-in-out infinite justify-center items-center"
+      class="hidden lg:flex container bg-gradient-blue animate-gradientShift duration-12000 ease-in-out infinite justify-center items-center contain-paint"
     >
       <h2
         class="font-montserrat text-gray-50 [text-shadow:_4px_4px_#3180e1,_8px_8px_#3180e1] text-3xl max-w-[400px] 2xl:text-4xl"

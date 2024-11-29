@@ -9,11 +9,11 @@ import { getGroupByName } from '@/features/group/actions';
 // Hooks
 import { auth } from '@/auth';
 
-const GroupDetailPage = async ({ params }: { params: { name: string } }) => {
+const GroupDetailPage = async ({ params }: { params: { slug: string } }) => {
   const session = await auth();
   const userId = session?.user?.id;
 
-  const { data: group } = await getGroupByName(params.name);
+  const { data: group } = await getGroupByName(params.slug);
 
   if (!group || !userId) return notFound();
 
