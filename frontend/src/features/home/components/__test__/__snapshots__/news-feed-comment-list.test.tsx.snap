@@ -12,7 +12,7 @@ exports[`NewsFeedCommentList matches snapshot 1`] = `
         class="flex items-center gap-4"
         data-testid="header-wrapper"
       >
-        <a
+        <div
           class="w-9 h-9 flex items-center justify-center rounded-full p-0"
           data-state="closed"
           data-testid="avatar-trigger"
@@ -27,7 +27,7 @@ exports[`NewsFeedCommentList matches snapshot 1`] = `
               JD
             </span>
           </span>
-        </a>
+        </div>
         <div
           class="flex flex-col"
         >
@@ -168,7 +168,7 @@ exports[`NewsFeedCommentList matches snapshot with replies 1`] = `
         class="flex items-center gap-4"
         data-testid="header-wrapper"
       >
-        <a
+        <div
           class="w-9 h-9 flex items-center justify-center rounded-full p-0"
           data-state="closed"
           data-testid="avatar-trigger"
@@ -183,7 +183,7 @@ exports[`NewsFeedCommentList matches snapshot with replies 1`] = `
               JD
             </span>
           </span>
-        </a>
+        </div>
         <div
           class="flex flex-col"
         >
@@ -317,7 +317,7 @@ exports[`NewsFeedCommentList matches snapshot with replies 1`] = `
             class="flex items-center gap-4"
             data-testid="header-wrapper"
           >
-            <a
+            <div
               class="w-9 h-9 flex items-center justify-center rounded-full p-0"
               data-state="closed"
               data-testid="avatar-trigger"
@@ -332,7 +332,7 @@ exports[`NewsFeedCommentList matches snapshot with replies 1`] = `
                   NS
                 </span>
               </span>
-            </a>
+            </div>
             <div
               class="flex flex-col"
             >

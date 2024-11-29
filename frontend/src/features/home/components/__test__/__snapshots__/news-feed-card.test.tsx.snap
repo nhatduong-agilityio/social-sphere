@@ -12,7 +12,7 @@ exports[`NewsFeedCard matches snapshot with default state 1`] = `
         class="flex items-center gap-3"
         data-testid="header-wrapper"
       >
-        <a
+        <div
           class="w-12 h-12 flex items-center justify-center rounded-full"
           data-state="closed"
           data-testid="avatar-trigger"
@@ -27,7 +27,7 @@ exports[`NewsFeedCard matches snapshot with default state 1`] = `
               JD
             </span>
           </span>
-        </a>
+        </div>
         <div
           class="flex flex-col"
         >
@@ -214,7 +214,7 @@ exports[`NewsFeedCard matches snapshot with default state 1`] = `
           <div
             class="relative"
           >
-            <a
+            <div
               class="w-[38px] h-[38px] flex items-center justify-center rounded-full"
               data-state="closed"
               data-testid="avatar-trigger"
@@ -229,7 +229,7 @@ exports[`NewsFeedCard matches snapshot with default state 1`] = `
                   NS
                 </span>
               </span>
-            </a>
+            </div>
           </div>
         </div>
         <div
@@ -363,7 +363,7 @@ exports[`NewsFeedCard matches snapshot with media content 1`] = `
         class="flex items-center gap-3"
         data-testid="header-wrapper"
       >
-        <a
+        <div
           class="w-12 h-12 flex items-center justify-center rounded-full"
           data-state="closed"
           data-testid="avatar-trigger"
@@ -378,7 +378,7 @@ exports[`NewsFeedCard matches snapshot with media content 1`] = `
               JD
             </span>
           </span>
-        </a>
+        </div>
         <div
           class="flex flex-col"
         >
@@ -565,7 +565,7 @@ exports[`NewsFeedCard matches snapshot with media content 1`] = `
           <div
             class="relative"
           >
-            <a
+            <div
               class="w-[38px] h-[38px] flex items-center justify-center rounded-full"
               data-state="closed"
               data-testid="avatar-trigger"
@@ -580,7 +580,7 @@ exports[`NewsFeedCard matches snapshot with media content 1`] = `
                   NS
                 </span>
               </span>
-            </a>
+            </div>
           </div>
         </div>
         <div
@@ -852,7 +852,7 @@ exports[`NewsFeedCard matches snapshot with open comments 1`] = `
           <div
             class="flex justify-between items-center p-2"
           >
-            <a
+            <div
               class="w-8 h-8 flex items-center justify-center rounded-full"
               data-state="closed"
               data-testid="avatar-trigger"
@@ -867,7 +867,7 @@ exports[`NewsFeedCard matches snapshot with open comments 1`] = `
                   JD
                 </span>
               </span>
-            </a>
+            </div>
             <div
               class="flex gap-4 items-center"
             >

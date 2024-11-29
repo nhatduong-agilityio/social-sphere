@@ -91,7 +91,7 @@ exports[`FriendPanel Component should render correctly 1`] = `
             <div
               data-testid="header-wrapper"
             >
-              <a
+              <div
                 class=""
                 data-state="closed"
                 data-testid="avatar-trigger"
@@ -101,7 +101,7 @@ exports[`FriendPanel Component should render correctly 1`] = `
                 >
                   <span />
                 </span>
-              </a>
+              </div>
               <div
                 class="flex flex-col"
               >

@@ -11,7 +11,7 @@ exports[`FriendsHaveLiked matches snapshot with multiple likes 1`] = `
       <div
         class="relative"
       >
-        <a
+        <div
           class="w-[38px] h-[38px] flex items-center justify-center rounded-full"
           data-state="closed"
           data-testid="avatar-trigger"
@@ -26,12 +26,12 @@ exports[`FriendsHaveLiked matches snapshot with multiple likes 1`] = `
               JD
             </span>
           </span>
-        </a>
+        </div>
       </div>
       <div
         class="relative ml-[-12px]"
       >
-        <a
+        <div
           class="w-[38px] h-[38px] flex items-center justify-center rounded-full"
           data-state="closed"
           data-testid="avatar-trigger"
@@ -46,7 +46,7 @@ exports[`FriendsHaveLiked matches snapshot with multiple likes 1`] = `
               NS
             </span>
           </span>
-        </a>
+        </div>
       </div>
     </div>
     <div
@@ -98,7 +98,7 @@ exports[`FriendsHaveLiked matches snapshot with single like 1`] = `
       <div
         class="relative"
       >
-        <a
+        <div
           class="w-[38px] h-[38px] flex items-center justify-center rounded-full"
           data-state="closed"
           data-testid="avatar-trigger"
@@ -113,7 +113,7 @@ exports[`FriendsHaveLiked matches snapshot with single like 1`] = `
               JD
             </span>
           </span>
-        </a>
+        </div>
       </div>
     </div>
     <div

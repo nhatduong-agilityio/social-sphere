@@ -50,7 +50,7 @@ exports[`NewsFeedComments matches snapshot 1`] = `
             class="flex items-center gap-4"
             data-testid="header-wrapper"
           >
-            <a
+            <div
               class="w-9 h-9 flex items-center justify-center rounded-full p-0"
               data-state="closed"
               data-testid="avatar-trigger"
@@ -65,7 +65,7 @@ exports[`NewsFeedComments matches snapshot 1`] = `
                   JD
                 </span>
               </span>
-            </a>
+            </div>
             <div
               class="flex flex-col"
             >
@@ -232,7 +232,7 @@ exports[`NewsFeedComments matches snapshot 1`] = `
         <div
           class="flex justify-between items-center p-2"
         >
-          <a
+          <div
             class="w-8 h-8 flex items-center justify-center rounded-full"
             data-state="closed"
             data-testid="avatar-trigger"
@@ -247,7 +247,7 @@ exports[`NewsFeedComments matches snapshot 1`] = `
                 JD
               </span>
             </span>
-          </a>
+          </div>
           <div
             class="flex gap-4 items-center"
           >

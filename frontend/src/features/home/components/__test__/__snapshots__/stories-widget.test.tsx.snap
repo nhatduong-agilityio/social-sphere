@@ -110,7 +110,7 @@ exports[`StoriesWidget matches snapshot 1`] = `
         <div
           class="flex items-center gap-3"
         >
-          <a
+          <div
             class="w-12 h-12 flex items-center justify-center rounded-full border border-gray-900 dark:border-blue-800"
             data-state="closed"
             data-testid="avatar-trigger"
@@ -125,7 +125,7 @@ exports[`StoriesWidget matches snapshot 1`] = `
                 JD
               </span>
             </span>
-          </a>
+          </div>
           <div
             class="flex flex-col"
           >
@@ -148,7 +148,7 @@ exports[`StoriesWidget matches snapshot 1`] = `
         <div
           class="flex items-center gap-3"
         >
-          <a
+          <div
             class="w-12 h-12 flex items-center justify-center rounded-full border border-gray-900 dark:border-blue-800"
             data-state="closed"
             data-testid="avatar-trigger"
@@ -163,7 +163,7 @@ exports[`StoriesWidget matches snapshot 1`] = `
                 NS
               </span>
             </span>
-          </a>
+          </div>
           <div
             class="flex flex-col"
           >
@@ -186,7 +186,7 @@ exports[`StoriesWidget matches snapshot 1`] = `
         <div
           class="flex items-center gap-3"
         >
-          <a
+          <div
             class="w-12 h-12 flex items-center justify-center rounded-full border border-gray-900 dark:border-blue-800"
             data-state="closed"
             data-testid="avatar-trigger"
@@ -201,7 +201,7 @@ exports[`StoriesWidget matches snapshot 1`] = `
                 ML
               </span>
             </span>
-          </a>
+          </div>
           <div
             class="flex flex-col"
           >
