@@ -123,6 +123,7 @@ exports[`GroupHeader matches snapshot for admin user 1`] = `
             class="relative"
           >
             <button
+              aria-label="Pop Button"
               class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 border-gray-800 dark:border-dark-500 -z-10 absolute border-none dark:bg-dark-900 rounded-full w-[34px] h-[34px] transition-all duration-300"
               style="transform: translate(0, -10px) rotate(10deg);"
             >
@@ -150,6 +151,7 @@ exports[`GroupHeader matches snapshot for admin user 1`] = `
               </svg>
             </button>
             <button
+              aria-label="Pop Button"
               class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 border-gray-800 dark:border-dark-500 -z-10 absolute border-none dark:bg-dark-900 rounded-full w-[34px] h-[34px] transition-all duration-300"
               style="transform: translate(0, -10px) rotate(10deg);"
             >
@@ -175,6 +177,7 @@ exports[`GroupHeader matches snapshot for admin user 1`] = `
               </svg>
             </button>
             <button
+              aria-label="Pop Button"
               class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 border-gray-800 dark:border-dark-500 -z-10 absolute border-none dark:bg-dark-900 rounded-full w-[34px] h-[34px] transition-all duration-300"
               style="transform: translate(0, -10px) rotate(10deg);"
             >
@@ -200,6 +203,7 @@ exports[`GroupHeader matches snapshot for admin user 1`] = `
               </svg>
             </button>
             <button
+              aria-label="Pop Button"
               class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 border-gray-800 dark:border-dark-500 -z-10 absolute border-none dark:bg-dark-900 rounded-full w-[34px] h-[34px] transition-all duration-300"
               style="transform: translate(0, -10px) rotate(10deg);"
             >
@@ -222,6 +226,7 @@ exports[`GroupHeader matches snapshot for admin user 1`] = `
               </svg>
             </button>
             <button
+              aria-label="Pop Button"
               class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 border-gray-800 dark:border-dark-500 -z-10 absolute border-none dark:bg-dark-900 rounded-full w-[34px] h-[34px] transition-all duration-300"
               style="transform: translate(0, -10px) rotate(10deg);"
             >
@@ -492,6 +497,7 @@ exports[`GroupHeader matches snapshot for member user 1`] = `
             class="relative"
           >
             <button
+              aria-label="Pop Button"
               class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 border-gray-800 dark:border-dark-500 -z-10 absolute border-none dark:bg-dark-900 rounded-full w-[34px] h-[34px] transition-all duration-300"
               style="transform: translate(0, -10px) rotate(10deg);"
             >
@@ -519,6 +525,7 @@ exports[`GroupHeader matches snapshot for member user 1`] = `
               </svg>
             </button>
             <button
+              aria-label="Pop Button"
               class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 border-gray-800 dark:border-dark-500 -z-10 absolute border-none dark:bg-dark-900 rounded-full w-[34px] h-[34px] transition-all duration-300"
               style="transform: translate(0, -10px) rotate(10deg);"
             >
@@ -544,6 +551,7 @@ exports[`GroupHeader matches snapshot for member user 1`] = `
               </svg>
             </button>
             <button
+              aria-label="Pop Button"
               class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 border-gray-800 dark:border-dark-500 -z-10 absolute border-none dark:bg-dark-900 rounded-full w-[34px] h-[34px] transition-all duration-300"
               style="transform: translate(0, -10px) rotate(10deg);"
             >
@@ -569,6 +577,7 @@ exports[`GroupHeader matches snapshot for member user 1`] = `
               </svg>
             </button>
             <button
+              aria-label="Pop Button"
               class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 border-gray-800 dark:border-dark-500 -z-10 absolute border-none dark:bg-dark-900 rounded-full w-[34px] h-[34px] transition-all duration-300"
               style="transform: translate(0, -10px) rotate(10deg);"
             >
@@ -591,6 +600,7 @@ exports[`GroupHeader matches snapshot for member user 1`] = `
               </svg>
             </button>
             <button
+              aria-label="Pop Button"
               class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 border-gray-800 dark:border-dark-500 -z-10 absolute border-none dark:bg-dark-900 rounded-full w-[34px] h-[34px] transition-all duration-300"
               style="transform: translate(0, -10px) rotate(10deg);"
             >
@@ -868,6 +878,7 @@ exports[`GroupHeader matches snapshot for non-admin user 1`] = `
             class="relative"
           >
             <button
+              aria-label="Pop Button"
               class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 border-gray-800 dark:border-dark-500 -z-10 absolute border-none dark:bg-dark-900 rounded-full w-[34px] h-[34px] transition-all duration-300"
               style="transform: translate(0, -10px) rotate(10deg);"
             >
@@ -895,6 +906,7 @@ exports[`GroupHeader matches snapshot for non-admin user 1`] = `
               </svg>
             </button>
             <button
+              aria-label="Pop Button"
               class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 border-gray-800 dark:border-dark-500 -z-10 absolute border-none dark:bg-dark-900 rounded-full w-[34px] h-[34px] transition-all duration-300"
               style="transform: translate(0, -10px) rotate(10deg);"
             >
@@ -920,6 +932,7 @@ exports[`GroupHeader matches snapshot for non-admin user 1`] = `
               </svg>
             </button>
             <button
+              aria-label="Pop Button"
               class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 border-gray-800 dark:border-dark-500 -z-10 absolute border-none dark:bg-dark-900 rounded-full w-[34px] h-[34px] transition-all duration-300"
               style="transform: translate(0, -10px) rotate(10deg);"
             >
@@ -945,6 +958,7 @@ exports[`GroupHeader matches snapshot for non-admin user 1`] = `
               </svg>
             </button>
             <button
+              aria-label="Pop Button"
               class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 border-gray-800 dark:border-dark-500 -z-10 absolute border-none dark:bg-dark-900 rounded-full w-[34px] h-[34px] transition-all duration-300"
               style="transform: translate(0, -10px) rotate(10deg);"
             >
@@ -967,6 +981,7 @@ exports[`GroupHeader matches snapshot for non-admin user 1`] = `
               </svg>
             </button>
             <button
+              aria-label="Pop Button"
               class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 border-gray-800 dark:border-dark-500 -z-10 absolute border-none dark:bg-dark-900 rounded-full w-[34px] h-[34px] transition-all duration-300"
               style="transform: translate(0, -10px) rotate(10deg);"
             >

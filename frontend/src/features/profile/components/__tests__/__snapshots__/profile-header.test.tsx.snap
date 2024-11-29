@@ -83,7 +83,7 @@ exports[`ProfileHeader Component should render correctly 1`] = `
         class="hidden md:block space-x-2"
       >
         <button
-          class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring bg-white text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 dark:border-dark-500 dark:bg-dark-100 h-10 px-4 py-2 w-[140px] border border-gray-900"
+          class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring bg-white hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 dark:border-dark-500 dark:bg-dark-100 h-10 px-4 py-2 w-[140px] border border-gray-900 dark:text-neutral-50 text-neutral-600"
         >
           Timeline
         </button>
@@ -91,7 +91,7 @@ exports[`ProfileHeader Component should render correctly 1`] = `
           href="/user-profile/admin@gmail.com/overview"
         >
           <button
-            class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring bg-white hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 dark:border-dark-500 dark:bg-dark-100 h-10 px-4 py-2 w-[140px] text-blue-600 border border-red-600"
+            class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring bg-white hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 dark:border-dark-500 dark:bg-dark-100 h-10 px-4 py-2 dark:text-neutral-50 w-[140px] text-blue-600 border border-red-600"
             disabled=""
           >
             About
@@ -142,6 +142,7 @@ exports[`ProfileHeader Component should render correctly 1`] = `
             class="relative"
           >
             <button
+              aria-label="Pop Button"
               class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 border-gray-800 dark:border-dark-500 -z-10 absolute border-none dark:bg-dark-900 rounded-full w-[34px] h-[34px] transition-all duration-300"
               style="transform: translate(0, -10px) rotate(10deg);"
             >
@@ -169,6 +170,7 @@ exports[`ProfileHeader Component should render correctly 1`] = `
               </svg>
             </button>
             <button
+              aria-label="Pop Button"
               class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 border-gray-800 dark:border-dark-500 -z-10 absolute border-none dark:bg-dark-900 rounded-full w-[34px] h-[34px] transition-all duration-300"
               style="transform: translate(0, -10px) rotate(10deg);"
             >
@@ -194,6 +196,7 @@ exports[`ProfileHeader Component should render correctly 1`] = `
               </svg>
             </button>
             <button
+              aria-label="Pop Button"
               class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 border-gray-800 dark:border-dark-500 -z-10 absolute border-none dark:bg-dark-900 rounded-full w-[34px] h-[34px] transition-all duration-300"
               style="transform: translate(0, -10px) rotate(10deg);"
             >
@@ -219,6 +222,7 @@ exports[`ProfileHeader Component should render correctly 1`] = `
               </svg>
             </button>
             <button
+              aria-label="Pop Button"
               class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 border-gray-800 dark:border-dark-500 -z-10 absolute border-none dark:bg-dark-900 rounded-full w-[34px] h-[34px] transition-all duration-300"
               style="transform: translate(0, -10px) rotate(10deg);"
             >
@@ -241,6 +245,7 @@ exports[`ProfileHeader Component should render correctly 1`] = `
               </svg>
             </button>
             <button
+              aria-label="Pop Button"
               class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 border-gray-800 dark:border-dark-500 -z-10 absolute border-none dark:bg-dark-900 rounded-full w-[34px] h-[34px] transition-all duration-300"
               style="transform: translate(0, -10px) rotate(10deg);"
             >
@@ -295,12 +300,12 @@ exports[`ProfileHeader Component should render correctly 1`] = `
         class="hidden md:block space-x-2"
       >
         <button
-          class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring bg-white text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 dark:border-dark-500 dark:bg-dark-100 h-10 px-4 py-2 w-[140px] border border-gray-900"
+          class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring bg-white hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 dark:border-dark-500 dark:bg-dark-100 h-10 px-4 py-2 w-[140px] border border-gray-900 dark:text-neutral-50 text-neutral-600"
         >
           Friends
         </button>
         <button
-          class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring bg-white text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 dark:border-dark-500 dark:bg-dark-100 h-10 px-4 py-2 w-[140px] border border-gray-900"
+          class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring bg-white hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 dark:border-dark-500 dark:bg-dark-100 h-10 px-4 py-2 w-[140px] border border-gray-900 dark:text-neutral-50 text-neutral-600"
         >
           Photos
         </button>

@@ -98,10 +98,15 @@ export const OverviewInput = ({
             name={nameField}
             render={({ field }) => (
               <FormItem className="space-y-0">
-                <FormLabel size="tiny">{nameLabel}</FormLabel>
+                <FormLabel
+                  className="dark:text-slate-200 text-slate-600"
+                  size="tiny"
+                >
+                  {nameLabel}
+                </FormLabel>
                 <FormControl>
                   <Input
-                    className="h-6 p-0 border-none dark:bg-slate-800 text-slate-400 text-2xs"
+                    className="h-6 p-0 border-none dark:bg-slate-800 dark:text-slate-300 text-slate-500 text-2xs"
                     variant="ghost"
                     placeholder={placeholder}
                     disabled={isDisabled}

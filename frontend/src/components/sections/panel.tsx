@@ -37,7 +37,12 @@ export const Panel = memo(
 
         <div className="flex items-center gap-3">
           <div className="relative">
-            <Button onClick={handleClick}>{buttonLabel}</Button>
+            <Button
+              className="dark:text-neutral-50 text-neutral-600"
+              onClick={handleClick}
+            >
+              {buttonLabel}
+            </Button>
             {countItems > 0 && (
               <span className="absolute top-[-8px] left-[-15px] flex items-center justify-center ml-2 min-w-6 h-6 bg-blue-600 rounded-full text-2xs text-white">
                 {countItems}
@@ -45,7 +50,12 @@ export const Panel = memo(
             )}
           </div>
 
-          <Button size="icon" variant="rounded" className="hover:bg-muted">
+          <Button
+            aria-label="See More"
+            size="icon"
+            variant="rounded"
+            className="hover:bg-muted"
+          >
             <EllipsisVertical size={24} />
           </Button>
         </div>

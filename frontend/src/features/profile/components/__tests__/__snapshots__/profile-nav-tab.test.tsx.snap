@@ -3,234 +3,172 @@
 exports[`ProfileNavTab Component should render correctly 1`] = `
 <div>
   <div
-    data-orientation="horizontal"
-    dir="ltr"
+    class="flex md:flex-col items-center gap-4 text-muted-foreground"
   >
-    <div
-      aria-orientation="horizontal"
-      class="flex md:flex-col items-center justify-between gap-3 py-3 text-muted-foreground"
-      data-orientation="horizontal"
-      role="tablist"
-      style="outline: none;"
-      tabindex="0"
+    <button
+      class="font-roboto whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border border-none px-4 py-2 flex items-center w-fit md:w-64 h-10 justify-start dark:text-slate-300 text-slate-600 hover:bg-primary hover:shadow-md hover:text-white hover:dark:text-white"
     >
-      <a
-        href="/user-profile/username/overview"
+      <svg
+        class="lucide lucide-circle-check-big md:mr-2"
+        fill="none"
+        height="20"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <button
-          aria-controls="radix-:r0:-content-/user-profile/username/overview"
-          aria-selected="true"
-          class="flex items-center w-fit md:w-64 h-10 justify-start whitespace-nowrap rounded-md px-3 py-1.5 text-sm font-medium font-roboto data-[state=active]:shadow-lg data-[state=active]:bg-blue-400 data-[state=active]:text-white"
-          data-orientation="horizontal"
-          data-radix-collection-item=""
-          data-state="active"
-          id="radix-:r0:-trigger-/user-profile/username/overview"
-          role="tab"
-          tabindex="-1"
-          type="button"
-        >
-          <svg
-            class="lucide lucide-circle-check-big md:mr-2"
-            fill="none"
-            height="20"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-            width="20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M21.801 10A10 10 0 1 1 17 3.335"
-            />
-            <path
-              d="m9 11 3 3L22 4"
-            />
-          </svg>
-          <span
-            class="hidden md:block"
-          >
-            Overview
-          </span>
-        </button>
-      </a>
-      <a
-        href="/user-profile/username/personal-info"
+        <path
+          d="M21.801 10A10 10 0 1 1 17 3.335"
+        />
+        <path
+          d="m9 11 3 3L22 4"
+        />
+      </svg>
+      <span
+        class="hidden md:block"
       >
-        <button
-          aria-controls="radix-:r0:-content-/user-profile/username/personal-info"
-          aria-selected="false"
-          class="flex items-center w-fit md:w-64 h-10 justify-start whitespace-nowrap rounded-md px-3 py-1.5 text-sm font-medium font-roboto data-[state=active]:shadow-lg data-[state=active]:bg-blue-400 data-[state=active]:text-white"
-          data-orientation="horizontal"
-          data-radix-collection-item=""
-          data-state="inactive"
-          id="radix-:r0:-trigger-/user-profile/username/personal-info"
-          role="tab"
-          tabindex="-1"
-          type="button"
-        >
-          <svg
-            class="lucide lucide-grip md:mr-2"
-            fill="none"
-            height="20"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-            width="20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle
-              cx="12"
-              cy="5"
-              r="1"
-            />
-            <circle
-              cx="19"
-              cy="5"
-              r="1"
-            />
-            <circle
-              cx="5"
-              cy="5"
-              r="1"
-            />
-            <circle
-              cx="12"
-              cy="12"
-              r="1"
-            />
-            <circle
-              cx="19"
-              cy="12"
-              r="1"
-            />
-            <circle
-              cx="5"
-              cy="12"
-              r="1"
-            />
-            <circle
-              cx="12"
-              cy="19"
-              r="1"
-            />
-            <circle
-              cx="19"
-              cy="19"
-              r="1"
-            />
-            <circle
-              cx="5"
-              cy="19"
-              r="1"
-            />
-          </svg>
-          <span
-            class="hidden md:block"
-          >
-            Personal Info
-          </span>
-        </button>
-      </a>
-      <a
-        href="/user-profile/username/education"
+        Overview
+      </span>
+    </button>
+    <button
+      class="font-roboto whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border border-none px-4 py-2 flex items-center w-fit md:w-64 h-10 justify-start dark:text-slate-300 text-slate-600 hover:bg-primary hover:shadow-md hover:text-white hover:dark:text-white"
+    >
+      <svg
+        class="lucide lucide-grip md:mr-2"
+        fill="none"
+        height="20"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <button
-          aria-controls="radix-:r0:-content-/user-profile/username/education"
-          aria-selected="false"
-          class="flex items-center w-fit md:w-64 h-10 justify-start whitespace-nowrap rounded-md px-3 py-1.5 text-sm font-medium font-roboto data-[state=active]:shadow-lg data-[state=active]:bg-blue-400 data-[state=active]:text-white"
-          data-orientation="horizontal"
-          data-radix-collection-item=""
-          data-state="inactive"
-          id="radix-:r0:-trigger-/user-profile/username/education"
-          role="tab"
-          tabindex="-1"
-          type="button"
-        >
-          <svg
-            class="lucide lucide-graduation-cap md:mr-2"
-            fill="none"
-            height="20"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-            width="20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"
-            />
-            <path
-              d="M22 10v6"
-            />
-            <path
-              d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"
-            />
-          </svg>
-          <span
-            class="hidden md:block"
-          >
-            Education
-          </span>
-        </button>
-      </a>
-      <a
-        href="/user-profile/username/jobs"
+        <circle
+          cx="12"
+          cy="5"
+          r="1"
+        />
+        <circle
+          cx="19"
+          cy="5"
+          r="1"
+        />
+        <circle
+          cx="5"
+          cy="5"
+          r="1"
+        />
+        <circle
+          cx="12"
+          cy="12"
+          r="1"
+        />
+        <circle
+          cx="19"
+          cy="12"
+          r="1"
+        />
+        <circle
+          cx="5"
+          cy="12"
+          r="1"
+        />
+        <circle
+          cx="12"
+          cy="19"
+          r="1"
+        />
+        <circle
+          cx="19"
+          cy="19"
+          r="1"
+        />
+        <circle
+          cx="5"
+          cy="19"
+          r="1"
+        />
+      </svg>
+      <span
+        class="hidden md:block"
       >
-        <button
-          aria-controls="radix-:r0:-content-/user-profile/username/jobs"
-          aria-selected="false"
-          class="flex items-center w-fit md:w-64 h-10 justify-start whitespace-nowrap rounded-md px-3 py-1.5 text-sm font-medium font-roboto data-[state=active]:shadow-lg data-[state=active]:bg-blue-400 data-[state=active]:text-white"
-          data-orientation="horizontal"
-          data-radix-collection-item=""
-          data-state="inactive"
-          id="radix-:r0:-trigger-/user-profile/username/jobs"
-          role="tab"
-          tabindex="-1"
-          type="button"
-        >
-          <svg
-            class="lucide lucide-briefcase-business md:mr-2"
-            fill="none"
-            height="20"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-            width="20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12 12h.01"
-            />
-            <path
-              d="M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"
-            />
-            <path
-              d="M22 13a18.15 18.15 0 0 1-20 0"
-            />
-            <rect
-              height="14"
-              rx="2"
-              width="20"
-              x="2"
-              y="6"
-            />
-          </svg>
-          <span
-            class="hidden md:block"
-          >
-            Jobs
-          </span>
-        </button>
-      </a>
-    </div>
+        Personal Info
+      </span>
+    </button>
+    <button
+      class="font-roboto whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border border-none px-4 py-2 flex items-center w-fit md:w-64 h-10 justify-start dark:text-slate-300 text-slate-600 hover:bg-primary hover:shadow-md hover:text-white hover:dark:text-white"
+    >
+      <svg
+        class="lucide lucide-graduation-cap md:mr-2"
+        fill="none"
+        height="20"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"
+        />
+        <path
+          d="M22 10v6"
+        />
+        <path
+          d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"
+        />
+      </svg>
+      <span
+        class="hidden md:block"
+      >
+        Education
+      </span>
+    </button>
+    <button
+      class="font-roboto whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border border-none px-4 py-2 flex items-center w-fit md:w-64 h-10 justify-start dark:text-slate-300 text-slate-600 hover:bg-primary hover:shadow-md hover:text-white hover:dark:text-white"
+    >
+      <svg
+        class="lucide lucide-briefcase-business md:mr-2"
+        fill="none"
+        height="20"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 12h.01"
+        />
+        <path
+          d="M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"
+        />
+        <path
+          d="M22 13a18.15 18.15 0 0 1-20 0"
+        />
+        <rect
+          height="14"
+          rx="2"
+          width="20"
+          x="2"
+          y="6"
+        />
+      </svg>
+      <span
+        class="hidden md:block"
+      >
+        Jobs
+      </span>
+    </button>
   </div>
 </div>
 `;

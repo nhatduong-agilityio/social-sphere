@@ -235,7 +235,7 @@ export const GroupsWidget = memo(({ authorId, groups }: GroupsWidgetProps) => {
 
           <div className="flex items-center gap-3">
             <Button
-              aria-label="CreateGroup"
+              aria-label="Create Group"
               size="icon"
               variant="rounded"
               className="hover:bg-muted"

@@ -27,7 +27,8 @@ export const ProfileHeader = ({
   imageUrl,
   bannerUrl,
 }: ProfileHeaderProps) => {
-  const baseStyleButton = 'w-[140px] border border-gray-900';
+  const baseStyleButton =
+    'w-[140px] border border-gray-900 dark:text-neutral-50 text-neutral-600';
   const activeButton = 'w-[140px] text-blue-600 border border-red-600';
   const pathname = decodeURIComponent(usePathname() || '');
 

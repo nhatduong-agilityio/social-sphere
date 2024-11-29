@@ -38,7 +38,7 @@ exports[`OverviewContent Component should render correctly 1`] = `
             class="space-y-0"
           >
             <label
-              class="font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-neutral-400 font-medium text-4xs"
+              class="font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-medium text-4xs dark:text-slate-200 text-slate-600"
               for=":r0:-form-item"
             >
               FIRST NAME
@@ -51,7 +51,7 @@ exports[`OverviewContent Component should render correctly 1`] = `
                 aria-describedby=":r0:-form-item-description"
                 aria-invalid="false"
                 autocomplete="off"
-                class="flex w-full rounded-lg border-input file:border-0 file:bg-transparent file:text-xs file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 border-0 bg-transparent transition-all duration-300 ease-in-out focus:border-ring dark:border-input h-6 p-0 border-none dark:bg-slate-800 text-slate-400 text-2xs"
+                class="flex w-full rounded-lg border-input file:border-0 file:bg-transparent file:text-xs file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 border-0 bg-transparent transition-all duration-300 ease-in-out focus:border-ring dark:border-input h-6 p-0 border-none dark:bg-slate-800 dark:text-slate-300 text-slate-500 text-2xs"
                 data-testid="input-element"
                 id=":r0:-form-item"
                 name="firstName"
@@ -117,7 +117,7 @@ exports[`OverviewContent Component should render correctly 1`] = `
             class="space-y-0"
           >
             <label
-              class="font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-neutral-400 font-medium text-4xs"
+              class="font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-medium text-4xs dark:text-slate-200 text-slate-600"
               for=":r1:-form-item"
             >
               LAST NAME
@@ -130,7 +130,7 @@ exports[`OverviewContent Component should render correctly 1`] = `
                 aria-describedby=":r1:-form-item-description"
                 aria-invalid="false"
                 autocomplete="off"
-                class="flex w-full rounded-lg border-input file:border-0 file:bg-transparent file:text-xs file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 border-0 bg-transparent transition-all duration-300 ease-in-out focus:border-ring dark:border-input h-6 p-0 border-none dark:bg-slate-800 text-slate-400 text-2xs"
+                class="flex w-full rounded-lg border-input file:border-0 file:bg-transparent file:text-xs file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 border-0 bg-transparent transition-all duration-300 ease-in-out focus:border-ring dark:border-input h-6 p-0 border-none dark:bg-slate-800 dark:text-slate-300 text-slate-500 text-2xs"
                 data-testid="input-element"
                 id=":r1:-form-item"
                 name="lastName"
@@ -224,7 +224,7 @@ exports[`OverviewContent Component should render correctly 1`] = `
             class="space-y-0"
           >
             <label
-              class="font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-neutral-400 font-medium text-4xs"
+              class="font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-medium text-4xs dark:text-slate-200 text-slate-600"
               for=":r2:-form-item"
             >
               JOB
@@ -237,7 +237,7 @@ exports[`OverviewContent Component should render correctly 1`] = `
                 aria-describedby=":r2:-form-item-description"
                 aria-invalid="false"
                 autocomplete="off"
-                class="flex w-full rounded-lg border-input file:border-0 file:bg-transparent file:text-xs file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 border-0 bg-transparent transition-all duration-300 ease-in-out focus:border-ring dark:border-input h-6 p-0 border-none dark:bg-slate-800 text-slate-400 text-2xs"
+                class="flex w-full rounded-lg border-input file:border-0 file:bg-transparent file:text-xs file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 border-0 bg-transparent transition-all duration-300 ease-in-out focus:border-ring dark:border-input h-6 p-0 border-none dark:bg-slate-800 dark:text-slate-300 text-slate-500 text-2xs"
                 data-testid="input-element"
                 id=":r2:-form-item"
                 name="job"
@@ -303,7 +303,7 @@ exports[`OverviewContent Component should render correctly 1`] = `
             class="space-y-0"
           >
             <label
-              class="font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-neutral-400 font-medium text-4xs"
+              class="font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-medium text-4xs dark:text-slate-200 text-slate-600"
               for=":r3:-form-item"
             >
               LOCATION
@@ -318,7 +318,7 @@ exports[`OverviewContent Component should render correctly 1`] = `
                 aria-describedby=":r3:-form-item-description"
                 aria-invalid="false"
                 autocomplete="true"
-                class="flex w-full rounded-lg border border-input hover:border-gray-900 bg-white file:border-0 file:bg-transparent file:text-xs file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-300 ease-in-out dark:border-dark-300 dark:bg-slate-800 h-6 p-0 text-slate-400 text-2xs border-none"
+                class="flex w-full rounded-lg border border-input hover:border-gray-900 bg-white file:border-0 file:bg-transparent file:text-xs file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-300 ease-in-out dark:border-dark-300 dark:bg-slate-800 h-6 p-0 dark:text-slate-300 text-slate-500 text-2xs border-none"
                 id="location-input"
                 placeholder="Enter a location"
                 value="Melbourne"
@@ -363,7 +363,7 @@ exports[`OverviewContent Component should render correctly 1`] = `
           class="w-full h-full space-y-0"
         >
           <label
-            class="font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-neutral-400 font-medium text-lg dark:text-white"
+            class="font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-medium text-lg dark:text-slate-200 text-slate-600"
             for=":r4:-form-item"
           >
             About Me
@@ -371,7 +371,7 @@ exports[`OverviewContent Component should render correctly 1`] = `
           <textarea
             aria-describedby=":r4:-form-item-description"
             aria-invalid="false"
-            class="flex rounded-md border border-input bg-card ring-offset-background placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 focus:outline-none min-h-[80px] w-full h-56 p-0 border-none dark:bg-slate-800 text-slate-400 text-md"
+            class="flex rounded-md border border-input bg-card ring-offset-background placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 focus:outline-none min-h-[80px] w-full h-56 p-0 border-none dark:bg-slate-800 dark:text-slate-300 text-slate-500 text-md"
             id=":r4:-form-item"
             name="bio"
             placeholder="Enter your bio"

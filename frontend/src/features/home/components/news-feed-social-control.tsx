@@ -32,7 +32,7 @@ interface SocialButtonProps {
 const SocialButton = forwardRef<HTMLButtonElement, SocialButtonProps>(
   ({ icon, onClick, className }, ref) => (
     <Button
-      aria-label="SocialButton"
+      aria-label="Social Button"
       type="button"
       ref={ref}
       variant="primary"

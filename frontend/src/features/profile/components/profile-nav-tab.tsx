@@ -1,24 +1,27 @@
 'use client';
 
-import { memo } from 'react';
-import Link from 'next/link';
+import { memo, useCallback } from 'react';
 import {
   BriefcaseBusiness,
   CircleCheckBig,
   GraduationCap,
   Grip,
 } from 'lucide-react';
-import { useParams, usePathname } from 'next/navigation';
+import { useParams, usePathname, useRouter } from 'next/navigation';
 
 // Components
-import { Tabs, TabsList, TabsTrigger } from '@/components/ui';
+import { Button } from '@/components/ui';
 
 // Constants
 import { ROUTER } from '@/constants';
 
+// Utils
+import { cn } from '@/utils';
+
 export const ProfileNavTab = memo(() => {
   const pathname = decodeURIComponent(usePathname() || '');
   const { username } = useParams();
+  const router = useRouter();
 
   const TABS = [
     {
@@ -47,19 +50,35 @@ export const ProfileNavTab = memo(() => {
     },
   ];
 
+  const handleOnChangeLink = useCallback(
+    (href: string) => {
+      router.push(href);
+    },
+    [router],
+  );
+
   return (
-    <Tabs value={pathname || TABS[0].href}>
-      <TabsList>
-        {TABS.map(({ key, label, icon, href }) => (
-          <Link key={key} href={href}>
-            <TabsTrigger value={decodeURIComponent(href)}>
-              {icon}
-              <span className="hidden md:block">{label}</span>
-            </TabsTrigger>
-          </Link>
-        ))}
-      </TabsList>
-    </Tabs>
+    <div className="flex md:flex-col items-center gap-4 text-muted-foreground">
+      {TABS.map(({ key, label, icon, href }) => {
+        const isActive =
+          decodeURIComponent(pathname) === decodeURIComponent(href);
+
+        return (
+          <Button
+            key={key}
+            variant="link"
+            className={cn(
+              'flex items-center w-fit md:w-64 h-10 justify-start dark:text-slate-300 text-slate-600 hover:bg-primary hover:shadow-md hover:text-white hover:dark:text-white',
+              isActive && 'bg-blue-500 text-white dark:text-white',
+            )}
+            onClick={() => handleOnChangeLink(href)}
+          >
+            {icon}
+            <span className="hidden md:block">{label}</span>
+          </Button>
+        );
+      })}
+    </div>
   );
 });
 

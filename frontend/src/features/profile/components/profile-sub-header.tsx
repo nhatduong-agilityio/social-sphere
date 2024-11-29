@@ -23,18 +23,22 @@ export const ProfileSubHeader = memo(({ user }: ProfileSubHeaderProps) => {
         <span className="font-montserrat text-[25.6px] font-semibold">
           {formatNumber(countFriends) || '0'}
         </span>
-        <span className="text-neutral-100 text-4xs uppercase">Friends</span>
+        <span className="dark:text-neutral-100 text-neutral-600 text-4xs uppercase">
+          Friends
+        </span>
       </div>
 
       <div className="text-center flex-1 md:pt-0 pt-12">
         <h2 className="font-semibold font-montserrat text-xl">
           {getFullName(firstName, lastName)}
         </h2>
-        <span className="font-roboto text-neutral-100 text-sm">{job}</span>
+        <span className="font-roboto dark:text-neutral-100 text-neutral-600 text-sm">
+          {job}
+        </span>
       </div>
 
       <div className="hidden md:flex justify-end flex-1">
-        <Button className="flex items-center gap-1 border border-gray-900">
+        <Button className="flex items-center gap-1 border border-gray-900 dark:text-neutral-50 text-neutral-600">
           <Clock size={16} />
           History
         </Button>
