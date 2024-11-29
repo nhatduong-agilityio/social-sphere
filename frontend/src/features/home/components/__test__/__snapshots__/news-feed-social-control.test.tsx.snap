@@ -6,7 +6,7 @@ exports[`NewsFeedSocialControl matches snapshot 1`] = `
     class="flex items-center gap-1"
   >
     <button
-      aria-label="SocialButton"
+      aria-label="Social Button"
       class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-primary text-white dark:hover:opacity-85 hover:shadow-sphere-primary border-primary rounded-full p-0 hover:opacity-100 relative w-[43px] h-[43px] shadow-sphere-secondary hover:bg-blue-50"
       type="button"
     >
@@ -28,7 +28,7 @@ exports[`NewsFeedSocialControl matches snapshot 1`] = `
       </svg>
     </button>
     <button
-      aria-label="SocialButton"
+      aria-label="Social Button"
       class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-primary text-white dark:hover:opacity-85 hover:shadow-sphere-primary border-primary rounded-full p-0 hover:opacity-100 relative w-[43px] h-[43px] shadow-sphere-secondary hover:bg-blue-50"
       type="button"
     >
@@ -59,7 +59,7 @@ exports[`NewsFeedSocialControl matches snapshot 1`] = `
       </svg>
     </button>
     <button
-      aria-label="SocialButton"
+      aria-label="Social Button"
       class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border text-white dark:hover:opacity-85 border-primary rounded-full p-0 hover:opacity-100 relative w-[54px] h-[54px] border-none bg-white dark:bg-blue-700 hover:bg-white dark:hover:bg-blue-700 shadow-sphere-medium hover:shadow-sphere-medium"
       type="button"
     >
@@ -92,7 +92,7 @@ exports[`NewsFeedSocialControl matches snapshot when liked 1`] = `
     class="flex items-center gap-1"
   >
     <button
-      aria-label="SocialButton"
+      aria-label="Social Button"
       class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-primary text-white dark:hover:opacity-85 hover:shadow-sphere-primary border-primary rounded-full p-0 hover:opacity-100 relative w-[43px] h-[43px] shadow-sphere-secondary hover:bg-blue-50"
       type="button"
     >
@@ -114,7 +114,7 @@ exports[`NewsFeedSocialControl matches snapshot when liked 1`] = `
       </svg>
     </button>
     <button
-      aria-label="SocialButton"
+      aria-label="Social Button"
       class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-primary text-white dark:hover:opacity-85 hover:shadow-sphere-primary border-primary rounded-full p-0 hover:opacity-100 relative w-[43px] h-[43px] shadow-sphere-secondary hover:bg-blue-50"
       type="button"
     >
@@ -145,7 +145,7 @@ exports[`NewsFeedSocialControl matches snapshot when liked 1`] = `
       </svg>
     </button>
     <button
-      aria-label="SocialButton"
+      aria-label="Social Button"
       class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border text-white dark:hover:opacity-85 border-primary rounded-full p-0 hover:opacity-100 relative w-[54px] h-[54px] border-none bg-white dark:bg-blue-700 shadow-sphere-destructive hover:shadow-sphere-destructive"
       type="button"
     >

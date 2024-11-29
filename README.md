@@ -4,7 +4,7 @@ This document provides an overview of the system, detailing technical requiremen
 
 ## Timeline
 
-- . working days
+- 9 working weeks
 
 ## Features
 
@@ -34,7 +34,7 @@ This app includes:
 - TailwindCss [^3.4.1]
 - [shadcn/ui](https://ui.shadcn.com/)
 - NextAuth
-- Strapi
+- [Strapi](https://docs.strapi.io/dev-docs/intro)
 
 ## How to run
 
@@ -47,6 +47,7 @@ Make sure you install packages with correct version below:
 
 - **Note:**
   - Please add `.env` into backend and frontend folder of project source code, refer `.env.sample`.
+  - Please download [postgresql v14](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads) to your device to be able to use the BE app locally. Checkout [strapi/installation](https://docs.strapi.io/dev-docs/installation/cli) for more information.
 
 Check and update config image hosting on `next.config.mjs` file follow [Next.js document](https://nextjs.org/docs/messages/next-image-unconfigured-host)
 
@@ -154,11 +155,11 @@ features/awesome-feature
 
 ### Team size
 
-- 1 Developer: [Nhat Duong Cong](mailto:nhat.duong@asnet.com.vn)
+- 2 Developer: [Nhat Duong Cong](mailto:nhat.duong@asnet.com.vn), [Loc Vo](mailto:loc.vo@asnet.com.vn)
 
-- GitLab: [@nhat.duong](https://gitlab.asoft-python.com/nhat.duong)
+- GitLab: [@nhat.duong](https://gitlab.asoft-python.com/nhat.duong), [@loc.vo](https://gitlab.asoft-python.com/loc.vo)
 
-- Slack: nhat.duong
+- Slack: nhat.duong, loc.vo
 
 ### Task Management
 
@@ -173,4 +174,4 @@ features/awesome-feature
 
 ### Availability
 
-Nhat is typically available during weekdays and aims to respond to issues and pull requests within 48 hours. For urgent matters, please email directly.
+Nhat, Loc is typically available during weekdays and aims to respond to issues and pull requests within 48 hours. For urgent matters, please email directly.
