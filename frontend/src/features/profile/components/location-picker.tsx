@@ -155,11 +155,16 @@ export const LocationPicker = memo(
               name="location"
               render={({ field }) => (
                 <FormItem className="space-y-0">
-                  <FormLabel size="tiny">LOCATION</FormLabel>
+                  <FormLabel
+                    className="dark:text-slate-200 text-slate-600"
+                    size="tiny"
+                  >
+                    LOCATION
+                  </FormLabel>
                   <FormControl>
                     <AutoCompleteInput
                       id="location-input"
-                      className="dark:bg-slate-800 h-6 p-0 text-slate-400 text-2xs border-none"
+                      className="dark:bg-slate-800 h-6 p-0 dark:text-slate-300 text-slate-500 text-2xs border-none"
                       placeholder="Enter a location"
                       value={field.value?.city || ''}
                       onChange={(e) => {

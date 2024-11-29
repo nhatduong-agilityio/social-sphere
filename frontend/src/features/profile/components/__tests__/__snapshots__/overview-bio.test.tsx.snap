@@ -12,7 +12,7 @@ exports[`OverviewBio Component should render correctly 1`] = `
         class="w-full h-full space-y-0"
       >
         <label
-          class="font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-neutral-400 font-medium text-lg dark:text-white"
+          class="font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-medium text-lg dark:text-slate-200 text-slate-600"
           for=":r0:-form-item"
         >
           About Me
@@ -20,7 +20,7 @@ exports[`OverviewBio Component should render correctly 1`] = `
         <textarea
           aria-describedby=":r0:-form-item-description"
           aria-invalid="false"
-          class="flex rounded-md border border-input bg-card ring-offset-background placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 focus:outline-none min-h-[80px] w-full h-56 p-0 border-none dark:bg-slate-800 text-slate-400 text-md"
+          class="flex rounded-md border border-input bg-card ring-offset-background placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 focus:outline-none min-h-[80px] w-full h-56 p-0 border-none dark:bg-slate-800 dark:text-slate-300 text-slate-500 text-md"
           id=":r0:-form-item"
           name="bio"
           placeholder="Enter your bio"

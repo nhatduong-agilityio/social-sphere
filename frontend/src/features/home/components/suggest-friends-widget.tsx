@@ -60,7 +60,7 @@ const SuggestedFriendItem = ({
 
       <Button
         size="icon"
-        aria-label="AddFriend"
+        aria-label="Add Friend"
         variant="rounded"
         className="w-9 h-9 border-none"
         onClick={() => handleAddFriend(user.id.toString())}
@@ -125,7 +125,7 @@ export const SuggestFriendsWidget = ({
 
         <div className="flex items-center gap-3">
           <Button
-            aria-label="SeeMore"
+            aria-label="See More"
             size="icon"
             variant="rounded"
             className="hover:bg-muted"

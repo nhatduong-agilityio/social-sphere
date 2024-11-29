@@ -54,8 +54,13 @@ export const NewFriendsWidget = ({ friends }: NewFriendsWidgetProps) => {
         </div>
 
         <div className="flex items-center gap-3">
-          <Button size="icon" variant="rounded" className="hover:bg-muted">
-            <EllipsisVertical size={20} className="text-slate-600" />
+          <Button
+            aria-label="See More"
+            size="icon"
+            variant="rounded"
+            className="hover:bg-muted"
+          >
+            <EllipsisVertical size={20} className="text-slate-300" />
           </Button>
         </div>
       </CardHeader>

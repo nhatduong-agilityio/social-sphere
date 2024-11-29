@@ -85,12 +85,12 @@ export const OverviewBio = ({ isDisabled = false, user }: OverviewBioProps) => {
             name="bio"
             render={({ field }) => (
               <FormItem className="w-full h-full space-y-0">
-                <FormLabel className="text-lg dark:text-white">
+                <FormLabel className="text-lg dark:text-slate-200 text-slate-600">
                   About Me
                 </FormLabel>
                 <FormControl>
                   <Textarea
-                    className="w-full h-56 p-0 border-none dark:bg-slate-800 text-slate-400 text-md"
+                    className="w-full h-56 p-0 border-none dark:bg-slate-800 dark:text-slate-300 text-slate-500 text-md"
                     variant="ghost"
                     placeholder="Enter your bio"
                     {...field}

@@ -10,6 +10,7 @@ const useParamsMock = {
 jest.mock('next/navigation', () => ({
   usePathname: jest.fn(),
   useParams: () => useParamsMock,
+  useRouter: jest.fn(),
 }));
 
 describe('ProfileNavTab Component', () => {

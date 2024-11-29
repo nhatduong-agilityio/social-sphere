@@ -15,6 +15,7 @@ export const PopButton = memo(
 
     return (
       <Button
+        aria-label="Pop Button"
         size="icon"
         className="-z-10 absolute border-none dark:bg-dark-900 rounded-full w-[34px] h-[34px] transition-all duration-300"
         style={{ transform: isActive ? activeTransform : inactiveTransform }}

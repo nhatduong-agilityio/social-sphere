@@ -50,7 +50,7 @@ export const StoriesWidget = memo(({ onAddStory }: StoriesWidgetProps) => {
 
         <div className="flex items-center gap-3">
           <Button
-            aria-label="CreateStory"
+            aria-label="Create Story"
             size="icon"
             variant="rounded"
             className="hover:bg-muted"
@@ -64,7 +64,7 @@ export const StoriesWidget = memo(({ onAddStory }: StoriesWidgetProps) => {
         <div className="p-4 flex w-full border-t border-slate-300 dark:border-slate-600 items-center justify-between group cursor-pointer">
           <div className="flex items-center gap-3">
             <Button
-              aria-label="CreateStory"
+              aria-label="Create Story"
               size="icon"
               variant="rounded"
               className="w-11 h-11 border-2 border-dashed dark:border-white group-hover:border-primary hover:border-solid"

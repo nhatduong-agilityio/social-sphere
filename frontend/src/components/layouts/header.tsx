@@ -162,7 +162,7 @@ export const Header = memo(({ isAuthenticated = true, user }: HeaderProps) => {
               circleClassName="border-0 w-2 h-2 top-0.5 right-0.5 bg-blue-600"
             >
               <Button
-                aria-label="ShoppingCart"
+                aria-label="Shopping Cart"
                 variant="unstyle"
                 className="w-9 p-0 h-full hover:bg-transparent"
               >

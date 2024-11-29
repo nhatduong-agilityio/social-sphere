@@ -45,12 +45,13 @@ exports[`VideoPanel Component should render correctly 1`] = `
           class="relative"
         >
           <button
-            class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 border-gray-800 dark:border-dark-500 dark:bg-dark-100 h-10 px-4 py-2"
+            class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-white hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 border-gray-800 dark:border-dark-500 dark:bg-dark-100 h-10 px-4 py-2 dark:text-neutral-50 text-neutral-600"
           >
             All Videos
           </button>
         </div>
         <button
+          aria-label="See More"
           class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border rounded-full h-10 w-10 hover:bg-muted"
         >
           <svg
@@ -108,9 +109,10 @@ exports[`VideoPanel Component should render correctly 1`] = `
             class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
           >
             <a
-              href=""
+              href="https://friendkit.cssninja.io/assets/img/demo/profile/about/videos/1.jpg"
             >
               <button
+                aria-label="Avatar"
                 class="font-roboto whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-primary text-white dark:hover:opacity-85 hover:opacity-75 hover:shadow-sphere-primary border-primary px-3 w-[34px] h-[34px] rounded-full inset-0 flex items-center border-none dark:bg-blue-500 justify-center"
               >
                 <svg
@@ -185,9 +187,10 @@ exports[`VideoPanel Component should render correctly 1`] = `
             class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
           >
             <a
-              href=""
+              href="https://friendkit.cssninja.io/assets/img/demo/profile/about/videos/1.jpg"
             >
               <button
+                aria-label="Avatar"
                 class="font-roboto whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-primary text-white dark:hover:opacity-85 hover:opacity-75 hover:shadow-sphere-primary border-primary px-3 w-[34px] h-[34px] rounded-full inset-0 flex items-center border-none dark:bg-blue-500 justify-center"
               >
                 <svg
@@ -262,9 +265,10 @@ exports[`VideoPanel Component should render correctly 1`] = `
             class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
           >
             <a
-              href=""
+              href="https://friendkit.cssninja.io/assets/img/demo/profile/about/videos/1.jpg"
             >
               <button
+                aria-label="Avatar"
                 class="font-roboto whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-primary text-white dark:hover:opacity-85 hover:opacity-75 hover:shadow-sphere-primary border-primary px-3 w-[34px] h-[34px] rounded-full inset-0 flex items-center border-none dark:bg-blue-500 justify-center"
               >
                 <svg
@@ -339,9 +343,10 @@ exports[`VideoPanel Component should render correctly 1`] = `
             class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
           >
             <a
-              href=""
+              href="https://friendkit.cssninja.io/assets/img/demo/profile/about/videos/1.jpg"
             >
               <button
+                aria-label="Avatar"
                 class="font-roboto whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-primary text-white dark:hover:opacity-85 hover:opacity-75 hover:shadow-sphere-primary border-primary px-3 w-[34px] h-[34px] rounded-full inset-0 flex items-center border-none dark:bg-blue-500 justify-center"
               >
                 <svg
@@ -416,9 +421,10 @@ exports[`VideoPanel Component should render correctly 1`] = `
             class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
           >
             <a
-              href=""
+              href="https://friendkit.cssninja.io/assets/img/demo/profile/about/videos/1.jpg"
             >
               <button
+                aria-label="Avatar"
                 class="font-roboto whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-primary text-white dark:hover:opacity-85 hover:opacity-75 hover:shadow-sphere-primary border-primary px-3 w-[34px] h-[34px] rounded-full inset-0 flex items-center border-none dark:bg-blue-500 justify-center"
               >
                 <svg

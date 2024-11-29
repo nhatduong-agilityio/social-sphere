@@ -32,7 +32,7 @@ exports[`OverviewInput Component should render correctly 1`] = `
         class="space-y-0"
       >
         <label
-          class="font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-neutral-400 font-medium text-4xs"
+          class="font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-medium text-4xs dark:text-slate-200 text-slate-600"
           for=":r0:-form-item"
         >
           FIRST NAME
@@ -45,7 +45,7 @@ exports[`OverviewInput Component should render correctly 1`] = `
             aria-describedby=":r0:-form-item-description"
             aria-invalid="false"
             autocomplete="off"
-            class="flex w-full rounded-lg border-input file:border-0 file:bg-transparent file:text-xs file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 border-0 bg-transparent transition-all duration-300 ease-in-out focus:border-ring dark:border-input h-6 p-0 border-none dark:bg-slate-800 text-slate-400 text-2xs"
+            class="flex w-full rounded-lg border-input file:border-0 file:bg-transparent file:text-xs file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 border-0 bg-transparent transition-all duration-300 ease-in-out focus:border-ring dark:border-input h-6 p-0 border-none dark:bg-slate-800 dark:text-slate-300 text-slate-500 text-2xs"
             data-testid="input-element"
             id=":r0:-form-item"
             name="firstName"

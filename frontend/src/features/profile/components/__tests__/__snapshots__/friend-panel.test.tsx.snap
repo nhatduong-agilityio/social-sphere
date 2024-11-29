@@ -48,7 +48,9 @@ exports[`FriendPanel Component should render correctly 1`] = `
             Invitations
           </button>
         </div>
-        <button>
+        <button
+          aria-label="See More"
+        >
           <svg
             class="lucide lucide-ellipsis-vertical"
             fill="none"

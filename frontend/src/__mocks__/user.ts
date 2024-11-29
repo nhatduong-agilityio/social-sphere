@@ -131,7 +131,8 @@ export const MOCK_VIDEOS = [
     id: '1',
     thumbnail:
       'https://friendkit.cssninja.io/assets/img/demo/profile/about/videos/1.jpg',
-    videoSrc: '',
+    videoSrc:
+      'https://friendkit.cssninja.io/assets/img/demo/profile/about/videos/1.jpg',
     duration: 152,
     alt: 'Video 1',
   },
@@ -139,7 +140,8 @@ export const MOCK_VIDEOS = [
     id: '2',
     thumbnail:
       'https://friendkit.cssninja.io/assets/img/demo/profile/about/videos/2.jpg',
-    videoSrc: '',
+    videoSrc:
+      'https://friendkit.cssninja.io/assets/img/demo/profile/about/videos/1.jpg',
     duration: 152,
     alt: 'Video 2',
   },
@@ -147,7 +149,8 @@ export const MOCK_VIDEOS = [
     id: '3',
     thumbnail:
       'https://friendkit.cssninja.io/assets/img/demo/profile/about/videos/3.jpg',
-    videoSrc: '',
+    videoSrc:
+      'https://friendkit.cssninja.io/assets/img/demo/profile/about/videos/1.jpg',
     duration: 152,
     alt: 'Video 3',
   },
@@ -155,7 +158,8 @@ export const MOCK_VIDEOS = [
     id: '4',
     thumbnail:
       'https://friendkit.cssninja.io/assets/img/demo/profile/about/videos/4.jpg',
-    videoSrc: '',
+    videoSrc:
+      'https://friendkit.cssninja.io/assets/img/demo/profile/about/videos/1.jpg',
     duration: 152,
     alt: 'Video 4',
   },
@@ -163,7 +167,8 @@ export const MOCK_VIDEOS = [
     id: '5',
     thumbnail:
       'https://friendkit.cssninja.io/assets/img/demo/profile/about/videos/5.jpg',
-    videoSrc: '',
+    videoSrc:
+      'https://friendkit.cssninja.io/assets/img/demo/profile/about/videos/1.jpg',
     duration: 152,
     alt: 'Video 5',
   },

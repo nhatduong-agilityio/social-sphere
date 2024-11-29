@@ -20,9 +20,10 @@ exports[`Video Component should render correctly 1`] = `
       class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
     >
       <a
-        href=""
+        href="https://friendkit.cssninja.io/assets/img/demo/profile/about/videos/1.jpg"
       >
         <button
+          aria-label="Avatar"
           class="font-roboto whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-primary text-white dark:hover:opacity-85 hover:opacity-75 hover:shadow-sphere-primary border-primary px-3 w-[34px] h-[34px] rounded-full inset-0 flex items-center border-none dark:bg-blue-500 justify-center"
         >
           <svg

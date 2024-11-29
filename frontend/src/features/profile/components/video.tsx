@@ -39,6 +39,7 @@ export const Video = memo(
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <Link href={videoSrc}>
             <Button
+              aria-label="Avatar"
               variant="primary"
               size="sm"
               className="w-[34px] h-[34px] rounded-full inset-0 flex items-center border-none dark:bg-blue-500 justify-center"
