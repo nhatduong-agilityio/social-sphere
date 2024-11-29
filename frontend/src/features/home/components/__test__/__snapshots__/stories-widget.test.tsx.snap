@@ -21,7 +21,7 @@ exports[`StoriesWidget matches snapshot 1`] = `
         class="flex items-center gap-3"
       >
         <button
-          aria-label="CreateStory"
+          aria-label="Create Story"
           class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border rounded-full h-10 w-10 hover:bg-muted"
         >
           <svg
@@ -65,7 +65,7 @@ exports[`StoriesWidget matches snapshot 1`] = `
           class="flex items-center gap-3"
         >
           <button
-            aria-label="CreateStory"
+            aria-label="Create Story"
             class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring rounded-full w-11 h-11 border-2 border-dashed dark:border-white group-hover:border-primary hover:border-solid"
           >
             <svg

@@ -50,7 +50,7 @@ exports[`NewsFeedCommentList matches snapshot 1`] = `
       <button
         aria-expanded="false"
         aria-haspopup="menu"
-        aria-label="SeeMore"
+        aria-label="See More"
         class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border rounded-full hover:bg-muted opacity-0 group-hover:opacity-100 transition-opacity duration-200 w-8 h-8"
         data-state="closed"
         id="radix-:r0:"
@@ -206,7 +206,7 @@ exports[`NewsFeedCommentList matches snapshot with replies 1`] = `
       <button
         aria-expanded="false"
         aria-haspopup="menu"
-        aria-label="SeeMore"
+        aria-label="See More"
         class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border rounded-full hover:bg-muted opacity-0 group-hover:opacity-100 transition-opacity duration-200 w-8 h-8"
         data-state="closed"
         id="radix-:r2:"
@@ -355,7 +355,7 @@ exports[`NewsFeedCommentList matches snapshot with replies 1`] = `
           <button
             aria-expanded="false"
             aria-haspopup="menu"
-            aria-label="SeeMore"
+            aria-label="See More"
             class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border rounded-full hover:bg-muted opacity-0 group-hover:opacity-100 transition-opacity duration-200 w-8 h-8"
             data-state="closed"
             id="radix-:r4:"
