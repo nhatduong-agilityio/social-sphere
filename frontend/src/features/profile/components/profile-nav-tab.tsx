@@ -58,7 +58,7 @@ export const ProfileNavTab = memo(() => {
   );
 
   return (
-    <div className="flex md:flex-col items-center gap-4 text-muted-foreground">
+    <div className="flex md:flex-col items-center md:justify-start justify-between gap-4 text-muted-foreground">
       {TABS.map(({ key, label, icon, href }) => {
         const isActive =
           decodeURIComponent(pathname) === decodeURIComponent(href);
