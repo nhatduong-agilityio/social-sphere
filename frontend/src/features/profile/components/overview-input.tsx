@@ -54,8 +54,12 @@ export const OverviewInput = ({
     defaultValues: {
       firstName: user.firstName || '',
       lastName: user.lastName || '',
-      location: user.location || {},
+      location: user.location || {
+        city: '',
+        countryCode: '',
+      },
       job: user.job || '',
+      bio: user.bio || '',
     },
   });
 
