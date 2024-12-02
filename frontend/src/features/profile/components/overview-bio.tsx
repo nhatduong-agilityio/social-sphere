@@ -43,7 +43,10 @@ export const OverviewBio = ({ isDisabled = false, user }: OverviewBioProps) => {
     defaultValues: {
       firstName: user.firstName || '',
       lastName: user.lastName || '',
-      location: user.location || {},
+      location: user.location || {
+        city: '',
+        countryCode: '',
+      },
       bio: user.bio || '',
     },
   });
