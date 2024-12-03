@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { CURRENT_PAGE, PAGE_SIZE } from '@/constants';
 import { GroupMember, GroupMembersResponse } from '@/types';
 import { fetchGroupMembers } from '@/actions';
@@ -9,13 +9,15 @@ export const useGroupMembers = (
   groupId: number,
   initialData: GroupMembersResponse,
 ) => {
-  const [groupMembers, setGroupMembers] = useState<GroupMember[]>(
-    initialData.data,
-  );
+  const [groupMembers, setGroupMembers] = useState<GroupMember[]>([]);
   const [currentPage, setCurrentPage] = useState(CURRENT_PAGE);
   const [hasMore, setHasMore] = useState(
     currentPage < initialData.meta.pagination.pageCount,
   );
+
+  useEffect(() => {
+    setGroupMembers(initialData.data);
+  }, [initialData.data]);
 
   const refreshGroupMembers = async () => {
     const response = await fetchGroupMembers({

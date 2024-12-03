@@ -6,7 +6,7 @@ exports[`HeaderPopover Component matches snapshot 1`] = `
     class="grid"
   >
     <div
-      class="flex justify-between items-center p-4 border-b border-slate-700"
+      class="flex justify-between items-center p-4 border-b"
     >
       <a
         href="/user-profile/johndoe/main-profile"
@@ -78,7 +78,7 @@ exports[`HeaderPopover Component matches snapshot 1`] = `
       </button>
     </div>
     <button
-      class="font-roboto whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 border-gray-800 dark:border-dark-500 dark:bg-dark-100 flex w-full h-full p-4 gap-6 justify-start items-center border-none rounded-none bg-transparent"
+      class="font-roboto whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border text-button hover:bg-blue-100 hover:border-blue-100 hover:shadow-sphere-primary dark:hover:bg-blue-100 border-gray-800 dark:border-dark-500 dark:bg-dark-100 flex w-full h-full p-4 gap-6 justify-start items-center border-none rounded-none bg-transparent rounded-b-md"
     >
       <svg
         class="lucide lucide-log-out text-muted-foreground"

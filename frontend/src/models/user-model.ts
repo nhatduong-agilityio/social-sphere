@@ -1,5 +1,6 @@
 export type UserModel = {
   id: number;
+  documentId?: string;
   firstName: string;
   lastName: string;
   username: string;

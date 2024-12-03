@@ -123,7 +123,7 @@ exports[`NewsFeedCard matches snapshot with default state 1`] = `
           >
             <button
               aria-label="Social Button"
-              class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-primary text-white dark:hover:opacity-85 hover:shadow-sphere-primary border-primary rounded-full p-0 hover:opacity-100 relative w-[43px] h-[43px] shadow-sphere-secondary hover:bg-blue-50"
+              class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-primary text-white hover:shadow-sphere-primary border-primary rounded-full p-0 relative dark:hover:opacity-1 hover:opacity-1 w-[43px] h-[43px] shadow-sphere-secondary hover:bg-blue-50"
               type="button"
             >
               <svg
@@ -145,7 +145,7 @@ exports[`NewsFeedCard matches snapshot with default state 1`] = `
             </button>
             <button
               aria-label="Social Button"
-              class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-primary text-white dark:hover:opacity-85 hover:shadow-sphere-primary border-primary rounded-full p-0 hover:opacity-100 relative w-[43px] h-[43px] shadow-sphere-secondary hover:bg-blue-50"
+              class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-primary text-white hover:shadow-sphere-primary border-primary rounded-full p-0 relative dark:hover:opacity-1 hover:opacity-1 w-[43px] h-[43px] shadow-sphere-secondary hover:bg-blue-50"
               type="button"
             >
               <svg
@@ -176,7 +176,7 @@ exports[`NewsFeedCard matches snapshot with default state 1`] = `
             </button>
             <button
               aria-label="Social Button"
-              class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border text-white dark:hover:opacity-85 border-primary rounded-full p-0 hover:opacity-100 relative w-[54px] h-[54px] border-none bg-white dark:bg-blue-700 hover:bg-white dark:hover:bg-blue-700 shadow-sphere-medium hover:shadow-sphere-medium"
+              class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border text-white border-primary rounded-full p-0 relative dark:hover:opacity-1 hover:opacity-1 w-[54px] h-[54px] border-none bg-white dark:bg-blue-700 hover:bg-white dark:hover:bg-blue-700 shadow-sphere-medium hover:shadow-sphere-medium"
               type="button"
             >
               <div
@@ -474,7 +474,7 @@ exports[`NewsFeedCard matches snapshot with media content 1`] = `
           >
             <button
               aria-label="Social Button"
-              class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-primary text-white dark:hover:opacity-85 hover:shadow-sphere-primary border-primary rounded-full p-0 hover:opacity-100 relative w-[43px] h-[43px] shadow-sphere-secondary hover:bg-blue-50"
+              class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-primary text-white hover:shadow-sphere-primary border-primary rounded-full p-0 relative dark:hover:opacity-1 hover:opacity-1 w-[43px] h-[43px] shadow-sphere-secondary hover:bg-blue-50"
               type="button"
             >
               <svg
@@ -496,7 +496,7 @@ exports[`NewsFeedCard matches snapshot with media content 1`] = `
             </button>
             <button
               aria-label="Social Button"
-              class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-primary text-white dark:hover:opacity-85 hover:shadow-sphere-primary border-primary rounded-full p-0 hover:opacity-100 relative w-[43px] h-[43px] shadow-sphere-secondary hover:bg-blue-50"
+              class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-primary text-white hover:shadow-sphere-primary border-primary rounded-full p-0 relative dark:hover:opacity-1 hover:opacity-1 w-[43px] h-[43px] shadow-sphere-secondary hover:bg-blue-50"
               type="button"
             >
               <svg
@@ -527,7 +527,7 @@ exports[`NewsFeedCard matches snapshot with media content 1`] = `
             </button>
             <button
               aria-label="Social Button"
-              class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border text-white dark:hover:opacity-85 border-primary rounded-full p-0 hover:opacity-100 relative w-[54px] h-[54px] border-none bg-white dark:bg-blue-700 hover:bg-white dark:hover:bg-blue-700 shadow-sphere-medium hover:shadow-sphere-medium"
+              class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border text-white border-primary rounded-full p-0 relative dark:hover:opacity-1 hover:opacity-1 w-[54px] h-[54px] border-none bg-white dark:bg-blue-700 hover:bg-white dark:hover:bg-blue-700 shadow-sphere-medium hover:shadow-sphere-medium"
               type="button"
             >
               <div

@@ -49,7 +49,12 @@ jest.mock('@/hooks', () => ({
 jest.mock('react-dom', () => ({
   ...jest.requireActual('react-dom'),
   useFormState: () => [{ message: null, error: null }, jest.fn()],
-  useFormStatus: () => ({ pending: false }),
+}));
+
+// Add mocks
+jest.mock('react', () => ({
+  ...jest.requireActual('react'),
+  useTransition: () => [false, jest.fn()],
 }));
 
 // Mock child components

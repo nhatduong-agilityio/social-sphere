@@ -1,13 +1,11 @@
-import { render, fireEvent, act } from '@testing-library/react';
+import { render, fireEvent, act, waitFor } from '@testing-library/react';
 import { GroupInviteMembersInput } from '../group-invite-members-input';
 import { ToastProps } from '@/components/ui';
-import { MOCK_FRIENDS } from '@/__mocks__';
 
 const mockToast = jest.fn();
 const mockGetFriendsByUserId = jest.fn();
 const mockInviteToGroup = jest.fn();
 const mockStartTransition = jest.fn((cb) => cb());
-const mockAddOptimisticFriends = jest.fn();
 
 jest.mock('@/hooks', () => ({
   toast: ({ ...props }: ToastProps) => mockToast(props),
@@ -23,7 +21,6 @@ jest.mock('@/hooks', () => ({
 jest.mock('react', () => ({
   ...jest.requireActual('react'),
   useTransition: () => [false, mockStartTransition],
-  useOptimistic: () => [MOCK_FRIENDS, mockAddOptimisticFriends],
 }));
 
 jest.mock('../../actions', () => ({
@@ -50,7 +47,7 @@ describe('GroupInviteMembersInput', () => {
     groupMembers: [],
     groupId: 1,
     authorId: '1',
-    onInviteSuccess: jest.fn(),
+    addOptimisticMember: jest.fn(),
   };
 
   const mockFriends = [
@@ -95,14 +92,24 @@ describe('GroupInviteMembersInput', () => {
     mockGetFriendsByUserId.mockResolvedValue({ data: mockFriends });
     mockInviteToGroup.mockResolvedValue({});
 
-    const { getAllByTestId } = render(
+    const { getByTestId, getByPlaceholderText, getByText } = render(
       <GroupInviteMembersInput {...mockProps} />,
     );
 
-    const inviteButton = getAllByTestId('button-invite');
+    // Trigger search to show friends list
+    const searchInput = getByPlaceholderText('Search friends to invite...');
+    fireEvent.focus(searchInput);
+    fireEvent.change(searchInput, { target: { value: 'John' } });
 
+    // Wait for friends list to appear
+    await waitFor(() => {
+      expect(getByText('John Doe')).toBeInTheDocument();
+    });
+
+    // Find and click invite button
+    const inviteButton = getByTestId('button-invite');
     await act(async () => {
-      fireEvent.click(inviteButton[1]);
+      fireEvent.click(inviteButton);
     });
 
     expect(mockStartTransition).toHaveBeenCalled();
@@ -115,18 +122,27 @@ describe('GroupInviteMembersInput', () => {
   });
 
   it('handles invitation error', async () => {
-    mockInviteToGroup.mockRejectedValueOnce(new Error());
-    const { getAllByTestId } = render(
+    mockGetFriendsByUserId.mockResolvedValue({ data: mockFriends });
+    mockInviteToGroup.mockRejectedValue(new Error('Failed to invite'));
+
+    const { getByPlaceholderText, getByTestId, getByText } = render(
       <GroupInviteMembersInput {...mockProps} />,
     );
 
-    await act(async () => {
-      await mockGetFriendsByUserId();
+    // Trigger search to show friends list
+    const searchInput = getByPlaceholderText('Search friends to invite...');
+    fireEvent.focus(searchInput);
+    fireEvent.change(searchInput, { target: { value: 'John' } });
+
+    // Wait for friends list to appear
+    await waitFor(() => {
+      expect(getByText('John Doe')).toBeInTheDocument();
     });
 
-    const inviteButton = getAllByTestId('button-invite');
+    // Find and click invite button
+    const inviteButton = getByTestId('button-invite');
     await act(async () => {
-      fireEvent.click(inviteButton[1]);
+      fireEvent.click(inviteButton);
     });
 
     expect(mockToast).toHaveBeenCalledWith({
@@ -134,5 +150,6 @@ describe('GroupInviteMembersInput', () => {
       title: 'Error',
       description: 'Failed to invite friend',
     });
+    expect(mockGetFriendsByUserId).toHaveBeenCalled();
   });
 });

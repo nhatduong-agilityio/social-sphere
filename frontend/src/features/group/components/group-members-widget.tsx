@@ -19,12 +19,12 @@ import { getFullName } from '@/utils';
 
 // Types
 import { GroupMember } from '@/types';
+import { useOptimistic } from 'react';
 
 interface GroupMembersWidgetProps {
   groupId: number;
   authorId: string;
   groupMembers: GroupMember[];
-  onRefreshMembers: () => Promise<void>;
 }
 
 interface GroupMemberItemProps {
@@ -54,9 +54,13 @@ export const GroupMembersWidget = ({
   groupId,
   authorId,
   groupMembers,
-  onRefreshMembers,
 }: GroupMembersWidgetProps) => {
-  const renderMembers = groupMembers.map((member) => (
+  const [optimisticMembers, addOptimisticMember] = useOptimistic(
+    groupMembers,
+    (state, newMember: GroupMember) => [newMember, ...state],
+  );
+
+  const renderMembers = optimisticMembers.map((member) => (
     <GroupMemberItem key={member.id} member={member} />
   ));
 
@@ -76,10 +80,10 @@ export const GroupMembersWidget = ({
           </div>
         </div>
         <GroupInviteMembersInput
-          groupMembers={groupMembers}
+          groupMembers={optimisticMembers}
           groupId={groupId}
           authorId={authorId}
-          onInviteSuccess={onRefreshMembers}
+          addOptimisticMember={addOptimisticMember}
         />
       </CardHeader>
       <CardContent className="flex flex-col p-0">{renderMembers}</CardContent>

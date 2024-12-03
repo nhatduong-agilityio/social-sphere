@@ -1,6 +1,13 @@
 'use client';
 
-import { memo, useCallback, useEffect, useState, useTransition } from 'react';
+import {
+  memo,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  useTransition,
+} from 'react';
 import { EllipsisVertical, LogOutIcon, Plus, XIcon } from 'lucide-react';
 import { useFormState } from 'react-dom';
 import { useRouter } from 'next/navigation';
@@ -59,6 +66,7 @@ const initialState: ActionState<GroupModel> = {
 
 export const GroupsWidget = memo(({ authorId, groups }: GroupsWidgetProps) => {
   const router = useRouter();
+  const refTriggerDialog = useRef<HTMLButtonElement>(null);
   const [initialGroups, setInitialGroups] = useState<GroupDetail[]>(
     groups?.data || [],
   );
@@ -150,6 +158,8 @@ export const GroupsWidget = memo(({ authorId, groups }: GroupsWidgetProps) => {
 
       setInitialGroups((prev) => [...prev, newGroup]);
     }
+
+    refTriggerDialog.current?.click();
   }, [authorId, createState]);
 
   const renderStoriesFriends = initialGroups.map(
@@ -247,7 +257,10 @@ export const GroupsWidget = memo(({ authorId, groups }: GroupsWidgetProps) => {
 
         <CardContent className="flex flex-col p-0">
           <Dialog>
-            <DialogTrigger className="p-4 flex w-full text-left border-t border-slate-300 dark:border-slate-600 items-center gap-3 group cursor-pointer">
+            <DialogTrigger
+              ref={refTriggerDialog}
+              className="p-4 flex w-full text-left border-t border-slate-300 dark:border-slate-600 items-center gap-3 group cursor-pointer"
+            >
               <div className="flex items-center justify-center rounded-full w-11 h-11 border-2 border-dashed dark:border-white group-hover:border-primary hover:border-solid">
                 <Plus
                   size={20}

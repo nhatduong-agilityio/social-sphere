@@ -2,51 +2,49 @@ import { render } from '@testing-library/react';
 import { GroupMembersWidget } from '../group-members-widget';
 import { GroupMember } from '@/types';
 import { UserModel } from '@/models';
-import { MOCK_FRIENDS } from '@/__mocks__';
+
+const mockGroupMembers = [
+  {
+    id: 1,
+    documentId: 'member1',
+    user: {
+      id: 1,
+      firstName: 'John',
+      lastName: 'Doe',
+      username: 'johndoe',
+      email: 'john@example.com',
+      avatar: 'https://example.com/avatar1.jpg',
+      followedRelationships: [],
+    } as UserModel,
+    role: 'admin',
+  },
+  {
+    id: 2,
+    documentId: 'member2',
+    user: {
+      id: 2,
+      firstName: 'Jane',
+      lastName: 'Smith',
+      username: 'janesmith',
+      email: 'jane@example.com',
+      avatar: 'https://example.com/avatar2.jpg',
+      followedRelationships: [],
+    } as UserModel,
+    role: 'member',
+  },
+] as GroupMember[];
 
 jest.mock('react', () => ({
   ...jest.requireActual('react'),
   useTransition: () => [false, jest.fn()],
-  useOptimistic: () => [MOCK_FRIENDS, jest.fn()],
+  useOptimistic: () => [mockGroupMembers, jest.fn()],
 }));
 
 describe('GroupMembersWidget', () => {
-  const mockGroupMembers = [
-    {
-      id: 1,
-      documentId: 'member1',
-      user: {
-        id: 1,
-        firstName: 'John',
-        lastName: 'Doe',
-        username: 'johndoe',
-        email: 'john@example.com',
-        avatar: 'https://example.com/avatar1.jpg',
-        followedRelationships: [],
-      } as UserModel,
-      role: 'admin',
-    },
-    {
-      id: 2,
-      documentId: 'member2',
-      user: {
-        id: 2,
-        firstName: 'Jane',
-        lastName: 'Smith',
-        username: 'janesmith',
-        email: 'jane@example.com',
-        avatar: 'https://example.com/avatar2.jpg',
-        followedRelationships: [],
-      } as UserModel,
-      role: 'member',
-    },
-  ] as GroupMember[];
-
   const mockProps = {
     groupId: 1,
     authorId: '1',
     groupMembers: mockGroupMembers,
-    onRefreshMembers: jest.fn(),
   };
 
   it('matches snapshot', () => {

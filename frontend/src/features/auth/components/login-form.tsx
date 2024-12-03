@@ -1,5 +1,6 @@
 'use client';
 
+import { useTransition } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { useFormState } from 'react-dom';
@@ -40,6 +41,7 @@ const initialState = {
 };
 
 export const LoginForm = () => {
+  const [isPending, startTransition] = useTransition();
   const [errorMessage, formAction] = useFormState(login, undefined);
 
   const form = useForm<z.infer<typeof FormSchema>>({
@@ -47,12 +49,19 @@ export const LoginForm = () => {
     defaultValues: initialState,
   });
 
-  const isDisabled = !form.formState.isDirty || !form.formState.isValid;
+  const isDisabled =
+    !form.formState.isDirty || !form.formState.isValid || isPending;
+
+  const handleSubmit = (formData: FormData) => {
+    startTransition(() => {
+      formAction(formData);
+    });
+  };
 
   return (
     <Form {...form}>
       <form
-        action={formAction}
+        action={handleSubmit}
         className="flex flex-col w-full gap-3 max-w-[320px] md:max-w-[380px]"
       >
         <div className="flex flex-col items-center mb-2">
@@ -118,6 +127,7 @@ export const LoginForm = () => {
           type="submit"
           className="w-full h-[46px] rounded-full bg-blue-600 border-blue-600 dark:text-slate-50"
           disabled={isDisabled}
+          isLoading={isPending}
         >
           Login
         </Button>
