@@ -1,9 +1,9 @@
 import { render } from '@testing-library/react';
-import { HomeSkeleton } from '../home-skeleton';
+import { FeedSkeleton } from '../feed-skeleton';
 
-describe('HomeSkeleton', () => {
+describe('FeedSkeleton', () => {
   it('matches snapshot', () => {
-    const { container } = render(<HomeSkeleton />);
+    const { container } = render(<FeedSkeleton />);
     expect(container).toMatchSnapshot();
   });
 });

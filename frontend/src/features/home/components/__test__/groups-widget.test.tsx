@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { GroupsWidget } from '../groups-widget';
+import { GroupsWidget } from '../groups-content';
 import { fetchGroups } from '@/actions';
 import { GroupsListResponse } from '@/types';
 

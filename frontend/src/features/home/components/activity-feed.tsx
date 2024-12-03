@@ -1,43 +1,26 @@
+import { notFound } from 'next/navigation';
+
+// Auth
+import { auth } from '@/auth';
+
 // Components
 import { ActivityFeedContent } from './activity-feed-content';
 
 // Actions
 import { getNewsFeedIds } from '../actions';
-import { getGroups } from '@/features/group/actions';
 
-// Api
-import {
-  getAcceptFriendListByUserId,
-  getNonFriendListByUserId,
-} from '@/features/profile/actions/friends-profile';
+export const ActivityFeed = async () => {
+  const session = await auth();
+  const authorId = String(session?.user?.id);
 
-// Types
-import { TFollower } from '@/models';
+  const newsFeedIdsResponse = await getNewsFeedIds(authorId);
 
-interface ActivityFeedProps {
-  authorId: string;
-}
-
-export const ActivityFeed = async ({ authorId }: ActivityFeedProps) => {
-  const [
-    newsFeedIdsResponse,
-    suggestFriendsResponse,
-    acceptFriendsResponse,
-    groupsResponse,
-  ] = await Promise.all([
-    getNewsFeedIds(authorId),
-    getNonFriendListByUserId(authorId),
-    getAcceptFriendListByUserId(authorId),
-    getGroups(authorId),
-  ]);
+  if (!authorId || !newsFeedIdsResponse.data) notFound();
 
   return (
     <ActivityFeedContent
       authorId={authorId}
-      suggestFriends={suggestFriendsResponse}
-      acceptFriends={acceptFriendsResponse as TFollower[]}
       newsFeedIdsPagination={newsFeedIdsResponse.data}
-      groups={groupsResponse.data}
     />
   );
 };

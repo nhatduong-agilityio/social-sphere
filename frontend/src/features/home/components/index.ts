@@ -23,3 +23,8 @@ export * from './suggest-friends-widget';
 export * from './tag-friends';
 export * from './accept-friends-widget';
 export * from './friend-tag';
+export * from './groups-content';
+export * from './groups-widget';
+export * from './activity-feed-content';
+export * from './accept-friends-content';
+export * from './suggest-friends-content';
