@@ -36,7 +36,10 @@ const SocialButton = forwardRef<HTMLButtonElement, SocialButtonProps>(
       type="button"
       ref={ref}
       variant="primary"
-      className={cn('rounded-full p-0 hover:opacity-100 relative', className)}
+      className={cn(
+        'rounded-full p-0 relative dark:hover:opacity-1 hover:opacity-1',
+        className,
+      )}
       onClick={onClick}
     >
       {icon}

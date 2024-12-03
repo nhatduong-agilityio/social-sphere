@@ -30,7 +30,7 @@ export const HeaderPopover = ({
 
   return (
     <div className="grid">
-      <div className="flex justify-between items-center p-4 border-b border-slate-700">
+      <div className="flex justify-between items-center p-4 border-b">
         <Link href={ROUTER.PROFILE_MAIN(username)}>
           <Text variant="primary">{getFullName(firstName, lastName)}</Text>
         </Link>
@@ -39,7 +39,7 @@ export const HeaderPopover = ({
 
       <Button
         onClick={handleLogOut}
-        className="flex w-full h-full p-4 gap-6 justify-start items-center border-none rounded-none bg-transparent"
+        className="flex w-full h-full p-4 gap-6 justify-start items-center border-none rounded-none bg-transparent rounded-b-md"
       >
         <LogOutIcon size={20} className="text-muted-foreground" />
 

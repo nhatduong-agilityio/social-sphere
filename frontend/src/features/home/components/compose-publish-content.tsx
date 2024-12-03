@@ -1,8 +1,8 @@
 'use client';
 
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback, useEffect, useTransition } from 'react';
 import { useSession } from 'next-auth/react';
-import { useFormState, useFormStatus } from 'react-dom';
+import { useFormState } from 'react-dom';
 
 // Icons
 import { EllipsisVerticalIcon } from 'lucide-react';
@@ -74,7 +74,7 @@ export const ComposePublishContent = memo(
       publishNewsFeed.bind(null, userId),
       initialState,
     );
-    const { pending } = useFormStatus();
+    const [isPending, startTransition] = useTransition();
 
     const {
       gifPicker,
@@ -98,7 +98,7 @@ export const ComposePublishContent = memo(
       [gifPicker, handleGifSelect],
     );
 
-    const disableButton = !form.getValues('content') || pending;
+    const disableButton = !form.getValues('content') || isPending;
 
     useEffect(() => {
       if (state.error) {
@@ -128,9 +128,11 @@ export const ComposePublishContent = memo(
     }, [onUpdateNewsFeedIds, state]);
 
     const handleAction = async (_: FormData) => {
-      const values = form.getValues();
-      const enrichedFormData = getFormData(values);
-      return formAction(enrichedFormData);
+      startTransition(() => {
+        const values = form.getValues();
+        const enrichedFormData = getFormData(values);
+        formAction(enrichedFormData);
+      });
     };
 
     return (
@@ -240,7 +242,7 @@ export const ComposePublishContent = memo(
                   variant="primary"
                   className="w-full hover:shadow-none hover:opacity-100 text-2xs"
                   disabled={disableButton}
-                  isLoading={pending}
+                  isLoading={isPending}
                 >
                   Publish
                 </Button>

@@ -1,7 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`GroupsWidget matches snapshot 1`] = `
-<div>
+<div
+  aria-hidden="true"
+  data-aria-hidden="true"
+>
   <div
     class="bg-card border border-gray-800 hover:shadow dark:border-dark-300 w-full rounded-lg"
   >
@@ -60,10 +63,10 @@ exports[`GroupsWidget matches snapshot 1`] = `
     >
       <button
         aria-controls="radix-:r0:"
-        aria-expanded="false"
+        aria-expanded="true"
         aria-haspopup="dialog"
         class="p-4 flex w-full text-left border-t border-slate-300 dark:border-slate-600 items-center gap-3 group cursor-pointer"
-        data-state="closed"
+        data-state="open"
         type="button"
       >
         <div

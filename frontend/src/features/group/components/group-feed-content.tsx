@@ -37,8 +37,11 @@ export const GroupFeedContent = ({
   newsFeedIdsPagination,
 }: GroupFeedContentProps) => {
   const [isPending, startTransition] = useTransition();
-  const { groupMembers, hasMore, refreshGroupMembers, loadMoreMembers } =
-    useGroupMembers(groupId, groupMembersPagination);
+
+  const { groupMembers, hasMore, loadMoreMembers } = useGroupMembers(
+    groupId,
+    groupMembersPagination,
+  );
 
   const [newsFeedIds, setNewsFeedIds] = useState<NewsFeedIdModel[]>(
     newsFeedIdsPagination.data,
@@ -78,7 +81,6 @@ export const GroupFeedContent = ({
             groupMembers={groupMembers}
             groupId={groupId}
             authorId={authorId}
-            onRefreshMembers={refreshGroupMembers}
           />
           {hasMore && (
             <Button

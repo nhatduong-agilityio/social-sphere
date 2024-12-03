@@ -1,13 +1,6 @@
 'use client';
 
-import {
-  useState,
-  useEffect,
-  useCallback,
-  useTransition,
-  useOptimistic,
-  useRef,
-} from 'react';
+import { useState, useEffect, useCallback, useTransition, useRef } from 'react';
 import { CircleFlag } from 'react-circle-flags';
 import { SearchIcon } from 'lucide-react';
 
@@ -34,32 +27,28 @@ import { inviteToGroup } from '../actions';
 import { getFriendsByUserId } from '@/features/home/actions';
 
 // Types
-import { GroupMember, UserDetail } from '@/types';
+import { GroupMember, GroupRole, UserDetail } from '@/types';
 
 interface GroupInviteMembersInputProps {
   groupMembers: GroupMember[];
   groupId: number;
   authorId: string;
-  onInviteSuccess: () => Promise<void>;
+  addOptimisticMember: (action: GroupMember) => void;
 }
 
 export const GroupInviteMembersInput = ({
   groupMembers,
   groupId,
   authorId,
-  onInviteSuccess,
+  addOptimisticMember,
 }: GroupInviteMembersInputProps) => {
   const refWrapper = useRef<HTMLDivElement>(null);
   const { isFocused, handleFocus, handleBlur } = useFocusState();
 
   const [searchQuery, setSearchQuery] = useState('');
   const [friends, setFriends] = useState<UserDetail[]>([]);
+  const [isInvitingId, setIsInvitingId] = useState('');
   const [isPending, startTransition] = useTransition();
-  const [optimisticFriends, addOptimisticFriends] = useOptimistic(
-    friends,
-    (state, removedFriendId: string) =>
-      state.filter((friend) => friend.id.toString() !== removedFriendId),
-  );
 
   const debouncedSearch = useDebounce(searchQuery, 300);
 
@@ -81,13 +70,24 @@ export const GroupInviteMembersInput = ({
   }, [handleSearch]);
 
   const handleInvite = async (friendId: string) => {
+    setIsInvitingId(friendId);
+
     startTransition(async () => {
       try {
-        // Optimistically remove friend from list
-        addOptimisticFriends(friendId);
+        const invitedFriend = friends.find(
+          (member) => member.id.toString() === friendId,
+        );
+
+        if (invitedFriend) {
+          addOptimisticMember({
+            id: invitedFriend.id,
+            documentId: invitedFriend.documentId || invitedFriend.id.toString(),
+            role: GroupRole.MEMBER,
+            user: invitedFriend,
+          });
+        }
 
         await inviteToGroup(groupId, friendId);
-        onInviteSuccess();
 
         toast({
           variant: 'success',
@@ -103,6 +103,8 @@ export const GroupInviteMembersInput = ({
           title: 'Error',
           description: 'Failed to invite friend',
         });
+      } finally {
+        setIsInvitingId('');
       }
     });
   };
@@ -119,10 +121,10 @@ export const GroupInviteMembersInput = ({
         onFocus={handleFocus}
       />
 
-      {isFocused && optimisticFriends.length > 0 && (
-        <div className="absolute z-50 top-9 left-0 w-full max-h-[320px] overflow-auto rounded-[4px] border border-input bg-white dark:bg-dark-500 transition-all duration-300 ease-in-out">
+      {isFocused && friends.length > 0 && (
+        <div className="absolute z-50 bottom-9 left-0 w-full max-h-[320px] overflow-auto rounded-[4px] border border-input bg-white dark:bg-dark-500 transition-all duration-300 ease-in-out">
           <ul className="shadow-sphere-light">
-            {optimisticFriends.map(
+            {friends.map(
               ({ id, profilePicture, firstName, lastName, location }) => (
                 <li
                   key={id}
@@ -161,9 +163,10 @@ export const GroupInviteMembersInput = ({
                       isPending ||
                       groupMembers.some((member) => member.user.id === id)
                     }
+                    isLoading={isPending && isInvitingId === id.toString()}
                     className="ml-2"
                   >
-                    {isPending ? 'Inviting...' : 'Invite'}
+                    Invite
                   </Button>
                 </li>
               ),
