@@ -1,1 +1,1 @@
-export * from './home-skeleton';
+export * from './feed-skeleton';

@@ -19,7 +19,7 @@ import { MOCK_FRIENDS } from '@/__mocks__/user';
 import { getFullName } from '@/utils';
 
 interface StoriesWidgetProps {
-  onAddStory: () => void;
+  onAddStory?: () => void;
 }
 
 export const StoriesWidget = memo(({ onAddStory }: StoriesWidgetProps) => {

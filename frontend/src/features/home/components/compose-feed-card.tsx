@@ -13,21 +13,25 @@ import { ComposeTabContentDialog } from './compose-tab-content-dialog';
 
 // Utils
 import { cn } from '@/utils';
+
+// Types
 import { NewsFeedIdModel } from '@/models';
 
+// Hooks
+import { useDisclosure } from '@/hooks';
+
 interface ComposeFeedCardProps {
-  isOverlayOpen: boolean;
-  onOpensOverlay: () => void;
-  onCloseOverlay: () => void;
   onUpdateNewsFeedIds: (newNewsFeedIds: NewsFeedIdModel) => void;
 }
 
 export const ComposeFeedCard = ({
-  isOverlayOpen,
-  onOpensOverlay,
-  onCloseOverlay,
   onUpdateNewsFeedIds,
 }: ComposeFeedCardProps) => {
+  const {
+    isOpen: isOverlayOpen,
+    onOpen: onOpensOverlay,
+    onClose: onCloseOverlay,
+  } = useDisclosure();
   const [currentTab, setCurrentTab] = useState<ComposeTabValue>(
     ComposeTabValue.Publish,
   );
