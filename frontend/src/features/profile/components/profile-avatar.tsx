@@ -95,12 +95,9 @@ export const ProfileAvatar = ({
             const error = form.formState.errors.pictureProfile;
 
             toast({
-              title: 'You submitted the following values:',
-              description: (
-                <pre className="mt-2 w-[340px] rounded-md bg-red-500 p-4">
-                  <code className="text-white">{error?.message}</code>
-                </pre>
-              ),
+              variant: 'destructive',
+              title: 'Error',
+              description: error?.message,
             });
           } else {
             startTransition(async () => {
@@ -115,13 +112,9 @@ export const ProfileAvatar = ({
               form.clearErrors('pictureProfile');
 
               toast({
-                description: (
-                  <pre className="mt-2 w-[340px] rounded-md bg-green-500 p-4">
-                    <code className="text-white">
-                      Avatar Uploaded Successfully
-                    </code>
-                  </pre>
-                ),
+                variant: 'success',
+                title: 'Success',
+                description: 'Avatar Uploaded Successfully',
               });
             });
           }

@@ -46,16 +46,14 @@ export const EnterAboutInfo = () => {
 
   const handleNextButton = useCallback(
     async (aboutInfo: z.infer<typeof EnterAboutInfoSchema>) => {
-      const isEmailExist = await checkEmailExists(aboutInfo.email);
+      const userExist = await checkEmailExists(aboutInfo.email);
 
-      if (isEmailExist) {
+      if (userExist) {
         return toast({
-          title: 'Error messages:',
-          description: (
-            <pre className="mt-2 w-[340px] rounded-md bg-red-500 p-4">
-              <code className="text-white">Email already exists</code>
-            </pre>
-          ),
+          variant: 'destructive',
+          title: 'Error',
+          description:
+            'error' in userExist ? userExist.error : 'Email already exists',
         });
       }
 
