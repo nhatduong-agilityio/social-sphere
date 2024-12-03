@@ -68,12 +68,9 @@ export const SecureAccount = () => {
 
       if (response?.error) {
         return toast({
-          title: 'Error messages:',
-          description: (
-            <pre className="mt-2 w-[340px] rounded-md bg-red-500 p-4">
-              <code className="text-white">{response?.error}</code>
-            </pre>
-          ),
+          variant: 'destructive',
+          title: 'Error',
+          description: response?.error,
         });
       }
 
