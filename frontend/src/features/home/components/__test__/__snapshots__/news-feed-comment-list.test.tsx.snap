@@ -3,7 +3,7 @@
 exports[`NewsFeedCommentList matches snapshot 1`] = `
 <div>
   <div
-    class="flex flex-col"
+    class="w-full flex flex-col"
   >
     <div
       class="flex flex-row rounded-md items-center justify-between group p-0"
@@ -159,7 +159,7 @@ exports[`NewsFeedCommentList matches snapshot 1`] = `
 exports[`NewsFeedCommentList matches snapshot with replies 1`] = `
 <div>
   <div
-    class="flex flex-col"
+    class="w-full flex flex-col"
   >
     <div
       class="flex flex-row rounded-md items-center justify-between group p-0"
@@ -308,7 +308,7 @@ exports[`NewsFeedCommentList matches snapshot with replies 1`] = `
         </button>
       </div>
       <div
-        class="flex flex-col border-t dark:border-blue-800 pt-3 mb-6"
+        class="w-full flex flex-col border-t dark:border-blue-800 pt-3 mb-6"
       >
         <div
           class="flex flex-row rounded-md items-center justify-between group p-0"

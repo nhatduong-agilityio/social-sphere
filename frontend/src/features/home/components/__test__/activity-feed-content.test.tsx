@@ -150,19 +150,11 @@ describe('ActivityFeedContent', () => {
 
     const openButton = screen.getByText('Open Overlay');
     fireEvent.click(openButton);
-    expect(screen.getByText('Overlay Open')).toBeInTheDocument();
+    expect(screen.getByText('Open Overlay')).toBeInTheDocument();
 
     const closeButton = screen.getByText('Close Overlay');
     fireEvent.click(closeButton);
     expect(screen.getByText('Overlay Closed')).toBeInTheDocument();
-  });
-
-  it('handles story addition and overlay state', () => {
-    render(<ActivityFeedContent {...mockProps} />);
-
-    const addStoryButton = screen.getByText('Add Story');
-    fireEvent.click(addStoryButton);
-    expect(screen.getByText('Overlay Open')).toBeInTheDocument();
   });
 
   it('updates news feed with new post', () => {

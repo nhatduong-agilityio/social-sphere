@@ -3,7 +3,7 @@
 exports[`WidgetSkeleton Component matches snapshot 1`] = `
 <div>
   <div
-    class="hidden lg:flex col-span-3 flex-col gap-6 dark:bg-slate-800 bg-white border rounded-md p-3"
+    class="hidden lg:flex max-h-32 col-span-3 flex-col gap-6 dark:bg-slate-800 bg-white border rounded-md p-3"
   >
     <div
       class="border-b border-slate-300 dark:border-slate-600 pb-4"

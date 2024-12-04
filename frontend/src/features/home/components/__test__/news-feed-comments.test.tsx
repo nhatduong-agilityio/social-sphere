@@ -43,20 +43,33 @@ describe('NewsFeedComments', () => {
     meta: { pagination: { page: 1, pageSize: 10, total: 1, pageCount: 1 } },
   } as NewsFeedCommentPagination;
 
-  const mockProps = {
-    comments: mockComments,
-    author: mockAuthor,
-    onCloseComments: jest.fn(),
-    onComment: jest.fn(),
-  };
-
   it('matches snapshot', () => {
-    const { container } = render(<NewsFeedComments {...mockProps} />);
+    const { container } = render(
+      <NewsFeedComments
+        hasMore={false}
+        comments={[]}
+        commentTotal={0}
+        author={mockAuthor}
+        onCloseComments={() => {}}
+        loadMoreComments={() => Promise.resolve()}
+        onComment={() => {}}
+      />,
+    );
     expect(container).toMatchSnapshot();
   });
 
   it('renders comments count in header', () => {
-    render(<NewsFeedComments {...mockProps} />);
-    expect(screen.getByText('Comments (2)')).toBeInTheDocument();
+    render(
+      <NewsFeedComments
+        hasMore={false}
+        comments={mockComments.data}
+        commentTotal={0}
+        author={mockAuthor}
+        onCloseComments={() => {}}
+        loadMoreComments={() => Promise.resolve()}
+        onComment={() => {}}
+      />,
+    );
+    expect(screen.getByText('Comments (0)')).toBeInTheDocument();
   });
 });

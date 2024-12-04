@@ -44,7 +44,7 @@ describe('auth-service', () => {
           headers: {},
         },
       );
-      expect(result).toBe(true);
+      expect(result).toStrictEqual({ exists: true });
     });
 
     it('should return false if the email does not exist', async () => {
@@ -62,7 +62,7 @@ describe('auth-service', () => {
 
       const result = await checkEmailExists('error@example.com');
 
-      expect(result).toBe(ERROR_MESSAGES.UNKNOWN_ERROR);
+      expect(result).toStrictEqual({ error: ERROR_MESSAGES.UNKNOWN_ERROR });
     });
   });
 

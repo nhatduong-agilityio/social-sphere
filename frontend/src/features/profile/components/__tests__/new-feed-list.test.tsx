@@ -6,9 +6,41 @@ import { NewFeedList } from '../new-feed-list';
 // Mocks
 import {
   MOCK_ACCEPTED_FRIENDS,
+  MOCK_FRIENDS,
   MOCK_NEWS_FEED,
   MOCK_NEWS_FEED_LIST,
 } from '@/__mocks__';
+import { NewsFeed } from '@/types';
+import { ListCommentsResponse } from '@/models';
+
+const mockNewsFeed = {
+  id: 1,
+  content: 'Test content',
+  media: '/test-image.jpg',
+  author: MOCK_FRIENDS[0],
+  createdAt: '2024-01-01T12:00:00Z',
+  likes: {
+    likesTotal: 5,
+    remainingLikes: 2,
+    likesRecent: [
+      {
+        friend: MOCK_FRIENDS[1],
+        createdAt: '2024-01-01T12:00:00Z',
+      },
+    ],
+  },
+  comments: {
+    commentTotal: 3,
+    data: [],
+  },
+  shares: [],
+  isLiked: false,
+} as unknown as NewsFeed;
+
+const mockComments: ListCommentsResponse = {
+  data: [],
+  meta: { pagination: { page: 1, pageSize: 10, total: 1, pageCount: 1 } },
+};
 
 export class IntersectionObserver {
   root = null;
@@ -51,6 +83,8 @@ jest.mock('../../actions', () => ({
 
 jest.mock('@/actions', () => ({
   fetchNewsFeedDetailAndComments: () => MOCK_NEWS_FEED,
+  fetchNewsFeedDetail: () => mockNewsFeed,
+  fetchNewsFeedComments: () => mockComments,
 }));
 
 describe('NewFeedList component', () => {

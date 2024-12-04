@@ -121,8 +121,9 @@ describe('SecureAccount Component', () => {
     await waitFor(() => {
       expect(register).toHaveBeenCalled();
       expect(toast).toHaveBeenCalledWith({
-        title: 'Error messages:',
-        description: expect.anything(),
+        title: 'Error',
+        description: 'Error message',
+        variant: 'destructive',
       });
       expect(mockSetOnboardingData).not.toHaveBeenCalled();
       expect(mockSetCurrentStep).not.toHaveBeenCalled();

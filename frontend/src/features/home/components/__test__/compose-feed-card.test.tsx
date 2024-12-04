@@ -32,7 +32,9 @@ describe('ComposeFeedCard', () => {
 
     await waitFor(() => {
       expect(container).toMatchSnapshot();
-      expect(screen.getByTestId('overlay')).toHaveClass('block');
+      expect(screen.getByTestId('overlay')).toHaveClass(
+        'fixed inset-0 bg-black opacity-50 dark:opacity-70 z-50 hidden',
+      );
     });
   });
 

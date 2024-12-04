@@ -48,12 +48,16 @@ export const EnterAboutInfo = () => {
     async (aboutInfo: z.infer<typeof EnterAboutInfoSchema>) => {
       const userExist = await checkEmailExists(aboutInfo.email);
 
+      console.log(userExist);
+
       if (userExist) {
         return toast({
           variant: 'destructive',
           title: 'Error',
           description:
-            'error' in userExist ? userExist.error : 'Email already exists',
+            userExist && typeof userExist === 'object' && 'error' in userExist
+              ? userExist.error
+              : 'Email already exists',
         });
       }
 

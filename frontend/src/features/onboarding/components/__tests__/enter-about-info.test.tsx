@@ -77,8 +77,8 @@ describe('EnterAboutInfo Component', () => {
       expect(checkEmailExists).toHaveBeenCalledWith('existing@example.com');
       expect(toast).toHaveBeenCalledWith(
         expect.objectContaining({
-          title: 'Error messages:',
-          description: expect.anything(),
+          title: 'Error',
+          description: 'Email already exists',
         }),
       );
     });
