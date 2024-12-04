@@ -1,10 +1,10 @@
+import { Suspense } from 'react';
 // Actions
 import { getProfile } from '@/features/profile/actions';
 
 // Components
-import { NewFeedList } from '@/features/profile/components';
-import { NewFeedSkeleton } from '@/features/profile/components/skeletons';
-import { Suspense } from 'react';
+import { NewFeedList, NewFriendsContent } from '@/features/profile/components';
+import { PostListSkeleton, WidgetSkeleton } from '@/components/sections';
 
 const MainProfilePage = async ({
   params,
@@ -14,9 +14,22 @@ const MainProfilePage = async ({
   const profile = await getProfile(params.username);
 
   return (
-    <Suspense fallback={<NewFeedSkeleton />}>
-      <NewFeedList authorId={String(profile.id)} username={params.username} />
-    </Suspense>
+    <div className="py-5 min-h-full">
+      <div className="h-full flex w-full gap-6">
+        <div className="lg:flex lg:w-400 col-span-3 flex-col gap-6">
+          <Suspense fallback={<WidgetSkeleton />}>
+            <NewFriendsContent username={params.username} />
+          </Suspense>
+        </div>
+
+        <Suspense fallback={<PostListSkeleton />}>
+          <NewFeedList
+            authorId={String(profile.id)}
+            username={params.username}
+          />
+        </Suspense>
+      </div>
+    </div>
   );
 };
 

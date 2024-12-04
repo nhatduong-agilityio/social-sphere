@@ -3,25 +3,19 @@ import { notFound } from 'next/navigation';
 // Components
 import { NewFeedContent } from './new-feed-content';
 
-// Api
-
 // Types
-import { Pagination, TNewFriends } from '@/types';
+import { Pagination } from '@/types';
 
 // Actions
 import { getNewsFeedIds } from '../actions';
-import { getFriendListByUsername } from '../actions/friends-profile';
 
 interface NewFeedListProps {
   username: string;
   authorId: string;
 }
 
-export const NewFeedList = async ({ authorId, username }: NewFeedListProps) => {
-  const [newsFeedIdsResponse, newFriendsResponse] = await Promise.all([
-    getNewsFeedIds(authorId),
-    getFriendListByUsername(username),
-  ]);
+export const NewFeedList = async ({ authorId }: NewFeedListProps) => {
+  const newsFeedIdsResponse = await getNewsFeedIds(authorId);
 
   const newsFeedIds = newsFeedIdsResponse.data;
 
@@ -30,7 +24,6 @@ export const NewFeedList = async ({ authorId, username }: NewFeedListProps) => {
   return (
     <NewFeedContent
       authorId={authorId}
-      newFriends={newFriendsResponse as unknown as TNewFriends[]}
       newsFeedIds={newsFeedIds?.data || []}
       pagination={newsFeedIds?.meta.pagination as Pagination}
     />

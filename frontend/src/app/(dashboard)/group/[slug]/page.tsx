@@ -1,7 +1,9 @@
+import { Suspense } from 'react';
 import { notFound } from 'next/navigation';
 
 // Components
 import { GroupFeed } from '@/features/group/components';
+import { PostListSkeleton, WidgetSkeleton } from '@/components/sections';
 
 // Actions
 import { getGroupByName } from '@/features/group/actions';
@@ -17,7 +19,18 @@ const GroupDetailPage = async ({ params }: { params: { slug: string } }) => {
 
   if (!group || !userId) return notFound();
 
-  return <GroupFeed group={group} authorId={userId} />;
+  return (
+    <Suspense
+      fallback={
+        <div className="flex gap-3">
+          <WidgetSkeleton />
+          <PostListSkeleton />
+        </div>
+      }
+    >
+      <GroupFeed group={group} authorId={userId} />
+    </Suspense>
+  );
 };
 
 export default GroupDetailPage;

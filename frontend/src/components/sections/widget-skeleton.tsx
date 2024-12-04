@@ -1,7 +1,7 @@
 import { Skeleton } from '@/components/ui';
 
 export const WidgetSkeleton = () => (
-  <div className="hidden lg:flex col-span-3 flex-col gap-6 dark:bg-slate-800 bg-white border rounded-md p-3">
+  <div className="hidden lg:flex max-h-32 col-span-3 flex-col gap-6 dark:bg-slate-800 bg-white border rounded-md p-3">
     <div className="border-b border-slate-300 dark:border-slate-600 pb-4">
       <Skeleton className="h-4 w-[250px]" />
     </div>

@@ -18,3 +18,4 @@ export * from './widget-skeleton';
 export * from './header-popover';
 export * from './main-not-found';
 export * from './main-error';
+export * from './post-list-skeleton';

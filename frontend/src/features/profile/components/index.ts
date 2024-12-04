@@ -18,3 +18,4 @@ export * from './location-picker';
 export * from './new-feed-list';
 export * from './new-feed-content';
 export * from './new-friends-widget';
+export * from './new-friends-content';
