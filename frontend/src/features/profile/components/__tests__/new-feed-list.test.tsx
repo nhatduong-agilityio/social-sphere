@@ -87,6 +87,13 @@ jest.mock('@/actions', () => ({
   fetchNewsFeedComments: () => mockComments,
 }));
 
+// Mock useOptimistic hook
+jest.mock('react', () => ({
+  ...jest.requireActual('react'),
+  useTransition: () => [false, jest.fn()],
+  useOptimistic: () => [mockNewsFeed, jest.fn()],
+}));
+
 describe('NewFeedList component', () => {
   it('should render correctly', async () => {
     const { container } = render(

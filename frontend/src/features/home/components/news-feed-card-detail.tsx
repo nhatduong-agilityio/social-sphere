@@ -1,6 +1,12 @@
 'use client';
 
-import { useCallback, useEffect, useState } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useOptimistic,
+  useState,
+  useTransition,
+} from 'react';
 import { useFormState } from 'react-dom';
 
 // Components
@@ -8,7 +14,7 @@ import { NewsFeedCard } from './news-feed-card';
 
 // Models
 import { CommentPayload, ListCommentsResponse, SharePayload } from '@/models';
-import { ActionState, NewsFeed } from '@/types';
+import { ActionState, NewsFeed, UserDetail } from '@/types';
 
 // Actions
 import { fetchNewsFeedComments, fetchNewsFeedDetail } from '@/actions';
@@ -20,6 +26,7 @@ import { useCommentReplyStore } from '../stores';
 // Hooks
 import { toast } from '@/hooks';
 import { CURRENT_PAGE, PAGE_SIZE } from '@/constants';
+import { useSession } from 'next-auth/react';
 
 interface NewsFeedCardDetailProps {
   newsFeedId: string;
@@ -40,11 +47,20 @@ export const NewsFeedCardDetail = ({
   newsFeedId,
   authorId,
 }: NewsFeedCardDetailProps) => {
+  const { data: session } = useSession();
+  const author = session?.user as UserDetail;
+
+  const [isPending, startTransition] = useTransition();
   const [newsFeed, setNewsFeed] = useState<NewsFeed | null>(null);
   const [listCommentsPagination, setListCommentsPagination] =
     useState<ListCommentsResponse>();
   const [commentReplyValue, clearCommentReply] = useCommentReplyStore(
     (state) => [state.commentReplyValue, state.clearCommentReply],
+  );
+
+  const [optimisticNewsFeed, addOptimisticNewsFeed] = useOptimistic(
+    newsFeed,
+    (state, optimisticValue: NewsFeed) => optimisticValue,
   );
 
   // Management server action to publish comment
@@ -106,26 +122,70 @@ export const NewsFeedCardDetail = ({
     }
   }, [shareState]);
 
+  const handleLike = useCallback(async () => {
+    if (!newsFeed || isPending) return;
+
+    // Create optimistic update
+    const optimisticUpdate = {
+      ...newsFeed,
+      isLiked: !newsFeed.isLiked,
+      likes: {
+        ...newsFeed.likes,
+        likesTotal: newsFeed.isLiked
+          ? (newsFeed.likes?.likesTotal || 1) - 1
+          : (newsFeed.likes?.likesTotal || 0) + 1,
+        likesRecent: newsFeed.isLiked
+          ? newsFeed.likes?.likesRecent?.filter(
+              (like) => like.friend.id !== Number(authorId),
+            ) || []
+          : [
+              {
+                friend: author,
+                createdAt: new Date().toISOString(),
+              },
+              ...(newsFeed.likes?.likesRecent || []),
+            ],
+      },
+    };
+
+    startTransition(() => {
+      addOptimisticNewsFeed(optimisticUpdate);
+
+      Promise.all([
+        toggleLikeNewsFeed(Number(newsFeed.id), Number(authorId)),
+        fetchNewsFeed(),
+      ]);
+    });
+  }, [
+    addOptimisticNewsFeed,
+    author,
+    authorId,
+    fetchNewsFeed,
+    isPending,
+    newsFeed,
+  ]);
+
+  const handleComment = useCallback(
+    (data: FormData) => {
+      formAction(data);
+      fetchComments();
+      clearCommentReply();
+    },
+    [clearCommentReply, fetchComments, formAction],
+  );
+
+  const handleShare = useCallback(
+    (formData: FormData) => {
+      shareAction(formData);
+    },
+    [shareAction],
+  );
+
   if (!newsFeed) return null;
-
-  const handleLike = async () => {
-    await toggleLikeNewsFeed(Number(newsFeed.id), Number(authorId));
-    fetchNewsFeed();
-  };
-
-  const handleComment = (data: FormData) => {
-    formAction(data);
-    fetchComments();
-    clearCommentReply();
-  };
-
-  const handleShare = (formData: FormData) => {
-    shareAction(formData);
-  };
 
   return (
     <NewsFeedCard
-      newsFeed={newsFeed}
+      newsFeed={optimisticNewsFeed || newsFeed}
       listCommentsPagination={listCommentsPagination}
       authorId={authorId}
       onLike={handleLike}

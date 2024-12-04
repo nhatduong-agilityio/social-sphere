@@ -1,6 +1,12 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useOptimistic,
+  useState,
+} from 'react';
 import { CURRENT_PAGE, PAGE_SIZE } from '@/constants';
 import { fetchNewsFeedComments } from '@/actions';
 import { ListCommentsResponse } from '@/models';
@@ -86,10 +92,49 @@ export const useNewsFeedComments = (
     setHasMore(nextPage < response.meta.pagination.pageCount);
   };
 
+  const [optimisticState, addOptimisticState] = useOptimistic(
+    {
+      comments: listComments,
+      commentTotal,
+    },
+    (
+      state,
+      {
+        newComment,
+        commentReplyId,
+      }: { newComment: NewsFeedComment; commentReplyId?: number },
+    ) => {
+      // Check if this is a reply to an existing comment
+      if (commentReplyId) {
+        const updatedComments = state.comments.map((comment) => {
+          if (comment.id === commentReplyId) {
+            return {
+              ...comment,
+              reply: [...(comment.reply || []), newComment],
+            };
+          }
+          return comment;
+        });
+
+        return {
+          comments: updatedComments,
+          commentTotal: state.commentTotal + 1,
+        };
+      }
+
+      // If not a reply, add as new comment
+      return {
+        comments: [newComment, ...state.comments],
+        commentTotal: state.commentTotal + 1,
+      };
+    },
+  );
+
   return {
-    listComments,
-    commentTotal,
+    listComments: optimisticState.comments,
+    commentTotal: optimisticState.commentTotal,
     hasMore,
     loadListComments,
+    onAddOptimisticComment: addOptimisticState,
   };
 };

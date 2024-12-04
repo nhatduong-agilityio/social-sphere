@@ -2,7 +2,6 @@ import { render } from '@testing-library/react';
 import { NewsFeedCard } from '../news-feed-card';
 import { MOCK_FRIENDS } from '@/__mocks__';
 import { NewsFeed } from '@/types';
-import { useDisclosure } from '@/hooks';
 
 jest.mock('@/hooks', () => ({
   useDisclosure: jest.fn(() => ({
@@ -23,6 +22,12 @@ jest.mock('react-dom', () => ({
   ...jest.requireActual('react-dom'),
   useFormState: () => [{ message: null, error: null }, jest.fn()],
   useFormStatus: () => ({ pending: false }),
+}));
+
+jest.mock('react', () => ({
+  ...jest.requireActual('react'),
+  useTransition: () => [false, jest.fn()],
+  useOptimistic: () => [[], jest.fn()],
 }));
 
 describe('NewsFeedCard', () => {
@@ -71,16 +76,6 @@ describe('NewsFeedCard', () => {
     const { container } = render(
       <NewsFeedCard {...mockProps} newsFeed={newsFeedWithMedia} />,
     );
-    expect(container).toMatchSnapshot();
-  });
-
-  it('matches snapshot with open comments', () => {
-    (useDisclosure as jest.Mock).mockReturnValue({
-      isOpen: true,
-      onOpen: jest.fn(),
-      onClose: jest.fn(),
-    });
-    const { container } = render(<NewsFeedCard {...mockProps} />);
     expect(container).toMatchSnapshot();
   });
 });

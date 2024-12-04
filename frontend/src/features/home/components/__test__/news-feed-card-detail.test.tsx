@@ -10,36 +10,6 @@ import { MOCK_FRIENDS } from '@/__mocks__';
 import { NewsFeed } from '@/types';
 import { ListCommentsResponse } from '@/models';
 
-jest.mock('@/actions', () => ({
-  fetchNewsFeedDetailAndComments: jest.fn(),
-}));
-
-jest.mock('../../actions', () => ({
-  publishComment: jest.fn(),
-  shareNewFeeds: jest.fn(),
-  toggleLikeNewsFeed: jest.fn(),
-}));
-
-jest.mock('../../stores', () => ({
-  useCommentReplyStore: () => [{ commentId: null }, jest.fn()],
-}));
-
-// Mock useOptimistic hook
-jest.mock('react', () => ({
-  ...jest.requireActual('react'),
-  useTransition: () => [false, jest.fn()],
-}));
-
-jest.mock('react-dom', () => ({
-  ...jest.requireActual('react-dom'),
-  useFormState: () => [{ message: null, error: null }, jest.fn()],
-}));
-
-const mockProps = {
-  newsFeedId: '1',
-  authorId: '1',
-};
-
 const mockNewsFeed = {
   id: 1,
   content: 'Test content',
@@ -67,6 +37,37 @@ const mockNewsFeed = {
 const mockComments: ListCommentsResponse = {
   data: [],
   meta: { pagination: { page: 1, pageSize: 10, total: 1, pageCount: 1 } },
+};
+
+jest.mock('@/actions', () => ({
+  fetchNewsFeedDetailAndComments: jest.fn(),
+}));
+
+jest.mock('../../actions', () => ({
+  publishComment: jest.fn(),
+  shareNewFeeds: jest.fn(),
+  toggleLikeNewsFeed: jest.fn(),
+}));
+
+jest.mock('../../stores', () => ({
+  useCommentReplyStore: () => [{ commentId: null }, jest.fn()],
+}));
+
+// Mock useOptimistic hook
+jest.mock('react', () => ({
+  ...jest.requireActual('react'),
+  useTransition: () => [false, jest.fn()],
+  useOptimistic: () => [mockNewsFeed, jest.fn()],
+}));
+
+jest.mock('react-dom', () => ({
+  ...jest.requireActual('react-dom'),
+  useFormState: () => [{ message: null, error: null }, jest.fn()],
+}));
+
+const mockProps = {
+  newsFeedId: '1',
+  authorId: '1',
 };
 
 jest.mock('@/actions', () => ({

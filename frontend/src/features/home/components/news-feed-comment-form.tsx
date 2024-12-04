@@ -28,7 +28,7 @@ import { useCommentForm } from '../hooks';
 import { useDisclosure, useOnClickOutside } from '@/hooks';
 
 // Types
-import { UserDetail } from '@/types';
+import { NewsFeedComment, UserDetail } from '@/types';
 import { CommentReplyValues } from '../stores';
 
 interface NewsFeedCommentFormProps {
@@ -36,6 +36,10 @@ interface NewsFeedCommentFormProps {
   commentReplyValue: CommentReplyValues;
   onComment: (data: FormData) => void;
   onClearCommentReply: () => void;
+  onAddOptimisticComment: (action: {
+    newComment: NewsFeedComment;
+    commentReplyId?: number;
+  }) => void;
 }
 
 const ActionButton = ({
@@ -59,6 +63,7 @@ export const NewsFeedCommentForm = memo(
     commentReplyValue,
     onComment,
     onClearCommentReply,
+    onAddOptimisticComment,
   }: NewsFeedCommentFormProps) => {
     const {
       form,
@@ -122,6 +127,20 @@ export const NewsFeedCommentForm = memo(
 
     const handleAction = async (_: FormData) => {
       startTransition(() => {
+        const newComment = {
+          id: user.id,
+          friend: user,
+          content: form.getValues('content'),
+          media: selectedImageUrl,
+          createdAt: new Date().toISOString(),
+          isOwner: true,
+        } as NewsFeedComment;
+
+        onAddOptimisticComment({
+          newComment,
+          commentReplyId: commentReplyValue.commentId,
+        });
+
         const values = form.getValues();
         const enrichedFormData = getFormData(values);
         onComment(enrichedFormData);
