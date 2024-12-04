@@ -1,3 +1,5 @@
+'use client';
+
 import { memo } from 'react';
 import Image from 'next/image';
 
@@ -21,38 +23,42 @@ import { cn, formatDate, getFullName } from '@/utils';
 import { NewsFeedCardContent } from './news-feed-card-content';
 import { useDisclosure } from '@/hooks';
 import { NewsFeedCardPreview } from './news-feed-card-preview';
+import { ListCommentsResponse } from '@/models';
+import { useNewsFeedComments } from '../hooks';
 
 interface NewsFeedCardProps {
   authorId: string;
   newsFeed: NewsFeed;
+  listCommentsPagination?: ListCommentsResponse;
   onLike: () => Promise<void>;
   onComment: (data: FormData) => void;
   onShare: (data: FormData) => void;
 }
 
 export const NewsFeedCard = memo(
-  ({ authorId, newsFeed, onLike, onComment, onShare }: NewsFeedCardProps) => {
+  ({
+    authorId,
+    newsFeed,
+    onLike,
+    onComment,
+    onShare,
+    listCommentsPagination,
+  }: NewsFeedCardProps) => {
+    const { id, author, createdAt, likes, shares, media, isLiked, sharedFrom } =
+      newsFeed;
+
+    const { listComments, commentTotal, hasMore, loadListComments } =
+      useNewsFeedComments(id.toString(), authorId, listCommentsPagination);
+
     const {
       isOpen: isOpenComments,
       onOpen: onOpenComments,
       onClose: onCloseComments,
     } = useDisclosure();
 
-    const {
-      author,
-      createdAt,
-      likes,
-      comments,
-      shares,
-      media,
-      isLiked,
-      sharedFrom,
-    } = newsFeed;
-
     const title = getFullName(author.firstName, author.lastName);
     const description = formatDate(createdAt);
     const likesCount = likes?.likesTotal || 0;
-    const commentsCount = comments?.commentTotal || 0;
     const sharesCount = shares?.length || 0;
 
     return (
@@ -60,7 +66,10 @@ export const NewsFeedCard = memo(
         {isOpenComments ? (
           <NewsFeedComments
             author={author}
-            comments={comments}
+            hasMore={hasMore}
+            loadMoreComments={loadListComments}
+            comments={listComments}
+            commentTotal={commentTotal}
             onCloseComments={onCloseComments}
             onComment={onComment}
           />
@@ -111,7 +120,7 @@ export const NewsFeedCard = memo(
               {likes && <FriendsHaveLiked newsFeedLikes={likes} />}
               <NewsFeedSocialCount
                 numberOfLikes={likesCount}
-                numberOfComments={commentsCount}
+                numberOfComments={commentTotal}
                 numberOfShares={sharesCount}
               />
             </CardFooter>

@@ -37,7 +37,7 @@ export const QUERY = {
   ) =>
     `filters[author][id][$eq]=${authorId}&filters[shareType][$eq]=yourFeed&fields[0]=id&sort[createdAt]=desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}`,
   NEWS_FEED_DETAIL_BY_ID: (newsFeedId: string) =>
-    `filters[id][$eq]=${newsFeedId}&populate[author]=*&populate[likes][fields][0]=createdAt&populate[likes][populate][user]=*&populate[likes][sort][createdAt]=desc&populate[comments]=*&populate[shares]=*&populate[sharedFrom][populate][author]=*`,
+    `filters[id][$eq]=${newsFeedId}&populate[author]=*&populate[likes][fields][0]=createdAt&populate[likes][populate][user]=*&populate[likes][sort][createdAt]=desc&populate[comments][populate][friend]=*&populate[comments][populate][likes][populate][user]=*&populate[comments][populate][replies][populate][friend]=*&populate[comments][populate][replies][populate][likes][populate][user]=*&populate[shares]=*&populate[sharedFrom][populate][author]=*`,
   LIST_COMMENTS_IN_NEWS_FEED_BY_ID: (
     newsFeedId: string,
     page: number = CURRENT_PAGE,
@@ -68,4 +68,5 @@ export const QUERY = {
     pageSize: number = PAGE_SIZE,
   ) =>
     `filters[group][id][$eq]=${groupId}&fields[0]=id&sort[createdAt]=desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}`,
+  TOGGLE_LIKE: '/toggle',
 };

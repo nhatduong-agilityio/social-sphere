@@ -7,11 +7,11 @@ import { useFormState } from 'react-dom';
 import { NewsFeedCard } from './news-feed-card';
 
 // Models
-import { CommentPayload, SharePayload } from '@/models';
+import { CommentPayload, ListCommentsResponse, SharePayload } from '@/models';
 import { ActionState, NewsFeed } from '@/types';
 
 // Actions
-import { fetchNewsFeedDetailAndComments } from '@/actions';
+import { fetchNewsFeedComments, fetchNewsFeedDetail } from '@/actions';
 import { publishComment, shareNewFeeds, toggleLikeNewsFeed } from '../actions';
 
 // Stores
@@ -19,6 +19,7 @@ import { useCommentReplyStore } from '../stores';
 
 // Hooks
 import { toast } from '@/hooks';
+import { CURRENT_PAGE, PAGE_SIZE } from '@/constants';
 
 interface NewsFeedCardDetailProps {
   newsFeedId: string;
@@ -40,6 +41,8 @@ export const NewsFeedCardDetail = ({
   authorId,
 }: NewsFeedCardDetailProps) => {
   const [newsFeed, setNewsFeed] = useState<NewsFeed | null>(null);
+  const [listCommentsPagination, setListCommentsPagination] =
+    useState<ListCommentsResponse>();
   const [commentReplyValue, clearCommentReply] = useCommentReplyStore(
     (state) => [state.commentReplyValue, state.clearCommentReply],
   );
@@ -62,7 +65,7 @@ export const NewsFeedCardDetail = ({
   );
 
   const fetchNewsFeed = useCallback(async () => {
-    const newsFeedDetail: NewsFeed = await fetchNewsFeedDetailAndComments({
+    const newsFeedDetail = await fetchNewsFeedDetail({
       newsFeedId,
       authorId,
     });
@@ -70,9 +73,20 @@ export const NewsFeedCardDetail = ({
     setNewsFeed(newsFeedDetail);
   }, [authorId, newsFeedId]);
 
+  const fetchComments = useCallback(async () => {
+    const newsFeedCommentsResponse = await fetchNewsFeedComments({
+      newsFeedId,
+      page: CURRENT_PAGE,
+      pageSize: PAGE_SIZE,
+    });
+
+    setListCommentsPagination(newsFeedCommentsResponse);
+  }, [newsFeedId]);
+
   useEffect(() => {
     fetchNewsFeed();
-  }, [newsFeedId, authorId, fetchNewsFeed]);
+    fetchComments();
+  }, [newsFeedId, authorId, fetchNewsFeed, fetchComments]);
 
   useEffect(() => {
     if (shareState.error) {
@@ -101,7 +115,7 @@ export const NewsFeedCardDetail = ({
 
   const handleComment = (data: FormData) => {
     formAction(data);
-    fetchNewsFeed();
+    fetchComments();
     clearCommentReply();
   };
 
@@ -112,6 +126,7 @@ export const NewsFeedCardDetail = ({
   return (
     <NewsFeedCard
       newsFeed={newsFeed}
+      listCommentsPagination={listCommentsPagination}
       authorId={authorId}
       onLike={handleLike}
       onComment={handleComment}
