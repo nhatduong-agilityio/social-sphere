@@ -1,79 +1,99 @@
-import { render, screen } from '@testing-library/react';
-import { GroupsWidget } from '../groups-content';
-import { fetchGroups } from '@/actions';
-import { GroupsListResponse } from '@/types';
+import { render, screen, waitFor } from '@testing-library/react';
+import { auth } from '@/auth';
+import { getGroups } from '@/features/group/actions';
+import { GroupsWidget } from '../groups-widget';
 
-jest.mock('@/actions', () => ({
-  fetchGroups: jest.fn(),
+// Mock dependencies
+jest.mock('@/auth', () => ({
+  auth: jest.fn(),
 }));
 
-jest.mock('react', () => ({
-  ...jest.requireActual('react'),
-  useTransition: () => [false, jest.fn()],
+jest.mock('@/features/group/actions', () => ({
+  getGroups: jest.fn(),
 }));
 
-jest.mock('react-dom', () => ({
-  ...jest.requireActual('react-dom'),
-  useFormState: () => [{ message: null, error: null }, jest.fn()],
+jest.mock('../groups-content', () => ({
+  GroupsContent: ({
+    groups,
+    authorId,
+  }: {
+    groups: Array<{ name: string }>;
+    authorId: string;
+  }) => (
+    <div data-testid="groups-content">
+      <span data-testid="author-id">{authorId}</span>
+      {groups.map((group: { name: string }, index: number) => (
+        <div key={index} data-testid="group">
+          {group.name}
+        </div>
+      ))}
+    </div>
+  ),
 }));
 
-jest.mock('next/navigation', () => ({
-  useRouter: () => ({
-    push: jest.fn(),
-  }),
-}));
-
-const MOCK_GROUPS = {
-  data: [
-    {
-      id: 1,
-      documentId: 'group1',
-      name: 'Test Group 1',
-      description: 'First test group',
-      avatar: 'avatar1.jpg',
-      author: { id: 1 },
-      members: [{ user: { id: 1 }, documentId: 'member1' }],
-    },
-    {
-      id: 2,
-      documentId: 'group2',
-      name: 'Test Group 2',
-      description: 'Second test group',
-      avatar: 'avatar2.jpg',
-      author: { id: 2 },
-      members: [{ user: { id: 1 }, documentId: 'member2' }],
-    },
-  ],
-  meta: {
-    pagination: {
-      page: 1,
-      pageSize: 10,
-      pageCount: 2,
-      total: 15,
-    },
-  },
-} as GroupsListResponse;
-
-describe('GroupsWidget', () => {
-  const mockProps = {
-    authorId: '1',
-    groups: MOCK_GROUPS,
-  };
+describe('GroupsWidget Component', () => {
+  const mockAuth = auth as jest.Mock;
+  const mockGetGroups = getGroups as jest.Mock;
 
   beforeEach(() => {
-    (fetchGroups as jest.Mock).mockResolvedValue(MOCK_GROUPS);
+    jest.clearAllMocks();
   });
 
-  it('matches snapshot', () => {
-    const { container } = render(<GroupsWidget {...mockProps} />);
-    expect(container).toMatchSnapshot();
-  });
+  it('renders GroupsContent with groups and authorId', async () => {
+    const mockSession = { user: { id: '123' } };
+    const mockGroups = {
+      data: [
+        { id: 1, name: 'Group 1' },
+        { id: 2, name: 'Group 2' },
+      ],
+    };
 
-  it('renders groups list correctly', () => {
-    render(<GroupsWidget {...mockProps} />);
+    mockAuth.mockResolvedValue(mockSession);
+    mockGetGroups.mockResolvedValue(mockGroups);
 
-    MOCK_GROUPS.data.forEach((group) => {
-      expect(screen.getByText(group.name)).toBeInTheDocument();
+    render(await GroupsWidget());
+
+    await waitFor(() => {
+      expect(mockAuth).toHaveBeenCalled();
+      expect(mockGetGroups).toHaveBeenCalledWith('123');
     });
+
+    expect(screen.getByTestId('author-id')).toHaveTextContent('123');
+    expect(screen.getAllByTestId('group')).toHaveLength(2);
+    expect(screen.getAllByTestId('group')[0]).toHaveTextContent('Group 1');
+    expect(screen.getAllByTestId('group')[1]).toHaveTextContent('Group 2');
+  });
+
+  it('handles no session gracefully', async () => {
+    mockAuth.mockResolvedValue(null);
+    mockGetGroups.mockResolvedValue({ data: [] });
+
+    render(await GroupsWidget());
+
+    await waitFor(() => {
+      expect(mockAuth).toHaveBeenCalled();
+      expect(mockGetGroups).toHaveBeenCalledWith('undefined');
+    });
+
+    expect(screen.queryByTestId('group')).not.toBeInTheDocument();
+    expect(screen.getByTestId('author-id')).toHaveTextContent('undefined');
+  });
+
+  it('handles empty groups gracefully', async () => {
+    const mockSession = { user: { id: '123' } };
+    const mockGroups = { data: [] };
+
+    mockAuth.mockResolvedValue(mockSession);
+    mockGetGroups.mockResolvedValue(mockGroups);
+
+    render(await GroupsWidget());
+
+    await waitFor(() => {
+      expect(mockAuth).toHaveBeenCalled();
+      expect(mockGetGroups).toHaveBeenCalledWith('123');
+    });
+
+    expect(screen.queryByTestId('group')).not.toBeInTheDocument();
+    expect(screen.getByTestId('author-id')).toHaveTextContent('123');
   });
 });

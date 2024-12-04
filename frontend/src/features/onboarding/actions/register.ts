@@ -21,7 +21,7 @@ const checkEmailExists = async (email: string) => {
       headers: {},
     });
 
-    return response[0];
+    return !!response.length && { exists: !!response.length };
   } catch (error) {
     return { error: ERROR_MESSAGES.UNKNOWN_ERROR };
   }

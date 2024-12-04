@@ -342,7 +342,7 @@ exports[`NewsFeedCard matches snapshot with default state 1`] = `
           <label
             class="font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-neutral-400 font-medium text-sm px-[5px]"
           >
-            3
+            0
           </label>
         </div>
       </div>
@@ -693,7 +693,7 @@ exports[`NewsFeedCard matches snapshot with media content 1`] = `
           <label
             class="font-roboto peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-neutral-400 font-medium text-sm px-[5px]"
           >
-            3
+            0
           </label>
         </div>
       </div>
@@ -715,7 +715,7 @@ exports[`NewsFeedCard matches snapshot with open comments 1`] = `
           class="font-roboto font-medium text-base text-neutral-400"
         >
           Comments (
-          3
+          0
           )
         </h3>
         <button
@@ -743,7 +743,7 @@ exports[`NewsFeedCard matches snapshot with open comments 1`] = `
         </button>
       </div>
       <div
-        class="p-4 max-h-[450px] overflow-auto"
+        class="flex flex-col items-center p-4 max-h-[450px] overflow-auto"
       />
       <div
         class="flex items-center p-4"
