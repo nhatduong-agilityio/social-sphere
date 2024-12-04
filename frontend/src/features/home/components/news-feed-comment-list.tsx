@@ -63,7 +63,7 @@ export const NewsFeedCommentList = memo(
     return (
       <div
         className={cn(
-          'flex flex-col',
+          'w-full flex flex-col',
           hasBorder && 'border-t dark:border-blue-800 pt-3 mb-6',
         )}
       >

@@ -1,8 +1,13 @@
 'use client';
 
-import { ComponentProps, memo, useCallback, useRef } from 'react';
+import {
+  ComponentProps,
+  memo,
+  useCallback,
+  useRef,
+  useTransition,
+} from 'react';
 import Picker, { EmojiClickData } from 'emoji-picker-react';
-import { useFormStatus } from 'react-dom';
 
 // Icons
 import { AtSignIcon, CameraIcon, SmileIcon } from 'lucide-react';
@@ -68,6 +73,7 @@ export const NewsFeedCommentForm = memo(
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     const wrapperEmoji = useRef<HTMLDivElement>(null);
     const mediaInputRef = useRef<HTMLInputElement>(null);
+    const [isPending, startTransition] = useTransition();
 
     const {
       isOpen: isOpenEmoji,
@@ -79,8 +85,6 @@ export const NewsFeedCommentForm = memo(
       onClose: onCloseTagFriends,
       onToggle: onToggleTagFriends,
     } = useDisclosure();
-
-    const { pending } = useFormStatus();
 
     const onEmojiClick = useCallback(
       (emoji: EmojiClickData) => {
@@ -117,9 +121,11 @@ export const NewsFeedCommentForm = memo(
     useOnClickOutside(wrapperEmoji, onCloseEmoji);
 
     const handleAction = async (_: FormData) => {
-      const values = form.getValues();
-      const enrichedFormData = getFormData(values);
-      return onComment(enrichedFormData);
+      startTransition(() => {
+        const values = form.getValues();
+        const enrichedFormData = getFormData(values);
+        onComment(enrichedFormData);
+      });
     };
 
     return (
@@ -230,7 +236,8 @@ export const NewsFeedCommentForm = memo(
               <Button
                 variant="primary"
                 className="text-2xs h-9"
-                disabled={pending}
+                disabled={isPending}
+                isLoading={isPending}
               >
                 Post Comment
               </Button>

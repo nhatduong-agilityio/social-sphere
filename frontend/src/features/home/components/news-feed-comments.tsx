@@ -1,6 +1,6 @@
 'use client';
 
-import { memo } from 'react';
+import { memo, useTransition } from 'react';
 
 // Icons
 import { XIcon } from 'lucide-react';
@@ -13,23 +13,32 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui';
-import { NewsFeedCommentPagination, UserDetail } from '@/types';
+import { NewsFeedComment, UserDetail } from '@/types';
 import { NewsFeedCommentList } from './news-feed-comment-list';
 import { NewsFeedCommentForm } from './news-feed-comment-form';
 import { useCommentReplyStore } from '../stores';
 
 interface NewsFeedCommentsProps {
-  comments?: NewsFeedCommentPagination;
+  hasMore: boolean;
+  comments: NewsFeedComment[];
+  commentTotal: number;
   author: UserDetail;
   onCloseComments: () => void;
+  loadMoreComments: () => Promise<void>;
   onComment: (data: FormData) => void;
 }
 
 export const NewsFeedComments = memo(
-  ({ comments, author, onCloseComments, onComment }: NewsFeedCommentsProps) => {
-    const { data: commentsList, commentTotal } = comments || {
-      data: [],
-    };
+  ({
+    hasMore,
+    comments,
+    commentTotal,
+    author,
+    loadMoreComments,
+    onCloseComments,
+    onComment,
+  }: NewsFeedCommentsProps) => {
+    const [isPending, startTransition] = useTransition();
     const [commentReplyValue, setCommentReplyValue, clearCommentReply] =
       useCommentReplyStore((state) => [
         state.commentReplyValue,
@@ -52,8 +61,8 @@ export const NewsFeedComments = memo(
             <XIcon size={18} className="text-neutral-400" />
           </Button>
         </CardHeader>
-        <CardContent className="p-4 max-h-[450px] overflow-auto">
-          {commentsList.map((comment, index) => (
+        <CardContent className="flex flex-col items-center p-4 max-h-[450px] overflow-auto">
+          {comments.map((comment, index) => (
             <NewsFeedCommentList
               key={comment.id}
               comment={comment}
@@ -61,6 +70,16 @@ export const NewsFeedComments = memo(
               onCommentReply={setCommentReplyValue}
             />
           ))}
+          {hasMore && (
+            <Button
+              variant="primary"
+              onClick={() => startTransition(() => loadMoreComments())}
+              disabled={isPending}
+              isLoading={isPending}
+            >
+              {isPending ? 'Loading...' : 'Load More Comments'}
+            </Button>
+          )}
         </CardContent>
         <CardFooter className="p-4">
           <NewsFeedCommentForm
