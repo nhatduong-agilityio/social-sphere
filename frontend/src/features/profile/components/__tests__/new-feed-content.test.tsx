@@ -53,6 +53,15 @@ const mockProps = {
   },
 };
 
+jest.mock('react', () => ({
+  ...jest.requireActual('react'),
+  useOptimistic: () => [
+    { id: 1, createdAt: '2024-01-01', documentId: '1' },
+    jest.fn(),
+  ],
+  useTransition: () => [false, jest.fn()],
+}));
+
 describe('NewFeedContent Component', () => {
   it('should render correctly', () => {
     const { container } = render(

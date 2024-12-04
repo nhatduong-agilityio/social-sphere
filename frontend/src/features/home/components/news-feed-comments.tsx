@@ -26,6 +26,10 @@ interface NewsFeedCommentsProps {
   onCloseComments: () => void;
   loadMoreComments: () => Promise<void>;
   onComment: (data: FormData) => void;
+  onAddOptimisticComment: (action: {
+    newComment: NewsFeedComment;
+    commentReplyId?: number;
+  }) => void;
 }
 
 export const NewsFeedComments = memo(
@@ -37,6 +41,7 @@ export const NewsFeedComments = memo(
     loadMoreComments,
     onCloseComments,
     onComment,
+    onAddOptimisticComment,
   }: NewsFeedCommentsProps) => {
     const [isPending, startTransition] = useTransition();
     const [commentReplyValue, setCommentReplyValue, clearCommentReply] =
@@ -87,6 +92,7 @@ export const NewsFeedComments = memo(
             onComment={onComment}
             commentReplyValue={commentReplyValue}
             onClearCommentReply={clearCommentReply}
+            onAddOptimisticComment={onAddOptimisticComment}
           />
         </CardFooter>
       </div>

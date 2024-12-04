@@ -27,9 +27,9 @@ import { ListCommentsResponse } from '@/models';
 import { useNewsFeedComments } from '../hooks';
 
 interface NewsFeedCardProps {
+  listCommentsPagination?: ListCommentsResponse;
   authorId: string;
   newsFeed: NewsFeed;
-  listCommentsPagination?: ListCommentsResponse;
   onLike: () => Promise<void>;
   onComment: (data: FormData) => void;
   onShare: (data: FormData) => void;
@@ -47,8 +47,13 @@ export const NewsFeedCard = memo(
     const { id, author, createdAt, likes, shares, media, isLiked, sharedFrom } =
       newsFeed;
 
-    const { listComments, commentTotal, hasMore, loadListComments } =
-      useNewsFeedComments(id.toString(), authorId, listCommentsPagination);
+    const {
+      listComments,
+      commentTotal,
+      hasMore,
+      loadListComments,
+      onAddOptimisticComment,
+    } = useNewsFeedComments(id.toString(), authorId, listCommentsPagination);
 
     const {
       isOpen: isOpenComments,
@@ -72,6 +77,7 @@ export const NewsFeedCard = memo(
             commentTotal={commentTotal}
             onCloseComments={onCloseComments}
             onComment={onComment}
+            onAddOptimisticComment={onAddOptimisticComment}
           />
         ) : (
           <>
