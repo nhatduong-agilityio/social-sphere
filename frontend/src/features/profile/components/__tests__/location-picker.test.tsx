@@ -12,6 +12,11 @@ import { LocationPicker } from '../location-picker';
 // Actions
 import { getLocations } from '@/features/home/actions';
 
+jest.mock('react', () => ({
+  ...jest.requireActual('react'),
+  useTransition: () => [false, jest.fn()],
+}));
+
 jest.mock('@/features/home/actions', () => ({
   ...jest.requireActual('@/features/home/actions'),
   getLocations: jest.fn(() => ({

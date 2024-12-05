@@ -4,6 +4,11 @@ import { MOCK_FRIENDS } from '@/__mocks__';
 import { WorkIcon } from '@/icons';
 import { UserModel } from '@/models';
 
+jest.mock('react', () => ({
+  ...jest.requireActual('react'),
+  useTransition: () => [false, jest.fn()],
+}));
+
 describe('OverviewInput Component', () => {
   it('should render correctly', () => {
     const { container } = render(

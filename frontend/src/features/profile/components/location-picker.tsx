@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, useCallback, useMemo, useState } from 'react';
+import { memo, useCallback, useMemo, useState, useTransition } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -51,6 +51,7 @@ const defaultLocation = { countryCode: '', city: '' };
 
 export const LocationPicker = memo(
   ({ isDisabled = false, user }: LocationPickerProps) => {
+    const [isPending, startTransition] = useTransition();
     const form = useForm<z.infer<typeof OverviewSchema>>({
       resolver: zodResolver(OverviewSchema),
       defaultValues: {
@@ -59,6 +60,8 @@ export const LocationPicker = memo(
         location: user.location || defaultLocation,
       },
     });
+    const disabled =
+      isDisabled || !form.formState.isValid || !form.formState.isDirty;
 
     const [suggestions, setSuggestions] = useState<
       { countryCode: string; city: string }[]
@@ -117,15 +120,17 @@ export const LocationPicker = memo(
 
     const handleSubmit = async (data: z.infer<typeof OverviewSchema>) => {
       try {
-        await updateProfile(user.username, {
-          ...user,
-          location: data.location,
-        });
+        startTransition(async () => {
+          await updateProfile(user.username, {
+            ...user,
+            location: data.location,
+          });
 
-        toast({
-          variant: 'success',
-          title: 'Success',
-          description: 'Location updated successfully',
+          toast({
+            variant: 'success',
+            title: 'Success',
+            description: 'Location updated successfully',
+          });
         });
       } catch (error) {
         toast({
@@ -190,8 +195,9 @@ export const LocationPicker = memo(
             size="icon"
             className={cn(
               'w-[42px] h-[42px] opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100 rounded-full bg-blue-50 group-hover:bg-blue-100 flex items-center justify-center transition-all duration-300 group-hover:rotate-180',
-              isDisabled && 'hidden',
+              disabled && 'hidden',
             )}
+            isLoading={isPending}
           >
             <ArrowLeft size={16} />
           </Button>
