@@ -4,6 +4,7 @@ import { z } from 'zod';
 import { ArrowLeft } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useTransition } from 'react';
 
 // Components
 import {
@@ -49,6 +50,7 @@ export const OverviewInput = ({
   user,
   placeholder,
 }: OverviewInputProps) => {
+  const [isPending, startTransition] = useTransition();
   const form = useForm<z.infer<typeof OverviewSchema>>({
     resolver: zodResolver(OverviewSchema),
     defaultValues: {
@@ -63,17 +65,22 @@ export const OverviewInput = ({
     },
   });
 
+  const disabled =
+    isDisabled || !form.formState.isValid || !form.formState.isDirty;
+
   const handleSubmit = async (data: z.infer<typeof OverviewSchema>) => {
     try {
-      await updateProfile(user.username, {
-        ...user,
-        [nameField]: data[nameField],
-      });
+      startTransition(async () => {
+        await updateProfile(user.username, {
+          ...user,
+          [nameField]: data[nameField],
+        });
 
-      toast({
-        variant: 'success',
-        title: 'Success',
-        description: `${nameLabel} updated successfully`,
+        toast({
+          variant: 'success',
+          title: 'Success',
+          description: `${nameLabel} updated successfully`,
+        });
       });
     } catch (error) {
       toast({
@@ -126,8 +133,9 @@ export const OverviewInput = ({
           size="icon"
           className={cn(
             'w-[42px] h-[42px] opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100 rounded-full bg-blue-50 group-hover:bg-blue-100 flex items-center justify-center transition-all duration-300 group-hover:rotate-180',
-            isDisabled && 'hidden',
+            disabled && 'hidden',
           )}
+          isLoading={isPending}
         >
           <ArrowLeft size={16} />
         </Button>

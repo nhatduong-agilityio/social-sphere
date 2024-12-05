@@ -9,6 +9,11 @@ import { MOCK_FRIENDS } from '@/__mocks__';
 // Models
 import { UserModel } from '@/models';
 
+jest.mock('react', () => ({
+  ...jest.requireActual('react'),
+  useTransition: () => [false, jest.fn()],
+}));
+
 describe('OverviewBio Component', () => {
   it('should render correctly', () => {
     const { container } = render(<OverviewBio user={MOCK_FRIENDS[0]} />);

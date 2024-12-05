@@ -28,7 +28,7 @@ exports[`OverviewBio Component should render correctly 1`] = `
       </div>
     </div>
     <button
-      class="font-roboto inline-flex whitespace-nowrap text-sm font-medium ring-offset-background ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border w-[42px] h-[42px] right-10 absolute opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100 rounded-full bg-blue-50 group-hover:bg-blue-100 items-center justify-center transition-all duration-300 group-hover:rotate-180"
+      class="font-roboto whitespace-nowrap text-sm font-medium ring-offset-background ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border w-[42px] h-[42px] right-10 absolute opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100 rounded-full bg-blue-50 group-hover:bg-blue-100 items-center justify-center transition-all duration-300 group-hover:rotate-180 hidden"
       title="bio-button"
       type="submit"
     >

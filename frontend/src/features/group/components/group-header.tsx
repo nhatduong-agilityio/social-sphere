@@ -94,7 +94,7 @@ export const GroupHeader = ({ group, authorId }: GroupHeaderProps) => {
           : 'Left group successfully',
     });
 
-    router.replace(ROUTER.HOME);
+    router.push(ROUTER.HOME);
   };
 
   useEffect(() => {

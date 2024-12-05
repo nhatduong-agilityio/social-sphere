@@ -4,6 +4,7 @@ import { z } from 'zod';
 import { ArrowLeft } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useTransition } from 'react';
 
 // Components
 import {
@@ -38,6 +39,7 @@ interface OverviewBioProps {
 }
 
 export const OverviewBio = ({ isDisabled = false, user }: OverviewBioProps) => {
+  const [isPending, startTransition] = useTransition();
   const form = useForm<z.infer<typeof OverviewSchema>>({
     resolver: zodResolver(OverviewSchema),
     defaultValues: {
@@ -50,18 +52,22 @@ export const OverviewBio = ({ isDisabled = false, user }: OverviewBioProps) => {
       bio: user.bio || '',
     },
   });
+  const disabled =
+    isDisabled || !form.formState.isValid || !form.formState.isDirty;
 
   const handleUpdateBio = async (data: z.infer<typeof OverviewSchema>) => {
     try {
-      await updateProfile(user.username, {
-        ...user,
-        bio: data.bio,
-      });
+      startTransition(async () => {
+        await updateProfile(user.username, {
+          ...user,
+          bio: data.bio,
+        });
 
-      toast({
-        variant: 'success',
-        title: 'Success',
-        description: 'Bio updated successfully',
+        toast({
+          variant: 'success',
+          title: 'Success',
+          description: 'Bio updated successfully',
+        });
       });
     } catch (error) {
       toast({
@@ -109,8 +115,9 @@ export const OverviewBio = ({ isDisabled = false, user }: OverviewBioProps) => {
           size="icon"
           className={cn(
             'w-[42px] h-[42px] right-10 absolute opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100 rounded-full bg-blue-50 group-hover:bg-blue-100 items-center justify-center transition-all duration-300 group-hover:rotate-180',
-            isDisabled && 'hidden',
+            disabled && 'hidden',
           )}
+          isLoading={isPending}
         >
           <ArrowLeft size={16} />
         </Button>
