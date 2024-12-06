@@ -1,7 +1,5 @@
 'use server';
 
-import { revalidateTag } from 'next/cache';
-
 // Constants
 import { API_ENDPOINT, QUERY } from '@/constants';
 
@@ -27,8 +25,6 @@ export const toggleLikeNewsFeed = async (
         },
       }),
     });
-
-    revalidateTag(`news-feed-${newsFeedId}`);
   } catch (error) {
     const errorMessage =
       (error as Error).message ||

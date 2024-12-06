@@ -63,15 +63,6 @@ export const NewsFeedCardDetail = ({
     (state, optimisticValue: NewsFeed) => optimisticValue,
   );
 
-  // Management server action to publish comment
-  const [_, formAction] = useFormState(
-    publishComment.bind(null, {
-      id: Number(newsFeedId),
-      authorId: Number(authorId),
-      commentId: commentReplyValue.commentId,
-    }),
-    initialCommentState,
-  );
   const [shareState, shareAction] = useFormState(
     shareNewFeeds.bind(null, {
       id: Number(newsFeedId),
@@ -148,13 +139,12 @@ export const NewsFeedCardDetail = ({
       },
     };
 
-    startTransition(() => {
+    startTransition(async () => {
       addOptimisticNewsFeed(optimisticUpdate);
 
-      Promise.all([
-        toggleLikeNewsFeed(Number(newsFeed.id), Number(authorId)),
-        fetchNewsFeed(),
-      ]);
+      await toggleLikeNewsFeed(Number(newsFeed.id), Number(authorId));
+
+      await fetchNewsFeed();
     });
   }, [
     addOptimisticNewsFeed,
@@ -167,11 +157,27 @@ export const NewsFeedCardDetail = ({
 
   const handleComment = useCallback(
     (data: FormData) => {
-      formAction(data);
-      fetchComments();
+      startTransition(async () => {
+        await publishComment(
+          {
+            id: Number(newsFeedId),
+            authorId: Number(authorId),
+            commentId: commentReplyValue.commentId,
+          },
+          initialCommentState,
+          data,
+        );
+        await fetchComments();
+      });
       clearCommentReply();
     },
-    [clearCommentReply, fetchComments, formAction],
+    [
+      authorId,
+      clearCommentReply,
+      commentReplyValue.commentId,
+      fetchComments,
+      newsFeedId,
+    ],
   );
 
   const handleShare = useCallback(
