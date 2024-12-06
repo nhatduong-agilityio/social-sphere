@@ -3,9 +3,13 @@ import { createGroup } from '../create-group';
 import { apiClient } from '@/services/api';
 import { upload } from '@/services/upload';
 import { ActionState } from '@/types';
+import { revalidateTag } from 'next/cache';
 
 jest.mock('@/services/api');
 jest.mock('@/services/upload');
+jest.mock('next/cache', () => ({
+  revalidateTag: jest.fn(),
+}));
 
 describe('createGroup', () => {
   const mockAuthorId = 123;
@@ -22,7 +26,7 @@ describe('createGroup', () => {
     mockFormData.set('description', 'Test Description');
   });
 
-  it('should create a group successfully without avatar', async () => {
+  it('should create a group successfully without avatar and revalidate path', async () => {
     const expectedResponse = {
       id: 1,
       name: 'Test Group',
@@ -45,12 +49,14 @@ describe('createGroup', () => {
       }),
     });
 
+    expect(revalidateTag).toHaveBeenCalledWith('api-list-groups-123-in-page-1');
     expect(result).toEqual({
       data: expectedResponse,
       message: 'Group created successfully',
       error: null,
     });
   });
+
   it('should create a group successfully with avatar', async () => {
     const mockFile = new File([''], 'test.jpg', { type: 'image/jpeg' });
     mockFormData.set('avatar', mockFile);

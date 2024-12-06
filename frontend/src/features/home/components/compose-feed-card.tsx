@@ -19,13 +19,16 @@ import { NewsFeedIdModel } from '@/models';
 
 // Hooks
 import { useDisclosure } from '@/hooks';
+import { NewsFeed } from '@/types';
 
 interface ComposeFeedCardProps {
   onUpdateNewsFeedIds: (newNewsFeedIds: NewsFeedIdModel) => void;
+  onAddOptimisticNewsFeed: (action: NewsFeed) => void;
 }
 
 export const ComposeFeedCard = ({
   onUpdateNewsFeedIds,
+  onAddOptimisticNewsFeed,
 }: ComposeFeedCardProps) => {
   const {
     isOpen: isOverlayOpen,
@@ -79,6 +82,7 @@ export const ComposeFeedCard = ({
               isOverlayOpen={isOverlayOpen}
               onOpenOverlay={onOpensOverlay}
               onUpdateNewsFeedIds={onUpdateNewsFeedIds}
+              onAddOptimisticNewsFeed={onAddOptimisticNewsFeed}
             />
           </TabsContent>
         </Tabs>

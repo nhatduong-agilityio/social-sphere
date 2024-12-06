@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useOptimistic, useTransition } from 'react';
+import { useEffect, useOptimistic } from 'react';
 import { useFormState } from 'react-dom';
 import { EditIcon, LogOutIcon, XIcon } from 'lucide-react';
 import { useRouter } from 'next/navigation';
@@ -48,10 +48,12 @@ export const GroupHeader = ({ group, authorId }: GroupHeaderProps) => {
   );
 
   const [updateState, updateAction] = useFormState(
-    updateGroupAction.bind(null, optimisticGroup.documentId),
+    updateGroupAction.bind(null, {
+      groupId: optimisticGroup.id.toString(),
+      prevData: group,
+    }),
     initialState,
   );
-  const [isPending, startTransition] = useTransition();
 
   const isAdmin =
     authorId === optimisticGroup.author.id.toString() ||
@@ -67,21 +69,7 @@ export const GroupHeader = ({ group, authorId }: GroupHeaderProps) => {
   };
 
   const handleCreate = async (data: FormData) => {
-    const avatar = data.get('avatar') as File;
-    const imageUrl = URL.createObjectURL(avatar);
-
-    const newData = {
-      ...optimisticGroup,
-      name: data.get('name') as string,
-      description: data.get('description') as string,
-      avatar: avatar ? imageUrl : optimisticGroup.avatar,
-    };
-
-    startTransition(async () => {
-      // Apply optimistic update
-      addOptimisticGroup(newData);
-      updateAction(data);
-    });
+    updateAction(data);
   };
 
   const handleRemoveGroupSuccess = (variant: 'remove' | 'leave') => {
@@ -112,8 +100,10 @@ export const GroupHeader = ({ group, authorId }: GroupHeaderProps) => {
         title: 'Success',
         description: updateState.message,
       });
+
+      router.push(ROUTER.GROUP_NAME(updateState.data.name));
     }
-  }, [updateState]);
+  }, [router, updateState]);
 
   return (
     <div className="w-full">
@@ -154,8 +144,8 @@ export const GroupHeader = ({ group, authorId }: GroupHeaderProps) => {
             </DialogTrigger>
             <GroupFormDialog
               onCreate={handleCreate}
-              isLoading={isPending}
               initialValues={initialGroupForm}
+              onAddOptimisticGroups={addOptimisticGroup}
             />
           </Dialog>
           {isAdmin && (

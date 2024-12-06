@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useState } from 'react';
+import { useCallback, useOptimistic, useState } from 'react';
 import { useTransition } from 'react';
 
 // Constants
@@ -16,6 +16,8 @@ import { fetchNewsFeedIds } from '@/actions';
 
 // Models
 import { NewsFeedIdModel, NewsFeedIdsResponse } from '@/models';
+import { NewsFeed } from '@/types';
+import { NewsFeedCard } from './news-feed-card';
 
 interface ActivityFeedContentProps {
   authorId: string;
@@ -34,6 +36,10 @@ export const ActivityFeedContent = ({
   const [hasMore, setHasMore] = useState(
     currentPage <
       (newsFeedIdsPagination?.meta.pagination.pageCount || CURRENT_PAGE),
+  );
+  const [optimisticNewsFeed, addOptimisticNewsFeed] = useOptimistic(
+    null,
+    (state: NewsFeed | null, newFeed: NewsFeed) => newFeed,
   );
 
   const loadMore = async () => {
@@ -65,8 +71,21 @@ export const ActivityFeedContent = ({
 
   return (
     <div className="col-span-12 lg:col-span-6 flex flex-col gap-6">
-      <ComposeFeedCard onUpdateNewsFeedIds={handleUpdateNewsFeedIds} />
+      <ComposeFeedCard
+        onUpdateNewsFeedIds={handleUpdateNewsFeedIds}
+        onAddOptimisticNewsFeed={addOptimisticNewsFeed}
+      />
       <div className="flex flex-col gap-6">
+        {optimisticNewsFeed && (
+          <NewsFeedCard
+            newsFeed={optimisticNewsFeed}
+            authorId={authorId}
+            onLike={async () => {}}
+            onComment={() => {}}
+            onShare={() => {}}
+          />
+        )}
+
         <NewsFeedCardList newsFeedIds={newsFeedIds} authorId={authorId} />
 
         {/**TODO: Define common component later  */}

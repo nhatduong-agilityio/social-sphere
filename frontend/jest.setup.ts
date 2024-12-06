@@ -10,7 +10,7 @@ jest.mock('next-auth/react', () => {
   const originalModule = jest.requireActual('next-auth/react');
   const mockSession = {
     expires: new Date(Date.now() + 2 * 86400).toISOString(),
-    user: { username: 'admin' },
+    user: { username: 'admin', id: 1 },
   };
   return {
     __esModule: true,
