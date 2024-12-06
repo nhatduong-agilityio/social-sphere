@@ -5,4 +5,5 @@ export * from './group-feed';
 export * from './group-form-dialog';
 export * from './group-remove-confirm-dialog';
 export * from './group-leave-confirm-dialog';
-export * from './group-invite-members-input';
+export * from './groups-content';
+export * from './groups-widget';

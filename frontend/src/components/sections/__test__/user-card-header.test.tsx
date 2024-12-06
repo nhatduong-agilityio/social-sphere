@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { UserCardHeader } from '../user-card-header';
 import { MOCK_FRIENDS } from '@/__mocks__';
-import { NEWS_FEED_COMMENT_MORE_OPTIONS } from '@/features/home/constants';
+import { NEWS_FEED_COMMENT_MORE_OPTIONS } from '@/features/news-feed/constants';
 
 describe('UserCardHeader Component', () => {
   const mockUser = MOCK_FRIENDS[0];

@@ -15,16 +15,17 @@ jest.mock('next/navigation', () => ({
 }));
 
 describe('Group Update Actions', () => {
+  const mockData = {
+    name: 'Updated Group',
+    description: 'Updated Description',
+  } as GroupDetail;
+
   beforeEach(() => {
     jest.clearAllMocks();
   });
 
   describe('updateGroup', () => {
     const mockGroupId = '123';
-    const mockData = {
-      name: 'Updated Group',
-      description: 'Updated Description',
-    } as GroupDetail;
 
     it('should update group successfully', async () => {
       const mockResponse = { data: mockData };
@@ -33,7 +34,7 @@ describe('Group Update Actions', () => {
       const result = await updateGroup(mockGroupId, mockData);
 
       expect(apiClient.put).toHaveBeenCalledWith(
-        'api/groups/123',
+        'api/groups/123/update',
         JSON.stringify({ data: mockData }),
       );
       expect(revalidateTag).toHaveBeenCalledWith(
@@ -74,13 +75,16 @@ describe('Group Update Actions', () => {
       (apiClient.put as jest.Mock).mockResolvedValue({ data: mockResponse });
 
       const result = await updateGroupAction(
-        mockGroupId,
+        {
+          groupId: mockGroupId,
+          prevData: mockResponse.data as GroupDetail,
+        },
         mockPrevState,
         mockFormData,
       );
 
       expect(apiClient.put).toHaveBeenCalledWith(
-        'api/groups/123',
+        'api/groups/123/update',
         JSON.stringify({
           data: {
             name: 'Updated Group',
@@ -110,7 +114,10 @@ describe('Group Update Actions', () => {
       });
 
       const result = await updateGroupAction(
-        mockGroupId,
+        {
+          groupId: mockGroupId,
+          prevData: mockData,
+        },
         mockPrevState,
         mockFormData,
       );
@@ -125,7 +132,10 @@ describe('Group Update Actions', () => {
       (apiClient.put as jest.Mock).mockRejectedValue(mockError);
 
       const result = await updateGroupAction(
-        mockGroupId,
+        {
+          groupId: mockGroupId,
+          prevData: mockData,
+        },
         mockPrevState,
         mockFormData,
       );
@@ -139,7 +149,10 @@ describe('Group Update Actions', () => {
       (apiClient.put as jest.Mock).mockRejectedValue({});
 
       const result = await updateGroupAction(
-        mockGroupId,
+        {
+          groupId: mockGroupId,
+          prevData: mockData,
+        },
         mockPrevState,
         mockFormData,
       );

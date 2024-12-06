@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 
 // Constants
 import { API_ENDPOINT, QUERY, TAG_KEYS } from '@/constants';
+import { NewsFeedsContext } from '@/features/news-feed/constants';
 
 // Services
 import { apiClient } from '@/services';
@@ -13,6 +14,7 @@ export const GET = async (request: Request) => {
   const { searchParams } = new URL(request.url);
   const authorId = searchParams.get('authorId');
   const groupId = searchParams.get('groupId');
+  const context = searchParams.get('context') as NewsFeedsContext;
   const page = searchParams.get('page');
   const pageSize = searchParams.get('pageSize');
 
@@ -20,6 +22,7 @@ export const GET = async (request: Request) => {
     authorId: () =>
       QUERY.LATEST_NEWS_FEED_IDS_BY_AUTHOR_ID(
         authorId!,
+        context,
         Number(page),
         Number(pageSize),
       ),

@@ -1,5 +1,6 @@
 'use client';
 
+import { useOptimistic } from 'react';
 import { EllipsisVertical } from 'lucide-react';
 
 // Components
@@ -11,15 +12,16 @@ import {
   CardTitle,
   Text,
 } from '@/components/ui';
-import { UserCardPopover } from '@/components/sections';
-import { GroupInviteMembersInput } from './group-invite-members-input';
+import {
+  UserCardPopover,
+  GroupInviteMembersInput,
+} from '@/components/sections';
 
 // Utils
 import { getFullName } from '@/utils';
 
 // Types
 import { GroupMember } from '@/types';
-import { useOptimistic } from 'react';
 
 interface GroupMembersWidgetProps {
   groupId: number;

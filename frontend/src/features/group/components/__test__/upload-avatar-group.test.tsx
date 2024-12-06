@@ -68,7 +68,7 @@ describe('UploadAvatarGroup', () => {
     });
 
     expect(mockUpload).toHaveBeenCalledWith(file);
-    expect(mockUpdateGroup).toHaveBeenCalledWith('group-1', {
+    expect(mockUpdateGroup).toHaveBeenCalledWith('1', {
       avatar: 'uploaded-url',
     });
   });
