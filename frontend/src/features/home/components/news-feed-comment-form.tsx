@@ -144,6 +144,8 @@ export const NewsFeedCommentForm = memo(
         const values = form.getValues();
         const enrichedFormData = getFormData(values);
         onComment(enrichedFormData);
+
+        form.reset();
       });
     };
 
