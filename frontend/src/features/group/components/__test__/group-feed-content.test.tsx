@@ -1,10 +1,10 @@
+import React from 'react';
 import { render, screen, fireEvent, act } from '@testing-library/react';
-import { GroupFeedContent } from '../group-feed-content';
 import { useGroupMembers } from '../../hooks';
-import { fetchNewsFeedIds } from '@/actions';
+import { fetchNewsFeedIds } from '@/features/news-feed/actions';
 import { GroupMembersResponse, Pagination } from '@/types';
 import { NewsFeedIdsResponse } from '@/models';
-import React from 'react';
+import { GroupFeedContent } from '../group-feed-content';
 
 // Add mocks
 jest.mock('react', () => ({
@@ -12,22 +12,23 @@ jest.mock('react', () => ({
   useTransition: () => [false, jest.fn()],
   useState: jest.requireActual('react').useState,
   useCallback: jest.requireActual('react').useCallback,
+  useOptimistic: () => [{}, jest.fn()],
 }));
 
 jest.mock('../../hooks', () => ({
   useGroupMembers: jest.fn(),
 }));
 
-jest.mock('@/actions', () => ({
+jest.mock('@/features/news-feed/actions', () => ({
   fetchNewsFeedIds: jest.fn(),
-}));
-
-jest.mock('@/features/home/components/news-feed-card-list', () => ({
-  NewsFeedCardList: () => <div data-testid="news-feed-card-list" />,
 }));
 
 jest.mock('../group-members-widget', () => ({
   GroupMembersWidget: () => <div data-testid="group-members-widget" />,
+}));
+
+jest.mock('@/features/news-feed/components/news-feed-card-list', () => ({
+  NewsFeedCardList: () => <div data-testid="news-feed-card-list" />,
 }));
 
 describe('GroupFeedContent', () => {

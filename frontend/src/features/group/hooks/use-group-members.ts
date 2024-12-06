@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { CURRENT_PAGE, PAGE_SIZE } from '@/constants';
 import { GroupMember, GroupMembersResponse } from '@/types';
-import { fetchGroupMembers } from '@/actions';
+import { fetchGroupMembers } from '../actions';
 
 export const useGroupMembers = (
   groupId: number,

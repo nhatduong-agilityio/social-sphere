@@ -10,15 +10,15 @@ import { UserModel } from '@/models';
 import { LocationPicker } from '../location-picker';
 
 // Actions
-import { getLocations } from '@/features/home/actions';
+import { getLocations } from '@/features/news-feed/actions';
 
 jest.mock('react', () => ({
   ...jest.requireActual('react'),
   useTransition: () => [false, jest.fn()],
 }));
 
-jest.mock('@/features/home/actions', () => ({
-  ...jest.requireActual('@/features/home/actions'),
+jest.mock('@/features/news-feed/actions', () => ({
+  ...jest.requireActual('@/features/news-feed/actions'),
   getLocations: jest.fn(() => ({
     data: {
       features: [

@@ -1,4 +1,3 @@
-export * from './friend-panel';
 export * from './location-card';
 export * from './location-panel';
 export * from './photo-panel';
@@ -15,7 +14,3 @@ export * from './overview-input';
 export * from './overview-content';
 export * from './overview-bio';
 export * from './location-picker';
-export * from './new-feed-list';
-export * from './new-feed-content';
-export * from './new-friends-widget';
-export * from './new-friends-content';

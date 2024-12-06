@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 // Models
-import { GifResponse } from '@/features/home/models/gif';
+import { GifResponse } from '@/features/news-feed/models/gif';
 
 export const GET = async (request: NextRequest) => {
   const searchParams = request.nextUrl.searchParams;

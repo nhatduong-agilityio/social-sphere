@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SuggestFriendsContent should not render anything when there are no friends to accept 1`] = `
+<div>
+  <div
+    class="bg-card border border-gray-800 hover:shadow dark:border-dark-300 w-full rounded-lg"
+  >
+    <div
+      class="p-5 flex flex-row px-4 py-2 justify-between"
+    >
+      <div
+        class="flex items-center gap-4"
+      >
+        <h3
+          class="font-roboto text-sm font-normal dark:text-neutral-50 text-neutral-600"
+        >
+          Suggested Friends
+        </h3>
+      </div>
+      <div
+        class="flex items-center gap-3"
+      >
+        <button
+          aria-label="See More"
+          class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border rounded-full h-10 w-10 hover:bg-muted"
+        >
+          <svg
+            class="lucide lucide-ellipsis-vertical text-slate-600"
+            fill="none"
+            height="20"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="12"
+              cy="12"
+              r="1"
+            />
+            <circle
+              cx="12"
+              cy="5"
+              r="1"
+            />
+            <circle
+              cx="12"
+              cy="19"
+              r="1"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div
+      class="flex flex-col p-0"
+    />
+  </div>
+</div>
+`;

@@ -1,3 +1,4 @@
+import { NewsFeedsContext } from '@/features/news-feed/constants';
 import { CURRENT_PAGE, PAGE_SIZE } from './pagination';
 
 export const QUERY = {
@@ -32,10 +33,17 @@ export const QUERY = {
     `filters[user][id][$eq]=${userId}&populate[user]=*&populate[post]=*&filters[post][id][$eq]=${newsFeedId}&filters[user][id][$eq]=${userId}`,
   LATEST_NEWS_FEED_IDS_BY_AUTHOR_ID: (
     authorId: string,
+    context: NewsFeedsContext = NewsFeedsContext.PERSONAL,
     page: number = CURRENT_PAGE,
     pageSize: number = PAGE_SIZE,
-  ) =>
-    `filters[author][id][$eq]=${authorId}&filters[shareType][$eq]=yourFeed&fields[0]=id&sort[createdAt]=desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}`,
+  ) => {
+    const filters =
+      context === NewsFeedsContext.PERSONAL
+        ? `filters[author][id][$eq]=${authorId}&filters[shareType][$eq]=yourFeed&fields[0]=id&sort[createdAt]=desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}`
+        : `filters[$or][0][author][id][$eq]=${authorId}&filters[$or][1][author][followerRelationships][followed][id][$eq]=${authorId}&filters[$or][1][author][followerRelationships][requestStatus][$eq]=friends&filters[$or][2][shareType][$in][0]=yourFeed&fields[0]=id&sort[createdAt]=desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}`;
+
+    return filters;
+  },
   NEWS_FEED_DETAIL_BY_ID: (newsFeedId: string) =>
     `filters[id][$eq]=${newsFeedId}&populate[author]=*&populate[likes][fields][0]=createdAt&populate[likes][populate][user]=*&populate[likes][sort][createdAt]=desc&populate[comments][populate][friend]=*&populate[comments][populate][likes][populate][user]=*&populate[comments][populate][replies][populate][friend]=*&populate[comments][populate][replies][populate][likes][populate][user]=*&populate[shares]=*&populate[sharedFrom][populate][author]=*`,
   LIST_COMMENTS_IN_NEWS_FEED_BY_ID: (

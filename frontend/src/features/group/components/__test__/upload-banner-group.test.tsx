@@ -34,6 +34,7 @@ jest.mock('react', () => ({
 
 describe('UploadBannerGroup', () => {
   const mockGroup = {
+    id: 1,
     documentId: 'group-1',
     name: 'Test Group',
     banner: IMAGES.PROFILE_BANNER.url,
@@ -62,7 +63,7 @@ describe('UploadBannerGroup', () => {
     });
 
     expect(mockUpload).toHaveBeenCalledWith(file);
-    expect(mockUpdateGroup).toHaveBeenCalledWith('group-1', {
+    expect(mockUpdateGroup).toHaveBeenCalledWith('1', {
       banner: IMAGES.PROFILE_BANNER.url,
     });
     expect(mockToast).toHaveBeenCalled();

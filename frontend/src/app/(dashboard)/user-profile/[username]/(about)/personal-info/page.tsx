@@ -5,11 +5,11 @@ import { PanelSkeleton } from '@/components/sections';
 
 // Components
 import {
-  FriendPanel,
   LocationPanel,
   PhotoPanel,
   VideoPanel,
 } from '@/features/profile/components';
+import { FriendPanel } from '@/features/friend/components';
 
 const PersonalInfoPage = ({ params }: { params: { username: string } }) => (
   <div className="flex flex-col gap-8">

@@ -1,9 +1,9 @@
 import { renderHook, act } from '@testing-library/react';
 import { useGroupMembers } from '../use-group-members';
-import { fetchGroupMembers } from '@/actions';
+import { fetchGroupMembers } from '../../actions';
 import { GroupMembersResponse } from '@/types';
 
-jest.mock('@/actions', () => ({
+jest.mock('../../actions', () => ({
   fetchGroupMembers: jest.fn(),
 }));
 

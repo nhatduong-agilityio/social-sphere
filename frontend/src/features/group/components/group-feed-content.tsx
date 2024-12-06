@@ -11,14 +11,14 @@ import { Button } from '@/components/ui';
 import { GroupMembersWidget } from './group-members-widget';
 
 // Features
-import { NewsFeedCardList } from '@/features/home/components/news-feed-card-list';
+import { NewsFeedCardList } from '@/features/news-feed/components';
 
 // Models
 import { NewsFeedIdModel, NewsFeedIdsResponse } from '@/models';
 import { GroupMembersResponse } from '@/types';
 
 // Actions
-import { fetchNewsFeedIds } from '@/actions';
+import { fetchNewsFeedIds } from '@/features/news-feed/actions';
 
 // Hooks
 import { useGroupMembers } from '../hooks';

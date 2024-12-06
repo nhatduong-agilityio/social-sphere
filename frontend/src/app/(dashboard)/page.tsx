@@ -2,16 +2,17 @@ import { Suspense } from 'react';
 import { Briefcase, Gift } from 'lucide-react';
 
 // Components
+import { WidgetSkeleton } from '@/components/sections';
+import { ActivityFeed } from '@/features/news-feed/components';
+import { FeedSkeleton } from '@/features/news-feed/components/skeletons';
+import { NewsFeedsContext } from '@/features/news-feed/constants';
 import {
   AcceptFriendsContent,
-  ActivityFeed,
-  GroupsWidget,
-  NotificationWidget,
   StoriesWidget,
   SuggestFriendsContent,
-} from '@/features/home/components';
-import { FeedSkeleton } from '@/features/home/components/skeletons';
-import { WidgetSkeleton } from '@/components/sections';
+} from '@/features/friend/components';
+import { GroupsWidget } from '@/features/group/components';
+import { NotificationWidget } from '@/features/notification/components';
 
 // Icons
 import { BirthdayIcon, JobIcon } from '@/icons';
@@ -29,7 +30,7 @@ const Homepage = () => (
         </Suspense>
       </div>
       <Suspense fallback={<FeedSkeleton />}>
-        <ActivityFeed />
+        <ActivityFeed newsFeedContext={NewsFeedsContext.COMMUNITY} />
       </Suspense>
 
       <div className="hidden lg:flex col-span-3 flex-col gap-6">

@@ -25,7 +25,7 @@ import { MapboxFeature } from '@/types';
 import { UserModel } from '@/models';
 
 // Actions
-import { getLocations } from '@/features/home/actions';
+import { getLocations } from '@/features/news-feed/actions';
 
 // Libs
 import { OverviewSchema } from '../lib';
