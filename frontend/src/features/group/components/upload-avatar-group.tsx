@@ -106,7 +106,7 @@ export const UploadAvatarGroup = ({ group }: UploadAvatarGroupProps) => {
             startTransition(async () => {
               const profilePicture = await upload(file);
 
-              await updateGroup(group.documentId, {
+              await updateGroup(group.id.toString(), {
                 avatar: profilePicture,
               } as GroupDetail);
               setSelectedImageUrl(profilePicture);

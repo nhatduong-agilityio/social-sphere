@@ -33,5 +33,51 @@ export default factories.createCoreController(
         ctx.throw(500, error);
       }
     },
+    async updateGroupFields(ctx) {
+      const { id } = ctx.params;
+      const { data: updateFields } = ctx.request.body;
+
+      // Get existing group data
+      const existingGroup = await strapi.db.query('api::group.group').findOne({
+        select: '*',
+        where: { id },
+        populate: {
+          createdUser: { select: '*' },
+          groupMembers: {
+            select: '*',
+            populate: { user: { select: '*' } },
+          },
+        },
+      });
+
+      if (!existingGroup) {
+        return ctx.notFound('Group not found');
+      }
+
+      // Remove id from the existing group data before spreading
+      const { id: _, ...groupDataWithoutId } = existingGroup;
+
+      // Update only the specified fields
+      const updatedGroup = await strapi.entityService.update(
+        'api::group.group',
+        id,
+        {
+          data: {
+            ...groupDataWithoutId,
+            ...updateFields,
+          },
+          populate: {
+            createdUser: true,
+            groupMembers: {
+              populate: ['user'],
+            },
+            posts: true,
+            postsGroup: true,
+          },
+        },
+      );
+
+      return { data: updatedGroup };
+    },
   }),
 );

@@ -72,7 +72,7 @@ export const UploadBannerGroup = ({ group }: UploadBannerGroupProps) => {
             startTransition(async () => {
               const banner = await upload(file);
 
-              await updateGroup(group.documentId, { banner } as GroupDetail);
+              await updateGroup(group.id.toString(), { banner } as GroupDetail);
               setSelectedImageUrl(banner);
 
               toast({

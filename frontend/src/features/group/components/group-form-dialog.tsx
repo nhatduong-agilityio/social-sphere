@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, useCallback, useRef } from 'react';
+import { memo, useCallback, useRef, useTransition } from 'react';
 import { PlusIcon, XIcon } from 'lucide-react';
 
 // Components
@@ -27,19 +27,28 @@ import {
 
 import { AvatarSkeleton } from '@/components/sections';
 import { useGroupForm } from '../hooks';
+import { GroupDetail, GroupRole, UserDetail } from '@/types';
+import { useSession } from 'next-auth/react';
 
 interface GroupFormDialogProps {
-  isLoading?: boolean;
-  onCreate: (data: FormData) => void;
   initialValues?: {
     name: string;
     description?: string;
     avatar?: string;
   };
+  onCreate: (data: FormData) => void;
+  onAddOptimisticGroups: (action: GroupDetail) => void;
 }
 
 export const GroupFormDialog = memo(
-  ({ isLoading = false, initialValues, onCreate }: GroupFormDialogProps) => {
+  ({
+    initialValues,
+    onCreate,
+    onAddOptimisticGroups,
+  }: GroupFormDialogProps) => {
+    const { data: session } = useSession();
+    const user = session?.user as UserDetail;
+
     const {
       form,
       selectedImageUrl,
@@ -47,6 +56,7 @@ export const GroupFormDialog = memo(
       handleFileChange,
       handleRemoveMedia,
     } = useGroupForm(initialValues);
+    const [isPending, startTransition] = useTransition();
 
     const mediaInputRef = useRef<HTMLInputElement>(null);
 
@@ -58,9 +68,33 @@ export const GroupFormDialog = memo(
     }, [mediaInputRef]);
 
     const handleAction = async (_: FormData) => {
-      const values = form.getValues();
-      const enrichedFormData = getFormData(values);
-      return onCreate(enrichedFormData);
+      const newGroup: GroupDetail = {
+        id: user.id + 1,
+        avatar: selectedImageUrl,
+        createdAt: new Date().toISOString(),
+        documentId: user.documentId || '',
+        name: form.getValues('name'),
+        description: form.getValues('description'),
+        isPrivate: true,
+        members: [
+          {
+            id: user.id + 1,
+            documentId: user.documentId || '',
+            role: GroupRole.ADMIN,
+            user,
+          },
+        ],
+        author: user,
+        newsFeeds: [],
+      };
+
+      startTransition(() => {
+        onAddOptimisticGroups(newGroup);
+
+        const values = form.getValues();
+        const enrichedFormData = getFormData(values);
+        onCreate(enrichedFormData);
+      });
     };
 
     return (
@@ -80,7 +114,7 @@ export const GroupFormDialog = memo(
             <div className="flex flex-col items-center w-full gap-5 p-5">
               <div className="w-[120px] h-[120px] rounded-full border-[1.4px] border-gray-900 dark:border-blue-800 relative">
                 <Avatar className="w-full h-full">
-                  {isLoading ? (
+                  {isPending ? (
                     <AvatarSkeleton customClass="w-[120px] h-[120px]" />
                   ) : (
                     <>
@@ -194,8 +228,8 @@ export const GroupFormDialog = memo(
                   data-testid="publish-button"
                   variant="primary"
                   className="h-8 text-2xs px-5 bg-blue-600"
-                  isLoading={isLoading}
-                  disabled={isLoading}
+                  isLoading={isPending}
+                  disabled={isPending}
                 >
                   Publish
                 </Button>

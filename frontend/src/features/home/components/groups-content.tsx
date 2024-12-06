@@ -4,6 +4,7 @@ import {
   memo,
   useCallback,
   useEffect,
+  useOptimistic,
   useRef,
   useState,
   useTransition,
@@ -39,13 +40,8 @@ import {
 import { getFirstLetters } from '@/utils';
 
 // Types
-import {
-  ActionState,
-  GroupDetail,
-  GroupMember,
-  GroupsListResponse,
-} from '@/types';
-import { GroupModel, UserModel } from '@/models';
+import { ActionState, GroupDetail, GroupsListResponse } from '@/types';
+import { GroupModel } from '@/models';
 
 // Actions
 import { createGroup } from '@/features/group/actions';
@@ -80,6 +76,10 @@ export const GroupsContent = memo(({ authorId, groups }: GroupsWidgetProps) => {
     createGroup.bind(null, Number(authorId)),
     initialState,
   );
+  const [optimisticGroups, addOptimisticGroups] = useOptimistic(
+    initialGroups,
+    (state, newGroup: GroupDetail) => [newGroup, ...state],
+  );
 
   const loadMore = useCallback(async () => {
     if (isPending) return; // Prevent multiple calls while loading
@@ -99,10 +99,8 @@ export const GroupsContent = memo(({ authorId, groups }: GroupsWidgetProps) => {
     });
   }, [authorId, currentPage, isPending]);
 
-  const handleCreate = async (data: FormData) => {
-    startTransition(async () => {
-      createAction(data);
-    });
+  const handleCreate = (data: FormData) => {
+    createAction(data);
   };
 
   const handleNavigate = (groupName: string) => {
@@ -142,27 +140,12 @@ export const GroupsContent = memo(({ authorId, groups }: GroupsWidgetProps) => {
         title: 'Success',
         description: createState.message,
       });
-
-      const newGroup: GroupDetail = {
-        ...createState.data,
-        members: [
-          {
-            user: {
-              id: Number(authorId),
-            } as UserModel,
-          } as GroupMember,
-        ],
-        author: { ...createState.data.createdUser, id: Number(authorId) },
-        newsFeeds: createState.data.posts,
-      };
-
-      setInitialGroups((prev) => [...prev, newGroup]);
     }
 
     refTriggerDialog.current?.click();
   }, [authorId, createState]);
 
-  const renderStoriesFriends = initialGroups.map(
+  const renderGroups = optimisticGroups.map(
     ({ id, documentId, author, members, name, description, avatar }) => {
       const isAdmin = author.id.toString() === authorId;
       const member = members.find(
@@ -273,10 +256,13 @@ export const GroupsContent = memo(({ authorId, groups }: GroupsWidgetProps) => {
                 description="Share members' news feeds"
               />
             </DialogTrigger>
-            <GroupFormDialog onCreate={handleCreate} isLoading={isPending} />
+            <GroupFormDialog
+              onCreate={handleCreate}
+              onAddOptimisticGroups={addOptimisticGroups}
+            />
           </Dialog>
 
-          {renderStoriesFriends}
+          {renderGroups}
         </CardContent>
       </Card>
 

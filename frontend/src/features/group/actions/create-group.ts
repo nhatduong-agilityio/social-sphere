@@ -1,7 +1,9 @@
 'use server';
 
+import { revalidateTag } from 'next/cache';
+
 // Constants
-import { API_ENDPOINT } from '@/constants';
+import { API_ENDPOINT, TAG_KEYS } from '@/constants';
 
 // Services
 import { apiClient } from '@/services';
@@ -48,6 +50,8 @@ export const createGroup = async (
       path: API_ENDPOINT.GROUPS,
       body: JSON.stringify({ data: payload }),
     });
+
+    revalidateTag(TAG_KEYS.LIST_GROUPS_BY_USER_IN_PAGE(authorId.toString(), 1));
 
     return {
       data: response,

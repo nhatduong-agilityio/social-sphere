@@ -27,13 +27,14 @@ import { toast, useDisclosure } from '@/hooks';
 
 // Actions
 import { publishNewsFeed } from '../actions';
-import { ActionState, NewsFeed } from '@/types';
+import { ActionState, NewsFeed, UserDetail } from '@/types';
 import { NewsFeedIdModel } from '@/models';
 
 interface ComposePublishContentProps {
   isOverlayOpen: boolean;
   onOpenOverlay: () => void;
   onUpdateNewsFeedIds: (newNewsFeedIds: NewsFeedIdModel) => void;
+  onAddOptimisticNewsFeed: (action: NewsFeed) => void;
 }
 
 const initialState: ActionState<NewsFeed> = {
@@ -46,9 +47,10 @@ export const ComposePublishContent = memo(
     isOverlayOpen,
     onOpenOverlay,
     onUpdateNewsFeedIds,
+    onAddOptimisticNewsFeed,
   }: ComposePublishContentProps) => {
     const { data: session } = useSession();
-    const userId = session?.user?.id;
+    const user = session?.user as UserDetail;
 
     const {
       form,
@@ -71,7 +73,7 @@ export const ComposePublishContent = memo(
 
     // Management server action to publish post
     const [state, formAction] = useFormState(
-      publishNewsFeed.bind(null, userId),
+      publishNewsFeed.bind(null, user?.id.toString()),
       initialState,
     );
     const [isPending, startTransition] = useTransition();
@@ -128,7 +130,24 @@ export const ComposePublishContent = memo(
     }, [onUpdateNewsFeedIds, state]);
 
     const handleAction = async (_: FormData) => {
+      const newNewsFeed = {
+        id: user.id + 1,
+        author: user,
+        content: form.getValues('content'),
+        createdAt: new Date().toISOString(),
+        media: selectedImageUrl,
+        accessItems: form.getValues('accessItems'),
+        activityRole: form.getValues('activityRole'),
+        storyRole: form.getValues('storyRole'),
+        gifUrl: selectedGifUrl,
+        mood: selectedMood,
+        sharedLink: form.getValues('sharedLink'),
+        location: selectedLocation,
+      };
+
       startTransition(() => {
+        onAddOptimisticNewsFeed(newNewsFeed);
+
         const values = form.getValues();
         const enrichedFormData = getFormData(values);
         formAction(enrichedFormData);

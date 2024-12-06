@@ -8,12 +8,16 @@ jest.mock('react-dom', () => ({
   useFormStatus: () => ({ pending: false }),
 }));
 
+jest.mock('react', () => ({
+  ...jest.requireActual('react'),
+  useTransition: () => [false, jest.fn()],
+  useOptimistic: () => [{}, jest.fn()],
+}));
+
 describe('ComposeFeedCard', () => {
   const defaultProps = {
-    isOverlayOpen: false,
-    onOpensOverlay: jest.fn(),
-    onCloseOverlay: jest.fn(),
     onUpdateNewsFeedIds: jest.fn(),
+    onAddOptimisticNewsFeed: jest.fn(),
   };
 
   it('renders correctly when overlay is closed', async () => {

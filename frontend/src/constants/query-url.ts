@@ -69,4 +69,5 @@ export const QUERY = {
   ) =>
     `filters[group][id][$eq]=${groupId}&fields[0]=id&sort[createdAt]=desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}`,
   TOGGLE_LIKE: '/toggle',
+  UPDATE_GROUP_BY_GROUP_ID: (groupId: string) => `/${groupId}/update`,
 };

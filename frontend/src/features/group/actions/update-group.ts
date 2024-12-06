@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import { revalidateTag } from 'next/cache';
 
 // Constants
-import { API_ENDPOINT, TAG_KEYS } from '@/constants';
+import { API_ENDPOINT, QUERY, TAG_KEYS } from '@/constants';
 
 // Services
 import { apiClient } from '@/services';
@@ -17,7 +17,7 @@ export const updateGroup = async (
   groupId: string,
   data: GroupDetail,
 ): Promise<GroupDetail> => {
-  const url = `${API_ENDPOINT.GROUPS}/${groupId}`;
+  const url = `${API_ENDPOINT.GROUPS}${QUERY.UPDATE_GROUP_BY_GROUP_ID(groupId)}`;
 
   const { data: groupDetail } = await apiClient.put<{ data: GroupDetail }>(
     url,
@@ -32,7 +32,13 @@ export const updateGroup = async (
 };
 
 export const updateGroupAction = async (
-  groupId: string,
+  {
+    groupId,
+    prevData,
+  }: {
+    groupId: string;
+    prevData: GroupDetail;
+  },
   prevState: ActionState<GroupDetail>,
   formData: FormData,
 ): Promise<ActionState<GroupDetail>> => {
@@ -54,14 +60,16 @@ export const updateGroupAction = async (
       };
     }
 
-    const url = `${API_ENDPOINT.GROUPS}/${groupId}`;
+    const url = `${API_ENDPOINT.GROUPS}${QUERY.UPDATE_GROUP_BY_GROUP_ID(groupId)}`;
 
     const { data: response } = await apiClient.put<{ data: GroupDetail }>(
       url,
       JSON.stringify({ data: payload }),
     );
 
-    revalidateTag(TAG_KEYS.GROUP_DETAIL_BY_GROUP_NAME(response.name));
+    if (prevData.name === response.name) {
+      revalidateTag(TAG_KEYS.GROUP_DETAIL_BY_GROUP_NAME(response.name));
+    }
 
     return {
       data: response,
