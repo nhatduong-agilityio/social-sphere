@@ -137,9 +137,9 @@ export const GroupsContent = memo(({ authorId, groups }: GroupsWidgetProps) => {
         title: 'Success',
         description: createState.message,
       });
-    }
 
-    refTriggerDialog.current?.click();
+      refTriggerDialog.current?.click();
+    }
   }, [authorId, createState]);
 
   const renderGroups = optimisticGroups.map(
