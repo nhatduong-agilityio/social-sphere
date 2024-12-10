@@ -28,7 +28,7 @@ export const CircleOverlay = memo(
         data-testid="circle"
         size={circleSize}
         className={cn(
-          'border-[1.4px] border-background absolute top-0 right-0 bg-secondary',
+          'border-[1.4px] w-7 h-7 md:w-8 md:h-8 border-background absolute md:bottom-20 md:left-20 bottom-10 left-10 bg-secondary',
           circleClassName,
         )}
       >
