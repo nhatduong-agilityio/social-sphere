@@ -35,6 +35,8 @@ import { login } from '../actions';
 // Constants
 import { ROUTER } from '@/constants';
 
+import AvatarLogin from '@public/images/avatar-login.webp';
+
 const initialState = {
   email: '',
   password: '',
@@ -66,17 +68,14 @@ export const LoginForm = () => {
       >
         <div className="flex flex-col items-center mb-2">
           <CircleOverlay
-            className="w-[110px] h-[110px] rounded-full border border-gray-900 p-[7px]"
+            className="md:w-[110px] w-16 md:h-[110px] h-16 rounded-full border border-gray-900 p-[7px]"
             circleClassName="border-3"
             circleContent={
-              <CheckIcon size={14} className="text-white" strokeWidth={3} />
+              <CheckIcon size={12} className="text-white" strokeWidth={3} />
             }
           >
             <Avatar className="w-full h-full">
-              <AvatarImage
-                src="https://github.com/shadcn.png"
-                alt="Avatar Login"
-              />
+              <AvatarImage src={AvatarLogin.src} alt="Avatar Login" />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
           </CircleOverlay>
@@ -88,6 +87,7 @@ export const LoginForm = () => {
             <FormItem>
               <FormControl>
                 <Input
+                  className="md:text-sm text-2xs"
                   startIcon={<UserIcon size="18" />}
                   variant="icon"
                   placeholder="jennadavis@gmail.com"
@@ -105,6 +105,7 @@ export const LoginForm = () => {
             <FormItem>
               <FormControl>
                 <Input
+                  className="md:text-sm text-2xs"
                   title="password"
                   type="password"
                   startIcon={<LockIcon size="18" />}
@@ -132,7 +133,7 @@ export const LoginForm = () => {
           Login
         </Button>
         <Link href={ROUTER.ONBOARDING} className="flex justify-center">
-          <Button variant="link" className="p-0 h-9">
+          <Button variant="link" className="p-0 h-9 md:text-sm text-2xs">
             Do you need an account?
           </Button>
         </Link>
