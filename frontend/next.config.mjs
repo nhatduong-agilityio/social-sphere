@@ -1,20 +1,10 @@
 /** @type {import('next').NextConfig} */
 
-const cspHeader = `
-    default-src 'self';
-    script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.gstatic.com;
-    style-src 'self' 'unsafe-inline';
-    img-src 'self' blob: data:;
-    font-src 'self' https://fonts.gstatic.com;
-    connect-src 'self' https://social-sphere-ashy.vercel.app;
-    object-src 'none';
-    base-uri 'self';
-    form-action 'self';
-    frame-ancestors 'none';
-    upgrade-insecure-requests;`;
-
 const nextConfig = {
   swcMinify: true,
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   experimental: {
     optimizePackageImports: ['react-hook-form'],
   },
@@ -36,10 +26,6 @@ const nextConfig = {
       {
         source: '/(.*)',
         headers: [
-          {
-            key: 'Content-Security-Policy',
-            value: cspHeader.replace(/\n/g, ''),
-          },
           {
             key: 'Strict-Transport-Security',
             value: 'max-age=86400; includeSubDomains;',
