@@ -9,7 +9,7 @@ exports[`LoginForm component should render correctly 1`] = `
       class="flex flex-col items-center mb-2"
     >
       <div
-        class="relative w-[110px] h-[110px] rounded-full border border-gray-900 p-[7px]"
+        class="relative md:w-[110px] w-16 md:h-[110px] h-16 rounded-full border border-gray-900 p-[7px]"
         data-testid="circle-overlay"
       >
         <span
@@ -23,19 +23,19 @@ exports[`LoginForm component should render correctly 1`] = `
           </span>
         </span>
         <div
-          class="rounded-full flex justify-center items-center h-8 w-8 border-background absolute top-0 right-0 bg-secondary border-3"
+          class="rounded-full flex justify-center items-center h-8 w-8 border-background absolute md:bottom-20 md:left-20 bottom-10 left-10 bg-secondary border-3"
           data-testid="circle"
         >
           <svg
             class="lucide lucide-check text-white"
             fill="none"
-            height="14"
+            height="12"
             stroke="currentColor"
             stroke-linecap="round"
             stroke-linejoin="round"
             stroke-width="3"
             viewBox="0 0 24 24"
-            width="14"
+            width="12"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
@@ -81,7 +81,7 @@ exports[`LoginForm component should render correctly 1`] = `
           aria-describedby=":r0:-form-item-description"
           aria-invalid="false"
           autocomplete="off"
-          class="flex h-10 w-full rounded-lg border border-input bg-white dark:bg-dark-500 px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-xs file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-300 ease-in-out focus:border-ring dark:border-input pl-10"
+          class="flex h-10 w-full rounded-lg border border-input bg-white dark:bg-dark-500 px-3 py-2 file:border-0 file:bg-transparent file:text-xs file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-300 ease-in-out focus:border-ring dark:border-input md:text-sm text-2xs pl-10"
           data-testid="input-element"
           id=":r0:-form-item"
           name="email"
@@ -129,7 +129,7 @@ exports[`LoginForm component should render correctly 1`] = `
           aria-describedby=":r1:-form-item-description"
           aria-invalid="false"
           autocomplete="off"
-          class="flex h-10 w-full rounded-lg border border-input bg-white dark:bg-dark-500 px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-xs file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-300 ease-in-out focus:border-ring dark:border-input pl-10"
+          class="flex h-10 w-full rounded-lg border border-input bg-white dark:bg-dark-500 px-3 py-2 file:border-0 file:bg-transparent file:text-xs file:font-medium file:text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-300 ease-in-out focus:border-ring dark:border-input md:text-sm text-2xs pl-10"
           data-testid="input-element"
           id=":r1:-form-item"
           name="password"
@@ -152,7 +152,7 @@ exports[`LoginForm component should render correctly 1`] = `
       href="/onboarding"
     >
       <button
-        class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border dark:text-neutral-50 text-neutral-600 hover:text-blue-600 border-none p-0 h-9"
+        class="font-roboto inline-flex items-center justify-center whitespace-nowrap rounded-lg font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border dark:text-neutral-50 text-neutral-600 hover:text-blue-600 border-none p-0 h-9 md:text-sm text-2xs"
       >
         Do you need an account?
       </button>

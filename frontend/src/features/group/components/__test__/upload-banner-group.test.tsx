@@ -92,7 +92,7 @@ describe('UploadBannerGroup', () => {
 
     expect(container.querySelector('img')).toHaveAttribute(
       'src',
-      'http://localhost/_next/image?url=%2Fbanners%2Fprofile-banner.webp&w=3840&q=100',
+      'http://localhost/_next/image?url=%2Fbanners%2Fprofile-banner.webp&w=3840&q=75',
     );
   });
 });

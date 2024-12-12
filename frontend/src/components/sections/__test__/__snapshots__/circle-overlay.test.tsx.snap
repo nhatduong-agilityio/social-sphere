@@ -10,7 +10,7 @@ exports[`CircleOverlay Component matches snapshot 1`] = `
       Child content
     </div>
     <div
-      class="rounded-full flex justify-center items-center w-2.5 h-2.5 border-[1.4px] border-background absolute top-0 right-0 bg-secondary custom-circle-class"
+      class="rounded-full flex justify-center items-center w-2.5 h-2.5 border-[1.4px] border-background absolute md:bottom-20 md:left-20 bottom-10 left-10 bg-secondary custom-circle-class"
       data-testid="circle"
     >
       <span>

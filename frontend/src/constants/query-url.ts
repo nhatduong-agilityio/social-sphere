@@ -40,7 +40,7 @@ export const QUERY = {
     const filters =
       context === NewsFeedsContext.PERSONAL
         ? `filters[author][id][$eq]=${authorId}&filters[shareType][$eq]=yourFeed&fields[0]=id&sort[createdAt]=desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}`
-        : `filters[$or][0][author][id][$eq]=${authorId}&filters[$or][1][author][followerRelationships][followed][id][$eq]=${authorId}&filters[$or][1][author][followerRelationships][requestStatus][$eq]=friends&filters[$or][2][shareType][$in][0]=yourFeed&fields[0]=id&sort[createdAt]=desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}`;
+        : `filters[$or][0][author][id][$eq]=${authorId}&filters[$or][1][shareType][$eq]=public&filters[$or][2][$and][0][author][followerRelationships][followed][id][$eq]=${authorId}&filters[$or][2][$and][1][author][followerRelationships][requestStatus][$eq]=friends&fields[0]=id&sort[createdAt]=desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}`;
 
     return filters;
   },

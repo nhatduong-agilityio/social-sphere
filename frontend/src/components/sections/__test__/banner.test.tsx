@@ -15,7 +15,7 @@ describe('Banner Component', () => {
     const image = screen.getByAltText(IMAGES.PROFILE_BANNER.alt);
     expect(image).toHaveAttribute(
       'src',
-      'http://localhost/_next/image?url=%2Fcustom-image.jpg&w=3840&q=100',
+      'http://localhost/_next/image?url=%2Fcustom-image.jpg&w=3840&q=75',
     );
   });
 
