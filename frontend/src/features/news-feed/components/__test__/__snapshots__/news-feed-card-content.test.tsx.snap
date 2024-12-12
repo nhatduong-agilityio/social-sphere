@@ -38,7 +38,7 @@ exports[`NewsFeedCardContent matches snapshot 1`] = `
          at the 
         <a
           class="flex items-center border-none w-fit text-sm text-primary hover:bg-transparent"
-          href="New York"
+          href="#"
           title="New York"
         >
           New York
@@ -53,8 +53,10 @@ exports[`NewsFeedCardContent matches snapshot 1`] = `
       <img
         alt="Gif of feed"
         class="rounded-md"
+        height="169"
         src="test.gif"
-        style="width: 100%; height: auto; object-fit: cover;"
+        style="object-fit: cover;"
+        width="140"
       />
     </div>
     <a

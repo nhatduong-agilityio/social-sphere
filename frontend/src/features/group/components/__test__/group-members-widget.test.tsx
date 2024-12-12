@@ -37,7 +37,7 @@ const mockGroupMembers = [
 jest.mock('react', () => ({
   ...jest.requireActual('react'),
   useTransition: () => [false, jest.fn()],
-  useOptimistic: () => [mockGroupMembers, jest.fn()],
+  useOptimistic: () => [null, jest.fn()],
 }));
 
 describe('GroupMembersWidget', () => {

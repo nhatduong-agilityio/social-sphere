@@ -73,9 +73,10 @@ export const GroupsContent = memo(({ authorId, groups }: GroupsWidgetProps) => {
     createGroup.bind(null, Number(authorId)),
     initialState,
   );
-  const [optimisticGroups, addOptimisticGroups] = useOptimistic(
-    initialGroups,
-    (state, newGroup: GroupDetail) => [newGroup, ...state],
+
+  const [optimisticGroup, addOptimisticGroup] = useOptimistic(
+    null,
+    (state: GroupDetail | null, newGroup: GroupDetail) => newGroup,
   );
 
   const loadMore = useCallback(async () => {
@@ -142,84 +143,85 @@ export const GroupsContent = memo(({ authorId, groups }: GroupsWidgetProps) => {
     }
   }, [authorId, createState]);
 
-  const renderGroups = optimisticGroups.map(
-    ({ id, documentId, author, members, name, description, avatar }) => {
-      const isAdmin = author.id.toString() === authorId;
-      const member = members.find(
-        (member) => member.user.id.toString() === authorId,
-      );
+  const renderGroups = (groups: GroupDetail[]) =>
+    groups.map(
+      ({ id, documentId, author, members, name, description, avatar }) => {
+        const isAdmin = author.id.toString() === authorId;
+        const member = members.find(
+          (member) => member.user.id.toString() === authorId,
+        );
 
-      return (
-        <div
-          key={documentId}
-          className="p-4 flex w-full border-t border-slate-300 dark:border-slate-600 items-center justify-between group"
-        >
+        return (
           <div
-            className="w-full flex items-center gap-3 cursor-pointer"
-            onClick={() => handleNavigate(name)}
+            key={documentId}
+            className="p-4 flex w-full border-t border-slate-300 dark:border-slate-600 items-center justify-between group"
           >
-            <Avatar>
-              <AvatarImage
-                src={avatar || ''}
-                alt={`Avatar of the group-${id}`}
-                width={40}
-                height={40}
-                sizes="(max-width: 768px) 40px, (min-width: 769px) 80px"
-              />
-              <AvatarFallback>{getFirstLetters(name, name)}</AvatarFallback>
-            </Avatar>
-            <StoryMeta title={name} description={description} />
-          </div>
+            <div
+              className="w-full flex items-center gap-3 cursor-pointer"
+              onClick={() => handleNavigate(name)}
+            >
+              <Avatar>
+                <AvatarImage
+                  src={avatar || ''}
+                  alt={`Avatar of the group-${id}`}
+                  width={40}
+                  height={40}
+                  sizes="(max-width: 768px) 40px, (min-width: 769px) 80px"
+                />
+                <AvatarFallback>{getFirstLetters(name, name)}</AvatarFallback>
+              </Avatar>
+              <StoryMeta title={name} description={description} />
+            </div>
 
-          <div className="flex items-center gap-2">
-            {isAdmin && (
-              <GroupRemoveConfirmDialog
-                groupId={documentId}
-                groupName={name}
-                userId={authorId}
-                page={currentPage}
-                trigger={
-                  <Button
-                    size="icon"
-                    aria-label="Remove Group"
-                    variant="rounded"
-                    className="w-9 h-9 border-none hover:text-red-600"
-                  >
-                    <XIcon size={20} />
-                  </Button>
-                }
-                onRemoveSuccess={(groupId) =>
-                  handleRemoveGroupSuccess(groupId, 'remove')
-                }
-              />
-            )}
-            {!isAdmin && member && (
-              <GroupLeaveConfirmDialog
-                groupId={documentId}
-                groupMemberId={member.documentId}
-                groupName={name}
-                userId={authorId}
-                page={currentPage}
-                trigger={
-                  <Button
-                    aria-label="Leave Group"
-                    size="icon"
-                    variant="rounded"
-                    className="w-9 h-9 border-none hover:text-dark-900"
-                  >
-                    <LogOutIcon size={16} />
-                  </Button>
-                }
-                onLeaveSuccess={(groupId) =>
-                  handleRemoveGroupSuccess(groupId, 'leave')
-                }
-              />
-            )}
+            <div className="flex items-center gap-2">
+              {isAdmin && (
+                <GroupRemoveConfirmDialog
+                  groupId={documentId}
+                  groupName={name}
+                  userId={authorId}
+                  page={currentPage}
+                  trigger={
+                    <Button
+                      size="icon"
+                      aria-label="Remove Group"
+                      variant="rounded"
+                      className="w-9 h-9 border-none hover:text-red-600"
+                    >
+                      <XIcon size={20} />
+                    </Button>
+                  }
+                  onRemoveSuccess={(groupId) =>
+                    handleRemoveGroupSuccess(groupId, 'remove')
+                  }
+                />
+              )}
+              {!isAdmin && member && (
+                <GroupLeaveConfirmDialog
+                  groupId={documentId}
+                  groupMemberId={member.documentId}
+                  groupName={name}
+                  userId={authorId}
+                  page={currentPage}
+                  trigger={
+                    <Button
+                      aria-label="Leave Group"
+                      size="icon"
+                      variant="rounded"
+                      className="w-9 h-9 border-none hover:text-dark-900"
+                    >
+                      <LogOutIcon size={16} />
+                    </Button>
+                  }
+                  onLeaveSuccess={(groupId) =>
+                    handleRemoveGroupSuccess(groupId, 'leave')
+                  }
+                />
+              )}
+            </div>
           </div>
-        </div>
-      );
-    },
-  );
+        );
+      },
+    );
 
   return (
     <>
@@ -263,11 +265,12 @@ export const GroupsContent = memo(({ authorId, groups }: GroupsWidgetProps) => {
             </DialogTrigger>
             <GroupFormDialog
               onCreate={handleCreate}
-              onAddOptimisticGroups={addOptimisticGroups}
+              onAddOptimisticGroups={addOptimisticGroup}
             />
           </Dialog>
+          {optimisticGroup && renderGroups([optimisticGroup])}
 
-          {renderGroups}
+          {renderGroups(initialGroups)}
         </CardContent>
       </Card>
 
