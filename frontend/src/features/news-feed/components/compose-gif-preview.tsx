@@ -18,7 +18,9 @@ export const ComposeGifPreview = memo(
       <img
         alt="Gif of feed"
         src={imageUrl}
-        style={{ width: '100%', height: 'auto', objectFit: 'cover' }}
+        width={140}
+        height={169}
+        style={{ objectFit: 'cover' }}
         className="rounded-md"
       />
       {onRemove && (

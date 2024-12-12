@@ -58,7 +58,7 @@ const GroupItem = ({
     >
       <div className="w-fit h-fit rounded-full relative">
         <Avatar size="md">
-          <AvatarImage src={avatar} alt={`Avatar of the group-${id}`} />
+          <AvatarImage src={avatar || ''} alt={`Avatar of the group-${id}`} />
           <AvatarFallback>{getFirstLetters(name, name)}</AvatarFallback>
         </Avatar>
         {location && (

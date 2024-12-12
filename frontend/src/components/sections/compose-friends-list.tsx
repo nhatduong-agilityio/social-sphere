@@ -83,7 +83,7 @@ const FriendsList = ({
                   <div className="flex items-center space-x-2.5">
                     <Avatar className="w-[38px] h-[38px]">
                       <AvatarImage
-                        src={profilePicture}
+                        src={profilePicture || ''}
                         alt={`Avatar of the friend-${id}`}
                       />
                       <AvatarFallback>

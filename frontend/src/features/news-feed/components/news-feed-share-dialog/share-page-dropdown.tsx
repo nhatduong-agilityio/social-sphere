@@ -105,7 +105,7 @@ export const SharePageDropdown = ({ form, pages }: SharePageDropdownProps) => {
                 </DropdownMenuTrigger>
                 <Avatar className="w-6 h-6">
                   <AvatarImage
-                    src={selectedPage.owner.profilePicture}
+                    src={selectedPage.owner.profilePicture || ''}
                     alt={`Avatar of owner of the selected page-${selectedPage.id}`}
                   />
                   <AvatarFallback>PA</AvatarFallback>

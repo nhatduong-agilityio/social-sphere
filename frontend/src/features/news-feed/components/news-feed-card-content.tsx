@@ -71,7 +71,7 @@ export const NewsFeedCardContent = memo(
       return (
         <>
           &nbsp;at the&nbsp;
-          <LinkWithIconWrapper url={location} text={location} />.
+          <LinkWithIconWrapper url="#" text={location} />.
         </>
       );
     }, [location]);

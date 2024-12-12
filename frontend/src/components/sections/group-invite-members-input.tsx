@@ -134,7 +134,7 @@ export const GroupInviteMembersInput = ({
                     <div className="w-fit h-fit rounded-full relative">
                       <Avatar size="md">
                         <AvatarImage
-                          src={profilePicture}
+                          src={profilePicture || ''}
                           alt={`Avatar of the friend-${id}`}
                         />
                         <AvatarFallback>
