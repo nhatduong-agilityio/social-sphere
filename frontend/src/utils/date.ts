@@ -12,3 +12,11 @@ export const formatDate = (dateStr: string): string => {
 
   return isRecent ? timeAgo : format(date, 'MMMM d yyyy, h:mm a');
 };
+
+export const formatLastModified = (
+  updatedAt?: string,
+  createdAt?: string,
+): string => {
+  const date = updatedAt || createdAt || '2024-12-09';
+  return date.split('T')[0];
+};

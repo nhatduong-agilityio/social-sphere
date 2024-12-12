@@ -17,6 +17,7 @@ export type GroupModel = {
   banner: string;
   description: string;
   isPrivate: boolean;
+  updatedAt?: string;
   createdUser: UserModel;
   groupMembers: GroupMemberModel[];
   posts: NewsFeed[];
