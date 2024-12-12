@@ -5,6 +5,7 @@ import * as AvatarPrimitive from '@radix-ui/react-avatar';
 
 import { cn } from '@/utils';
 import { cva, VariantProps } from 'class-variance-authority';
+import { ImageProps } from 'next/image';
 
 const avatarVariants = cva(
   'relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full',
@@ -47,7 +48,7 @@ Avatar.displayName = AvatarPrimitive.Root.displayName;
 
 const AvatarImage = forwardRef<
   ElementRef<typeof AvatarPrimitive.Image>,
-  ComponentPropsWithoutRef<typeof AvatarPrimitive.Image>
+  ComponentPropsWithoutRef<typeof AvatarPrimitive.Image> & ImageProps
 >(({ className, ...props }, ref) => (
   <AvatarPrimitive.Image
     ref={ref}

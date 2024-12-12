@@ -5,7 +5,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui';
 import { UserContentPopover } from '@/components/sections';
 
 // Utils
-import { getFirstLetters, getFullName, cn } from '@/utils';
+import { getFirstLetters, cn } from '@/utils';
 
 // Types
 import { UserDetail } from '@/types';
@@ -58,9 +58,11 @@ export const UserCardPopover = memo(
               className={cn('bg-current', additionalAvatarClass)}
             >
               <AvatarImage
-                data-testid="avatar-image"
-                src={profilePicture}
-                alt={`Avatar of the user-${getFullName(firstName, lastName)} in team`}
+                src={profilePicture || ''}
+                alt={`Avatar of the group-${getFirstLetters(firstName, lastName)}`}
+                width={40}
+                height={40}
+                sizes="(max-width: 768px) 40px, (min-width: 769px) 80px"
               />
               <AvatarFallback>
                 {getFirstLetters(firstName, lastName)}

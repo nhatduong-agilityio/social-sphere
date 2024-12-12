@@ -159,7 +159,13 @@ export const GroupsContent = memo(({ authorId, groups }: GroupsWidgetProps) => {
             onClick={() => handleNavigate(name)}
           >
             <Avatar>
-              <AvatarImage src={avatar} alt={`Avatar of the group-${id}`} />
+              <AvatarImage
+                src={avatar || ''}
+                alt={`Avatar of the group-${id}`}
+                width={40}
+                height={40}
+                sizes="(max-width: 768px) 40px, (min-width: 769px) 80px"
+              />
               <AvatarFallback>{getFirstLetters(name, name)}</AvatarFallback>
             </Avatar>
             <StoryMeta title={name} description={description} />
@@ -175,6 +181,7 @@ export const GroupsContent = memo(({ authorId, groups }: GroupsWidgetProps) => {
                 trigger={
                   <Button
                     size="icon"
+                    aria-label="Remove Group"
                     variant="rounded"
                     className="w-9 h-9 border-none hover:text-red-600"
                   >
@@ -195,6 +202,7 @@ export const GroupsContent = memo(({ authorId, groups }: GroupsWidgetProps) => {
                 page={currentPage}
                 trigger={
                   <Button
+                    aria-label="Leave Group"
                     size="icon"
                     variant="rounded"
                     className="w-9 h-9 border-none hover:text-dark-900"

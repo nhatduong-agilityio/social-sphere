@@ -9,8 +9,8 @@ import {
   SearchInput,
   Avatar,
   AvatarFallback,
-  AvatarImage,
   PopoverContainer,
+  AvatarImage,
 } from '../ui';
 
 // Utils
@@ -173,7 +173,13 @@ export const Header = memo(({ isAuthenticated = true, user }: HeaderProps) => {
               trigger={
                 <CircleOverlay circleSize="tiny">
                   <Avatar className="w-full h-full">
-                    <AvatarImage src={profilePicture} alt="Avatar" />
+                    <AvatarImage
+                      src={profilePicture || ''}
+                      alt="Avatar"
+                      width={40}
+                      height={40}
+                      sizes="(max-width: 768px) 40px, (min-width: 769px) 80px"
+                    />
                     <AvatarFallback>CN</AvatarFallback>
                   </Avatar>
                 </CircleOverlay>

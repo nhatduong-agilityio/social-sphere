@@ -130,7 +130,7 @@ export const ComposeSearchBar = memo(
                       <div className="w-10 h-10 relative">
                         <Avatar>
                           <AvatarImage
-                            src={profilePicture}
+                            src={profilePicture || ''}
                             alt={`Avatar of the user-${getFullName(firstName, lastName)} in team`}
                           />
                           <AvatarFallback className="bg-neutral-400">

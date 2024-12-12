@@ -58,7 +58,7 @@ export const UserContentPopover = memo(({ user }: UserPopoverProps) => {
           className="absolute bg-current w-[50px] h-[50px] -bottom-6 right-4 border-3 border-slate-900"
         >
           <AvatarImage
-            src={profilePicture}
+            src={profilePicture || ''}
             alt={`Avatar of the user-${getFullName(firstName, lastName)} in team`}
           />
           <AvatarFallback>

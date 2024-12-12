@@ -8,6 +8,9 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['react-hook-form'],
   },
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
   reactStrictMode: false,
   staticPageGenerationTimeout: 1000,
   images: {
@@ -17,7 +20,7 @@ const nextConfig = {
         hostname: '**',
       },
     ],
-    formats: ['image/webp'],
+    formats: ['image/webp', 'image/avif'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },

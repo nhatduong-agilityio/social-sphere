@@ -54,7 +54,7 @@ export const NotificationWidget = memo(
       <CardContent className="z-10 p-4 flex flex-col justify-center items-center min-h-[290px]">
         <div className="relative">
           <Avatar className="mb-4">
-            <AvatarImage src={avatar} alt="Background image" />
+            <AvatarImage src={avatar || ''} alt="Background image" />
             <AvatarFallback>CN</AvatarFallback>
           </Avatar>
           {notificationCount && (
