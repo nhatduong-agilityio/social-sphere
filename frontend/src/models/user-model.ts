@@ -17,5 +17,7 @@ export type UserModel = {
     city: string;
   };
   bio?: string;
+  updatedAt?: string;
+  createdAt?: string;
   followedRelationships: Array<{ id: number }>;
 };

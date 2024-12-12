@@ -1,9 +1,0 @@
-User-Agent: *
-Allow: /login
-Allow: /onboarding
-Allow: /
-Allow: /api/
-Allow: /group/
-Allow: /user-profile/
-
-Sitemap: https://social-sphere-ashy.vercel.app/
