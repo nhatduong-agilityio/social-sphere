@@ -130,7 +130,7 @@ export const ComposePublishContent = memo(
 
     const handleAction = async (_: FormData) => {
       const newNewsFeed = {
-        id: user.id + 1,
+        id: -1,
         author: user,
         content: form.getValues('content'),
         createdAt: new Date().toISOString(),

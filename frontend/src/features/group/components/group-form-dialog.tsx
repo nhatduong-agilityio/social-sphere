@@ -69,17 +69,17 @@ export const GroupFormDialog = memo(
 
     const handleAction = async (_: FormData) => {
       const newGroup: GroupDetail = {
-        id: user.id + 1,
+        id: -1,
         avatar: selectedImageUrl,
         createdAt: new Date().toISOString(),
-        documentId: user.documentId || '',
+        documentId: user?.documentId || '',
         name: form.getValues('name'),
         description: form.getValues('description'),
         isPrivate: true,
         members: [
           {
-            id: user.id + 1,
-            documentId: user.documentId || '',
+            id: -1,
+            documentId: user?.documentId || '',
             role: GroupRole.ADMIN,
             user,
           },

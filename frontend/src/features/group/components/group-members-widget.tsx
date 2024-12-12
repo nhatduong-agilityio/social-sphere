@@ -57,12 +57,12 @@ export const GroupMembersWidget = ({
   authorId,
   groupMembers,
 }: GroupMembersWidgetProps) => {
-  const [optimisticMembers, addOptimisticMember] = useOptimistic(
-    groupMembers,
-    (state, newMember: GroupMember) => [newMember, ...state],
+  const [optimisticMember, addOptimisticMember] = useOptimistic(
+    null,
+    (state: GroupMember | null, newMember: GroupMember) => newMember,
   );
 
-  const renderMembers = optimisticMembers.map((member) => (
+  const renderMembers = groupMembers.map((member) => (
     <GroupMemberItem key={member.id} member={member} />
   ));
 
@@ -82,13 +82,16 @@ export const GroupMembersWidget = ({
           </div>
         </div>
         <GroupInviteMembersInput
-          groupMembers={optimisticMembers}
+          groupMembers={groupMembers}
           groupId={groupId}
           authorId={authorId}
           addOptimisticMember={addOptimisticMember}
         />
       </CardHeader>
-      <CardContent className="flex flex-col p-0">{renderMembers}</CardContent>
+      <CardContent className="flex flex-col p-0">
+        {optimisticMember && <GroupMemberItem member={optimisticMember} />}
+        {renderMembers}
+      </CardContent>
     </Card>
   );
 };

@@ -8,8 +8,10 @@ exports[`ComposeGifPreview renders gif image correctly 1`] = `
     <img
       alt="Gif of feed"
       class="rounded-md"
+      height="169"
       src="https://example.com/test.gif"
-      style="width: 100%; height: auto; object-fit: cover;"
+      style="object-fit: cover;"
+      width="140"
     />
   </div>
 </div>
