@@ -15,7 +15,7 @@ exports[`GroupMembersWidget matches snapshot 1`] = `
           class="flex items-center gap-4"
         >
           <h3
-            class="font-roboto text-sm font-normal text-neutral-400 dark:text-gray-100"
+            class="font-roboto text-sm font-normal text-neutral-600 dark:text-gray-100"
           >
             Group Members
           </h3>
@@ -24,6 +24,7 @@ exports[`GroupMembersWidget matches snapshot 1`] = `
           class="flex items-center gap-3"
         >
           <button
+            aria-label="More"
             class="font-roboto inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border rounded-full h-10 w-10 hover:bg-muted"
           >
             <svg
@@ -131,7 +132,7 @@ exports[`GroupMembersWidget matches snapshot 1`] = `
               John Doe
             </p>
             <span
-              class="text-4xs text-slate-500 capitalize"
+              class="text-4xs dark:text-slate-300 text-neutral-500 capitalize"
             >
               admin
             </span>
@@ -169,7 +170,7 @@ exports[`GroupMembersWidget matches snapshot 1`] = `
               Jane Smith
             </p>
             <span
-              class="text-4xs text-slate-500 capitalize"
+              class="text-4xs dark:text-slate-300 text-neutral-500 capitalize"
             >
               member
             </span>
