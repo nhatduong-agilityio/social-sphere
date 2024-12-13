@@ -45,7 +45,9 @@ const GroupMemberItem = ({ member }: GroupMemberItemProps) => {
           <Text className="text-xs">
             {getFullName(user.firstName, user.lastName)}
           </Text>
-          <span className="text-4xs text-slate-500 capitalize">{role}</span>
+          <span className="text-4xs dark:text-slate-300 text-neutral-500 capitalize">
+            {role}
+          </span>
         </div>
       </div>
     </div>
@@ -71,12 +73,17 @@ export const GroupMembersWidget = ({
       <CardHeader className="flex flex-col px-4 py-2 justify-between gap-2">
         <div className="flex justify-between">
           <div className="flex items-center gap-4">
-            <CardTitle className="text-sm font-normal text-neutral-400 dark:text-gray-100">
+            <CardTitle className="text-sm font-normal text-neutral-600 dark:text-gray-100">
               Group Members
             </CardTitle>
           </div>
           <div className="flex items-center gap-3">
-            <Button size="icon" variant="rounded" className="hover:bg-muted">
+            <Button
+              aria-label="More"
+              size="icon"
+              variant="rounded"
+              className="hover:bg-muted"
+            >
               <EllipsisVertical size={20} className="text-slate-600" />
             </Button>
           </div>

@@ -116,7 +116,7 @@ export const GroupHeader = ({ group, authorId }: GroupHeaderProps) => {
           <span className="font-montserrat text-[25.6px] font-semibold">
             {formatNumber(countMembers) || '0'}
           </span>
-          <span className="text-neutral-100 text-4xs uppercase">
+          <span className="dark:text-neutral-100 text-neutral-600 text-4xs uppercase">
             {countMembers > 1 ? 'Members' : 'Member'}
           </span>
         </div>
@@ -125,7 +125,7 @@ export const GroupHeader = ({ group, authorId }: GroupHeaderProps) => {
           <h2 className="font-semibold font-montserrat text-xl">
             {optimisticGroup.name}
           </h2>
-          <span className="font-roboto text-neutral-100 text-sm">
+          <span className="font-roboto dark:text-neutral-100 text-neutral-600 text-sm">
             {optimisticGroup.description}
           </span>
         </div>
@@ -134,6 +134,7 @@ export const GroupHeader = ({ group, authorId }: GroupHeaderProps) => {
           <Dialog>
             <DialogTrigger asChild>
               <Button
+                aria-label="Edit Group"
                 size="fit"
                 variant="unstyle"
                 className="flex items-center gap-1 border border-gray-900"
@@ -155,6 +156,7 @@ export const GroupHeader = ({ group, authorId }: GroupHeaderProps) => {
               userId={authorId}
               trigger={
                 <Button
+                  aria-label="Remove Group"
                   size="fit"
                   variant="unstyle"
                   className="flex items-center gap-1 hover:text-red-600"
@@ -173,6 +175,7 @@ export const GroupHeader = ({ group, authorId }: GroupHeaderProps) => {
               userId={authorId}
               trigger={
                 <Button
+                  aria-label="Remove Group"
                   size="fit"
                   variant="unstyle"
                   className="flex items-center gap-1 hover:text-dark-900"
