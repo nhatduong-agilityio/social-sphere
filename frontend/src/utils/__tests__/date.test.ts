@@ -1,5 +1,5 @@
 import { formatDistanceToNow, format, isValid } from 'date-fns';
-import { formatDate } from '../date';
+import { formatDate, formatLastModified } from '../date';
 
 jest.mock('date-fns', () => ({
   format: jest.fn(),
@@ -62,5 +62,24 @@ describe('formatDate', () => {
     expect(formatDistanceToNow).toHaveBeenCalledWith(exactly24HoursAgo, {
       addSuffix: true,
     });
+  });
+});
+
+describe('formatLastModified', () => {
+  it('returns date from updatedAt when available', () => {
+    const updatedAt = '2024-01-15T10:30:00Z';
+    const createdAt = '2024-01-10T08:00:00Z';
+
+    expect(formatLastModified(updatedAt, createdAt)).toBe('2024-01-15');
+  });
+
+  it('returns date from createdAt when updatedAt is undefined', () => {
+    const createdAt = '2024-01-10T08:00:00Z';
+
+    expect(formatLastModified(undefined, createdAt)).toBe('2024-01-10');
+  });
+
+  it('returns fallback date when both dates are undefined', () => {
+    expect(formatLastModified()).toBe('2024-12-09');
   });
 });

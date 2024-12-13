@@ -289,7 +289,7 @@ exports[`GroupHeader matches snapshot for admin user 1`] = `
           2
         </span>
         <span
-          class="text-neutral-100 text-4xs uppercase"
+          class="dark:text-neutral-100 text-neutral-600 text-4xs uppercase"
         >
           Members
         </span>
@@ -303,7 +303,7 @@ exports[`GroupHeader matches snapshot for admin user 1`] = `
           Tech Enthusiasts
         </h2>
         <span
-          class="font-roboto text-neutral-100 text-sm"
+          class="font-roboto dark:text-neutral-100 text-neutral-600 text-sm"
         >
           A group for technology lovers and innovators
         </span>
@@ -315,6 +315,7 @@ exports[`GroupHeader matches snapshot for admin user 1`] = `
           aria-controls="radix-:r2:"
           aria-expanded="false"
           aria-haspopup="dialog"
+          aria-label="Edit Group"
           class="font-roboto justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring bg-transparent border-none rounded-none hover:bg-gray-100 dark:hover:bg-transparent text-neutral-200 dark:text-neutral-100 w-fit h-fit flex items-center gap-1 border border-gray-900"
           data-state="closed"
           type="button"
@@ -343,6 +344,7 @@ exports[`GroupHeader matches snapshot for admin user 1`] = `
           aria-controls="radix-:r5:"
           aria-expanded="false"
           aria-haspopup="dialog"
+          aria-label="Remove Group"
           class="font-roboto justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-transparent border-none rounded-none hover:bg-gray-100 dark:hover:bg-transparent text-neutral-200 dark:text-neutral-100 w-fit h-fit flex items-center gap-1 hover:text-red-600"
           data-state="closed"
           type="button"
@@ -662,7 +664,7 @@ exports[`GroupHeader matches snapshot for member user 1`] = `
           2
         </span>
         <span
-          class="text-neutral-100 text-4xs uppercase"
+          class="dark:text-neutral-100 text-neutral-600 text-4xs uppercase"
         >
           Members
         </span>
@@ -676,7 +678,7 @@ exports[`GroupHeader matches snapshot for member user 1`] = `
           Tech Enthusiasts
         </h2>
         <span
-          class="font-roboto text-neutral-100 text-sm"
+          class="font-roboto dark:text-neutral-100 text-neutral-600 text-sm"
         >
           A group for technology lovers and innovators
         </span>
@@ -688,6 +690,7 @@ exports[`GroupHeader matches snapshot for member user 1`] = `
           aria-controls="radix-:ri:"
           aria-expanded="false"
           aria-haspopup="dialog"
+          aria-label="Edit Group"
           class="font-roboto justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring bg-transparent border-none rounded-none hover:bg-gray-100 dark:hover:bg-transparent text-neutral-200 dark:text-neutral-100 w-fit h-fit flex items-center gap-1 border border-gray-900"
           data-state="closed"
           disabled=""
@@ -717,6 +720,7 @@ exports[`GroupHeader matches snapshot for member user 1`] = `
           aria-controls="radix-:rl:"
           aria-expanded="false"
           aria-haspopup="dialog"
+          aria-label="Remove Group"
           class="font-roboto justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-transparent border-none rounded-none hover:bg-gray-100 dark:hover:bg-transparent text-neutral-200 dark:text-neutral-100 w-fit h-fit flex items-center gap-1 hover:text-dark-900"
           data-state="closed"
           type="button"
@@ -1042,7 +1046,7 @@ exports[`GroupHeader matches snapshot for non-admin user 1`] = `
           2
         </span>
         <span
-          class="text-neutral-100 text-4xs uppercase"
+          class="dark:text-neutral-100 text-neutral-600 text-4xs uppercase"
         >
           Members
         </span>
@@ -1056,7 +1060,7 @@ exports[`GroupHeader matches snapshot for non-admin user 1`] = `
           Tech Enthusiasts
         </h2>
         <span
-          class="font-roboto text-neutral-100 text-sm"
+          class="font-roboto dark:text-neutral-100 text-neutral-600 text-sm"
         >
           A group for technology lovers and innovators
         </span>
@@ -1068,6 +1072,7 @@ exports[`GroupHeader matches snapshot for non-admin user 1`] = `
           aria-controls="radix-:ra:"
           aria-expanded="false"
           aria-haspopup="dialog"
+          aria-label="Edit Group"
           class="font-roboto justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring bg-transparent border-none rounded-none hover:bg-gray-100 dark:hover:bg-transparent text-neutral-200 dark:text-neutral-100 w-fit h-fit flex items-center gap-1 border border-gray-900"
           data-state="closed"
           disabled=""
@@ -1097,6 +1102,7 @@ exports[`GroupHeader matches snapshot for non-admin user 1`] = `
           aria-controls="radix-:rd:"
           aria-expanded="false"
           aria-haspopup="dialog"
+          aria-label="Remove Group"
           class="font-roboto justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 ease-in-out outline-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 focus:border-ring border bg-transparent border-none rounded-none hover:bg-gray-100 dark:hover:bg-transparent text-neutral-200 dark:text-neutral-100 w-fit h-fit flex items-center gap-1 hover:text-dark-900"
           data-state="closed"
           type="button"
