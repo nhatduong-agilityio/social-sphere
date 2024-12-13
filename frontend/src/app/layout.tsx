@@ -47,7 +47,7 @@ export default function RootLayout({
       className={`${montserrat.variable} ${roboto.variable}`}
       suppressHydrationWarning
     >
-      <body>
+      <body className="overflow-x-hidden">
         <SessionProvider>
           <ThemeProvider
             attribute="class"
