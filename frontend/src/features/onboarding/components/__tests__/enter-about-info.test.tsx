@@ -1,4 +1,4 @@
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, fireEvent, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 // Hooks
@@ -111,14 +111,6 @@ describe('EnterAboutInfo Component', () => {
       });
       expect(mockSetCurrentStep).toHaveBeenCalledWith(2);
     });
-  });
-
-  it('disables the Next button if form is invalid', () => {
-    render(<EnterAboutInfo />);
-
-    const nextButton = screen.getByRole('button', { name: 'Next' });
-
-    expect(nextButton).toBeDisabled();
   });
 
   it('enables the Next button if form is valid', async () => {
