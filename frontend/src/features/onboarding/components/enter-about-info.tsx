@@ -148,10 +148,7 @@ export const EnterAboutInfo = () => {
               )}
             />
           </div>
-          <OnboardingFormNavigation
-            isDisabled={!form.formState.isValid}
-            onBackClick={handleBackButton}
-          />
+          <OnboardingFormNavigation onBackClick={handleBackButton} />
         </form>
       </Form>
     </OnboardingFormWrapper>
